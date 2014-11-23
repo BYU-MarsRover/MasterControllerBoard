@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # BYU Mars Rover Code Base - GIT Ignore File
 # For the uninitiated, this thing tells GIT to ignore files that match the patterns defined here.
 
@@ -8,7 +9,7 @@
 # CortexM0/
 # Generated_Source/
 *.zip
-
+#for testing purposes
 
 
 
@@ -69,3 +70,76 @@ docs/_build/
 
 # PyBuilder
 target/
+=======
+# BYU Mars Rover Code Base - GIT Ignore File
+# For the uninitiated, this thing tells GIT to ignore files that match the patterns defined here.
+
+*.pdf
+*.hex
+*.elf
+# codegentemp/ # Don't uncommend these, breaks the PSCO project
+# CortexM0/
+# Generated_Source/
+*.zip
+#for esting purposes
+
+
+
+
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+>>>>>>> origin/development
