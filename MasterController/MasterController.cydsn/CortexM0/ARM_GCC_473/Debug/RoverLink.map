@@ -1,0 +1,1207 @@
+Archive member included because of file (symbol)
+
+.\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+                              .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o (cyfitter_cfg)
+.\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyBootAsmGnu.o)
+                              .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o) (CyDelayCycles)
+.\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+                              .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o) (CyDelayUs)
+.\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+                              .\CortexM0\ARM_GCC_473\Debug\main.o (init_printf)
+.\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+                              .\CortexM0\ARM_GCC_473\Debug\main.o (UART_Start)
+.\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+                              .\CortexM0\ARM_GCC_473\Debug\main.o (UART_SpiUartWriteTxData)
+.\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+                              .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o) (UART_UartInit)
+.\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+                              .\CortexM0\ARM_GCC_473\Debug\main.o (LED_Write)
+.\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+                              .\CortexM0\ARM_GCC_473\Debug\main.o (SW_Read)
+.\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+                              .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o (WIZ_SS_Write)
+.\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+                              .\CortexM0\ARM_GCC_473\Debug\main.o (WIZ_INT_Read)
+.\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+                              .\CortexM0\ARM_GCC_473\Debug\main.o (WIZ_RST_Write)
+.\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+                              .\CortexM0\ARM_GCC_473\Debug\main.o (WIZ_RDY_Read)
+.\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+                              .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o (SPIM_ReadTxStatus)
+.\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+                              .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o) (SPIM_IntClock_Start)
+c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_udivsi3.o)
+                              .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o) (__aeabi_uidiv)
+c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_divsi3.o)
+                              .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o (__aeabi_idiv)
+c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_dvmd_tls.o)
+                              c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-__atexit2.o)
+                              c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o (__register_exitproc)
+c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-exit.o)
+                              c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o (exit)
+c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-fini.o)
+                              c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o (__libc_fini_array)
+c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
+                              c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-exit.o) (_global_impure_ptr)
+c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-init.o)
+                              c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o (__libc_init_array)
+c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memcpy.o)
+                              .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o (memcpy)
+c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memset.o)
+                              c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o (memset)
+
+Allocating common symbols
+Common symbol       size              file
+
+SPIM_swStatusTx     0x1               .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+SPIM_swStatusRx     0x1               .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crti.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crti.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crti.o
+ .data          0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtbegin.o
+ .text          0x00000000       0x74 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.extab     0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.exidx     0x00000000        0x8 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\main.o
+ .data          0x00000000       0x50 .\CortexM0\ARM_GCC_473\Debug\main.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\spi.o
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\spi.o
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\spi.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ .text.wiznetClose
+                0x00000000       0x14 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ .text.wiznetPrintRegisters
+                0x00000000      0x12c .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ .text.wiznetRead8b
+                0x00000000       0x64 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\cybootloader.o
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\cybootloader.o
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\cybootloader.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\cymetadata.o
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\cymetadata.o
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\cymetadata.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+ .text._exit    0x00000000       0x28 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ .text.CYCONFIGCPY
+                0x00000000       0x24 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ .text.CYCONFIGCPYCODE
+                0x00000000       0x24 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyBootAsmGnu.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyBootAsmGnu.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysClkImoStart
+                0x00000000       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysClkImoStop
+                0x00000000       0x18 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysClkIloStart
+                0x00000000       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysClkIloStop
+                0x00000000       0x18 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysClkWriteHfclkDirect
+                0x00000000       0x44 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysClkWriteSysclkDiv
+                0x00000000       0x44 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysClkWriteImoFreq
+                0x00000000      0x200 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtLock
+                0x00000000       0x44 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtUnlock
+                0x00000000       0x5c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtReadEnabledStatus
+                0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtWriteMode
+                0x00000000       0x70 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtReadMode
+                0x00000000       0x24 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtWriteClearOnMatch
+                0x00000000       0x68 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtReadClearOnMatch
+                0x00000000       0x40 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtEnable
+                0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtDisable
+                0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtWriteCascade
+                0x00000000       0x68 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtReadCascade
+                0x00000000       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtWriteMatch
+                0x00000000       0x74 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtWriteToggleBit
+                0x00000000       0x54 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtReadToggleBit
+                0x00000000       0x18 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtReadMatch
+                0x00000000       0x44 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtReadCount
+                0x00000000       0x54 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtGetInterruptSource
+                0x00000000       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtClearInterrupt
+                0x00000000       0xb8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysWdtResetCounters
+                0x00000000       0x38 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysLvdEnable
+                0x00000000       0x48 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysLvdDisable
+                0x00000000       0x28 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysLvdGetInterruptSource
+                0x00000000       0x18 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysLvdClearInterrupt
+                0x00000000       0x14 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySysGetResetReason
+                0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CyDisableInts
+                0x00000000       0x24 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CyEnableInts
+                0x00000000       0x18 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CyIntSetSysVector
+                0x00000000       0x48 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CyIntGetSysVector
+                0x00000000       0x34 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CyIntSetVector
+                0x00000000       0x4c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CyIntGetVector
+                0x00000000       0x38 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CyIntSetPriority
+                0x00000000       0xa8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CyIntGetPriority
+                0x00000000       0x58 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CyIntEnable
+                0x00000000       0x2c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CyIntGetState
+                0x00000000       0x34 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CyIntDisable
+                0x00000000       0x2c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CyIntSetPending
+                0x00000000       0x2c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CyIntClearPending
+                0x00000000       0x2c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CyHalt   0x00000000       0x14 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CySoftwareReset
+                0x00000000       0x20 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text.CyDelayFreq
+                0x00000000       0x80 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .rodata        0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .text.putcp    0x00000000       0x24 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .text.tfp_sprintf
+                0x00000000       0x38 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+ .text.UART_Stop
+                0x00000000       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+ .text.UART_SetCustomInterruptHandler
+                0x00000000       0x18 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+ .text.UART_ScbModeStop
+                0x00000000        0x8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .text.UART_SpiUartReadRxData
+                0x00000000       0x20 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .text.UART_SpiUartGetRxBufferSize
+                0x00000000       0x20 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .text.UART_SpiUartClearRxBuffer
+                0x00000000       0x2c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .text.UART_SpiUartPutArray
+                0x00000000       0x34 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .text.UART_SpiUartGetTxBufferSize
+                0x00000000       0x20 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .text.UART_SpiUartClearTxBuffer
+                0x00000000       0x2c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .text.UART_SpiUartDisableIntRx
+                0x00000000       0x20 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .text.UART_SpiUartDisableIntTx
+                0x00000000       0x20 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .text.UART_UartSetRxAddress
+                0x00000000       0x34 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .text.UART_UartSetRxAddressMask
+                0x00000000       0x34 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .text.UART_UartGetChar
+                0x00000000       0x44 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .text.UART_UartGetByte
+                0x00000000       0x68 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .text.UART_UartPutString
+                0x00000000       0x34 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .text.UART_UartPutCRLF
+                0x00000000       0x24 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+ .text.LED_SetDriveMode
+                0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+ .text.LED_Read
+                0x00000000       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+ .text.LED_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+ .text.LED_ClearInterrupt
+                0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+ .text.SW_Write
+                0x00000000       0x48 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+ .text.SW_SetDriveMode
+                0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+ .text.SW_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+ .text.SW_ClearInterrupt
+                0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+ .text.WIZ_SS_SetDriveMode
+                0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+ .text.WIZ_SS_Read
+                0x00000000       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+ .text.WIZ_SS_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+ .text.WIZ_SS_ClearInterrupt
+                0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+ .text.WIZ_INT_Write
+                0x00000000       0x48 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+ .text.WIZ_INT_SetDriveMode
+                0x00000000       0x2c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+ .text.WIZ_INT_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+ .text.WIZ_INT_ClearInterrupt
+                0x00000000       0x2c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+ .text.WIZ_RST_SetDriveMode
+                0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+ .text.WIZ_RST_Read
+                0x00000000       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+ .text.WIZ_RST_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+ .text.WIZ_RST_ClearInterrupt
+                0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+ .text.WIZ_RDY_Write
+                0x00000000       0x4c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+ .text.WIZ_RDY_SetDriveMode
+                0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+ .text.WIZ_RDY_ReadDataReg
+                0x00000000       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+ .text.WIZ_RDY_ClearInterrupt
+                0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .text.SPIM_Stop
+                0x00000000       0x54 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .text.SPIM_DisableTxInt
+                0x00000000        0x8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .text.SPIM_DisableRxInt
+                0x00000000        0x8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .text.SPIM_SetTxInterruptMode
+                0x00000000       0x20 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .text.SPIM_SetRxInterruptMode
+                0x00000000       0x20 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .text.SPIM_GetRxBufferSize
+                0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .text.SPIM_GetTxBufferSize
+                0x00000000       0x48 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .text.SPIM_PutArray
+                0x00000000       0x50 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .text.SPIM_EnableInt
+                0x00000000       0x10 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .text.SPIM_DisableInt
+                0x00000000       0x10 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .text.SPIM_SetInterruptMode
+                0x00000000       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .text.SPIM_ReadStatus
+                0x00000000       0x40 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ COMMON         0x00000000        0x2 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+ .text.SPIM_IntClock_Stop
+                0x00000000       0x18 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+ .text.SPIM_IntClock_SetFractionalDividerRegister
+                0x00000000       0x38 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+ .text.SPIM_IntClock_GetDividerRegister
+                0x00000000       0x14 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+ .text.SPIM_IntClock_GetFractionalDividerRegister
+                0x00000000        0xc .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_udivsi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_udivsi3.o)
+ .text          0x00000000       0xc0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_divsi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_divsi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_divsi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-__atexit2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-__atexit2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-__atexit2.o)
+ .text.__register_exitproc
+                0x00000000       0x18 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-__atexit2.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-exit.o)
+ .text.exit     0x00000000       0x30 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-fini.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-fini.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-fini.o)
+ .text.__libc_fini_array
+                0x00000000       0x2c c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-fini.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
+ .data.impure_data
+                0x00000000       0x64 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
+ .rodata.str1.1
+                0x00000000        0x2 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
+ .rodata._global_impure_ptr
+                0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-init.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-init.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-init.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memcpy.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memcpy.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memcpy.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memset.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memset.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memset.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtend.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtend.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtend.o
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtn.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtn.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+rom              0x00000000         0x00008000         xr
+ram              0x20000000         0x00001000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crti.o
+LOAD c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtbegin.o
+LOAD c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+START GROUP
+LOAD .\CortexM0\ARM_GCC_473\Debug\main.o
+LOAD .\CortexM0\ARM_GCC_473\Debug\spi.o
+LOAD .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+LOAD .\CortexM0\ARM_GCC_473\Debug\cybootloader.o
+LOAD .\CortexM0\ARM_GCC_473\Debug\cymetadata.o
+LOAD .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+LOAD .\CortexM0\ARM_GCC_473\Debug\RoverLink.a
+LOAD C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_473\Debug\CyComponentLibrary.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a
+END GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtend.o
+LOAD c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtn.o
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc.a
+LOAD c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libnosys.a
+END GROUP
+                0x00000000                CY_APPL_ORIGIN = 0x0
+                0x00000080                CY_FLASH_ROW_SIZE = 0x80
+                0x00000001                CY_APPL_NUM = 0x1
+                0x00000040                CY_METADATA_SIZE = 0x40
+                0x20000210                PROVIDE (__cy_heap_start, _end)
+                0x00000001                PROVIDE (__cy_region_num, ((__cy_regions_end - __cy_regions) / 0x10))
+                0x20001000                PROVIDE (__cy_stack, (ORIGIN (ram) + 0x1000))
+                0x20000c00                PROVIDE (__cy_heap_end, (__cy_stack - 0x400))
+
+.cybootloader   0x00000000      0xf00
+ *(.cybootloader)
+ .cybootloader  0x00000000      0xf00 .\CortexM0\ARM_GCC_473\Debug\cybootloader.o
+                0x00000000                cy_bootloader
+                0x00000f00                appl1_start = CY_APPL_ORIGIN?CY_APPL_ORIGIN:ALIGN (CY_FLASH_ROW_SIZE)
+                0x00004700                appl2_start = (appl1_start + ALIGN ((((0x8000 - appl1_start) - (0x2 * CY_FLASH_ROW_SIZE)) / 0x2), CY_FLASH_ROW_SIZE))
+                0x00000f00                appl_start = (CY_APPL_NUM == 0x1)?appl1_start:appl2_start
+
+.text           0x00000f00     0x1a1c
+ CREATE_OBJECT_SYMBOLS
+                0x00000f00                PROVIDE (__cy_interrupt_vector, RomVectors)
+ *(.romvectors)
+ .romvectors    0x00000f00       0x10 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+                0x00000f00                RomVectors
+                0x00000001                ASSERT ((. != __cy_interrupt_vector), No interrupt vector)
+                0x00000001                ASSERT (CY_APPL_ORIGIN?(SIZEOF (.cybootloader) <= CY_APPL_ORIGIN):0x1, Wrong image location)
+                0x00000f10                PROVIDE (__cy_reset, Reset)
+ *(.text.Reset)
+ .text.Reset    0x00000f10       0x14 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+                0x00000f10                Reset
+                0x00000001                ASSERT ((. != __cy_reset), No reset code)
+ *(.psocinit)
+ .psocinit      0x00000f24      0x2c4 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+                0x00001074                cyfitter_cfg
+                0x000011e8                . = MAX (., 0x100)
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text          0x000011e8       0x60 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtbegin.o
+ .text.putdata  0x00001248       0x2c .\CortexM0\ARM_GCC_473\Debug\main.o
+                0x00001248                putdata
+ .text.main     0x00001274       0x10 .\CortexM0\ARM_GCC_473\Debug\main.o
+                0x00001274                main
+ .text.setup    0x00001284      0x174 .\CortexM0\ARM_GCC_473\Debug\main.o
+                0x00001284                setup
+ .text.loop     0x000013f8      0x200 .\CortexM0\ARM_GCC_473\Debug\main.o
+                0x000013f8                loop
+ .text.cypressInit
+                0x000015f8       0x30 .\CortexM0\ARM_GCC_473\Debug\main.o
+                0x000015f8                cypressInit
+ .text.roverlinkSendFrame
+                0x00001628      0x12c .\CortexM0\ARM_GCC_473\Debug\main.o
+                0x00001628                roverlinkSendFrame
+ .text.transferSPI
+                0x00001754       0x34 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ .text.wiznetInit
+                0x00001788      0x184 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+                0x00001788                wiznetInit
+ .text.wiznetOpen
+                0x0000190c       0x14 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+                0x0000190c                wiznetOpen
+ .text.wiznetSend
+                0x00001920       0x34 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+                0x00001920                wiznetSend
+ .text.wiznetClearInterrupts
+                0x00001954       0x28 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+                0x00001954                wiznetClearInterrupts
+ .text.wiznetConfigInterrupts
+                0x0000197c       0x40 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+                0x0000197c                wiznetConfigInterrupts
+ .text.wiznetWriteUdpFrame
+                0x000019bc       0x44 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+                0x000019bc                wiznetWriteUdpFrame
+ .text.wiznetWrite8b
+                0x00001a00       0x60 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+                0x00001a00                wiznetWrite8b
+ .text.wiznetWrite16b
+                0x00001a60       0x74 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+                0x00001a60                wiznetWrite16b
+ .text.wiznetWriteArray
+                0x00001ad4       0x94 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+                0x00001ad4                wiznetWriteArray
+ .text.wiznetRead16b
+                0x00001b68       0x80 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+                0x00001b68                wiznetRead16b
+ .text.wiznetReadArray
+                0x00001be8       0x8c .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+                0x00001be8                wiznetReadArray
+ .text.IntDefaultHandler
+                0x00001c74        0x8 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+                0x00001c74                IntDefaultHandler
+ .text.Start_c  0x00001c7c       0xa4 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+                0x00001c7c                Start_c
+ .text.initialize_psoc
+                0x00001d20       0x74 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+                0x00001d20                initialize_psoc
+ .text.CYMEMZERO
+                0x00001d94       0x20 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ .text.cfg_write_bytes32
+                0x00001db4       0x80 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ .text.AnalogSetDefault
+                0x00001e34        0x8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ *fill*         0x00001e3c        0x4 00
+ .text          0x00001e40       0x20 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyBootAsmGnu.o)
+                0x00001e40                CyDelayCycles
+                0x00001e52                CyEnterCriticalSection
+                0x00001e5a                CyExitCriticalSection
+ .text.CyDelay  0x00001e60       0x48 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+                0x00001e60                CyDelay
+ .text.CyDelayUs
+                0x00001ea8       0x28 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+                0x00001ea8                CyDelayUs
+ .text.ui2a     0x00001ed0       0xac .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .text.i2a      0x00001f7c       0x38 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .text.a2d      0x00001fb4       0x60 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .text.a2i      0x00002014       0x78 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .text.putchw   0x0000208c       0xb0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .text.tfp_format
+                0x0000213c      0x1cc .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+                0x0000213c                tfp_format
+ .text.init_printf
+                0x00002308       0x24 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+                0x00002308                init_printf
+ .text.tfp_printf
+                0x0000232c       0x34 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+                0x0000232c                tfp_printf
+ .text.UART_Init
+                0x00002360        0xc .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+                0x00002360                UART_Init
+ .text.UART_Enable
+                0x0000236c       0x20 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+                0x0000236c                UART_Enable
+ .text.UART_Start
+                0x0000238c       0x24 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+                0x0000238c                UART_Start
+ .text.UART_ScbEnableIntr
+                0x000023b0        0x8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+ .text.UART_SpiUartWriteTxData
+                0x000023b8       0x2c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+                0x000023b8                UART_SpiUartWriteTxData
+ .text.UART_UartInit
+                0x000023e4       0xa8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+                0x000023e4                UART_UartInit
+ .text.LED_Write
+                0x0000248c       0x4c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+                0x0000248c                LED_Write
+ .text.SW_Read  0x000024d8       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+                0x000024d8                SW_Read
+ .text.WIZ_SS_Write
+                0x000024f4       0x4c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+                0x000024f4                WIZ_SS_Write
+ .text.WIZ_INT_Read
+                0x00002540       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+                0x00002540                WIZ_INT_Read
+ .text.WIZ_RST_Write
+                0x0000255c       0x4c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+                0x0000255c                WIZ_RST_Write
+ .text.WIZ_RDY_Read
+                0x000025a8       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+                0x000025a8                WIZ_RDY_Read
+ .text.SPIM_Init
+                0x000025c4       0x34 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+                0x000025c4                SPIM_Init
+ .text.SPIM_Enable
+                0x000025f8       0x68 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+                0x000025f8                SPIM_Enable
+ .text.SPIM_Start
+                0x00002660       0x24 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+                0x00002660                SPIM_Start
+ .text.SPIM_EnableTxInt
+                0x00002684        0x8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+                0x00002684                SPIM_EnableTxInt
+ .text.SPIM_EnableRxInt
+                0x0000268c        0x8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+                0x0000268c                SPIM_EnableRxInt
+ .text.SPIM_ReadTxStatus
+                0x00002694       0x20 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+                0x00002694                SPIM_ReadTxStatus
+ .text.SPIM_ReadRxStatus
+                0x000026b4       0x20 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+                0x000026b4                SPIM_ReadRxStatus
+ .text.SPIM_WriteTxData
+                0x000026d4       0x34 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+                0x000026d4                SPIM_WriteTxData
+ .text.SPIM_ReadRxData
+                0x00002708       0x20 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+                0x00002708                SPIM_ReadRxData
+ .text.SPIM_ClearRxBuffer
+                0x00002728       0x24 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+                0x00002728                SPIM_ClearRxBuffer
+ .text.SPIM_ClearTxBuffer
+                0x0000274c       0x44 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+                0x0000274c                SPIM_ClearTxBuffer
+ .text.SPIM_ClearFIFO
+                0x00002790       0x60 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+                0x00002790                SPIM_ClearFIFO
+ .text.SPIM_IntClock_Start
+                0x000027f0       0x1c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+                0x000027f0                SPIM_IntClock_Start
+ .text          0x0000280c       0x9c c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_udivsi3.o)
+                0x0000280c                __aeabi_uidiv
+                0x0000280c                __udivsi3
+                0x00002894                __aeabi_uidivmod
+ .text          0x000028a8        0x4 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_dvmd_tls.o)
+                0x000028a8                __aeabi_idiv0
+                0x000028a8                __aeabi_ldiv0
+ .text.__libc_init_array
+                0x000028ac       0x4c c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-init.o)
+                0x000028ac                __libc_init_array
+ .text.memcpy   0x000028f8       0x12 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memcpy.o)
+                0x000028f8                memcpy
+ .text.memset   0x0000290a       0x12 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memset.o)
+                0x0000290a                memset
+ *(.plt)
+ *(.gnu.warning)
+ *(.glue_7t)
+ .glue_7t       0x00000000        0x0 linker stubs
+ *(.glue_7)
+ .glue_7        0x00000000        0x0 linker stubs
+ *(.vfp11_veneer)
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+ *(.bootloader)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ *(.gcc_except_table)
+
+.v4_bx          0x0000291c        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.iplt           0x0000291c        0x0
+ .iplt          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtbegin.o
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+.eh_frame       0x0000291c        0x4
+ *(.eh_frame)
+ .eh_frame      0x0000291c        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtbegin.o
+ .eh_frame      0x0000291c        0x4 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtend.o
+                0x00002920                PROVIDE (__exidx_start, .)
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x00002920                __exidx_end = .
+
+.rodata         0x00002920      0x330
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x00002920       0x30 .\CortexM0\ARM_GCC_473\Debug\main.o
+                0x00002920                ROVERLINK_MSG_LEN_ARRAY
+                0x00002934                ROVERLINK_WRITE
+                0x00002935                ROVERLINK_REQUEST
+                0x00002936                ROVERLINK_RESPONSE
+                0x00002937                board_id
+ .rodata        0x00002950       0x34 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ .rodata        0x00002984      0x294 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+                0x00002c18                . = ALIGN (0x4)
+ *(.init)
+ .init          0x00002c18        0x4 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crti.o
+                0x00002c18                _init
+ .init          0x00002c1c        0x8 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtn.o
+                0x00002c24                . = ALIGN (0x4)
+                0x00002c24                __preinit_array_start = .
+ *(.preinit_array)
+                0x00002c24                __preinit_array_end = .
+                0x00002c24                . = ALIGN (0x4)
+                0x00002c24                __init_array_start = .
+ *(SORT(.init_array.*))
+ *(.init_array)
+ .init_array    0x00002c24        0x4 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtbegin.o
+ .init_array    0x00002c28        0x4 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+                0x00002c2c                __init_array_end = .
+                0x00002c2c                . = ALIGN (0x4)
+ *(.fini)
+ .fini          0x00002c2c        0x4 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crti.o
+                0x00002c2c                _fini
+ .fini          0x00002c30        0x8 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtn.o
+                0x00002c38                . = ALIGN (0x4)
+                0x00002c38                __fini_array_start = .
+ *(.fini_array)
+ .fini_array    0x00002c38        0x4 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtbegin.o
+ *(SORT(.fini_array.*))
+                0x00002c3c                __fini_array_end = .
+                0x00002c3c                . = ALIGN (0x4)
+ *crtbegin.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *crtend.o(.ctors)
+                0x00002c3c                . = ALIGN (0x4)
+ *crtbegin.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *crtend.o(.dtors)
+                0x00002c3c                . = ALIGN (0x4)
+                0x00002c3c                __cy_regions = .
+                0x00002c3c        0x4 LONG 0x2c50 __cy_region_init_ram
+                0x00002c40        0x4 LONG 0x200000d0 __cy_region_start_data
+                0x00002c44        0x4 LONG 0x18 __cy_region_init_size_ram
+                0x00002c48        0x4 LONG 0x128 __cy_region_zero_size_ram
+                0x00002c4c                __cy_regions_end = .
+                0x00002c50                . = ALIGN (0x8)
+ *fill*         0x00002c4c        0x4 00
+                0x00002c50                _etext = .
+
+.ramvectors     0x20000000       0xc0
+                0x20000000                __cy_region_start_ram = .
+ *(.ramvectors)
+ .ramvectors    0x20000000       0xc0 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+                0x20000000                CyRamVectors
+
+.btldr_run      0x200000c0        0x4
+ *(.bootloaderruntype)
+ .bootloaderruntype
+                0x200000c0        0x4 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+                0x200000c0                cyBtldrRunType
+
+.noinit         0x200000c8        0x4
+ *(.noinit)
+ .noinit        0x200000c8        0x4 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+
+.data           0x200000d0       0x18 load address 0x00002c50
+                0x200000d0                __cy_region_start_data = .
+ *(.jcr)
+ .jcr           0x200000d0        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtbegin.o
+ .jcr           0x200000d0        0x4 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtend.o
+ *(.got.plt)
+ *(.got)
+ *(.shdata)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x200000d4        0x4 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ .data          0x200000d8       0x10 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+                0x200000d8                cydelayFreqHz
+                0x200000dc                cydelayFreqKhz
+                0x200000e0                cydelayFreqMhz
+                0x200000e4                cydelay32kMs
+                0x200000e8                . = ALIGN (0x8)
+ *(.ram)
+                0x200000e8                _edata = .
+
+.igot.plt       0x200000e8        0x0 load address 0x00002c68
+ .igot.plt      0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtbegin.o
+
+.bss            0x200000e8      0x128 load address 0x00002c68
+                0x200000e8                PROVIDE (__bss_start__, .)
+ *(.shbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x200000e8       0x1c c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtbegin.o
+ .bss           0x20000104       0xf0 .\CortexM0\ARM_GCC_473\Debug\main.o
+                0x200001f0                system_state
+ .bss           0x200001f4        0x2 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ *fill*         0x200001f6        0x2 00
+ .bss           0x200001f8        0x8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .bss           0x20000200        0x8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+                0x20000200                UART_initVar
+                0x20000204                UART_customIntrHandler
+ .bss           0x20000208        0x1 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+                0x20000208                SPIM_initVar
+ *(COMMON)
+                0x20000210                . = ALIGN (0x8)
+ *fill*         0x20000209        0x7 00
+ *(.ram.b)
+                0x20000210                _end = .
+                0x20000210                __end = .
+                0x20000210                PROVIDE (end, .)
+                0x20000210                PROVIDE (__bss_end__, .)
+                0x00002c50                __cy_region_init_ram = LOADADDR (.data)
+                0x00000018                __cy_region_init_size_ram = (_edata - ADDR (.data))
+                0x00000128                __cy_region_zero_size_ram = (_end - _edata)
+
+.heap           0x20000210      0x100 load address 0x00002c68
+                0x20000210                . = _end
+                0x20000310                . = (. + 0x100)
+ *fill*         0x20000210      0x100 00
+                0x20000310                __cy_heap_limit = .
+
+.stack          0x20000c00      0x400
+                0x20000c00                __cy_stack_limit = .
+                0x20001000                . = (. + 0x400)
+ *fill*         0x20000c00      0x400 00
+                0x00000001                ASSERT ((__cy_stack_limit >= __cy_heap_limit), region RAM overflowed with stack)
+
+.cyloadermeta   0xf0000000       0x40
+ *(.cyloadermeta)
+ .cyloadermeta  0xf0000000       0x40 .\CortexM0\ARM_GCC_473\Debug\cybootloader.o
+                0xf0000000                cy_meta_loader
+
+.cyloadablemeta
+                0x00007fc0       0x40
+ *(.cyloadablemeta)
+ .cyloadablemeta
+                0x00007fc0       0x40 .\CortexM0\ARM_GCC_473\Debug\cymetadata.o
+                0x00007fc0                cy_meta_loadable
+
+.cyflashprotect
+                0x90400000       0x20
+ *(.cyflashprotect)
+ .cyflashprotect
+                0x90400000       0x20 .\CortexM0\ARM_GCC_473\Debug\cybootloader.o
+                0x90400000                cy_meta_flashprotect
+
+.cymeta         0x90500000        0xc
+ *(.cymeta)
+ .cymeta        0x90500000        0xc .\CortexM0\ARM_GCC_473\Debug\cybootloader.o
+                0x90500000                cy_metadata
+
+.cychipprotect  0x90600000        0x4
+ *(.cychipprotect)
+ .cychipprotect
+                0x90600000        0x4 .\CortexM0\ARM_GCC_473\Debug\cybootloader.o
+                0x90600000                cy_meta_chipprotect
+
+.rel.dyn        0x00008000        0x0 load address 0x90600004
+ .rel.iplt      0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtbegin.o
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x778
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x48 .\CortexM0\ARM_GCC_473\Debug\main.o
+ .debug_aranges
+                0x00000048       0x18 .\CortexM0\ARM_GCC_473\Debug\spi.o
+ .debug_aranges
+                0x00000060       0x90 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ .debug_aranges
+                0x000000f0       0x18 .\CortexM0\ARM_GCC_473\Debug\cybootloader.o
+ .debug_aranges
+                0x00000108       0x18 .\CortexM0\ARM_GCC_473\Debug\cymetadata.o
+ .debug_aranges
+                0x00000120       0x40 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+ .debug_aranges
+                0x00000160       0x58 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ .debug_aranges
+                0x000001b8       0x20 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyBootAsmGnu.o)
+ .debug_aranges
+                0x000001d8      0x1a0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .debug_aranges
+                0x00000378       0x68 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .debug_aranges
+                0x000003e0       0x50 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+ .debug_aranges
+                0x00000430       0x60 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .debug_aranges
+                0x00000490       0x50 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .debug_aranges
+                0x000004e0       0x40 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+ .debug_aranges
+                0x00000520       0x40 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+ .debug_aranges
+                0x00000560       0x40 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+ .debug_aranges
+                0x000005a0       0x40 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+ .debug_aranges
+                0x000005e0       0x40 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+ .debug_aranges
+                0x00000620       0x40 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+ .debug_aranges
+                0x00000660       0xd8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .debug_aranges
+                0x00000738       0x40 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0x3edc
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0xc27 .\CortexM0\ARM_GCC_473\Debug\main.o
+ .debug_info    0x00000c27       0x80 .\CortexM0\ARM_GCC_473\Debug\spi.o
+ .debug_info    0x00000ca7      0x4fd .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ .debug_info    0x000011a4      0x152 .\CortexM0\ARM_GCC_473\Debug\cybootloader.o
+ .debug_info    0x000012f6       0xb2 .\CortexM0\ARM_GCC_473\Debug\cymetadata.o
+ .debug_info    0x000013a8      0x2d2 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+ .debug_info    0x0000167a      0x486 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ .debug_info    0x00001b00       0xa3 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyBootAsmGnu.o)
+ .debug_info    0x00001ba3      0xac5 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .debug_info    0x00002668      0x439 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .debug_info    0x00002aa1      0x197 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+ .debug_info    0x00002c38      0x23d .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .debug_info    0x00002e75      0x224 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .debug_info    0x00003099      0x168 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+ .debug_info    0x00003201      0x168 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+ .debug_info    0x00003369      0x168 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+ .debug_info    0x000034d1      0x168 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+ .debug_info    0x00003639      0x168 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+ .debug_info    0x000037a1      0x168 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+ .debug_info    0x00003909      0x46a .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .debug_info    0x00003d73      0x169 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+
+.debug_abbrev   0x00000000     0x132f
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x1cd .\CortexM0\ARM_GCC_473\Debug\main.o
+ .debug_abbrev  0x000001cd       0x26 .\CortexM0\ARM_GCC_473\Debug\spi.o
+ .debug_abbrev  0x000001f3      0x10c .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ .debug_abbrev  0x000002ff       0x77 .\CortexM0\ARM_GCC_473\Debug\cybootloader.o
+ .debug_abbrev  0x00000376       0x5d .\CortexM0\ARM_GCC_473\Debug\cymetadata.o
+ .debug_abbrev  0x000003d3      0x175 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+ .debug_abbrev  0x00000548      0x195 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ .debug_abbrev  0x000006dd       0x14 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyBootAsmGnu.o)
+ .debug_abbrev  0x000006f1      0x1a2 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .debug_abbrev  0x00000893      0x18e .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .debug_abbrev  0x00000a21       0xc5 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+ .debug_abbrev  0x00000ae6      0x151 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .debug_abbrev  0x00000c37       0xee .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .debug_abbrev  0x00000d25       0xac .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+ .debug_abbrev  0x00000dd1       0xac .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+ .debug_abbrev  0x00000e7d       0xac .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+ .debug_abbrev  0x00000f29       0xac .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+ .debug_abbrev  0x00000fd5       0xac .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+ .debug_abbrev  0x00001081       0xac .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+ .debug_abbrev  0x0000112d      0x158 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .debug_abbrev  0x00001285       0xaa .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+
+.debug_line     0x00000000     0x1b89
+ *(.debug_line)
+ .debug_line    0x00000000      0x24e .\CortexM0\ARM_GCC_473\Debug\main.o
+ .debug_line    0x0000024e       0x1d .\CortexM0\ARM_GCC_473\Debug\spi.o
+ .debug_line    0x0000026b      0x2de .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ .debug_line    0x00000549       0x55 .\CortexM0\ARM_GCC_473\Debug\cybootloader.o
+ .debug_line    0x0000059e       0x53 .\CortexM0\ARM_GCC_473\Debug\cymetadata.o
+ .debug_line    0x000005f1      0x19c .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+ .debug_line    0x0000078d      0x1b9 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ .debug_line    0x00000946       0x68 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyBootAsmGnu.o)
+ .debug_line    0x000009ae      0x541 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .debug_line    0x00000eef      0x274 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .debug_line    0x00001163       0xd6 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+ .debug_line    0x00001239      0x125 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .debug_line    0x0000135e      0x101 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .debug_line    0x0000145f       0xa9 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+ .debug_line    0x00001508       0xa8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+ .debug_line    0x000015b0       0xac .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+ .debug_line    0x0000165c       0xad .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+ .debug_line    0x00001709       0xad .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+ .debug_line    0x000017b6       0xad .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+ .debug_line    0x00001863      0x270 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .debug_line    0x00001ad3       0xb6 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+
+.debug_frame    0x00000000     0x179c
+ *(.debug_frame)
+ .debug_frame   0x00000000       0xd0 .\CortexM0\ARM_GCC_473\Debug\main.o
+ .debug_frame   0x000000d0      0x1e8 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ .debug_frame   0x000002b8       0xa8 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+ .debug_frame   0x00000360      0x108 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ .debug_frame   0x00000468      0x628 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .debug_frame   0x00000a90      0x15c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .debug_frame   0x00000bec       0xd8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+ .debug_frame   0x00000cc4      0x128 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .debug_frame   0x00000dec       0xec .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .debug_frame   0x00000ed8       0xa8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+ .debug_frame   0x00000f80       0xa8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+ .debug_frame   0x00001028       0xa8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+ .debug_frame   0x000010d0       0xa8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+ .debug_frame   0x00001178       0xa8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+ .debug_frame   0x00001220       0xa8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+ .debug_frame   0x000012c8      0x2fc .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .debug_frame   0x000015c4       0xa0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+ .debug_frame   0x00001664       0x20 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00001684       0x20 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_divsi3.o)
+ .debug_frame   0x000016a4       0x28 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-__atexit2.o)
+ .debug_frame   0x000016cc       0x28 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-exit.o)
+ .debug_frame   0x000016f4       0x2c c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-fini.o)
+ .debug_frame   0x00001720       0x2c c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-init.o)
+ .debug_frame   0x0000174c       0x28 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memcpy.o)
+ .debug_frame   0x00001774       0x28 c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memset.o)
+
+.debug_str      0x00000000     0x1bcb
+ *(.debug_str)
+ .debug_str     0x00000000      0x84a .\CortexM0\ARM_GCC_473\Debug\main.o
+                                0xa2a (size before relaxing)
+ .debug_str     0x0000084a        0x8 .\CortexM0\ARM_GCC_473\Debug\spi.o
+                                0x143 (size before relaxing)
+ .debug_str     0x00000852      0x1b3 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+                                0x304 (size before relaxing)
+ .debug_str     0x00000a05       0x7a .\CortexM0\ARM_GCC_473\Debug\cybootloader.o
+                                0x1bb (size before relaxing)
+ .debug_str     0x00000a7f       0x37 .\CortexM0\ARM_GCC_473\Debug\cymetadata.o
+                                0x178 (size before relaxing)
+ .debug_str     0x00000ab6      0x118 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+                                0x274 (size before relaxing)
+ .debug_str     0x00000bce      0x1a6 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+                                0x32a (size before relaxing)
+ .debug_str     0x00000d74      0x4f7 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+                                0x678 (size before relaxing)
+ .debug_str     0x0000126b       0xc1 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+                                0x18a (size before relaxing)
+ .debug_str     0x0000132c       0xb7 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+                                0x212 (size before relaxing)
+ .debug_str     0x000013e3      0x137 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+                                0x290 (size before relaxing)
+ .debug_str     0x0000151a       0xe9 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+                                0x24e (size before relaxing)
+ .debug_str     0x00001603       0x79 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+                                0x1c9 (size before relaxing)
+ .debug_str     0x0000167c       0x60 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+                                0x1c3 (size before relaxing)
+ .debug_str     0x000016dc       0x78 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+                                0x1db (size before relaxing)
+ .debug_str     0x00001754       0x7e .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+                                0x1e1 (size before relaxing)
+ .debug_str     0x000017d2       0x7e .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+                                0x1e1 (size before relaxing)
+ .debug_str     0x00001850       0x7e .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+                                0x1e1 (size before relaxing)
+ .debug_str     0x000018ce      0x20e .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+                                0x37a (size before relaxing)
+ .debug_str     0x00001adc       0xef .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+                                0x23b (size before relaxing)
+
+.debug_loc      0x00000000     0x23d1
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x138 .\CortexM0\ARM_GCC_473\Debug\main.o
+ .debug_loc     0x00000138      0x31c .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ .debug_loc     0x00000454      0x100 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+ .debug_loc     0x00000554      0x1a8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ .debug_loc     0x000006fc      0xa34 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .debug_loc     0x00001130      0x249 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .debug_loc     0x00001379      0x140 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+ .debug_loc     0x000014b9      0x1e0 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .debug_loc     0x00001699      0x17c .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .debug_loc     0x00001815      0x100 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+ .debug_loc     0x00001915      0x100 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+ .debug_loc     0x00001a15      0x100 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+ .debug_loc     0x00001b15      0x100 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+ .debug_loc     0x00001c15      0x100 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+ .debug_loc     0x00001d15      0x100 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+ .debug_loc     0x00001e15      0x4d4 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .debug_loc     0x000022e9       0xe8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_ranges   0x00000000      0x600
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x38 .\CortexM0\ARM_GCC_473\Debug\main.o
+ .debug_ranges  0x00000038       0x80 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ .debug_ranges  0x000000b8       0x30 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+ .debug_ranges  0x000000e8       0x48 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ .debug_ranges  0x00000130      0x190 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .debug_ranges  0x000002c0       0x58 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .debug_ranges  0x00000318       0x40 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+ .debug_ranges  0x00000358       0x50 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .debug_ranges  0x000003a8       0x40 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .debug_ranges  0x000003e8       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+ .debug_ranges  0x00000418       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+ .debug_ranges  0x00000448       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+ .debug_ranges  0x00000478       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+ .debug_ranges  0x000004a8       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+ .debug_ranges  0x000004d8       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+ .debug_ranges  0x00000508       0xc8 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .debug_ranges  0x000005d0       0x30 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+
+.comment        0x00000000       0x70
+ .comment       0x00000000       0x70 .\CortexM0\ARM_GCC_473\Debug\main.o
+                                 0x71 (size before relaxing)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\spi.o
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\cybootloader.o
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\cymetadata.o
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.note.gnu.arm.ident
+ *(.note.gnu.arm.ident)
+
+.ARM.attributes
+                0x00000000       0x28
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x1e c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crti.o
+ .ARM.attributes
+                0x0000001e       0x2c c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtbegin.o
+ .ARM.attributes
+                0x0000004a       0x1c c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.attributes
+                0x00000066       0x31 .\CortexM0\ARM_GCC_473\Debug\main.o
+ .ARM.attributes
+                0x00000097       0x31 .\CortexM0\ARM_GCC_473\Debug\spi.o
+ .ARM.attributes
+                0x000000c8       0x31 .\CortexM0\ARM_GCC_473\Debug\wiznet5500.o
+ .ARM.attributes
+                0x000000f9       0x31 .\CortexM0\ARM_GCC_473\Debug\cybootloader.o
+ .ARM.attributes
+                0x0000012a       0x31 .\CortexM0\ARM_GCC_473\Debug\cymetadata.o
+ .ARM.attributes
+                0x0000015b       0x31 .\CortexM0\ARM_GCC_473\Debug\Cm0Start.o
+ .ARM.attributes
+                0x0000018c       0x31 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(cyfitter_cfg.o)
+ .ARM.attributes
+                0x000001bd       0x21 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyBootAsmGnu.o)
+ .ARM.attributes
+                0x000001de       0x31 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(CyLib.o)
+ .ARM.attributes
+                0x0000020f       0x31 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(tinyprintf_1_printf.o)
+ .ARM.attributes
+                0x00000240       0x31 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART.o)
+ .ARM.attributes
+                0x00000271       0x31 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_SPI_UART.o)
+ .ARM.attributes
+                0x000002a2       0x31 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(UART_UART.o)
+ .ARM.attributes
+                0x000002d3       0x31 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(LED.o)
+ .ARM.attributes
+                0x00000304       0x31 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SW.o)
+ .ARM.attributes
+                0x00000335       0x31 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_SS.o)
+ .ARM.attributes
+                0x00000366       0x31 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_INT.o)
+ .ARM.attributes
+                0x00000397       0x31 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RST.o)
+ .ARM.attributes
+                0x000003c8       0x31 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(WIZ_RDY.o)
+ .ARM.attributes
+                0x000003f9       0x31 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM.o)
+ .ARM.attributes
+                0x0000042a       0x31 .\CortexM0\ARM_GCC_473\Debug\RoverLink.a(SPIM_IntClock.o)
+ .ARM.attributes
+                0x0000045b       0x1e c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x00000479       0x1e c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_divsi3.o)
+ .ARM.attributes
+                0x00000497       0x1e c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x000004b5       0x2c c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-__atexit2.o)
+ .ARM.attributes
+                0x000004e1       0x2c c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-exit.o)
+ .ARM.attributes
+                0x0000050d       0x2c c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-fini.o)
+ .ARM.attributes
+                0x00000539       0x2c c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
+ .ARM.attributes
+                0x00000565       0x2c c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-init.o)
+ .ARM.attributes
+                0x00000591       0x2c c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memcpy.o)
+ .ARM.attributes
+                0x000005bd       0x2c c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memset.o)
+ .ARM.attributes
+                0x000005e9       0x2c c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtend.o
+ .ARM.attributes
+                0x00000615       0x1e c:/program files (x86)/cypress/psoc creator/3.0/psoc creator/import/gnu_cs/arm/4.7.3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m/crtn.o
+
+/DISCARD/
+ *(.note.GNU-stack)
+OUTPUT(.\CortexM0\ARM_GCC_473\Debug\RoverLink.elf elf32-littlearm)

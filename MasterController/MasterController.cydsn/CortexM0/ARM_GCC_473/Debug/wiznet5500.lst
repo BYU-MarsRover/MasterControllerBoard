@@ -1,0 +1,3338 @@
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"wiznet5500.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.transferSPI,"ax",%progbits
+  18              		.align	2
+  19              		.code	16
+  20              		.thumb_func
+  21              		.type	transferSPI, %function
+  22              	transferSPI:
+  23              	.LFB33:
+  24              		.file 1 ".\\spi.h"
+   1:.\spi.h       **** #ifndef CYPRESS_ROVER_SPI_DEF_H
+   2:.\spi.h       **** #define CYPRESS_ROVER_SPI_DEF_H
+   3:.\spi.h       **** 
+   4:.\spi.h       **** #include <project.h>
+   5:.\spi.h       **** #include <stdint.h>
+   6:.\spi.h       **** 
+   7:.\spi.h       **** // Trying the C99 Definition, as per http://www.greenend.org.uk/rjk/tech/inline.html
+   8:.\spi.h       **** // inline uint8_t transferSPI(uint8_t);
+   9:.\spi.h       **** 
+  10:.\spi.h       **** 
+  11:.\spi.h       **** // Try defining the whole thing in the header:
+  12:.\spi.h       **** // inline uint8_t transferSPI(uint8_t data){ // This results in compile failure, must be static
+  13:.\spi.h       **** static inline uint8_t transferSPI(uint8_t data){
+  25              		.loc 1 13 0
+  26              		.cfi_startproc
+  27 0000 80B5     		push	{r7, lr}
+  28              	.LCFI0:
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 7, -8
+  31              		.cfi_offset 14, -4
+  32 0002 82B0     		sub	sp, sp, #8
+  33              	.LCFI1:
+  34              		.cfi_def_cfa_offset 16
+  35 0004 00AF     		add	r7, sp, #0
+  36              	.LCFI2:
+  37              		.cfi_def_cfa_register 7
+  38 0006 021C     		mov	r2, r0
+  39 0008 FB1D     		add	r3, r7, #7
+  40 000a 1A70     		strb	r2, [r3]
+  14:.\spi.h       **** 	SPIM_WriteTxData(data);
+  41              		.loc 1 14 0
+  42 000c FB1D     		add	r3, r7, #7
+  43 000e 1B78     		ldrb	r3, [r3]
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 2
+
+
+  44 0010 181C     		mov	r0, r3
+  45 0012 FFF7FEFF 		bl	SPIM_WriteTxData
+  15:.\spi.h       **** 	while(!(SPIM_ReadTxStatus() & SPIM_STS_SPI_DONE));
+  46              		.loc 1 15 0
+  47 0016 C046     		mov	r8, r8
+  48              	.L2:
+  49              		.loc 1 15 0 is_stmt 0 discriminator 1
+  50 0018 FFF7FEFF 		bl	SPIM_ReadTxStatus
+  51 001c 031C     		mov	r3, r0
+  52 001e 1A1C     		mov	r2, r3
+  53 0020 0123     		mov	r3, #1
+  54 0022 1340     		and	r3, r2
+  55 0024 F8D0     		beq	.L2
+  16:.\spi.h       **** 	return( ((uint8_t) (SPIM_ReadRxData())) );
+  56              		.loc 1 16 0 is_stmt 1
+  57 0026 FFF7FEFF 		bl	SPIM_ReadRxData
+  58 002a 031C     		mov	r3, r0
+  17:.\spi.h       **** }
+  59              		.loc 1 17 0
+  60 002c 181C     		mov	r0, r3
+  61 002e BD46     		mov	sp, r7
+  62 0030 02B0     		add	sp, sp, #8
+  63              		@ sp needed for prologue
+  64 0032 80BD     		pop	{r7, pc}
+  65              		.cfi_endproc
+  66              	.LFE33:
+  67              		.size	transferSPI, .-transferSPI
+  68              		.bss
+  69              		.align	1
+  70              	wiznetTxPointer:
+  71 0000 0000     		.space	2
+  72              		.section	.rodata
+  73              		.align	2
+  74              	.LC0:
+  75 0000 00       		.byte	0
+  76 0001 C0       		.byte	-64
+  77 0002 A8       		.byte	-88
+  78 0003 01       		.byte	1
+  79 0004 01       		.byte	1
+  80 0005 FF       		.byte	-1
+  81 0006 FF       		.byte	-1
+  82 0007 FF       		.byte	-1
+  83 0008 00       		.byte	0
+  84 0009 00       		.byte	0
+  85 000a 08       		.byte	8
+  86 000b DC       		.byte	-36
+  87 000c FF       		.byte	-1
+  88 000d FF       		.byte	-1
+  89 000e FF       		.byte	-1
+  90 000f C0       		.byte	-64
+  91 0010 A8       		.byte	-88
+  92 0011 01       		.byte	1
+  93 0012 FE       		.byte	-2
+  94 0013 00       		.align	2
+  95              	.LC1:
+  96 0014 02       		.byte	2
+  97 0015 00       		.byte	0
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 3
+
+
+  98 0016 FF       		.byte	-1
+  99 0017 00       		.byte	0
+ 100 0018 FE       		.byte	-2
+ 101 0019 01       		.byte	1
+ 102 001a 00       		.byte	0
+ 103 001b 00       		.byte	0
+ 104 001c 00       		.byte	0
+ 105 001d 00       		.byte	0
+ 106 001e 00       		.byte	0
+ 107 001f 00       		.byte	0
+ 108 0020 C0       		.byte	-64
+ 109 0021 A8       		.byte	-88
+ 110 0022 01       		.byte	1
+ 111 0023 01       		.byte	1
+ 112 0024 69       		.byte	105
+ 113 0025 87       		.byte	-121
+ 114              		.section	.text.wiznetInit,"ax",%progbits
+ 115              		.align	2
+ 116              		.global	wiznetInit
+ 117              		.code	16
+ 118              		.thumb_func
+ 119              		.type	wiznetInit, %function
+ 120              	wiznetInit:
+ 121              	.LFB34:
+ 122              		.file 2 ".\\wiznet5500.c"
+   1:.\wiznet5500.c **** // BYU Mars Rover WizNet Library
+   2:.\wiznet5500.c **** // Authors:
+   3:.\wiznet5500.c **** // 		Steve Carlson
+   4:.\wiznet5500.c **** // 		<Your Name Here>
+   5:.\wiznet5500.c **** 
+   6:.\wiznet5500.c **** // Totally Bare-bones, written-in-24-hours.
+   7:.\wiznet5500.c **** // Recommend using https://github.com/Wiznet/WIZ_Ethernet_Library later
+   8:.\wiznet5500.c **** 
+   9:.\wiznet5500.c **** #include <project.h>
+  10:.\wiznet5500.c **** #include <stdint.h>
+  11:.\wiznet5500.c **** #include "wiznet5500.h"
+  12:.\wiznet5500.c **** #include "spi.h"
+  13:.\wiznet5500.c **** // #include "rover_main.h" // For some reason, including this breaks it all. 
+  14:.\wiznet5500.c **** // 		Only needed for the following macros:
+  15:.\wiznet5500.c **** #define HIGH			1
+  16:.\wiznet5500.c **** #define LOW				0
+  17:.\wiznet5500.c **** 
+  18:.\wiznet5500.c **** // Application-Scope Defines
+  19:.\wiznet5500.c **** 
+  20:.\wiznet5500.c **** #define WIZ_MAX_MESSAGE_SEGMENT		100
+  21:.\wiznet5500.c **** 
+  22:.\wiznet5500.c **** // Global Variables
+  23:.\wiznet5500.c **** static uint16_t wiznetTxPointer;
+  24:.\wiznet5500.c **** 
+  25:.\wiznet5500.c **** void wiznetInit(uint8_t ownIpAddr, uint8_t dstIpAddr, uint16_t dstUdpPort){
+ 123              		.loc 2 25 0
+ 124              		.cfi_startproc
+ 125 0000 80B5     		push	{r7, lr}
+ 126              	.LCFI3:
+ 127              		.cfi_def_cfa_offset 8
+ 128              		.cfi_offset 7, -8
+ 129              		.cfi_offset 14, -4
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 4
+
+
+ 130 0002 90B0     		sub	sp, sp, #64
+ 131              	.LCFI4:
+ 132              		.cfi_def_cfa_offset 72
+ 133 0004 00AF     		add	r7, sp, #0
+ 134              	.LCFI5:
+ 135              		.cfi_def_cfa_register 7
+ 136 0006 FB1D     		add	r3, r7, #7
+ 137 0008 1870     		strb	r0, [r3]
+ 138 000a BB1D     		add	r3, r7, #6
+ 139 000c 1970     		strb	r1, [r3]
+ 140 000e 3B1D     		add	r3, r7, #4
+ 141 0010 1A80     		strh	r2, [r3]
+  26:.\wiznet5500.c **** 	// This is terrible, need a better way.
+  27:.\wiznet5500.c **** 	uint8_t cmdArray[] = {0x00,192u,168u,1u,1u,255u,255u,255u,0u,0x00,0x08,0xDC,0xFF,0xFF,0xFF,192u,16
+ 142              		.loc 2 27 0
+ 143 0012 3A1C     		mov	r2, r7
+ 144 0014 2832     		add	r2, r2, #40
+ 145 0016 574B     		ldr	r3, .L7
+ 146 0018 111C     		mov	r1, r2
+ 147 001a 1A1C     		mov	r2, r3
+ 148 001c 1323     		mov	r3, #19
+ 149 001e 081C     		mov	r0, r1
+ 150 0020 111C     		mov	r1, r2
+ 151 0022 1A1C     		mov	r2, r3
+ 152 0024 FFF7FEFF 		bl	memcpy
+  28:.\wiznet5500.c **** 	//                    --- | Gateway Addr  | Subnet Mask     | WizNet's MAC Address        | WizNet
+  29:.\wiznet5500.c **** 
+  30:.\wiznet5500.c **** 	uint8_t udpConfig[] = {0x02,0x00,0xFF,0x00,0xFE,0x01,0x00,0x00,0x00,0x00,0x00,0x00,192u,168u,1u,1u
+ 153              		.loc 2 30 0
+ 154 0028 3A1C     		mov	r2, r7
+ 155 002a 1432     		add	r2, r2, #20
+ 156 002c 524B     		ldr	r3, .L7+4
+ 157 002e 111C     		mov	r1, r2
+ 158 0030 1A1C     		mov	r2, r3
+ 159 0032 1223     		mov	r3, #18
+ 160 0034 081C     		mov	r0, r1
+ 161 0036 111C     		mov	r1, r2
+ 162 0038 1A1C     		mov	r2, r3
+ 163 003a FFF7FEFF 		bl	memcpy
+  31:.\wiznet5500.c **** 	//                     UDP |IDLE|Clr |----| :65025  |  No Dst Hw Address          | 192.168.1.1   
+  32:.\wiznet5500.c **** 	
+  33:.\wiznet5500.c **** 	
+  34:.\wiznet5500.c **** 	// Destination IP Address Ending
+  35:.\wiznet5500.c **** 	// cmdArray[4] = dstIpAddr; // Gateway should always be 192.168.1.1
+  36:.\wiznet5500.c **** 	udpConfig[15] = dstIpAddr;
+ 164              		.loc 2 36 0
+ 165 003e 3B1C     		mov	r3, r7
+ 166 0040 1433     		add	r3, r3, #20
+ 167 0042 BA1D     		add	r2, r7, #6
+ 168 0044 1278     		ldrb	r2, [r2]
+ 169 0046 DA73     		strb	r2, [r3, #15]
+  37:.\wiznet5500.c **** 	udpConfig[16] = dstUdpPort>>8;
+ 170              		.loc 2 37 0
+ 171 0048 3B1D     		add	r3, r7, #4
+ 172 004a 1B88     		ldrh	r3, [r3]
+ 173 004c 1B0A     		lsr	r3, r3, #8
+ 174 004e 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 5
+
+
+ 175 0050 DAB2     		uxtb	r2, r3
+ 176 0052 3B1C     		mov	r3, r7
+ 177 0054 1433     		add	r3, r3, #20
+ 178 0056 1A74     		strb	r2, [r3, #16]
+  38:.\wiznet5500.c **** 	udpConfig[17] = dstUdpPort&0xFF;
+ 179              		.loc 2 38 0
+ 180 0058 3B1D     		add	r3, r7, #4
+ 181 005a 1B88     		ldrh	r3, [r3]
+ 182 005c DAB2     		uxtb	r2, r3
+ 183 005e 3B1C     		mov	r3, r7
+ 184 0060 1433     		add	r3, r3, #20
+ 185 0062 5A74     		strb	r2, [r3, #17]
+  39:.\wiznet5500.c **** 	
+  40:.\wiznet5500.c **** 	// Learn Current MAC
+  41:.\wiznet5500.c **** 	uint8_t wiznetOldMacAddr[6];
+  42:.\wiznet5500.c **** 	wiznetReadArray(WIZNET_SHAR, WIZNET_BLK_COMMON, wiznetOldMacAddr, 6); // sizeof(wiznetOldMacAddr)
+ 186              		.loc 2 42 0
+ 187 0064 3B1C     		mov	r3, r7
+ 188 0066 0C33     		add	r3, r3, #12
+ 189 0068 0920     		mov	r0, #9
+ 190 006a 0021     		mov	r1, #0
+ 191 006c 1A1C     		mov	r2, r3
+ 192 006e 0623     		mov	r3, #6
+ 193 0070 FFF7FEFF 		bl	wiznetReadArray
+  43:.\wiznet5500.c **** 	
+  44:.\wiznet5500.c **** 	// WizNet Module IP Address Ending
+  45:.\wiznet5500.c **** 	cmdArray[18] = ownIpAddr;
+ 194              		.loc 2 45 0
+ 195 0074 3B1C     		mov	r3, r7
+ 196 0076 2833     		add	r3, r3, #40
+ 197 0078 FA1D     		add	r2, r7, #7
+ 198 007a 1278     		ldrb	r2, [r2]
+ 199 007c 9A74     		strb	r2, [r3, #18]
+  46:.\wiznet5500.c **** 	
+  47:.\wiznet5500.c **** 	// Ephemeral Port (WizNet's own UDP Port when sending UDP, usually value above 0xC000)
+  48:.\wiznet5500.c **** 	uint16_t ephemUdpPort = (0xC000 + ((wiznetOldMacAddr[5]*(1+ownIpAddr))&0x3FFF) ); //Nice way to ge
+ 200              		.loc 2 48 0
+ 201 007e 3B1C     		mov	r3, r7
+ 202 0080 0C33     		add	r3, r3, #12
+ 203 0082 5B79     		ldrb	r3, [r3, #5]
+ 204 0084 FA1D     		add	r2, r7, #7
+ 205 0086 1278     		ldrb	r2, [r2]
+ 206 0088 0132     		add	r2, r2, #1
+ 207 008a 92B2     		uxth	r2, r2
+ 208 008c 5343     		mul	r3, r2
+ 209 008e 9BB2     		uxth	r3, r3
+ 210 0090 9B04     		lsl	r3, r3, #18
+ 211 0092 9B0C     		lsr	r3, r3, #18
+ 212 0094 9AB2     		uxth	r2, r3
+ 213 0096 3B1C     		mov	r3, r7
+ 214 0098 3C33     		add	r3, r3, #60
+ 215 009a 3849     		ldr	r1, .L7+8
+ 216 009c 5218     		add	r2, r2, r1
+ 217 009e 1A80     		strh	r2, [r3]
+  49:.\wiznet5500.c **** 	udpConfig[4] = ephemUdpPort>>8;
+ 218              		.loc 2 49 0
+ 219 00a0 3B1C     		mov	r3, r7
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 6
+
+
+ 220 00a2 3C33     		add	r3, r3, #60
+ 221 00a4 1B88     		ldrh	r3, [r3]
+ 222 00a6 1B0A     		lsr	r3, r3, #8
+ 223 00a8 9BB2     		uxth	r3, r3
+ 224 00aa DAB2     		uxtb	r2, r3
+ 225 00ac 3B1C     		mov	r3, r7
+ 226 00ae 1433     		add	r3, r3, #20
+ 227 00b0 1A71     		strb	r2, [r3, #4]
+  50:.\wiznet5500.c **** 	udpConfig[5] = ephemUdpPort&0xFF;
+ 228              		.loc 2 50 0
+ 229 00b2 3B1C     		mov	r3, r7
+ 230 00b4 3C33     		add	r3, r3, #60
+ 231 00b6 1B88     		ldrh	r3, [r3]
+ 232 00b8 DAB2     		uxtb	r2, r3
+ 233 00ba 3B1C     		mov	r3, r7
+ 234 00bc 1433     		add	r3, r3, #20
+ 235 00be 5A71     		strb	r2, [r3, #5]
+  51:.\wiznet5500.c **** 	
+  52:.\wiznet5500.c **** 	
+  53:.\wiznet5500.c **** 	// Write all the thus prepared values to the WizNet Module and Open the Socket
+  54:.\wiznet5500.c **** 	wiznetWriteArray(WIZNET_MR,WIZNET_BLK_COMMON,cmdArray,sizeof(cmdArray));
+ 236              		.loc 2 54 0
+ 237 00c0 3B1C     		mov	r3, r7
+ 238 00c2 2833     		add	r3, r3, #40
+ 239 00c4 0020     		mov	r0, #0
+ 240 00c6 0021     		mov	r1, #0
+ 241 00c8 1A1C     		mov	r2, r3
+ 242 00ca 1323     		mov	r3, #19
+ 243 00cc FFF7FEFF 		bl	wiznetWriteArray
+  55:.\wiznet5500.c **** 	wiznetWriteArray(WIZNET_Sn_MR,WIZNET_BLK_S0_REG,udpConfig,sizeof(udpConfig));
+ 244              		.loc 2 55 0
+ 245 00d0 3B1C     		mov	r3, r7
+ 246 00d2 1433     		add	r3, r3, #20
+ 247 00d4 0020     		mov	r0, #0
+ 248 00d6 0121     		mov	r1, #1
+ 249 00d8 1A1C     		mov	r2, r3
+ 250 00da 1223     		mov	r3, #18
+ 251 00dc FFF7FEFF 		bl	wiznetWriteArray
+  56:.\wiznet5500.c **** 	wiznetWriteArray(WIZNET_SHAR,WIZNET_BLK_COMMON,wiznetOldMacAddr,6);
+ 252              		.loc 2 56 0
+ 253 00e0 3B1C     		mov	r3, r7
+ 254 00e2 0C33     		add	r3, r3, #12
+ 255 00e4 0920     		mov	r0, #9
+ 256 00e6 0021     		mov	r1, #0
+ 257 00e8 1A1C     		mov	r2, r3
+ 258 00ea 0623     		mov	r3, #6
+ 259 00ec FFF7FEFF 		bl	wiznetWriteArray
+  57:.\wiznet5500.c **** 	wiznetWrite16b(WIZNET_Sn_MSSR,WIZNET_BLK_S0_REG,WIZ_MAX_MESSAGE_SEGMENT);
+ 260              		.loc 2 57 0
+ 261 00f0 1220     		mov	r0, #18
+ 262 00f2 0121     		mov	r1, #1
+ 263 00f4 6422     		mov	r2, #100
+ 264 00f6 FFF7FEFF 		bl	wiznetWrite16b
+  58:.\wiznet5500.c **** 	CyDelay(100);
+ 265              		.loc 2 58 0
+ 266 00fa 6420     		mov	r0, #100
+ 267 00fc FFF7FEFF 		bl	CyDelay
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 7
+
+
+  59:.\wiznet5500.c **** 	wiznetOpen();
+ 268              		.loc 2 59 0
+ 269 0100 FFF7FEFF 		bl	wiznetOpen
+  60:.\wiznet5500.c **** 	
+  61:.\wiznet5500.c **** 	// Configure Wiznet Interrupts
+  62:.\wiznet5500.c **** 	wiznetConfigInterrupts(0x00,WIZNET_Sn_IMR_SEND_OK);
+ 270              		.loc 2 62 0
+ 271 0104 0020     		mov	r0, #0
+ 272 0106 1021     		mov	r1, #16
+ 273 0108 FFF7FEFF 		bl	wiznetConfigInterrupts
+  63:.\wiznet5500.c **** 
+  64:.\wiznet5500.c **** 	// Write sequential values to the TX Buffer, to know where on earth it is writing from.
+  65:.\wiznet5500.c **** 	WIZ_SS_Write(LOW); // Begin a WizNet SPI Frame. Three Phases: Address, Control, Data
+ 274              		.loc 2 65 0
+ 275 010c 0020     		mov	r0, #0
+ 276 010e FFF7FEFF 		bl	WIZ_SS_Write
+  66:.\wiznet5500.c **** 		// Address Phase
+  67:.\wiznet5500.c **** 		transferSPI(0>>8);
+ 277              		.loc 2 67 0
+ 278 0112 0020     		mov	r0, #0
+ 279 0114 FFF7FEFF 		bl	transferSPI
+  68:.\wiznet5500.c **** 		transferSPI(0&0xFF);
+ 280              		.loc 2 68 0
+ 281 0118 0020     		mov	r0, #0
+ 282 011a FFF7FEFF 		bl	transferSPI
+  69:.\wiznet5500.c **** 		
+  70:.\wiznet5500.c **** 		// Control Phase
+  71:.\wiznet5500.c **** 		transferSPI(((WIZNET_BLK_S0_TX&0x1F)<<3)|(0x01<<2)|0x00);		
+ 283              		.loc 2 71 0
+ 284 011e 1420     		mov	r0, #20
+ 285 0120 FFF7FEFF 		bl	transferSPI
+ 286              	.LBB2:
+  72:.\wiznet5500.c **** 		
+  73:.\wiznet5500.c **** 		// Data Phase
+  74:.\wiznet5500.c **** 		for(uint16_t k=0; k<1024; k++){
+ 287              		.loc 2 74 0
+ 288 0124 3B1C     		mov	r3, r7
+ 289 0126 3E33     		add	r3, r3, #62
+ 290 0128 0022     		mov	r2, #0
+ 291 012a 1A80     		strh	r2, [r3]
+ 292 012c 16E0     		b	.L5
+ 293              	.L6:
+  75:.\wiznet5500.c **** 			transferSPI((uint8_t)(k>>8));
+ 294              		.loc 2 75 0 discriminator 2
+ 295 012e 3B1C     		mov	r3, r7
+ 296 0130 3E33     		add	r3, r3, #62
+ 297 0132 1B88     		ldrh	r3, [r3]
+ 298 0134 1B0A     		lsr	r3, r3, #8
+ 299 0136 9BB2     		uxth	r3, r3
+ 300 0138 DBB2     		uxtb	r3, r3
+ 301 013a 181C     		mov	r0, r3
+ 302 013c FFF7FEFF 		bl	transferSPI
+  76:.\wiznet5500.c **** 			transferSPI((uint8_t)(k&0xFF));
+ 303              		.loc 2 76 0 discriminator 2
+ 304 0140 3B1C     		mov	r3, r7
+ 305 0142 3E33     		add	r3, r3, #62
+ 306 0144 1B88     		ldrh	r3, [r3]
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 8
+
+
+ 307 0146 DBB2     		uxtb	r3, r3
+ 308 0148 181C     		mov	r0, r3
+ 309 014a FFF7FEFF 		bl	transferSPI
+  74:.\wiznet5500.c **** 		for(uint16_t k=0; k<1024; k++){
+ 310              		.loc 2 74 0 discriminator 2
+ 311 014e 3B1C     		mov	r3, r7
+ 312 0150 3E33     		add	r3, r3, #62
+ 313 0152 3A1C     		mov	r2, r7
+ 314 0154 3E32     		add	r2, r2, #62
+ 315 0156 1288     		ldrh	r2, [r2]
+ 316 0158 0132     		add	r2, r2, #1
+ 317 015a 1A80     		strh	r2, [r3]
+ 318              	.L5:
+  74:.\wiznet5500.c **** 		for(uint16_t k=0; k<1024; k++){
+ 319              		.loc 2 74 0 is_stmt 0 discriminator 1
+ 320 015c 3B1C     		mov	r3, r7
+ 321 015e 3E33     		add	r3, r3, #62
+ 322 0160 1A88     		ldrh	r2, [r3]
+ 323 0162 074B     		ldr	r3, .L7+12
+ 324 0164 9A42     		cmp	r2, r3
+ 325 0166 E2D9     		bls	.L6
+ 326              	.LBE2:
+  77:.\wiznet5500.c **** 		}
+  78:.\wiznet5500.c **** 	WIZ_SS_Write(HIGH); // WizNet SPI Frame Finished
+ 327              		.loc 2 78 0 is_stmt 1
+ 328 0168 0120     		mov	r0, #1
+ 329 016a FFF7FEFF 		bl	WIZ_SS_Write
+  79:.\wiznet5500.c **** 
+  80:.\wiznet5500.c **** 
+  81:.\wiznet5500.c **** }
+ 330              		.loc 2 81 0
+ 331 016e BD46     		mov	sp, r7
+ 332 0170 10B0     		add	sp, sp, #64
+ 333              		@ sp needed for prologue
+ 334 0172 80BD     		pop	{r7, pc}
+ 335              	.L8:
+ 336              		.align	2
+ 337              	.L7:
+ 338 0174 00000000 		.word	.LC0
+ 339 0178 14000000 		.word	.LC1
+ 340 017c 00C0FFFF 		.word	-16384
+ 341 0180 FF030000 		.word	1023
+ 342              		.cfi_endproc
+ 343              	.LFE34:
+ 344              		.size	wiznetInit, .-wiznetInit
+ 345              		.section	.text.wiznetOpen,"ax",%progbits
+ 346              		.align	2
+ 347              		.global	wiznetOpen
+ 348              		.code	16
+ 349              		.thumb_func
+ 350              		.type	wiznetOpen, %function
+ 351              	wiznetOpen:
+ 352              	.LFB35:
+  82:.\wiznet5500.c **** 
+  83:.\wiznet5500.c **** // Public Functions
+  84:.\wiznet5500.c **** void wiznetOpen(void){
+ 353              		.loc 2 84 0
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 9
+
+
+ 354              		.cfi_startproc
+ 355 0000 80B5     		push	{r7, lr}
+ 356              	.LCFI6:
+ 357              		.cfi_def_cfa_offset 8
+ 358              		.cfi_offset 7, -8
+ 359              		.cfi_offset 14, -4
+ 360 0002 00AF     		add	r7, sp, #0
+ 361              	.LCFI7:
+ 362              		.cfi_def_cfa_register 7
+  85:.\wiznet5500.c **** 	wiznetWrite8b(WIZNET_Sn_CR,WIZNET_BLK_S0_REG,0x01); // OPEN UDP on Socket 0
+ 363              		.loc 2 85 0
+ 364 0004 0120     		mov	r0, #1
+ 365 0006 0121     		mov	r1, #1
+ 366 0008 0122     		mov	r2, #1
+ 367 000a FFF7FEFF 		bl	wiznetWrite8b
+  86:.\wiznet5500.c **** }
+ 368              		.loc 2 86 0
+ 369 000e BD46     		mov	sp, r7
+ 370              		@ sp needed for prologue
+ 371 0010 80BD     		pop	{r7, pc}
+ 372              		.cfi_endproc
+ 373              	.LFE35:
+ 374              		.size	wiznetOpen, .-wiznetOpen
+ 375 0012 C046     		.section	.text.wiznetClose,"ax",%progbits
+ 376              		.align	2
+ 377              		.global	wiznetClose
+ 378              		.code	16
+ 379              		.thumb_func
+ 380              		.type	wiznetClose, %function
+ 381              	wiznetClose:
+ 382              	.LFB36:
+  87:.\wiznet5500.c **** 
+  88:.\wiznet5500.c **** void wiznetClose(void){
+ 383              		.loc 2 88 0
+ 384              		.cfi_startproc
+ 385 0000 80B5     		push	{r7, lr}
+ 386              	.LCFI8:
+ 387              		.cfi_def_cfa_offset 8
+ 388              		.cfi_offset 7, -8
+ 389              		.cfi_offset 14, -4
+ 390 0002 00AF     		add	r7, sp, #0
+ 391              	.LCFI9:
+ 392              		.cfi_def_cfa_register 7
+  89:.\wiznet5500.c **** 	wiznetWrite8b(WIZNET_Sn_CR,WIZNET_BLK_S0_REG,0x10); // Close UDP on Socket 0
+ 393              		.loc 2 89 0
+ 394 0004 0120     		mov	r0, #1
+ 395 0006 0121     		mov	r1, #1
+ 396 0008 1022     		mov	r2, #16
+ 397 000a FFF7FEFF 		bl	wiznetWrite8b
+  90:.\wiznet5500.c **** }
+ 398              		.loc 2 90 0
+ 399 000e BD46     		mov	sp, r7
+ 400              		@ sp needed for prologue
+ 401 0010 80BD     		pop	{r7, pc}
+ 402              		.cfi_endproc
+ 403              	.LFE36:
+ 404              		.size	wiznetClose, .-wiznetClose
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 10
+
+
+ 405 0012 C046     		.section	.text.wiznetSend,"ax",%progbits
+ 406              		.align	2
+ 407              		.global	wiznetSend
+ 408              		.code	16
+ 409              		.thumb_func
+ 410              		.type	wiznetSend, %function
+ 411              	wiznetSend:
+ 412              	.LFB37:
+  91:.\wiznet5500.c **** 
+  92:.\wiznet5500.c **** void wiznetSend(void){
+ 413              		.loc 2 92 0
+ 414              		.cfi_startproc
+ 415 0000 80B5     		push	{r7, lr}
+ 416              	.LCFI10:
+ 417              		.cfi_def_cfa_offset 8
+ 418              		.cfi_offset 7, -8
+ 419              		.cfi_offset 14, -4
+ 420 0002 00AF     		add	r7, sp, #0
+ 421              	.LCFI11:
+ 422              		.cfi_def_cfa_register 7
+  93:.\wiznet5500.c **** 	wiznetWrite16b(WIZNET_Sn_TX_WR,WIZNET_BLK_S0_REG,wiznetTxPointer);
+ 423              		.loc 2 93 0
+ 424 0004 0A4B     		ldr	r3, .L12
+ 425 0006 1B88     		ldrh	r3, [r3]
+ 426 0008 2420     		mov	r0, #36
+ 427 000a 0121     		mov	r1, #1
+ 428 000c 1A1C     		mov	r2, r3
+ 429 000e FFF7FEFF 		bl	wiznetWrite16b
+  94:.\wiznet5500.c **** 	wiznetWrite8b(WIZNET_Sn_CR,WIZNET_BLK_S0_REG,0x20);
+ 430              		.loc 2 94 0
+ 431 0012 0120     		mov	r0, #1
+ 432 0014 0121     		mov	r1, #1
+ 433 0016 2022     		mov	r2, #32
+ 434 0018 FFF7FEFF 		bl	wiznetWrite8b
+  95:.\wiznet5500.c **** 	wiznetTxPointer = wiznetRead16b(WIZNET_Sn_TX_WR,WIZNET_BLK_S0_REG);
+ 435              		.loc 2 95 0
+ 436 001c 2420     		mov	r0, #36
+ 437 001e 0121     		mov	r1, #1
+ 438 0020 FFF7FEFF 		bl	wiznetRead16b
+ 439 0024 031C     		mov	r3, r0
+ 440 0026 1A1C     		mov	r2, r3
+ 441 0028 014B     		ldr	r3, .L12
+ 442 002a 1A80     		strh	r2, [r3]
+  96:.\wiznet5500.c **** }
+ 443              		.loc 2 96 0
+ 444 002c BD46     		mov	sp, r7
+ 445              		@ sp needed for prologue
+ 446 002e 80BD     		pop	{r7, pc}
+ 447              	.L13:
+ 448              		.align	2
+ 449              	.L12:
+ 450 0030 00000000 		.word	wiznetTxPointer
+ 451              		.cfi_endproc
+ 452              	.LFE37:
+ 453              		.size	wiznetSend, .-wiznetSend
+ 454              		.section	.text.wiznetClearInterrupts,"ax",%progbits
+ 455              		.align	2
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 11
+
+
+ 456              		.global	wiznetClearInterrupts
+ 457              		.code	16
+ 458              		.thumb_func
+ 459              		.type	wiznetClearInterrupts, %function
+ 460              	wiznetClearInterrupts:
+ 461              	.LFB38:
+  97:.\wiznet5500.c **** 
+  98:.\wiznet5500.c **** // void wiznetReceive(void){
+  99:.\wiznet5500.c **** 	
+ 100:.\wiznet5500.c **** // }
+ 101:.\wiznet5500.c **** 
+ 102:.\wiznet5500.c **** // uint8_t wiznetReadInterrupts(void){
+ 103:.\wiznet5500.c **** // }
+ 104:.\wiznet5500.c **** 
+ 105:.\wiznet5500.c **** void wiznetClearInterrupts(void){
+ 462              		.loc 2 105 0
+ 463              		.cfi_startproc
+ 464 0000 80B5     		push	{r7, lr}
+ 465              	.LCFI12:
+ 466              		.cfi_def_cfa_offset 8
+ 467              		.cfi_offset 7, -8
+ 468              		.cfi_offset 14, -4
+ 469 0002 00AF     		add	r7, sp, #0
+ 470              	.LCFI13:
+ 471              		.cfi_def_cfa_register 7
+ 106:.\wiznet5500.c **** 	wiznetWrite8b(WIZNET_Sn_IR,WIZNET_BLK_S0_REG, 0xFF);
+ 472              		.loc 2 106 0
+ 473 0004 0220     		mov	r0, #2
+ 474 0006 0121     		mov	r1, #1
+ 475 0008 FF22     		mov	r2, #255
+ 476 000a FFF7FEFF 		bl	wiznetWrite8b
+ 107:.\wiznet5500.c **** 	wiznetWrite8b(WIZNET_SIR,WIZNET_BLK_COMMON, 0xFF);
+ 477              		.loc 2 107 0
+ 478 000e 1720     		mov	r0, #23
+ 479 0010 0021     		mov	r1, #0
+ 480 0012 FF22     		mov	r2, #255
+ 481 0014 FFF7FEFF 		bl	wiznetWrite8b
+ 108:.\wiznet5500.c **** 	wiznetWrite8b(WIZNET_IR,WIZNET_BLK_COMMON, 0xFF); // Counter-intuitive, but datasheet specifies wr
+ 482              		.loc 2 108 0
+ 483 0018 1520     		mov	r0, #21
+ 484 001a 0021     		mov	r1, #0
+ 485 001c FF22     		mov	r2, #255
+ 486 001e FFF7FEFF 		bl	wiznetWrite8b
+ 109:.\wiznet5500.c **** }
+ 487              		.loc 2 109 0
+ 488 0022 BD46     		mov	sp, r7
+ 489              		@ sp needed for prologue
+ 490 0024 80BD     		pop	{r7, pc}
+ 491              		.cfi_endproc
+ 492              	.LFE38:
+ 493              		.size	wiznetClearInterrupts, .-wiznetClearInterrupts
+ 494 0026 C046     		.section	.text.wiznetConfigInterrupts,"ax",%progbits
+ 495              		.align	2
+ 496              		.global	wiznetConfigInterrupts
+ 497              		.code	16
+ 498              		.thumb_func
+ 499              		.type	wiznetConfigInterrupts, %function
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 12
+
+
+ 500              	wiznetConfigInterrupts:
+ 501              	.LFB39:
+ 110:.\wiznet5500.c **** 
+ 111:.\wiznet5500.c **** void wiznetConfigInterrupts(uint8_t commonInt, uint8_t socketInt){
+ 502              		.loc 2 111 0
+ 503              		.cfi_startproc
+ 504 0000 80B5     		push	{r7, lr}
+ 505              	.LCFI14:
+ 506              		.cfi_def_cfa_offset 8
+ 507              		.cfi_offset 7, -8
+ 508              		.cfi_offset 14, -4
+ 509 0002 82B0     		sub	sp, sp, #8
+ 510              	.LCFI15:
+ 511              		.cfi_def_cfa_offset 16
+ 512 0004 00AF     		add	r7, sp, #0
+ 513              	.LCFI16:
+ 514              		.cfi_def_cfa_register 7
+ 515 0006 0A1C     		mov	r2, r1
+ 516 0008 FB1D     		add	r3, r7, #7
+ 517 000a 011C     		add	r1, r0, #0
+ 518 000c 1970     		strb	r1, [r3]
+ 519 000e BB1D     		add	r3, r7, #6
+ 520 0010 1A70     		strb	r2, [r3]
+ 112:.\wiznet5500.c **** 	wiznetWrite8b(WIZNET_Sn_IMR,WIZNET_BLK_S0_REG, socketInt);
+ 521              		.loc 2 112 0
+ 522 0012 BB1D     		add	r3, r7, #6
+ 523 0014 1B78     		ldrb	r3, [r3]
+ 524 0016 2C20     		mov	r0, #44
+ 525 0018 0121     		mov	r1, #1
+ 526 001a 1A1C     		mov	r2, r3
+ 527 001c FFF7FEFF 		bl	wiznetWrite8b
+ 113:.\wiznet5500.c **** 	wiznetWrite8b(WIZNET_SIMR,WIZNET_BLK_COMMON, 0x01); // Hardwired to just Socket 0
+ 528              		.loc 2 113 0
+ 529 0020 1820     		mov	r0, #24
+ 530 0022 0021     		mov	r1, #0
+ 531 0024 0122     		mov	r2, #1
+ 532 0026 FFF7FEFF 		bl	wiznetWrite8b
+ 114:.\wiznet5500.c **** 	wiznetWrite8b(WIZNET_IMR,WIZNET_BLK_COMMON, commonInt);
+ 533              		.loc 2 114 0
+ 534 002a FB1D     		add	r3, r7, #7
+ 535 002c 1B78     		ldrb	r3, [r3]
+ 536 002e 1620     		mov	r0, #22
+ 537 0030 0021     		mov	r1, #0
+ 538 0032 1A1C     		mov	r2, r3
+ 539 0034 FFF7FEFF 		bl	wiznetWrite8b
+ 115:.\wiznet5500.c **** }
+ 540              		.loc 2 115 0
+ 541 0038 BD46     		mov	sp, r7
+ 542 003a 02B0     		add	sp, sp, #8
+ 543              		@ sp needed for prologue
+ 544 003c 80BD     		pop	{r7, pc}
+ 545              		.cfi_endproc
+ 546              	.LFE39:
+ 547              		.size	wiznetConfigInterrupts, .-wiznetConfigInterrupts
+ 548 003e C046     		.section	.text.wiznetWriteUdpFrame,"ax",%progbits
+ 549              		.align	2
+ 550              		.global	wiznetWriteUdpFrame
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 13
+
+
+ 551              		.code	16
+ 552              		.thumb_func
+ 553              		.type	wiznetWriteUdpFrame, %function
+ 554              	wiznetWriteUdpFrame:
+ 555              	.LFB40:
+ 116:.\wiznet5500.c **** 
+ 117:.\wiznet5500.c **** uint16_t wiznetWriteUdpFrame(uint8_t *array, uint8_t len){
+ 556              		.loc 2 117 0
+ 557              		.cfi_startproc
+ 558 0000 80B5     		push	{r7, lr}
+ 559              	.LCFI17:
+ 560              		.cfi_def_cfa_offset 8
+ 561              		.cfi_offset 7, -8
+ 562              		.cfi_offset 14, -4
+ 563 0002 82B0     		sub	sp, sp, #8
+ 564              	.LCFI18:
+ 565              		.cfi_def_cfa_offset 16
+ 566 0004 00AF     		add	r7, sp, #0
+ 567              	.LCFI19:
+ 568              		.cfi_def_cfa_register 7
+ 569 0006 7860     		str	r0, [r7, #4]
+ 570 0008 0A1C     		mov	r2, r1
+ 571 000a FB1C     		add	r3, r7, #3
+ 572 000c 1A70     		strb	r2, [r3]
+ 118:.\wiznet5500.c **** 	
+ 119:.\wiznet5500.c **** 	// wiznetTxPointer = wiznetRead16b(WIZNET_Sn_TX_WR,WIZNET_BLK_S0_REG);
+ 120:.\wiznet5500.c **** 	// wiznetWriteArray(wiznetTxPointer,WIZNET_BLK_S0_TX,array,len);
+ 121:.\wiznet5500.c **** 	// wiznetTxPointer += len;																	
+ 122:.\wiznet5500.c **** 	// wiznetWrite16b(WIZNET_Sn_TX_WR,WIZNET_BLK_S0_REG,wiznetTxPointer);
+ 123:.\wiznet5500.c **** 	
+ 124:.\wiznet5500.c **** 	// Re-ordered the above and put the pointer manip in the Send method due to fluke.
+ 125:.\wiznet5500.c **** 	wiznetWriteArray(wiznetTxPointer,WIZNET_BLK_S0_TX,array,len);
+ 573              		.loc 2 125 0
+ 574 000e 0C4B     		ldr	r3, .L18
+ 575 0010 1988     		ldrh	r1, [r3]
+ 576 0012 7A68     		ldr	r2, [r7, #4]
+ 577 0014 FB1C     		add	r3, r7, #3
+ 578 0016 1B78     		ldrb	r3, [r3]
+ 579 0018 081C     		mov	r0, r1
+ 580 001a 0221     		mov	r1, #2
+ 581 001c FFF7FEFF 		bl	wiznetWriteArray
+ 126:.\wiznet5500.c **** 	wiznetTxPointer += len;
+ 582              		.loc 2 126 0
+ 583 0020 FB1C     		add	r3, r7, #3
+ 584 0022 1B78     		ldrb	r3, [r3]
+ 585 0024 9AB2     		uxth	r2, r3
+ 586 0026 064B     		ldr	r3, .L18
+ 587 0028 1B88     		ldrh	r3, [r3]
+ 588 002a D318     		add	r3, r2, r3
+ 589 002c 9AB2     		uxth	r2, r3
+ 590 002e 044B     		ldr	r3, .L18
+ 591 0030 1A80     		strh	r2, [r3]
+ 127:.\wiznet5500.c **** 	
+ 128:.\wiznet5500.c **** 	// CyDelay(10); // These two lines proved that the fluke with the WizNet is not time-variant
+ 129:.\wiznet5500.c **** 	// wiznetRead16b(WIZNET_Sn_TX_WR,WIZNET_BLK_S0_REG);
+ 130:.\wiznet5500.c **** 	return wiznetTxPointer;
+ 592              		.loc 2 130 0
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 14
+
+
+ 593 0032 034B     		ldr	r3, .L18
+ 594 0034 1B88     		ldrh	r3, [r3]
+ 131:.\wiznet5500.c **** }
+ 595              		.loc 2 131 0
+ 596 0036 181C     		mov	r0, r3
+ 597 0038 BD46     		mov	sp, r7
+ 598 003a 02B0     		add	sp, sp, #8
+ 599              		@ sp needed for prologue
+ 600 003c 80BD     		pop	{r7, pc}
+ 601              	.L19:
+ 602 003e C046     		.align	2
+ 603              	.L18:
+ 604 0040 00000000 		.word	wiznetTxPointer
+ 605              		.cfi_endproc
+ 606              	.LFE40:
+ 607              		.size	wiznetWriteUdpFrame, .-wiznetWriteUdpFrame
+ 608              		.section	.rodata
+ 609 0026 0000     		.align	2
+ 610              	.LC6:
+ 611 0028 0A0900   		.ascii	"\012\011\000"
+ 612 002b 00       		.align	2
+ 613              	.LC8:
+ 614 002c 25580900 		.ascii	"%X\011\000"
+ 615              		.align	2
+ 616              	.LC10:
+ 617 0030 0A00     		.ascii	"\012\000"
+ 618 0032 0000     		.section	.text.wiznetPrintRegisters,"ax",%progbits
+ 619              		.align	2
+ 620              		.global	wiznetPrintRegisters
+ 621              		.code	16
+ 622              		.thumb_func
+ 623              		.type	wiznetPrintRegisters, %function
+ 624              	wiznetPrintRegisters:
+ 625              	.LFB41:
+ 132:.\wiznet5500.c **** 
+ 133:.\wiznet5500.c **** void wiznetPrintRegisters(uint8_t blkSelect){
+ 626              		.loc 2 133 0
+ 627              		.cfi_startproc
+ 628 0000 80B5     		push	{r7, lr}
+ 629              	.LCFI20:
+ 630              		.cfi_def_cfa_offset 8
+ 631              		.cfi_offset 7, -8
+ 632              		.cfi_offset 14, -4
+ 633 0002 C4B0     		sub	sp, sp, #272
+ 634              	.LCFI21:
+ 635              		.cfi_def_cfa_offset 280
+ 636 0004 00AF     		add	r7, sp, #0
+ 637              	.LCFI22:
+ 638              		.cfi_def_cfa_register 7
+ 639 0006 021C     		mov	r2, r0
+ 640 0008 414B     		ldr	r3, .L27
+ 641 000a 8821     		mov	r1, #136
+ 642 000c 4900     		lsl	r1, r1, #1
+ 643 000e C919     		add	r1, r1, r7
+ 644 0010 CB18     		add	r3, r1, r3
+ 645 0012 1A70     		strb	r2, [r3]
+ 134:.\wiznet5500.c **** 	uint8_t readArray[256];
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 15
+
+
+ 135:.\wiznet5500.c **** 	wiznetReadArray(0, blkSelect, readArray, 255);
+ 646              		.loc 2 135 0
+ 647 0014 3E4B     		ldr	r3, .L27
+ 648 0016 8822     		mov	r2, #136
+ 649 0018 5200     		lsl	r2, r2, #1
+ 650 001a D219     		add	r2, r2, r7
+ 651 001c D318     		add	r3, r2, r3
+ 652 001e 1A78     		ldrb	r2, [r3]
+ 653 0020 3B1C     		mov	r3, r7
+ 654 0022 0C33     		add	r3, r3, #12
+ 655 0024 0020     		mov	r0, #0
+ 656 0026 111C     		mov	r1, r2
+ 657 0028 1A1C     		mov	r2, r3
+ 658 002a FF23     		mov	r3, #255
+ 659 002c FFF7FEFF 		bl	wiznetReadArray
+ 136:.\wiznet5500.c **** 	
+ 137:.\wiznet5500.c **** 	printf("\n\t");
+ 660              		.loc 2 137 0
+ 661 0030 384B     		ldr	r3, .L27+4
+ 662 0032 181C     		mov	r0, r3
+ 663 0034 FFF7FEFF 		bl	tfp_printf
+ 664              	.LBB3:
+ 138:.\wiznet5500.c **** 	for(uint8_t c=0; c<16; c++)	printf("%X\t",c);
+ 665              		.loc 2 138 0
+ 666 0038 3749     		ldr	r1, .L27+8
+ 667 003a 7B18     		add	r3, r7, r1
+ 668 003c 0022     		mov	r2, #0
+ 669 003e 1A70     		strb	r2, [r3]
+ 670 0040 0EE0     		b	.L21
+ 671              	.L22:
+ 672              		.loc 2 138 0 is_stmt 0 discriminator 2
+ 673 0042 354A     		ldr	r2, .L27+8
+ 674 0044 BB18     		add	r3, r7, r2
+ 675 0046 1B78     		ldrb	r3, [r3]
+ 676 0048 344A     		ldr	r2, .L27+12
+ 677 004a 101C     		mov	r0, r2
+ 678 004c 191C     		mov	r1, r3
+ 679 004e FFF7FEFF 		bl	tfp_printf
+ 680 0052 3149     		ldr	r1, .L27+8
+ 681 0054 7B18     		add	r3, r7, r1
+ 682 0056 3049     		ldr	r1, .L27+8
+ 683 0058 7A18     		add	r2, r7, r1
+ 684 005a 1278     		ldrb	r2, [r2]
+ 685 005c 0132     		add	r2, r2, #1
+ 686 005e 1A70     		strb	r2, [r3]
+ 687              	.L21:
+ 688              		.loc 2 138 0 discriminator 1
+ 689 0060 2D4A     		ldr	r2, .L27+8
+ 690 0062 BB18     		add	r3, r7, r2
+ 691 0064 1B78     		ldrb	r3, [r3]
+ 692 0066 0F2B     		cmp	r3, #15
+ 693 0068 EBD9     		bls	.L22
+ 694              	.LBE3:
+ 139:.\wiznet5500.c **** 	printf("\n");
+ 695              		.loc 2 139 0 is_stmt 1
+ 696 006a 2D4B     		ldr	r3, .L27+16
+ 697 006c 181C     		mov	r0, r3
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 16
+
+
+ 698 006e FFF7FEFF 		bl	tfp_printf
+ 699              	.LBB4:
+ 140:.\wiznet5500.c **** 	for(uint8_t j=0; j<8; j++){
+ 700              		.loc 2 140 0
+ 701 0072 8721     		mov	r1, #135
+ 702 0074 4900     		lsl	r1, r1, #1
+ 703 0076 7B18     		add	r3, r7, r1
+ 704 0078 0022     		mov	r2, #0
+ 705 007a 1A70     		strb	r2, [r3]
+ 706 007c 3AE0     		b	.L23
+ 707              	.L26:
+ 141:.\wiznet5500.c **** 		printf("%X\t",j);
+ 708              		.loc 2 141 0
+ 709 007e 8722     		mov	r2, #135
+ 710 0080 5200     		lsl	r2, r2, #1
+ 711 0082 BB18     		add	r3, r7, r2
+ 712 0084 1B78     		ldrb	r3, [r3]
+ 713 0086 254A     		ldr	r2, .L27+12
+ 714 0088 101C     		mov	r0, r2
+ 715 008a 191C     		mov	r1, r3
+ 716 008c FFF7FEFF 		bl	tfp_printf
+ 717              	.LBB5:
+ 142:.\wiznet5500.c **** 		for(uint8_t k=0; k<16; k++){
+ 718              		.loc 2 142 0
+ 719 0090 2449     		ldr	r1, .L27+20
+ 720 0092 7B18     		add	r3, r7, r1
+ 721 0094 0022     		mov	r2, #0
+ 722 0096 1A70     		strb	r2, [r3]
+ 723 0098 1AE0     		b	.L24
+ 724              	.L25:
+ 143:.\wiznet5500.c **** 			printf("%X\t",readArray[(16*j)+k]);
+ 725              		.loc 2 143 0 discriminator 2
+ 726 009a 8722     		mov	r2, #135
+ 727 009c 5200     		lsl	r2, r2, #1
+ 728 009e BB18     		add	r3, r7, r2
+ 729 00a0 1B78     		ldrb	r3, [r3]
+ 730 00a2 1A01     		lsl	r2, r3, #4
+ 731 00a4 1F49     		ldr	r1, .L27+20
+ 732 00a6 7B18     		add	r3, r7, r1
+ 733 00a8 1B78     		ldrb	r3, [r3]
+ 734 00aa D318     		add	r3, r2, r3
+ 735 00ac 1E4A     		ldr	r2, .L27+24
+ 736 00ae 8821     		mov	r1, #136
+ 737 00b0 4900     		lsl	r1, r1, #1
+ 738 00b2 C919     		add	r1, r1, r7
+ 739 00b4 8A18     		add	r2, r1, r2
+ 740 00b6 D35C     		ldrb	r3, [r2, r3]
+ 741 00b8 184A     		ldr	r2, .L27+12
+ 742 00ba 101C     		mov	r0, r2
+ 743 00bc 191C     		mov	r1, r3
+ 744 00be FFF7FEFF 		bl	tfp_printf
+ 142:.\wiznet5500.c **** 		for(uint8_t k=0; k<16; k++){
+ 745              		.loc 2 142 0 discriminator 2
+ 746 00c2 184A     		ldr	r2, .L27+20
+ 747 00c4 BB18     		add	r3, r7, r2
+ 748 00c6 1749     		ldr	r1, .L27+20
+ 749 00c8 7A18     		add	r2, r7, r1
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 17
+
+
+ 750 00ca 1278     		ldrb	r2, [r2]
+ 751 00cc 0132     		add	r2, r2, #1
+ 752 00ce 1A70     		strb	r2, [r3]
+ 753              	.L24:
+ 142:.\wiznet5500.c **** 		for(uint8_t k=0; k<16; k++){
+ 754              		.loc 2 142 0 is_stmt 0 discriminator 1
+ 755 00d0 144A     		ldr	r2, .L27+20
+ 756 00d2 BB18     		add	r3, r7, r2
+ 757 00d4 1B78     		ldrb	r3, [r3]
+ 758 00d6 0F2B     		cmp	r3, #15
+ 759 00d8 DFD9     		bls	.L25
+ 760              	.LBE5:
+ 144:.\wiznet5500.c **** 		}
+ 145:.\wiznet5500.c **** 		printf("\n");
+ 761              		.loc 2 145 0 is_stmt 1
+ 762 00da 114B     		ldr	r3, .L27+16
+ 763 00dc 181C     		mov	r0, r3
+ 764 00de FFF7FEFF 		bl	tfp_printf
+ 140:.\wiznet5500.c **** 	for(uint8_t j=0; j<8; j++){
+ 765              		.loc 2 140 0
+ 766 00e2 8721     		mov	r1, #135
+ 767 00e4 4900     		lsl	r1, r1, #1
+ 768 00e6 7B18     		add	r3, r7, r1
+ 769 00e8 8721     		mov	r1, #135
+ 770 00ea 4900     		lsl	r1, r1, #1
+ 771 00ec 7A18     		add	r2, r7, r1
+ 772 00ee 1278     		ldrb	r2, [r2]
+ 773 00f0 0132     		add	r2, r2, #1
+ 774 00f2 1A70     		strb	r2, [r3]
+ 775              	.L23:
+ 140:.\wiznet5500.c **** 	for(uint8_t j=0; j<8; j++){
+ 776              		.loc 2 140 0 is_stmt 0 discriminator 1
+ 777 00f4 8722     		mov	r2, #135
+ 778 00f6 5200     		lsl	r2, r2, #1
+ 779 00f8 BB18     		add	r3, r7, r2
+ 780 00fa 1B78     		ldrb	r3, [r3]
+ 781 00fc 072B     		cmp	r3, #7
+ 782 00fe BED9     		bls	.L26
+ 783              	.LBE4:
+ 146:.\wiznet5500.c **** 	}
+ 147:.\wiznet5500.c **** 	printf("\n");
+ 784              		.loc 2 147 0 is_stmt 1
+ 785 0100 074B     		ldr	r3, .L27+16
+ 786 0102 181C     		mov	r0, r3
+ 787 0104 FFF7FEFF 		bl	tfp_printf
+ 148:.\wiznet5500.c **** }
+ 788              		.loc 2 148 0
+ 789 0108 BD46     		mov	sp, r7
+ 790 010a 44B0     		add	sp, sp, #272
+ 791              		@ sp needed for prologue
+ 792 010c 80BD     		pop	{r7, pc}
+ 793              	.L28:
+ 794 010e C046     		.align	2
+ 795              	.L27:
+ 796 0110 F7FEFFFF 		.word	-265
+ 797 0114 28000000 		.word	.LC6
+ 798 0118 0F010000 		.word	271
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 18
+
+
+ 799 011c 2C000000 		.word	.LC8
+ 800 0120 30000000 		.word	.LC10
+ 801 0124 0D010000 		.word	269
+ 802 0128 FCFEFFFF 		.word	-260
+ 803              		.cfi_endproc
+ 804              	.LFE41:
+ 805              		.size	wiznetPrintRegisters, .-wiznetPrintRegisters
+ 806              		.section	.text.wiznetWrite8b,"ax",%progbits
+ 807              		.align	2
+ 808              		.global	wiznetWrite8b
+ 809              		.code	16
+ 810              		.thumb_func
+ 811              		.type	wiznetWrite8b, %function
+ 812              	wiznetWrite8b:
+ 813              	.LFB42:
+ 149:.\wiznet5500.c **** 
+ 150:.\wiznet5500.c **** // Private-like Functions, but visible until this is re-written in C++
+ 151:.\wiznet5500.c **** void wiznetWrite8b(uint16_t regAddr, uint8_t blkSel, uint8_t data){
+ 814              		.loc 2 151 0
+ 815              		.cfi_startproc
+ 816 0000 80B5     		push	{r7, lr}
+ 817              	.LCFI23:
+ 818              		.cfi_def_cfa_offset 8
+ 819              		.cfi_offset 7, -8
+ 820              		.cfi_offset 14, -4
+ 821 0002 82B0     		sub	sp, sp, #8
+ 822              	.LCFI24:
+ 823              		.cfi_def_cfa_offset 16
+ 824 0004 00AF     		add	r7, sp, #0
+ 825              	.LCFI25:
+ 826              		.cfi_def_cfa_register 7
+ 827 0006 BB1D     		add	r3, r7, #6
+ 828 0008 1880     		strh	r0, [r3]
+ 829 000a 7B1D     		add	r3, r7, #5
+ 830 000c 1970     		strb	r1, [r3]
+ 831 000e 3B1D     		add	r3, r7, #4
+ 832 0010 1A70     		strb	r2, [r3]
+ 152:.\wiznet5500.c **** 	WIZ_SS_Write(LOW); // Begin a WizNet SPI Frame. Three Phases: Address, Control, Data
+ 833              		.loc 2 152 0
+ 834 0012 0020     		mov	r0, #0
+ 835 0014 FFF7FEFF 		bl	WIZ_SS_Write
+ 153:.\wiznet5500.c **** 		// Address Phase
+ 154:.\wiznet5500.c **** 		transferSPI(regAddr>>8);
+ 836              		.loc 2 154 0
+ 837 0018 BB1D     		add	r3, r7, #6
+ 838 001a 1B88     		ldrh	r3, [r3]
+ 839 001c 1B0A     		lsr	r3, r3, #8
+ 840 001e 9BB2     		uxth	r3, r3
+ 841 0020 DBB2     		uxtb	r3, r3
+ 842 0022 181C     		mov	r0, r3
+ 843 0024 FFF7FEFF 		bl	transferSPI
+ 155:.\wiznet5500.c **** 		transferSPI(regAddr&0xFF);
+ 844              		.loc 2 155 0
+ 845 0028 BB1D     		add	r3, r7, #6
+ 846 002a 1B88     		ldrh	r3, [r3]
+ 847 002c DBB2     		uxtb	r3, r3
+ 848 002e 181C     		mov	r0, r3
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 19
+
+
+ 849 0030 FFF7FEFF 		bl	transferSPI
+ 156:.\wiznet5500.c **** 		
+ 157:.\wiznet5500.c **** 		// Control Phase
+ 158:.\wiznet5500.c **** 		transferSPI(((blkSel&0x1F)<<3)|(0x01<<2)|0x00);		
+ 850              		.loc 2 158 0
+ 851 0034 7B1D     		add	r3, r7, #5
+ 852 0036 1B78     		ldrb	r3, [r3]
+ 853 0038 DB00     		lsl	r3, r3, #3
+ 854 003a DBB2     		uxtb	r3, r3
+ 855 003c 0422     		mov	r2, #4
+ 856 003e 1343     		orr	r3, r2
+ 857 0040 DBB2     		uxtb	r3, r3
+ 858 0042 DBB2     		uxtb	r3, r3
+ 859 0044 181C     		mov	r0, r3
+ 860 0046 FFF7FEFF 		bl	transferSPI
+ 159:.\wiznet5500.c **** 		
+ 160:.\wiznet5500.c **** 		// Data Phase
+ 161:.\wiznet5500.c **** 		transferSPI(data);
+ 861              		.loc 2 161 0
+ 862 004a 3B1D     		add	r3, r7, #4
+ 863 004c 1B78     		ldrb	r3, [r3]
+ 864 004e 181C     		mov	r0, r3
+ 865 0050 FFF7FEFF 		bl	transferSPI
+ 162:.\wiznet5500.c **** 	WIZ_SS_Write(HIGH); // WizNet SPI Frame Finished
+ 866              		.loc 2 162 0
+ 867 0054 0120     		mov	r0, #1
+ 868 0056 FFF7FEFF 		bl	WIZ_SS_Write
+ 163:.\wiznet5500.c **** 	// return response;
+ 164:.\wiznet5500.c **** }
+ 869              		.loc 2 164 0
+ 870 005a BD46     		mov	sp, r7
+ 871 005c 02B0     		add	sp, sp, #8
+ 872              		@ sp needed for prologue
+ 873 005e 80BD     		pop	{r7, pc}
+ 874              		.cfi_endproc
+ 875              	.LFE42:
+ 876              		.size	wiznetWrite8b, .-wiznetWrite8b
+ 877              		.section	.text.wiznetWrite16b,"ax",%progbits
+ 878              		.align	2
+ 879              		.global	wiznetWrite16b
+ 880              		.code	16
+ 881              		.thumb_func
+ 882              		.type	wiznetWrite16b, %function
+ 883              	wiznetWrite16b:
+ 884              	.LFB43:
+ 165:.\wiznet5500.c **** 
+ 166:.\wiznet5500.c **** void wiznetWrite16b(uint16_t regAddr, uint8_t blkSel, uint16_t data){
+ 885              		.loc 2 166 0
+ 886              		.cfi_startproc
+ 887 0000 80B5     		push	{r7, lr}
+ 888              	.LCFI26:
+ 889              		.cfi_def_cfa_offset 8
+ 890              		.cfi_offset 7, -8
+ 891              		.cfi_offset 14, -4
+ 892 0002 82B0     		sub	sp, sp, #8
+ 893              	.LCFI27:
+ 894              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 20
+
+
+ 895 0004 00AF     		add	r7, sp, #0
+ 896              	.LCFI28:
+ 897              		.cfi_def_cfa_register 7
+ 898 0006 BB1D     		add	r3, r7, #6
+ 899 0008 1880     		strh	r0, [r3]
+ 900 000a 7B1D     		add	r3, r7, #5
+ 901 000c 1970     		strb	r1, [r3]
+ 902 000e BB1C     		add	r3, r7, #2
+ 903 0010 1A80     		strh	r2, [r3]
+ 167:.\wiznet5500.c **** 	WIZ_SS_Write(LOW); // Begin a WizNet SPI Frame. Three Phases: Address, Control, Data
+ 904              		.loc 2 167 0
+ 905 0012 0020     		mov	r0, #0
+ 906 0014 FFF7FEFF 		bl	WIZ_SS_Write
+ 168:.\wiznet5500.c **** 		// Address Phase
+ 169:.\wiznet5500.c **** 		transferSPI(regAddr>>8);
+ 907              		.loc 2 169 0
+ 908 0018 BB1D     		add	r3, r7, #6
+ 909 001a 1B88     		ldrh	r3, [r3]
+ 910 001c 1B0A     		lsr	r3, r3, #8
+ 911 001e 9BB2     		uxth	r3, r3
+ 912 0020 DBB2     		uxtb	r3, r3
+ 913 0022 181C     		mov	r0, r3
+ 914 0024 FFF7FEFF 		bl	transferSPI
+ 170:.\wiznet5500.c **** 		transferSPI(regAddr&0xFF);
+ 915              		.loc 2 170 0
+ 916 0028 BB1D     		add	r3, r7, #6
+ 917 002a 1B88     		ldrh	r3, [r3]
+ 918 002c DBB2     		uxtb	r3, r3
+ 919 002e 181C     		mov	r0, r3
+ 920 0030 FFF7FEFF 		bl	transferSPI
+ 171:.\wiznet5500.c **** 		
+ 172:.\wiznet5500.c **** 		// Control Phase
+ 173:.\wiznet5500.c **** 		transferSPI(((blkSel&0x1F)<<3)|(0x01<<2)|0x00);		
+ 921              		.loc 2 173 0
+ 922 0034 7B1D     		add	r3, r7, #5
+ 923 0036 1B78     		ldrb	r3, [r3]
+ 924 0038 DB00     		lsl	r3, r3, #3
+ 925 003a DBB2     		uxtb	r3, r3
+ 926 003c 0422     		mov	r2, #4
+ 927 003e 1343     		orr	r3, r2
+ 928 0040 DBB2     		uxtb	r3, r3
+ 929 0042 DBB2     		uxtb	r3, r3
+ 930 0044 181C     		mov	r0, r3
+ 931 0046 FFF7FEFF 		bl	transferSPI
+ 174:.\wiznet5500.c **** 		
+ 175:.\wiznet5500.c **** 		// Data Phase
+ 176:.\wiznet5500.c **** 		transferSPI(data>>8);
+ 932              		.loc 2 176 0
+ 933 004a BB1C     		add	r3, r7, #2
+ 934 004c 1B88     		ldrh	r3, [r3]
+ 935 004e 1B0A     		lsr	r3, r3, #8
+ 936 0050 9BB2     		uxth	r3, r3
+ 937 0052 DBB2     		uxtb	r3, r3
+ 938 0054 181C     		mov	r0, r3
+ 939 0056 FFF7FEFF 		bl	transferSPI
+ 177:.\wiznet5500.c **** 		transferSPI(data&0xFF);
+ 940              		.loc 2 177 0
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 21
+
+
+ 941 005a BB1C     		add	r3, r7, #2
+ 942 005c 1B88     		ldrh	r3, [r3]
+ 943 005e DBB2     		uxtb	r3, r3
+ 944 0060 181C     		mov	r0, r3
+ 945 0062 FFF7FEFF 		bl	transferSPI
+ 178:.\wiznet5500.c **** 	WIZ_SS_Write(HIGH); // WizNet SPI Frame Finished
+ 946              		.loc 2 178 0
+ 947 0066 0120     		mov	r0, #1
+ 948 0068 FFF7FEFF 		bl	WIZ_SS_Write
+ 179:.\wiznet5500.c **** 	// return response;
+ 180:.\wiznet5500.c **** }
+ 949              		.loc 2 180 0
+ 950 006c BD46     		mov	sp, r7
+ 951 006e 02B0     		add	sp, sp, #8
+ 952              		@ sp needed for prologue
+ 953 0070 80BD     		pop	{r7, pc}
+ 954              		.cfi_endproc
+ 955              	.LFE43:
+ 956              		.size	wiznetWrite16b, .-wiznetWrite16b
+ 957 0072 C046     		.section	.text.wiznetWriteArray,"ax",%progbits
+ 958              		.align	2
+ 959              		.global	wiznetWriteArray
+ 960              		.code	16
+ 961              		.thumb_func
+ 962              		.type	wiznetWriteArray, %function
+ 963              	wiznetWriteArray:
+ 964              	.LFB44:
+ 181:.\wiznet5500.c **** 
+ 182:.\wiznet5500.c **** void wiznetWriteArray(uint16_t regAddr, uint8_t blkSel, uint8_t *srcArray, uint8_t len){
+ 965              		.loc 2 182 0
+ 966              		.cfi_startproc
+ 967 0000 80B5     		push	{r7, lr}
+ 968              	.LCFI29:
+ 969              		.cfi_def_cfa_offset 8
+ 970              		.cfi_offset 7, -8
+ 971              		.cfi_offset 14, -4
+ 972 0002 84B0     		sub	sp, sp, #16
+ 973              	.LCFI30:
+ 974              		.cfi_def_cfa_offset 24
+ 975 0004 00AF     		add	r7, sp, #0
+ 976              	.LCFI31:
+ 977              		.cfi_def_cfa_register 7
+ 978 0006 3A60     		str	r2, [r7]
+ 979 0008 1A1C     		mov	r2, r3
+ 980 000a BB1D     		add	r3, r7, #6
+ 981 000c 1880     		strh	r0, [r3]
+ 982 000e 7B1D     		add	r3, r7, #5
+ 983 0010 1970     		strb	r1, [r3]
+ 984 0012 3B1D     		add	r3, r7, #4
+ 985 0014 1A70     		strb	r2, [r3]
+ 183:.\wiznet5500.c **** 	WIZ_SS_Write(LOW); // Begin a WizNet SPI Frame. Three Phases: Address, Control, Data
+ 986              		.loc 2 183 0
+ 987 0016 0020     		mov	r0, #0
+ 988 0018 FFF7FEFF 		bl	WIZ_SS_Write
+ 184:.\wiznet5500.c **** 		// Address Phase
+ 185:.\wiznet5500.c **** 		transferSPI(regAddr>>8);
+ 989              		.loc 2 185 0
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 22
+
+
+ 990 001c BB1D     		add	r3, r7, #6
+ 991 001e 1B88     		ldrh	r3, [r3]
+ 992 0020 1B0A     		lsr	r3, r3, #8
+ 993 0022 9BB2     		uxth	r3, r3
+ 994 0024 DBB2     		uxtb	r3, r3
+ 995 0026 181C     		mov	r0, r3
+ 996 0028 FFF7FEFF 		bl	transferSPI
+ 186:.\wiznet5500.c **** 		transferSPI(regAddr&0xFF);
+ 997              		.loc 2 186 0
+ 998 002c BB1D     		add	r3, r7, #6
+ 999 002e 1B88     		ldrh	r3, [r3]
+ 1000 0030 DBB2     		uxtb	r3, r3
+ 1001 0032 181C     		mov	r0, r3
+ 1002 0034 FFF7FEFF 		bl	transferSPI
+ 187:.\wiznet5500.c **** 		
+ 188:.\wiznet5500.c **** 		// Control Phase
+ 189:.\wiznet5500.c **** 		transferSPI(((blkSel&0x1F)<<3)|(0x01<<2)|0x00);		
+ 1003              		.loc 2 189 0
+ 1004 0038 7B1D     		add	r3, r7, #5
+ 1005 003a 1B78     		ldrb	r3, [r3]
+ 1006 003c DB00     		lsl	r3, r3, #3
+ 1007 003e DBB2     		uxtb	r3, r3
+ 1008 0040 0422     		mov	r2, #4
+ 1009 0042 1343     		orr	r3, r2
+ 1010 0044 DBB2     		uxtb	r3, r3
+ 1011 0046 DBB2     		uxtb	r3, r3
+ 1012 0048 181C     		mov	r0, r3
+ 1013 004a FFF7FEFF 		bl	transferSPI
+ 1014              	.LBB6:
+ 190:.\wiznet5500.c **** 		
+ 191:.\wiznet5500.c **** 		// Data Phase
+ 192:.\wiznet5500.c **** 		for(uint8_t k=0; k<len; k++){
+ 1015              		.loc 2 192 0
+ 1016 004e 3B1C     		mov	r3, r7
+ 1017 0050 0F33     		add	r3, r3, #15
+ 1018 0052 0022     		mov	r2, #0
+ 1019 0054 1A70     		strb	r2, [r3]
+ 1020 0056 0FE0     		b	.L32
+ 1021              	.L33:
+ 193:.\wiznet5500.c **** 			transferSPI(srcArray[k]);
+ 1022              		.loc 2 193 0 discriminator 2
+ 1023 0058 3B1C     		mov	r3, r7
+ 1024 005a 0F33     		add	r3, r3, #15
+ 1025 005c 1B78     		ldrb	r3, [r3]
+ 1026 005e 3A68     		ldr	r2, [r7]
+ 1027 0060 D318     		add	r3, r2, r3
+ 1028 0062 1B78     		ldrb	r3, [r3]
+ 1029 0064 181C     		mov	r0, r3
+ 1030 0066 FFF7FEFF 		bl	transferSPI
+ 192:.\wiznet5500.c **** 		for(uint8_t k=0; k<len; k++){
+ 1031              		.loc 2 192 0 discriminator 2
+ 1032 006a 3B1C     		mov	r3, r7
+ 1033 006c 0F33     		add	r3, r3, #15
+ 1034 006e 3A1C     		mov	r2, r7
+ 1035 0070 0F32     		add	r2, r2, #15
+ 1036 0072 1278     		ldrb	r2, [r2]
+ 1037 0074 0132     		add	r2, r2, #1
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 23
+
+
+ 1038 0076 1A70     		strb	r2, [r3]
+ 1039              	.L32:
+ 192:.\wiznet5500.c **** 		for(uint8_t k=0; k<len; k++){
+ 1040              		.loc 2 192 0 is_stmt 0 discriminator 1
+ 1041 0078 3A1C     		mov	r2, r7
+ 1042 007a 0F32     		add	r2, r2, #15
+ 1043 007c 3B1D     		add	r3, r7, #4
+ 1044 007e 1278     		ldrb	r2, [r2]
+ 1045 0080 1B78     		ldrb	r3, [r3]
+ 1046 0082 9A42     		cmp	r2, r3
+ 1047 0084 E8D3     		bcc	.L33
+ 1048              	.LBE6:
+ 194:.\wiznet5500.c **** 		}
+ 195:.\wiznet5500.c **** 	WIZ_SS_Write(HIGH); // WizNet SPI Frame Finished
+ 1049              		.loc 2 195 0 is_stmt 1
+ 1050 0086 0120     		mov	r0, #1
+ 1051 0088 FFF7FEFF 		bl	WIZ_SS_Write
+ 196:.\wiznet5500.c **** 	// return response;
+ 197:.\wiznet5500.c **** }
+ 1052              		.loc 2 197 0
+ 1053 008c BD46     		mov	sp, r7
+ 1054 008e 04B0     		add	sp, sp, #16
+ 1055              		@ sp needed for prologue
+ 1056 0090 80BD     		pop	{r7, pc}
+ 1057              		.cfi_endproc
+ 1058              	.LFE44:
+ 1059              		.size	wiznetWriteArray, .-wiznetWriteArray
+ 1060 0092 C046     		.section	.text.wiznetRead8b,"ax",%progbits
+ 1061              		.align	2
+ 1062              		.global	wiznetRead8b
+ 1063              		.code	16
+ 1064              		.thumb_func
+ 1065              		.type	wiznetRead8b, %function
+ 1066              	wiznetRead8b:
+ 1067              	.LFB45:
+ 198:.\wiznet5500.c **** 
+ 199:.\wiznet5500.c **** uint8_t wiznetRead8b(uint16_t regAddr, uint8_t blkSel){
+ 1068              		.loc 2 199 0
+ 1069              		.cfi_startproc
+ 1070 0000 90B5     		push	{r4, r7, lr}
+ 1071              	.LCFI32:
+ 1072              		.cfi_def_cfa_offset 12
+ 1073              		.cfi_offset 4, -12
+ 1074              		.cfi_offset 7, -8
+ 1075              		.cfi_offset 14, -4
+ 1076 0002 85B0     		sub	sp, sp, #20
+ 1077              	.LCFI33:
+ 1078              		.cfi_def_cfa_offset 32
+ 1079 0004 00AF     		add	r7, sp, #0
+ 1080              	.LCFI34:
+ 1081              		.cfi_def_cfa_register 7
+ 1082 0006 0A1C     		mov	r2, r1
+ 1083 0008 BB1D     		add	r3, r7, #6
+ 1084 000a 011C     		add	r1, r0, #0
+ 1085 000c 1980     		strh	r1, [r3]
+ 1086 000e 7B1D     		add	r3, r7, #5
+ 1087 0010 1A70     		strb	r2, [r3]
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 24
+
+
+ 200:.\wiznet5500.c **** 	WIZ_SS_Write(LOW); // Begin a WizNet SPI Frame. Three Phases: Address, Control, Data
+ 1088              		.loc 2 200 0
+ 1089 0012 0020     		mov	r0, #0
+ 1090 0014 FFF7FEFF 		bl	WIZ_SS_Write
+ 201:.\wiznet5500.c **** 		// Address Phase
+ 202:.\wiznet5500.c **** 		transferSPI(regAddr>>8);
+ 1091              		.loc 2 202 0
+ 1092 0018 BB1D     		add	r3, r7, #6
+ 1093 001a 1B88     		ldrh	r3, [r3]
+ 1094 001c 1B0A     		lsr	r3, r3, #8
+ 1095 001e 9BB2     		uxth	r3, r3
+ 1096 0020 DBB2     		uxtb	r3, r3
+ 1097 0022 181C     		mov	r0, r3
+ 1098 0024 FFF7FEFF 		bl	transferSPI
+ 203:.\wiznet5500.c **** 		transferSPI(regAddr&0xFF);
+ 1099              		.loc 2 203 0
+ 1100 0028 BB1D     		add	r3, r7, #6
+ 1101 002a 1B88     		ldrh	r3, [r3]
+ 1102 002c DBB2     		uxtb	r3, r3
+ 1103 002e 181C     		mov	r0, r3
+ 1104 0030 FFF7FEFF 		bl	transferSPI
+ 204:.\wiznet5500.c **** 		
+ 205:.\wiznet5500.c **** 		// Control Phase
+ 206:.\wiznet5500.c **** 		transferSPI(((blkSel&0x1F)<<3)|(0x00<<2)|0x00);		
+ 1105              		.loc 2 206 0
+ 1106 0034 7B1D     		add	r3, r7, #5
+ 1107 0036 1B78     		ldrb	r3, [r3]
+ 1108 0038 DB00     		lsl	r3, r3, #3
+ 1109 003a DBB2     		uxtb	r3, r3
+ 1110 003c 181C     		mov	r0, r3
+ 1111 003e FFF7FEFF 		bl	transferSPI
+ 207:.\wiznet5500.c **** 		
+ 208:.\wiznet5500.c **** 		// Data Phase
+ 209:.\wiznet5500.c **** 		uint8_t result = transferSPI(0x00);
+ 1112              		.loc 2 209 0
+ 1113 0042 3C1C     		mov	r4, r7
+ 1114 0044 0F34     		add	r4, r4, #15
+ 1115 0046 0020     		mov	r0, #0
+ 1116 0048 FFF7FEFF 		bl	transferSPI
+ 1117 004c 031C     		mov	r3, r0
+ 1118 004e 2370     		strb	r3, [r4]
+ 210:.\wiznet5500.c **** 	WIZ_SS_Write(HIGH); // WizNet SPI Frame Finished
+ 1119              		.loc 2 210 0
+ 1120 0050 0120     		mov	r0, #1
+ 1121 0052 FFF7FEFF 		bl	WIZ_SS_Write
+ 211:.\wiznet5500.c **** 	return result;
+ 1122              		.loc 2 211 0
+ 1123 0056 3B1C     		mov	r3, r7
+ 1124 0058 0F33     		add	r3, r3, #15
+ 1125 005a 1B78     		ldrb	r3, [r3]
+ 212:.\wiznet5500.c **** }
+ 1126              		.loc 2 212 0
+ 1127 005c 181C     		mov	r0, r3
+ 1128 005e BD46     		mov	sp, r7
+ 1129 0060 05B0     		add	sp, sp, #20
+ 1130              		@ sp needed for prologue
+ 1131 0062 90BD     		pop	{r4, r7, pc}
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 25
+
+
+ 1132              		.cfi_endproc
+ 1133              	.LFE45:
+ 1134              		.size	wiznetRead8b, .-wiznetRead8b
+ 1135              		.section	.text.wiznetRead16b,"ax",%progbits
+ 1136              		.align	2
+ 1137              		.global	wiznetRead16b
+ 1138              		.code	16
+ 1139              		.thumb_func
+ 1140              		.type	wiznetRead16b, %function
+ 1141              	wiznetRead16b:
+ 1142              	.LFB46:
+ 213:.\wiznet5500.c **** 
+ 214:.\wiznet5500.c **** uint16_t wiznetRead16b(uint16_t regAddr, uint8_t blkSel){
+ 1143              		.loc 2 214 0
+ 1144              		.cfi_startproc
+ 1145 0000 80B5     		push	{r7, lr}
+ 1146              	.LCFI35:
+ 1147              		.cfi_def_cfa_offset 8
+ 1148              		.cfi_offset 7, -8
+ 1149              		.cfi_offset 14, -4
+ 1150 0002 84B0     		sub	sp, sp, #16
+ 1151              	.LCFI36:
+ 1152              		.cfi_def_cfa_offset 24
+ 1153 0004 00AF     		add	r7, sp, #0
+ 1154              	.LCFI37:
+ 1155              		.cfi_def_cfa_register 7
+ 1156 0006 0A1C     		mov	r2, r1
+ 1157 0008 BB1D     		add	r3, r7, #6
+ 1158 000a 011C     		add	r1, r0, #0
+ 1159 000c 1980     		strh	r1, [r3]
+ 1160 000e 7B1D     		add	r3, r7, #5
+ 1161 0010 1A70     		strb	r2, [r3]
+ 215:.\wiznet5500.c **** 	uint16_t result;
+ 216:.\wiznet5500.c **** 	WIZ_SS_Write(LOW); // Begin a WizNet SPI Frame. Three Phases: Address, Control, Data
+ 1162              		.loc 2 216 0
+ 1163 0012 0020     		mov	r0, #0
+ 1164 0014 FFF7FEFF 		bl	WIZ_SS_Write
+ 217:.\wiznet5500.c **** 		// Address Phase
+ 218:.\wiznet5500.c **** 		transferSPI(regAddr>>8);
+ 1165              		.loc 2 218 0
+ 1166 0018 BB1D     		add	r3, r7, #6
+ 1167 001a 1B88     		ldrh	r3, [r3]
+ 1168 001c 1B0A     		lsr	r3, r3, #8
+ 1169 001e 9BB2     		uxth	r3, r3
+ 1170 0020 DBB2     		uxtb	r3, r3
+ 1171 0022 181C     		mov	r0, r3
+ 1172 0024 FFF7FEFF 		bl	transferSPI
+ 219:.\wiznet5500.c **** 		transferSPI(regAddr&0xFF);
+ 1173              		.loc 2 219 0
+ 1174 0028 BB1D     		add	r3, r7, #6
+ 1175 002a 1B88     		ldrh	r3, [r3]
+ 1176 002c DBB2     		uxtb	r3, r3
+ 1177 002e 181C     		mov	r0, r3
+ 1178 0030 FFF7FEFF 		bl	transferSPI
+ 220:.\wiznet5500.c **** 		
+ 221:.\wiznet5500.c **** 		// Control Phase
+ 222:.\wiznet5500.c **** 		transferSPI(((blkSel&0x1F)<<3)|(0x00<<2)|0x00);		
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 26
+
+
+ 1179              		.loc 2 222 0
+ 1180 0034 7B1D     		add	r3, r7, #5
+ 1181 0036 1B78     		ldrb	r3, [r3]
+ 1182 0038 DB00     		lsl	r3, r3, #3
+ 1183 003a DBB2     		uxtb	r3, r3
+ 1184 003c 181C     		mov	r0, r3
+ 1185 003e FFF7FEFF 		bl	transferSPI
+ 223:.\wiznet5500.c **** 		
+ 224:.\wiznet5500.c **** 		// Data Phase
+ 225:.\wiznet5500.c **** 		result = transferSPI(0x00)<<8;
+ 1186              		.loc 2 225 0
+ 1187 0042 0020     		mov	r0, #0
+ 1188 0044 FFF7FEFF 		bl	transferSPI
+ 1189 0048 031C     		mov	r3, r0
+ 1190 004a 1A1C     		mov	r2, r3
+ 1191 004c 3B1C     		mov	r3, r7
+ 1192 004e 0E33     		add	r3, r3, #14
+ 1193 0050 1202     		lsl	r2, r2, #8
+ 1194 0052 1A80     		strh	r2, [r3]
+ 226:.\wiznet5500.c **** 		result |= transferSPI(0x00);
+ 1195              		.loc 2 226 0
+ 1196 0054 0020     		mov	r0, #0
+ 1197 0056 FFF7FEFF 		bl	transferSPI
+ 1198 005a 031C     		mov	r3, r0
+ 1199 005c 191C     		mov	r1, r3
+ 1200 005e 3B1C     		mov	r3, r7
+ 1201 0060 0E33     		add	r3, r3, #14
+ 1202 0062 3A1C     		mov	r2, r7
+ 1203 0064 0E32     		add	r2, r2, #14
+ 1204 0066 1288     		ldrh	r2, [r2]
+ 1205 0068 0A43     		orr	r2, r1
+ 1206 006a 1A80     		strh	r2, [r3]
+ 227:.\wiznet5500.c **** 	WIZ_SS_Write(HIGH); // WizNet SPI Frame Finished
+ 1207              		.loc 2 227 0
+ 1208 006c 0120     		mov	r0, #1
+ 1209 006e FFF7FEFF 		bl	WIZ_SS_Write
+ 228:.\wiznet5500.c **** 	return result;
+ 1210              		.loc 2 228 0
+ 1211 0072 3B1C     		mov	r3, r7
+ 1212 0074 0E33     		add	r3, r3, #14
+ 1213 0076 1B88     		ldrh	r3, [r3]
+ 229:.\wiznet5500.c **** }
+ 1214              		.loc 2 229 0
+ 1215 0078 181C     		mov	r0, r3
+ 1216 007a BD46     		mov	sp, r7
+ 1217 007c 04B0     		add	sp, sp, #16
+ 1218              		@ sp needed for prologue
+ 1219 007e 80BD     		pop	{r7, pc}
+ 1220              		.cfi_endproc
+ 1221              	.LFE46:
+ 1222              		.size	wiznetRead16b, .-wiznetRead16b
+ 1223              		.section	.text.wiznetReadArray,"ax",%progbits
+ 1224              		.align	2
+ 1225              		.global	wiznetReadArray
+ 1226              		.code	16
+ 1227              		.thumb_func
+ 1228              		.type	wiznetReadArray, %function
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 27
+
+
+ 1229              	wiznetReadArray:
+ 1230              	.LFB47:
+ 230:.\wiznet5500.c **** 
+ 231:.\wiznet5500.c **** void wiznetReadArray(uint16_t regAddr, uint8_t blkSel, uint8_t *dstArray, uint8_t len){
+ 1231              		.loc 2 231 0
+ 1232              		.cfi_startproc
+ 1233 0000 90B5     		push	{r4, r7, lr}
+ 1234              	.LCFI38:
+ 1235              		.cfi_def_cfa_offset 12
+ 1236              		.cfi_offset 4, -12
+ 1237              		.cfi_offset 7, -8
+ 1238              		.cfi_offset 14, -4
+ 1239 0002 85B0     		sub	sp, sp, #20
+ 1240              	.LCFI39:
+ 1241              		.cfi_def_cfa_offset 32
+ 1242 0004 00AF     		add	r7, sp, #0
+ 1243              	.LCFI40:
+ 1244              		.cfi_def_cfa_register 7
+ 1245 0006 3A60     		str	r2, [r7]
+ 1246 0008 1A1C     		mov	r2, r3
+ 1247 000a BB1D     		add	r3, r7, #6
+ 1248 000c 1880     		strh	r0, [r3]
+ 1249 000e 7B1D     		add	r3, r7, #5
+ 1250 0010 1970     		strb	r1, [r3]
+ 1251 0012 3B1D     		add	r3, r7, #4
+ 1252 0014 1A70     		strb	r2, [r3]
+ 232:.\wiznet5500.c **** 	WIZ_SS_Write(LOW); // Begin a WizNet SPI Frame. Three Phases: Address, Control, Data
+ 1253              		.loc 2 232 0
+ 1254 0016 0020     		mov	r0, #0
+ 1255 0018 FFF7FEFF 		bl	WIZ_SS_Write
+ 233:.\wiznet5500.c **** 		// uint8_t count = 0;
+ 234:.\wiznet5500.c **** 		
+ 235:.\wiznet5500.c **** 		// Address Phase
+ 236:.\wiznet5500.c **** 		transferSPI(regAddr>>8);
+ 1256              		.loc 2 236 0
+ 1257 001c BB1D     		add	r3, r7, #6
+ 1258 001e 1B88     		ldrh	r3, [r3]
+ 1259 0020 1B0A     		lsr	r3, r3, #8
+ 1260 0022 9BB2     		uxth	r3, r3
+ 1261 0024 DBB2     		uxtb	r3, r3
+ 1262 0026 181C     		mov	r0, r3
+ 1263 0028 FFF7FEFF 		bl	transferSPI
+ 237:.\wiznet5500.c **** 		transferSPI(regAddr&0xFF);
+ 1264              		.loc 2 237 0
+ 1265 002c BB1D     		add	r3, r7, #6
+ 1266 002e 1B88     		ldrh	r3, [r3]
+ 1267 0030 DBB2     		uxtb	r3, r3
+ 1268 0032 181C     		mov	r0, r3
+ 1269 0034 FFF7FEFF 		bl	transferSPI
+ 238:.\wiznet5500.c **** 		
+ 239:.\wiznet5500.c **** 		// Control Phase
+ 240:.\wiznet5500.c **** 		transferSPI(((blkSel&0x1F)<<3)|(0x00<<2)|0x00);	
+ 1270              		.loc 2 240 0
+ 1271 0038 7B1D     		add	r3, r7, #5
+ 1272 003a 1B78     		ldrb	r3, [r3]
+ 1273 003c DB00     		lsl	r3, r3, #3
+ 1274 003e DBB2     		uxtb	r3, r3
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 28
+
+
+ 1275 0040 181C     		mov	r0, r3
+ 1276 0042 FFF7FEFF 		bl	transferSPI
+ 1277              	.LBB7:
+ 241:.\wiznet5500.c **** 		
+ 242:.\wiznet5500.c **** 		// Data Phase
+ 243:.\wiznet5500.c **** 		for(uint8_t k=0; k<len; k++){
+ 1278              		.loc 2 243 0
+ 1279 0046 3B1C     		mov	r3, r7
+ 1280 0048 0F33     		add	r3, r3, #15
+ 1281 004a 0022     		mov	r2, #0
+ 1282 004c 1A70     		strb	r2, [r3]
+ 1283 004e 10E0     		b	.L39
+ 1284              	.L40:
+ 244:.\wiznet5500.c **** 			dstArray[k] = transferSPI(0x00);
+ 1285              		.loc 2 244 0 discriminator 2
+ 1286 0050 3B1C     		mov	r3, r7
+ 1287 0052 0F33     		add	r3, r3, #15
+ 1288 0054 1B78     		ldrb	r3, [r3]
+ 1289 0056 3A68     		ldr	r2, [r7]
+ 1290 0058 D418     		add	r4, r2, r3
+ 1291 005a 0020     		mov	r0, #0
+ 1292 005c FFF7FEFF 		bl	transferSPI
+ 1293 0060 031C     		mov	r3, r0
+ 1294 0062 2370     		strb	r3, [r4]
+ 243:.\wiznet5500.c **** 		for(uint8_t k=0; k<len; k++){
+ 1295              		.loc 2 243 0 discriminator 2
+ 1296 0064 3B1C     		mov	r3, r7
+ 1297 0066 0F33     		add	r3, r3, #15
+ 1298 0068 3A1C     		mov	r2, r7
+ 1299 006a 0F32     		add	r2, r2, #15
+ 1300 006c 1278     		ldrb	r2, [r2]
+ 1301 006e 0132     		add	r2, r2, #1
+ 1302 0070 1A70     		strb	r2, [r3]
+ 1303              	.L39:
+ 243:.\wiznet5500.c **** 		for(uint8_t k=0; k<len; k++){
+ 1304              		.loc 2 243 0 is_stmt 0 discriminator 1
+ 1305 0072 3A1C     		mov	r2, r7
+ 1306 0074 0F32     		add	r2, r2, #15
+ 1307 0076 3B1D     		add	r3, r7, #4
+ 1308 0078 1278     		ldrb	r2, [r2]
+ 1309 007a 1B78     		ldrb	r3, [r3]
+ 1310 007c 9A42     		cmp	r2, r3
+ 1311 007e E7D3     		bcc	.L40
+ 1312              	.LBE7:
+ 245:.\wiznet5500.c **** 			// count++;
+ 246:.\wiznet5500.c **** 			// printf("%u",k);
+ 247:.\wiznet5500.c **** 		}
+ 248:.\wiznet5500.c **** 	WIZ_SS_Write(HIGH); // WizNet SPI Frame Finished
+ 1313              		.loc 2 248 0 is_stmt 1
+ 1314 0080 0120     		mov	r0, #1
+ 1315 0082 FFF7FEFF 		bl	WIZ_SS_Write
+ 249:.\wiznet5500.c **** 	// return count;
+ 250:.\wiznet5500.c **** }
+ 1316              		.loc 2 250 0
+ 1317 0086 BD46     		mov	sp, r7
+ 1318 0088 05B0     		add	sp, sp, #20
+ 1319              		@ sp needed for prologue
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 29
+
+
+ 1320 008a 90BD     		pop	{r4, r7, pc}
+ 1321              		.cfi_endproc
+ 1322              	.LFE47:
+ 1323              		.size	wiznetReadArray, .-wiznetReadArray
+ 1324              		.text
+ 1325              	.Letext0:
+ 1326              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.0\\psoc creator\\import\\gnu_cs\\arm\\4
+ 1327              		.file 4 "./Generated_Source/PSoC4/cytypes.h"
+ 1328              		.section	.debug_info,"",%progbits
+ 1329              	.Ldebug_info0:
+ 1330 0000 F9040000 		.4byte	0x4f9
+ 1331 0004 0200     		.2byte	0x2
+ 1332 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1333 000a 04       		.byte	0x4
+ 1334 000b 01       		.uleb128 0x1
+ 1335 000c 84020000 		.4byte	.LASF49
+ 1336 0010 01       		.byte	0x1
+ 1337 0011 64010000 		.4byte	.LASF50
+ 1338 0015 00000000 		.4byte	.LASF51
+ 1339 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1340 001d 00000000 		.4byte	0
+ 1341 0021 00000000 		.4byte	0
+ 1342 0025 00000000 		.4byte	.Ldebug_line0
+ 1343 0029 02       		.uleb128 0x2
+ 1344 002a 01       		.byte	0x1
+ 1345 002b 06       		.byte	0x6
+ 1346 002c F7000000 		.4byte	.LASF0
+ 1347 0030 03       		.uleb128 0x3
+ 1348 0031 1A020000 		.4byte	.LASF3
+ 1349 0035 03       		.byte	0x3
+ 1350 0036 2A       		.byte	0x2a
+ 1351 0037 3B000000 		.4byte	0x3b
+ 1352 003b 02       		.uleb128 0x2
+ 1353 003c 01       		.byte	0x1
+ 1354 003d 08       		.byte	0x8
+ 1355 003e 56010000 		.4byte	.LASF1
+ 1356 0042 02       		.uleb128 0x2
+ 1357 0043 02       		.byte	0x2
+ 1358 0044 05       		.byte	0x5
+ 1359 0045 6B020000 		.4byte	.LASF2
+ 1360 0049 03       		.uleb128 0x3
+ 1361 004a 62020000 		.4byte	.LASF4
+ 1362 004e 03       		.byte	0x3
+ 1363 004f 36       		.byte	0x36
+ 1364 0050 54000000 		.4byte	0x54
+ 1365 0054 02       		.uleb128 0x2
+ 1366 0055 02       		.byte	0x2
+ 1367 0056 07       		.byte	0x7
+ 1368 0057 90000000 		.4byte	.LASF5
+ 1369 005b 02       		.uleb128 0x2
+ 1370 005c 04       		.byte	0x4
+ 1371 005d 05       		.byte	0x5
+ 1372 005e D7020000 		.4byte	.LASF6
+ 1373 0062 02       		.uleb128 0x2
+ 1374 0063 04       		.byte	0x4
+ 1375 0064 07       		.byte	0x7
+ 1376 0065 1F010000 		.4byte	.LASF7
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 30
+
+
+ 1377 0069 02       		.uleb128 0x2
+ 1378 006a 08       		.byte	0x8
+ 1379 006b 05       		.byte	0x5
+ 1380 006c 45020000 		.4byte	.LASF8
+ 1381 0070 02       		.uleb128 0x2
+ 1382 0071 08       		.byte	0x8
+ 1383 0072 07       		.byte	0x7
+ 1384 0073 03020000 		.4byte	.LASF9
+ 1385 0077 04       		.uleb128 0x4
+ 1386 0078 04       		.byte	0x4
+ 1387 0079 05       		.byte	0x5
+ 1388 007a 696E7400 		.ascii	"int\000"
+ 1389 007e 02       		.uleb128 0x2
+ 1390 007f 04       		.byte	0x4
+ 1391 0080 07       		.byte	0x7
+ 1392 0081 EC010000 		.4byte	.LASF10
+ 1393 0085 03       		.uleb128 0x3
+ 1394 0086 31010000 		.4byte	.LASF11
+ 1395 008a 04       		.byte	0x4
+ 1396 008b 5B       		.byte	0x5b
+ 1397 008c 3B000000 		.4byte	0x3b
+ 1398 0090 02       		.uleb128 0x2
+ 1399 0091 04       		.byte	0x4
+ 1400 0092 04       		.byte	0x4
+ 1401 0093 EC000000 		.4byte	.LASF12
+ 1402 0097 02       		.uleb128 0x2
+ 1403 0098 08       		.byte	0x8
+ 1404 0099 04       		.byte	0x4
+ 1405 009a 8A010000 		.4byte	.LASF13
+ 1406 009e 02       		.uleb128 0x2
+ 1407 009f 01       		.byte	0x1
+ 1408 00a0 08       		.byte	0x8
+ 1409 00a1 53020000 		.4byte	.LASF14
+ 1410 00a5 02       		.uleb128 0x2
+ 1411 00a6 04       		.byte	0x4
+ 1412 00a7 07       		.byte	0x7
+ 1413 00a8 3C020000 		.4byte	.LASF15
+ 1414 00ac 05       		.uleb128 0x5
+ 1415 00ad 84000000 		.4byte	.LASF52
+ 1416 00b1 01       		.byte	0x1
+ 1417 00b2 0D       		.byte	0xd
+ 1418 00b3 01       		.byte	0x1
+ 1419 00b4 30000000 		.4byte	0x30
+ 1420 00b8 00000000 		.4byte	.LFB33
+ 1421 00bc 34000000 		.4byte	.LFE33
+ 1422 00c0 00000000 		.4byte	.LLST0
+ 1423 00c4 01       		.byte	0x1
+ 1424 00c5 D8000000 		.4byte	0xd8
+ 1425 00c9 06       		.uleb128 0x6
+ 1426 00ca F2000000 		.4byte	.LASF16
+ 1427 00ce 01       		.byte	0x1
+ 1428 00cf 0D       		.byte	0xd
+ 1429 00d0 30000000 		.4byte	0x30
+ 1430 00d4 02       		.byte	0x2
+ 1431 00d5 91       		.byte	0x91
+ 1432 00d6 77       		.sleb128 -9
+ 1433 00d7 00       		.byte	0
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 31
+
+
+ 1434 00d8 07       		.uleb128 0x7
+ 1435 00d9 01       		.byte	0x1
+ 1436 00da 4B010000 		.4byte	.LASF28
+ 1437 00de 02       		.byte	0x2
+ 1438 00df 19       		.byte	0x19
+ 1439 00e0 01       		.byte	0x1
+ 1440 00e1 00000000 		.4byte	.LFB34
+ 1441 00e5 84010000 		.4byte	.LFE34
+ 1442 00e9 38000000 		.4byte	.LLST1
+ 1443 00ed 01       		.byte	0x1
+ 1444 00ee 6E010000 		.4byte	0x16e
+ 1445 00f2 06       		.uleb128 0x6
+ 1446 00f3 0D010000 		.4byte	.LASF17
+ 1447 00f7 02       		.byte	0x2
+ 1448 00f8 19       		.byte	0x19
+ 1449 00f9 30000000 		.4byte	0x30
+ 1450 00fd 03       		.byte	0x3
+ 1451 00fe 91       		.byte	0x91
+ 1452 00ff BF7F     		.sleb128 -65
+ 1453 0101 06       		.uleb128 0x6
+ 1454 0102 F9010000 		.4byte	.LASF18
+ 1455 0106 02       		.byte	0x2
+ 1456 0107 19       		.byte	0x19
+ 1457 0108 30000000 		.4byte	0x30
+ 1458 010c 03       		.byte	0x3
+ 1459 010d 91       		.byte	0x91
+ 1460 010e BE7F     		.sleb128 -66
+ 1461 0110 06       		.uleb128 0x6
+ 1462 0111 A3000000 		.4byte	.LASF19
+ 1463 0115 02       		.byte	0x2
+ 1464 0116 19       		.byte	0x19
+ 1465 0117 49000000 		.4byte	0x49
+ 1466 011b 03       		.byte	0x3
+ 1467 011c 91       		.byte	0x91
+ 1468 011d BC7F     		.sleb128 -68
+ 1469 011f 08       		.uleb128 0x8
+ 1470 0120 29020000 		.4byte	.LASF20
+ 1471 0124 02       		.byte	0x2
+ 1472 0125 1B       		.byte	0x1b
+ 1473 0126 6E010000 		.4byte	0x16e
+ 1474 012a 02       		.byte	0x2
+ 1475 012b 91       		.byte	0x91
+ 1476 012c 60       		.sleb128 -32
+ 1477 012d 08       		.uleb128 0x8
+ 1478 012e 03010000 		.4byte	.LASF21
+ 1479 0132 02       		.byte	0x2
+ 1480 0133 1E       		.byte	0x1e
+ 1481 0134 7E010000 		.4byte	0x17e
+ 1482 0138 02       		.byte	0x2
+ 1483 0139 91       		.byte	0x91
+ 1484 013a 4C       		.sleb128 -52
+ 1485 013b 08       		.uleb128 0x8
+ 1486 013c AE000000 		.4byte	.LASF22
+ 1487 0140 02       		.byte	0x2
+ 1488 0141 29       		.byte	0x29
+ 1489 0142 8E010000 		.4byte	0x18e
+ 1490 0146 02       		.byte	0x2
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 32
+
+
+ 1491 0147 91       		.byte	0x91
+ 1492 0148 44       		.sleb128 -60
+ 1493 0149 08       		.uleb128 0x8
+ 1494 014a B6010000 		.4byte	.LASF23
+ 1495 014e 02       		.byte	0x2
+ 1496 014f 30       		.byte	0x30
+ 1497 0150 49000000 		.4byte	0x49
+ 1498 0154 02       		.byte	0x2
+ 1499 0155 91       		.byte	0x91
+ 1500 0156 74       		.sleb128 -12
+ 1501 0157 09       		.uleb128 0x9
+ 1502 0158 24010000 		.4byte	.LBB2
+ 1503 015c 68010000 		.4byte	.LBE2
+ 1504 0160 0A       		.uleb128 0xa
+ 1505 0161 6B00     		.ascii	"k\000"
+ 1506 0163 02       		.byte	0x2
+ 1507 0164 4A       		.byte	0x4a
+ 1508 0165 49000000 		.4byte	0x49
+ 1509 0169 02       		.byte	0x2
+ 1510 016a 91       		.byte	0x91
+ 1511 016b 76       		.sleb128 -10
+ 1512 016c 00       		.byte	0
+ 1513 016d 00       		.byte	0
+ 1514 016e 0B       		.uleb128 0xb
+ 1515 016f 30000000 		.4byte	0x30
+ 1516 0173 7E010000 		.4byte	0x17e
+ 1517 0177 0C       		.uleb128 0xc
+ 1518 0178 A5000000 		.4byte	0xa5
+ 1519 017c 12       		.byte	0x12
+ 1520 017d 00       		.byte	0
+ 1521 017e 0B       		.uleb128 0xb
+ 1522 017f 30000000 		.4byte	0x30
+ 1523 0183 8E010000 		.4byte	0x18e
+ 1524 0187 0C       		.uleb128 0xc
+ 1525 0188 A5000000 		.4byte	0xa5
+ 1526 018c 11       		.byte	0x11
+ 1527 018d 00       		.byte	0
+ 1528 018e 0B       		.uleb128 0xb
+ 1529 018f 30000000 		.4byte	0x30
+ 1530 0193 9E010000 		.4byte	0x19e
+ 1531 0197 0C       		.uleb128 0xc
+ 1532 0198 A5000000 		.4byte	0xa5
+ 1533 019c 05       		.byte	0x5
+ 1534 019d 00       		.byte	0
+ 1535 019e 0D       		.uleb128 0xd
+ 1536 019f 01       		.byte	0x1
+ 1537 01a0 D5000000 		.4byte	.LASF24
+ 1538 01a4 02       		.byte	0x2
+ 1539 01a5 54       		.byte	0x54
+ 1540 01a6 01       		.byte	0x1
+ 1541 01a7 00000000 		.4byte	.LFB35
+ 1542 01ab 12000000 		.4byte	.LFE35
+ 1543 01af 72000000 		.4byte	.LLST2
+ 1544 01b3 01       		.byte	0x1
+ 1545 01b4 0D       		.uleb128 0xd
+ 1546 01b5 01       		.byte	0x1
+ 1547 01b6 E0000000 		.4byte	.LASF25
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 33
+
+
+ 1548 01ba 02       		.byte	0x2
+ 1549 01bb 58       		.byte	0x58
+ 1550 01bc 01       		.byte	0x1
+ 1551 01bd 00000000 		.4byte	.LFB36
+ 1552 01c1 12000000 		.4byte	.LFE36
+ 1553 01c5 9E000000 		.4byte	.LLST3
+ 1554 01c9 01       		.byte	0x1
+ 1555 01ca 0D       		.uleb128 0xd
+ 1556 01cb 01       		.byte	0x1
+ 1557 01cc F9020000 		.4byte	.LASF26
+ 1558 01d0 02       		.byte	0x2
+ 1559 01d1 5C       		.byte	0x5c
+ 1560 01d2 01       		.byte	0x1
+ 1561 01d3 00000000 		.4byte	.LFB37
+ 1562 01d7 34000000 		.4byte	.LFE37
+ 1563 01db CA000000 		.4byte	.LLST4
+ 1564 01df 01       		.byte	0x1
+ 1565 01e0 0D       		.uleb128 0xd
+ 1566 01e1 01       		.byte	0x1
+ 1567 01e2 BF000000 		.4byte	.LASF27
+ 1568 01e6 02       		.byte	0x2
+ 1569 01e7 69       		.byte	0x69
+ 1570 01e8 01       		.byte	0x1
+ 1571 01e9 00000000 		.4byte	.LFB38
+ 1572 01ed 26000000 		.4byte	.LFE38
+ 1573 01f1 F6000000 		.4byte	.LLST5
+ 1574 01f5 01       		.byte	0x1
+ 1575 01f6 07       		.uleb128 0x7
+ 1576 01f7 01       		.byte	0x1
+ 1577 01f8 73010000 		.4byte	.LASF29
+ 1578 01fc 02       		.byte	0x2
+ 1579 01fd 6F       		.byte	0x6f
+ 1580 01fe 01       		.byte	0x1
+ 1581 01ff 00000000 		.4byte	.LFB39
+ 1582 0203 3E000000 		.4byte	.LFE39
+ 1583 0207 22010000 		.4byte	.LLST6
+ 1584 020b 01       		.byte	0x1
+ 1585 020c 2D020000 		.4byte	0x22d
+ 1586 0210 06       		.uleb128 0x6
+ 1587 0211 CD020000 		.4byte	.LASF30
+ 1588 0215 02       		.byte	0x2
+ 1589 0216 6F       		.byte	0x6f
+ 1590 0217 30000000 		.4byte	0x30
+ 1591 021b 02       		.byte	0x2
+ 1592 021c 91       		.byte	0x91
+ 1593 021d 77       		.sleb128 -9
+ 1594 021e 06       		.uleb128 0x6
+ 1595 021f 91010000 		.4byte	.LASF31
+ 1596 0223 02       		.byte	0x2
+ 1597 0224 6F       		.byte	0x6f
+ 1598 0225 30000000 		.4byte	0x30
+ 1599 0229 02       		.byte	0x2
+ 1600 022a 91       		.byte	0x91
+ 1601 022b 76       		.sleb128 -10
+ 1602 022c 00       		.byte	0
+ 1603 022d 0E       		.uleb128 0xe
+ 1604 022e 01       		.byte	0x1
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 34
+
+
+ 1605 022f D8010000 		.4byte	.LASF42
+ 1606 0233 02       		.byte	0x2
+ 1607 0234 75       		.byte	0x75
+ 1608 0235 01       		.byte	0x1
+ 1609 0236 49000000 		.4byte	0x49
+ 1610 023a 00000000 		.4byte	.LFB40
+ 1611 023e 44000000 		.4byte	.LFE40
+ 1612 0242 5A010000 		.4byte	.LLST7
+ 1613 0246 01       		.byte	0x1
+ 1614 0247 68020000 		.4byte	0x268
+ 1615 024b 06       		.uleb128 0x6
+ 1616 024c 45010000 		.4byte	.LASF32
+ 1617 0250 02       		.byte	0x2
+ 1618 0251 75       		.byte	0x75
+ 1619 0252 68020000 		.4byte	0x268
+ 1620 0256 02       		.byte	0x2
+ 1621 0257 91       		.byte	0x91
+ 1622 0258 74       		.sleb128 -12
+ 1623 0259 0F       		.uleb128 0xf
+ 1624 025a 6C656E00 		.ascii	"len\000"
+ 1625 025e 02       		.byte	0x2
+ 1626 025f 75       		.byte	0x75
+ 1627 0260 30000000 		.4byte	0x30
+ 1628 0264 02       		.byte	0x2
+ 1629 0265 91       		.byte	0x91
+ 1630 0266 73       		.sleb128 -13
+ 1631 0267 00       		.byte	0
+ 1632 0268 10       		.uleb128 0x10
+ 1633 0269 04       		.byte	0x4
+ 1634 026a 30000000 		.4byte	0x30
+ 1635 026e 07       		.uleb128 0x7
+ 1636 026f 01       		.byte	0x1
+ 1637 0270 C3010000 		.4byte	.LASF33
+ 1638 0274 02       		.byte	0x2
+ 1639 0275 85       		.byte	0x85
+ 1640 0276 01       		.byte	0x1
+ 1641 0277 00000000 		.4byte	.LFB41
+ 1642 027b 2C010000 		.4byte	.LFE41
+ 1643 027f 92010000 		.4byte	.LLST8
+ 1644 0283 01       		.byte	0x1
+ 1645 0284 ED020000 		.4byte	0x2ed
+ 1646 0288 06       		.uleb128 0x6
+ 1647 0289 58020000 		.4byte	.LASF34
+ 1648 028d 02       		.byte	0x2
+ 1649 028e 85       		.byte	0x85
+ 1650 028f 30000000 		.4byte	0x30
+ 1651 0293 03       		.byte	0x3
+ 1652 0294 91       		.byte	0x91
+ 1653 0295 EF7D     		.sleb128 -273
+ 1654 0297 08       		.uleb128 0x8
+ 1655 0298 32020000 		.4byte	.LASF35
+ 1656 029c 02       		.byte	0x2
+ 1657 029d 86       		.byte	0x86
+ 1658 029e ED020000 		.4byte	0x2ed
+ 1659 02a2 03       		.byte	0x3
+ 1660 02a3 91       		.byte	0x91
+ 1661 02a4 F47D     		.sleb128 -268
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 35
+
+
+ 1662 02a6 11       		.uleb128 0x11
+ 1663 02a7 38000000 		.4byte	.LBB3
+ 1664 02ab 6A000000 		.4byte	.LBE3
+ 1665 02af C0020000 		.4byte	0x2c0
+ 1666 02b3 0A       		.uleb128 0xa
+ 1667 02b4 6300     		.ascii	"c\000"
+ 1668 02b6 02       		.byte	0x2
+ 1669 02b7 8A       		.byte	0x8a
+ 1670 02b8 30000000 		.4byte	0x30
+ 1671 02bc 02       		.byte	0x2
+ 1672 02bd 91       		.byte	0x91
+ 1673 02be 77       		.sleb128 -9
+ 1674 02bf 00       		.byte	0
+ 1675 02c0 09       		.uleb128 0x9
+ 1676 02c1 72000000 		.4byte	.LBB4
+ 1677 02c5 00010000 		.4byte	.LBE4
+ 1678 02c9 0A       		.uleb128 0xa
+ 1679 02ca 6A00     		.ascii	"j\000"
+ 1680 02cc 02       		.byte	0x2
+ 1681 02cd 8C       		.byte	0x8c
+ 1682 02ce 30000000 		.4byte	0x30
+ 1683 02d2 02       		.byte	0x2
+ 1684 02d3 91       		.byte	0x91
+ 1685 02d4 76       		.sleb128 -10
+ 1686 02d5 09       		.uleb128 0x9
+ 1687 02d6 90000000 		.4byte	.LBB5
+ 1688 02da DA000000 		.4byte	.LBE5
+ 1689 02de 0A       		.uleb128 0xa
+ 1690 02df 6B00     		.ascii	"k\000"
+ 1691 02e1 02       		.byte	0x2
+ 1692 02e2 8E       		.byte	0x8e
+ 1693 02e3 30000000 		.4byte	0x30
+ 1694 02e7 02       		.byte	0x2
+ 1695 02e8 91       		.byte	0x91
+ 1696 02e9 75       		.sleb128 -11
+ 1697 02ea 00       		.byte	0
+ 1698 02eb 00       		.byte	0
+ 1699 02ec 00       		.byte	0
+ 1700 02ed 0B       		.uleb128 0xb
+ 1701 02ee 30000000 		.4byte	0x30
+ 1702 02f2 FD020000 		.4byte	0x2fd
+ 1703 02f6 0C       		.uleb128 0xc
+ 1704 02f7 A5000000 		.4byte	0xa5
+ 1705 02fb FF       		.byte	0xff
+ 1706 02fc 00       		.byte	0
+ 1707 02fd 07       		.uleb128 0x7
+ 1708 02fe 01       		.byte	0x1
+ 1709 02ff 9B010000 		.4byte	.LASF36
+ 1710 0303 02       		.byte	0x2
+ 1711 0304 97       		.byte	0x97
+ 1712 0305 01       		.byte	0x1
+ 1713 0306 00000000 		.4byte	.LFB42
+ 1714 030a 60000000 		.4byte	.LFE42
+ 1715 030e CC010000 		.4byte	.LLST9
+ 1716 0312 01       		.byte	0x1
+ 1717 0313 42030000 		.4byte	0x342
+ 1718 0317 06       		.uleb128 0x6
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 36
+
+
+ 1719 0318 17010000 		.4byte	.LASF37
+ 1720 031c 02       		.byte	0x2
+ 1721 031d 97       		.byte	0x97
+ 1722 031e 49000000 		.4byte	0x49
+ 1723 0322 02       		.byte	0x2
+ 1724 0323 91       		.byte	0x91
+ 1725 0324 76       		.sleb128 -10
+ 1726 0325 06       		.uleb128 0x6
+ 1727 0326 64000000 		.4byte	.LASF38
+ 1728 032a 02       		.byte	0x2
+ 1729 032b 97       		.byte	0x97
+ 1730 032c 30000000 		.4byte	0x30
+ 1731 0330 02       		.byte	0x2
+ 1732 0331 91       		.byte	0x91
+ 1733 0332 75       		.sleb128 -11
+ 1734 0333 06       		.uleb128 0x6
+ 1735 0334 F2000000 		.4byte	.LASF16
+ 1736 0338 02       		.byte	0x2
+ 1737 0339 97       		.byte	0x97
+ 1738 033a 30000000 		.4byte	0x30
+ 1739 033e 02       		.byte	0x2
+ 1740 033f 91       		.byte	0x91
+ 1741 0340 74       		.sleb128 -12
+ 1742 0341 00       		.byte	0
+ 1743 0342 07       		.uleb128 0x7
+ 1744 0343 01       		.byte	0x1
+ 1745 0344 75020000 		.4byte	.LASF39
+ 1746 0348 02       		.byte	0x2
+ 1747 0349 A6       		.byte	0xa6
+ 1748 034a 01       		.byte	0x1
+ 1749 034b 00000000 		.4byte	.LFB43
+ 1750 034f 72000000 		.4byte	.LFE43
+ 1751 0353 04020000 		.4byte	.LLST10
+ 1752 0357 01       		.byte	0x1
+ 1753 0358 87030000 		.4byte	0x387
+ 1754 035c 06       		.uleb128 0x6
+ 1755 035d 17010000 		.4byte	.LASF37
+ 1756 0361 02       		.byte	0x2
+ 1757 0362 A6       		.byte	0xa6
+ 1758 0363 49000000 		.4byte	0x49
+ 1759 0367 02       		.byte	0x2
+ 1760 0368 91       		.byte	0x91
+ 1761 0369 76       		.sleb128 -10
+ 1762 036a 06       		.uleb128 0x6
+ 1763 036b 64000000 		.4byte	.LASF38
+ 1764 036f 02       		.byte	0x2
+ 1765 0370 A6       		.byte	0xa6
+ 1766 0371 30000000 		.4byte	0x30
+ 1767 0375 02       		.byte	0x2
+ 1768 0376 91       		.byte	0x91
+ 1769 0377 75       		.sleb128 -11
+ 1770 0378 06       		.uleb128 0x6
+ 1771 0379 F2000000 		.4byte	.LASF16
+ 1772 037d 02       		.byte	0x2
+ 1773 037e A6       		.byte	0xa6
+ 1774 037f 49000000 		.4byte	0x49
+ 1775 0383 02       		.byte	0x2
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 37
+
+
+ 1776 0384 91       		.byte	0x91
+ 1777 0385 72       		.sleb128 -14
+ 1778 0386 00       		.byte	0
+ 1779 0387 07       		.uleb128 0x7
+ 1780 0388 01       		.byte	0x1
+ 1781 0389 53000000 		.4byte	.LASF40
+ 1782 038d 02       		.byte	0x2
+ 1783 038e B6       		.byte	0xb6
+ 1784 038f 01       		.byte	0x1
+ 1785 0390 00000000 		.4byte	.LFB44
+ 1786 0394 92000000 		.4byte	.LFE44
+ 1787 0398 3C020000 		.4byte	.LLST11
+ 1788 039c 01       		.byte	0x1
+ 1789 039d F0030000 		.4byte	0x3f0
+ 1790 03a1 06       		.uleb128 0x6
+ 1791 03a2 17010000 		.4byte	.LASF37
+ 1792 03a6 02       		.byte	0x2
+ 1793 03a7 B6       		.byte	0xb6
+ 1794 03a8 49000000 		.4byte	0x49
+ 1795 03ac 02       		.byte	0x2
+ 1796 03ad 91       		.byte	0x91
+ 1797 03ae 6E       		.sleb128 -18
+ 1798 03af 06       		.uleb128 0x6
+ 1799 03b0 64000000 		.4byte	.LASF38
+ 1800 03b4 02       		.byte	0x2
+ 1801 03b5 B6       		.byte	0xb6
+ 1802 03b6 30000000 		.4byte	0x30
+ 1803 03ba 02       		.byte	0x2
+ 1804 03bb 91       		.byte	0x91
+ 1805 03bc 6D       		.sleb128 -19
+ 1806 03bd 06       		.uleb128 0x6
+ 1807 03be E0020000 		.4byte	.LASF41
+ 1808 03c2 02       		.byte	0x2
+ 1809 03c3 B6       		.byte	0xb6
+ 1810 03c4 68020000 		.4byte	0x268
+ 1811 03c8 02       		.byte	0x2
+ 1812 03c9 91       		.byte	0x91
+ 1813 03ca 68       		.sleb128 -24
+ 1814 03cb 0F       		.uleb128 0xf
+ 1815 03cc 6C656E00 		.ascii	"len\000"
+ 1816 03d0 02       		.byte	0x2
+ 1817 03d1 B6       		.byte	0xb6
+ 1818 03d2 30000000 		.4byte	0x30
+ 1819 03d6 02       		.byte	0x2
+ 1820 03d7 91       		.byte	0x91
+ 1821 03d8 6C       		.sleb128 -20
+ 1822 03d9 09       		.uleb128 0x9
+ 1823 03da 4E000000 		.4byte	.LBB6
+ 1824 03de 86000000 		.4byte	.LBE6
+ 1825 03e2 0A       		.uleb128 0xa
+ 1826 03e3 6B00     		.ascii	"k\000"
+ 1827 03e5 02       		.byte	0x2
+ 1828 03e6 C0       		.byte	0xc0
+ 1829 03e7 30000000 		.4byte	0x30
+ 1830 03eb 02       		.byte	0x2
+ 1831 03ec 91       		.byte	0x91
+ 1832 03ed 77       		.sleb128 -9
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 38
+
+
+ 1833 03ee 00       		.byte	0
+ 1834 03ef 00       		.byte	0
+ 1835 03f0 0E       		.uleb128 0xe
+ 1836 03f1 01       		.byte	0x1
+ 1837 03f2 A9010000 		.4byte	.LASF43
+ 1838 03f6 02       		.byte	0x2
+ 1839 03f7 C7       		.byte	0xc7
+ 1840 03f8 01       		.byte	0x1
+ 1841 03f9 30000000 		.4byte	0x30
+ 1842 03fd 00000000 		.4byte	.LFB45
+ 1843 0401 64000000 		.4byte	.LFE45
+ 1844 0405 74020000 		.4byte	.LLST12
+ 1845 0409 01       		.byte	0x1
+ 1846 040a 39040000 		.4byte	0x439
+ 1847 040e 06       		.uleb128 0x6
+ 1848 040f 17010000 		.4byte	.LASF37
+ 1849 0413 02       		.byte	0x2
+ 1850 0414 C7       		.byte	0xc7
+ 1851 0415 49000000 		.4byte	0x49
+ 1852 0419 02       		.byte	0x2
+ 1853 041a 91       		.byte	0x91
+ 1854 041b 66       		.sleb128 -26
+ 1855 041c 06       		.uleb128 0x6
+ 1856 041d 64000000 		.4byte	.LASF38
+ 1857 0421 02       		.byte	0x2
+ 1858 0422 C7       		.byte	0xc7
+ 1859 0423 30000000 		.4byte	0x30
+ 1860 0427 02       		.byte	0x2
+ 1861 0428 91       		.byte	0x91
+ 1862 0429 65       		.sleb128 -27
+ 1863 042a 08       		.uleb128 0x8
+ 1864 042b 22020000 		.4byte	.LASF44
+ 1865 042f 02       		.byte	0x2
+ 1866 0430 D1       		.byte	0xd1
+ 1867 0431 30000000 		.4byte	0x30
+ 1868 0435 02       		.byte	0x2
+ 1869 0436 91       		.byte	0x91
+ 1870 0437 6F       		.sleb128 -17
+ 1871 0438 00       		.byte	0
+ 1872 0439 0E       		.uleb128 0xe
+ 1873 043a 01       		.byte	0x1
+ 1874 043b 37010000 		.4byte	.LASF45
+ 1875 043f 02       		.byte	0x2
+ 1876 0440 D6       		.byte	0xd6
+ 1877 0441 01       		.byte	0x1
+ 1878 0442 49000000 		.4byte	0x49
+ 1879 0446 00000000 		.4byte	.LFB46
+ 1880 044a 80000000 		.4byte	.LFE46
+ 1881 044e AC020000 		.4byte	.LLST13
+ 1882 0452 01       		.byte	0x1
+ 1883 0453 82040000 		.4byte	0x482
+ 1884 0457 06       		.uleb128 0x6
+ 1885 0458 17010000 		.4byte	.LASF37
+ 1886 045c 02       		.byte	0x2
+ 1887 045d D6       		.byte	0xd6
+ 1888 045e 49000000 		.4byte	0x49
+ 1889 0462 02       		.byte	0x2
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 39
+
+
+ 1890 0463 91       		.byte	0x91
+ 1891 0464 6E       		.sleb128 -18
+ 1892 0465 06       		.uleb128 0x6
+ 1893 0466 64000000 		.4byte	.LASF38
+ 1894 046a 02       		.byte	0x2
+ 1895 046b D6       		.byte	0xd6
+ 1896 046c 30000000 		.4byte	0x30
+ 1897 0470 02       		.byte	0x2
+ 1898 0471 91       		.byte	0x91
+ 1899 0472 6D       		.sleb128 -19
+ 1900 0473 08       		.uleb128 0x8
+ 1901 0474 22020000 		.4byte	.LASF44
+ 1902 0478 02       		.byte	0x2
+ 1903 0479 D7       		.byte	0xd7
+ 1904 047a 49000000 		.4byte	0x49
+ 1905 047e 02       		.byte	0x2
+ 1906 047f 91       		.byte	0x91
+ 1907 0480 76       		.sleb128 -10
+ 1908 0481 00       		.byte	0
+ 1909 0482 07       		.uleb128 0x7
+ 1910 0483 01       		.byte	0x1
+ 1911 0484 74000000 		.4byte	.LASF46
+ 1912 0488 02       		.byte	0x2
+ 1913 0489 E7       		.byte	0xe7
+ 1914 048a 01       		.byte	0x1
+ 1915 048b 00000000 		.4byte	.LFB47
+ 1916 048f 8C000000 		.4byte	.LFE47
+ 1917 0493 E4020000 		.4byte	.LLST14
+ 1918 0497 01       		.byte	0x1
+ 1919 0498 EB040000 		.4byte	0x4eb
+ 1920 049c 06       		.uleb128 0x6
+ 1921 049d 17010000 		.4byte	.LASF37
+ 1922 04a1 02       		.byte	0x2
+ 1923 04a2 E7       		.byte	0xe7
+ 1924 04a3 49000000 		.4byte	0x49
+ 1925 04a7 02       		.byte	0x2
+ 1926 04a8 91       		.byte	0x91
+ 1927 04a9 66       		.sleb128 -26
+ 1928 04aa 06       		.uleb128 0x6
+ 1929 04ab 64000000 		.4byte	.LASF38
+ 1930 04af 02       		.byte	0x2
+ 1931 04b0 E7       		.byte	0xe7
+ 1932 04b1 30000000 		.4byte	0x30
+ 1933 04b5 02       		.byte	0x2
+ 1934 04b6 91       		.byte	0x91
+ 1935 04b7 65       		.sleb128 -27
+ 1936 04b8 06       		.uleb128 0x6
+ 1937 04b9 6B000000 		.4byte	.LASF47
+ 1938 04bd 02       		.byte	0x2
+ 1939 04be E7       		.byte	0xe7
+ 1940 04bf 68020000 		.4byte	0x268
+ 1941 04c3 02       		.byte	0x2
+ 1942 04c4 91       		.byte	0x91
+ 1943 04c5 60       		.sleb128 -32
+ 1944 04c6 0F       		.uleb128 0xf
+ 1945 04c7 6C656E00 		.ascii	"len\000"
+ 1946 04cb 02       		.byte	0x2
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 40
+
+
+ 1947 04cc E7       		.byte	0xe7
+ 1948 04cd 30000000 		.4byte	0x30
+ 1949 04d1 02       		.byte	0x2
+ 1950 04d2 91       		.byte	0x91
+ 1951 04d3 64       		.sleb128 -28
+ 1952 04d4 09       		.uleb128 0x9
+ 1953 04d5 46000000 		.4byte	.LBB7
+ 1954 04d9 80000000 		.4byte	.LBE7
+ 1955 04dd 0A       		.uleb128 0xa
+ 1956 04de 6B00     		.ascii	"k\000"
+ 1957 04e0 02       		.byte	0x2
+ 1958 04e1 F3       		.byte	0xf3
+ 1959 04e2 30000000 		.4byte	0x30
+ 1960 04e6 02       		.byte	0x2
+ 1961 04e7 91       		.byte	0x91
+ 1962 04e8 6F       		.sleb128 -17
+ 1963 04e9 00       		.byte	0
+ 1964 04ea 00       		.byte	0
+ 1965 04eb 08       		.uleb128 0x8
+ 1966 04ec E9020000 		.4byte	.LASF48
+ 1967 04f0 02       		.byte	0x2
+ 1968 04f1 17       		.byte	0x17
+ 1969 04f2 49000000 		.4byte	0x49
+ 1970 04f6 05       		.byte	0x5
+ 1971 04f7 03       		.byte	0x3
+ 1972 04f8 00000000 		.4byte	wiznetTxPointer
+ 1973 04fc 00       		.byte	0
+ 1974              		.section	.debug_abbrev,"",%progbits
+ 1975              	.Ldebug_abbrev0:
+ 1976 0000 01       		.uleb128 0x1
+ 1977 0001 11       		.uleb128 0x11
+ 1978 0002 01       		.byte	0x1
+ 1979 0003 25       		.uleb128 0x25
+ 1980 0004 0E       		.uleb128 0xe
+ 1981 0005 13       		.uleb128 0x13
+ 1982 0006 0B       		.uleb128 0xb
+ 1983 0007 03       		.uleb128 0x3
+ 1984 0008 0E       		.uleb128 0xe
+ 1985 0009 1B       		.uleb128 0x1b
+ 1986 000a 0E       		.uleb128 0xe
+ 1987 000b 55       		.uleb128 0x55
+ 1988 000c 06       		.uleb128 0x6
+ 1989 000d 11       		.uleb128 0x11
+ 1990 000e 01       		.uleb128 0x1
+ 1991 000f 52       		.uleb128 0x52
+ 1992 0010 01       		.uleb128 0x1
+ 1993 0011 10       		.uleb128 0x10
+ 1994 0012 06       		.uleb128 0x6
+ 1995 0013 00       		.byte	0
+ 1996 0014 00       		.byte	0
+ 1997 0015 02       		.uleb128 0x2
+ 1998 0016 24       		.uleb128 0x24
+ 1999 0017 00       		.byte	0
+ 2000 0018 0B       		.uleb128 0xb
+ 2001 0019 0B       		.uleb128 0xb
+ 2002 001a 3E       		.uleb128 0x3e
+ 2003 001b 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 41
+
+
+ 2004 001c 03       		.uleb128 0x3
+ 2005 001d 0E       		.uleb128 0xe
+ 2006 001e 00       		.byte	0
+ 2007 001f 00       		.byte	0
+ 2008 0020 03       		.uleb128 0x3
+ 2009 0021 16       		.uleb128 0x16
+ 2010 0022 00       		.byte	0
+ 2011 0023 03       		.uleb128 0x3
+ 2012 0024 0E       		.uleb128 0xe
+ 2013 0025 3A       		.uleb128 0x3a
+ 2014 0026 0B       		.uleb128 0xb
+ 2015 0027 3B       		.uleb128 0x3b
+ 2016 0028 0B       		.uleb128 0xb
+ 2017 0029 49       		.uleb128 0x49
+ 2018 002a 13       		.uleb128 0x13
+ 2019 002b 00       		.byte	0
+ 2020 002c 00       		.byte	0
+ 2021 002d 04       		.uleb128 0x4
+ 2022 002e 24       		.uleb128 0x24
+ 2023 002f 00       		.byte	0
+ 2024 0030 0B       		.uleb128 0xb
+ 2025 0031 0B       		.uleb128 0xb
+ 2026 0032 3E       		.uleb128 0x3e
+ 2027 0033 0B       		.uleb128 0xb
+ 2028 0034 03       		.uleb128 0x3
+ 2029 0035 08       		.uleb128 0x8
+ 2030 0036 00       		.byte	0
+ 2031 0037 00       		.byte	0
+ 2032 0038 05       		.uleb128 0x5
+ 2033 0039 2E       		.uleb128 0x2e
+ 2034 003a 01       		.byte	0x1
+ 2035 003b 03       		.uleb128 0x3
+ 2036 003c 0E       		.uleb128 0xe
+ 2037 003d 3A       		.uleb128 0x3a
+ 2038 003e 0B       		.uleb128 0xb
+ 2039 003f 3B       		.uleb128 0x3b
+ 2040 0040 0B       		.uleb128 0xb
+ 2041 0041 27       		.uleb128 0x27
+ 2042 0042 0C       		.uleb128 0xc
+ 2043 0043 49       		.uleb128 0x49
+ 2044 0044 13       		.uleb128 0x13
+ 2045 0045 11       		.uleb128 0x11
+ 2046 0046 01       		.uleb128 0x1
+ 2047 0047 12       		.uleb128 0x12
+ 2048 0048 01       		.uleb128 0x1
+ 2049 0049 40       		.uleb128 0x40
+ 2050 004a 06       		.uleb128 0x6
+ 2051 004b 9642     		.uleb128 0x2116
+ 2052 004d 0C       		.uleb128 0xc
+ 2053 004e 01       		.uleb128 0x1
+ 2054 004f 13       		.uleb128 0x13
+ 2055 0050 00       		.byte	0
+ 2056 0051 00       		.byte	0
+ 2057 0052 06       		.uleb128 0x6
+ 2058 0053 05       		.uleb128 0x5
+ 2059 0054 00       		.byte	0
+ 2060 0055 03       		.uleb128 0x3
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 42
+
+
+ 2061 0056 0E       		.uleb128 0xe
+ 2062 0057 3A       		.uleb128 0x3a
+ 2063 0058 0B       		.uleb128 0xb
+ 2064 0059 3B       		.uleb128 0x3b
+ 2065 005a 0B       		.uleb128 0xb
+ 2066 005b 49       		.uleb128 0x49
+ 2067 005c 13       		.uleb128 0x13
+ 2068 005d 02       		.uleb128 0x2
+ 2069 005e 0A       		.uleb128 0xa
+ 2070 005f 00       		.byte	0
+ 2071 0060 00       		.byte	0
+ 2072 0061 07       		.uleb128 0x7
+ 2073 0062 2E       		.uleb128 0x2e
+ 2074 0063 01       		.byte	0x1
+ 2075 0064 3F       		.uleb128 0x3f
+ 2076 0065 0C       		.uleb128 0xc
+ 2077 0066 03       		.uleb128 0x3
+ 2078 0067 0E       		.uleb128 0xe
+ 2079 0068 3A       		.uleb128 0x3a
+ 2080 0069 0B       		.uleb128 0xb
+ 2081 006a 3B       		.uleb128 0x3b
+ 2082 006b 0B       		.uleb128 0xb
+ 2083 006c 27       		.uleb128 0x27
+ 2084 006d 0C       		.uleb128 0xc
+ 2085 006e 11       		.uleb128 0x11
+ 2086 006f 01       		.uleb128 0x1
+ 2087 0070 12       		.uleb128 0x12
+ 2088 0071 01       		.uleb128 0x1
+ 2089 0072 40       		.uleb128 0x40
+ 2090 0073 06       		.uleb128 0x6
+ 2091 0074 9642     		.uleb128 0x2116
+ 2092 0076 0C       		.uleb128 0xc
+ 2093 0077 01       		.uleb128 0x1
+ 2094 0078 13       		.uleb128 0x13
+ 2095 0079 00       		.byte	0
+ 2096 007a 00       		.byte	0
+ 2097 007b 08       		.uleb128 0x8
+ 2098 007c 34       		.uleb128 0x34
+ 2099 007d 00       		.byte	0
+ 2100 007e 03       		.uleb128 0x3
+ 2101 007f 0E       		.uleb128 0xe
+ 2102 0080 3A       		.uleb128 0x3a
+ 2103 0081 0B       		.uleb128 0xb
+ 2104 0082 3B       		.uleb128 0x3b
+ 2105 0083 0B       		.uleb128 0xb
+ 2106 0084 49       		.uleb128 0x49
+ 2107 0085 13       		.uleb128 0x13
+ 2108 0086 02       		.uleb128 0x2
+ 2109 0087 0A       		.uleb128 0xa
+ 2110 0088 00       		.byte	0
+ 2111 0089 00       		.byte	0
+ 2112 008a 09       		.uleb128 0x9
+ 2113 008b 0B       		.uleb128 0xb
+ 2114 008c 01       		.byte	0x1
+ 2115 008d 11       		.uleb128 0x11
+ 2116 008e 01       		.uleb128 0x1
+ 2117 008f 12       		.uleb128 0x12
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 43
+
+
+ 2118 0090 01       		.uleb128 0x1
+ 2119 0091 00       		.byte	0
+ 2120 0092 00       		.byte	0
+ 2121 0093 0A       		.uleb128 0xa
+ 2122 0094 34       		.uleb128 0x34
+ 2123 0095 00       		.byte	0
+ 2124 0096 03       		.uleb128 0x3
+ 2125 0097 08       		.uleb128 0x8
+ 2126 0098 3A       		.uleb128 0x3a
+ 2127 0099 0B       		.uleb128 0xb
+ 2128 009a 3B       		.uleb128 0x3b
+ 2129 009b 0B       		.uleb128 0xb
+ 2130 009c 49       		.uleb128 0x49
+ 2131 009d 13       		.uleb128 0x13
+ 2132 009e 02       		.uleb128 0x2
+ 2133 009f 0A       		.uleb128 0xa
+ 2134 00a0 00       		.byte	0
+ 2135 00a1 00       		.byte	0
+ 2136 00a2 0B       		.uleb128 0xb
+ 2137 00a3 01       		.uleb128 0x1
+ 2138 00a4 01       		.byte	0x1
+ 2139 00a5 49       		.uleb128 0x49
+ 2140 00a6 13       		.uleb128 0x13
+ 2141 00a7 01       		.uleb128 0x1
+ 2142 00a8 13       		.uleb128 0x13
+ 2143 00a9 00       		.byte	0
+ 2144 00aa 00       		.byte	0
+ 2145 00ab 0C       		.uleb128 0xc
+ 2146 00ac 21       		.uleb128 0x21
+ 2147 00ad 00       		.byte	0
+ 2148 00ae 49       		.uleb128 0x49
+ 2149 00af 13       		.uleb128 0x13
+ 2150 00b0 2F       		.uleb128 0x2f
+ 2151 00b1 0B       		.uleb128 0xb
+ 2152 00b2 00       		.byte	0
+ 2153 00b3 00       		.byte	0
+ 2154 00b4 0D       		.uleb128 0xd
+ 2155 00b5 2E       		.uleb128 0x2e
+ 2156 00b6 00       		.byte	0
+ 2157 00b7 3F       		.uleb128 0x3f
+ 2158 00b8 0C       		.uleb128 0xc
+ 2159 00b9 03       		.uleb128 0x3
+ 2160 00ba 0E       		.uleb128 0xe
+ 2161 00bb 3A       		.uleb128 0x3a
+ 2162 00bc 0B       		.uleb128 0xb
+ 2163 00bd 3B       		.uleb128 0x3b
+ 2164 00be 0B       		.uleb128 0xb
+ 2165 00bf 27       		.uleb128 0x27
+ 2166 00c0 0C       		.uleb128 0xc
+ 2167 00c1 11       		.uleb128 0x11
+ 2168 00c2 01       		.uleb128 0x1
+ 2169 00c3 12       		.uleb128 0x12
+ 2170 00c4 01       		.uleb128 0x1
+ 2171 00c5 40       		.uleb128 0x40
+ 2172 00c6 06       		.uleb128 0x6
+ 2173 00c7 9642     		.uleb128 0x2116
+ 2174 00c9 0C       		.uleb128 0xc
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 44
+
+
+ 2175 00ca 00       		.byte	0
+ 2176 00cb 00       		.byte	0
+ 2177 00cc 0E       		.uleb128 0xe
+ 2178 00cd 2E       		.uleb128 0x2e
+ 2179 00ce 01       		.byte	0x1
+ 2180 00cf 3F       		.uleb128 0x3f
+ 2181 00d0 0C       		.uleb128 0xc
+ 2182 00d1 03       		.uleb128 0x3
+ 2183 00d2 0E       		.uleb128 0xe
+ 2184 00d3 3A       		.uleb128 0x3a
+ 2185 00d4 0B       		.uleb128 0xb
+ 2186 00d5 3B       		.uleb128 0x3b
+ 2187 00d6 0B       		.uleb128 0xb
+ 2188 00d7 27       		.uleb128 0x27
+ 2189 00d8 0C       		.uleb128 0xc
+ 2190 00d9 49       		.uleb128 0x49
+ 2191 00da 13       		.uleb128 0x13
+ 2192 00db 11       		.uleb128 0x11
+ 2193 00dc 01       		.uleb128 0x1
+ 2194 00dd 12       		.uleb128 0x12
+ 2195 00de 01       		.uleb128 0x1
+ 2196 00df 40       		.uleb128 0x40
+ 2197 00e0 06       		.uleb128 0x6
+ 2198 00e1 9642     		.uleb128 0x2116
+ 2199 00e3 0C       		.uleb128 0xc
+ 2200 00e4 01       		.uleb128 0x1
+ 2201 00e5 13       		.uleb128 0x13
+ 2202 00e6 00       		.byte	0
+ 2203 00e7 00       		.byte	0
+ 2204 00e8 0F       		.uleb128 0xf
+ 2205 00e9 05       		.uleb128 0x5
+ 2206 00ea 00       		.byte	0
+ 2207 00eb 03       		.uleb128 0x3
+ 2208 00ec 08       		.uleb128 0x8
+ 2209 00ed 3A       		.uleb128 0x3a
+ 2210 00ee 0B       		.uleb128 0xb
+ 2211 00ef 3B       		.uleb128 0x3b
+ 2212 00f0 0B       		.uleb128 0xb
+ 2213 00f1 49       		.uleb128 0x49
+ 2214 00f2 13       		.uleb128 0x13
+ 2215 00f3 02       		.uleb128 0x2
+ 2216 00f4 0A       		.uleb128 0xa
+ 2217 00f5 00       		.byte	0
+ 2218 00f6 00       		.byte	0
+ 2219 00f7 10       		.uleb128 0x10
+ 2220 00f8 0F       		.uleb128 0xf
+ 2221 00f9 00       		.byte	0
+ 2222 00fa 0B       		.uleb128 0xb
+ 2223 00fb 0B       		.uleb128 0xb
+ 2224 00fc 49       		.uleb128 0x49
+ 2225 00fd 13       		.uleb128 0x13
+ 2226 00fe 00       		.byte	0
+ 2227 00ff 00       		.byte	0
+ 2228 0100 11       		.uleb128 0x11
+ 2229 0101 0B       		.uleb128 0xb
+ 2230 0102 01       		.byte	0x1
+ 2231 0103 11       		.uleb128 0x11
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 45
+
+
+ 2232 0104 01       		.uleb128 0x1
+ 2233 0105 12       		.uleb128 0x12
+ 2234 0106 01       		.uleb128 0x1
+ 2235 0107 01       		.uleb128 0x1
+ 2236 0108 13       		.uleb128 0x13
+ 2237 0109 00       		.byte	0
+ 2238 010a 00       		.byte	0
+ 2239 010b 00       		.byte	0
+ 2240              		.section	.debug_loc,"",%progbits
+ 2241              	.Ldebug_loc0:
+ 2242              	.LLST0:
+ 2243 0000 00000000 		.4byte	.LFB33
+ 2244 0004 02000000 		.4byte	.LCFI0
+ 2245 0008 0200     		.2byte	0x2
+ 2246 000a 7D       		.byte	0x7d
+ 2247 000b 00       		.sleb128 0
+ 2248 000c 02000000 		.4byte	.LCFI0
+ 2249 0010 04000000 		.4byte	.LCFI1
+ 2250 0014 0200     		.2byte	0x2
+ 2251 0016 7D       		.byte	0x7d
+ 2252 0017 08       		.sleb128 8
+ 2253 0018 04000000 		.4byte	.LCFI1
+ 2254 001c 06000000 		.4byte	.LCFI2
+ 2255 0020 0200     		.2byte	0x2
+ 2256 0022 7D       		.byte	0x7d
+ 2257 0023 10       		.sleb128 16
+ 2258 0024 06000000 		.4byte	.LCFI2
+ 2259 0028 34000000 		.4byte	.LFE33
+ 2260 002c 0200     		.2byte	0x2
+ 2261 002e 77       		.byte	0x77
+ 2262 002f 10       		.sleb128 16
+ 2263 0030 00000000 		.4byte	0
+ 2264 0034 00000000 		.4byte	0
+ 2265              	.LLST1:
+ 2266 0038 00000000 		.4byte	.LFB34
+ 2267 003c 02000000 		.4byte	.LCFI3
+ 2268 0040 0200     		.2byte	0x2
+ 2269 0042 7D       		.byte	0x7d
+ 2270 0043 00       		.sleb128 0
+ 2271 0044 02000000 		.4byte	.LCFI3
+ 2272 0048 04000000 		.4byte	.LCFI4
+ 2273 004c 0200     		.2byte	0x2
+ 2274 004e 7D       		.byte	0x7d
+ 2275 004f 08       		.sleb128 8
+ 2276 0050 04000000 		.4byte	.LCFI4
+ 2277 0054 06000000 		.4byte	.LCFI5
+ 2278 0058 0300     		.2byte	0x3
+ 2279 005a 7D       		.byte	0x7d
+ 2280 005b C800     		.sleb128 72
+ 2281 005d 06000000 		.4byte	.LCFI5
+ 2282 0061 84010000 		.4byte	.LFE34
+ 2283 0065 0300     		.2byte	0x3
+ 2284 0067 77       		.byte	0x77
+ 2285 0068 C800     		.sleb128 72
+ 2286 006a 00000000 		.4byte	0
+ 2287 006e 00000000 		.4byte	0
+ 2288              	.LLST2:
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 46
+
+
+ 2289 0072 00000000 		.4byte	.LFB35
+ 2290 0076 02000000 		.4byte	.LCFI6
+ 2291 007a 0200     		.2byte	0x2
+ 2292 007c 7D       		.byte	0x7d
+ 2293 007d 00       		.sleb128 0
+ 2294 007e 02000000 		.4byte	.LCFI6
+ 2295 0082 04000000 		.4byte	.LCFI7
+ 2296 0086 0200     		.2byte	0x2
+ 2297 0088 7D       		.byte	0x7d
+ 2298 0089 08       		.sleb128 8
+ 2299 008a 04000000 		.4byte	.LCFI7
+ 2300 008e 12000000 		.4byte	.LFE35
+ 2301 0092 0200     		.2byte	0x2
+ 2302 0094 77       		.byte	0x77
+ 2303 0095 08       		.sleb128 8
+ 2304 0096 00000000 		.4byte	0
+ 2305 009a 00000000 		.4byte	0
+ 2306              	.LLST3:
+ 2307 009e 00000000 		.4byte	.LFB36
+ 2308 00a2 02000000 		.4byte	.LCFI8
+ 2309 00a6 0200     		.2byte	0x2
+ 2310 00a8 7D       		.byte	0x7d
+ 2311 00a9 00       		.sleb128 0
+ 2312 00aa 02000000 		.4byte	.LCFI8
+ 2313 00ae 04000000 		.4byte	.LCFI9
+ 2314 00b2 0200     		.2byte	0x2
+ 2315 00b4 7D       		.byte	0x7d
+ 2316 00b5 08       		.sleb128 8
+ 2317 00b6 04000000 		.4byte	.LCFI9
+ 2318 00ba 12000000 		.4byte	.LFE36
+ 2319 00be 0200     		.2byte	0x2
+ 2320 00c0 77       		.byte	0x77
+ 2321 00c1 08       		.sleb128 8
+ 2322 00c2 00000000 		.4byte	0
+ 2323 00c6 00000000 		.4byte	0
+ 2324              	.LLST4:
+ 2325 00ca 00000000 		.4byte	.LFB37
+ 2326 00ce 02000000 		.4byte	.LCFI10
+ 2327 00d2 0200     		.2byte	0x2
+ 2328 00d4 7D       		.byte	0x7d
+ 2329 00d5 00       		.sleb128 0
+ 2330 00d6 02000000 		.4byte	.LCFI10
+ 2331 00da 04000000 		.4byte	.LCFI11
+ 2332 00de 0200     		.2byte	0x2
+ 2333 00e0 7D       		.byte	0x7d
+ 2334 00e1 08       		.sleb128 8
+ 2335 00e2 04000000 		.4byte	.LCFI11
+ 2336 00e6 34000000 		.4byte	.LFE37
+ 2337 00ea 0200     		.2byte	0x2
+ 2338 00ec 77       		.byte	0x77
+ 2339 00ed 08       		.sleb128 8
+ 2340 00ee 00000000 		.4byte	0
+ 2341 00f2 00000000 		.4byte	0
+ 2342              	.LLST5:
+ 2343 00f6 00000000 		.4byte	.LFB38
+ 2344 00fa 02000000 		.4byte	.LCFI12
+ 2345 00fe 0200     		.2byte	0x2
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 47
+
+
+ 2346 0100 7D       		.byte	0x7d
+ 2347 0101 00       		.sleb128 0
+ 2348 0102 02000000 		.4byte	.LCFI12
+ 2349 0106 04000000 		.4byte	.LCFI13
+ 2350 010a 0200     		.2byte	0x2
+ 2351 010c 7D       		.byte	0x7d
+ 2352 010d 08       		.sleb128 8
+ 2353 010e 04000000 		.4byte	.LCFI13
+ 2354 0112 26000000 		.4byte	.LFE38
+ 2355 0116 0200     		.2byte	0x2
+ 2356 0118 77       		.byte	0x77
+ 2357 0119 08       		.sleb128 8
+ 2358 011a 00000000 		.4byte	0
+ 2359 011e 00000000 		.4byte	0
+ 2360              	.LLST6:
+ 2361 0122 00000000 		.4byte	.LFB39
+ 2362 0126 02000000 		.4byte	.LCFI14
+ 2363 012a 0200     		.2byte	0x2
+ 2364 012c 7D       		.byte	0x7d
+ 2365 012d 00       		.sleb128 0
+ 2366 012e 02000000 		.4byte	.LCFI14
+ 2367 0132 04000000 		.4byte	.LCFI15
+ 2368 0136 0200     		.2byte	0x2
+ 2369 0138 7D       		.byte	0x7d
+ 2370 0139 08       		.sleb128 8
+ 2371 013a 04000000 		.4byte	.LCFI15
+ 2372 013e 06000000 		.4byte	.LCFI16
+ 2373 0142 0200     		.2byte	0x2
+ 2374 0144 7D       		.byte	0x7d
+ 2375 0145 10       		.sleb128 16
+ 2376 0146 06000000 		.4byte	.LCFI16
+ 2377 014a 3E000000 		.4byte	.LFE39
+ 2378 014e 0200     		.2byte	0x2
+ 2379 0150 77       		.byte	0x77
+ 2380 0151 10       		.sleb128 16
+ 2381 0152 00000000 		.4byte	0
+ 2382 0156 00000000 		.4byte	0
+ 2383              	.LLST7:
+ 2384 015a 00000000 		.4byte	.LFB40
+ 2385 015e 02000000 		.4byte	.LCFI17
+ 2386 0162 0200     		.2byte	0x2
+ 2387 0164 7D       		.byte	0x7d
+ 2388 0165 00       		.sleb128 0
+ 2389 0166 02000000 		.4byte	.LCFI17
+ 2390 016a 04000000 		.4byte	.LCFI18
+ 2391 016e 0200     		.2byte	0x2
+ 2392 0170 7D       		.byte	0x7d
+ 2393 0171 08       		.sleb128 8
+ 2394 0172 04000000 		.4byte	.LCFI18
+ 2395 0176 06000000 		.4byte	.LCFI19
+ 2396 017a 0200     		.2byte	0x2
+ 2397 017c 7D       		.byte	0x7d
+ 2398 017d 10       		.sleb128 16
+ 2399 017e 06000000 		.4byte	.LCFI19
+ 2400 0182 44000000 		.4byte	.LFE40
+ 2401 0186 0200     		.2byte	0x2
+ 2402 0188 77       		.byte	0x77
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 48
+
+
+ 2403 0189 10       		.sleb128 16
+ 2404 018a 00000000 		.4byte	0
+ 2405 018e 00000000 		.4byte	0
+ 2406              	.LLST8:
+ 2407 0192 00000000 		.4byte	.LFB41
+ 2408 0196 02000000 		.4byte	.LCFI20
+ 2409 019a 0200     		.2byte	0x2
+ 2410 019c 7D       		.byte	0x7d
+ 2411 019d 00       		.sleb128 0
+ 2412 019e 02000000 		.4byte	.LCFI20
+ 2413 01a2 04000000 		.4byte	.LCFI21
+ 2414 01a6 0200     		.2byte	0x2
+ 2415 01a8 7D       		.byte	0x7d
+ 2416 01a9 08       		.sleb128 8
+ 2417 01aa 04000000 		.4byte	.LCFI21
+ 2418 01ae 06000000 		.4byte	.LCFI22
+ 2419 01b2 0300     		.2byte	0x3
+ 2420 01b4 7D       		.byte	0x7d
+ 2421 01b5 9802     		.sleb128 280
+ 2422 01b7 06000000 		.4byte	.LCFI22
+ 2423 01bb 2C010000 		.4byte	.LFE41
+ 2424 01bf 0300     		.2byte	0x3
+ 2425 01c1 77       		.byte	0x77
+ 2426 01c2 9802     		.sleb128 280
+ 2427 01c4 00000000 		.4byte	0
+ 2428 01c8 00000000 		.4byte	0
+ 2429              	.LLST9:
+ 2430 01cc 00000000 		.4byte	.LFB42
+ 2431 01d0 02000000 		.4byte	.LCFI23
+ 2432 01d4 0200     		.2byte	0x2
+ 2433 01d6 7D       		.byte	0x7d
+ 2434 01d7 00       		.sleb128 0
+ 2435 01d8 02000000 		.4byte	.LCFI23
+ 2436 01dc 04000000 		.4byte	.LCFI24
+ 2437 01e0 0200     		.2byte	0x2
+ 2438 01e2 7D       		.byte	0x7d
+ 2439 01e3 08       		.sleb128 8
+ 2440 01e4 04000000 		.4byte	.LCFI24
+ 2441 01e8 06000000 		.4byte	.LCFI25
+ 2442 01ec 0200     		.2byte	0x2
+ 2443 01ee 7D       		.byte	0x7d
+ 2444 01ef 10       		.sleb128 16
+ 2445 01f0 06000000 		.4byte	.LCFI25
+ 2446 01f4 60000000 		.4byte	.LFE42
+ 2447 01f8 0200     		.2byte	0x2
+ 2448 01fa 77       		.byte	0x77
+ 2449 01fb 10       		.sleb128 16
+ 2450 01fc 00000000 		.4byte	0
+ 2451 0200 00000000 		.4byte	0
+ 2452              	.LLST10:
+ 2453 0204 00000000 		.4byte	.LFB43
+ 2454 0208 02000000 		.4byte	.LCFI26
+ 2455 020c 0200     		.2byte	0x2
+ 2456 020e 7D       		.byte	0x7d
+ 2457 020f 00       		.sleb128 0
+ 2458 0210 02000000 		.4byte	.LCFI26
+ 2459 0214 04000000 		.4byte	.LCFI27
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 49
+
+
+ 2460 0218 0200     		.2byte	0x2
+ 2461 021a 7D       		.byte	0x7d
+ 2462 021b 08       		.sleb128 8
+ 2463 021c 04000000 		.4byte	.LCFI27
+ 2464 0220 06000000 		.4byte	.LCFI28
+ 2465 0224 0200     		.2byte	0x2
+ 2466 0226 7D       		.byte	0x7d
+ 2467 0227 10       		.sleb128 16
+ 2468 0228 06000000 		.4byte	.LCFI28
+ 2469 022c 72000000 		.4byte	.LFE43
+ 2470 0230 0200     		.2byte	0x2
+ 2471 0232 77       		.byte	0x77
+ 2472 0233 10       		.sleb128 16
+ 2473 0234 00000000 		.4byte	0
+ 2474 0238 00000000 		.4byte	0
+ 2475              	.LLST11:
+ 2476 023c 00000000 		.4byte	.LFB44
+ 2477 0240 02000000 		.4byte	.LCFI29
+ 2478 0244 0200     		.2byte	0x2
+ 2479 0246 7D       		.byte	0x7d
+ 2480 0247 00       		.sleb128 0
+ 2481 0248 02000000 		.4byte	.LCFI29
+ 2482 024c 04000000 		.4byte	.LCFI30
+ 2483 0250 0200     		.2byte	0x2
+ 2484 0252 7D       		.byte	0x7d
+ 2485 0253 08       		.sleb128 8
+ 2486 0254 04000000 		.4byte	.LCFI30
+ 2487 0258 06000000 		.4byte	.LCFI31
+ 2488 025c 0200     		.2byte	0x2
+ 2489 025e 7D       		.byte	0x7d
+ 2490 025f 18       		.sleb128 24
+ 2491 0260 06000000 		.4byte	.LCFI31
+ 2492 0264 92000000 		.4byte	.LFE44
+ 2493 0268 0200     		.2byte	0x2
+ 2494 026a 77       		.byte	0x77
+ 2495 026b 18       		.sleb128 24
+ 2496 026c 00000000 		.4byte	0
+ 2497 0270 00000000 		.4byte	0
+ 2498              	.LLST12:
+ 2499 0274 00000000 		.4byte	.LFB45
+ 2500 0278 02000000 		.4byte	.LCFI32
+ 2501 027c 0200     		.2byte	0x2
+ 2502 027e 7D       		.byte	0x7d
+ 2503 027f 00       		.sleb128 0
+ 2504 0280 02000000 		.4byte	.LCFI32
+ 2505 0284 04000000 		.4byte	.LCFI33
+ 2506 0288 0200     		.2byte	0x2
+ 2507 028a 7D       		.byte	0x7d
+ 2508 028b 0C       		.sleb128 12
+ 2509 028c 04000000 		.4byte	.LCFI33
+ 2510 0290 06000000 		.4byte	.LCFI34
+ 2511 0294 0200     		.2byte	0x2
+ 2512 0296 7D       		.byte	0x7d
+ 2513 0297 20       		.sleb128 32
+ 2514 0298 06000000 		.4byte	.LCFI34
+ 2515 029c 64000000 		.4byte	.LFE45
+ 2516 02a0 0200     		.2byte	0x2
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 50
+
+
+ 2517 02a2 77       		.byte	0x77
+ 2518 02a3 20       		.sleb128 32
+ 2519 02a4 00000000 		.4byte	0
+ 2520 02a8 00000000 		.4byte	0
+ 2521              	.LLST13:
+ 2522 02ac 00000000 		.4byte	.LFB46
+ 2523 02b0 02000000 		.4byte	.LCFI35
+ 2524 02b4 0200     		.2byte	0x2
+ 2525 02b6 7D       		.byte	0x7d
+ 2526 02b7 00       		.sleb128 0
+ 2527 02b8 02000000 		.4byte	.LCFI35
+ 2528 02bc 04000000 		.4byte	.LCFI36
+ 2529 02c0 0200     		.2byte	0x2
+ 2530 02c2 7D       		.byte	0x7d
+ 2531 02c3 08       		.sleb128 8
+ 2532 02c4 04000000 		.4byte	.LCFI36
+ 2533 02c8 06000000 		.4byte	.LCFI37
+ 2534 02cc 0200     		.2byte	0x2
+ 2535 02ce 7D       		.byte	0x7d
+ 2536 02cf 18       		.sleb128 24
+ 2537 02d0 06000000 		.4byte	.LCFI37
+ 2538 02d4 80000000 		.4byte	.LFE46
+ 2539 02d8 0200     		.2byte	0x2
+ 2540 02da 77       		.byte	0x77
+ 2541 02db 18       		.sleb128 24
+ 2542 02dc 00000000 		.4byte	0
+ 2543 02e0 00000000 		.4byte	0
+ 2544              	.LLST14:
+ 2545 02e4 00000000 		.4byte	.LFB47
+ 2546 02e8 02000000 		.4byte	.LCFI38
+ 2547 02ec 0200     		.2byte	0x2
+ 2548 02ee 7D       		.byte	0x7d
+ 2549 02ef 00       		.sleb128 0
+ 2550 02f0 02000000 		.4byte	.LCFI38
+ 2551 02f4 04000000 		.4byte	.LCFI39
+ 2552 02f8 0200     		.2byte	0x2
+ 2553 02fa 7D       		.byte	0x7d
+ 2554 02fb 0C       		.sleb128 12
+ 2555 02fc 04000000 		.4byte	.LCFI39
+ 2556 0300 06000000 		.4byte	.LCFI40
+ 2557 0304 0200     		.2byte	0x2
+ 2558 0306 7D       		.byte	0x7d
+ 2559 0307 20       		.sleb128 32
+ 2560 0308 06000000 		.4byte	.LCFI40
+ 2561 030c 8C000000 		.4byte	.LFE47
+ 2562 0310 0200     		.2byte	0x2
+ 2563 0312 77       		.byte	0x77
+ 2564 0313 20       		.sleb128 32
+ 2565 0314 00000000 		.4byte	0
+ 2566 0318 00000000 		.4byte	0
+ 2567              		.section	.debug_aranges,"",%progbits
+ 2568 0000 8C000000 		.4byte	0x8c
+ 2569 0004 0200     		.2byte	0x2
+ 2570 0006 00000000 		.4byte	.Ldebug_info0
+ 2571 000a 04       		.byte	0x4
+ 2572 000b 00       		.byte	0
+ 2573 000c 0000     		.2byte	0
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 51
+
+
+ 2574 000e 0000     		.2byte	0
+ 2575 0010 00000000 		.4byte	.LFB33
+ 2576 0014 34000000 		.4byte	.LFE33-.LFB33
+ 2577 0018 00000000 		.4byte	.LFB34
+ 2578 001c 84010000 		.4byte	.LFE34-.LFB34
+ 2579 0020 00000000 		.4byte	.LFB35
+ 2580 0024 12000000 		.4byte	.LFE35-.LFB35
+ 2581 0028 00000000 		.4byte	.LFB36
+ 2582 002c 12000000 		.4byte	.LFE36-.LFB36
+ 2583 0030 00000000 		.4byte	.LFB37
+ 2584 0034 34000000 		.4byte	.LFE37-.LFB37
+ 2585 0038 00000000 		.4byte	.LFB38
+ 2586 003c 26000000 		.4byte	.LFE38-.LFB38
+ 2587 0040 00000000 		.4byte	.LFB39
+ 2588 0044 3E000000 		.4byte	.LFE39-.LFB39
+ 2589 0048 00000000 		.4byte	.LFB40
+ 2590 004c 44000000 		.4byte	.LFE40-.LFB40
+ 2591 0050 00000000 		.4byte	.LFB41
+ 2592 0054 2C010000 		.4byte	.LFE41-.LFB41
+ 2593 0058 00000000 		.4byte	.LFB42
+ 2594 005c 60000000 		.4byte	.LFE42-.LFB42
+ 2595 0060 00000000 		.4byte	.LFB43
+ 2596 0064 72000000 		.4byte	.LFE43-.LFB43
+ 2597 0068 00000000 		.4byte	.LFB44
+ 2598 006c 92000000 		.4byte	.LFE44-.LFB44
+ 2599 0070 00000000 		.4byte	.LFB45
+ 2600 0074 64000000 		.4byte	.LFE45-.LFB45
+ 2601 0078 00000000 		.4byte	.LFB46
+ 2602 007c 80000000 		.4byte	.LFE46-.LFB46
+ 2603 0080 00000000 		.4byte	.LFB47
+ 2604 0084 8C000000 		.4byte	.LFE47-.LFB47
+ 2605 0088 00000000 		.4byte	0
+ 2606 008c 00000000 		.4byte	0
+ 2607              		.section	.debug_ranges,"",%progbits
+ 2608              	.Ldebug_ranges0:
+ 2609 0000 00000000 		.4byte	.LFB33
+ 2610 0004 34000000 		.4byte	.LFE33
+ 2611 0008 00000000 		.4byte	.LFB34
+ 2612 000c 84010000 		.4byte	.LFE34
+ 2613 0010 00000000 		.4byte	.LFB35
+ 2614 0014 12000000 		.4byte	.LFE35
+ 2615 0018 00000000 		.4byte	.LFB36
+ 2616 001c 12000000 		.4byte	.LFE36
+ 2617 0020 00000000 		.4byte	.LFB37
+ 2618 0024 34000000 		.4byte	.LFE37
+ 2619 0028 00000000 		.4byte	.LFB38
+ 2620 002c 26000000 		.4byte	.LFE38
+ 2621 0030 00000000 		.4byte	.LFB39
+ 2622 0034 3E000000 		.4byte	.LFE39
+ 2623 0038 00000000 		.4byte	.LFB40
+ 2624 003c 44000000 		.4byte	.LFE40
+ 2625 0040 00000000 		.4byte	.LFB41
+ 2626 0044 2C010000 		.4byte	.LFE41
+ 2627 0048 00000000 		.4byte	.LFB42
+ 2628 004c 60000000 		.4byte	.LFE42
+ 2629 0050 00000000 		.4byte	.LFB43
+ 2630 0054 72000000 		.4byte	.LFE43
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 52
+
+
+ 2631 0058 00000000 		.4byte	.LFB44
+ 2632 005c 92000000 		.4byte	.LFE44
+ 2633 0060 00000000 		.4byte	.LFB45
+ 2634 0064 64000000 		.4byte	.LFE45
+ 2635 0068 00000000 		.4byte	.LFB46
+ 2636 006c 80000000 		.4byte	.LFE46
+ 2637 0070 00000000 		.4byte	.LFB47
+ 2638 0074 8C000000 		.4byte	.LFE47
+ 2639 0078 00000000 		.4byte	0
+ 2640 007c 00000000 		.4byte	0
+ 2641              		.section	.debug_line,"",%progbits
+ 2642              	.Ldebug_line0:
+ 2643 0000 DA020000 		.section	.debug_str,"MS",%progbits,1
+ 2643      0200FC00 
+ 2643      00000201 
+ 2643      FB0E0D00 
+ 2643      01010101 
+ 2644              	.LASF51:
+ 2645 0000 433A5C55 		.ascii	"C:\\Users\\Steve\\Desktop\\Projects\\MarsRover\\BYU"
+ 2645      73657273 
+ 2645      5C537465 
+ 2645      76655C44 
+ 2645      65736B74 
+ 2646 002d 2D4D6172 		.ascii	"-Mars-Rover\\RoverLink\\RoverLink.cydsn\000"
+ 2646      732D526F 
+ 2646      7665725C 
+ 2646      526F7665 
+ 2646      724C696E 
+ 2647              	.LASF40:
+ 2648 0053 77697A6E 		.ascii	"wiznetWriteArray\000"
+ 2648      65745772 
+ 2648      69746541 
+ 2648      72726179 
+ 2648      00
+ 2649              	.LASF38:
+ 2650 0064 626C6B53 		.ascii	"blkSel\000"
+ 2650      656C00
+ 2651              	.LASF47:
+ 2652 006b 64737441 		.ascii	"dstArray\000"
+ 2652      72726179 
+ 2652      00
+ 2653              	.LASF46:
+ 2654 0074 77697A6E 		.ascii	"wiznetReadArray\000"
+ 2654      65745265 
+ 2654      61644172 
+ 2654      72617900 
+ 2655              	.LASF52:
+ 2656 0084 7472616E 		.ascii	"transferSPI\000"
+ 2656      73666572 
+ 2656      53504900 
+ 2657              	.LASF5:
+ 2658 0090 73686F72 		.ascii	"short unsigned int\000"
+ 2658      7420756E 
+ 2658      7369676E 
+ 2658      65642069 
+ 2658      6E7400
+ 2659              	.LASF19:
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 53
+
+
+ 2660 00a3 64737455 		.ascii	"dstUdpPort\000"
+ 2660      6470506F 
+ 2660      727400
+ 2661              	.LASF22:
+ 2662 00ae 77697A6E 		.ascii	"wiznetOldMacAddr\000"
+ 2662      65744F6C 
+ 2662      644D6163 
+ 2662      41646472 
+ 2662      00
+ 2663              	.LASF27:
+ 2664 00bf 77697A6E 		.ascii	"wiznetClearInterrupts\000"
+ 2664      6574436C 
+ 2664      65617249 
+ 2664      6E746572 
+ 2664      72757074 
+ 2665              	.LASF24:
+ 2666 00d5 77697A6E 		.ascii	"wiznetOpen\000"
+ 2666      65744F70 
+ 2666      656E00
+ 2667              	.LASF25:
+ 2668 00e0 77697A6E 		.ascii	"wiznetClose\000"
+ 2668      6574436C 
+ 2668      6F736500 
+ 2669              	.LASF12:
+ 2670 00ec 666C6F61 		.ascii	"float\000"
+ 2670      7400
+ 2671              	.LASF16:
+ 2672 00f2 64617461 		.ascii	"data\000"
+ 2672      00
+ 2673              	.LASF0:
+ 2674 00f7 7369676E 		.ascii	"signed char\000"
+ 2674      65642063 
+ 2674      68617200 
+ 2675              	.LASF21:
+ 2676 0103 75647043 		.ascii	"udpConfig\000"
+ 2676      6F6E6669 
+ 2676      6700
+ 2677              	.LASF17:
+ 2678 010d 6F776E49 		.ascii	"ownIpAddr\000"
+ 2678      70416464 
+ 2678      7200
+ 2679              	.LASF37:
+ 2680 0117 72656741 		.ascii	"regAddr\000"
+ 2680      64647200 
+ 2681              	.LASF7:
+ 2682 011f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2682      20756E73 
+ 2682      69676E65 
+ 2682      6420696E 
+ 2682      7400
+ 2683              	.LASF11:
+ 2684 0131 75696E74 		.ascii	"uint8\000"
+ 2684      3800
+ 2685              	.LASF45:
+ 2686 0137 77697A6E 		.ascii	"wiznetRead16b\000"
+ 2686      65745265 
+ 2686      61643136 
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 54
+
+
+ 2686      6200
+ 2687              	.LASF32:
+ 2688 0145 61727261 		.ascii	"array\000"
+ 2688      7900
+ 2689              	.LASF28:
+ 2690 014b 77697A6E 		.ascii	"wiznetInit\000"
+ 2690      6574496E 
+ 2690      697400
+ 2691              	.LASF1:
+ 2692 0156 756E7369 		.ascii	"unsigned char\000"
+ 2692      676E6564 
+ 2692      20636861 
+ 2692      7200
+ 2693              	.LASF50:
+ 2694 0164 2E5C7769 		.ascii	".\\wiznet5500.c\000"
+ 2694      7A6E6574 
+ 2694      35353030 
+ 2694      2E6300
+ 2695              	.LASF29:
+ 2696 0173 77697A6E 		.ascii	"wiznetConfigInterrupts\000"
+ 2696      6574436F 
+ 2696      6E666967 
+ 2696      496E7465 
+ 2696      72727570 
+ 2697              	.LASF13:
+ 2698 018a 646F7562 		.ascii	"double\000"
+ 2698      6C6500
+ 2699              	.LASF31:
+ 2700 0191 736F636B 		.ascii	"socketInt\000"
+ 2700      6574496E 
+ 2700      7400
+ 2701              	.LASF36:
+ 2702 019b 77697A6E 		.ascii	"wiznetWrite8b\000"
+ 2702      65745772 
+ 2702      69746538 
+ 2702      6200
+ 2703              	.LASF43:
+ 2704 01a9 77697A6E 		.ascii	"wiznetRead8b\000"
+ 2704      65745265 
+ 2704      61643862 
+ 2704      00
+ 2705              	.LASF23:
+ 2706 01b6 65706865 		.ascii	"ephemUdpPort\000"
+ 2706      6D556470 
+ 2706      506F7274 
+ 2706      00
+ 2707              	.LASF33:
+ 2708 01c3 77697A6E 		.ascii	"wiznetPrintRegisters\000"
+ 2708      65745072 
+ 2708      696E7452 
+ 2708      65676973 
+ 2708      74657273 
+ 2709              	.LASF42:
+ 2710 01d8 77697A6E 		.ascii	"wiznetWriteUdpFrame\000"
+ 2710      65745772 
+ 2710      69746555 
+ 2710      64704672 
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 55
+
+
+ 2710      616D6500 
+ 2711              	.LASF10:
+ 2712 01ec 756E7369 		.ascii	"unsigned int\000"
+ 2712      676E6564 
+ 2712      20696E74 
+ 2712      00
+ 2713              	.LASF18:
+ 2714 01f9 64737449 		.ascii	"dstIpAddr\000"
+ 2714      70416464 
+ 2714      7200
+ 2715              	.LASF9:
+ 2716 0203 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2716      206C6F6E 
+ 2716      6720756E 
+ 2716      7369676E 
+ 2716      65642069 
+ 2717              	.LASF3:
+ 2718 021a 75696E74 		.ascii	"uint8_t\000"
+ 2718      385F7400 
+ 2719              	.LASF44:
+ 2720 0222 72657375 		.ascii	"result\000"
+ 2720      6C7400
+ 2721              	.LASF20:
+ 2722 0229 636D6441 		.ascii	"cmdArray\000"
+ 2722      72726179 
+ 2722      00
+ 2723              	.LASF35:
+ 2724 0232 72656164 		.ascii	"readArray\000"
+ 2724      41727261 
+ 2724      7900
+ 2725              	.LASF15:
+ 2726 023c 73697A65 		.ascii	"sizetype\000"
+ 2726      74797065 
+ 2726      00
+ 2727              	.LASF8:
+ 2728 0245 6C6F6E67 		.ascii	"long long int\000"
+ 2728      206C6F6E 
+ 2728      6720696E 
+ 2728      7400
+ 2729              	.LASF14:
+ 2730 0253 63686172 		.ascii	"char\000"
+ 2730      00
+ 2731              	.LASF34:
+ 2732 0258 626C6B53 		.ascii	"blkSelect\000"
+ 2732      656C6563 
+ 2732      7400
+ 2733              	.LASF4:
+ 2734 0262 75696E74 		.ascii	"uint16_t\000"
+ 2734      31365F74 
+ 2734      00
+ 2735              	.LASF2:
+ 2736 026b 73686F72 		.ascii	"short int\000"
+ 2736      7420696E 
+ 2736      7400
+ 2737              	.LASF39:
+ 2738 0275 77697A6E 		.ascii	"wiznetWrite16b\000"
+ 2738      65745772 
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 56
+
+
+ 2738      69746531 
+ 2738      366200
+ 2739              	.LASF49:
+ 2740 0284 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 2740      4320342E 
+ 2740      372E3320 
+ 2740      32303133 
+ 2740      30333132 
+ 2741 02b7 616E6368 		.ascii	"anch revision 196615]\000"
+ 2741      20726576 
+ 2741      6973696F 
+ 2741      6E203139 
+ 2741      36363135 
+ 2742              	.LASF30:
+ 2743 02cd 636F6D6D 		.ascii	"commonInt\000"
+ 2743      6F6E496E 
+ 2743      7400
+ 2744              	.LASF6:
+ 2745 02d7 6C6F6E67 		.ascii	"long int\000"
+ 2745      20696E74 
+ 2745      00
+ 2746              	.LASF41:
+ 2747 02e0 73726341 		.ascii	"srcArray\000"
+ 2747      72726179 
+ 2747      00
+ 2748              	.LASF48:
+ 2749 02e9 77697A6E 		.ascii	"wiznetTxPointer\000"
+ 2749      65745478 
+ 2749      506F696E 
+ 2749      74657200 
+ 2750              	.LASF26:
+ 2751 02f9 77697A6E 		.ascii	"wiznetSend\000"
+ 2751      65745365 
+ 2751      6E6400
+ 2752              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br

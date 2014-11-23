@@ -1,0 +1,4 @@
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/CortexM0/ARM_GCC_441/Debug/CyBootAsmGnu.o : C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/CyBootAsmGnu.s 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/CyBootAsmGnu.s : 
+

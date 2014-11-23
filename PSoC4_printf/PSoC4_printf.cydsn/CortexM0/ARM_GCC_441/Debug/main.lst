@@ -1,0 +1,1189 @@
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 18, 4
+  11              		.code	16
+  12              		.file	"main.c"
+  13              		.section	.debug_abbrev,"",%progbits
+  14              	.Ldebug_abbrev0:
+  15              		.section	.debug_info,"",%progbits
+  16              	.Ldebug_info0:
+  17              		.section	.debug_line,"",%progbits
+  18              	.Ldebug_line0:
+  19 0000 9B000000 		.text
+  19      02004500 
+  19      00000201 
+  19      FB0E0D00 
+  19      01010101 
+  20              	.Ltext0:
+  21              		.cfi_sections	.debug_frame
+  22              		.section	.text.putdata,"ax",%progbits
+  23              		.align	2
+  24              		.global	putdata
+  25              		.code	16
+  26              		.thumb_func
+  27              		.type	putdata, %function
+  28              	putdata:
+  29              	.LFB20:
+  30              		.file 1 ".\\main.c"
+   1:.\main.c      **** /* ========================================
+   2:.\main.c      ****  *
+   3:.\main.c      ****   The following firmware in main.c was developed by Cypress Semiconductor
+   4:.\main.c      ****   This work is licensed under a Creative Commons Attribution 3.0 Unported License.
+   5:.\main.c      ****   
+   6:.\main.c      ****   http://creativecommons.org/licenses/by/3.0/deed.en_US
+   7:.\main.c      ****   
+   8:.\main.c      ****   You are free to:
+   9:.\main.c      ****   -To Share — to copy, distribute and transmit the work 
+  10:.\main.c      ****   -To Remix — to adapt the work 
+  11:.\main.c      ****   -To make commercial use of the work
+  12:.\main.c      ****   
+  13:.\main.c      ****   The tinyprintf of code is Copyright (c) 2004,2012 Kustaa Nyholm / SpareTimeLabs.
+  14:.\main.c      ****   You can find the source code at http://www.sparetimelabs.com/tinyprintf/tinyprintf.php.
+  15:.\main.c      ****   
+  16:.\main.c      **** 
+  17:.\main.c      ****  * ========================================
+  18:.\main.c      **** */
+  19:.\main.c      **** 
+  20:.\main.c      **** #include <device.h>
+  21:.\main.c      **** 
+  22:.\main.c      **** #define CR 0x0D
+  23:.\main.c      **** #define LF 0x0A
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 2
+
+
+  24:.\main.c      **** 
+  25:.\main.c      **** /* Used to insert a carriage return and line feed */
+  26:.\main.c      **** #define NewLine() UART_UartPutChar(CR); UART_UartPutChar(LF);
+  27:.\main.c      **** 
+  28:.\main.c      **** /* For use with tinyprintf function */
+  29:.\main.c      **** /* defines how the function will transmit data */
+  30:.\main.c      **** void putdata ( void* p, char c)
+  31:.\main.c      **** {
+  31              		.loc 1 31 0
+  32              		.cfi_startproc
+  33 0000 80B5     		push	{r7, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 7, -8
+  37              		.cfi_offset 14, -4
+  38 0002 82B0     		sub	sp, sp, #8
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 16
+  41 0004 00AF     		add	r7, sp, #0
+  42              	.LCFI2:
+  43              		.cfi_def_cfa_register 7
+  44 0006 7860     		str	r0, [r7, #4]
+  45 0008 0A1C     		mov	r2, r1
+  46 000a FB1C     		add	r3, r7, #3
+  47 000c 1A70     		strb	r2, [r3]
+  32:.\main.c      **** 	UART_UartPutChar(c);
+  48              		.loc 1 32 0
+  49 000e FB1C     		add	r3, r7, #3
+  50 0010 1B78     		ldrb	r3, [r3]
+  51 0012 181C     		mov	r0, r3
+  52 0014 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  33:.\main.c      **** }
+  53              		.loc 1 33 0
+  54 0018 BD46     		mov	sp, r7
+  55 001a 02B0     		add	sp, sp, #8
+  56              		@ sp needed for prologue
+  57 001c 80BD     		pop	{r7, pc}
+  58              		.cfi_endproc
+  59              	.LFE20:
+  60              		.size	putdata, .-putdata
+  61 001e C046     		.section	.rodata
+  62              		.align	2
+  63              	.LC3:
+  64 0000 5553425F 		.ascii	"USB_UART\012\000"
+  64      55415254 
+  64      0A00
+  65 000a 0000     		.align	2
+  66              	.LC5:
+  67 000c 7072696E 		.ascii	"printf Examples\000"
+  67      74662045 
+  67      78616D70 
+  67      6C657300 
+  68              		.align	2
+  69              	.LC7:
+  70 001c 256400   		.ascii	"%d\000"
+  71 001f 00       		.align	2
+  72              	.LC9:
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 3
+
+
+  73 0020 257500   		.ascii	"%u\000"
+  74 0023 00       		.align	2
+  75              	.LC11:
+  76 0024 257800   		.ascii	"%x\000"
+  77 0027 00       		.align	2
+  78              	.LC13:
+  79 0028 255800   		.ascii	"%X\000"
+  80 002b 00       		.align	2
+  81              	.LC15:
+  82 002c 256300   		.ascii	"%c\000"
+  83 002f 00       		.align	2
+  84              	.LC17:
+  85 0030 257300   		.ascii	"%s\000"
+  86 0033 00       		.align	2
+  87              	.LC19:
+  88 0034 73707269 		.ascii	"sprintf Examples\000"
+  88      6E746620 
+  88      4578616D 
+  88      706C6573 
+  88      00
+  89 0045 000000   		.align	2
+  90              	.LC21:
+  91 0048 7369676E 		.ascii	"signed decimal: %d\000"
+  91      65642064 
+  91      6563696D 
+  91      616C3A20 
+  91      256400
+  92 005b 00       		.align	2
+  93              	.LC23:
+  94 005c 756E7369 		.ascii	"unsigned decimal: %u\000"
+  94      676E6564 
+  94      20646563 
+  94      696D616C 
+  94      3A202575 
+  95 0071 000000   		.align	2
+  96              	.LC25:
+  97 0074 6C6F7765 		.ascii	"lower case hex: %x\000"
+  97      72206361 
+  97      73652068 
+  97      65783A20 
+  97      257800
+  98 0087 00       		.align	2
+  99              	.LC27:
+ 100 0088 75707070 		.ascii	"uppper case hex: %X\000"
+ 100      65722063 
+ 100      61736520 
+ 100      6865783A 
+ 100      20255800 
+ 101              		.align	2
+ 102              	.LC29:
+ 103 009c 63686172 		.ascii	"character: %c\000"
+ 103      61637465 
+ 103      723A2025 
+ 103      6300
+ 104 00aa 0000     		.align	2
+ 105              	.LC31:
+ 106 00ac 73747269 		.ascii	"string: %s\000"
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 4
+
+
+ 106      6E673A20 
+ 106      257300
+ 107 00b7 00       		.align	2
+ 108              	.LC1:
+ 109 00b8 4E756C6C 		.ascii	"Null String\012\000"
+ 109      20537472 
+ 109      696E670A 
+ 109      00
+ 110 00c5 000000   		.section	.text.main,"ax",%progbits
+ 111              		.align	2
+ 112              		.global	main
+ 113              		.code	16
+ 114              		.thumb_func
+ 115              		.type	main, %function
+ 116              	main:
+ 117              	.LFB21:
+  34:.\main.c      **** 
+  35:.\main.c      **** 
+  36:.\main.c      **** void main()
+  37:.\main.c      **** {
+ 118              		.loc 1 37 0
+ 119              		.cfi_startproc
+ 120 0000 90B5     		push	{r4, r7, lr}
+ 121              	.LCFI3:
+ 122              		.cfi_def_cfa_offset 12
+ 123              		.cfi_offset 4, -12
+ 124              		.cfi_offset 7, -8
+ 125              		.cfi_offset 14, -4
+ 126 0002 93B0     		sub	sp, sp, #76
+ 127              	.LCFI4:
+ 128              		.cfi_def_cfa_offset 88
+ 129 0004 00AF     		add	r7, sp, #0
+ 130              	.LCFI5:
+ 131              		.cfi_def_cfa_register 7
+  38:.\main.c      ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  39:.\main.c      **** 	
+  40:.\main.c      **** 	/* Start SCB UART module */
+  41:.\main.c      **** 	UART_Start();
+ 132              		.loc 1 41 0
+ 133 0006 FFF7FEFF 		bl	UART_Start
+  42:.\main.c      **** 	/* initialize tinyprintf with PSoC putchar function */
+  43:.\main.c      **** 	init_printf(NULL,putdata);
+ 134              		.loc 1 43 0
+ 135 000a 884B     		ldr	r3, .L6
+ 136 000c 0020     		mov	r0, #0
+ 137 000e 191C     		mov	r1, r3
+ 138 0010 FFF7FEFF 		bl	init_printf
+  44:.\main.c      **** 
+  45:.\main.c      ****     CyGlobalIntEnable; /* Uncomment this line to enable global interrupts. */
+ 139              		.loc 1 45 0
+ 140              	@ 45 ".\main.c" 1
+ 141 0014 62B6     		CPSIE   i
+ 142              	@ 0 "" 2
+  46:.\main.c      **** 	
+  47:.\main.c      **** 	/* tinyprintf supports the following formats:
+  48:.\main.c      **** 	
+  49:.\main.c      **** 	'd' int as a signed decimal number
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 5
+
+
+  50:.\main.c      **** 	'u' uint as a decimal number
+  51:.\main.c      **** 	'c' character
+  52:.\main.c      **** 	's' null terminated string
+  53:.\main.c      **** 	'x' / 'X' hexadecimal with lower / upper case letters
+  54:.\main.c      **** 	
+  55:.\main.c      **** 	*/
+  56:.\main.c      **** 	
+  57:.\main.c      **** 	int8 d = -10;
+ 143              		.loc 1 57 0
+ 144              		.code	16
+ 145 0016 3A1C     		mov	r2, r7
+ 146 0018 4532     		add	r2, r2, #69
+ 147 001a 0A23     		mov	r3, #10
+ 148 001c 5B42     		neg	r3, r3
+ 149 001e 1370     		strb	r3, [r2]
+  58:.\main.c      **** 	uint8 u = 127;
+ 150              		.loc 1 58 0
+ 151 0020 3B1C     		mov	r3, r7
+ 152 0022 4633     		add	r3, r3, #70
+ 153 0024 7F22     		mov	r2, #127
+ 154 0026 1A70     		strb	r2, [r3]
+  59:.\main.c      **** 	char c = 'c';
+ 155              		.loc 1 59 0
+ 156 0028 3B1C     		mov	r3, r7
+ 157 002a 4733     		add	r3, r3, #71
+ 158 002c 6322     		mov	r2, #99
+ 159 002e 1A70     		strb	r2, [r3]
+  60:.\main.c      **** 	const char s[] = "Null String\n";
+ 160              		.loc 1 60 0
+ 161 0030 3B1C     		mov	r3, r7
+ 162 0032 3833     		add	r3, r3, #56
+ 163 0034 7E4A     		ldr	r2, .L6+4
+ 164 0036 13CA     		ldmia	r2!, {r0, r1, r4}
+ 165 0038 13C3     		stmia	r3!, {r0, r1, r4}
+ 166 003a 1278     		ldrb	r2, [r2]
+ 167 003c 1A70     		strb	r2, [r3]
+  61:.\main.c      **** 	char buffer[50];
+  62:.\main.c      **** 
+  63:.\main.c      **** 	/* Place your application code here. */
+  64:.\main.c      **** 
+  65:.\main.c      **** 	UART_UartPutString("USB_UART\n");
+ 168              		.loc 1 65 0
+ 169 003e 7D4B     		ldr	r3, .L6+8
+ 170 0040 181C     		mov	r0, r3
+ 171 0042 FFF7FEFF 		bl	UART_UartPutString
+  66:.\main.c      **** 	NewLine();
+ 172              		.loc 1 66 0
+ 173 0046 0D20     		mov	r0, #13
+ 174 0048 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 175 004c 0A20     		mov	r0, #10
+ 176 004e FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  67:.\main.c      **** 	NewLine();
+ 177              		.loc 1 67 0
+ 178 0052 0D20     		mov	r0, #13
+ 179 0054 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 180 0058 0A20     		mov	r0, #10
+ 181 005a FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 6
+
+
+  68:.\main.c      **** 
+  69:.\main.c      **** 	/* printf examples */
+  70:.\main.c      **** 
+  71:.\main.c      **** 	UART_UartPutString("printf Examples");
+ 182              		.loc 1 71 0
+ 183 005e 764B     		ldr	r3, .L6+12
+ 184 0060 181C     		mov	r0, r3
+ 185 0062 FFF7FEFF 		bl	UART_UartPutString
+  72:.\main.c      **** 	NewLine();
+ 186              		.loc 1 72 0
+ 187 0066 0D20     		mov	r0, #13
+ 188 0068 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 189 006c 0A20     		mov	r0, #10
+ 190 006e FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  73:.\main.c      **** 	NewLine();
+ 191              		.loc 1 73 0
+ 192 0072 0D20     		mov	r0, #13
+ 193 0074 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 194 0078 0A20     		mov	r0, #10
+ 195 007a FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  74:.\main.c      **** 
+  75:.\main.c      **** 	/* print variables using printf */
+  76:.\main.c      **** 	printf("%d", d);
+ 196              		.loc 1 76 0
+ 197 007e 3B1C     		mov	r3, r7
+ 198 0080 4533     		add	r3, r3, #69
+ 199 0082 1B78     		ldrb	r3, [r3, #0]
+ 200 0084 5BB2     		sxtb	r3, r3
+ 201 0086 6D4A     		ldr	r2, .L6+16
+ 202 0088 101C     		mov	r0, r2
+ 203 008a 191C     		mov	r1, r3
+ 204 008c FFF7FEFF 		bl	tfp_printf
+  77:.\main.c      **** 	NewLine();
+ 205              		.loc 1 77 0
+ 206 0090 0D20     		mov	r0, #13
+ 207 0092 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 208 0096 0A20     		mov	r0, #10
+ 209 0098 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  78:.\main.c      **** 	printf("%u", u);
+ 210              		.loc 1 78 0
+ 211 009c 3B1C     		mov	r3, r7
+ 212 009e 4633     		add	r3, r3, #70
+ 213 00a0 1B78     		ldrb	r3, [r3]
+ 214 00a2 674A     		ldr	r2, .L6+20
+ 215 00a4 101C     		mov	r0, r2
+ 216 00a6 191C     		mov	r1, r3
+ 217 00a8 FFF7FEFF 		bl	tfp_printf
+  79:.\main.c      **** 	NewLine();
+ 218              		.loc 1 79 0
+ 219 00ac 0D20     		mov	r0, #13
+ 220 00ae FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 221 00b2 0A20     		mov	r0, #10
+ 222 00b4 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  80:.\main.c      **** 	printf("%x", u);
+ 223              		.loc 1 80 0
+ 224 00b8 3B1C     		mov	r3, r7
+ 225 00ba 4633     		add	r3, r3, #70
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 7
+
+
+ 226 00bc 1B78     		ldrb	r3, [r3]
+ 227 00be 614A     		ldr	r2, .L6+24
+ 228 00c0 101C     		mov	r0, r2
+ 229 00c2 191C     		mov	r1, r3
+ 230 00c4 FFF7FEFF 		bl	tfp_printf
+  81:.\main.c      **** 	NewLine();
+ 231              		.loc 1 81 0
+ 232 00c8 0D20     		mov	r0, #13
+ 233 00ca FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 234 00ce 0A20     		mov	r0, #10
+ 235 00d0 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  82:.\main.c      **** 	printf("%X", u);
+ 236              		.loc 1 82 0
+ 237 00d4 3B1C     		mov	r3, r7
+ 238 00d6 4633     		add	r3, r3, #70
+ 239 00d8 1B78     		ldrb	r3, [r3]
+ 240 00da 5B4A     		ldr	r2, .L6+28
+ 241 00dc 101C     		mov	r0, r2
+ 242 00de 191C     		mov	r1, r3
+ 243 00e0 FFF7FEFF 		bl	tfp_printf
+  83:.\main.c      **** 	NewLine();
+ 244              		.loc 1 83 0
+ 245 00e4 0D20     		mov	r0, #13
+ 246 00e6 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 247 00ea 0A20     		mov	r0, #10
+ 248 00ec FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  84:.\main.c      **** 	printf("%c", c);
+ 249              		.loc 1 84 0
+ 250 00f0 3B1C     		mov	r3, r7
+ 251 00f2 4733     		add	r3, r3, #71
+ 252 00f4 1B78     		ldrb	r3, [r3]
+ 253 00f6 554A     		ldr	r2, .L6+32
+ 254 00f8 101C     		mov	r0, r2
+ 255 00fa 191C     		mov	r1, r3
+ 256 00fc FFF7FEFF 		bl	tfp_printf
+  85:.\main.c      **** 	NewLine();
+ 257              		.loc 1 85 0
+ 258 0100 0D20     		mov	r0, #13
+ 259 0102 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 260 0106 0A20     		mov	r0, #10
+ 261 0108 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  86:.\main.c      **** 	printf("%s", s);
+ 262              		.loc 1 86 0
+ 263 010c 504A     		ldr	r2, .L6+36
+ 264 010e 3B1C     		mov	r3, r7
+ 265 0110 3833     		add	r3, r3, #56
+ 266 0112 101C     		mov	r0, r2
+ 267 0114 191C     		mov	r1, r3
+ 268 0116 FFF7FEFF 		bl	tfp_printf
+  87:.\main.c      **** 	NewLine();
+ 269              		.loc 1 87 0
+ 270 011a 0D20     		mov	r0, #13
+ 271 011c FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 272 0120 0A20     		mov	r0, #10
+ 273 0122 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  88:.\main.c      **** 	
+  89:.\main.c      **** 	/* sprintf examples */
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 8
+
+
+  90:.\main.c      **** 	
+  91:.\main.c      **** 	UART_UartPutString("sprintf Examples");
+ 274              		.loc 1 91 0
+ 275 0126 4B4B     		ldr	r3, .L6+40
+ 276 0128 181C     		mov	r0, r3
+ 277 012a FFF7FEFF 		bl	UART_UartPutString
+  92:.\main.c      **** 	NewLine();
+ 278              		.loc 1 92 0
+ 279 012e 0D20     		mov	r0, #13
+ 280 0130 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 281 0134 0A20     		mov	r0, #10
+ 282 0136 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  93:.\main.c      **** 	NewLine();
+ 283              		.loc 1 93 0
+ 284 013a 0D20     		mov	r0, #13
+ 285 013c FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 286 0140 0A20     		mov	r0, #10
+ 287 0142 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  94:.\main.c      **** 	
+  95:.\main.c      **** 	sprintf(buffer, "signed decimal: %d",d);
+ 288              		.loc 1 95 0
+ 289 0146 3B1C     		mov	r3, r7
+ 290 0148 4533     		add	r3, r3, #69
+ 291 014a 1B78     		ldrb	r3, [r3, #0]
+ 292 014c 5BB2     		sxtb	r3, r3
+ 293 014e 391D     		add	r1, r7, #4
+ 294 0150 414A     		ldr	r2, .L6+44
+ 295 0152 081C     		mov	r0, r1
+ 296 0154 111C     		mov	r1, r2
+ 297 0156 1A1C     		mov	r2, r3
+ 298 0158 FFF7FEFF 		bl	tfp_sprintf
+  96:.\main.c      **** 	UART_UartPutString(buffer);
+ 299              		.loc 1 96 0
+ 300 015c 3B1D     		add	r3, r7, #4
+ 301 015e 181C     		mov	r0, r3
+ 302 0160 FFF7FEFF 		bl	UART_UartPutString
+  97:.\main.c      **** 	NewLine();
+ 303              		.loc 1 97 0
+ 304 0164 0D20     		mov	r0, #13
+ 305 0166 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 306 016a 0A20     		mov	r0, #10
+ 307 016c FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  98:.\main.c      **** 	
+  99:.\main.c      **** 	sprintf(buffer, "unsigned decimal: %u",u);
+ 308              		.loc 1 99 0
+ 309 0170 3B1C     		mov	r3, r7
+ 310 0172 4633     		add	r3, r3, #70
+ 311 0174 1B78     		ldrb	r3, [r3]
+ 312 0176 391D     		add	r1, r7, #4
+ 313 0178 384A     		ldr	r2, .L6+48
+ 314 017a 081C     		mov	r0, r1
+ 315 017c 111C     		mov	r1, r2
+ 316 017e 1A1C     		mov	r2, r3
+ 317 0180 FFF7FEFF 		bl	tfp_sprintf
+ 100:.\main.c      **** 	UART_UartPutString(buffer);
+ 318              		.loc 1 100 0
+ 319 0184 3B1D     		add	r3, r7, #4
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 9
+
+
+ 320 0186 181C     		mov	r0, r3
+ 321 0188 FFF7FEFF 		bl	UART_UartPutString
+ 101:.\main.c      **** 	NewLine();
+ 322              		.loc 1 101 0
+ 323 018c 0D20     		mov	r0, #13
+ 324 018e FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 325 0192 0A20     		mov	r0, #10
+ 326 0194 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 102:.\main.c      **** 	
+ 103:.\main.c      **** 	sprintf(buffer, "lower case hex: %x",u);
+ 327              		.loc 1 103 0
+ 328 0198 3B1C     		mov	r3, r7
+ 329 019a 4633     		add	r3, r3, #70
+ 330 019c 1B78     		ldrb	r3, [r3]
+ 331 019e 391D     		add	r1, r7, #4
+ 332 01a0 2F4A     		ldr	r2, .L6+52
+ 333 01a2 081C     		mov	r0, r1
+ 334 01a4 111C     		mov	r1, r2
+ 335 01a6 1A1C     		mov	r2, r3
+ 336 01a8 FFF7FEFF 		bl	tfp_sprintf
+ 104:.\main.c      **** 	UART_UartPutString(buffer);
+ 337              		.loc 1 104 0
+ 338 01ac 3B1D     		add	r3, r7, #4
+ 339 01ae 181C     		mov	r0, r3
+ 340 01b0 FFF7FEFF 		bl	UART_UartPutString
+ 105:.\main.c      **** 	NewLine();
+ 341              		.loc 1 105 0
+ 342 01b4 0D20     		mov	r0, #13
+ 343 01b6 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 344 01ba 0A20     		mov	r0, #10
+ 345 01bc FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 106:.\main.c      **** 	
+ 107:.\main.c      **** 	sprintf(buffer, "uppper case hex: %X",u);
+ 346              		.loc 1 107 0
+ 347 01c0 3B1C     		mov	r3, r7
+ 348 01c2 4633     		add	r3, r3, #70
+ 349 01c4 1B78     		ldrb	r3, [r3]
+ 350 01c6 391D     		add	r1, r7, #4
+ 351 01c8 264A     		ldr	r2, .L6+56
+ 352 01ca 081C     		mov	r0, r1
+ 353 01cc 111C     		mov	r1, r2
+ 354 01ce 1A1C     		mov	r2, r3
+ 355 01d0 FFF7FEFF 		bl	tfp_sprintf
+ 108:.\main.c      **** 	UART_UartPutString(buffer);
+ 356              		.loc 1 108 0
+ 357 01d4 3B1D     		add	r3, r7, #4
+ 358 01d6 181C     		mov	r0, r3
+ 359 01d8 FFF7FEFF 		bl	UART_UartPutString
+ 109:.\main.c      **** 	NewLine();
+ 360              		.loc 1 109 0
+ 361 01dc 0D20     		mov	r0, #13
+ 362 01de FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 363 01e2 0A20     		mov	r0, #10
+ 364 01e4 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 110:.\main.c      **** 	
+ 111:.\main.c      **** 	sprintf(buffer, "character: %c",c);
+ 365              		.loc 1 111 0
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 10
+
+
+ 366 01e8 3B1C     		mov	r3, r7
+ 367 01ea 4733     		add	r3, r3, #71
+ 368 01ec 1B78     		ldrb	r3, [r3]
+ 369 01ee 391D     		add	r1, r7, #4
+ 370 01f0 1D4A     		ldr	r2, .L6+60
+ 371 01f2 081C     		mov	r0, r1
+ 372 01f4 111C     		mov	r1, r2
+ 373 01f6 1A1C     		mov	r2, r3
+ 374 01f8 FFF7FEFF 		bl	tfp_sprintf
+ 112:.\main.c      **** 	UART_UartPutString(buffer);
+ 375              		.loc 1 112 0
+ 376 01fc 3B1D     		add	r3, r7, #4
+ 377 01fe 181C     		mov	r0, r3
+ 378 0200 FFF7FEFF 		bl	UART_UartPutString
+ 113:.\main.c      **** 	NewLine();
+ 379              		.loc 1 113 0
+ 380 0204 0D20     		mov	r0, #13
+ 381 0206 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 382 020a 0A20     		mov	r0, #10
+ 383 020c FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 114:.\main.c      **** 	
+ 115:.\main.c      **** 	sprintf(buffer, "string: %s",s);
+ 384              		.loc 1 115 0
+ 385 0210 391D     		add	r1, r7, #4
+ 386 0212 164A     		ldr	r2, .L6+64
+ 387 0214 3B1C     		mov	r3, r7
+ 388 0216 3833     		add	r3, r3, #56
+ 389 0218 081C     		mov	r0, r1
+ 390 021a 111C     		mov	r1, r2
+ 391 021c 1A1C     		mov	r2, r3
+ 392 021e FFF7FEFF 		bl	tfp_sprintf
+ 116:.\main.c      **** 	UART_UartPutString(buffer);
+ 393              		.loc 1 116 0
+ 394 0222 3B1D     		add	r3, r7, #4
+ 395 0224 181C     		mov	r0, r3
+ 396 0226 FFF7FEFF 		bl	UART_UartPutString
+ 397              	.L4:
+ 117:.\main.c      **** 	
+ 118:.\main.c      ****     for(;;)
+ 119:.\main.c      ****     {
+ 120:.\main.c      **** 
+ 121:.\main.c      ****     }
+ 398              		.loc 1 121 0
+ 399 022a FEE7     		b	.L4
+ 400              	.L7:
+ 401              		.align	2
+ 402              	.L6:
+ 403 022c 00000000 		.word	putdata
+ 404 0230 B8000000 		.word	.LC1
+ 405 0234 00000000 		.word	.LC3
+ 406 0238 0C000000 		.word	.LC5
+ 407 023c 1C000000 		.word	.LC7
+ 408 0240 20000000 		.word	.LC9
+ 409 0244 24000000 		.word	.LC11
+ 410 0248 28000000 		.word	.LC13
+ 411 024c 2C000000 		.word	.LC15
+ 412 0250 30000000 		.word	.LC17
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 11
+
+
+ 413 0254 34000000 		.word	.LC19
+ 414 0258 48000000 		.word	.LC21
+ 415 025c 5C000000 		.word	.LC23
+ 416 0260 74000000 		.word	.LC25
+ 417 0264 88000000 		.word	.LC27
+ 418 0268 9C000000 		.word	.LC29
+ 419 026c AC000000 		.word	.LC31
+ 420              		.cfi_endproc
+ 421              	.LFE21:
+ 422              		.size	main, .-main
+ 423              		.text
+ 424              	.Letext0:
+ 425              		.section	.debug_loc,"",%progbits
+ 426              	.Ldebug_loc0:
+ 427              	.LLST0:
+ 428 0000 00000000 		.4byte	.LFB20
+ 429 0004 02000000 		.4byte	.LCFI0
+ 430 0008 0100     		.2byte	0x1
+ 431 000a 5D       		.byte	0x5d
+ 432 000b 02000000 		.4byte	.LCFI0
+ 433 000f 04000000 		.4byte	.LCFI1
+ 434 0013 0200     		.2byte	0x2
+ 435 0015 7D       		.byte	0x7d
+ 436 0016 08       		.sleb128 8
+ 437 0017 04000000 		.4byte	.LCFI1
+ 438 001b 06000000 		.4byte	.LCFI2
+ 439 001f 0200     		.2byte	0x2
+ 440 0021 7D       		.byte	0x7d
+ 441 0022 10       		.sleb128 16
+ 442 0023 06000000 		.4byte	.LCFI2
+ 443 0027 1E000000 		.4byte	.LFE20
+ 444 002b 0200     		.2byte	0x2
+ 445 002d 77       		.byte	0x77
+ 446 002e 10       		.sleb128 16
+ 447 002f 00000000 		.4byte	0x0
+ 448 0033 00000000 		.4byte	0x0
+ 449              	.LLST1:
+ 450 0037 00000000 		.4byte	.LFB21
+ 451 003b 02000000 		.4byte	.LCFI3
+ 452 003f 0100     		.2byte	0x1
+ 453 0041 5D       		.byte	0x5d
+ 454 0042 02000000 		.4byte	.LCFI3
+ 455 0046 04000000 		.4byte	.LCFI4
+ 456 004a 0200     		.2byte	0x2
+ 457 004c 7D       		.byte	0x7d
+ 458 004d 0C       		.sleb128 12
+ 459 004e 04000000 		.4byte	.LCFI4
+ 460 0052 06000000 		.4byte	.LCFI5
+ 461 0056 0300     		.2byte	0x3
+ 462 0058 7D       		.byte	0x7d
+ 463 0059 D800     		.sleb128 88
+ 464 005b 06000000 		.4byte	.LCFI5
+ 465 005f 70020000 		.4byte	.LFE21
+ 466 0063 0300     		.2byte	0x3
+ 467 0065 77       		.byte	0x77
+ 468 0066 D800     		.sleb128 88
+ 469 0068 00000000 		.4byte	0x0
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 12
+
+
+ 470 006c 00000000 		.4byte	0x0
+ 471              		.file 2 "./Generated_Source/PSoC4/cytypes.h"
+ 472              		.section	.debug_info
+ 473 0000 47010000 		.4byte	0x147
+ 474 0004 0200     		.2byte	0x2
+ 475 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 476 000a 04       		.byte	0x4
+ 477 000b 01       		.uleb128 0x1
+ 478 000c 5B000000 		.4byte	.LASF15
+ 479 0010 01       		.byte	0x1
+ 480 0011 32010000 		.4byte	.LASF16
+ 481 0015 94000000 		.4byte	.LASF17
+ 482 0019 00000000 		.4byte	0x0
+ 483 001d 00000000 		.4byte	0x0
+ 484 0021 00000000 		.4byte	.Ldebug_ranges0+0x0
+ 485 0025 00000000 		.4byte	.Ldebug_line0
+ 486 0029 02       		.uleb128 0x2
+ 487 002a 01       		.byte	0x1
+ 488 002b 06       		.byte	0x6
+ 489 002c 20010000 		.4byte	.LASF0
+ 490 0030 02       		.uleb128 0x2
+ 491 0031 01       		.byte	0x1
+ 492 0032 08       		.byte	0x8
+ 493 0033 67000000 		.4byte	.LASF1
+ 494 0037 02       		.uleb128 0x2
+ 495 0038 02       		.byte	0x2
+ 496 0039 05       		.byte	0x5
+ 497 003a 83000000 		.4byte	.LASF2
+ 498 003e 02       		.uleb128 0x2
+ 499 003f 02       		.byte	0x2
+ 500 0040 07       		.byte	0x7
+ 501 0041 0D010000 		.4byte	.LASF3
+ 502 0045 02       		.uleb128 0x2
+ 503 0046 04       		.byte	0x4
+ 504 0047 05       		.byte	0x5
+ 505 0048 7A000000 		.4byte	.LASF4
+ 506 004c 02       		.uleb128 0x2
+ 507 004d 04       		.byte	0x4
+ 508 004e 07       		.byte	0x7
+ 509 004f 32000000 		.4byte	.LASF5
+ 510 0053 02       		.uleb128 0x2
+ 511 0054 08       		.byte	0x8
+ 512 0055 05       		.byte	0x5
+ 513 0056 00000000 		.4byte	.LASF6
+ 514 005a 02       		.uleb128 0x2
+ 515 005b 08       		.byte	0x8
+ 516 005c 07       		.byte	0x7
+ 517 005d 44000000 		.4byte	.LASF7
+ 518 0061 03       		.uleb128 0x3
+ 519 0062 04       		.byte	0x4
+ 520 0063 05       		.byte	0x5
+ 521 0064 696E7400 		.ascii	"int\000"
+ 522 0068 02       		.uleb128 0x2
+ 523 0069 04       		.byte	0x4
+ 524 006a 07       		.byte	0x7
+ 525 006b 0E000000 		.4byte	.LASF8
+ 526 006f 04       		.uleb128 0x4
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 13
+
+
+ 527 0070 2C000000 		.4byte	.LASF9
+ 528 0074 02       		.byte	0x2
+ 529 0075 4C       		.byte	0x4c
+ 530 0076 30000000 		.4byte	0x30
+ 531 007a 04       		.uleb128 0x4
+ 532 007b 27000000 		.4byte	.LASF10
+ 533 007f 02       		.byte	0x2
+ 534 0080 4F       		.byte	0x4f
+ 535 0081 29000000 		.4byte	0x29
+ 536 0085 02       		.uleb128 0x2
+ 537 0086 04       		.byte	0x4
+ 538 0087 04       		.byte	0x4
+ 539 0088 2C010000 		.4byte	.LASF11
+ 540 008c 02       		.uleb128 0x2
+ 541 008d 08       		.byte	0x8
+ 542 008e 04       		.byte	0x4
+ 543 008f 8D000000 		.4byte	.LASF12
+ 544 0093 02       		.uleb128 0x2
+ 545 0094 01       		.byte	0x1
+ 546 0095 08       		.byte	0x8
+ 547 0096 75000000 		.4byte	.LASF13
+ 548 009a 05       		.uleb128 0x5
+ 549 009b 04       		.byte	0x4
+ 550 009c 07       		.byte	0x7
+ 551 009d 06       		.uleb128 0x6
+ 552 009e 04       		.byte	0x4
+ 553 009f 07       		.uleb128 0x7
+ 554 00a0 01       		.byte	0x1
+ 555 00a1 3B010000 		.4byte	.LASF18
+ 556 00a5 01       		.byte	0x1
+ 557 00a6 1E       		.byte	0x1e
+ 558 00a7 01       		.byte	0x1
+ 559 00a8 00000000 		.4byte	.LFB20
+ 560 00ac 1E000000 		.4byte	.LFE20
+ 561 00b0 00000000 		.4byte	.LLST0
+ 562 00b4 D1000000 		.4byte	0xd1
+ 563 00b8 08       		.uleb128 0x8
+ 564 00b9 7000     		.ascii	"p\000"
+ 565 00bb 01       		.byte	0x1
+ 566 00bc 1E       		.byte	0x1e
+ 567 00bd 9D000000 		.4byte	0x9d
+ 568 00c1 02       		.byte	0x2
+ 569 00c2 91       		.byte	0x91
+ 570 00c3 74       		.sleb128 -12
+ 571 00c4 08       		.uleb128 0x8
+ 572 00c5 6300     		.ascii	"c\000"
+ 573 00c7 01       		.byte	0x1
+ 574 00c8 1E       		.byte	0x1e
+ 575 00c9 93000000 		.4byte	0x93
+ 576 00cd 02       		.byte	0x2
+ 577 00ce 91       		.byte	0x91
+ 578 00cf 73       		.sleb128 -13
+ 579 00d0 00       		.byte	0x0
+ 580 00d1 09       		.uleb128 0x9
+ 581 00d2 01       		.byte	0x1
+ 582 00d3 22000000 		.4byte	.LASF19
+ 583 00d7 01       		.byte	0x1
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 14
+
+
+ 584 00d8 24       		.byte	0x24
+ 585 00d9 00000000 		.4byte	.LFB21
+ 586 00dd 70020000 		.4byte	.LFE21
+ 587 00e1 37000000 		.4byte	.LLST1
+ 588 00e5 29010000 		.4byte	0x129
+ 589 00e9 0A       		.uleb128 0xa
+ 590 00ea 6400     		.ascii	"d\000"
+ 591 00ec 01       		.byte	0x1
+ 592 00ed 39       		.byte	0x39
+ 593 00ee 7A000000 		.4byte	0x7a
+ 594 00f2 02       		.byte	0x2
+ 595 00f3 91       		.byte	0x91
+ 596 00f4 6D       		.sleb128 -19
+ 597 00f5 0A       		.uleb128 0xa
+ 598 00f6 7500     		.ascii	"u\000"
+ 599 00f8 01       		.byte	0x1
+ 600 00f9 3A       		.byte	0x3a
+ 601 00fa 6F000000 		.4byte	0x6f
+ 602 00fe 02       		.byte	0x2
+ 603 00ff 91       		.byte	0x91
+ 604 0100 6E       		.sleb128 -18
+ 605 0101 0A       		.uleb128 0xa
+ 606 0102 6300     		.ascii	"c\000"
+ 607 0104 01       		.byte	0x1
+ 608 0105 3B       		.byte	0x3b
+ 609 0106 93000000 		.4byte	0x93
+ 610 010a 02       		.byte	0x2
+ 611 010b 91       		.byte	0x91
+ 612 010c 6F       		.sleb128 -17
+ 613 010d 0A       		.uleb128 0xa
+ 614 010e 7300     		.ascii	"s\000"
+ 615 0110 01       		.byte	0x1
+ 616 0111 3C       		.byte	0x3c
+ 617 0112 39010000 		.4byte	0x139
+ 618 0116 02       		.byte	0x2
+ 619 0117 91       		.byte	0x91
+ 620 0118 60       		.sleb128 -32
+ 621 0119 0B       		.uleb128 0xb
+ 622 011a 1B000000 		.4byte	.LASF14
+ 623 011e 01       		.byte	0x1
+ 624 011f 3D       		.byte	0x3d
+ 625 0120 3E010000 		.4byte	0x13e
+ 626 0124 03       		.byte	0x3
+ 627 0125 91       		.byte	0x91
+ 628 0126 AC7F     		.sleb128 -84
+ 629 0128 00       		.byte	0x0
+ 630 0129 0C       		.uleb128 0xc
+ 631 012a 93000000 		.4byte	0x93
+ 632 012e 39010000 		.4byte	0x139
+ 633 0132 0D       		.uleb128 0xd
+ 634 0133 9A000000 		.4byte	0x9a
+ 635 0137 0C       		.byte	0xc
+ 636 0138 00       		.byte	0x0
+ 637 0139 0E       		.uleb128 0xe
+ 638 013a 29010000 		.4byte	0x129
+ 639 013e 0F       		.uleb128 0xf
+ 640 013f 93000000 		.4byte	0x93
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 15
+
+
+ 641 0143 0D       		.uleb128 0xd
+ 642 0144 9A000000 		.4byte	0x9a
+ 643 0148 31       		.byte	0x31
+ 644 0149 00       		.byte	0x0
+ 645 014a 00       		.byte	0x0
+ 646              		.section	.debug_abbrev
+ 647 0000 01       		.uleb128 0x1
+ 648 0001 11       		.uleb128 0x11
+ 649 0002 01       		.byte	0x1
+ 650 0003 25       		.uleb128 0x25
+ 651 0004 0E       		.uleb128 0xe
+ 652 0005 13       		.uleb128 0x13
+ 653 0006 0B       		.uleb128 0xb
+ 654 0007 03       		.uleb128 0x3
+ 655 0008 0E       		.uleb128 0xe
+ 656 0009 1B       		.uleb128 0x1b
+ 657 000a 0E       		.uleb128 0xe
+ 658 000b 11       		.uleb128 0x11
+ 659 000c 01       		.uleb128 0x1
+ 660 000d 52       		.uleb128 0x52
+ 661 000e 01       		.uleb128 0x1
+ 662 000f 55       		.uleb128 0x55
+ 663 0010 06       		.uleb128 0x6
+ 664 0011 10       		.uleb128 0x10
+ 665 0012 06       		.uleb128 0x6
+ 666 0013 00       		.byte	0x0
+ 667 0014 00       		.byte	0x0
+ 668 0015 02       		.uleb128 0x2
+ 669 0016 24       		.uleb128 0x24
+ 670 0017 00       		.byte	0x0
+ 671 0018 0B       		.uleb128 0xb
+ 672 0019 0B       		.uleb128 0xb
+ 673 001a 3E       		.uleb128 0x3e
+ 674 001b 0B       		.uleb128 0xb
+ 675 001c 03       		.uleb128 0x3
+ 676 001d 0E       		.uleb128 0xe
+ 677 001e 00       		.byte	0x0
+ 678 001f 00       		.byte	0x0
+ 679 0020 03       		.uleb128 0x3
+ 680 0021 24       		.uleb128 0x24
+ 681 0022 00       		.byte	0x0
+ 682 0023 0B       		.uleb128 0xb
+ 683 0024 0B       		.uleb128 0xb
+ 684 0025 3E       		.uleb128 0x3e
+ 685 0026 0B       		.uleb128 0xb
+ 686 0027 03       		.uleb128 0x3
+ 687 0028 08       		.uleb128 0x8
+ 688 0029 00       		.byte	0x0
+ 689 002a 00       		.byte	0x0
+ 690 002b 04       		.uleb128 0x4
+ 691 002c 16       		.uleb128 0x16
+ 692 002d 00       		.byte	0x0
+ 693 002e 03       		.uleb128 0x3
+ 694 002f 0E       		.uleb128 0xe
+ 695 0030 3A       		.uleb128 0x3a
+ 696 0031 0B       		.uleb128 0xb
+ 697 0032 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 16
+
+
+ 698 0033 0B       		.uleb128 0xb
+ 699 0034 49       		.uleb128 0x49
+ 700 0035 13       		.uleb128 0x13
+ 701 0036 00       		.byte	0x0
+ 702 0037 00       		.byte	0x0
+ 703 0038 05       		.uleb128 0x5
+ 704 0039 24       		.uleb128 0x24
+ 705 003a 00       		.byte	0x0
+ 706 003b 0B       		.uleb128 0xb
+ 707 003c 0B       		.uleb128 0xb
+ 708 003d 3E       		.uleb128 0x3e
+ 709 003e 0B       		.uleb128 0xb
+ 710 003f 00       		.byte	0x0
+ 711 0040 00       		.byte	0x0
+ 712 0041 06       		.uleb128 0x6
+ 713 0042 0F       		.uleb128 0xf
+ 714 0043 00       		.byte	0x0
+ 715 0044 0B       		.uleb128 0xb
+ 716 0045 0B       		.uleb128 0xb
+ 717 0046 00       		.byte	0x0
+ 718 0047 00       		.byte	0x0
+ 719 0048 07       		.uleb128 0x7
+ 720 0049 2E       		.uleb128 0x2e
+ 721 004a 01       		.byte	0x1
+ 722 004b 3F       		.uleb128 0x3f
+ 723 004c 0C       		.uleb128 0xc
+ 724 004d 03       		.uleb128 0x3
+ 725 004e 0E       		.uleb128 0xe
+ 726 004f 3A       		.uleb128 0x3a
+ 727 0050 0B       		.uleb128 0xb
+ 728 0051 3B       		.uleb128 0x3b
+ 729 0052 0B       		.uleb128 0xb
+ 730 0053 27       		.uleb128 0x27
+ 731 0054 0C       		.uleb128 0xc
+ 732 0055 11       		.uleb128 0x11
+ 733 0056 01       		.uleb128 0x1
+ 734 0057 12       		.uleb128 0x12
+ 735 0058 01       		.uleb128 0x1
+ 736 0059 40       		.uleb128 0x40
+ 737 005a 06       		.uleb128 0x6
+ 738 005b 01       		.uleb128 0x1
+ 739 005c 13       		.uleb128 0x13
+ 740 005d 00       		.byte	0x0
+ 741 005e 00       		.byte	0x0
+ 742 005f 08       		.uleb128 0x8
+ 743 0060 05       		.uleb128 0x5
+ 744 0061 00       		.byte	0x0
+ 745 0062 03       		.uleb128 0x3
+ 746 0063 08       		.uleb128 0x8
+ 747 0064 3A       		.uleb128 0x3a
+ 748 0065 0B       		.uleb128 0xb
+ 749 0066 3B       		.uleb128 0x3b
+ 750 0067 0B       		.uleb128 0xb
+ 751 0068 49       		.uleb128 0x49
+ 752 0069 13       		.uleb128 0x13
+ 753 006a 02       		.uleb128 0x2
+ 754 006b 0A       		.uleb128 0xa
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 17
+
+
+ 755 006c 00       		.byte	0x0
+ 756 006d 00       		.byte	0x0
+ 757 006e 09       		.uleb128 0x9
+ 758 006f 2E       		.uleb128 0x2e
+ 759 0070 01       		.byte	0x1
+ 760 0071 3F       		.uleb128 0x3f
+ 761 0072 0C       		.uleb128 0xc
+ 762 0073 03       		.uleb128 0x3
+ 763 0074 0E       		.uleb128 0xe
+ 764 0075 3A       		.uleb128 0x3a
+ 765 0076 0B       		.uleb128 0xb
+ 766 0077 3B       		.uleb128 0x3b
+ 767 0078 0B       		.uleb128 0xb
+ 768 0079 11       		.uleb128 0x11
+ 769 007a 01       		.uleb128 0x1
+ 770 007b 12       		.uleb128 0x12
+ 771 007c 01       		.uleb128 0x1
+ 772 007d 40       		.uleb128 0x40
+ 773 007e 06       		.uleb128 0x6
+ 774 007f 01       		.uleb128 0x1
+ 775 0080 13       		.uleb128 0x13
+ 776 0081 00       		.byte	0x0
+ 777 0082 00       		.byte	0x0
+ 778 0083 0A       		.uleb128 0xa
+ 779 0084 34       		.uleb128 0x34
+ 780 0085 00       		.byte	0x0
+ 781 0086 03       		.uleb128 0x3
+ 782 0087 08       		.uleb128 0x8
+ 783 0088 3A       		.uleb128 0x3a
+ 784 0089 0B       		.uleb128 0xb
+ 785 008a 3B       		.uleb128 0x3b
+ 786 008b 0B       		.uleb128 0xb
+ 787 008c 49       		.uleb128 0x49
+ 788 008d 13       		.uleb128 0x13
+ 789 008e 02       		.uleb128 0x2
+ 790 008f 0A       		.uleb128 0xa
+ 791 0090 00       		.byte	0x0
+ 792 0091 00       		.byte	0x0
+ 793 0092 0B       		.uleb128 0xb
+ 794 0093 34       		.uleb128 0x34
+ 795 0094 00       		.byte	0x0
+ 796 0095 03       		.uleb128 0x3
+ 797 0096 0E       		.uleb128 0xe
+ 798 0097 3A       		.uleb128 0x3a
+ 799 0098 0B       		.uleb128 0xb
+ 800 0099 3B       		.uleb128 0x3b
+ 801 009a 0B       		.uleb128 0xb
+ 802 009b 49       		.uleb128 0x49
+ 803 009c 13       		.uleb128 0x13
+ 804 009d 02       		.uleb128 0x2
+ 805 009e 0A       		.uleb128 0xa
+ 806 009f 00       		.byte	0x0
+ 807 00a0 00       		.byte	0x0
+ 808 00a1 0C       		.uleb128 0xc
+ 809 00a2 01       		.uleb128 0x1
+ 810 00a3 01       		.byte	0x1
+ 811 00a4 49       		.uleb128 0x49
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 18
+
+
+ 812 00a5 13       		.uleb128 0x13
+ 813 00a6 01       		.uleb128 0x1
+ 814 00a7 13       		.uleb128 0x13
+ 815 00a8 00       		.byte	0x0
+ 816 00a9 00       		.byte	0x0
+ 817 00aa 0D       		.uleb128 0xd
+ 818 00ab 21       		.uleb128 0x21
+ 819 00ac 00       		.byte	0x0
+ 820 00ad 49       		.uleb128 0x49
+ 821 00ae 13       		.uleb128 0x13
+ 822 00af 2F       		.uleb128 0x2f
+ 823 00b0 0B       		.uleb128 0xb
+ 824 00b1 00       		.byte	0x0
+ 825 00b2 00       		.byte	0x0
+ 826 00b3 0E       		.uleb128 0xe
+ 827 00b4 26       		.uleb128 0x26
+ 828 00b5 00       		.byte	0x0
+ 829 00b6 49       		.uleb128 0x49
+ 830 00b7 13       		.uleb128 0x13
+ 831 00b8 00       		.byte	0x0
+ 832 00b9 00       		.byte	0x0
+ 833 00ba 0F       		.uleb128 0xf
+ 834 00bb 01       		.uleb128 0x1
+ 835 00bc 01       		.byte	0x1
+ 836 00bd 49       		.uleb128 0x49
+ 837 00be 13       		.uleb128 0x13
+ 838 00bf 00       		.byte	0x0
+ 839 00c0 00       		.byte	0x0
+ 840 00c1 00       		.byte	0x0
+ 841              		.section	.debug_pubnames,"",%progbits
+ 842 0000 23000000 		.4byte	0x23
+ 843 0004 0200     		.2byte	0x2
+ 844 0006 00000000 		.4byte	.Ldebug_info0
+ 845 000a 4B010000 		.4byte	0x14b
+ 846 000e 9F000000 		.4byte	0x9f
+ 847 0012 70757464 		.ascii	"putdata\000"
+ 847      61746100 
+ 848 001a D1000000 		.4byte	0xd1
+ 849 001e 6D61696E 		.ascii	"main\000"
+ 849      00
+ 850 0023 00000000 		.4byte	0x0
+ 851              		.section	.debug_aranges,"",%progbits
+ 852 0000 24000000 		.4byte	0x24
+ 853 0004 0200     		.2byte	0x2
+ 854 0006 00000000 		.4byte	.Ldebug_info0
+ 855 000a 04       		.byte	0x4
+ 856 000b 00       		.byte	0x0
+ 857 000c 0000     		.2byte	0x0
+ 858 000e 0000     		.2byte	0x0
+ 859 0010 00000000 		.4byte	.LFB20
+ 860 0014 1E000000 		.4byte	.LFE20-.LFB20
+ 861 0018 00000000 		.4byte	.LFB21
+ 862 001c 70020000 		.4byte	.LFE21-.LFB21
+ 863 0020 00000000 		.4byte	0x0
+ 864 0024 00000000 		.4byte	0x0
+ 865              		.section	.debug_ranges,"",%progbits
+ 866              	.Ldebug_ranges0:
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 19
+
+
+ 867 0000 00000000 		.4byte	.Ltext0
+ 868 0004 00000000 		.4byte	.Letext0
+ 869 0008 00000000 		.4byte	.LFB20
+ 870 000c 1E000000 		.4byte	.LFE20
+ 871 0010 00000000 		.4byte	.LFB21
+ 872 0014 70020000 		.4byte	.LFE21
+ 873 0018 00000000 		.4byte	0x0
+ 874 001c 00000000 		.4byte	0x0
+ 875              		.section	.debug_str,"MS",%progbits,1
+ 876              	.LASF6:
+ 877 0000 6C6F6E67 		.ascii	"long long int\000"
+ 877      206C6F6E 
+ 877      6720696E 
+ 877      7400
+ 878              	.LASF8:
+ 879 000e 756E7369 		.ascii	"unsigned int\000"
+ 879      676E6564 
+ 879      20696E74 
+ 879      00
+ 880              	.LASF14:
+ 881 001b 62756666 		.ascii	"buffer\000"
+ 881      657200
+ 882              	.LASF19:
+ 883 0022 6D61696E 		.ascii	"main\000"
+ 883      00
+ 884              	.LASF10:
+ 885 0027 696E7438 		.ascii	"int8\000"
+ 885      00
+ 886              	.LASF9:
+ 887 002c 75696E74 		.ascii	"uint8\000"
+ 887      3800
+ 888              	.LASF5:
+ 889 0032 6C6F6E67 		.ascii	"long unsigned int\000"
+ 889      20756E73 
+ 889      69676E65 
+ 889      6420696E 
+ 889      7400
+ 890              	.LASF7:
+ 891 0044 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 891      206C6F6E 
+ 891      6720756E 
+ 891      7369676E 
+ 891      65642069 
+ 892              	.LASF15:
+ 893 005b 474E5520 		.ascii	"GNU C 4.4.1\000"
+ 893      4320342E 
+ 893      342E3100 
+ 894              	.LASF1:
+ 895 0067 756E7369 		.ascii	"unsigned char\000"
+ 895      676E6564 
+ 895      20636861 
+ 895      7200
+ 896              	.LASF13:
+ 897 0075 63686172 		.ascii	"char\000"
+ 897      00
+ 898              	.LASF4:
+ 899 007a 6C6F6E67 		.ascii	"long int\000"
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccDAwRHm.s 			page 20
+
+
+ 899      20696E74 
+ 899      00
+ 900              	.LASF2:
+ 901 0083 73686F72 		.ascii	"short int\000"
+ 901      7420696E 
+ 901      7400
+ 902              	.LASF12:
+ 903 008d 646F7562 		.ascii	"double\000"
+ 903      6C6500
+ 904              	.LASF17:
+ 905 0094 433A5C55 		.ascii	"C:\\Users\\wbz\\Desktop\\Element14 Posts\\028 - Tin"
+ 905      73657273 
+ 905      5C77627A 
+ 905      5C446573 
+ 905      6B746F70 
+ 906 00c2 79205072 		.ascii	"y PrintF - NS\\PSoC4_printf.cywrk.Archive03\\PSoC4_"
+ 906      696E7446 
+ 906      202D204E 
+ 906      535C5053 
+ 906      6F43345F 
+ 907 00f3 7072696E 		.ascii	"printf\\PSoC4_printf.cydsn\000"
+ 907      74665C50 
+ 907      536F4334 
+ 907      5F707269 
+ 907      6E74662E 
+ 908              	.LASF3:
+ 909 010d 73686F72 		.ascii	"short unsigned int\000"
+ 909      7420756E 
+ 909      7369676E 
+ 909      65642069 
+ 909      6E7400
+ 910              	.LASF0:
+ 911 0120 7369676E 		.ascii	"signed char\000"
+ 911      65642063 
+ 911      68617200 
+ 912              	.LASF11:
+ 913 012c 666C6F61 		.ascii	"float\000"
+ 913      7400
+ 914              	.LASF16:
+ 915 0132 2E5C6D61 		.ascii	".\\main.c\000"
+ 915      696E2E63 
+ 915      00
+ 916              	.LASF18:
+ 917 013b 70757464 		.ascii	"putdata\000"
+ 917      61746100 
+ 918              		.ident	"GCC: (Sourcery G++ Lite 2010q1-188) 4.4.1"
