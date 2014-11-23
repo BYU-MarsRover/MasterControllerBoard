@@ -1,0 +1,2706 @@
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 18, 4
+  11              		.code	16
+  12              		.file	"tinyprintf_printf.c"
+  13              		.section	.debug_abbrev,"",%progbits
+  14              	.Ldebug_abbrev0:
+  15              		.section	.debug_info,"",%progbits
+  16              	.Ldebug_info0:
+  17              		.section	.debug_line,"",%progbits
+  18              	.Ldebug_line0:
+  19 0000 DB010000 		.text
+  19      0200C900 
+  19      00000201 
+  19      FB0E0D00 
+  19      01010101 
+  20              	.Ltext0:
+  21              		.cfi_sections	.debug_frame
+  22              		.bss
+  23              		.align	2
+  24              	stdout_putf:
+  25 0000 00000000 		.space	4
+  26              		.align	2
+  27              	stdout_putp:
+  28 0004 00000000 		.space	4
+  29              		.global	__aeabi_uidiv
+  30              		.global	__aeabi_uidivmod
+  31              		.section	.text.ui2a,"ax",%progbits
+  32              		.align	2
+  33              		.code	16
+  34              		.thumb_func
+  35              		.type	ui2a, %function
+  36              	ui2a:
+  37              	.LFB0:
+  38              		.file 1 ".\\Generated_Source\\PSoC4\\tinyprintf_printf.c"
+   1:.\Generated_Source\PSoC4/tinyprintf_printf.c **** /*
+   2:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * Copyright (c) 2004,2012 Kustaa Nyholm / SpareTimeLabs
+   3:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  *
+   4:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * All rights reserved.
+   5:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  *
+   6:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * Redistribution and use in source and binary forms, with or without modification, 
+   7:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * are permitted provided that the following conditions are met:
+   8:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  *
+   9:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * Redistributions of source code must retain the above copyright notice, this list 
+  10:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * of conditions and the following disclaimer.
+  11:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * 
+  12:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * Redistributions in binary form must reproduce the above copyright notice, this 
+  13:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * list of conditions and the following disclaimer in the documentation and/or other
+  14:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * materials provided with the distribution.
+  15:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  *  
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 2
+
+
+  16:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * Neither the name of the Kustaa Nyholm or SpareTimeLabs nor the names of its 
+  17:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * contributors may be used to endorse or promote products derived from this software 
+  18:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * without specific prior written permission.
+  19:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * 
+  20:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+  21:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  22:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  23:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  24:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  25:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
+  26:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  27:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  28:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+  29:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  * OF SUCH DAMAGE.
+  30:.\Generated_Source\PSoC4/tinyprintf_printf.c ****  */
+  31:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  32:.\Generated_Source\PSoC4/tinyprintf_printf.c **** #include "tinyprintf_printf.h"
+  33:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  34:.\Generated_Source\PSoC4/tinyprintf_printf.c **** typedef void (*putcf) (void*,char);
+  35:.\Generated_Source\PSoC4/tinyprintf_printf.c **** static putcf stdout_putf;
+  36:.\Generated_Source\PSoC4/tinyprintf_printf.c **** static void* stdout_putp;
+  37:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  38:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  39:.\Generated_Source\PSoC4/tinyprintf_printf.c **** #ifdef PRINTF_LONG_SUPPORT
+  40:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  41:.\Generated_Source\PSoC4/tinyprintf_printf.c **** static void uli2a(unsigned long int num, unsigned int base, int uc,char * bf)
+  42:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+  43:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	int n=0;
+  44:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	unsigned int d=1;
+  45:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	while (num/d >= base)
+  46:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		d*=base;		 
+  47:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	while (d!=0) {
+  48:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		int dgt = num / d;
+  49:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		num%=d;
+  50:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		d/=base;
+  51:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		if (n || dgt>0|| d==0) {
+  52:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			*bf++ = dgt+(dgt<10 ? '0' : (uc ? 'A' : 'a')-10);
+  53:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			++n;
+  54:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			}
+  55:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		}
+  56:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	*bf=0;
+  57:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+  58:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  59:.\Generated_Source\PSoC4/tinyprintf_printf.c **** static void li2a (long num, char * bf)
+  60:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+  61:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	if (num<0) {
+  62:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		num=-num;
+  63:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		*bf++ = '-';
+  64:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		}
+  65:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	uli2a(num,10,0,bf);
+  66:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+  67:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  68:.\Generated_Source\PSoC4/tinyprintf_printf.c **** #endif
+  69:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  70:.\Generated_Source\PSoC4/tinyprintf_printf.c **** static void ui2a(unsigned int num, unsigned int base, int uc,char * bf)
+  71:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+  39              		.loc 1 71 0
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 3
+
+
+  40              		.cfi_startproc
+  41 0000 80B5     		push	{r7, lr}
+  42              	.LCFI0:
+  43              		.cfi_def_cfa_offset 8
+  44              		.cfi_offset 7, -8
+  45              		.cfi_offset 14, -4
+  46 0002 88B0     		sub	sp, sp, #32
+  47              	.LCFI1:
+  48              		.cfi_def_cfa_offset 40
+  49 0004 00AF     		add	r7, sp, #0
+  50              	.LCFI2:
+  51              		.cfi_def_cfa_register 7
+  52 0006 F860     		str	r0, [r7, #12]
+  53 0008 B960     		str	r1, [r7, #8]
+  54 000a 7A60     		str	r2, [r7, #4]
+  55 000c 3B60     		str	r3, [r7]
+  72:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	int n=0;
+  56              		.loc 1 72 0
+  57 000e 0023     		mov	r3, #0
+  58 0010 7B61     		str	r3, [r7, #20]
+  73:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	unsigned int d=1;
+  59              		.loc 1 73 0
+  60 0012 0123     		mov	r3, #1
+  61 0014 BB61     		str	r3, [r7, #24]
+  74:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	while (num/d >= base)
+  62              		.loc 1 74 0
+  63 0016 03E0     		b	.L2
+  64              	.L3:
+  75:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		d*=base;		
+  65              		.loc 1 75 0
+  66 0018 BB69     		ldr	r3, [r7, #24]
+  67 001a BA68     		ldr	r2, [r7, #8]
+  68 001c 5343     		mul	r3, r2
+  69 001e BB61     		str	r3, [r7, #24]
+  70              	.L2:
+  71              		.loc 1 74 0
+  72 0020 F868     		ldr	r0, [r7, #12]
+  73 0022 B969     		ldr	r1, [r7, #24]
+  74 0024 FFF7FEFF 		bl	__aeabi_uidiv
+  75 0028 031C     		mov	r3, r0
+  76 002a 1A1C     		mov	r2, r3
+  77 002c BB68     		ldr	r3, [r7, #8]
+  78 002e 9A42     		cmp	r2, r3
+  79 0030 F2D2     		bcs	.L3
+  76:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	while (d!=0) {
+  80              		.loc 1 76 0
+  81 0032 32E0     		b	.L4
+  82              	.L10:
+  83              	.LBB2:
+  77:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		int dgt = num / d;
+  84              		.loc 1 77 0
+  85 0034 F868     		ldr	r0, [r7, #12]
+  86 0036 B969     		ldr	r1, [r7, #24]
+  87 0038 FFF7FEFF 		bl	__aeabi_uidiv
+  88 003c 031C     		mov	r3, r0
+  89 003e FB61     		str	r3, [r7, #28]
+  78:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		num%= d;
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 4
+
+
+  90              		.loc 1 78 0
+  91 0040 FB68     		ldr	r3, [r7, #12]
+  92 0042 181C     		mov	r0, r3
+  93 0044 B969     		ldr	r1, [r7, #24]
+  94 0046 FFF7FEFF 		bl	__aeabi_uidivmod
+  95 004a 0B1C     		mov	r3, r1
+  96 004c FB60     		str	r3, [r7, #12]
+  79:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		d/=base;
+  97              		.loc 1 79 0
+  98 004e B869     		ldr	r0, [r7, #24]
+  99 0050 B968     		ldr	r1, [r7, #8]
+ 100 0052 FFF7FEFF 		bl	__aeabi_uidiv
+ 101 0056 031C     		mov	r3, r0
+ 102 0058 BB61     		str	r3, [r7, #24]
+  80:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		if (n || dgt>0 || d==0) {
+ 103              		.loc 1 80 0
+ 104 005a 7B69     		ldr	r3, [r7, #20]
+ 105 005c 002B     		cmp	r3, #0
+ 106 005e 05D1     		bne	.L5
+ 107 0060 FB69     		ldr	r3, [r7, #28]
+ 108 0062 002B     		cmp	r3, #0
+ 109 0064 02DC     		bgt	.L5
+ 110 0066 BB69     		ldr	r3, [r7, #24]
+ 111 0068 002B     		cmp	r3, #0
+ 112 006a 16D1     		bne	.L4
+ 113              	.L5:
+  81:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			*bf++ = dgt+(dgt<10 ? '0' : (uc ? 'A' : 'a')-10);
+ 114              		.loc 1 81 0
+ 115 006c FB69     		ldr	r3, [r7, #28]
+ 116 006e 092B     		cmp	r3, #9
+ 117 0070 06DD     		ble	.L6
+ 118 0072 7B68     		ldr	r3, [r7, #4]
+ 119 0074 002B     		cmp	r3, #0
+ 120 0076 01D0     		beq	.L7
+ 121 0078 3723     		mov	r3, #55
+ 122 007a 00E0     		b	.L8
+ 123              	.L7:
+ 124 007c 5723     		mov	r3, #87
+ 125              	.L8:
+ 126 007e 00E0     		b	.L9
+ 127              	.L6:
+ 128 0080 3023     		mov	r3, #48
+ 129              	.L9:
+ 130 0082 FA69     		ldr	r2, [r7, #28]
+ 131 0084 D2B2     		uxtb	r2, r2
+ 132 0086 9B18     		add	r3, r3, r2
+ 133 0088 DAB2     		uxtb	r2, r3
+ 134 008a 3B68     		ldr	r3, [r7]
+ 135 008c 1A70     		strb	r2, [r3]
+ 136 008e 3B68     		ldr	r3, [r7]
+ 137 0090 0133     		add	r3, r3, #1
+ 138 0092 3B60     		str	r3, [r7]
+  82:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			++n;
+ 139              		.loc 1 82 0
+ 140 0094 7B69     		ldr	r3, [r7, #20]
+ 141 0096 0133     		add	r3, r3, #1
+ 142 0098 7B61     		str	r3, [r7, #20]
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 5
+
+
+ 143              	.L4:
+ 144              	.LBE2:
+ 145              		.loc 1 76 0
+ 146 009a BB69     		ldr	r3, [r7, #24]
+ 147 009c 002B     		cmp	r3, #0
+ 148 009e C9D1     		bne	.L10
+  83:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			}
+  84:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		}
+  85:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	*bf=0;
+ 149              		.loc 1 85 0
+ 150 00a0 3B68     		ldr	r3, [r7]
+ 151 00a2 0022     		mov	r2, #0
+ 152 00a4 1A70     		strb	r2, [r3]
+  86:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 153              		.loc 1 86 0
+ 154 00a6 BD46     		mov	sp, r7
+ 155 00a8 08B0     		add	sp, sp, #32
+ 156              		@ sp needed for prologue
+ 157 00aa 80BD     		pop	{r7, pc}
+ 158              		.cfi_endproc
+ 159              	.LFE0:
+ 160              		.size	ui2a, .-ui2a
+ 161              		.section	.text.i2a,"ax",%progbits
+ 162              		.align	2
+ 163              		.code	16
+ 164              		.thumb_func
+ 165              		.type	i2a, %function
+ 166              	i2a:
+ 167              	.LFB1:
+  87:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  88:.\Generated_Source\PSoC4/tinyprintf_printf.c **** static void i2a (int num, char * bf)
+  89:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 168              		.loc 1 89 0
+ 169              		.cfi_startproc
+ 170 0000 80B5     		push	{r7, lr}
+ 171              	.LCFI3:
+ 172              		.cfi_def_cfa_offset 8
+ 173              		.cfi_offset 7, -8
+ 174              		.cfi_offset 14, -4
+ 175 0002 82B0     		sub	sp, sp, #8
+ 176              	.LCFI4:
+ 177              		.cfi_def_cfa_offset 16
+ 178 0004 00AF     		add	r7, sp, #0
+ 179              	.LCFI5:
+ 180              		.cfi_def_cfa_register 7
+ 181 0006 7860     		str	r0, [r7, #4]
+ 182 0008 3960     		str	r1, [r7]
+  90:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	if (num<0) {
+ 183              		.loc 1 90 0
+ 184 000a 7B68     		ldr	r3, [r7, #4]
+ 185 000c 002B     		cmp	r3, #0
+ 186 000e 08DA     		bge	.L13
+  91:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		num=-num;
+ 187              		.loc 1 91 0
+ 188 0010 7B68     		ldr	r3, [r7, #4]
+ 189 0012 5B42     		neg	r3, r3
+ 190 0014 7B60     		str	r3, [r7, #4]
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 6
+
+
+  92:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		*bf++ = '-';
+ 191              		.loc 1 92 0
+ 192 0016 3B68     		ldr	r3, [r7]
+ 193 0018 2D22     		mov	r2, #45
+ 194 001a 1A70     		strb	r2, [r3]
+ 195 001c 3B68     		ldr	r3, [r7]
+ 196 001e 0133     		add	r3, r3, #1
+ 197 0020 3B60     		str	r3, [r7]
+ 198              	.L13:
+  93:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		}
+  94:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	ui2a(num,10,0,bf);
+ 199              		.loc 1 94 0
+ 200 0022 7A68     		ldr	r2, [r7, #4]
+ 201 0024 3B68     		ldr	r3, [r7]
+ 202 0026 101C     		mov	r0, r2
+ 203 0028 0A21     		mov	r1, #10
+ 204 002a 0022     		mov	r2, #0
+ 205 002c FFF7FEFF 		bl	ui2a
+  95:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 206              		.loc 1 95 0
+ 207 0030 BD46     		mov	sp, r7
+ 208 0032 02B0     		add	sp, sp, #8
+ 209              		@ sp needed for prologue
+ 210 0034 80BD     		pop	{r7, pc}
+ 211              		.cfi_endproc
+ 212              	.LFE1:
+ 213              		.size	i2a, .-i2a
+ 214 0036 C046     		.section	.text.a2d,"ax",%progbits
+ 215              		.align	2
+ 216              		.code	16
+ 217              		.thumb_func
+ 218              		.type	a2d, %function
+ 219              	a2d:
+ 220              	.LFB2:
+  96:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+  97:.\Generated_Source\PSoC4/tinyprintf_printf.c **** static int a2d(char ch)
+  98:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 221              		.loc 1 98 0
+ 222              		.cfi_startproc
+ 223 0000 80B5     		push	{r7, lr}
+ 224              	.LCFI6:
+ 225              		.cfi_def_cfa_offset 8
+ 226              		.cfi_offset 7, -8
+ 227              		.cfi_offset 14, -4
+ 228 0002 82B0     		sub	sp, sp, #8
+ 229              	.LCFI7:
+ 230              		.cfi_def_cfa_offset 16
+ 231 0004 00AF     		add	r7, sp, #0
+ 232              	.LCFI8:
+ 233              		.cfi_def_cfa_register 7
+ 234 0006 021C     		mov	r2, r0
+ 235 0008 FB1D     		add	r3, r7, #7
+ 236 000a 1A70     		strb	r2, [r3]
+  99:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	if (ch>='0' && ch<='9') 
+ 237              		.loc 1 99 0
+ 238 000c FB1D     		add	r3, r7, #7
+ 239 000e 1B78     		ldrb	r3, [r3]
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 7
+
+
+ 240 0010 2F2B     		cmp	r3, #47
+ 241 0012 07D9     		bls	.L16
+ 242 0014 FB1D     		add	r3, r7, #7
+ 243 0016 1B78     		ldrb	r3, [r3]
+ 244 0018 392B     		cmp	r3, #57
+ 245 001a 03D8     		bhi	.L16
+ 100:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		return ch-'0';
+ 246              		.loc 1 100 0
+ 247 001c FB1D     		add	r3, r7, #7
+ 248 001e 1B78     		ldrb	r3, [r3]
+ 249 0020 303B     		sub	r3, r3, #48
+ 250 0022 19E0     		b	.L17
+ 251              	.L16:
+ 101:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	else if (ch>='a' && ch<='f')
+ 252              		.loc 1 101 0
+ 253 0024 FB1D     		add	r3, r7, #7
+ 254 0026 1B78     		ldrb	r3, [r3]
+ 255 0028 602B     		cmp	r3, #96
+ 256 002a 07D9     		bls	.L18
+ 257 002c FB1D     		add	r3, r7, #7
+ 258 002e 1B78     		ldrb	r3, [r3]
+ 259 0030 662B     		cmp	r3, #102
+ 260 0032 03D8     		bhi	.L18
+ 102:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		return ch-'a'+10;
+ 261              		.loc 1 102 0
+ 262 0034 FB1D     		add	r3, r7, #7
+ 263 0036 1B78     		ldrb	r3, [r3]
+ 264 0038 573B     		sub	r3, r3, #87
+ 265 003a 0DE0     		b	.L17
+ 266              	.L18:
+ 103:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	else if (ch>='A' && ch<='F')
+ 267              		.loc 1 103 0
+ 268 003c FB1D     		add	r3, r7, #7
+ 269 003e 1B78     		ldrb	r3, [r3]
+ 270 0040 402B     		cmp	r3, #64
+ 271 0042 07D9     		bls	.L19
+ 272 0044 FB1D     		add	r3, r7, #7
+ 273 0046 1B78     		ldrb	r3, [r3]
+ 274 0048 462B     		cmp	r3, #70
+ 275 004a 03D8     		bhi	.L19
+ 104:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		return ch-'A'+10;
+ 276              		.loc 1 104 0
+ 277 004c FB1D     		add	r3, r7, #7
+ 278 004e 1B78     		ldrb	r3, [r3]
+ 279 0050 373B     		sub	r3, r3, #55
+ 280 0052 01E0     		b	.L17
+ 281              	.L19:
+ 105:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	else return -1;
+ 282              		.loc 1 105 0
+ 283 0054 0123     		mov	r3, #1
+ 284 0056 5B42     		neg	r3, r3
+ 285              	.L17:
+ 106:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 286              		.loc 1 106 0
+ 287 0058 181C     		mov	r0, r3
+ 288 005a BD46     		mov	sp, r7
+ 289 005c 02B0     		add	sp, sp, #8
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 8
+
+
+ 290              		@ sp needed for prologue
+ 291 005e 80BD     		pop	{r7, pc}
+ 292              		.cfi_endproc
+ 293              	.LFE2:
+ 294              		.size	a2d, .-a2d
+ 295              		.section	.text.a2i,"ax",%progbits
+ 296              		.align	2
+ 297              		.code	16
+ 298              		.thumb_func
+ 299              		.type	a2i, %function
+ 300              	a2i:
+ 301              	.LFB3:
+ 107:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 108:.\Generated_Source\PSoC4/tinyprintf_printf.c **** static char a2i(char ch, char** src,int base,int* nump)
+ 109:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 302              		.loc 1 109 0
+ 303              		.cfi_startproc
+ 304 0000 80B5     		push	{r7, lr}
+ 305              	.LCFI9:
+ 306              		.cfi_def_cfa_offset 8
+ 307              		.cfi_offset 7, -8
+ 308              		.cfi_offset 14, -4
+ 309 0002 88B0     		sub	sp, sp, #32
+ 310              	.LCFI10:
+ 311              		.cfi_def_cfa_offset 40
+ 312 0004 00AF     		add	r7, sp, #0
+ 313              	.LCFI11:
+ 314              		.cfi_def_cfa_register 7
+ 315 0006 B960     		str	r1, [r7, #8]
+ 316 0008 7A60     		str	r2, [r7, #4]
+ 317 000a 3B60     		str	r3, [r7]
+ 318 000c 3B1C     		mov	r3, r7
+ 319 000e 0F33     		add	r3, r3, #15
+ 320 0010 021C     		add	r2, r0, #0
+ 321 0012 1A70     		strb	r2, [r3]
+ 110:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	char* p= *src;
+ 322              		.loc 1 110 0
+ 323 0014 BB68     		ldr	r3, [r7, #8]
+ 324 0016 1B68     		ldr	r3, [r3]
+ 325 0018 7B61     		str	r3, [r7, #20]
+ 111:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	int num=0;
+ 326              		.loc 1 111 0
+ 327 001a 0023     		mov	r3, #0
+ 328 001c BB61     		str	r3, [r7, #24]
+ 112:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	int digit;
+ 113:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	while ((digit=a2d(ch))>=0) {
+ 329              		.loc 1 113 0
+ 330 001e 11E0     		b	.L22
+ 331              	.L25:
+ 114:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		if (digit>base) break;
+ 332              		.loc 1 114 0
+ 333 0020 FA69     		ldr	r2, [r7, #28]
+ 334 0022 7B68     		ldr	r3, [r7, #4]
+ 335 0024 9A42     		cmp	r2, r3
+ 336 0026 19DC     		bgt	.L27
+ 337              	.L23:
+ 115:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		num=num*base+digit;
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 9
+
+
+ 338              		.loc 1 115 0
+ 339 0028 BB69     		ldr	r3, [r7, #24]
+ 340 002a 7A68     		ldr	r2, [r7, #4]
+ 341 002c 5A43     		mul	r2, r3
+ 342 002e FB69     		ldr	r3, [r7, #28]
+ 343 0030 D318     		add	r3, r2, r3
+ 344 0032 BB61     		str	r3, [r7, #24]
+ 116:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		ch=*p++;
+ 345              		.loc 1 116 0
+ 346 0034 3B1C     		mov	r3, r7
+ 347 0036 0F33     		add	r3, r3, #15
+ 348 0038 7A69     		ldr	r2, [r7, #20]
+ 349 003a 1278     		ldrb	r2, [r2]
+ 350 003c 1A70     		strb	r2, [r3]
+ 351 003e 7B69     		ldr	r3, [r7, #20]
+ 352 0040 0133     		add	r3, r3, #1
+ 353 0042 7B61     		str	r3, [r7, #20]
+ 354              	.L22:
+ 355              		.loc 1 113 0
+ 356 0044 3B1C     		mov	r3, r7
+ 357 0046 0F33     		add	r3, r3, #15
+ 358 0048 1B78     		ldrb	r3, [r3]
+ 359 004a 181C     		mov	r0, r3
+ 360 004c FFF7FEFF 		bl	a2d
+ 361 0050 031C     		mov	r3, r0
+ 362 0052 FB61     		str	r3, [r7, #28]
+ 363 0054 FB69     		ldr	r3, [r7, #28]
+ 364 0056 002B     		cmp	r3, #0
+ 365 0058 E2DA     		bge	.L25
+ 366 005a 00E0     		b	.L24
+ 367              	.L27:
+ 368              		.loc 1 114 0
+ 369 005c C046     		mov	r8, r8
+ 370              	.L24:
+ 117:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		}
+ 118:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	*src=p;
+ 371              		.loc 1 118 0
+ 372 005e BB68     		ldr	r3, [r7, #8]
+ 373 0060 7A69     		ldr	r2, [r7, #20]
+ 374 0062 1A60     		str	r2, [r3]
+ 119:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	*nump=num;
+ 375              		.loc 1 119 0
+ 376 0064 3B68     		ldr	r3, [r7]
+ 377 0066 BA69     		ldr	r2, [r7, #24]
+ 378 0068 1A60     		str	r2, [r3]
+ 120:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	return ch;
+ 379              		.loc 1 120 0
+ 380 006a 3B1C     		mov	r3, r7
+ 381 006c 0F33     		add	r3, r3, #15
+ 382 006e 1B78     		ldrb	r3, [r3]
+ 121:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 383              		.loc 1 121 0
+ 384 0070 181C     		mov	r0, r3
+ 385 0072 BD46     		mov	sp, r7
+ 386 0074 08B0     		add	sp, sp, #32
+ 387              		@ sp needed for prologue
+ 388 0076 80BD     		pop	{r7, pc}
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 10
+
+
+ 389              		.cfi_endproc
+ 390              	.LFE3:
+ 391              		.size	a2i, .-a2i
+ 392              		.section	.text.putchw,"ax",%progbits
+ 393              		.align	2
+ 394              		.code	16
+ 395              		.thumb_func
+ 396              		.type	putchw, %function
+ 397              	putchw:
+ 398              	.LFB4:
+ 122:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 123:.\Generated_Source\PSoC4/tinyprintf_printf.c **** static void putchw(void* putp,putcf putf,int n, char z, char* bf)
+ 124:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 399              		.loc 1 124 0
+ 400              		.cfi_startproc
+ 401 0000 80B5     		push	{r7, lr}
+ 402              	.LCFI12:
+ 403              		.cfi_def_cfa_offset 8
+ 404              		.cfi_offset 7, -8
+ 405              		.cfi_offset 14, -4
+ 406 0002 86B0     		sub	sp, sp, #24
+ 407              	.LCFI13:
+ 408              		.cfi_def_cfa_offset 32
+ 409 0004 00AF     		add	r7, sp, #0
+ 410              	.LCFI14:
+ 411              		.cfi_def_cfa_register 7
+ 412 0006 F860     		str	r0, [r7, #12]
+ 413 0008 B960     		str	r1, [r7, #8]
+ 414 000a 7A60     		str	r2, [r7, #4]
+ 415 000c 1A1C     		mov	r2, r3
+ 416 000e FB1C     		add	r3, r7, #3
+ 417 0010 1A70     		strb	r2, [r3]
+ 125:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	char fc=z? '0' : ' ';
+ 418              		.loc 1 125 0
+ 419 0012 FB1C     		add	r3, r7, #3
+ 420 0014 1B78     		ldrb	r3, [r3]
+ 421 0016 002B     		cmp	r3, #0
+ 422 0018 01D0     		beq	.L29
+ 423 001a 3023     		mov	r3, #48
+ 424 001c 00E0     		b	.L30
+ 425              	.L29:
+ 426 001e 2023     		mov	r3, #32
+ 427              	.L30:
+ 428 0020 3A1C     		mov	r2, r7
+ 429 0022 1232     		add	r2, r2, #18
+ 430 0024 1370     		strb	r3, [r2]
+ 126:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	char ch;
+ 127:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	char* p=bf;
+ 431              		.loc 1 127 0
+ 432 0026 3B6A     		ldr	r3, [r7, #32]
+ 433 0028 7B61     		str	r3, [r7, #20]
+ 128:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	while (*p++ && n > 0)
+ 434              		.loc 1 128 0
+ 435 002a 02E0     		b	.L31
+ 436              	.L33:
+ 129:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		n--;
+ 437              		.loc 1 129 0
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 11
+
+
+ 438 002c 7B68     		ldr	r3, [r7, #4]
+ 439 002e 013B     		sub	r3, r3, #1
+ 440 0030 7B60     		str	r3, [r7, #4]
+ 441              	.L31:
+ 442              		.loc 1 128 0
+ 443 0032 7B69     		ldr	r3, [r7, #20]
+ 444 0034 1B78     		ldrb	r3, [r3]
+ 445 0036 5A1E     		sub	r2, r3, #1
+ 446 0038 9341     		sbc	r3, r3, r2
+ 447 003a DBB2     		uxtb	r3, r3
+ 448 003c 7A69     		ldr	r2, [r7, #20]
+ 449 003e 0132     		add	r2, r2, #1
+ 450 0040 7A61     		str	r2, [r7, #20]
+ 451 0042 002B     		cmp	r3, #0
+ 452 0044 0CD0     		beq	.L39
+ 453 0046 7B68     		ldr	r3, [r7, #4]
+ 454 0048 002B     		cmp	r3, #0
+ 455 004a EFDC     		bgt	.L33
+ 130:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	while (n-- > 0) 
+ 456              		.loc 1 130 0
+ 457 004c 09E0     		b	.L34
+ 458              	.L35:
+ 131:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		putf(putp,fc);
+ 459              		.loc 1 131 0
+ 460 004e F968     		ldr	r1, [r7, #12]
+ 461 0050 3B1C     		mov	r3, r7
+ 462 0052 1233     		add	r3, r3, #18
+ 463 0054 1A78     		ldrb	r2, [r3]
+ 464 0056 BB68     		ldr	r3, [r7, #8]
+ 465 0058 081C     		mov	r0, r1
+ 466 005a 111C     		mov	r1, r2
+ 467 005c 9847     		blx	r3
+ 468 005e 00E0     		b	.L34
+ 469              	.L39:
+ 470              		.loc 1 130 0
+ 471 0060 C046     		mov	r8, r8
+ 472              	.L34:
+ 473 0062 7B68     		ldr	r3, [r7, #4]
+ 474 0064 DA17     		asr	r2, r3, #31
+ 475 0066 D31A     		sub	r3, r2, r3
+ 476 0068 DB0F     		lsr	r3, r3, #31
+ 477 006a DBB2     		uxtb	r3, r3
+ 478 006c 7A68     		ldr	r2, [r7, #4]
+ 479 006e 013A     		sub	r2, r2, #1
+ 480 0070 7A60     		str	r2, [r7, #4]
+ 481 0072 002B     		cmp	r3, #0
+ 482 0074 EBD1     		bne	.L35
+ 132:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	while ((ch= *bf++))
+ 483              		.loc 1 132 0
+ 484 0076 07E0     		b	.L36
+ 485              	.L37:
+ 133:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		putf(putp,ch);
+ 486              		.loc 1 133 0
+ 487 0078 F968     		ldr	r1, [r7, #12]
+ 488 007a 3B1C     		mov	r3, r7
+ 489 007c 1333     		add	r3, r3, #19
+ 490 007e 1A78     		ldrb	r2, [r3]
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 12
+
+
+ 491 0080 BB68     		ldr	r3, [r7, #8]
+ 492 0082 081C     		mov	r0, r1
+ 493 0084 111C     		mov	r1, r2
+ 494 0086 9847     		blx	r3
+ 495              	.L36:
+ 496              		.loc 1 132 0
+ 497 0088 3B1C     		mov	r3, r7
+ 498 008a 1333     		add	r3, r3, #19
+ 499 008c 3A6A     		ldr	r2, [r7, #32]
+ 500 008e 1278     		ldrb	r2, [r2]
+ 501 0090 1A70     		strb	r2, [r3]
+ 502 0092 3B1C     		mov	r3, r7
+ 503 0094 1333     		add	r3, r3, #19
+ 504 0096 1B78     		ldrb	r3, [r3]
+ 505 0098 5A1E     		sub	r2, r3, #1
+ 506 009a 9341     		sbc	r3, r3, r2
+ 507 009c DBB2     		uxtb	r3, r3
+ 508 009e 3A6A     		ldr	r2, [r7, #32]
+ 509 00a0 0132     		add	r2, r2, #1
+ 510 00a2 3A62     		str	r2, [r7, #32]
+ 511 00a4 002B     		cmp	r3, #0
+ 512 00a6 E7D1     		bne	.L37
+ 134:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 513              		.loc 1 134 0
+ 514 00a8 BD46     		mov	sp, r7
+ 515 00aa 06B0     		add	sp, sp, #24
+ 516              		@ sp needed for prologue
+ 517 00ac 80BD     		pop	{r7, pc}
+ 518              		.cfi_endproc
+ 519              	.LFE4:
+ 520              		.size	putchw, .-putchw
+ 521 00ae C046     		.section	.text.tfp_format,"ax",%progbits
+ 522              		.align	2
+ 523              		.global	tfp_format
+ 524              		.code	16
+ 525              		.thumb_func
+ 526              		.type	tfp_format, %function
+ 527              	tfp_format:
+ 528              	.LFB5:
+ 135:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 136:.\Generated_Source\PSoC4/tinyprintf_printf.c **** void tfp_format(void* putp,putcf putf,char *fmt, va_list va)
+ 137:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 529              		.loc 1 137 0
+ 530              		.cfi_startproc
+ 531 0000 90B5     		push	{r4, r7, lr}
+ 532              	.LCFI15:
+ 533              		.cfi_def_cfa_offset 12
+ 534              		.cfi_offset 4, -12
+ 535              		.cfi_offset 7, -8
+ 536              		.cfi_offset 14, -4
+ 537 0002 8DB0     		sub	sp, sp, #52
+ 538              	.LCFI16:
+ 539              		.cfi_def_cfa_offset 64
+ 540 0004 02AF     		add	r7, sp, #8
+ 541              	.LCFI17:
+ 542              		.cfi_def_cfa 7, 56
+ 543 0006 F860     		str	r0, [r7, #12]
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 13
+
+
+ 544 0008 B960     		str	r1, [r7, #8]
+ 545 000a 7A60     		str	r2, [r7, #4]
+ 546 000c 3B60     		str	r3, [r7]
+ 138:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	char bf[12];
+ 139:.\Generated_Source\PSoC4/tinyprintf_printf.c ****     
+ 140:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	char ch;
+ 141:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 142:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 143:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	while ((ch=*(fmt++))) {
+ 547              		.loc 1 143 0
+ 548 000e D0E0     		b	.L41
+ 549              	.L55:
+ 144:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		if (ch!='%') 
+ 550              		.loc 1 144 0
+ 551 0010 3B1C     		mov	r3, r7
+ 552 0012 2633     		add	r3, r3, #38
+ 553 0014 1B78     		ldrb	r3, [r3]
+ 554 0016 252B     		cmp	r3, #37
+ 555 0018 08D0     		beq	.L42
+ 145:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			putf(putp,ch);
+ 556              		.loc 1 145 0
+ 557 001a F968     		ldr	r1, [r7, #12]
+ 558 001c 3B1C     		mov	r3, r7
+ 559 001e 2633     		add	r3, r3, #38
+ 560 0020 1A78     		ldrb	r2, [r3]
+ 561 0022 BB68     		ldr	r3, [r7, #8]
+ 562 0024 081C     		mov	r0, r1
+ 563 0026 111C     		mov	r1, r2
+ 564 0028 9847     		blx	r3
+ 565 002a C2E0     		b	.L41
+ 566              	.L42:
+ 567              	.LBB3:
+ 146:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		else {
+ 147:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			char lz=0;
+ 568              		.loc 1 147 0
+ 569 002c 3B1C     		mov	r3, r7
+ 570 002e 2733     		add	r3, r3, #39
+ 571 0030 0022     		mov	r2, #0
+ 572 0032 1A70     		strb	r2, [r3]
+ 148:.\Generated_Source\PSoC4/tinyprintf_printf.c **** #ifdef 	PRINTF_LONG_SUPPORT
+ 149:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			char lng=0;
+ 150:.\Generated_Source\PSoC4/tinyprintf_printf.c **** #endif
+ 151:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			int w=0;
+ 573              		.loc 1 151 0
+ 574 0034 0023     		mov	r3, #0
+ 575 0036 7B61     		str	r3, [r7, #20]
+ 152:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			ch=*(fmt++);
+ 576              		.loc 1 152 0
+ 577 0038 7B68     		ldr	r3, [r7, #4]
+ 578 003a 3A1C     		mov	r2, r7
+ 579 003c 2632     		add	r2, r2, #38
+ 580 003e 1978     		ldrb	r1, [r3]
+ 581 0040 1170     		strb	r1, [r2]
+ 582 0042 0133     		add	r3, r3, #1
+ 583 0044 7B60     		str	r3, [r7, #4]
+ 153:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			if (ch=='0') {
+ 584              		.loc 1 153 0
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 14
+
+
+ 585 0046 3B1C     		mov	r3, r7
+ 586 0048 2633     		add	r3, r3, #38
+ 587 004a 1B78     		ldrb	r3, [r3]
+ 588 004c 302B     		cmp	r3, #48
+ 589 004e 0AD1     		bne	.L43
+ 154:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 				ch=*(fmt++);
+ 590              		.loc 1 154 0
+ 591 0050 7B68     		ldr	r3, [r7, #4]
+ 592 0052 3A1C     		mov	r2, r7
+ 593 0054 2632     		add	r2, r2, #38
+ 594 0056 1978     		ldrb	r1, [r3]
+ 595 0058 1170     		strb	r1, [r2]
+ 596 005a 0133     		add	r3, r3, #1
+ 597 005c 7B60     		str	r3, [r7, #4]
+ 155:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 				lz=1;
+ 598              		.loc 1 155 0
+ 599 005e 3B1C     		mov	r3, r7
+ 600 0060 2733     		add	r3, r3, #39
+ 601 0062 0122     		mov	r2, #1
+ 602 0064 1A70     		strb	r2, [r3]
+ 603              	.L43:
+ 156:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 				}
+ 157:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			if (ch>='0' && ch<='9') {
+ 604              		.loc 1 157 0
+ 605 0066 3B1C     		mov	r3, r7
+ 606 0068 2633     		add	r3, r3, #38
+ 607 006a 1B78     		ldrb	r3, [r3]
+ 608 006c 2F2B     		cmp	r3, #47
+ 609 006e 14D9     		bls	.L44
+ 610 0070 3B1C     		mov	r3, r7
+ 611 0072 2633     		add	r3, r3, #38
+ 612 0074 1B78     		ldrb	r3, [r3]
+ 613 0076 392B     		cmp	r3, #57
+ 614 0078 0FD8     		bhi	.L44
+ 158:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 				ch=a2i(ch,&fmt,10,&w);
+ 615              		.loc 1 158 0
+ 616 007a 3B1C     		mov	r3, r7
+ 617 007c 2633     		add	r3, r3, #38
+ 618 007e 1978     		ldrb	r1, [r3]
+ 619 0080 3A1D     		add	r2, r7, #4
+ 620 0082 3B1C     		mov	r3, r7
+ 621 0084 1433     		add	r3, r3, #20
+ 622 0086 081C     		mov	r0, r1
+ 623 0088 111C     		mov	r1, r2
+ 624 008a 0A22     		mov	r2, #10
+ 625 008c FFF7FEFF 		bl	a2i
+ 626 0090 031C     		mov	r3, r0
+ 627 0092 1A1C     		mov	r2, r3
+ 628 0094 3B1C     		mov	r3, r7
+ 629 0096 2633     		add	r3, r3, #38
+ 630 0098 1A70     		strb	r2, [r3]
+ 631              	.L44:
+ 159:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 				}
+ 160:.\Generated_Source\PSoC4/tinyprintf_printf.c **** #ifdef 	PRINTF_LONG_SUPPORT
+ 161:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			if (ch=='l') {
+ 162:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 				ch=*(fmt++);
+ 163:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 				lng=1;
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 15
+
+
+ 164:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			}
+ 165:.\Generated_Source\PSoC4/tinyprintf_printf.c **** #endif
+ 166:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			switch (ch) {
+ 632              		.loc 1 166 0
+ 633 009a 3B1C     		mov	r3, r7
+ 634 009c 2633     		add	r3, r3, #38
+ 635 009e 1B78     		ldrb	r3, [r3]
+ 636 00a0 642B     		cmp	r3, #100
+ 637 00a2 2FD0     		beq	.L49
+ 638 00a4 642B     		cmp	r3, #100
+ 639 00a6 0DDC     		bgt	.L52
+ 640 00a8 582B     		cmp	r3, #88
+ 641 00aa 43D0     		beq	.L47
+ 642 00ac 582B     		cmp	r3, #88
+ 643 00ae 06DC     		bgt	.L53
+ 644 00b0 002B     		cmp	r3, #0
+ 645 00b2 00D1     		bne	.LCB515
+ 646 00b4 8EE0     		b	.L57	@long jump
+ 647              	.LCB515:
+ 648 00b6 252B     		cmp	r3, #37
+ 649 00b8 00D1     		bne	.LCB517
+ 650 00ba 72E0     		b	.L46	@long jump
+ 651              	.LCB517:
+ 652 00bc 79E0     		b	.L41
+ 653              	.L53:
+ 654 00be 632B     		cmp	r3, #99
+ 655 00c0 56D0     		beq	.L48
+ 656 00c2 76E0     		b	.L41
+ 657              	.L52:
+ 658 00c4 752B     		cmp	r3, #117
+ 659 00c6 04D0     		beq	.L51
+ 660 00c8 782B     		cmp	r3, #120
+ 661 00ca 33D0     		beq	.L47
+ 662 00cc 732B     		cmp	r3, #115
+ 663 00ce 5AD0     		beq	.L50
+ 664 00d0 6FE0     		b	.L41
+ 665              	.L51:
+ 167:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 0: 
+ 168:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					goto abort;
+ 169:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 'u' : {
+ 170:.\Generated_Source\PSoC4/tinyprintf_printf.c **** #ifdef 	PRINTF_LONG_SUPPORT
+ 171:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					if (lng)
+ 172:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 						uli2a(va_arg(va, unsigned long int),10,0,bf);
+ 173:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					else
+ 174:.\Generated_Source\PSoC4/tinyprintf_printf.c **** #endif
+ 175:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					ui2a(va_arg(va, unsigned int),10,0,bf);
+ 666              		.loc 1 175 0
+ 667 00d2 3B68     		ldr	r3, [r7]
+ 668 00d4 1A1D     		add	r2, r3, #4
+ 669 00d6 3A60     		str	r2, [r7]
+ 670 00d8 1A68     		ldr	r2, [r3]
+ 671 00da 3B1C     		mov	r3, r7
+ 672 00dc 1833     		add	r3, r3, #24
+ 673 00de 101C     		mov	r0, r2
+ 674 00e0 0A21     		mov	r1, #10
+ 675 00e2 0022     		mov	r2, #0
+ 676 00e4 FFF7FEFF 		bl	ui2a
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 16
+
+
+ 176:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					putchw(putp,putf,w,lz,bf);
+ 677              		.loc 1 176 0
+ 678 00e8 7A69     		ldr	r2, [r7, #20]
+ 679 00ea F868     		ldr	r0, [r7, #12]
+ 680 00ec B968     		ldr	r1, [r7, #8]
+ 681 00ee 3B1C     		mov	r3, r7
+ 682 00f0 2733     		add	r3, r3, #39
+ 683 00f2 1B78     		ldrb	r3, [r3]
+ 684 00f4 1824     		mov	r4, #24
+ 685 00f6 E419     		add	r4, r4, r7
+ 686 00f8 A446     		mov	ip, r4
+ 687 00fa 6446     		mov	r4, ip
+ 688 00fc 0094     		str	r4, [sp]
+ 689 00fe FFF7FEFF 		bl	putchw
+ 177:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 690              		.loc 1 177 0
+ 691 0102 56E0     		b	.L41
+ 692              	.L49:
+ 178:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					}
+ 179:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 'd' :  {
+ 180:.\Generated_Source\PSoC4/tinyprintf_printf.c **** #ifdef 	PRINTF_LONG_SUPPORT
+ 181:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					if (lng)
+ 182:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 						li2a(va_arg(va, unsigned long int),bf);
+ 183:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					else
+ 184:.\Generated_Source\PSoC4/tinyprintf_printf.c **** #endif
+ 185:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					i2a(va_arg(va, int),bf);
+ 693              		.loc 1 185 0
+ 694 0104 3B68     		ldr	r3, [r7]
+ 695 0106 1A1D     		add	r2, r3, #4
+ 696 0108 3A60     		str	r2, [r7]
+ 697 010a 1A68     		ldr	r2, [r3]
+ 698 010c 3B1C     		mov	r3, r7
+ 699 010e 1833     		add	r3, r3, #24
+ 700 0110 101C     		mov	r0, r2
+ 701 0112 191C     		mov	r1, r3
+ 702 0114 FFF7FEFF 		bl	i2a
+ 186:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					putchw(putp,putf,w,lz,bf);
+ 703              		.loc 1 186 0
+ 704 0118 7A69     		ldr	r2, [r7, #20]
+ 705 011a F868     		ldr	r0, [r7, #12]
+ 706 011c B968     		ldr	r1, [r7, #8]
+ 707 011e 3B1C     		mov	r3, r7
+ 708 0120 2733     		add	r3, r3, #39
+ 709 0122 1B78     		ldrb	r3, [r3]
+ 710 0124 1824     		mov	r4, #24
+ 711 0126 E419     		add	r4, r4, r7
+ 712 0128 A446     		mov	ip, r4
+ 713 012a 6446     		mov	r4, ip
+ 714 012c 0094     		str	r4, [sp]
+ 715 012e FFF7FEFF 		bl	putchw
+ 187:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 716              		.loc 1 187 0
+ 717 0132 3EE0     		b	.L41
+ 718              	.L47:
+ 188:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					}
+ 189:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 'x': case 'X' : 
+ 190:.\Generated_Source\PSoC4/tinyprintf_printf.c **** #ifdef 	PRINTF_LONG_SUPPORT
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 17
+
+
+ 191:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					if (lng)
+ 192:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 						uli2a(va_arg(va, unsigned long int),16,(ch=='X'),bf);
+ 193:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					else
+ 194:.\Generated_Source\PSoC4/tinyprintf_printf.c **** #endif
+ 195:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					ui2a(va_arg(va, unsigned int),16,(ch=='X'),bf);
+ 719              		.loc 1 195 0
+ 720 0134 3B68     		ldr	r3, [r7]
+ 721 0136 1A1D     		add	r2, r3, #4
+ 722 0138 3A60     		str	r2, [r7]
+ 723 013a 1968     		ldr	r1, [r3]
+ 724 013c 3B1C     		mov	r3, r7
+ 725 013e 2633     		add	r3, r3, #38
+ 726 0140 1B78     		ldrb	r3, [r3]
+ 727 0142 583B     		sub	r3, r3, #88
+ 728 0144 5A42     		neg	r2, r3
+ 729 0146 5A41     		adc	r2, r2, r3
+ 730 0148 3B1C     		mov	r3, r7
+ 731 014a 1833     		add	r3, r3, #24
+ 732 014c 081C     		mov	r0, r1
+ 733 014e 1021     		mov	r1, #16
+ 734 0150 FFF7FEFF 		bl	ui2a
+ 196:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					putchw(putp,putf,w,lz,bf);
+ 735              		.loc 1 196 0
+ 736 0154 7A69     		ldr	r2, [r7, #20]
+ 737 0156 F868     		ldr	r0, [r7, #12]
+ 738 0158 B968     		ldr	r1, [r7, #8]
+ 739 015a 3B1C     		mov	r3, r7
+ 740 015c 2733     		add	r3, r3, #39
+ 741 015e 1B78     		ldrb	r3, [r3]
+ 742 0160 1824     		mov	r4, #24
+ 743 0162 E419     		add	r4, r4, r7
+ 744 0164 A446     		mov	ip, r4
+ 745 0166 6446     		mov	r4, ip
+ 746 0168 0094     		str	r4, [sp]
+ 747 016a FFF7FEFF 		bl	putchw
+ 197:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 748              		.loc 1 197 0
+ 749 016e 20E0     		b	.L41
+ 750              	.L48:
+ 198:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 'c' : 
+ 199:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					putf(putp,(char)(va_arg(va, int)));
+ 751              		.loc 1 199 0
+ 752 0170 3B68     		ldr	r3, [r7]
+ 753 0172 1A1D     		add	r2, r3, #4
+ 754 0174 3A60     		str	r2, [r7]
+ 755 0176 1B68     		ldr	r3, [r3]
+ 756 0178 DAB2     		uxtb	r2, r3
+ 757 017a F968     		ldr	r1, [r7, #12]
+ 758 017c BB68     		ldr	r3, [r7, #8]
+ 759 017e 081C     		mov	r0, r1
+ 760 0180 111C     		mov	r1, r2
+ 761 0182 9847     		blx	r3
+ 200:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 762              		.loc 1 200 0
+ 763 0184 15E0     		b	.L41
+ 764              	.L50:
+ 201:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 				case 's' : 
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 18
+
+
+ 202:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					putchw(putp,putf,w,0,va_arg(va, char*));
+ 765              		.loc 1 202 0
+ 766 0186 7A69     		ldr	r2, [r7, #20]
+ 767 0188 3B68     		ldr	r3, [r7]
+ 768 018a 191D     		add	r1, r3, #4
+ 769 018c 3960     		str	r1, [r7]
+ 770 018e 1868     		ldr	r0, [r3]
+ 771 0190 F968     		ldr	r1, [r7, #12]
+ 772 0192 BB68     		ldr	r3, [r7, #8]
+ 773 0194 0090     		str	r0, [sp]
+ 774 0196 081C     		mov	r0, r1
+ 775 0198 191C     		mov	r1, r3
+ 776 019a 0023     		mov	r3, #0
+ 777 019c FFF7FEFF 		bl	putchw
+ 203:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 778              		.loc 1 203 0
+ 779 01a0 07E0     		b	.L41
+ 780              	.L46:
+ 204:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 				case '%' :
+ 205:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					putf(putp,ch);
+ 781              		.loc 1 205 0
+ 782 01a2 F968     		ldr	r1, [r7, #12]
+ 783 01a4 3B1C     		mov	r3, r7
+ 784 01a6 2633     		add	r3, r3, #38
+ 785 01a8 1A78     		ldrb	r2, [r3]
+ 786 01aa BB68     		ldr	r3, [r7, #8]
+ 787 01ac 081C     		mov	r0, r1
+ 788 01ae 111C     		mov	r1, r2
+ 789 01b0 9847     		blx	r3
+ 790              	.L41:
+ 791              	.LBE3:
+ 792              		.loc 1 143 0
+ 793 01b2 7B68     		ldr	r3, [r7, #4]
+ 794 01b4 3A1C     		mov	r2, r7
+ 795 01b6 2632     		add	r2, r2, #38
+ 796 01b8 1978     		ldrb	r1, [r3]
+ 797 01ba 1170     		strb	r1, [r2]
+ 798 01bc 3A1C     		mov	r2, r7
+ 799 01be 2632     		add	r2, r2, #38
+ 800 01c0 1278     		ldrb	r2, [r2]
+ 801 01c2 511E     		sub	r1, r2, #1
+ 802 01c4 8A41     		sbc	r2, r2, r1
+ 803 01c6 D2B2     		uxtb	r2, r2
+ 804 01c8 0133     		add	r3, r3, #1
+ 805 01ca 7B60     		str	r3, [r7, #4]
+ 806 01cc 002A     		cmp	r2, #0
+ 807 01ce 00D0     		beq	.LCB673
+ 808 01d0 1EE7     		b	.L55	@long jump
+ 809              	.LCB673:
+ 810 01d2 00E0     		b	.L56
+ 811              	.L54:
+ 812              	.L57:
+ 813              	.LBB4:
+ 814              		.loc 1 168 0
+ 815 01d4 C046     		mov	r8, r8
+ 816              	.L56:
+ 817              	.LBE4:
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 19
+
+
+ 206:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 				default:
+ 207:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 					break;
+ 208:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 				}
+ 209:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 			}
+ 210:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 		}
+ 211:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	abort:;
+ 212:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 818              		.loc 1 212 0
+ 819 01d6 BD46     		mov	sp, r7
+ 820 01d8 0BB0     		add	sp, sp, #44
+ 821              		@ sp needed for prologue
+ 822 01da 90BD     		pop	{r4, r7, pc}
+ 823              		.cfi_endproc
+ 824              	.LFE5:
+ 825              		.size	tfp_format, .-tfp_format
+ 826              		.section	.text.init_printf,"ax",%progbits
+ 827              		.align	2
+ 828              		.global	init_printf
+ 829              		.code	16
+ 830              		.thumb_func
+ 831              		.type	init_printf, %function
+ 832              	init_printf:
+ 833              	.LFB6:
+ 213:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 214:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 215:.\Generated_Source\PSoC4/tinyprintf_printf.c **** void init_printf(void* putp,void (*putf) (void*,char))
+ 216:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 834              		.loc 1 216 0
+ 835              		.cfi_startproc
+ 836 0000 80B5     		push	{r7, lr}
+ 837              	.LCFI18:
+ 838              		.cfi_def_cfa_offset 8
+ 839              		.cfi_offset 7, -8
+ 840              		.cfi_offset 14, -4
+ 841 0002 82B0     		sub	sp, sp, #8
+ 842              	.LCFI19:
+ 843              		.cfi_def_cfa_offset 16
+ 844 0004 00AF     		add	r7, sp, #0
+ 845              	.LCFI20:
+ 846              		.cfi_def_cfa_register 7
+ 847 0006 7860     		str	r0, [r7, #4]
+ 848 0008 3960     		str	r1, [r7]
+ 217:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	stdout_putf=putf;
+ 849              		.loc 1 217 0
+ 850 000a 044B     		ldr	r3, .L60
+ 851 000c 3A68     		ldr	r2, [r7]
+ 852 000e 1A60     		str	r2, [r3]
+ 218:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	stdout_putp=putp;
+ 853              		.loc 1 218 0
+ 854 0010 034B     		ldr	r3, .L60+4
+ 855 0012 7A68     		ldr	r2, [r7, #4]
+ 856 0014 1A60     		str	r2, [r3]
+ 219:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 857              		.loc 1 219 0
+ 858 0016 BD46     		mov	sp, r7
+ 859 0018 02B0     		add	sp, sp, #8
+ 860              		@ sp needed for prologue
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 20
+
+
+ 861 001a 80BD     		pop	{r7, pc}
+ 862              	.L61:
+ 863              		.align	2
+ 864              	.L60:
+ 865 001c 00000000 		.word	stdout_putf
+ 866 0020 04000000 		.word	stdout_putp
+ 867              		.cfi_endproc
+ 868              	.LFE6:
+ 869              		.size	init_printf, .-init_printf
+ 870              		.section	.text.tfp_printf,"ax",%progbits
+ 871              		.align	2
+ 872              		.global	tfp_printf
+ 873              		.code	16
+ 874              		.thumb_func
+ 875              		.type	tfp_printf, %function
+ 876              	tfp_printf:
+ 877              	.LFB7:
+ 220:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 221:.\Generated_Source\PSoC4/tinyprintf_printf.c **** void tfp_printf(char *fmt, ...)
+ 222:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 878              		.loc 1 222 0
+ 879              		.cfi_startproc
+ 880 0000 0FB4     		push	{r0, r1, r2, r3}
+ 881              	.LCFI21:
+ 882              		.cfi_def_cfa_offset 16
+ 883 0002 80B5     		push	{r7, lr}
+ 884              	.LCFI22:
+ 885              		.cfi_def_cfa_offset 24
+ 886              		.cfi_offset 7, -24
+ 887              		.cfi_offset 14, -20
+ 888 0004 82B0     		sub	sp, sp, #8
+ 889              	.LCFI23:
+ 890              		.cfi_def_cfa_offset 32
+ 891 0006 00AF     		add	r7, sp, #0
+ 892              	.LCFI24:
+ 893              		.cfi_def_cfa_register 7
+ 223:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	va_list va;
+ 224:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	va_start(va,fmt);
+ 894              		.loc 1 224 0
+ 895 0008 3B1C     		mov	r3, r7
+ 896 000a 1433     		add	r3, r3, #20
+ 897 000c 7B60     		str	r3, [r7, #4]
+ 225:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	tfp_format(stdout_putp,stdout_putf,fmt,va);
+ 898              		.loc 1 225 0
+ 899 000e 074B     		ldr	r3, .L64
+ 900 0010 1868     		ldr	r0, [r3]
+ 901 0012 074B     		ldr	r3, .L64+4
+ 902 0014 1968     		ldr	r1, [r3]
+ 903 0016 3A69     		ldr	r2, [r7, #16]
+ 904 0018 7B68     		ldr	r3, [r7, #4]
+ 905 001a FFF7FEFF 		bl	tfp_format
+ 226:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	va_end(va);
+ 227:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 906              		.loc 1 227 0
+ 907 001e BD46     		mov	sp, r7
+ 908 0020 02B0     		add	sp, sp, #8
+ 909              		@ sp needed for prologue
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 21
+
+
+ 910 0022 80BC     		pop	{r7}
+ 911 0024 08BC     		pop	{r3}
+ 912 0026 04B0     		add	sp, sp, #16
+ 913 0028 1847     		bx	r3
+ 914              	.L65:
+ 915 002a C046     		.align	2
+ 916              	.L64:
+ 917 002c 04000000 		.word	stdout_putp
+ 918 0030 00000000 		.word	stdout_putf
+ 919              		.cfi_endproc
+ 920              	.LFE7:
+ 921              		.size	tfp_printf, .-tfp_printf
+ 922              		.section	.text.putcp,"ax",%progbits
+ 923              		.align	2
+ 924              		.code	16
+ 925              		.thumb_func
+ 926              		.type	putcp, %function
+ 927              	putcp:
+ 928              	.LFB8:
+ 228:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 229:.\Generated_Source\PSoC4/tinyprintf_printf.c **** static void putcp(void* p,char c)
+ 230:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 929              		.loc 1 230 0
+ 930              		.cfi_startproc
+ 931 0000 80B5     		push	{r7, lr}
+ 932              	.LCFI25:
+ 933              		.cfi_def_cfa_offset 8
+ 934              		.cfi_offset 7, -8
+ 935              		.cfi_offset 14, -4
+ 936 0002 82B0     		sub	sp, sp, #8
+ 937              	.LCFI26:
+ 938              		.cfi_def_cfa_offset 16
+ 939 0004 00AF     		add	r7, sp, #0
+ 940              	.LCFI27:
+ 941              		.cfi_def_cfa_register 7
+ 942 0006 7860     		str	r0, [r7, #4]
+ 943 0008 0A1C     		mov	r2, r1
+ 944 000a FB1C     		add	r3, r7, #3
+ 945 000c 1A70     		strb	r2, [r3]
+ 231:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	*(*((char**)p))++ = c;
+ 946              		.loc 1 231 0
+ 947 000e 7B68     		ldr	r3, [r7, #4]
+ 948 0010 1A68     		ldr	r2, [r3]
+ 949 0012 F91C     		add	r1, r7, #3
+ 950 0014 0978     		ldrb	r1, [r1]
+ 951 0016 1170     		strb	r1, [r2]
+ 952 0018 0132     		add	r2, r2, #1
+ 953 001a 1A60     		str	r2, [r3]
+ 232:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 954              		.loc 1 232 0
+ 955 001c BD46     		mov	sp, r7
+ 956 001e 02B0     		add	sp, sp, #8
+ 957              		@ sp needed for prologue
+ 958 0020 80BD     		pop	{r7, pc}
+ 959              		.cfi_endproc
+ 960              	.LFE8:
+ 961              		.size	putcp, .-putcp
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 22
+
+
+ 962 0022 C046     		.section	.text.tfp_sprintf,"ax",%progbits
+ 963              		.align	2
+ 964              		.global	tfp_sprintf
+ 965              		.code	16
+ 966              		.thumb_func
+ 967              		.type	tfp_sprintf, %function
+ 968              	tfp_sprintf:
+ 969              	.LFB9:
+ 233:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 234:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 235:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 
+ 236:.\Generated_Source\PSoC4/tinyprintf_printf.c **** void tfp_sprintf(char* s,char *fmt, ...)
+ 237:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	{
+ 970              		.loc 1 237 0
+ 971              		.cfi_startproc
+ 972 0000 0EB4     		push	{r1, r2, r3}
+ 973              	.LCFI28:
+ 974              		.cfi_def_cfa_offset 12
+ 975 0002 80B5     		push	{r7, lr}
+ 976              	.LCFI29:
+ 977              		.cfi_def_cfa_offset 20
+ 978              		.cfi_offset 7, -20
+ 979              		.cfi_offset 14, -16
+ 980 0004 85B0     		sub	sp, sp, #20
+ 981              	.LCFI30:
+ 982              		.cfi_def_cfa_offset 40
+ 983 0006 00AF     		add	r7, sp, #0
+ 984              	.LCFI31:
+ 985              		.cfi_def_cfa_register 7
+ 986 0008 7860     		str	r0, [r7, #4]
+ 238:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	va_list va;
+ 239:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	va_start(va,fmt);
+ 987              		.loc 1 239 0
+ 988 000a 3B1C     		mov	r3, r7
+ 989 000c 2033     		add	r3, r3, #32
+ 990 000e FB60     		str	r3, [r7, #12]
+ 240:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	tfp_format(&s,putcp,fmt,va);
+ 991              		.loc 1 240 0
+ 992 0010 381D     		add	r0, r7, #4
+ 993 0012 0849     		ldr	r1, .L70
+ 994 0014 FA69     		ldr	r2, [r7, #28]
+ 995 0016 FB68     		ldr	r3, [r7, #12]
+ 996 0018 FFF7FEFF 		bl	tfp_format
+ 241:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	putcp(&s,0);
+ 997              		.loc 1 241 0
+ 998 001c 3B1D     		add	r3, r7, #4
+ 999 001e 181C     		mov	r0, r3
+ 1000 0020 0021     		mov	r1, #0
+ 1001 0022 FFF7FEFF 		bl	putcp
+ 242:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	va_end(va);
+ 243:.\Generated_Source\PSoC4/tinyprintf_printf.c **** 	}
+ 1002              		.loc 1 243 0
+ 1003 0026 BD46     		mov	sp, r7
+ 1004 0028 05B0     		add	sp, sp, #20
+ 1005              		@ sp needed for prologue
+ 1006 002a 80BC     		pop	{r7}
+ 1007 002c 08BC     		pop	{r3}
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 23
+
+
+ 1008 002e 03B0     		add	sp, sp, #12
+ 1009 0030 1847     		bx	r3
+ 1010              	.L71:
+ 1011 0032 C046     		.align	2
+ 1012              	.L70:
+ 1013 0034 00000000 		.word	putcp
+ 1014              		.cfi_endproc
+ 1015              	.LFE9:
+ 1016              		.size	tfp_sprintf, .-tfp_sprintf
+ 1017              		.text
+ 1018              	.Letext0:
+ 1019              		.section	.debug_loc,"",%progbits
+ 1020              	.Ldebug_loc0:
+ 1021              	.LLST0:
+ 1022 0000 00000000 		.4byte	.LFB0
+ 1023 0004 02000000 		.4byte	.LCFI0
+ 1024 0008 0100     		.2byte	0x1
+ 1025 000a 5D       		.byte	0x5d
+ 1026 000b 02000000 		.4byte	.LCFI0
+ 1027 000f 04000000 		.4byte	.LCFI1
+ 1028 0013 0200     		.2byte	0x2
+ 1029 0015 7D       		.byte	0x7d
+ 1030 0016 08       		.sleb128 8
+ 1031 0017 04000000 		.4byte	.LCFI1
+ 1032 001b 06000000 		.4byte	.LCFI2
+ 1033 001f 0200     		.2byte	0x2
+ 1034 0021 7D       		.byte	0x7d
+ 1035 0022 28       		.sleb128 40
+ 1036 0023 06000000 		.4byte	.LCFI2
+ 1037 0027 AC000000 		.4byte	.LFE0
+ 1038 002b 0200     		.2byte	0x2
+ 1039 002d 77       		.byte	0x77
+ 1040 002e 28       		.sleb128 40
+ 1041 002f 00000000 		.4byte	0x0
+ 1042 0033 00000000 		.4byte	0x0
+ 1043              	.LLST1:
+ 1044 0037 00000000 		.4byte	.LFB1
+ 1045 003b 02000000 		.4byte	.LCFI3
+ 1046 003f 0100     		.2byte	0x1
+ 1047 0041 5D       		.byte	0x5d
+ 1048 0042 02000000 		.4byte	.LCFI3
+ 1049 0046 04000000 		.4byte	.LCFI4
+ 1050 004a 0200     		.2byte	0x2
+ 1051 004c 7D       		.byte	0x7d
+ 1052 004d 08       		.sleb128 8
+ 1053 004e 04000000 		.4byte	.LCFI4
+ 1054 0052 06000000 		.4byte	.LCFI5
+ 1055 0056 0200     		.2byte	0x2
+ 1056 0058 7D       		.byte	0x7d
+ 1057 0059 10       		.sleb128 16
+ 1058 005a 06000000 		.4byte	.LCFI5
+ 1059 005e 36000000 		.4byte	.LFE1
+ 1060 0062 0200     		.2byte	0x2
+ 1061 0064 77       		.byte	0x77
+ 1062 0065 10       		.sleb128 16
+ 1063 0066 00000000 		.4byte	0x0
+ 1064 006a 00000000 		.4byte	0x0
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 24
+
+
+ 1065              	.LLST2:
+ 1066 006e 00000000 		.4byte	.LFB2
+ 1067 0072 02000000 		.4byte	.LCFI6
+ 1068 0076 0100     		.2byte	0x1
+ 1069 0078 5D       		.byte	0x5d
+ 1070 0079 02000000 		.4byte	.LCFI6
+ 1071 007d 04000000 		.4byte	.LCFI7
+ 1072 0081 0200     		.2byte	0x2
+ 1073 0083 7D       		.byte	0x7d
+ 1074 0084 08       		.sleb128 8
+ 1075 0085 04000000 		.4byte	.LCFI7
+ 1076 0089 06000000 		.4byte	.LCFI8
+ 1077 008d 0200     		.2byte	0x2
+ 1078 008f 7D       		.byte	0x7d
+ 1079 0090 10       		.sleb128 16
+ 1080 0091 06000000 		.4byte	.LCFI8
+ 1081 0095 60000000 		.4byte	.LFE2
+ 1082 0099 0200     		.2byte	0x2
+ 1083 009b 77       		.byte	0x77
+ 1084 009c 10       		.sleb128 16
+ 1085 009d 00000000 		.4byte	0x0
+ 1086 00a1 00000000 		.4byte	0x0
+ 1087              	.LLST3:
+ 1088 00a5 00000000 		.4byte	.LFB3
+ 1089 00a9 02000000 		.4byte	.LCFI9
+ 1090 00ad 0100     		.2byte	0x1
+ 1091 00af 5D       		.byte	0x5d
+ 1092 00b0 02000000 		.4byte	.LCFI9
+ 1093 00b4 04000000 		.4byte	.LCFI10
+ 1094 00b8 0200     		.2byte	0x2
+ 1095 00ba 7D       		.byte	0x7d
+ 1096 00bb 08       		.sleb128 8
+ 1097 00bc 04000000 		.4byte	.LCFI10
+ 1098 00c0 06000000 		.4byte	.LCFI11
+ 1099 00c4 0200     		.2byte	0x2
+ 1100 00c6 7D       		.byte	0x7d
+ 1101 00c7 28       		.sleb128 40
+ 1102 00c8 06000000 		.4byte	.LCFI11
+ 1103 00cc 78000000 		.4byte	.LFE3
+ 1104 00d0 0200     		.2byte	0x2
+ 1105 00d2 77       		.byte	0x77
+ 1106 00d3 28       		.sleb128 40
+ 1107 00d4 00000000 		.4byte	0x0
+ 1108 00d8 00000000 		.4byte	0x0
+ 1109              	.LLST4:
+ 1110 00dc 00000000 		.4byte	.LFB4
+ 1111 00e0 02000000 		.4byte	.LCFI12
+ 1112 00e4 0100     		.2byte	0x1
+ 1113 00e6 5D       		.byte	0x5d
+ 1114 00e7 02000000 		.4byte	.LCFI12
+ 1115 00eb 04000000 		.4byte	.LCFI13
+ 1116 00ef 0200     		.2byte	0x2
+ 1117 00f1 7D       		.byte	0x7d
+ 1118 00f2 08       		.sleb128 8
+ 1119 00f3 04000000 		.4byte	.LCFI13
+ 1120 00f7 06000000 		.4byte	.LCFI14
+ 1121 00fb 0200     		.2byte	0x2
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 25
+
+
+ 1122 00fd 7D       		.byte	0x7d
+ 1123 00fe 20       		.sleb128 32
+ 1124 00ff 06000000 		.4byte	.LCFI14
+ 1125 0103 AE000000 		.4byte	.LFE4
+ 1126 0107 0200     		.2byte	0x2
+ 1127 0109 77       		.byte	0x77
+ 1128 010a 20       		.sleb128 32
+ 1129 010b 00000000 		.4byte	0x0
+ 1130 010f 00000000 		.4byte	0x0
+ 1131              	.LLST5:
+ 1132 0113 00000000 		.4byte	.LFB5
+ 1133 0117 02000000 		.4byte	.LCFI15
+ 1134 011b 0100     		.2byte	0x1
+ 1135 011d 5D       		.byte	0x5d
+ 1136 011e 02000000 		.4byte	.LCFI15
+ 1137 0122 04000000 		.4byte	.LCFI16
+ 1138 0126 0200     		.2byte	0x2
+ 1139 0128 7D       		.byte	0x7d
+ 1140 0129 0C       		.sleb128 12
+ 1141 012a 04000000 		.4byte	.LCFI16
+ 1142 012e 06000000 		.4byte	.LCFI17
+ 1143 0132 0300     		.2byte	0x3
+ 1144 0134 7D       		.byte	0x7d
+ 1145 0135 C000     		.sleb128 64
+ 1146 0137 06000000 		.4byte	.LCFI17
+ 1147 013b DC010000 		.4byte	.LFE5
+ 1148 013f 0200     		.2byte	0x2
+ 1149 0141 77       		.byte	0x77
+ 1150 0142 38       		.sleb128 56
+ 1151 0143 00000000 		.4byte	0x0
+ 1152 0147 00000000 		.4byte	0x0
+ 1153              	.LLST6:
+ 1154 014b 00000000 		.4byte	.LFB6
+ 1155 014f 02000000 		.4byte	.LCFI18
+ 1156 0153 0100     		.2byte	0x1
+ 1157 0155 5D       		.byte	0x5d
+ 1158 0156 02000000 		.4byte	.LCFI18
+ 1159 015a 04000000 		.4byte	.LCFI19
+ 1160 015e 0200     		.2byte	0x2
+ 1161 0160 7D       		.byte	0x7d
+ 1162 0161 08       		.sleb128 8
+ 1163 0162 04000000 		.4byte	.LCFI19
+ 1164 0166 06000000 		.4byte	.LCFI20
+ 1165 016a 0200     		.2byte	0x2
+ 1166 016c 7D       		.byte	0x7d
+ 1167 016d 10       		.sleb128 16
+ 1168 016e 06000000 		.4byte	.LCFI20
+ 1169 0172 24000000 		.4byte	.LFE6
+ 1170 0176 0200     		.2byte	0x2
+ 1171 0178 77       		.byte	0x77
+ 1172 0179 10       		.sleb128 16
+ 1173 017a 00000000 		.4byte	0x0
+ 1174 017e 00000000 		.4byte	0x0
+ 1175              	.LLST7:
+ 1176 0182 00000000 		.4byte	.LFB7
+ 1177 0186 02000000 		.4byte	.LCFI21
+ 1178 018a 0100     		.2byte	0x1
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 26
+
+
+ 1179 018c 5D       		.byte	0x5d
+ 1180 018d 02000000 		.4byte	.LCFI21
+ 1181 0191 04000000 		.4byte	.LCFI22
+ 1182 0195 0200     		.2byte	0x2
+ 1183 0197 7D       		.byte	0x7d
+ 1184 0198 10       		.sleb128 16
+ 1185 0199 04000000 		.4byte	.LCFI22
+ 1186 019d 06000000 		.4byte	.LCFI23
+ 1187 01a1 0200     		.2byte	0x2
+ 1188 01a3 7D       		.byte	0x7d
+ 1189 01a4 18       		.sleb128 24
+ 1190 01a5 06000000 		.4byte	.LCFI23
+ 1191 01a9 08000000 		.4byte	.LCFI24
+ 1192 01ad 0200     		.2byte	0x2
+ 1193 01af 7D       		.byte	0x7d
+ 1194 01b0 20       		.sleb128 32
+ 1195 01b1 08000000 		.4byte	.LCFI24
+ 1196 01b5 34000000 		.4byte	.LFE7
+ 1197 01b9 0200     		.2byte	0x2
+ 1198 01bb 77       		.byte	0x77
+ 1199 01bc 20       		.sleb128 32
+ 1200 01bd 00000000 		.4byte	0x0
+ 1201 01c1 00000000 		.4byte	0x0
+ 1202              	.LLST8:
+ 1203 01c5 00000000 		.4byte	.LFB8
+ 1204 01c9 02000000 		.4byte	.LCFI25
+ 1205 01cd 0100     		.2byte	0x1
+ 1206 01cf 5D       		.byte	0x5d
+ 1207 01d0 02000000 		.4byte	.LCFI25
+ 1208 01d4 04000000 		.4byte	.LCFI26
+ 1209 01d8 0200     		.2byte	0x2
+ 1210 01da 7D       		.byte	0x7d
+ 1211 01db 08       		.sleb128 8
+ 1212 01dc 04000000 		.4byte	.LCFI26
+ 1213 01e0 06000000 		.4byte	.LCFI27
+ 1214 01e4 0200     		.2byte	0x2
+ 1215 01e6 7D       		.byte	0x7d
+ 1216 01e7 10       		.sleb128 16
+ 1217 01e8 06000000 		.4byte	.LCFI27
+ 1218 01ec 22000000 		.4byte	.LFE8
+ 1219 01f0 0200     		.2byte	0x2
+ 1220 01f2 77       		.byte	0x77
+ 1221 01f3 10       		.sleb128 16
+ 1222 01f4 00000000 		.4byte	0x0
+ 1223 01f8 00000000 		.4byte	0x0
+ 1224              	.LLST9:
+ 1225 01fc 00000000 		.4byte	.LFB9
+ 1226 0200 02000000 		.4byte	.LCFI28
+ 1227 0204 0100     		.2byte	0x1
+ 1228 0206 5D       		.byte	0x5d
+ 1229 0207 02000000 		.4byte	.LCFI28
+ 1230 020b 04000000 		.4byte	.LCFI29
+ 1231 020f 0200     		.2byte	0x2
+ 1232 0211 7D       		.byte	0x7d
+ 1233 0212 0C       		.sleb128 12
+ 1234 0213 04000000 		.4byte	.LCFI29
+ 1235 0217 06000000 		.4byte	.LCFI30
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 27
+
+
+ 1236 021b 0200     		.2byte	0x2
+ 1237 021d 7D       		.byte	0x7d
+ 1238 021e 14       		.sleb128 20
+ 1239 021f 06000000 		.4byte	.LCFI30
+ 1240 0223 08000000 		.4byte	.LCFI31
+ 1241 0227 0200     		.2byte	0x2
+ 1242 0229 7D       		.byte	0x7d
+ 1243 022a 28       		.sleb128 40
+ 1244 022b 08000000 		.4byte	.LCFI31
+ 1245 022f 38000000 		.4byte	.LFE9
+ 1246 0233 0200     		.2byte	0x2
+ 1247 0235 77       		.byte	0x77
+ 1248 0236 28       		.sleb128 40
+ 1249 0237 00000000 		.4byte	0x0
+ 1250 023b 00000000 		.4byte	0x0
+ 1251              		.file 2 "c:\\program files\\cypress\\psoc creator\\2.2\\psoc creator\\import\\gnu_cs\\arm\\4.4.1\\
+ 1252              		.section	.debug_info
+ 1253 0000 21040000 		.4byte	0x421
+ 1254 0004 0200     		.2byte	0x2
+ 1255 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1256 000a 04       		.byte	0x4
+ 1257 000b 01       		.uleb128 0x1
+ 1258 000c 34010000 		.4byte	.LASF19
+ 1259 0010 01       		.byte	0x1
+ 1260 0011 00000000 		.4byte	.LASF20
+ 1261 0015 A6000000 		.4byte	.LASF21
+ 1262 0019 00000000 		.4byte	0x0
+ 1263 001d 00000000 		.4byte	0x0
+ 1264 0021 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 1265 0025 00000000 		.4byte	.Ldebug_line0
+ 1266 0029 02       		.uleb128 0x2
+ 1267 002a 32000000 		.4byte	.LASF0
+ 1268 002e 02       		.byte	0x2
+ 1269 002f 28       		.byte	0x28
+ 1270 0030 34000000 		.4byte	0x34
+ 1271 0034 03       		.uleb128 0x3
+ 1272 0035 2A010000 		.4byte	.LASF22
+ 1273 0039 04       		.byte	0x4
+ 1274 003a 4C000000 		.4byte	0x4c
+ 1275 003e 04       		.uleb128 0x4
+ 1276 003f A1000000 		.4byte	.LASF23
+ 1277 0043 4C000000 		.4byte	0x4c
+ 1278 0047 02       		.byte	0x2
+ 1279 0048 23       		.byte	0x23
+ 1280 0049 00       		.uleb128 0x0
+ 1281 004a 01       		.byte	0x1
+ 1282 004b 00       		.byte	0x0
+ 1283 004c 05       		.uleb128 0x5
+ 1284 004d 04       		.byte	0x4
+ 1285 004e 02       		.uleb128 0x2
+ 1286 004f 5E000000 		.4byte	.LASF1
+ 1287 0053 02       		.byte	0x2
+ 1288 0054 66       		.byte	0x66
+ 1289 0055 29000000 		.4byte	0x29
+ 1290 0059 02       		.uleb128 0x2
+ 1291 005a 41000000 		.4byte	.LASF2
+ 1292 005e 01       		.byte	0x1
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 28
+
+
+ 1293 005f 22       		.byte	0x22
+ 1294 0060 64000000 		.4byte	0x64
+ 1295 0064 06       		.uleb128 0x6
+ 1296 0065 04       		.byte	0x4
+ 1297 0066 6A000000 		.4byte	0x6a
+ 1298 006a 07       		.uleb128 0x7
+ 1299 006b 01       		.byte	0x1
+ 1300 006c 7B000000 		.4byte	0x7b
+ 1301 0070 08       		.uleb128 0x8
+ 1302 0071 4C000000 		.4byte	0x4c
+ 1303 0075 08       		.uleb128 0x8
+ 1304 0076 7B000000 		.4byte	0x7b
+ 1305 007a 00       		.byte	0x0
+ 1306 007b 09       		.uleb128 0x9
+ 1307 007c 01       		.byte	0x1
+ 1308 007d 08       		.byte	0x8
+ 1309 007e 9C000000 		.4byte	.LASF4
+ 1310 0082 0A       		.uleb128 0xa
+ 1311 0083 63010000 		.4byte	.LASF6
+ 1312 0087 01       		.byte	0x1
+ 1313 0088 46       		.byte	0x46
+ 1314 0089 01       		.byte	0x1
+ 1315 008a 00000000 		.4byte	.LFB0
+ 1316 008e AC000000 		.4byte	.LFE0
+ 1317 0092 00000000 		.4byte	.LLST0
+ 1318 0096 01010000 		.4byte	0x101
+ 1319 009a 0B       		.uleb128 0xb
+ 1320 009b 6E756D00 		.ascii	"num\000"
+ 1321 009f 01       		.byte	0x1
+ 1322 00a0 46       		.byte	0x46
+ 1323 00a1 01010000 		.4byte	0x101
+ 1324 00a5 02       		.byte	0x2
+ 1325 00a6 91       		.byte	0x91
+ 1326 00a7 64       		.sleb128 -28
+ 1327 00a8 0C       		.uleb128 0xc
+ 1328 00a9 53000000 		.4byte	.LASF3
+ 1329 00ad 01       		.byte	0x1
+ 1330 00ae 46       		.byte	0x46
+ 1331 00af 01010000 		.4byte	0x101
+ 1332 00b3 02       		.byte	0x2
+ 1333 00b4 91       		.byte	0x91
+ 1334 00b5 60       		.sleb128 -32
+ 1335 00b6 0B       		.uleb128 0xb
+ 1336 00b7 756300   		.ascii	"uc\000"
+ 1337 00ba 01       		.byte	0x1
+ 1338 00bb 46       		.byte	0x46
+ 1339 00bc 08010000 		.4byte	0x108
+ 1340 00c0 02       		.byte	0x2
+ 1341 00c1 91       		.byte	0x91
+ 1342 00c2 5C       		.sleb128 -36
+ 1343 00c3 0B       		.uleb128 0xb
+ 1344 00c4 626600   		.ascii	"bf\000"
+ 1345 00c7 01       		.byte	0x1
+ 1346 00c8 46       		.byte	0x46
+ 1347 00c9 0F010000 		.4byte	0x10f
+ 1348 00cd 02       		.byte	0x2
+ 1349 00ce 91       		.byte	0x91
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 29
+
+
+ 1350 00cf 58       		.sleb128 -40
+ 1351 00d0 0D       		.uleb128 0xd
+ 1352 00d1 6E00     		.ascii	"n\000"
+ 1353 00d3 01       		.byte	0x1
+ 1354 00d4 48       		.byte	0x48
+ 1355 00d5 08010000 		.4byte	0x108
+ 1356 00d9 02       		.byte	0x2
+ 1357 00da 91       		.byte	0x91
+ 1358 00db 6C       		.sleb128 -20
+ 1359 00dc 0D       		.uleb128 0xd
+ 1360 00dd 6400     		.ascii	"d\000"
+ 1361 00df 01       		.byte	0x1
+ 1362 00e0 49       		.byte	0x49
+ 1363 00e1 01010000 		.4byte	0x101
+ 1364 00e5 02       		.byte	0x2
+ 1365 00e6 91       		.byte	0x91
+ 1366 00e7 70       		.sleb128 -16
+ 1367 00e8 0E       		.uleb128 0xe
+ 1368 00e9 34000000 		.4byte	.LBB2
+ 1369 00ed 9A000000 		.4byte	.LBE2
+ 1370 00f1 0D       		.uleb128 0xd
+ 1371 00f2 64677400 		.ascii	"dgt\000"
+ 1372 00f6 01       		.byte	0x1
+ 1373 00f7 4D       		.byte	0x4d
+ 1374 00f8 08010000 		.4byte	0x108
+ 1375 00fc 02       		.byte	0x2
+ 1376 00fd 91       		.byte	0x91
+ 1377 00fe 74       		.sleb128 -12
+ 1378 00ff 00       		.byte	0x0
+ 1379 0100 00       		.byte	0x0
+ 1380 0101 09       		.uleb128 0x9
+ 1381 0102 04       		.byte	0x4
+ 1382 0103 07       		.byte	0x7
+ 1383 0104 89000000 		.4byte	.LASF5
+ 1384 0108 0F       		.uleb128 0xf
+ 1385 0109 04       		.byte	0x4
+ 1386 010a 05       		.byte	0x5
+ 1387 010b 696E7400 		.ascii	"int\000"
+ 1388 010f 06       		.uleb128 0x6
+ 1389 0110 04       		.byte	0x4
+ 1390 0111 7B000000 		.4byte	0x7b
+ 1391 0115 10       		.uleb128 0x10
+ 1392 0116 69326100 		.ascii	"i2a\000"
+ 1393 011a 01       		.byte	0x1
+ 1394 011b 58       		.byte	0x58
+ 1395 011c 01       		.byte	0x1
+ 1396 011d 00000000 		.4byte	.LFB1
+ 1397 0121 36000000 		.4byte	.LFE1
+ 1398 0125 37000000 		.4byte	.LLST1
+ 1399 0129 49010000 		.4byte	0x149
+ 1400 012d 0B       		.uleb128 0xb
+ 1401 012e 6E756D00 		.ascii	"num\000"
+ 1402 0132 01       		.byte	0x1
+ 1403 0133 58       		.byte	0x58
+ 1404 0134 08010000 		.4byte	0x108
+ 1405 0138 02       		.byte	0x2
+ 1406 0139 91       		.byte	0x91
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 30
+
+
+ 1407 013a 74       		.sleb128 -12
+ 1408 013b 0B       		.uleb128 0xb
+ 1409 013c 626600   		.ascii	"bf\000"
+ 1410 013f 01       		.byte	0x1
+ 1411 0140 58       		.byte	0x58
+ 1412 0141 0F010000 		.4byte	0x10f
+ 1413 0145 02       		.byte	0x2
+ 1414 0146 91       		.byte	0x91
+ 1415 0147 70       		.sleb128 -16
+ 1416 0148 00       		.byte	0x0
+ 1417 0149 11       		.uleb128 0x11
+ 1418 014a 61326400 		.ascii	"a2d\000"
+ 1419 014e 01       		.byte	0x1
+ 1420 014f 61       		.byte	0x61
+ 1421 0150 01       		.byte	0x1
+ 1422 0151 08010000 		.4byte	0x108
+ 1423 0155 00000000 		.4byte	.LFB2
+ 1424 0159 60000000 		.4byte	.LFE2
+ 1425 015d 6E000000 		.4byte	.LLST2
+ 1426 0161 73010000 		.4byte	0x173
+ 1427 0165 0B       		.uleb128 0xb
+ 1428 0166 636800   		.ascii	"ch\000"
+ 1429 0169 01       		.byte	0x1
+ 1430 016a 61       		.byte	0x61
+ 1431 016b 7B000000 		.4byte	0x7b
+ 1432 016f 02       		.byte	0x2
+ 1433 0170 91       		.byte	0x91
+ 1434 0171 77       		.sleb128 -9
+ 1435 0172 00       		.byte	0x0
+ 1436 0173 11       		.uleb128 0x11
+ 1437 0174 61326900 		.ascii	"a2i\000"
+ 1438 0178 01       		.byte	0x1
+ 1439 0179 6C       		.byte	0x6c
+ 1440 017a 01       		.byte	0x1
+ 1441 017b 7B000000 		.4byte	0x7b
+ 1442 017f 00000000 		.4byte	.LFB3
+ 1443 0183 78000000 		.4byte	.LFE3
+ 1444 0187 A5000000 		.4byte	.LLST3
+ 1445 018b EF010000 		.4byte	0x1ef
+ 1446 018f 0B       		.uleb128 0xb
+ 1447 0190 636800   		.ascii	"ch\000"
+ 1448 0193 01       		.byte	0x1
+ 1449 0194 6C       		.byte	0x6c
+ 1450 0195 7B000000 		.4byte	0x7b
+ 1451 0199 02       		.byte	0x2
+ 1452 019a 91       		.byte	0x91
+ 1453 019b 67       		.sleb128 -25
+ 1454 019c 0B       		.uleb128 0xb
+ 1455 019d 73726300 		.ascii	"src\000"
+ 1456 01a1 01       		.byte	0x1
+ 1457 01a2 6C       		.byte	0x6c
+ 1458 01a3 EF010000 		.4byte	0x1ef
+ 1459 01a7 02       		.byte	0x2
+ 1460 01a8 91       		.byte	0x91
+ 1461 01a9 60       		.sleb128 -32
+ 1462 01aa 0C       		.uleb128 0xc
+ 1463 01ab 53000000 		.4byte	.LASF3
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 31
+
+
+ 1464 01af 01       		.byte	0x1
+ 1465 01b0 6C       		.byte	0x6c
+ 1466 01b1 08010000 		.4byte	0x108
+ 1467 01b5 02       		.byte	0x2
+ 1468 01b6 91       		.byte	0x91
+ 1469 01b7 5C       		.sleb128 -36
+ 1470 01b8 0C       		.uleb128 0xc
+ 1471 01b9 40010000 		.4byte	.LASF7
+ 1472 01bd 01       		.byte	0x1
+ 1473 01be 6C       		.byte	0x6c
+ 1474 01bf F5010000 		.4byte	0x1f5
+ 1475 01c3 02       		.byte	0x2
+ 1476 01c4 91       		.byte	0x91
+ 1477 01c5 58       		.sleb128 -40
+ 1478 01c6 0D       		.uleb128 0xd
+ 1479 01c7 7000     		.ascii	"p\000"
+ 1480 01c9 01       		.byte	0x1
+ 1481 01ca 6E       		.byte	0x6e
+ 1482 01cb 0F010000 		.4byte	0x10f
+ 1483 01cf 02       		.byte	0x2
+ 1484 01d0 91       		.byte	0x91
+ 1485 01d1 6C       		.sleb128 -20
+ 1486 01d2 0D       		.uleb128 0xd
+ 1487 01d3 6E756D00 		.ascii	"num\000"
+ 1488 01d7 01       		.byte	0x1
+ 1489 01d8 6F       		.byte	0x6f
+ 1490 01d9 08010000 		.4byte	0x108
+ 1491 01dd 02       		.byte	0x2
+ 1492 01de 91       		.byte	0x91
+ 1493 01df 70       		.sleb128 -16
+ 1494 01e0 12       		.uleb128 0x12
+ 1495 01e1 96000000 		.4byte	.LASF8
+ 1496 01e5 01       		.byte	0x1
+ 1497 01e6 70       		.byte	0x70
+ 1498 01e7 08010000 		.4byte	0x108
+ 1499 01eb 02       		.byte	0x2
+ 1500 01ec 91       		.byte	0x91
+ 1501 01ed 74       		.sleb128 -12
+ 1502 01ee 00       		.byte	0x0
+ 1503 01ef 06       		.uleb128 0x6
+ 1504 01f0 04       		.byte	0x4
+ 1505 01f1 0F010000 		.4byte	0x10f
+ 1506 01f5 06       		.uleb128 0x6
+ 1507 01f6 04       		.byte	0x4
+ 1508 01f7 08010000 		.4byte	0x108
+ 1509 01fb 0A       		.uleb128 0xa
+ 1510 01fc 45010000 		.4byte	.LASF9
+ 1511 0200 01       		.byte	0x1
+ 1512 0201 7B       		.byte	0x7b
+ 1513 0202 01       		.byte	0x1
+ 1514 0203 00000000 		.4byte	.LFB4
+ 1515 0207 AE000000 		.4byte	.LFE4
+ 1516 020b DC000000 		.4byte	.LLST4
+ 1517 020f 7B020000 		.4byte	0x27b
+ 1518 0213 0C       		.uleb128 0xc
+ 1519 0214 4C010000 		.4byte	.LASF10
+ 1520 0218 01       		.byte	0x1
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 32
+
+
+ 1521 0219 7B       		.byte	0x7b
+ 1522 021a 4C000000 		.4byte	0x4c
+ 1523 021e 02       		.byte	0x2
+ 1524 021f 91       		.byte	0x91
+ 1525 0220 6C       		.sleb128 -20
+ 1526 0221 0C       		.uleb128 0xc
+ 1527 0222 2D000000 		.4byte	.LASF11
+ 1528 0226 01       		.byte	0x1
+ 1529 0227 7B       		.byte	0x7b
+ 1530 0228 59000000 		.4byte	0x59
+ 1531 022c 02       		.byte	0x2
+ 1532 022d 91       		.byte	0x91
+ 1533 022e 68       		.sleb128 -24
+ 1534 022f 0B       		.uleb128 0xb
+ 1535 0230 6E00     		.ascii	"n\000"
+ 1536 0232 01       		.byte	0x1
+ 1537 0233 7B       		.byte	0x7b
+ 1538 0234 08010000 		.4byte	0x108
+ 1539 0238 02       		.byte	0x2
+ 1540 0239 91       		.byte	0x91
+ 1541 023a 64       		.sleb128 -28
+ 1542 023b 0B       		.uleb128 0xb
+ 1543 023c 7A00     		.ascii	"z\000"
+ 1544 023e 01       		.byte	0x1
+ 1545 023f 7B       		.byte	0x7b
+ 1546 0240 7B000000 		.4byte	0x7b
+ 1547 0244 02       		.byte	0x2
+ 1548 0245 91       		.byte	0x91
+ 1549 0246 63       		.sleb128 -29
+ 1550 0247 0B       		.uleb128 0xb
+ 1551 0248 626600   		.ascii	"bf\000"
+ 1552 024b 01       		.byte	0x1
+ 1553 024c 7B       		.byte	0x7b
+ 1554 024d 0F010000 		.4byte	0x10f
+ 1555 0251 02       		.byte	0x2
+ 1556 0252 91       		.byte	0x91
+ 1557 0253 00       		.sleb128 0
+ 1558 0254 0D       		.uleb128 0xd
+ 1559 0255 666300   		.ascii	"fc\000"
+ 1560 0258 01       		.byte	0x1
+ 1561 0259 7D       		.byte	0x7d
+ 1562 025a 7B000000 		.4byte	0x7b
+ 1563 025e 02       		.byte	0x2
+ 1564 025f 91       		.byte	0x91
+ 1565 0260 72       		.sleb128 -14
+ 1566 0261 0D       		.uleb128 0xd
+ 1567 0262 636800   		.ascii	"ch\000"
+ 1568 0265 01       		.byte	0x1
+ 1569 0266 7E       		.byte	0x7e
+ 1570 0267 7B000000 		.4byte	0x7b
+ 1571 026b 02       		.byte	0x2
+ 1572 026c 91       		.byte	0x91
+ 1573 026d 73       		.sleb128 -13
+ 1574 026e 0D       		.uleb128 0xd
+ 1575 026f 7000     		.ascii	"p\000"
+ 1576 0271 01       		.byte	0x1
+ 1577 0272 7F       		.byte	0x7f
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 33
+
+
+ 1578 0273 0F010000 		.4byte	0x10f
+ 1579 0277 02       		.byte	0x2
+ 1580 0278 91       		.byte	0x91
+ 1581 0279 74       		.sleb128 -12
+ 1582 027a 00       		.byte	0x0
+ 1583 027b 13       		.uleb128 0x13
+ 1584 027c 01       		.byte	0x1
+ 1585 027d 66000000 		.4byte	.LASF12
+ 1586 0281 01       		.byte	0x1
+ 1587 0282 88       		.byte	0x88
+ 1588 0283 01       		.byte	0x1
+ 1589 0284 00000000 		.4byte	.LFB5
+ 1590 0288 DC010000 		.4byte	.LFE5
+ 1591 028c 13010000 		.4byte	.LLST5
+ 1592 0290 10030000 		.4byte	0x310
+ 1593 0294 0C       		.uleb128 0xc
+ 1594 0295 4C010000 		.4byte	.LASF10
+ 1595 0299 01       		.byte	0x1
+ 1596 029a 88       		.byte	0x88
+ 1597 029b 4C000000 		.4byte	0x4c
+ 1598 029f 02       		.byte	0x2
+ 1599 02a0 91       		.byte	0x91
+ 1600 02a1 54       		.sleb128 -44
+ 1601 02a2 0C       		.uleb128 0xc
+ 1602 02a3 2D000000 		.4byte	.LASF11
+ 1603 02a7 01       		.byte	0x1
+ 1604 02a8 88       		.byte	0x88
+ 1605 02a9 59000000 		.4byte	0x59
+ 1606 02ad 02       		.byte	0x2
+ 1607 02ae 91       		.byte	0x91
+ 1608 02af 50       		.sleb128 -48
+ 1609 02b0 0B       		.uleb128 0xb
+ 1610 02b1 666D7400 		.ascii	"fmt\000"
+ 1611 02b5 01       		.byte	0x1
+ 1612 02b6 88       		.byte	0x88
+ 1613 02b7 0F010000 		.4byte	0x10f
+ 1614 02bb 02       		.byte	0x2
+ 1615 02bc 91       		.byte	0x91
+ 1616 02bd 4C       		.sleb128 -52
+ 1617 02be 0B       		.uleb128 0xb
+ 1618 02bf 766100   		.ascii	"va\000"
+ 1619 02c2 01       		.byte	0x1
+ 1620 02c3 88       		.byte	0x88
+ 1621 02c4 4E000000 		.4byte	0x4e
+ 1622 02c8 02       		.byte	0x2
+ 1623 02c9 91       		.byte	0x91
+ 1624 02ca 48       		.sleb128 -56
+ 1625 02cb 0D       		.uleb128 0xd
+ 1626 02cc 626600   		.ascii	"bf\000"
+ 1627 02cf 01       		.byte	0x1
+ 1628 02d0 8A       		.byte	0x8a
+ 1629 02d1 10030000 		.4byte	0x310
+ 1630 02d5 02       		.byte	0x2
+ 1631 02d6 91       		.byte	0x91
+ 1632 02d7 60       		.sleb128 -32
+ 1633 02d8 0D       		.uleb128 0xd
+ 1634 02d9 636800   		.ascii	"ch\000"
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 34
+
+
+ 1635 02dc 01       		.byte	0x1
+ 1636 02dd 8C       		.byte	0x8c
+ 1637 02de 7B000000 		.4byte	0x7b
+ 1638 02e2 02       		.byte	0x2
+ 1639 02e3 91       		.byte	0x91
+ 1640 02e4 6E       		.sleb128 -18
+ 1641 02e5 14       		.uleb128 0x14
+ 1642 02e6 51010000 		.4byte	.LASF24
+ 1643 02ea 01       		.byte	0x1
+ 1644 02eb D3       		.byte	0xd3
+ 1645 02ec D4010000 		.4byte	.L54
+ 1646 02f0 15       		.uleb128 0x15
+ 1647 02f1 00000000 		.4byte	.Ldebug_ranges0+0x0
+ 1648 02f5 0D       		.uleb128 0xd
+ 1649 02f6 6C7A00   		.ascii	"lz\000"
+ 1650 02f9 01       		.byte	0x1
+ 1651 02fa 93       		.byte	0x93
+ 1652 02fb 7B000000 		.4byte	0x7b
+ 1653 02ff 02       		.byte	0x2
+ 1654 0300 91       		.byte	0x91
+ 1655 0301 6F       		.sleb128 -17
+ 1656 0302 0D       		.uleb128 0xd
+ 1657 0303 7700     		.ascii	"w\000"
+ 1658 0305 01       		.byte	0x1
+ 1659 0306 97       		.byte	0x97
+ 1660 0307 08010000 		.4byte	0x108
+ 1661 030b 02       		.byte	0x2
+ 1662 030c 91       		.byte	0x91
+ 1663 030d 5C       		.sleb128 -36
+ 1664 030e 00       		.byte	0x0
+ 1665 030f 00       		.byte	0x0
+ 1666 0310 16       		.uleb128 0x16
+ 1667 0311 7B000000 		.4byte	0x7b
+ 1668 0315 20030000 		.4byte	0x320
+ 1669 0319 17       		.uleb128 0x17
+ 1670 031a 20030000 		.4byte	0x320
+ 1671 031e 0B       		.byte	0xb
+ 1672 031f 00       		.byte	0x0
+ 1673 0320 18       		.uleb128 0x18
+ 1674 0321 04       		.byte	0x4
+ 1675 0322 07       		.byte	0x7
+ 1676 0323 13       		.uleb128 0x13
+ 1677 0324 01       		.byte	0x1
+ 1678 0325 47000000 		.4byte	.LASF13
+ 1679 0329 01       		.byte	0x1
+ 1680 032a D7       		.byte	0xd7
+ 1681 032b 01       		.byte	0x1
+ 1682 032c 00000000 		.4byte	.LFB6
+ 1683 0330 24000000 		.4byte	.LFE6
+ 1684 0334 4B010000 		.4byte	.LLST6
+ 1685 0338 59030000 		.4byte	0x359
+ 1686 033c 0C       		.uleb128 0xc
+ 1687 033d 4C010000 		.4byte	.LASF10
+ 1688 0341 01       		.byte	0x1
+ 1689 0342 D7       		.byte	0xd7
+ 1690 0343 4C000000 		.4byte	0x4c
+ 1691 0347 02       		.byte	0x2
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 35
+
+
+ 1692 0348 91       		.byte	0x91
+ 1693 0349 74       		.sleb128 -12
+ 1694 034a 0C       		.uleb128 0xc
+ 1695 034b 2D000000 		.4byte	.LASF11
+ 1696 034f 01       		.byte	0x1
+ 1697 0350 D7       		.byte	0xd7
+ 1698 0351 64000000 		.4byte	0x64
+ 1699 0355 02       		.byte	0x2
+ 1700 0356 91       		.byte	0x91
+ 1701 0357 70       		.sleb128 -16
+ 1702 0358 00       		.byte	0x0
+ 1703 0359 13       		.uleb128 0x13
+ 1704 035a 01       		.byte	0x1
+ 1705 035b 1F010000 		.4byte	.LASF14
+ 1706 035f 01       		.byte	0x1
+ 1707 0360 DD       		.byte	0xdd
+ 1708 0361 01       		.byte	0x1
+ 1709 0362 00000000 		.4byte	.LFB7
+ 1710 0366 34000000 		.4byte	.LFE7
+ 1711 036a 82010000 		.4byte	.LLST7
+ 1712 036e 8F030000 		.4byte	0x38f
+ 1713 0372 0B       		.uleb128 0xb
+ 1714 0373 666D7400 		.ascii	"fmt\000"
+ 1715 0377 01       		.byte	0x1
+ 1716 0378 DD       		.byte	0xdd
+ 1717 0379 0F010000 		.4byte	0x10f
+ 1718 037d 02       		.byte	0x2
+ 1719 037e 91       		.byte	0x91
+ 1720 037f 70       		.sleb128 -16
+ 1721 0380 19       		.uleb128 0x19
+ 1722 0381 0D       		.uleb128 0xd
+ 1723 0382 766100   		.ascii	"va\000"
+ 1724 0385 01       		.byte	0x1
+ 1725 0386 DF       		.byte	0xdf
+ 1726 0387 4E000000 		.4byte	0x4e
+ 1727 038b 02       		.byte	0x2
+ 1728 038c 91       		.byte	0x91
+ 1729 038d 64       		.sleb128 -28
+ 1730 038e 00       		.byte	0x0
+ 1731 038f 0A       		.uleb128 0xa
+ 1732 0390 58000000 		.4byte	.LASF15
+ 1733 0394 01       		.byte	0x1
+ 1734 0395 E5       		.byte	0xe5
+ 1735 0396 01       		.byte	0x1
+ 1736 0397 00000000 		.4byte	.LFB8
+ 1737 039b 22000000 		.4byte	.LFE8
+ 1738 039f C5010000 		.4byte	.LLST8
+ 1739 03a3 C0030000 		.4byte	0x3c0
+ 1740 03a7 0B       		.uleb128 0xb
+ 1741 03a8 7000     		.ascii	"p\000"
+ 1742 03aa 01       		.byte	0x1
+ 1743 03ab E5       		.byte	0xe5
+ 1744 03ac 4C000000 		.4byte	0x4c
+ 1745 03b0 02       		.byte	0x2
+ 1746 03b1 91       		.byte	0x91
+ 1747 03b2 74       		.sleb128 -12
+ 1748 03b3 0B       		.uleb128 0xb
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 36
+
+
+ 1749 03b4 6300     		.ascii	"c\000"
+ 1750 03b6 01       		.byte	0x1
+ 1751 03b7 E5       		.byte	0xe5
+ 1752 03b8 7B000000 		.4byte	0x7b
+ 1753 03bc 02       		.byte	0x2
+ 1754 03bd 91       		.byte	0x91
+ 1755 03be 73       		.sleb128 -13
+ 1756 03bf 00       		.byte	0x0
+ 1757 03c0 13       		.uleb128 0x13
+ 1758 03c1 01       		.byte	0x1
+ 1759 03c2 7D000000 		.4byte	.LASF16
+ 1760 03c6 01       		.byte	0x1
+ 1761 03c7 EC       		.byte	0xec
+ 1762 03c8 01       		.byte	0x1
+ 1763 03c9 00000000 		.4byte	.LFB9
+ 1764 03cd 38000000 		.4byte	.LFE9
+ 1765 03d1 FC010000 		.4byte	.LLST9
+ 1766 03d5 02040000 		.4byte	0x402
+ 1767 03d9 0B       		.uleb128 0xb
+ 1768 03da 7300     		.ascii	"s\000"
+ 1769 03dc 01       		.byte	0x1
+ 1770 03dd EC       		.byte	0xec
+ 1771 03de 0F010000 		.4byte	0x10f
+ 1772 03e2 02       		.byte	0x2
+ 1773 03e3 91       		.byte	0x91
+ 1774 03e4 5C       		.sleb128 -36
+ 1775 03e5 0B       		.uleb128 0xb
+ 1776 03e6 666D7400 		.ascii	"fmt\000"
+ 1777 03ea 01       		.byte	0x1
+ 1778 03eb EC       		.byte	0xec
+ 1779 03ec 0F010000 		.4byte	0x10f
+ 1780 03f0 02       		.byte	0x2
+ 1781 03f1 91       		.byte	0x91
+ 1782 03f2 74       		.sleb128 -12
+ 1783 03f3 19       		.uleb128 0x19
+ 1784 03f4 0D       		.uleb128 0xd
+ 1785 03f5 766100   		.ascii	"va\000"
+ 1786 03f8 01       		.byte	0x1
+ 1787 03f9 EE       		.byte	0xee
+ 1788 03fa 4E000000 		.4byte	0x4e
+ 1789 03fe 02       		.byte	0x2
+ 1790 03ff 91       		.byte	0x91
+ 1791 0400 64       		.sleb128 -28
+ 1792 0401 00       		.byte	0x0
+ 1793 0402 12       		.uleb128 0x12
+ 1794 0403 57010000 		.4byte	.LASF17
+ 1795 0407 01       		.byte	0x1
+ 1796 0408 23       		.byte	0x23
+ 1797 0409 59000000 		.4byte	0x59
+ 1798 040d 05       		.byte	0x5
+ 1799 040e 03       		.byte	0x3
+ 1800 040f 00000000 		.4byte	stdout_putf
+ 1801 0413 12       		.uleb128 0x12
+ 1802 0414 71000000 		.4byte	.LASF18
+ 1803 0418 01       		.byte	0x1
+ 1804 0419 24       		.byte	0x24
+ 1805 041a 4C000000 		.4byte	0x4c
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 37
+
+
+ 1806 041e 05       		.byte	0x5
+ 1807 041f 03       		.byte	0x3
+ 1808 0420 04000000 		.4byte	stdout_putp
+ 1809 0424 00       		.byte	0x0
+ 1810              		.section	.debug_abbrev
+ 1811 0000 01       		.uleb128 0x1
+ 1812 0001 11       		.uleb128 0x11
+ 1813 0002 01       		.byte	0x1
+ 1814 0003 25       		.uleb128 0x25
+ 1815 0004 0E       		.uleb128 0xe
+ 1816 0005 13       		.uleb128 0x13
+ 1817 0006 0B       		.uleb128 0xb
+ 1818 0007 03       		.uleb128 0x3
+ 1819 0008 0E       		.uleb128 0xe
+ 1820 0009 1B       		.uleb128 0x1b
+ 1821 000a 0E       		.uleb128 0xe
+ 1822 000b 11       		.uleb128 0x11
+ 1823 000c 01       		.uleb128 0x1
+ 1824 000d 52       		.uleb128 0x52
+ 1825 000e 01       		.uleb128 0x1
+ 1826 000f 55       		.uleb128 0x55
+ 1827 0010 06       		.uleb128 0x6
+ 1828 0011 10       		.uleb128 0x10
+ 1829 0012 06       		.uleb128 0x6
+ 1830 0013 00       		.byte	0x0
+ 1831 0014 00       		.byte	0x0
+ 1832 0015 02       		.uleb128 0x2
+ 1833 0016 16       		.uleb128 0x16
+ 1834 0017 00       		.byte	0x0
+ 1835 0018 03       		.uleb128 0x3
+ 1836 0019 0E       		.uleb128 0xe
+ 1837 001a 3A       		.uleb128 0x3a
+ 1838 001b 0B       		.uleb128 0xb
+ 1839 001c 3B       		.uleb128 0x3b
+ 1840 001d 0B       		.uleb128 0xb
+ 1841 001e 49       		.uleb128 0x49
+ 1842 001f 13       		.uleb128 0x13
+ 1843 0020 00       		.byte	0x0
+ 1844 0021 00       		.byte	0x0
+ 1845 0022 03       		.uleb128 0x3
+ 1846 0023 13       		.uleb128 0x13
+ 1847 0024 01       		.byte	0x1
+ 1848 0025 03       		.uleb128 0x3
+ 1849 0026 0E       		.uleb128 0xe
+ 1850 0027 0B       		.uleb128 0xb
+ 1851 0028 0B       		.uleb128 0xb
+ 1852 0029 01       		.uleb128 0x1
+ 1853 002a 13       		.uleb128 0x13
+ 1854 002b 00       		.byte	0x0
+ 1855 002c 00       		.byte	0x0
+ 1856 002d 04       		.uleb128 0x4
+ 1857 002e 0D       		.uleb128 0xd
+ 1858 002f 00       		.byte	0x0
+ 1859 0030 03       		.uleb128 0x3
+ 1860 0031 0E       		.uleb128 0xe
+ 1861 0032 49       		.uleb128 0x49
+ 1862 0033 13       		.uleb128 0x13
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 38
+
+
+ 1863 0034 38       		.uleb128 0x38
+ 1864 0035 0A       		.uleb128 0xa
+ 1865 0036 34       		.uleb128 0x34
+ 1866 0037 0C       		.uleb128 0xc
+ 1867 0038 00       		.byte	0x0
+ 1868 0039 00       		.byte	0x0
+ 1869 003a 05       		.uleb128 0x5
+ 1870 003b 0F       		.uleb128 0xf
+ 1871 003c 00       		.byte	0x0
+ 1872 003d 0B       		.uleb128 0xb
+ 1873 003e 0B       		.uleb128 0xb
+ 1874 003f 00       		.byte	0x0
+ 1875 0040 00       		.byte	0x0
+ 1876 0041 06       		.uleb128 0x6
+ 1877 0042 0F       		.uleb128 0xf
+ 1878 0043 00       		.byte	0x0
+ 1879 0044 0B       		.uleb128 0xb
+ 1880 0045 0B       		.uleb128 0xb
+ 1881 0046 49       		.uleb128 0x49
+ 1882 0047 13       		.uleb128 0x13
+ 1883 0048 00       		.byte	0x0
+ 1884 0049 00       		.byte	0x0
+ 1885 004a 07       		.uleb128 0x7
+ 1886 004b 15       		.uleb128 0x15
+ 1887 004c 01       		.byte	0x1
+ 1888 004d 27       		.uleb128 0x27
+ 1889 004e 0C       		.uleb128 0xc
+ 1890 004f 01       		.uleb128 0x1
+ 1891 0050 13       		.uleb128 0x13
+ 1892 0051 00       		.byte	0x0
+ 1893 0052 00       		.byte	0x0
+ 1894 0053 08       		.uleb128 0x8
+ 1895 0054 05       		.uleb128 0x5
+ 1896 0055 00       		.byte	0x0
+ 1897 0056 49       		.uleb128 0x49
+ 1898 0057 13       		.uleb128 0x13
+ 1899 0058 00       		.byte	0x0
+ 1900 0059 00       		.byte	0x0
+ 1901 005a 09       		.uleb128 0x9
+ 1902 005b 24       		.uleb128 0x24
+ 1903 005c 00       		.byte	0x0
+ 1904 005d 0B       		.uleb128 0xb
+ 1905 005e 0B       		.uleb128 0xb
+ 1906 005f 3E       		.uleb128 0x3e
+ 1907 0060 0B       		.uleb128 0xb
+ 1908 0061 03       		.uleb128 0x3
+ 1909 0062 0E       		.uleb128 0xe
+ 1910 0063 00       		.byte	0x0
+ 1911 0064 00       		.byte	0x0
+ 1912 0065 0A       		.uleb128 0xa
+ 1913 0066 2E       		.uleb128 0x2e
+ 1914 0067 01       		.byte	0x1
+ 1915 0068 03       		.uleb128 0x3
+ 1916 0069 0E       		.uleb128 0xe
+ 1917 006a 3A       		.uleb128 0x3a
+ 1918 006b 0B       		.uleb128 0xb
+ 1919 006c 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 39
+
+
+ 1920 006d 0B       		.uleb128 0xb
+ 1921 006e 27       		.uleb128 0x27
+ 1922 006f 0C       		.uleb128 0xc
+ 1923 0070 11       		.uleb128 0x11
+ 1924 0071 01       		.uleb128 0x1
+ 1925 0072 12       		.uleb128 0x12
+ 1926 0073 01       		.uleb128 0x1
+ 1927 0074 40       		.uleb128 0x40
+ 1928 0075 06       		.uleb128 0x6
+ 1929 0076 01       		.uleb128 0x1
+ 1930 0077 13       		.uleb128 0x13
+ 1931 0078 00       		.byte	0x0
+ 1932 0079 00       		.byte	0x0
+ 1933 007a 0B       		.uleb128 0xb
+ 1934 007b 05       		.uleb128 0x5
+ 1935 007c 00       		.byte	0x0
+ 1936 007d 03       		.uleb128 0x3
+ 1937 007e 08       		.uleb128 0x8
+ 1938 007f 3A       		.uleb128 0x3a
+ 1939 0080 0B       		.uleb128 0xb
+ 1940 0081 3B       		.uleb128 0x3b
+ 1941 0082 0B       		.uleb128 0xb
+ 1942 0083 49       		.uleb128 0x49
+ 1943 0084 13       		.uleb128 0x13
+ 1944 0085 02       		.uleb128 0x2
+ 1945 0086 0A       		.uleb128 0xa
+ 1946 0087 00       		.byte	0x0
+ 1947 0088 00       		.byte	0x0
+ 1948 0089 0C       		.uleb128 0xc
+ 1949 008a 05       		.uleb128 0x5
+ 1950 008b 00       		.byte	0x0
+ 1951 008c 03       		.uleb128 0x3
+ 1952 008d 0E       		.uleb128 0xe
+ 1953 008e 3A       		.uleb128 0x3a
+ 1954 008f 0B       		.uleb128 0xb
+ 1955 0090 3B       		.uleb128 0x3b
+ 1956 0091 0B       		.uleb128 0xb
+ 1957 0092 49       		.uleb128 0x49
+ 1958 0093 13       		.uleb128 0x13
+ 1959 0094 02       		.uleb128 0x2
+ 1960 0095 0A       		.uleb128 0xa
+ 1961 0096 00       		.byte	0x0
+ 1962 0097 00       		.byte	0x0
+ 1963 0098 0D       		.uleb128 0xd
+ 1964 0099 34       		.uleb128 0x34
+ 1965 009a 00       		.byte	0x0
+ 1966 009b 03       		.uleb128 0x3
+ 1967 009c 08       		.uleb128 0x8
+ 1968 009d 3A       		.uleb128 0x3a
+ 1969 009e 0B       		.uleb128 0xb
+ 1970 009f 3B       		.uleb128 0x3b
+ 1971 00a0 0B       		.uleb128 0xb
+ 1972 00a1 49       		.uleb128 0x49
+ 1973 00a2 13       		.uleb128 0x13
+ 1974 00a3 02       		.uleb128 0x2
+ 1975 00a4 0A       		.uleb128 0xa
+ 1976 00a5 00       		.byte	0x0
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 40
+
+
+ 1977 00a6 00       		.byte	0x0
+ 1978 00a7 0E       		.uleb128 0xe
+ 1979 00a8 0B       		.uleb128 0xb
+ 1980 00a9 01       		.byte	0x1
+ 1981 00aa 11       		.uleb128 0x11
+ 1982 00ab 01       		.uleb128 0x1
+ 1983 00ac 12       		.uleb128 0x12
+ 1984 00ad 01       		.uleb128 0x1
+ 1985 00ae 00       		.byte	0x0
+ 1986 00af 00       		.byte	0x0
+ 1987 00b0 0F       		.uleb128 0xf
+ 1988 00b1 24       		.uleb128 0x24
+ 1989 00b2 00       		.byte	0x0
+ 1990 00b3 0B       		.uleb128 0xb
+ 1991 00b4 0B       		.uleb128 0xb
+ 1992 00b5 3E       		.uleb128 0x3e
+ 1993 00b6 0B       		.uleb128 0xb
+ 1994 00b7 03       		.uleb128 0x3
+ 1995 00b8 08       		.uleb128 0x8
+ 1996 00b9 00       		.byte	0x0
+ 1997 00ba 00       		.byte	0x0
+ 1998 00bb 10       		.uleb128 0x10
+ 1999 00bc 2E       		.uleb128 0x2e
+ 2000 00bd 01       		.byte	0x1
+ 2001 00be 03       		.uleb128 0x3
+ 2002 00bf 08       		.uleb128 0x8
+ 2003 00c0 3A       		.uleb128 0x3a
+ 2004 00c1 0B       		.uleb128 0xb
+ 2005 00c2 3B       		.uleb128 0x3b
+ 2006 00c3 0B       		.uleb128 0xb
+ 2007 00c4 27       		.uleb128 0x27
+ 2008 00c5 0C       		.uleb128 0xc
+ 2009 00c6 11       		.uleb128 0x11
+ 2010 00c7 01       		.uleb128 0x1
+ 2011 00c8 12       		.uleb128 0x12
+ 2012 00c9 01       		.uleb128 0x1
+ 2013 00ca 40       		.uleb128 0x40
+ 2014 00cb 06       		.uleb128 0x6
+ 2015 00cc 01       		.uleb128 0x1
+ 2016 00cd 13       		.uleb128 0x13
+ 2017 00ce 00       		.byte	0x0
+ 2018 00cf 00       		.byte	0x0
+ 2019 00d0 11       		.uleb128 0x11
+ 2020 00d1 2E       		.uleb128 0x2e
+ 2021 00d2 01       		.byte	0x1
+ 2022 00d3 03       		.uleb128 0x3
+ 2023 00d4 08       		.uleb128 0x8
+ 2024 00d5 3A       		.uleb128 0x3a
+ 2025 00d6 0B       		.uleb128 0xb
+ 2026 00d7 3B       		.uleb128 0x3b
+ 2027 00d8 0B       		.uleb128 0xb
+ 2028 00d9 27       		.uleb128 0x27
+ 2029 00da 0C       		.uleb128 0xc
+ 2030 00db 49       		.uleb128 0x49
+ 2031 00dc 13       		.uleb128 0x13
+ 2032 00dd 11       		.uleb128 0x11
+ 2033 00de 01       		.uleb128 0x1
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 41
+
+
+ 2034 00df 12       		.uleb128 0x12
+ 2035 00e0 01       		.uleb128 0x1
+ 2036 00e1 40       		.uleb128 0x40
+ 2037 00e2 06       		.uleb128 0x6
+ 2038 00e3 01       		.uleb128 0x1
+ 2039 00e4 13       		.uleb128 0x13
+ 2040 00e5 00       		.byte	0x0
+ 2041 00e6 00       		.byte	0x0
+ 2042 00e7 12       		.uleb128 0x12
+ 2043 00e8 34       		.uleb128 0x34
+ 2044 00e9 00       		.byte	0x0
+ 2045 00ea 03       		.uleb128 0x3
+ 2046 00eb 0E       		.uleb128 0xe
+ 2047 00ec 3A       		.uleb128 0x3a
+ 2048 00ed 0B       		.uleb128 0xb
+ 2049 00ee 3B       		.uleb128 0x3b
+ 2050 00ef 0B       		.uleb128 0xb
+ 2051 00f0 49       		.uleb128 0x49
+ 2052 00f1 13       		.uleb128 0x13
+ 2053 00f2 02       		.uleb128 0x2
+ 2054 00f3 0A       		.uleb128 0xa
+ 2055 00f4 00       		.byte	0x0
+ 2056 00f5 00       		.byte	0x0
+ 2057 00f6 13       		.uleb128 0x13
+ 2058 00f7 2E       		.uleb128 0x2e
+ 2059 00f8 01       		.byte	0x1
+ 2060 00f9 3F       		.uleb128 0x3f
+ 2061 00fa 0C       		.uleb128 0xc
+ 2062 00fb 03       		.uleb128 0x3
+ 2063 00fc 0E       		.uleb128 0xe
+ 2064 00fd 3A       		.uleb128 0x3a
+ 2065 00fe 0B       		.uleb128 0xb
+ 2066 00ff 3B       		.uleb128 0x3b
+ 2067 0100 0B       		.uleb128 0xb
+ 2068 0101 27       		.uleb128 0x27
+ 2069 0102 0C       		.uleb128 0xc
+ 2070 0103 11       		.uleb128 0x11
+ 2071 0104 01       		.uleb128 0x1
+ 2072 0105 12       		.uleb128 0x12
+ 2073 0106 01       		.uleb128 0x1
+ 2074 0107 40       		.uleb128 0x40
+ 2075 0108 06       		.uleb128 0x6
+ 2076 0109 01       		.uleb128 0x1
+ 2077 010a 13       		.uleb128 0x13
+ 2078 010b 00       		.byte	0x0
+ 2079 010c 00       		.byte	0x0
+ 2080 010d 14       		.uleb128 0x14
+ 2081 010e 0A       		.uleb128 0xa
+ 2082 010f 00       		.byte	0x0
+ 2083 0110 03       		.uleb128 0x3
+ 2084 0111 0E       		.uleb128 0xe
+ 2085 0112 3A       		.uleb128 0x3a
+ 2086 0113 0B       		.uleb128 0xb
+ 2087 0114 3B       		.uleb128 0x3b
+ 2088 0115 0B       		.uleb128 0xb
+ 2089 0116 11       		.uleb128 0x11
+ 2090 0117 01       		.uleb128 0x1
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 42
+
+
+ 2091 0118 00       		.byte	0x0
+ 2092 0119 00       		.byte	0x0
+ 2093 011a 15       		.uleb128 0x15
+ 2094 011b 0B       		.uleb128 0xb
+ 2095 011c 01       		.byte	0x1
+ 2096 011d 55       		.uleb128 0x55
+ 2097 011e 06       		.uleb128 0x6
+ 2098 011f 00       		.byte	0x0
+ 2099 0120 00       		.byte	0x0
+ 2100 0121 16       		.uleb128 0x16
+ 2101 0122 01       		.uleb128 0x1
+ 2102 0123 01       		.byte	0x1
+ 2103 0124 49       		.uleb128 0x49
+ 2104 0125 13       		.uleb128 0x13
+ 2105 0126 01       		.uleb128 0x1
+ 2106 0127 13       		.uleb128 0x13
+ 2107 0128 00       		.byte	0x0
+ 2108 0129 00       		.byte	0x0
+ 2109 012a 17       		.uleb128 0x17
+ 2110 012b 21       		.uleb128 0x21
+ 2111 012c 00       		.byte	0x0
+ 2112 012d 49       		.uleb128 0x49
+ 2113 012e 13       		.uleb128 0x13
+ 2114 012f 2F       		.uleb128 0x2f
+ 2115 0130 0B       		.uleb128 0xb
+ 2116 0131 00       		.byte	0x0
+ 2117 0132 00       		.byte	0x0
+ 2118 0133 18       		.uleb128 0x18
+ 2119 0134 24       		.uleb128 0x24
+ 2120 0135 00       		.byte	0x0
+ 2121 0136 0B       		.uleb128 0xb
+ 2122 0137 0B       		.uleb128 0xb
+ 2123 0138 3E       		.uleb128 0x3e
+ 2124 0139 0B       		.uleb128 0xb
+ 2125 013a 00       		.byte	0x0
+ 2126 013b 00       		.byte	0x0
+ 2127 013c 19       		.uleb128 0x19
+ 2128 013d 18       		.uleb128 0x18
+ 2129 013e 00       		.byte	0x0
+ 2130 013f 00       		.byte	0x0
+ 2131 0140 00       		.byte	0x0
+ 2132 0141 00       		.byte	0x0
+ 2133              		.section	.debug_pubnames,"",%progbits
+ 2134 0000 4C000000 		.4byte	0x4c
+ 2135 0004 0200     		.2byte	0x2
+ 2136 0006 00000000 		.4byte	.Ldebug_info0
+ 2137 000a 25040000 		.4byte	0x425
+ 2138 000e 7B020000 		.4byte	0x27b
+ 2139 0012 7466705F 		.ascii	"tfp_format\000"
+ 2139      666F726D 
+ 2139      617400
+ 2140 001d 23030000 		.4byte	0x323
+ 2141 0021 696E6974 		.ascii	"init_printf\000"
+ 2141      5F707269 
+ 2141      6E746600 
+ 2142 002d 59030000 		.4byte	0x359
+ 2143 0031 7466705F 		.ascii	"tfp_printf\000"
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 43
+
+
+ 2143      7072696E 
+ 2143      746600
+ 2144 003c C0030000 		.4byte	0x3c0
+ 2145 0040 7466705F 		.ascii	"tfp_sprintf\000"
+ 2145      73707269 
+ 2145      6E746600 
+ 2146 004c 00000000 		.4byte	0x0
+ 2147              		.section	.debug_aranges,"",%progbits
+ 2148 0000 64000000 		.4byte	0x64
+ 2149 0004 0200     		.2byte	0x2
+ 2150 0006 00000000 		.4byte	.Ldebug_info0
+ 2151 000a 04       		.byte	0x4
+ 2152 000b 00       		.byte	0x0
+ 2153 000c 0000     		.2byte	0x0
+ 2154 000e 0000     		.2byte	0x0
+ 2155 0010 00000000 		.4byte	.LFB0
+ 2156 0014 AC000000 		.4byte	.LFE0-.LFB0
+ 2157 0018 00000000 		.4byte	.LFB1
+ 2158 001c 36000000 		.4byte	.LFE1-.LFB1
+ 2159 0020 00000000 		.4byte	.LFB2
+ 2160 0024 60000000 		.4byte	.LFE2-.LFB2
+ 2161 0028 00000000 		.4byte	.LFB3
+ 2162 002c 78000000 		.4byte	.LFE3-.LFB3
+ 2163 0030 00000000 		.4byte	.LFB4
+ 2164 0034 AE000000 		.4byte	.LFE4-.LFB4
+ 2165 0038 00000000 		.4byte	.LFB5
+ 2166 003c DC010000 		.4byte	.LFE5-.LFB5
+ 2167 0040 00000000 		.4byte	.LFB6
+ 2168 0044 24000000 		.4byte	.LFE6-.LFB6
+ 2169 0048 00000000 		.4byte	.LFB7
+ 2170 004c 34000000 		.4byte	.LFE7-.LFB7
+ 2171 0050 00000000 		.4byte	.LFB8
+ 2172 0054 22000000 		.4byte	.LFE8-.LFB8
+ 2173 0058 00000000 		.4byte	.LFB9
+ 2174 005c 38000000 		.4byte	.LFE9-.LFB9
+ 2175 0060 00000000 		.4byte	0x0
+ 2176 0064 00000000 		.4byte	0x0
+ 2177              		.section	.debug_ranges,"",%progbits
+ 2178              	.Ldebug_ranges0:
+ 2179 0000 2C000000 		.4byte	.LBB3
+ 2180 0004 B2010000 		.4byte	.LBE3
+ 2181 0008 D4010000 		.4byte	.LBB4
+ 2182 000c D6010000 		.4byte	.LBE4
+ 2183 0010 00000000 		.4byte	0x0
+ 2184 0014 00000000 		.4byte	0x0
+ 2185 0018 00000000 		.4byte	.Ltext0
+ 2186 001c 00000000 		.4byte	.Letext0
+ 2187 0020 00000000 		.4byte	.LFB0
+ 2188 0024 AC000000 		.4byte	.LFE0
+ 2189 0028 00000000 		.4byte	.LFB1
+ 2190 002c 36000000 		.4byte	.LFE1
+ 2191 0030 00000000 		.4byte	.LFB2
+ 2192 0034 60000000 		.4byte	.LFE2
+ 2193 0038 00000000 		.4byte	.LFB3
+ 2194 003c 78000000 		.4byte	.LFE3
+ 2195 0040 00000000 		.4byte	.LFB4
+ 2196 0044 AE000000 		.4byte	.LFE4
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 44
+
+
+ 2197 0048 00000000 		.4byte	.LFB5
+ 2198 004c DC010000 		.4byte	.LFE5
+ 2199 0050 00000000 		.4byte	.LFB6
+ 2200 0054 24000000 		.4byte	.LFE6
+ 2201 0058 00000000 		.4byte	.LFB7
+ 2202 005c 34000000 		.4byte	.LFE7
+ 2203 0060 00000000 		.4byte	.LFB8
+ 2204 0064 22000000 		.4byte	.LFE8
+ 2205 0068 00000000 		.4byte	.LFB9
+ 2206 006c 38000000 		.4byte	.LFE9
+ 2207 0070 00000000 		.4byte	0x0
+ 2208 0074 00000000 		.4byte	0x0
+ 2209              		.section	.debug_str,"MS",%progbits,1
+ 2210              	.LASF20:
+ 2211 0000 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\tinyprintf_printf.c\000"
+ 2211      6E657261 
+ 2211      7465645F 
+ 2211      536F7572 
+ 2211      63655C50 
+ 2212              	.LASF11:
+ 2213 002d 70757466 		.ascii	"putf\000"
+ 2213      00
+ 2214              	.LASF0:
+ 2215 0032 5F5F676E 		.ascii	"__gnuc_va_list\000"
+ 2215      75635F76 
+ 2215      615F6C69 
+ 2215      737400
+ 2216              	.LASF2:
+ 2217 0041 70757463 		.ascii	"putcf\000"
+ 2217      6600
+ 2218              	.LASF13:
+ 2219 0047 696E6974 		.ascii	"init_printf\000"
+ 2219      5F707269 
+ 2219      6E746600 
+ 2220              	.LASF3:
+ 2221 0053 62617365 		.ascii	"base\000"
+ 2221      00
+ 2222              	.LASF15:
+ 2223 0058 70757463 		.ascii	"putcp\000"
+ 2223      7000
+ 2224              	.LASF1:
+ 2225 005e 76615F6C 		.ascii	"va_list\000"
+ 2225      69737400 
+ 2226              	.LASF12:
+ 2227 0066 7466705F 		.ascii	"tfp_format\000"
+ 2227      666F726D 
+ 2227      617400
+ 2228              	.LASF18:
+ 2229 0071 7374646F 		.ascii	"stdout_putp\000"
+ 2229      75745F70 
+ 2229      75747000 
+ 2230              	.LASF16:
+ 2231 007d 7466705F 		.ascii	"tfp_sprintf\000"
+ 2231      73707269 
+ 2231      6E746600 
+ 2232              	.LASF5:
+ 2233 0089 756E7369 		.ascii	"unsigned int\000"
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 45
+
+
+ 2233      676E6564 
+ 2233      20696E74 
+ 2233      00
+ 2234              	.LASF8:
+ 2235 0096 64696769 		.ascii	"digit\000"
+ 2235      7400
+ 2236              	.LASF4:
+ 2237 009c 63686172 		.ascii	"char\000"
+ 2237      00
+ 2238              	.LASF23:
+ 2239 00a1 5F5F6170 		.ascii	"__ap\000"
+ 2239      00
+ 2240              	.LASF21:
+ 2241 00a6 433A5C55 		.ascii	"C:\\Users\\wbz\\Desktop\\Element14 Posts\\028 - Tin"
+ 2241      73657273 
+ 2241      5C77627A 
+ 2241      5C446573 
+ 2241      6B746F70 
+ 2242 00d4 79205072 		.ascii	"y PrintF - NS\\PSoC4_printf.cywrk.Archive03\\PSoC4_"
+ 2242      696E7446 
+ 2242      202D204E 
+ 2242      535C5053 
+ 2242      6F43345F 
+ 2243 0105 7072696E 		.ascii	"printf\\PSoC4_printf.cydsn\000"
+ 2243      74665C50 
+ 2243      536F4334 
+ 2243      5F707269 
+ 2243      6E74662E 
+ 2244              	.LASF14:
+ 2245 011f 7466705F 		.ascii	"tfp_printf\000"
+ 2245      7072696E 
+ 2245      746600
+ 2246              	.LASF22:
+ 2247 012a 5F5F7661 		.ascii	"__va_list\000"
+ 2247      5F6C6973 
+ 2247      7400
+ 2248              	.LASF19:
+ 2249 0134 474E5520 		.ascii	"GNU C 4.4.1\000"
+ 2249      4320342E 
+ 2249      342E3100 
+ 2250              	.LASF7:
+ 2251 0140 6E756D70 		.ascii	"nump\000"
+ 2251      00
+ 2252              	.LASF9:
+ 2253 0145 70757463 		.ascii	"putchw\000"
+ 2253      687700
+ 2254              	.LASF10:
+ 2255 014c 70757470 		.ascii	"putp\000"
+ 2255      00
+ 2256              	.LASF24:
+ 2257 0151 61626F72 		.ascii	"abort\000"
+ 2257      7400
+ 2258              	.LASF17:
+ 2259 0157 7374646F 		.ascii	"stdout_putf\000"
+ 2259      75745F70 
+ 2259      75746600 
+ 2260              	.LASF6:
+ARM GAS  C:\Users\wbz\AppData\Local\Temp\ccaHY7UK.s 			page 46
+
+
+ 2261 0163 75693261 		.ascii	"ui2a\000"
+ 2261      00
+ 2262              		.ident	"GCC: (Sourcery G++ Lite 2010q1-188) 4.4.1"

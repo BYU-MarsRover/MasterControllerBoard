@@ -1,0 +1,50 @@
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/CortexM0/ARM_GCC_441/Debug/main.o : C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/CyFlash.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_PINS.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_PVT.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_SCBCLK.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_SPI_UART.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_SPI_UART_PVT.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_rx.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_rx_aliases.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_tx.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_tx_aliases.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/core_cm0.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/core_cm0_psoc4.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/cyPm.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/cypins.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/cytypes.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/project.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/tinyprintf_printf.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/device.h C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/main.c 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/CyFlash.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/CyLib.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_PINS.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_PVT.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_SCBCLK.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_SPI_UART.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_SPI_UART_PVT.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_rx.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_rx_aliases.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_tx.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/UART_tx_aliases.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/core_cm0.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/core_cm0_psoc4.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/cyPm.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/cydevice_trm.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/cyfitter.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/cypins.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/cytypes.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/project.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/Generated_Source/PSoC4/tinyprintf_printf.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/device.h : 
+
+C:/Users/wbz/Desktop/Element14\ Posts/028\ -\ Tiny\ PrintF\ -\ NS/PSoC4_printf.cywrk.Archive03/PSoC4_printf/PSoC4_printf.cydsn/main.c : 
+

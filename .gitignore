@@ -4,9 +4,9 @@
 *.pdf
 *.hex
 *.elf
-codegentemp/
-CortexM0/
-Generated_Source/
+# codegentemp/ # Don't uncommend these, breaks the PSCO project
+# CortexM0/
+# Generated_Source/
 *.zip
 
 
