@@ -1,0 +1,869 @@
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccZjK8xl.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	sys_events
+  18              		.bss
+  19              		.align	1
+  20              		.type	sys_events, %object
+  21              		.size	sys_events, 2
+  22              	sys_events:
+  23 0000 0000     		.space	2
+  24              		.global	compareValue
+  25              		.data
+  26              		.align	1
+  27              		.type	compareValue, %object
+  28              		.size	compareValue, 2
+  29              	compareValue:
+  30 0000 DC05     		.short	1500
+  31              		.section	.rodata
+  32              		.align	2
+  33              	.LC7:
+  34 0000 62746E30 		.ascii	"btn0!\012\000"
+  34      210A00
+  35 0007 00       		.align	2
+  36              	.LC9:
+  37 0008 62746E31 		.ascii	"btn1!\012\000"
+  37      210A00
+  38 000f 00       		.section	.text.main,"ax",%progbits
+  39              		.align	2
+  40              		.global	main
+  41              		.code	16
+  42              		.thumb_func
+  43              		.type	main, %function
+  44              	main:
+  45              	.LFB33:
+  46              		.file 1 ".\\main.c"
+   1:.\main.c      **** /* ========================================
+   2:.\main.c      ****  *
+   3:.\main.c      ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\main.c      ****  * All Rights Reserved
+   5:.\main.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\main.c      ****  *
+   7:.\main.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\main.c      ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\main.c      ****  *
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccZjK8xl.s 			page 2
+
+
+  10:.\main.c      ****  * ========================================
+  11:.\main.c      **** */
+  12:.\main.c      **** #include <project.h>
+  13:.\main.c      **** #include "events.h"
+  14:.\main.c      **** 
+  15:.\main.c      **** void putdata(void* p, char c);
+  16:.\main.c      **** 
+  17:.\main.c      **** volatile uint16_t sys_events = 0;
+  18:.\main.c      **** volatile uint16_t compareValue = NEUTRAL;
+  19:.\main.c      **** 
+  20:.\main.c      **** 
+  21:.\main.c      **** int main()
+  22:.\main.c      **** {
+  47              		.loc 1 22 0
+  48              		.cfi_startproc
+  49 0000 80B5     		push	{r7, lr}
+  50              	.LCFI0:
+  51              		.cfi_def_cfa_offset 8
+  52              		.cfi_offset 7, -8
+  53              		.cfi_offset 14, -4
+  54 0002 00AF     		add	r7, sp, #0
+  55              	.LCFI1:
+  56              		.cfi_def_cfa_register 7
+  23:.\main.c      ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  24:.\main.c      **** 
+  25:.\main.c      ****     CyGlobalIntEnable;  /* Uncomment this line to enable global interrupts. */
+  57              		.loc 1 25 0
+  58              	@ 25 ".\main.c" 1
+  59 0004 62B6     		CPSIE   i
+  60              	@ 0 "" 2
+  26:.\main.c      ****     // start various components
+  27:.\main.c      ****     ISR_Btn0_StartEx(ISR_Btn0_Interrupt);
+  61              		.loc 1 27 0
+  62              		.code	16
+  63 0006 384B     		ldr	r3, .L7
+  64 0008 181C     		mov	r0, r3
+  65 000a FFF7FEFF 		bl	ISR_Btn0_StartEx
+  28:.\main.c      ****     ISR_Bnt1_StartEx(ISR_Bnt1_Interrupt);
+  66              		.loc 1 28 0
+  67 000e 374B     		ldr	r3, .L7+4
+  68 0010 181C     		mov	r0, r3
+  69 0012 FFF7FEFF 		bl	ISR_Bnt1_StartEx
+  29:.\main.c      ****     ISR_Timer1_StartEx(ISR_Timer1_Interrupt);
+  70              		.loc 1 29 0
+  71 0016 364B     		ldr	r3, .L7+8
+  72 0018 181C     		mov	r0, r3
+  73 001a FFF7FEFF 		bl	ISR_Timer1_StartEx
+  30:.\main.c      ****     Timer1_Start();
+  74              		.loc 1 30 0
+  75 001e FFF7FEFF 		bl	Timer1_Start
+  31:.\main.c      ****     PWM_Servo_Start();
+  76              		.loc 1 31 0
+  77 0022 FFF7FEFF 		bl	PWM_Servo_Start
+  32:.\main.c      ****     Clock_2_Start();
+  78              		.loc 1 32 0
+  79 0026 FFF7FEFF 		bl	Clock_2_Start
+  33:.\main.c      ****     init_printf(NULL, putdata);
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccZjK8xl.s 			page 3
+
+
+  80              		.loc 1 33 0
+  81 002a 324B     		ldr	r3, .L7+12
+  82 002c 0020     		mov	r0, #0
+  83 002e 191C     		mov	r1, r3
+  84 0030 FFF7FEFF 		bl	init_printf
+  34:.\main.c      ****     UART_1_Start();
+  85              		.loc 1 34 0
+  86 0034 FFF7FEFF 		bl	UART_1_Start
+  35:.\main.c      ****     ISR_UART_Rx_StartEx(ISR_UART_Rx_Interrupt);
+  87              		.loc 1 35 0
+  88 0038 2F4B     		ldr	r3, .L7+16
+  89 003a 181C     		mov	r0, r3
+  90 003c FFF7FEFF 		bl	ISR_UART_Rx_StartEx
+  36:.\main.c      ****     
+  37:.\main.c      ****     // init variables and LEDs
+  38:.\main.c      ****     sys_events = 0; // clear all pending events
+  91              		.loc 1 38 0
+  92 0040 2E4B     		ldr	r3, .L7+20
+  93 0042 0022     		mov	r2, #0
+  94 0044 1A80     		strh	r2, [r3]
+  39:.\main.c      ****     compareValue = NEUTRAL;
+  95              		.loc 1 39 0
+  96 0046 2E4B     		ldr	r3, .L7+24
+  97 0048 2E4A     		ldr	r2, .L7+28
+  98 004a 1A80     		strh	r2, [r3]
+  40:.\main.c      ****     LED_Write(0); // turn LED's off
+  99              		.loc 1 40 0
+ 100 004c 0020     		mov	r0, #0
+ 101 004e FFF7FEFF 		bl	LED_Write
+  41:.\main.c      ****     LED1_Write(0); 
+ 102              		.loc 1 41 0
+ 103 0052 0020     		mov	r0, #0
+ 104 0054 FFF7FEFF 		bl	LED1_Write
+ 105 0058 00E0     		b	.L5
+ 106              	.L6:
+  42:.\main.c      ****     for(;;)
+  43:.\main.c      ****     {
+  44:.\main.c      ****         //CyDisableInts()
+  45:.\main.c      ****         CySysPmSleep(); // sleep until interrupt wakes up processor
+  46:.\main.c      ****         //printf("wake up!");
+  47:.\main.c      ****         if (sys_events) // if any events are pending
+  48:.\main.c      ****         {
+  49:.\main.c      ****             if (sys_events & PWM_MOVE_SERVO_EVENT)
+  50:.\main.c      ****             {
+  51:.\main.c      ****                 sys_events &= ~PWM_MOVE_SERVO_EVENT;
+  52:.\main.c      ****                 PWM_MOVE_SERVO_EVENT_func();
+  53:.\main.c      ****                 //printf("move servo\n");
+  54:.\main.c      ****             }
+  55:.\main.c      ****             else if (sys_events & BTN0_EVENT)
+  56:.\main.c      ****             {
+  57:.\main.c      ****                 sys_events &= ~BTN0_EVENT; // clear pending event flag
+  58:.\main.c      ****                 BTN0_EVENT_func(); // call event.
+  59:.\main.c      ****                 printf("btn0!\n");
+  60:.\main.c      ****             }
+  61:.\main.c      ****             else if (sys_events & BTN1_EVENT)
+  62:.\main.c      ****             {
+  63:.\main.c      ****                 sys_events &= ~BTN1_EVENT;  
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccZjK8xl.s 			page 4
+
+
+  64:.\main.c      ****                 BTN1_EVENT_func(); 
+  65:.\main.c      ****                 printf("btn1!\n");
+  66:.\main.c      ****             }
+  67:.\main.c      ****         } // end if (sys_events)
+  68:.\main.c      ****     } // end while(1)
+ 107              		.loc 1 68 0
+ 108 005a C046     		mov	r8, r8
+ 109              	.L5:
+  45:.\main.c      ****         CySysPmSleep(); // sleep until interrupt wakes up processor
+ 110              		.loc 1 45 0
+ 111 005c FFF7FEFF 		bl	CySysPmSleep
+  47:.\main.c      ****         if (sys_events) // if any events are pending
+ 112              		.loc 1 47 0
+ 113 0060 264B     		ldr	r3, .L7+20
+ 114 0062 1B88     		ldrh	r3, [r3]
+ 115 0064 9BB2     		uxth	r3, r3
+ 116 0066 002B     		cmp	r3, #0
+ 117 0068 F7D0     		beq	.L6
+  49:.\main.c      ****             if (sys_events & PWM_MOVE_SERVO_EVENT)
+ 118              		.loc 1 49 0
+ 119 006a 244B     		ldr	r3, .L7+20
+ 120 006c 1B88     		ldrh	r3, [r3]
+ 121 006e 9BB2     		uxth	r3, r3
+ 122 0070 1A1C     		mov	r2, r3
+ 123 0072 1023     		mov	r3, #16
+ 124 0074 1340     		and	r3, r2
+ 125 0076 0AD0     		beq	.L3
+  51:.\main.c      ****                 sys_events &= ~PWM_MOVE_SERVO_EVENT;
+ 126              		.loc 1 51 0
+ 127 0078 204B     		ldr	r3, .L7+20
+ 128 007a 1B88     		ldrh	r3, [r3]
+ 129 007c 9BB2     		uxth	r3, r3
+ 130 007e 1022     		mov	r2, #16
+ 131 0080 9343     		bic	r3, r2
+ 132 0082 9AB2     		uxth	r2, r3
+ 133 0084 1D4B     		ldr	r3, .L7+20
+ 134 0086 1A80     		strh	r2, [r3]
+  52:.\main.c      ****                 PWM_MOVE_SERVO_EVENT_func();
+ 135              		.loc 1 52 0
+ 136 0088 FFF7FEFF 		bl	PWM_MOVE_SERVO_EVENT_func
+ 137              		.loc 1 68 0
+ 138 008c E5E7     		b	.L6
+ 139              	.L3:
+  55:.\main.c      ****             else if (sys_events & BTN0_EVENT)
+ 140              		.loc 1 55 0
+ 141 008e 1B4B     		ldr	r3, .L7+20
+ 142 0090 1B88     		ldrh	r3, [r3]
+ 143 0092 9BB2     		uxth	r3, r3
+ 144 0094 1A1C     		mov	r2, r3
+ 145 0096 0123     		mov	r3, #1
+ 146 0098 1340     		and	r3, r2
+ 147 009a 0ED0     		beq	.L4
+  57:.\main.c      ****                 sys_events &= ~BTN0_EVENT; // clear pending event flag
+ 148              		.loc 1 57 0
+ 149 009c 174B     		ldr	r3, .L7+20
+ 150 009e 1B88     		ldrh	r3, [r3]
+ 151 00a0 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccZjK8xl.s 			page 5
+
+
+ 152 00a2 0122     		mov	r2, #1
+ 153 00a4 9343     		bic	r3, r2
+ 154 00a6 9AB2     		uxth	r2, r3
+ 155 00a8 144B     		ldr	r3, .L7+20
+ 156 00aa 1A80     		strh	r2, [r3]
+  58:.\main.c      ****                 BTN0_EVENT_func(); // call event.
+ 157              		.loc 1 58 0
+ 158 00ac FFF7FEFF 		bl	BTN0_EVENT_func
+  59:.\main.c      ****                 printf("btn0!\n");
+ 159              		.loc 1 59 0
+ 160 00b0 154B     		ldr	r3, .L7+32
+ 161 00b2 181C     		mov	r0, r3
+ 162 00b4 FFF7FEFF 		bl	tfp_printf
+ 163              		.loc 1 68 0
+ 164 00b8 CFE7     		b	.L6
+ 165              	.L4:
+  61:.\main.c      ****             else if (sys_events & BTN1_EVENT)
+ 166              		.loc 1 61 0
+ 167 00ba 104B     		ldr	r3, .L7+20
+ 168 00bc 1B88     		ldrh	r3, [r3]
+ 169 00be 9BB2     		uxth	r3, r3
+ 170 00c0 1A1C     		mov	r2, r3
+ 171 00c2 0223     		mov	r3, #2
+ 172 00c4 1340     		and	r3, r2
+ 173 00c6 C8D0     		beq	.L6
+  63:.\main.c      ****                 sys_events &= ~BTN1_EVENT;  
+ 174              		.loc 1 63 0
+ 175 00c8 0C4B     		ldr	r3, .L7+20
+ 176 00ca 1B88     		ldrh	r3, [r3]
+ 177 00cc 9BB2     		uxth	r3, r3
+ 178 00ce 0222     		mov	r2, #2
+ 179 00d0 9343     		bic	r3, r2
+ 180 00d2 9AB2     		uxth	r2, r3
+ 181 00d4 094B     		ldr	r3, .L7+20
+ 182 00d6 1A80     		strh	r2, [r3]
+  64:.\main.c      ****                 BTN1_EVENT_func(); 
+ 183              		.loc 1 64 0
+ 184 00d8 FFF7FEFF 		bl	BTN1_EVENT_func
+  65:.\main.c      ****                 printf("btn1!\n");
+ 185              		.loc 1 65 0
+ 186 00dc 0B4B     		ldr	r3, .L7+36
+ 187 00de 181C     		mov	r0, r3
+ 188 00e0 FFF7FEFF 		bl	tfp_printf
+ 189              		.loc 1 68 0
+ 190 00e4 B9E7     		b	.L6
+ 191              	.L8:
+ 192 00e6 C046     		.align	2
+ 193              	.L7:
+ 194 00e8 00000000 		.word	ISR_Btn0_Interrupt
+ 195 00ec 00000000 		.word	ISR_Bnt1_Interrupt
+ 196 00f0 00000000 		.word	ISR_Timer1_Interrupt
+ 197 00f4 00000000 		.word	putdata
+ 198 00f8 00000000 		.word	ISR_UART_Rx_Interrupt
+ 199 00fc 00000000 		.word	sys_events
+ 200 0100 00000000 		.word	compareValue
+ 201 0104 DC050000 		.word	1500
+ 202 0108 00000000 		.word	.LC7
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccZjK8xl.s 			page 6
+
+
+ 203 010c 08000000 		.word	.LC9
+ 204              		.cfi_endproc
+ 205              	.LFE33:
+ 206              		.size	main, .-main
+ 207              		.section	.text.putdata,"ax",%progbits
+ 208              		.align	2
+ 209              		.global	putdata
+ 210              		.code	16
+ 211              		.thumb_func
+ 212              		.type	putdata, %function
+ 213              	putdata:
+ 214              	.LFB34:
+  69:.\main.c      **** } // end main
+  70:.\main.c      **** 
+  71:.\main.c      **** void putdata(void* p, char c)
+  72:.\main.c      **** {
+ 215              		.loc 1 72 0
+ 216              		.cfi_startproc
+ 217 0000 80B5     		push	{r7, lr}
+ 218              	.LCFI2:
+ 219              		.cfi_def_cfa_offset 8
+ 220              		.cfi_offset 7, -8
+ 221              		.cfi_offset 14, -4
+ 222 0002 82B0     		sub	sp, sp, #8
+ 223              	.LCFI3:
+ 224              		.cfi_def_cfa_offset 16
+ 225 0004 00AF     		add	r7, sp, #0
+ 226              	.LCFI4:
+ 227              		.cfi_def_cfa_register 7
+ 228 0006 7860     		str	r0, [r7, #4]
+ 229 0008 0A1C     		mov	r2, r1
+ 230 000a FB1C     		add	r3, r7, #3
+ 231 000c 1A70     		strb	r2, [r3]
+  73:.\main.c      ****     if (c == '\n')
+ 232              		.loc 1 73 0
+ 233 000e FB1C     		add	r3, r7, #3
+ 234 0010 1B78     		ldrb	r3, [r3]
+ 235 0012 0A2B     		cmp	r3, #10
+ 236 0014 02D1     		bne	.L10
+  74:.\main.c      ****     {
+  75:.\main.c      ****         UART_1_UartPutChar('\r'); // insert carriage return
+ 237              		.loc 1 75 0
+ 238 0016 0D20     		mov	r0, #13
+ 239 0018 FFF7FEFF 		bl	UART_1_SpiUartWriteTxData
+ 240              	.L10:
+  76:.\main.c      ****     }
+  77:.\main.c      ****     UART_1_UartPutChar(c);
+ 241              		.loc 1 77 0
+ 242 001c FB1C     		add	r3, r7, #3
+ 243 001e 1B78     		ldrb	r3, [r3]
+ 244 0020 181C     		mov	r0, r3
+ 245 0022 FFF7FEFF 		bl	UART_1_SpiUartWriteTxData
+  78:.\main.c      **** }
+ 246              		.loc 1 78 0
+ 247 0026 BD46     		mov	sp, r7
+ 248 0028 02B0     		add	sp, sp, #8
+ 249              		@ sp needed for prologue
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccZjK8xl.s 			page 7
+
+
+ 250 002a 80BD     		pop	{r7, pc}
+ 251              		.cfi_endproc
+ 252              	.LFE34:
+ 253              		.size	putdata, .-putdata
+ 254              		.text
+ 255              	.Letext0:
+ 256              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.0\\psoc creator\\import\\gnu_cs\\arm\\4
+ 257              		.file 3 "./Generated_Source/PSoC4/cytypes.h"
+ 258              		.section	.debug_info,"",%progbits
+ 259              	.Ldebug_info0:
+ 260 0000 15010000 		.4byte	0x115
+ 261 0004 0200     		.2byte	0x2
+ 262 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 263 000a 04       		.byte	0x4
+ 264 000b 01       		.uleb128 0x1
+ 265 000c 2F000000 		.4byte	.LASF17
+ 266 0010 01       		.byte	0x1
+ 267 0011 46010000 		.4byte	.LASF18
+ 268 0015 A1000000 		.4byte	.LASF19
+ 269 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 270 001d 00000000 		.4byte	0
+ 271 0021 00000000 		.4byte	0
+ 272 0025 00000000 		.4byte	.Ldebug_line0
+ 273 0029 02       		.uleb128 0x2
+ 274 002a 01       		.byte	0x1
+ 275 002b 06       		.byte	0x6
+ 276 002c 20010000 		.4byte	.LASF0
+ 277 0030 02       		.uleb128 0x2
+ 278 0031 01       		.byte	0x1
+ 279 0032 08       		.byte	0x8
+ 280 0033 E0000000 		.4byte	.LASF1
+ 281 0037 02       		.uleb128 0x2
+ 282 0038 02       		.byte	0x2
+ 283 0039 05       		.byte	0x5
+ 284 003a FC000000 		.4byte	.LASF2
+ 285 003e 03       		.uleb128 0x3
+ 286 003f 37010000 		.4byte	.LASF9
+ 287 0043 02       		.byte	0x2
+ 288 0044 36       		.byte	0x36
+ 289 0045 49000000 		.4byte	0x49
+ 290 0049 02       		.uleb128 0x2
+ 291 004a 02       		.byte	0x2
+ 292 004b 07       		.byte	0x7
+ 293 004c 0D010000 		.4byte	.LASF3
+ 294 0050 02       		.uleb128 0x2
+ 295 0051 04       		.byte	0x4
+ 296 0052 05       		.byte	0x5
+ 297 0053 F3000000 		.4byte	.LASF4
+ 298 0057 02       		.uleb128 0x2
+ 299 0058 04       		.byte	0x4
+ 300 0059 07       		.byte	0x7
+ 301 005a 78000000 		.4byte	.LASF5
+ 302 005e 02       		.uleb128 0x2
+ 303 005f 08       		.byte	0x8
+ 304 0060 05       		.byte	0x5
+ 305 0061 00000000 		.4byte	.LASF6
+ 306 0065 02       		.uleb128 0x2
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccZjK8xl.s 			page 8
+
+
+ 307 0066 08       		.byte	0x8
+ 308 0067 07       		.byte	0x7
+ 309 0068 8A000000 		.4byte	.LASF7
+ 310 006c 04       		.uleb128 0x4
+ 311 006d 04       		.byte	0x4
+ 312 006e 05       		.byte	0x5
+ 313 006f 696E7400 		.ascii	"int\000"
+ 314 0073 02       		.uleb128 0x2
+ 315 0074 04       		.byte	0x4
+ 316 0075 07       		.byte	0x7
+ 317 0076 1D000000 		.4byte	.LASF8
+ 318 007a 03       		.uleb128 0x3
+ 319 007b 0E000000 		.4byte	.LASF10
+ 320 007f 03       		.byte	0x3
+ 321 0080 5D       		.byte	0x5d
+ 322 0081 57000000 		.4byte	0x57
+ 323 0085 02       		.uleb128 0x2
+ 324 0086 04       		.byte	0x4
+ 325 0087 04       		.byte	0x4
+ 326 0088 40010000 		.4byte	.LASF11
+ 327 008c 02       		.uleb128 0x2
+ 328 008d 08       		.byte	0x8
+ 329 008e 04       		.byte	0x4
+ 330 008f 06010000 		.4byte	.LASF12
+ 331 0093 02       		.uleb128 0x2
+ 332 0094 01       		.byte	0x1
+ 333 0095 08       		.byte	0x8
+ 334 0096 EE000000 		.4byte	.LASF13
+ 335 009a 02       		.uleb128 0x2
+ 336 009b 04       		.byte	0x4
+ 337 009c 07       		.byte	0x7
+ 338 009d 5C010000 		.4byte	.LASF14
+ 339 00a1 05       		.uleb128 0x5
+ 340 00a2 04       		.byte	0x4
+ 341 00a3 06       		.uleb128 0x6
+ 342 00a4 01       		.byte	0x1
+ 343 00a5 2A000000 		.4byte	.LASF20
+ 344 00a9 01       		.byte	0x1
+ 345 00aa 15       		.byte	0x15
+ 346 00ab 6C000000 		.4byte	0x6c
+ 347 00af 00000000 		.4byte	.LFB33
+ 348 00b3 10010000 		.4byte	.LFE33
+ 349 00b7 00000000 		.4byte	.LLST0
+ 350 00bb 01       		.byte	0x1
+ 351 00bc 07       		.uleb128 0x7
+ 352 00bd 01       		.byte	0x1
+ 353 00be 15000000 		.4byte	.LASF21
+ 354 00c2 01       		.byte	0x1
+ 355 00c3 47       		.byte	0x47
+ 356 00c4 01       		.byte	0x1
+ 357 00c5 00000000 		.4byte	.LFB34
+ 358 00c9 2C000000 		.4byte	.LFE34
+ 359 00cd 2C000000 		.4byte	.LLST1
+ 360 00d1 01       		.byte	0x1
+ 361 00d2 EF000000 		.4byte	0xef
+ 362 00d6 08       		.uleb128 0x8
+ 363 00d7 7000     		.ascii	"p\000"
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccZjK8xl.s 			page 9
+
+
+ 364 00d9 01       		.byte	0x1
+ 365 00da 47       		.byte	0x47
+ 366 00db A1000000 		.4byte	0xa1
+ 367 00df 02       		.byte	0x2
+ 368 00e0 91       		.byte	0x91
+ 369 00e1 74       		.sleb128 -12
+ 370 00e2 08       		.uleb128 0x8
+ 371 00e3 6300     		.ascii	"c\000"
+ 372 00e5 01       		.byte	0x1
+ 373 00e6 47       		.byte	0x47
+ 374 00e7 93000000 		.4byte	0x93
+ 375 00eb 02       		.byte	0x2
+ 376 00ec 91       		.byte	0x91
+ 377 00ed 73       		.sleb128 -13
+ 378 00ee 00       		.byte	0
+ 379 00ef 09       		.uleb128 0x9
+ 380 00f0 2C010000 		.4byte	.LASF15
+ 381 00f4 01       		.byte	0x1
+ 382 00f5 11       		.byte	0x11
+ 383 00f6 01010000 		.4byte	0x101
+ 384 00fa 01       		.byte	0x1
+ 385 00fb 05       		.byte	0x5
+ 386 00fc 03       		.byte	0x3
+ 387 00fd 00000000 		.4byte	sys_events
+ 388 0101 0A       		.uleb128 0xa
+ 389 0102 3E000000 		.4byte	0x3e
+ 390 0106 09       		.uleb128 0x9
+ 391 0107 4F010000 		.4byte	.LASF16
+ 392 010b 01       		.byte	0x1
+ 393 010c 12       		.byte	0x12
+ 394 010d 01010000 		.4byte	0x101
+ 395 0111 01       		.byte	0x1
+ 396 0112 05       		.byte	0x5
+ 397 0113 03       		.byte	0x3
+ 398 0114 00000000 		.4byte	compareValue
+ 399 0118 00       		.byte	0
+ 400              		.section	.debug_abbrev,"",%progbits
+ 401              	.Ldebug_abbrev0:
+ 402 0000 01       		.uleb128 0x1
+ 403 0001 11       		.uleb128 0x11
+ 404 0002 01       		.byte	0x1
+ 405 0003 25       		.uleb128 0x25
+ 406 0004 0E       		.uleb128 0xe
+ 407 0005 13       		.uleb128 0x13
+ 408 0006 0B       		.uleb128 0xb
+ 409 0007 03       		.uleb128 0x3
+ 410 0008 0E       		.uleb128 0xe
+ 411 0009 1B       		.uleb128 0x1b
+ 412 000a 0E       		.uleb128 0xe
+ 413 000b 55       		.uleb128 0x55
+ 414 000c 06       		.uleb128 0x6
+ 415 000d 11       		.uleb128 0x11
+ 416 000e 01       		.uleb128 0x1
+ 417 000f 52       		.uleb128 0x52
+ 418 0010 01       		.uleb128 0x1
+ 419 0011 10       		.uleb128 0x10
+ 420 0012 06       		.uleb128 0x6
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccZjK8xl.s 			page 10
+
+
+ 421 0013 00       		.byte	0
+ 422 0014 00       		.byte	0
+ 423 0015 02       		.uleb128 0x2
+ 424 0016 24       		.uleb128 0x24
+ 425 0017 00       		.byte	0
+ 426 0018 0B       		.uleb128 0xb
+ 427 0019 0B       		.uleb128 0xb
+ 428 001a 3E       		.uleb128 0x3e
+ 429 001b 0B       		.uleb128 0xb
+ 430 001c 03       		.uleb128 0x3
+ 431 001d 0E       		.uleb128 0xe
+ 432 001e 00       		.byte	0
+ 433 001f 00       		.byte	0
+ 434 0020 03       		.uleb128 0x3
+ 435 0021 16       		.uleb128 0x16
+ 436 0022 00       		.byte	0
+ 437 0023 03       		.uleb128 0x3
+ 438 0024 0E       		.uleb128 0xe
+ 439 0025 3A       		.uleb128 0x3a
+ 440 0026 0B       		.uleb128 0xb
+ 441 0027 3B       		.uleb128 0x3b
+ 442 0028 0B       		.uleb128 0xb
+ 443 0029 49       		.uleb128 0x49
+ 444 002a 13       		.uleb128 0x13
+ 445 002b 00       		.byte	0
+ 446 002c 00       		.byte	0
+ 447 002d 04       		.uleb128 0x4
+ 448 002e 24       		.uleb128 0x24
+ 449 002f 00       		.byte	0
+ 450 0030 0B       		.uleb128 0xb
+ 451 0031 0B       		.uleb128 0xb
+ 452 0032 3E       		.uleb128 0x3e
+ 453 0033 0B       		.uleb128 0xb
+ 454 0034 03       		.uleb128 0x3
+ 455 0035 08       		.uleb128 0x8
+ 456 0036 00       		.byte	0
+ 457 0037 00       		.byte	0
+ 458 0038 05       		.uleb128 0x5
+ 459 0039 0F       		.uleb128 0xf
+ 460 003a 00       		.byte	0
+ 461 003b 0B       		.uleb128 0xb
+ 462 003c 0B       		.uleb128 0xb
+ 463 003d 00       		.byte	0
+ 464 003e 00       		.byte	0
+ 465 003f 06       		.uleb128 0x6
+ 466 0040 2E       		.uleb128 0x2e
+ 467 0041 00       		.byte	0
+ 468 0042 3F       		.uleb128 0x3f
+ 469 0043 0C       		.uleb128 0xc
+ 470 0044 03       		.uleb128 0x3
+ 471 0045 0E       		.uleb128 0xe
+ 472 0046 3A       		.uleb128 0x3a
+ 473 0047 0B       		.uleb128 0xb
+ 474 0048 3B       		.uleb128 0x3b
+ 475 0049 0B       		.uleb128 0xb
+ 476 004a 49       		.uleb128 0x49
+ 477 004b 13       		.uleb128 0x13
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccZjK8xl.s 			page 11
+
+
+ 478 004c 11       		.uleb128 0x11
+ 479 004d 01       		.uleb128 0x1
+ 480 004e 12       		.uleb128 0x12
+ 481 004f 01       		.uleb128 0x1
+ 482 0050 40       		.uleb128 0x40
+ 483 0051 06       		.uleb128 0x6
+ 484 0052 9642     		.uleb128 0x2116
+ 485 0054 0C       		.uleb128 0xc
+ 486 0055 00       		.byte	0
+ 487 0056 00       		.byte	0
+ 488 0057 07       		.uleb128 0x7
+ 489 0058 2E       		.uleb128 0x2e
+ 490 0059 01       		.byte	0x1
+ 491 005a 3F       		.uleb128 0x3f
+ 492 005b 0C       		.uleb128 0xc
+ 493 005c 03       		.uleb128 0x3
+ 494 005d 0E       		.uleb128 0xe
+ 495 005e 3A       		.uleb128 0x3a
+ 496 005f 0B       		.uleb128 0xb
+ 497 0060 3B       		.uleb128 0x3b
+ 498 0061 0B       		.uleb128 0xb
+ 499 0062 27       		.uleb128 0x27
+ 500 0063 0C       		.uleb128 0xc
+ 501 0064 11       		.uleb128 0x11
+ 502 0065 01       		.uleb128 0x1
+ 503 0066 12       		.uleb128 0x12
+ 504 0067 01       		.uleb128 0x1
+ 505 0068 40       		.uleb128 0x40
+ 506 0069 06       		.uleb128 0x6
+ 507 006a 9642     		.uleb128 0x2116
+ 508 006c 0C       		.uleb128 0xc
+ 509 006d 01       		.uleb128 0x1
+ 510 006e 13       		.uleb128 0x13
+ 511 006f 00       		.byte	0
+ 512 0070 00       		.byte	0
+ 513 0071 08       		.uleb128 0x8
+ 514 0072 05       		.uleb128 0x5
+ 515 0073 00       		.byte	0
+ 516 0074 03       		.uleb128 0x3
+ 517 0075 08       		.uleb128 0x8
+ 518 0076 3A       		.uleb128 0x3a
+ 519 0077 0B       		.uleb128 0xb
+ 520 0078 3B       		.uleb128 0x3b
+ 521 0079 0B       		.uleb128 0xb
+ 522 007a 49       		.uleb128 0x49
+ 523 007b 13       		.uleb128 0x13
+ 524 007c 02       		.uleb128 0x2
+ 525 007d 0A       		.uleb128 0xa
+ 526 007e 00       		.byte	0
+ 527 007f 00       		.byte	0
+ 528 0080 09       		.uleb128 0x9
+ 529 0081 34       		.uleb128 0x34
+ 530 0082 00       		.byte	0
+ 531 0083 03       		.uleb128 0x3
+ 532 0084 0E       		.uleb128 0xe
+ 533 0085 3A       		.uleb128 0x3a
+ 534 0086 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccZjK8xl.s 			page 12
+
+
+ 535 0087 3B       		.uleb128 0x3b
+ 536 0088 0B       		.uleb128 0xb
+ 537 0089 49       		.uleb128 0x49
+ 538 008a 13       		.uleb128 0x13
+ 539 008b 3F       		.uleb128 0x3f
+ 540 008c 0C       		.uleb128 0xc
+ 541 008d 02       		.uleb128 0x2
+ 542 008e 0A       		.uleb128 0xa
+ 543 008f 00       		.byte	0
+ 544 0090 00       		.byte	0
+ 545 0091 0A       		.uleb128 0xa
+ 546 0092 35       		.uleb128 0x35
+ 547 0093 00       		.byte	0
+ 548 0094 49       		.uleb128 0x49
+ 549 0095 13       		.uleb128 0x13
+ 550 0096 00       		.byte	0
+ 551 0097 00       		.byte	0
+ 552 0098 00       		.byte	0
+ 553              		.section	.debug_loc,"",%progbits
+ 554              	.Ldebug_loc0:
+ 555              	.LLST0:
+ 556 0000 00000000 		.4byte	.LFB33
+ 557 0004 02000000 		.4byte	.LCFI0
+ 558 0008 0200     		.2byte	0x2
+ 559 000a 7D       		.byte	0x7d
+ 560 000b 00       		.sleb128 0
+ 561 000c 02000000 		.4byte	.LCFI0
+ 562 0010 04000000 		.4byte	.LCFI1
+ 563 0014 0200     		.2byte	0x2
+ 564 0016 7D       		.byte	0x7d
+ 565 0017 08       		.sleb128 8
+ 566 0018 04000000 		.4byte	.LCFI1
+ 567 001c 10010000 		.4byte	.LFE33
+ 568 0020 0200     		.2byte	0x2
+ 569 0022 77       		.byte	0x77
+ 570 0023 08       		.sleb128 8
+ 571 0024 00000000 		.4byte	0
+ 572 0028 00000000 		.4byte	0
+ 573              	.LLST1:
+ 574 002c 00000000 		.4byte	.LFB34
+ 575 0030 02000000 		.4byte	.LCFI2
+ 576 0034 0200     		.2byte	0x2
+ 577 0036 7D       		.byte	0x7d
+ 578 0037 00       		.sleb128 0
+ 579 0038 02000000 		.4byte	.LCFI2
+ 580 003c 04000000 		.4byte	.LCFI3
+ 581 0040 0200     		.2byte	0x2
+ 582 0042 7D       		.byte	0x7d
+ 583 0043 08       		.sleb128 8
+ 584 0044 04000000 		.4byte	.LCFI3
+ 585 0048 06000000 		.4byte	.LCFI4
+ 586 004c 0200     		.2byte	0x2
+ 587 004e 7D       		.byte	0x7d
+ 588 004f 10       		.sleb128 16
+ 589 0050 06000000 		.4byte	.LCFI4
+ 590 0054 2C000000 		.4byte	.LFE34
+ 591 0058 0200     		.2byte	0x2
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccZjK8xl.s 			page 13
+
+
+ 592 005a 77       		.byte	0x77
+ 593 005b 10       		.sleb128 16
+ 594 005c 00000000 		.4byte	0
+ 595 0060 00000000 		.4byte	0
+ 596              		.section	.debug_aranges,"",%progbits
+ 597 0000 24000000 		.4byte	0x24
+ 598 0004 0200     		.2byte	0x2
+ 599 0006 00000000 		.4byte	.Ldebug_info0
+ 600 000a 04       		.byte	0x4
+ 601 000b 00       		.byte	0
+ 602 000c 0000     		.2byte	0
+ 603 000e 0000     		.2byte	0
+ 604 0010 00000000 		.4byte	.LFB33
+ 605 0014 10010000 		.4byte	.LFE33-.LFB33
+ 606 0018 00000000 		.4byte	.LFB34
+ 607 001c 2C000000 		.4byte	.LFE34-.LFB34
+ 608 0020 00000000 		.4byte	0
+ 609 0024 00000000 		.4byte	0
+ 610              		.section	.debug_ranges,"",%progbits
+ 611              	.Ldebug_ranges0:
+ 612 0000 00000000 		.4byte	.LFB33
+ 613 0004 10010000 		.4byte	.LFE33
+ 614 0008 00000000 		.4byte	.LFB34
+ 615 000c 2C000000 		.4byte	.LFE34
+ 616 0010 00000000 		.4byte	0
+ 617 0014 00000000 		.4byte	0
+ 618              		.section	.debug_line,"",%progbits
+ 619              	.Ldebug_line0:
+ 620 0000 3F010000 		.section	.debug_str,"MS",%progbits,1
+ 620      0200EB00 
+ 620      00000201 
+ 620      FB0E0D00 
+ 620      01010101 
+ 621              	.LASF6:
+ 622 0000 6C6F6E67 		.ascii	"long long int\000"
+ 622      206C6F6E 
+ 622      6720696E 
+ 622      7400
+ 623              	.LASF10:
+ 624 000e 75696E74 		.ascii	"uint32\000"
+ 624      333200
+ 625              	.LASF21:
+ 626 0015 70757464 		.ascii	"putdata\000"
+ 626      61746100 
+ 627              	.LASF8:
+ 628 001d 756E7369 		.ascii	"unsigned int\000"
+ 628      676E6564 
+ 628      20696E74 
+ 628      00
+ 629              	.LASF20:
+ 630 002a 6D61696E 		.ascii	"main\000"
+ 630      00
+ 631              	.LASF17:
+ 632 002f 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 632      4320342E 
+ 632      372E3320 
+ 632      32303133 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccZjK8xl.s 			page 14
+
+
+ 632      30333132 
+ 633 0062 616E6368 		.ascii	"anch revision 196615]\000"
+ 633      20726576 
+ 633      6973696F 
+ 633      6E203139 
+ 633      36363135 
+ 634              	.LASF5:
+ 635 0078 6C6F6E67 		.ascii	"long unsigned int\000"
+ 635      20756E73 
+ 635      69676E65 
+ 635      6420696E 
+ 635      7400
+ 636              	.LASF7:
+ 637 008a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 637      206C6F6E 
+ 637      6720756E 
+ 637      7369676E 
+ 637      65642069 
+ 638              	.LASF19:
+ 639 00a1 433A5C55 		.ascii	"C:\\Users\\Jared\\Documents\\PSoC Creator\\Workspac"
+ 639      73657273 
+ 639      5C4A6172 
+ 639      65645C44 
+ 639      6F63756D 
+ 640 00cf 65315C42 		.ascii	"e1\\Buttons.cydsn\000"
+ 640      7574746F 
+ 640      6E732E63 
+ 640      7964736E 
+ 640      00
+ 641              	.LASF1:
+ 642 00e0 756E7369 		.ascii	"unsigned char\000"
+ 642      676E6564 
+ 642      20636861 
+ 642      7200
+ 643              	.LASF13:
+ 644 00ee 63686172 		.ascii	"char\000"
+ 644      00
+ 645              	.LASF4:
+ 646 00f3 6C6F6E67 		.ascii	"long int\000"
+ 646      20696E74 
+ 646      00
+ 647              	.LASF2:
+ 648 00fc 73686F72 		.ascii	"short int\000"
+ 648      7420696E 
+ 648      7400
+ 649              	.LASF12:
+ 650 0106 646F7562 		.ascii	"double\000"
+ 650      6C6500
+ 651              	.LASF3:
+ 652 010d 73686F72 		.ascii	"short unsigned int\000"
+ 652      7420756E 
+ 652      7369676E 
+ 652      65642069 
+ 652      6E7400
+ 653              	.LASF0:
+ 654 0120 7369676E 		.ascii	"signed char\000"
+ 654      65642063 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccZjK8xl.s 			page 15
+
+
+ 654      68617200 
+ 655              	.LASF15:
+ 656 012c 7379735F 		.ascii	"sys_events\000"
+ 656      6576656E 
+ 656      747300
+ 657              	.LASF9:
+ 658 0137 75696E74 		.ascii	"uint16_t\000"
+ 658      31365F74 
+ 658      00
+ 659              	.LASF11:
+ 660 0140 666C6F61 		.ascii	"float\000"
+ 660      7400
+ 661              	.LASF18:
+ 662 0146 2E5C6D61 		.ascii	".\\main.c\000"
+ 662      696E2E63 
+ 662      00
+ 663              	.LASF16:
+ 664 014f 636F6D70 		.ascii	"compareValue\000"
+ 664      61726556 
+ 664      616C7565 
+ 664      00
+ 665              	.LASF14:
+ 666 015c 73697A65 		.ascii	"sizetype\000"
+ 666      74797065 
+ 666      00
+ 667              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br
