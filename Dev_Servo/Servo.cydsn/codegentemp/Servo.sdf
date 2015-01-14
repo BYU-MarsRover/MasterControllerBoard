@@ -1,0 +1,23 @@
+(DELAYFILE
+ (SDFVERSION "IEEE 1497 4.0")
+ (DATE "2014-11-27T00:50:47Z")
+ (DESIGN "Servo")
+ (VENDOR "Cypress Semiconductor")
+ (PROGRAM "cydsfit")
+ (VERSION "No Version Information Found")
+ (DIVIDER .)
+ (TIMESCALE 1 ns)
+ (CELL
+  (CELLTYPE "Servo")
+  (INSTANCE *)
+  (DELAY
+   (ABSOLUTE
+    (INTERCONNECT \\PWM_1\:cy_m0s8_tcpwm_1\\.line_out Servo\(0\).pin_input (2.937:2.937:2.937))
+    (INTERCONNECT ClockBlock.ff_div_8 \\PWM_1\:cy_m0s8_tcpwm_1\\.clock (0.000:0.000:0.000))
+    (INTERCONNECT Servo\(0\).pad_out Servo\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Servo\(0\).pad_out Servo\(0\)_PAD (0.000:0.000:0.000))
+    (INTERCONNECT Servo\(0\)_PAD Servo\(0\).pad_in (0.000:0.000:0.000))
+   )
+  )
+ )
+)

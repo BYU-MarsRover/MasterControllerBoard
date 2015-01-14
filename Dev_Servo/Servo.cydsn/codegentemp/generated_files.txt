@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<fileSet version="1" anchorPath="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp" xsi:schemaLocation="http://cypress.com/xsd/cypathdictionary cypathdictionary.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cypress.com/xsd/cypathdictionary">
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cyfitter_cfg.h" value="NONE;" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cyfitter_cfg.c" value="ARM_C_FILE;" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\protect.hex" value="NONE;" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cybootloader.icf" value="NONE;" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cybootloader.c" value="ARM_C_FILE;" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cymetadata.c" value="ARM_C_FILE;" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cydevice_trm.h" value="NONE;" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cydevicegnu_trm.inc" value="NONE;" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cydevicerv_trm.inc" value="NONE;" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cydeviceiar_trm.inc" value="NONE;" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cyfittergnu.inc" value="NONE;" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cyfitterrv.inc" value="NONE;" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cyfitteriar.inc" value="NONE;" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cyfitter.h" value="NONE;" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cydisabledsheets.h" value="NONE;" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\Bootloadable_1.c" value="ARM_C_FILE;Bootloadable_1" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\Bootloadable_1.h" value="NONE;Bootloadable_1" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\PWM_1.c" value="ARM_C_FILE;PWM_1" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\PWM_1.h" value="NONE;PWM_1" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\PWM_1_PM.c" value="ARM_C_FILE;PWM_1" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\servoClock.c" value="ARM_C_FILE;servoClock" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\servoClock.h" value="NONE;servoClock" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\Servo.c" value="ARM_C_FILE;Servo" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\Servo.h" value="NONE;Servo" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\Servo_aliases.h" value="NONE;Servo" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\tinyprintf_printf.c" value="ARM_C_FILE;tinyprintf" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\tinyprintf_printf.h" value="NONE;tinyprintf" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cm0gcc.ld" value="NONE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\Cm0RealView.scat" value="NONE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\Cm0Start.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\core_cm0_psoc4.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\core_cm0.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\CyBootAsmGnu.s" value="GNU_ARM_ASM_FILE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\CyBootAsmRv.s" value="REALVIEW_ARM_ASM_FILE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\CyFlash.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\CyFlash.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\CyLib.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\CyLib.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cyPm.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cyPm.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cytypes.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cyutils.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\cypins.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\core_cmFunc.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\core_cmInstr.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\Cm0Iar.icf" value="NONE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\CyBootAsmIar.s" value="IAR_ASM_FILE;cy_boot" />
+  <file name="C:\Users\Jared\Documents\PSoC Creator\Workspace1\Servo.cydsn\codegentemp\project.h" value="NONE;" />
+</fileSet>
