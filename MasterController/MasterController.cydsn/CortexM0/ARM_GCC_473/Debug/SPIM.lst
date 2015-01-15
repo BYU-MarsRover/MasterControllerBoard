@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
   22:.\Generated_Source\PSoC4/SPIM.c ****     volatile uint8 SPIM_txBufferFull;
   23:.\Generated_Source\PSoC4/SPIM.c ****     volatile uint8 SPIM_txBufferRead;
   24:.\Generated_Source\PSoC4/SPIM.c ****     volatile uint8 SPIM_txBufferWrite;
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 2
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 2
 
 
   25:.\Generated_Source\PSoC4/SPIM.c **** #endif /* (SPIM_TX_SOFTWARE_BUF_ENABLED) */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
   46 0006 0F22     		mov	r2, #15
   47 0008 1A70     		strb	r2, [r3]
   67:.\Generated_Source\PSoC4/SPIM.c **** 
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 3
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 3
 
 
   68:.\Generated_Source\PSoC4/SPIM.c ****     /* Init TX ISR  */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
   66              	.L3:
   67 0026 C046     		.align	2
   68              	.L2:
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 4
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 4
 
 
   69 0028 82000F40 		.word	1074724994
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  125:.\Generated_Source\PSoC4/SPIM.c ****     SPIM_COUNTER_CONTROL_REG |= SPIM_CNTR_ENABLE;
  102              		.loc 1 125 0
  103 0010 124B     		ldr	r3, .L5
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 5
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 5
 
 
  104 0012 124A     		ldr	r2, .L5
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  147              	.L5:
  148 005c 92000F40 		.word	1074725010
  149 0060 90000F40 		.word	1074725008
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 6
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 6
 
 
  150 0064 91000F40 		.word	1074725009
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  175 0008 002B     		cmp	r3, #0
  176 000a 04D1     		bne	.L8
  166:.\Generated_Source\PSoC4/SPIM.c ****     {
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 7
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 7
 
 
  167:.\Generated_Source\PSoC4/SPIM.c ****         SPIM_Init();
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  193:.\Generated_Source\PSoC4/SPIM.c **** {
  205              		.loc 1 193 0
  206              		.cfi_startproc
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 8
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 8
 
 
  207 0000 90B5     		push	{r4, r7, lr}
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  249              		.loc 1 205 0
  250 003e FFF7FEFF 		bl	SPIM_DisableTxInt
  206:.\Generated_Source\PSoC4/SPIM.c ****     SPIM_DisableRxInt();
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 9
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 9
 
 
  251              		.loc 1 206 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  283              		.cfi_def_cfa_register 7
  229:.\Generated_Source\PSoC4/SPIM.c ****     #if(0u != SPIM_INTERNAL_TX_INT_ENABLED)
  230:.\Generated_Source\PSoC4/SPIM.c ****         CyIntEnable(SPIM_TX_ISR_NUMBER);
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 10
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 10
 
 
  231:.\Generated_Source\PSoC4/SPIM.c ****     #endif /* (0u != SPIM_INTERNAL_TX_INT_ENABLED) */
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  311              		@ sp needed for prologue
  312 0006 80BD     		pop	{r7, pc}
  313              		.cfi_endproc
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 11
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 11
 
 
  314              	.LFE5:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  343              		.global	SPIM_DisableRxInt
  344              		.code	16
  345              		.thumb_func
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 12
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 12
 
 
  346              		.type	SPIM_DisableRxInt, %function
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  309:.\Generated_Source\PSoC4/SPIM.c **** 
  310:.\Generated_Source\PSoC4/SPIM.c **** /*******************************************************************************
  311:.\Generated_Source\PSoC4/SPIM.c **** * Function Name: SPIM_SetTxInterruptMode
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 13
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 13
 
 
  312:.\Generated_Source\PSoC4/SPIM.c **** ********************************************************************************
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  408              		.align	2
  409              		.global	SPIM_SetRxInterruptMode
  410              		.code	16
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 14
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 14
 
 
  411              		.thumb_func
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  441              	.L23:
  442 001a C046     		.align	2
  443              	.L22:
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 15
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 15
 
 
  444 001c 81000F40 		.word	1074724993
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  466 0004 00AF     		add	r7, sp, #0
  467              	.LCFI26:
  468              		.cfi_def_cfa_register 7
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 16
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 16
 
 
  388:.\Generated_Source\PSoC4/SPIM.c ****     uint8 tmpStatus;
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  413:.\Generated_Source\PSoC4/SPIM.c **** * Summary:
  414:.\Generated_Source\PSoC4/SPIM.c **** *  Read the Rx status register for the component.
  415:.\Generated_Source\PSoC4/SPIM.c **** *
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 17
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 17
 
 
  416:.\Generated_Source\PSoC4/SPIM.c **** * Parameters:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  515 000c 1A70     		strb	r2, [r3]
  453:.\Generated_Source\PSoC4/SPIM.c **** 
  454:.\Generated_Source\PSoC4/SPIM.c ****     #endif /* (SPIM_RX_SOFTWARE_BUF_ENABLED) */
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 18
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 18
 
 
  455:.\Generated_Source\PSoC4/SPIM.c **** 
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  485:.\Generated_Source\PSoC4/SPIM.c **** * Side Effects:
  486:.\Generated_Source\PSoC4/SPIM.c **** *  If this function is called again before the previous byte is finished then
  487:.\Generated_Source\PSoC4/SPIM.c **** *  the next byte will be appended to the transfer with no time between
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 19
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 19
 
 
  488:.\Generated_Source\PSoC4/SPIM.c **** *  the byte transfers. Clear Tx status register of the component.
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  526:.\Generated_Source\PSoC4/SPIM.c ****             /* Add directly to the TX FIFO */
  527:.\Generated_Source\PSoC4/SPIM.c ****             CY_SET_REG8(SPIM_TXDATA_PTR, txData);
  528:.\Generated_Source\PSoC4/SPIM.c ****         }
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 20
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 20
 
 
  529:.\Generated_Source\PSoC4/SPIM.c ****         else
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  572              		.loc 1 566 0
  573 0024 BD46     		mov	sp, r7
  574 0026 02B0     		add	sp, sp, #8
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 21
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 21
 
 
  575              		@ sp needed for prologue
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  603:.\Generated_Source\PSoC4/SPIM.c **** uint8 SPIM_ReadRxData(void) 
  604:.\Generated_Source\PSoC4/SPIM.c **** {
  593              		.loc 1 604 0
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 22
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 22
 
 
  594              		.cfi_startproc
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  639:.\Generated_Source\PSoC4/SPIM.c **** }
  614              		.loc 1 639 0
  615 0012 181C     		mov	r0, r3
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 23
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 23
 
 
  616 0014 BD46     		mov	sp, r7
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  641              		.cfi_offset 14, -4
  642 0002 82B0     		sub	sp, sp, #8
  643              	.LCFI37:
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 24
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 24
 
 
  644              		.cfi_def_cfa_offset 16
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  668 0020 1B78     		ldrb	r3, [r3]
  699:.\Generated_Source\PSoC4/SPIM.c **** }
  669              		.loc 1 699 0 discriminator 3
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 25
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 25
 
 
  670 0022 181C     		mov	r0, r3
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  694              		.cfi_def_cfa_offset 8
  695              		.cfi_offset 7, -8
  696              		.cfi_offset 14, -4
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 26
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 26
 
 
  697 0002 82B0     		sub	sp, sp, #8
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  721 0020 FB1D     		add	r3, r7, #7
  722 0022 1A78     		ldrb	r2, [r3]
  723 0024 0423     		mov	r3, #4
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 27
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 27
 
 
  724 0026 1340     		and	r3, r2
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  777:.\Generated_Source\PSoC4/SPIM.c **** *
  778:.\Generated_Source\PSoC4/SPIM.c **** * Summary:
  779:.\Generated_Source\PSoC4/SPIM.c **** *  Clear the RX RAM buffer by setting the read and write pointers both to zero.
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 28
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 28
 
 
  780:.\Generated_Source\PSoC4/SPIM.c **** *
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  781 000e DBB2     		uxtb	r3, r3
  782 0010 1A1C     		mov	r2, r3
  783 0012 2023     		mov	r3, #32
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 29
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 29
 
 
  784 0014 1340     		and	r3, r2
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  845:.\Generated_Source\PSoC4/SPIM.c **** *  SPIM_txBufferRead - used for the account of the bytes which
  846:.\Generated_Source\PSoC4/SPIM.c **** *  have been read from the TX software buffer, modified every function call -
  847:.\Generated_Source\PSoC4/SPIM.c **** *  resets to zero.
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 30
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 30
 
 
  848:.\Generated_Source\PSoC4/SPIM.c **** *
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  838 0026 D2B2     		uxtb	r2, r2
  839 0028 0121     		mov	r1, #1
  840 002a 8A43     		bic	r2, r1
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 31
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 31
 
 
  841 002c D2B2     		uxtb	r2, r2
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  897:.\Generated_Source\PSoC4/SPIM.c ****     ********************************************************************************
  898:.\Generated_Source\PSoC4/SPIM.c ****     *
  899:.\Generated_Source\PSoC4/SPIM.c ****     * Summary:
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 32
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 32
 
 
  900:.\Generated_Source\PSoC4/SPIM.c ****     *  If the SPI master is configured to use a single bi-directional pin then this
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  954:.\Generated_Source\PSoC4/SPIM.c **** * Side Effects:
  955:.\Generated_Source\PSoC4/SPIM.c **** *  Will stay in this routine until all data has been sent.  May get locked in
  956:.\Generated_Source\PSoC4/SPIM.c **** *  this loop if data is not being initiated by the master if there is not
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 33
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 33
 
 
  957:.\Generated_Source\PSoC4/SPIM.c **** *  enough room in the TX FIFO.
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  905 002e 3A1C     		mov	r2, r7
  906 0030 0F32     		add	r2, r2, #15
  907 0032 1278     		ldrb	r2, [r2]
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 34
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 34
 
 
  908 0034 0132     		add	r2, r2, #1
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  997:.\Generated_Source\PSoC4/SPIM.c **** {
  938              		.loc 1 997 0
  939              		.cfi_startproc
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 35
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 35
 
 
  940 0000 90B5     		push	{r4, r7, lr}
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  981              		.loc 1 1009 0
  982 0034 094B     		ldr	r3, .L67+8
  983 0036 094A     		ldr	r2, .L67+8
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 36
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 36
 
 
  984 0038 1278     		ldrb	r2, [r2]
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
 1031:.\Generated_Source\PSoC4/SPIM.c **** *
 1032:.\Generated_Source\PSoC4/SPIM.c **** * Parameters:
 1033:.\Generated_Source\PSoC4/SPIM.c **** *  None.
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 37
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 37
 
 
 1034:.\Generated_Source\PSoC4/SPIM.c **** *
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
 1059:.\Generated_Source\PSoC4/SPIM.c **** * Return:
 1060:.\Generated_Source\PSoC4/SPIM.c **** *  None.
 1061:.\Generated_Source\PSoC4/SPIM.c **** *
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 38
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 38
 
 
 1062:.\Generated_Source\PSoC4/SPIM.c **** * Theory:
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
 1087:.\Generated_Source\PSoC4/SPIM.c **** * Theory:
 1088:.\Generated_Source\PSoC4/SPIM.c **** *  Enables the output of specific status bits to the interrupt controller.
 1089:.\Generated_Source\PSoC4/SPIM.c **** *
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 39
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 39
 
 
 1090:.\Generated_Source\PSoC4/SPIM.c **** *******************************************************************************/
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1123              	SPIM_ReadStatus:
  1124              	.LFB23:
 1096:.\Generated_Source\PSoC4/SPIM.c **** 
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 40
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 40
 
 
 1097:.\Generated_Source\PSoC4/SPIM.c **** 
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
 1138:.\Generated_Source\PSoC4/SPIM.c ****         SPIM_swStatusTx = 0u;
 1139:.\Generated_Source\PSoC4/SPIM.c ****         SPIM_swStatusRx = 0u;
 1140:.\Generated_Source\PSoC4/SPIM.c **** 
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 41
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 41
 
 
 1141:.\Generated_Source\PSoC4/SPIM.c ****         SPIM_EnableInt();
@@ -2458,16 +2458,16 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1180              	.Ldebug_info0:
  1181 0000 66040000 		.4byte	0x466
  1182 0004 0200     		.2byte	0x2
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 42
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 42
 
 
  1183 0006 00000000 		.4byte	.Ldebug_abbrev0
  1184 000a 04       		.byte	0x4
  1185 000b 01       		.uleb128 0x1
- 1186 000c D2020000 		.4byte	.LASF51
+ 1186 000c F5020000 		.4byte	.LASF51
  1187 0010 01       		.byte	0x1
- 1188 0011 88020000 		.4byte	.LASF52
- 1189 0015 00000000 		.4byte	.LASF53
+ 1188 0011 AB020000 		.4byte	.LASF52
+ 1189 0015 F1000000 		.4byte	.LASF53
  1190 0019 00000000 		.4byte	.Ldebug_ranges0+0
  1191 001d 00000000 		.4byte	0
  1192 0021 00000000 		.4byte	0
@@ -2475,35 +2475,35 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1194 0029 02       		.uleb128 0x2
  1195 002a 01       		.byte	0x1
  1196 002b 06       		.byte	0x6
- 1197 002c 3F030000 		.4byte	.LASF0
+ 1197 002c 62030000 		.4byte	.LASF0
  1198 0030 02       		.uleb128 0x2
  1199 0031 01       		.byte	0x1
  1200 0032 08       		.byte	0x8
- 1201 0033 73010000 		.4byte	.LASF1
+ 1201 0033 96010000 		.4byte	.LASF1
  1202 0037 02       		.uleb128 0x2
  1203 0038 02       		.byte	0x2
  1204 0039 05       		.byte	0x5
- 1205 003a B1010000 		.4byte	.LASF2
+ 1205 003a D4010000 		.4byte	.LASF2
  1206 003e 02       		.uleb128 0x2
  1207 003f 02       		.byte	0x2
  1208 0040 07       		.byte	0x7
- 1209 0041 91000000 		.4byte	.LASF3
+ 1209 0041 3E000000 		.4byte	.LASF3
  1210 0045 02       		.uleb128 0x2
  1211 0046 04       		.byte	0x4
  1212 0047 05       		.byte	0x5
- 1213 0048 2C030000 		.4byte	.LASF4
+ 1213 0048 4F030000 		.4byte	.LASF4
  1214 004c 02       		.uleb128 0x2
  1215 004d 04       		.byte	0x4
  1216 004e 07       		.byte	0x7
- 1217 004f 2C010000 		.4byte	.LASF5
+ 1217 004f D9000000 		.4byte	.LASF5
  1218 0053 02       		.uleb128 0x2
  1219 0054 08       		.byte	0x8
  1220 0055 05       		.byte	0x5
- 1221 0056 61020000 		.4byte	.LASF6
+ 1221 0056 84020000 		.4byte	.LASF6
  1222 005a 02       		.uleb128 0x2
  1223 005b 08       		.byte	0x8
  1224 005c 07       		.byte	0x7
- 1225 005d 0D020000 		.4byte	.LASF7
+ 1225 005d 30020000 		.4byte	.LASF7
  1226 0061 03       		.uleb128 0x3
  1227 0062 04       		.byte	0x4
  1228 0063 05       		.byte	0x5
@@ -2511,29 +2511,29 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1230 0068 02       		.uleb128 0x2
  1231 0069 04       		.byte	0x4
  1232 006a 07       		.byte	0x7
- 1233 006b EB010000 		.4byte	.LASF8
+ 1233 006b 0E020000 		.4byte	.LASF8
  1234 006f 04       		.uleb128 0x4
- 1235 0070 3E010000 		.4byte	.LASF12
+ 1235 0070 EB000000 		.4byte	.LASF12
  1236 0074 02       		.byte	0x2
  1237 0075 5B       		.byte	0x5b
  1238 0076 30000000 		.4byte	0x30
  1239 007a 02       		.uleb128 0x2
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 43
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 43
 
 
  1240 007b 04       		.byte	0x4
  1241 007c 04       		.byte	0x4
- 1242 007d E3000000 		.4byte	.LASF9
+ 1242 007d 90000000 		.4byte	.LASF9
  1243 0081 02       		.uleb128 0x2
  1244 0082 08       		.byte	0x8
  1245 0083 04       		.byte	0x4
- 1246 0084 93010000 		.4byte	.LASF10
+ 1246 0084 B6010000 		.4byte	.LASF10
  1247 0088 02       		.uleb128 0x2
  1248 0089 01       		.byte	0x1
  1249 008a 08       		.byte	0x8
- 1250 008b A4000000 		.4byte	.LASF11
+ 1250 008b 51000000 		.4byte	.LASF11
  1251 008f 04       		.uleb128 0x4
- 1252 0090 16010000 		.4byte	.LASF13
+ 1252 0090 C3000000 		.4byte	.LASF13
  1253 0094 02       		.byte	0x2
  1254 0095 F0       		.byte	0xf0
  1255 0096 9A000000 		.4byte	0x9a
@@ -2542,10 +2542,10 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1258 009f 02       		.uleb128 0x2
  1259 00a0 04       		.byte	0x4
  1260 00a1 07       		.byte	0x7
- 1261 00a2 58020000 		.4byte	.LASF14
+ 1261 00a2 7B020000 		.4byte	.LASF14
  1262 00a6 06       		.uleb128 0x6
  1263 00a7 01       		.byte	0x1
- 1264 00a8 6F020000 		.4byte	.LASF15
+ 1264 00a8 92020000 		.4byte	.LASF15
  1265 00ac 01       		.byte	0x1
  1266 00ad 3F       		.byte	0x3f
  1267 00ae 01       		.byte	0x1
@@ -2555,7 +2555,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1271 00bb 01       		.byte	0x1
  1272 00bc 07       		.uleb128 0x7
  1273 00bd 01       		.byte	0x1
- 1274 00be 64000000 		.4byte	.LASF17
+ 1274 00be 11000000 		.4byte	.LASF17
  1275 00c2 01       		.byte	0x1
  1276 00c3 78       		.byte	0x78
  1277 00c4 01       		.byte	0x1
@@ -2565,7 +2565,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1281 00d1 01       		.byte	0x1
  1282 00d2 E5000000 		.4byte	0xe5
  1283 00d6 08       		.uleb128 0x8
- 1284 00d7 52010000 		.4byte	.LASF19
+ 1284 00d7 75010000 		.4byte	.LASF19
  1285 00db 01       		.byte	0x1
  1286 00dc 7A       		.byte	0x7a
  1287 00dd 6F000000 		.4byte	0x6f
@@ -2575,10 +2575,10 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1291 00e4 00       		.byte	0
  1292 00e5 06       		.uleb128 0x6
  1293 00e6 01       		.byte	0x1
- 1294 00e7 4B030000 		.4byte	.LASF16
+ 1294 00e7 6E030000 		.4byte	.LASF16
  1295 00eb 01       		.byte	0x1
  1296 00ec A3       		.byte	0xa3
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 44
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 44
 
 
  1297 00ed 01       		.byte	0x1
@@ -2588,7 +2588,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1301 00fa 01       		.byte	0x1
  1302 00fb 07       		.uleb128 0x7
  1303 00fc 01       		.byte	0x1
- 1304 00fd 70000000 		.4byte	.LASF18
+ 1304 00fd 1D000000 		.4byte	.LASF18
  1305 0101 01       		.byte	0x1
  1306 0102 C0       		.byte	0xc0
  1307 0103 01       		.byte	0x1
@@ -2598,7 +2598,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1311 0110 01       		.byte	0x1
  1312 0111 24010000 		.4byte	0x124
  1313 0115 08       		.uleb128 0x8
- 1314 0116 52010000 		.4byte	.LASF19
+ 1314 0116 75010000 		.4byte	.LASF19
  1315 011a 01       		.byte	0x1
  1316 011b C2       		.byte	0xc2
  1317 011c 6F000000 		.4byte	0x6f
@@ -2608,7 +2608,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1321 0123 00       		.byte	0
  1322 0124 09       		.uleb128 0x9
  1323 0125 01       		.byte	0x1
- 1324 0126 1B010000 		.4byte	.LASF20
+ 1324 0126 C8000000 		.4byte	.LASF20
  1325 012a 01       		.byte	0x1
  1326 012b E3       		.byte	0xe3
  1327 012c 01       		.byte	0x1
@@ -2618,7 +2618,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1331 0139 01       		.byte	0x1
  1332 013a 09       		.uleb128 0x9
  1333 013b 01       		.byte	0x1
- 1334 013c 1B030000 		.4byte	.LASF21
+ 1334 013c 3E030000 		.4byte	.LASF21
  1335 0140 01       		.byte	0x1
  1336 0141 FC       		.byte	0xfc
  1337 0142 01       		.byte	0x1
@@ -2628,7 +2628,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1341 014f 01       		.byte	0x1
  1342 0150 0A       		.uleb128 0xa
  1343 0151 01       		.byte	0x1
- 1344 0152 81010000 		.4byte	.LASF22
+ 1344 0152 A4010000 		.4byte	.LASF22
  1345 0156 01       		.byte	0x1
  1346 0157 1501     		.2byte	0x115
  1347 0159 01       		.byte	0x1
@@ -2638,10 +2638,10 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1351 0166 01       		.byte	0x1
  1352 0167 0A       		.uleb128 0xa
  1353 0168 01       		.byte	0x1
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 45
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 45
 
 
- 1354 0169 68030000 		.4byte	.LASF23
+ 1354 0169 8B030000 		.4byte	.LASF23
  1355 016d 01       		.byte	0x1
  1356 016e 2E01     		.2byte	0x12e
  1357 0170 01       		.byte	0x1
@@ -2651,7 +2651,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1361 017d 01       		.byte	0x1
  1362 017e 0B       		.uleb128 0xb
  1363 017f 01       		.byte	0x1
- 1364 0180 BB010000 		.4byte	.LASF24
+ 1364 0180 DE010000 		.4byte	.LASF24
  1365 0184 01       		.byte	0x1
  1366 0185 4801     		.2byte	0x148
  1367 0187 01       		.byte	0x1
@@ -2661,7 +2661,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1371 0194 01       		.byte	0x1
  1372 0195 A9010000 		.4byte	0x1a9
  1373 0199 0C       		.uleb128 0xc
- 1374 019a 9A010000 		.4byte	.LASF26
+ 1374 019a BD010000 		.4byte	.LASF26
  1375 019e 01       		.byte	0x1
  1376 019f 4801     		.2byte	0x148
  1377 01a1 6F000000 		.4byte	0x6f
@@ -2671,7 +2671,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1381 01a8 00       		.byte	0
  1382 01a9 0B       		.uleb128 0xb
  1383 01aa 01       		.byte	0x1
- 1384 01ab D3010000 		.4byte	.LASF25
+ 1384 01ab F6010000 		.4byte	.LASF25
  1385 01af 01       		.byte	0x1
  1386 01b0 6001     		.2byte	0x160
  1387 01b2 01       		.byte	0x1
@@ -2681,7 +2681,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1391 01bf 01       		.byte	0x1
  1392 01c0 D4010000 		.4byte	0x1d4
  1393 01c4 0C       		.uleb128 0xc
- 1394 01c5 9A010000 		.4byte	.LASF26
+ 1394 01c5 BD010000 		.4byte	.LASF26
  1395 01c9 01       		.byte	0x1
  1396 01ca 6001     		.2byte	0x160
  1397 01cc 6F000000 		.4byte	0x6f
@@ -2691,21 +2691,21 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1401 01d3 00       		.byte	0
  1402 01d4 0D       		.uleb128 0xd
  1403 01d5 01       		.byte	0x1
- 1404 01d6 56030000 		.4byte	.LASF28
+ 1404 01d6 79030000 		.4byte	.LASF28
  1405 01da 01       		.byte	0x1
  1406 01db 8201     		.2byte	0x182
  1407 01dd 01       		.byte	0x1
  1408 01de 6F000000 		.4byte	0x6f
  1409 01e2 00000000 		.4byte	.LFB10
  1410 01e6 20000000 		.4byte	.LFE10
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 46
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 46
 
 
  1411 01ea E8010000 		.4byte	.LLST10
  1412 01ee 01       		.byte	0x1
  1413 01ef 03020000 		.4byte	0x203
  1414 01f3 0E       		.uleb128 0xe
- 1415 01f4 35030000 		.4byte	.LASF27
+ 1415 01f4 58030000 		.4byte	.LASF27
  1416 01f8 01       		.byte	0x1
  1417 01f9 8401     		.2byte	0x184
  1418 01fb 6F000000 		.4byte	0x6f
@@ -2715,7 +2715,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1422 0202 00       		.byte	0
  1423 0203 0D       		.uleb128 0xd
  1424 0204 01       		.byte	0x1
- 1425 0205 2E020000 		.4byte	.LASF29
+ 1425 0205 51020000 		.4byte	.LASF29
  1426 0209 01       		.byte	0x1
  1427 020a B501     		.2byte	0x1b5
  1428 020c 01       		.byte	0x1
@@ -2726,7 +2726,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1433 021d 01       		.byte	0x1
  1434 021e 32020000 		.4byte	0x232
  1435 0222 0E       		.uleb128 0xe
- 1436 0223 35030000 		.4byte	.LASF27
+ 1436 0223 58030000 		.4byte	.LASF27
  1437 0227 01       		.byte	0x1
  1438 0228 B701     		.2byte	0x1b7
  1439 022a 6F000000 		.4byte	0x6f
@@ -2736,7 +2736,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1443 0231 00       		.byte	0
  1444 0232 0B       		.uleb128 0xb
  1445 0233 01       		.byte	0x1
- 1446 0234 53000000 		.4byte	.LASF30
+ 1446 0234 00000000 		.4byte	.LASF30
  1447 0238 01       		.byte	0x1
  1448 0239 EE01     		.2byte	0x1ee
  1449 023b 01       		.byte	0x1
@@ -2746,7 +2746,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1453 0248 01       		.byte	0x1
  1454 0249 5D020000 		.4byte	0x25d
  1455 024d 0C       		.uleb128 0xc
- 1456 024e 7A000000 		.4byte	.LASF31
+ 1456 024e 27000000 		.4byte	.LASF31
  1457 0252 01       		.byte	0x1
  1458 0253 EE01     		.2byte	0x1ee
  1459 0255 6F000000 		.4byte	0x6f
@@ -2756,9 +2756,9 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1463 025c 00       		.byte	0
  1464 025d 0D       		.uleb128 0xd
  1465 025e 01       		.byte	0x1
- 1466 025f 63010000 		.4byte	.LASF32
+ 1466 025f 86010000 		.4byte	.LASF32
  1467 0263 01       		.byte	0x1
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 47
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 47
 
 
  1468 0264 5B02     		.2byte	0x25b
@@ -2770,7 +2770,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1474 0277 01       		.byte	0x1
  1475 0278 8C020000 		.4byte	0x28c
  1476 027c 0E       		.uleb128 0xe
- 1477 027d CC000000 		.4byte	.LASF33
+ 1477 027d 79000000 		.4byte	.LASF33
  1478 0281 01       		.byte	0x1
  1479 0282 5D02     		.2byte	0x25d
  1480 0284 6F000000 		.4byte	0x6f
@@ -2780,7 +2780,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1484 028b 00       		.byte	0
  1485 028c 0D       		.uleb128 0xd
  1486 028d 01       		.byte	0x1
- 1487 028e F8010000 		.4byte	.LASF34
+ 1487 028e 1B020000 		.4byte	.LASF34
  1488 0292 01       		.byte	0x1
  1489 0293 9B02     		.2byte	0x29b
  1490 0295 01       		.byte	0x1
@@ -2791,7 +2791,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1495 02a6 01       		.byte	0x1
  1496 02a7 BB020000 		.4byte	0x2bb
  1497 02ab 0E       		.uleb128 0xe
- 1498 02ac FC000000 		.4byte	.LASF35
+ 1498 02ac A9000000 		.4byte	.LASF35
  1499 02b0 01       		.byte	0x1
  1500 02b1 9D02     		.2byte	0x29d
  1501 02b3 6F000000 		.4byte	0x6f
@@ -2801,7 +2801,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1505 02ba 00       		.byte	0
  1506 02bb 0D       		.uleb128 0xd
  1507 02bc 01       		.byte	0x1
- 1508 02bd 01010000 		.4byte	.LASF36
+ 1508 02bd AE000000 		.4byte	.LASF36
  1509 02c1 01       		.byte	0x1
  1510 02c2 D802     		.2byte	0x2d8
  1511 02c4 01       		.byte	0x1
@@ -2812,20 +2812,20 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1516 02d5 01       		.byte	0x1
  1517 02d6 EA020000 		.4byte	0x2ea
  1518 02da 0E       		.uleb128 0xe
- 1519 02db FC000000 		.4byte	.LASF35
+ 1519 02db A9000000 		.4byte	.LASF35
  1520 02df 01       		.byte	0x1
  1521 02e0 DA02     		.2byte	0x2da
  1522 02e2 6F000000 		.4byte	0x6f
  1523 02e6 02       		.byte	0x2
  1524 02e7 91       		.byte	0x91
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 48
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 48
 
 
  1525 02e8 77       		.sleb128 -9
  1526 02e9 00       		.byte	0
  1527 02ea 0A       		.uleb128 0xa
  1528 02eb 01       		.byte	0x1
- 1529 02ec E9000000 		.4byte	.LASF37
+ 1529 02ec 96000000 		.4byte	.LASF37
  1530 02f0 01       		.byte	0x1
  1531 02f1 2703     		.2byte	0x327
  1532 02f3 01       		.byte	0x1
@@ -2835,7 +2835,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1536 0300 01       		.byte	0x1
  1537 0301 0F       		.uleb128 0xf
  1538 0302 01       		.byte	0x1
- 1539 0303 A8020000 		.4byte	.LASF38
+ 1539 0303 CB020000 		.4byte	.LASF38
  1540 0307 01       		.byte	0x1
  1541 0308 5E03     		.2byte	0x35e
  1542 030a 01       		.byte	0x1
@@ -2845,7 +2845,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1546 0317 01       		.byte	0x1
  1547 0318 2C030000 		.4byte	0x32c
  1548 031c 0E       		.uleb128 0xe
- 1549 031d 52010000 		.4byte	.LASF19
+ 1549 031d 75010000 		.4byte	.LASF19
  1550 0321 01       		.byte	0x1
  1551 0322 6003     		.2byte	0x360
  1552 0324 6F000000 		.4byte	0x6f
@@ -2855,7 +2855,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1556 032b 00       		.byte	0
  1557 032c 0F       		.uleb128 0xf
  1558 032d 01       		.byte	0x1
- 1559 032e 44010000 		.4byte	.LASF39
+ 1559 032e 67010000 		.4byte	.LASF39
  1560 0332 01       		.byte	0x1
  1561 0333 C303     		.2byte	0x3c3
  1562 0335 01       		.byte	0x1
@@ -2865,7 +2865,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1566 0342 01       		.byte	0x1
  1567 0343 75030000 		.4byte	0x375
  1568 0347 0C       		.uleb128 0xc
- 1569 0348 BB020000 		.4byte	.LASF40
+ 1569 0348 DE020000 		.4byte	.LASF40
  1570 034c 01       		.byte	0x1
  1571 034d C303     		.2byte	0x3c3
  1572 034f 75030000 		.4byte	0x375
@@ -2873,18 +2873,18 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1574 0354 91       		.byte	0x91
  1575 0355 6C       		.sleb128 -20
  1576 0356 0C       		.uleb128 0xc
- 1577 0357 24020000 		.4byte	.LASF41
+ 1577 0357 47020000 		.4byte	.LASF41
  1578 035b 01       		.byte	0x1
  1579 035c C303     		.2byte	0x3c3
  1580 035e 6F000000 		.4byte	0x6f
  1581 0362 02       		.byte	0x2
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 49
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 49
 
 
  1582 0363 91       		.byte	0x91
  1583 0364 6B       		.sleb128 -21
  1584 0365 0E       		.uleb128 0xe
- 1585 0366 40020000 		.4byte	.LASF42
+ 1585 0366 63020000 		.4byte	.LASF42
  1586 036a 01       		.byte	0x1
  1587 036b C603     		.2byte	0x3c6
  1588 036d 6F000000 		.4byte	0x6f
@@ -2899,7 +2899,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1597 037c 6F000000 		.4byte	0x6f
  1598 0380 0F       		.uleb128 0xf
  1599 0381 01       		.byte	0x1
- 1600 0382 79020000 		.4byte	.LASF43
+ 1600 0382 9C020000 		.4byte	.LASF43
  1601 0386 01       		.byte	0x1
  1602 0387 E403     		.2byte	0x3e4
  1603 0389 01       		.byte	0x1
@@ -2909,7 +2909,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1607 0396 01       		.byte	0x1
  1608 0397 AB030000 		.4byte	0x3ab
  1609 039b 0E       		.uleb128 0xe
- 1610 039c 52010000 		.4byte	.LASF19
+ 1610 039c 75010000 		.4byte	.LASF19
  1611 03a0 01       		.byte	0x1
  1612 03a1 E603     		.2byte	0x3e6
  1613 03a3 6F000000 		.4byte	0x6f
@@ -2919,7 +2919,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1617 03aa 00       		.byte	0
  1618 03ab 12       		.uleb128 0x12
  1619 03ac 01       		.byte	0x1
- 1620 03ad 49020000 		.4byte	.LASF44
+ 1620 03ad 6C020000 		.4byte	.LASF44
  1621 03b1 01       		.byte	0x1
  1622 03b2 1204     		.2byte	0x412
  1623 03b4 01       		.byte	0x1
@@ -2929,7 +2929,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1627 03c1 01       		.byte	0x1
  1628 03c2 12       		.uleb128 0x12
  1629 03c3 01       		.byte	0x1
- 1630 03c4 D3000000 		.4byte	.LASF45
+ 1630 03c4 80000000 		.4byte	.LASF45
  1631 03c8 01       		.byte	0x1
  1632 03c9 2A04     		.2byte	0x42a
  1633 03cb 01       		.byte	0x1
@@ -2938,11 +2938,11 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1636 03d4 38040000 		.4byte	.LLST21
  1637 03d8 01       		.byte	0x1
  1638 03d9 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 50
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 50
 
 
  1639 03da 01       		.byte	0x1
- 1640 03db A9000000 		.4byte	.LASF46
+ 1640 03db 56000000 		.4byte	.LASF46
  1641 03df 01       		.byte	0x1
  1642 03e0 4304     		.2byte	0x443
  1643 03e2 01       		.byte	0x1
@@ -2952,7 +2952,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1647 03ef 01       		.byte	0x1
  1648 03f0 04040000 		.4byte	0x404
  1649 03f4 0C       		.uleb128 0xc
- 1650 03f5 9A010000 		.4byte	.LASF26
+ 1650 03f5 BD010000 		.4byte	.LASF26
  1651 03f9 01       		.byte	0x1
  1652 03fa 4304     		.2byte	0x443
  1653 03fc 6F000000 		.4byte	0x6f
@@ -2962,7 +2962,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1657 0403 00       		.byte	0
  1658 0404 0D       		.uleb128 0xd
  1659 0405 01       		.byte	0x1
- 1660 0406 C2020000 		.4byte	.LASF47
+ 1660 0406 E5020000 		.4byte	.LASF47
  1661 040a 01       		.byte	0x1
  1662 040b 6604     		.2byte	0x466
  1663 040d 01       		.byte	0x1
@@ -2973,7 +2973,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1668 041e 01       		.byte	0x1
  1669 041f 33040000 		.4byte	0x433
  1670 0423 0E       		.uleb128 0xe
- 1671 0424 35030000 		.4byte	.LASF27
+ 1671 0424 58030000 		.4byte	.LASF27
  1672 0428 01       		.byte	0x1
  1673 0429 6804     		.2byte	0x468
  1674 042b 6F000000 		.4byte	0x6f
@@ -2982,7 +2982,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1677 0431 77       		.sleb128 -9
  1678 0432 00       		.byte	0
  1679 0433 13       		.uleb128 0x13
- 1680 0434 BF000000 		.4byte	.LASF48
+ 1680 0434 6C000000 		.4byte	.LASF48
  1681 0438 01       		.byte	0x1
  1682 0439 22       		.byte	0x22
  1683 043a 6F000000 		.4byte	0x6f
@@ -2991,19 +2991,19 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1686 0440 03       		.byte	0x3
  1687 0441 00000000 		.4byte	SPIM_initVar
  1688 0445 13       		.uleb128 0x13
- 1689 0446 81000000 		.4byte	.LASF49
+ 1689 0446 2E000000 		.4byte	.LASF49
  1690 044a 01       		.byte	0x1
  1691 044b 24       		.byte	0x24
  1692 044c 9A000000 		.4byte	0x9a
  1693 0450 01       		.byte	0x1
  1694 0451 05       		.byte	0x5
  1695 0452 03       		.byte	0x3
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 51
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 51
 
 
  1696 0453 00000000 		.4byte	SPIM_swStatusTx
  1697 0457 13       		.uleb128 0x13
- 1698 0458 A1010000 		.4byte	.LASF50
+ 1698 0458 C4010000 		.4byte	.LASF50
  1699 045c 01       		.byte	0x1
  1700 045d 25       		.byte	0x25
  1701 045e 9A000000 		.4byte	0x9a
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1750 0029 00       		.byte	0
  1751 002a 00       		.byte	0
  1752 002b 04       		.uleb128 0x4
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 52
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 52
 
 
  1753 002c 16       		.uleb128 0x16
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1807 0063 0C       		.uleb128 0xc
  1808 0064 11       		.uleb128 0x11
  1809 0065 01       		.uleb128 0x1
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 53
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 53
 
 
  1810 0066 12       		.uleb128 0x12
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1864 009e 0E       		.uleb128 0xe
  1865 009f 3A       		.uleb128 0x3a
  1866 00a0 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 54
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 54
 
 
  1867 00a1 3B       		.uleb128 0x3b
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1921 00d9 0D       		.uleb128 0xd
  1922 00da 2E       		.uleb128 0x2e
  1923 00db 01       		.byte	0x1
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 55
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 55
 
 
  1924 00dc 3F       		.uleb128 0x3f
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  1978 0113 12       		.uleb128 0x12
  1979 0114 01       		.uleb128 0x1
  1980 0115 40       		.uleb128 0x40
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 56
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 56
 
 
  1981 0116 06       		.uleb128 0x6
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  2035 014e 0B       		.uleb128 0xb
  2036 014f 49       		.uleb128 0x49
  2037 0150 13       		.uleb128 0x13
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 57
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 57
 
 
  2038 0151 3F       		.uleb128 0x3f
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  2092 006e 7D       		.byte	0x7d
  2093 006f 00       		.sleb128 0
  2094 0070 02000000 		.4byte	.LCFI5
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 58
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 58
 
 
  2095 0074 04000000 		.4byte	.LCFI6
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  2149 00f8 02000000 		.4byte	.LCFI12
  2150 00fc 0200     		.2byte	0x2
  2151 00fe 7D       		.byte	0x7d
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 59
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 59
 
 
  2152 00ff 00       		.sleb128 0
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  2206 0183 00       		.sleb128 0
  2207 0184 02000000 		.4byte	.LCFI18
  2208 0188 04000000 		.4byte	.LCFI19
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 60
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 60
 
 
  2209 018c 0200     		.2byte	0x2
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  2263 020c 06000000 		.4byte	.LCFI26
  2264 0210 20000000 		.4byte	.LFE10
  2265 0214 0200     		.2byte	0x2
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 61
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 61
 
 
  2266 0216 77       		.byte	0x77
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  2320 029a 7D       		.byte	0x7d
  2321 029b 00       		.sleb128 0
  2322 029c 02000000 		.4byte	.LCFI33
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 62
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 62
 
 
  2323 02a0 04000000 		.4byte	.LCFI34
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  2377 0323 10       		.sleb128 16
  2378 0324 06000000 		.4byte	.LCFI41
  2379 0328 48000000 		.4byte	.LFE15
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 63
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 63
 
 
  2380 032c 0200     		.2byte	0x2
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  2434 03b0 0200     		.2byte	0x2
  2435 03b2 7D       		.byte	0x7d
  2436 03b3 08       		.sleb128 8
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 64
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 64
 
 
  2437 03b4 04000000 		.4byte	.LCFI48
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  2491 0438 00000000 		.4byte	.LFB21
  2492 043c 02000000 		.4byte	.LCFI55
  2493 0440 0200     		.2byte	0x2
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 65
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 65
 
 
  2494 0442 7D       		.byte	0x7d
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  2548 04c4 40000000 		.4byte	.LFE23
  2549 04c8 0200     		.2byte	0x2
  2550 04ca 77       		.byte	0x77
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 66
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 66
 
 
  2551 04cb 10       		.sleb128 16
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  2605 00bc 10000000 		.4byte	.LFE21-.LFB21
  2606 00c0 00000000 		.4byte	.LFB22
  2607 00c4 30000000 		.4byte	.LFE22-.LFB22
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 67
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 67
 
 
  2608 00c8 00000000 		.4byte	.LFB23
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  2662 00c0 00000000 		.4byte	0
  2663 00c4 00000000 		.4byte	0
  2664              		.section	.debug_line,"",%progbits
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 68
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 68
 
 
  2665              	.Ldebug_line0:
@@ -4027,286 +4027,291 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 1
  2666      00000201 
  2666      FB0E0D00 
  2666      01010101 
- 2667              	.LASF53:
- 2668 0000 433A5C55 		.ascii	"C:\\Users\\Steve\\Desktop\\Projects\\MarsRover\\BYU"
- 2668      73657273 
- 2668      5C537465 
- 2668      76655C44 
- 2668      65736B74 
- 2669 002d 2D4D6172 		.ascii	"-Mars-Rover\\RoverLink\\RoverLink.cydsn\000"
- 2669      732D526F 
- 2669      7665725C 
- 2669      526F7665 
- 2669      724C696E 
- 2670              	.LASF30:
- 2671 0053 5350494D 		.ascii	"SPIM_WriteTxData\000"
- 2671      5F577269 
- 2671      74655478 
- 2671      44617461 
- 2671      00
- 2672              	.LASF17:
- 2673 0064 5350494D 		.ascii	"SPIM_Enable\000"
- 2673      5F456E61 
- 2673      626C6500 
- 2674              	.LASF18:
- 2675 0070 5350494D 		.ascii	"SPIM_Stop\000"
- 2675      5F53746F 
- 2675      7000
- 2676              	.LASF31:
- 2677 007a 74784461 		.ascii	"txData\000"
- 2677      746100
- 2678              	.LASF49:
- 2679 0081 5350494D 		.ascii	"SPIM_swStatusTx\000"
- 2679      5F737753 
- 2679      74617475 
- 2679      73547800 
- 2680              	.LASF3:
- 2681 0091 73686F72 		.ascii	"short unsigned int\000"
- 2681      7420756E 
- 2681      7369676E 
- 2681      65642069 
- 2681      6E7400
- 2682              	.LASF11:
- 2683 00a4 63686172 		.ascii	"char\000"
- 2683      00
- 2684              	.LASF46:
- 2685 00a9 5350494D 		.ascii	"SPIM_SetInterruptMode\000"
- 2685      5F536574 
- 2685      496E7465 
- 2685      72727570 
- 2685      744D6F64 
- 2686              	.LASF48:
- 2687 00bf 5350494D 		.ascii	"SPIM_initVar\000"
- 2687      5F696E69 
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 69
+ 2667              	.LASF30:
+ 2668 0000 5350494D 		.ascii	"SPIM_WriteTxData\000"
+ 2668      5F577269 
+ 2668      74655478 
+ 2668      44617461 
+ 2668      00
+ 2669              	.LASF17:
+ 2670 0011 5350494D 		.ascii	"SPIM_Enable\000"
+ 2670      5F456E61 
+ 2670      626C6500 
+ 2671              	.LASF18:
+ 2672 001d 5350494D 		.ascii	"SPIM_Stop\000"
+ 2672      5F53746F 
+ 2672      7000
+ 2673              	.LASF31:
+ 2674 0027 74784461 		.ascii	"txData\000"
+ 2674      746100
+ 2675              	.LASF49:
+ 2676 002e 5350494D 		.ascii	"SPIM_swStatusTx\000"
+ 2676      5F737753 
+ 2676      74617475 
+ 2676      73547800 
+ 2677              	.LASF3:
+ 2678 003e 73686F72 		.ascii	"short unsigned int\000"
+ 2678      7420756E 
+ 2678      7369676E 
+ 2678      65642069 
+ 2678      6E7400
+ 2679              	.LASF11:
+ 2680 0051 63686172 		.ascii	"char\000"
+ 2680      00
+ 2681              	.LASF46:
+ 2682 0056 5350494D 		.ascii	"SPIM_SetInterruptMode\000"
+ 2682      5F536574 
+ 2682      496E7465 
+ 2682      72727570 
+ 2682      744D6F64 
+ 2683              	.LASF48:
+ 2684 006c 5350494D 		.ascii	"SPIM_initVar\000"
+ 2684      5F696E69 
+ 2684      74566172 
+ 2684      00
+ 2685              	.LASF33:
+ 2686 0079 72784461 		.ascii	"rxData\000"
+ 2686      746100
+ 2687              	.LASF45:
+ 2688 0080 5350494D 		.ascii	"SPIM_DisableInt\000"
+ 2688      5F446973 
+ 2688      61626C65 
+ 2688      496E7400 
+ 2689              	.LASF9:
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 69
 
 
- 2687      74566172 
- 2687      00
- 2688              	.LASF33:
- 2689 00cc 72784461 		.ascii	"rxData\000"
- 2689      746100
- 2690              	.LASF45:
- 2691 00d3 5350494D 		.ascii	"SPIM_DisableInt\000"
- 2691      5F446973 
- 2691      61626C65 
- 2691      496E7400 
- 2692              	.LASF9:
- 2693 00e3 666C6F61 		.ascii	"float\000"
- 2693      7400
- 2694              	.LASF37:
- 2695 00e9 5350494D 		.ascii	"SPIM_ClearRxBuffer\000"
- 2695      5F436C65 
- 2695      61725278 
- 2695      42756666 
- 2695      657200
- 2696              	.LASF35:
- 2697 00fc 73697A65 		.ascii	"size\000"
- 2697      00
- 2698              	.LASF36:
- 2699 0101 5350494D 		.ascii	"SPIM_GetTxBufferSize\000"
- 2699      5F476574 
- 2699      54784275 
- 2699      66666572 
- 2699      53697A65 
- 2700              	.LASF13:
- 2701 0116 72656738 		.ascii	"reg8\000"
- 2701      00
- 2702              	.LASF20:
- 2703 011b 5350494D 		.ascii	"SPIM_EnableTxInt\000"
- 2703      5F456E61 
- 2703      626C6554 
- 2703      78496E74 
- 2703      00
- 2704              	.LASF5:
- 2705 012c 6C6F6E67 		.ascii	"long unsigned int\000"
- 2705      20756E73 
- 2705      69676E65 
- 2705      6420696E 
- 2705      7400
- 2706              	.LASF12:
- 2707 013e 75696E74 		.ascii	"uint8\000"
- 2707      3800
- 2708              	.LASF39:
- 2709 0144 5350494D 		.ascii	"SPIM_PutArray\000"
- 2709      5F507574 
- 2709      41727261 
- 2709      7900
- 2710              	.LASF19:
- 2711 0152 656E6162 		.ascii	"enableInterrupts\000"
- 2711      6C65496E 
- 2711      74657272 
- 2711      75707473 
- 2711      00
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 70
+ 2690 0090 666C6F61 		.ascii	"float\000"
+ 2690      7400
+ 2691              	.LASF37:
+ 2692 0096 5350494D 		.ascii	"SPIM_ClearRxBuffer\000"
+ 2692      5F436C65 
+ 2692      61725278 
+ 2692      42756666 
+ 2692      657200
+ 2693              	.LASF35:
+ 2694 00a9 73697A65 		.ascii	"size\000"
+ 2694      00
+ 2695              	.LASF36:
+ 2696 00ae 5350494D 		.ascii	"SPIM_GetTxBufferSize\000"
+ 2696      5F476574 
+ 2696      54784275 
+ 2696      66666572 
+ 2696      53697A65 
+ 2697              	.LASF13:
+ 2698 00c3 72656738 		.ascii	"reg8\000"
+ 2698      00
+ 2699              	.LASF20:
+ 2700 00c8 5350494D 		.ascii	"SPIM_EnableTxInt\000"
+ 2700      5F456E61 
+ 2700      626C6554 
+ 2700      78496E74 
+ 2700      00
+ 2701              	.LASF5:
+ 2702 00d9 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2702      20756E73 
+ 2702      69676E65 
+ 2702      6420696E 
+ 2702      7400
+ 2703              	.LASF12:
+ 2704 00eb 75696E74 		.ascii	"uint8\000"
+ 2704      3800
+ 2705              	.LASF53:
+ 2706 00f1 433A5C55 		.ascii	"C:\\Users\\Steve\\Desktop\\Projects\\MarsRover\\BYU"
+ 2706      73657273 
+ 2706      5C537465 
+ 2706      76655C44 
+ 2706      65736B74 
+ 2707 011e 2D4D6172 		.ascii	"-MarsRover\\MasterControllerBoard\\MasterController"
+ 2707      73526F76 
+ 2707      65725C4D 
+ 2707      61737465 
+ 2707      72436F6E 
+ 2708 014f 5C4D6173 		.ascii	"\\MasterController.cydsn\000"
+ 2708      74657243 
+ 2708      6F6E7472 
+ 2708      6F6C6C65 
+ 2708      722E6379 
+ 2709              	.LASF39:
+ 2710 0167 5350494D 		.ascii	"SPIM_PutArray\000"
+ 2710      5F507574 
+ 2710      41727261 
+ 2710      7900
+ 2711              	.LASF19:
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 70
 
 
- 2712              	.LASF32:
- 2713 0163 5350494D 		.ascii	"SPIM_ReadRxData\000"
- 2713      5F526561 
- 2713      64527844 
- 2713      61746100 
- 2714              	.LASF1:
- 2715 0173 756E7369 		.ascii	"unsigned char\000"
- 2715      676E6564 
- 2715      20636861 
- 2715      7200
- 2716              	.LASF22:
- 2717 0181 5350494D 		.ascii	"SPIM_DisableTxInt\000"
- 2717      5F446973 
- 2717      61626C65 
- 2717      5478496E 
- 2717      7400
- 2718              	.LASF10:
- 2719 0193 646F7562 		.ascii	"double\000"
- 2719      6C6500
- 2720              	.LASF26:
- 2721 019a 696E7453 		.ascii	"intSrc\000"
- 2721      726300
- 2722              	.LASF50:
- 2723 01a1 5350494D 		.ascii	"SPIM_swStatusRx\000"
- 2723      5F737753 
- 2723      74617475 
- 2723      73527800 
- 2724              	.LASF2:
- 2725 01b1 73686F72 		.ascii	"short int\000"
- 2725      7420696E 
- 2725      7400
- 2726              	.LASF24:
- 2727 01bb 5350494D 		.ascii	"SPIM_SetTxInterruptMode\000"
- 2727      5F536574 
- 2727      5478496E 
- 2727      74657272 
- 2727      7570744D 
- 2728              	.LASF25:
- 2729 01d3 5350494D 		.ascii	"SPIM_SetRxInterruptMode\000"
- 2729      5F536574 
- 2729      5278496E 
- 2729      74657272 
- 2729      7570744D 
- 2730              	.LASF8:
- 2731 01eb 756E7369 		.ascii	"unsigned int\000"
- 2731      676E6564 
- 2731      20696E74 
- 2731      00
- 2732              	.LASF34:
- 2733 01f8 5350494D 		.ascii	"SPIM_GetRxBufferSize\000"
- 2733      5F476574 
- 2733      52784275 
- 2733      66666572 
- 2733      53697A65 
- 2734              	.LASF7:
- 2735 020d 6C6F6E67 		.ascii	"long long unsigned int\000"
- 2735      206C6F6E 
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 71
+ 2712 0175 656E6162 		.ascii	"enableInterrupts\000"
+ 2712      6C65496E 
+ 2712      74657272 
+ 2712      75707473 
+ 2712      00
+ 2713              	.LASF32:
+ 2714 0186 5350494D 		.ascii	"SPIM_ReadRxData\000"
+ 2714      5F526561 
+ 2714      64527844 
+ 2714      61746100 
+ 2715              	.LASF1:
+ 2716 0196 756E7369 		.ascii	"unsigned char\000"
+ 2716      676E6564 
+ 2716      20636861 
+ 2716      7200
+ 2717              	.LASF22:
+ 2718 01a4 5350494D 		.ascii	"SPIM_DisableTxInt\000"
+ 2718      5F446973 
+ 2718      61626C65 
+ 2718      5478496E 
+ 2718      7400
+ 2719              	.LASF10:
+ 2720 01b6 646F7562 		.ascii	"double\000"
+ 2720      6C6500
+ 2721              	.LASF26:
+ 2722 01bd 696E7453 		.ascii	"intSrc\000"
+ 2722      726300
+ 2723              	.LASF50:
+ 2724 01c4 5350494D 		.ascii	"SPIM_swStatusRx\000"
+ 2724      5F737753 
+ 2724      74617475 
+ 2724      73527800 
+ 2725              	.LASF2:
+ 2726 01d4 73686F72 		.ascii	"short int\000"
+ 2726      7420696E 
+ 2726      7400
+ 2727              	.LASF24:
+ 2728 01de 5350494D 		.ascii	"SPIM_SetTxInterruptMode\000"
+ 2728      5F536574 
+ 2728      5478496E 
+ 2728      74657272 
+ 2728      7570744D 
+ 2729              	.LASF25:
+ 2730 01f6 5350494D 		.ascii	"SPIM_SetRxInterruptMode\000"
+ 2730      5F536574 
+ 2730      5278496E 
+ 2730      74657272 
+ 2730      7570744D 
+ 2731              	.LASF8:
+ 2732 020e 756E7369 		.ascii	"unsigned int\000"
+ 2732      676E6564 
+ 2732      20696E74 
+ 2732      00
+ 2733              	.LASF34:
+ 2734 021b 5350494D 		.ascii	"SPIM_GetRxBufferSize\000"
+ 2734      5F476574 
+ 2734      52784275 
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 71
 
 
- 2735      6720756E 
- 2735      7369676E 
- 2735      65642069 
- 2736              	.LASF41:
- 2737 0224 62797465 		.ascii	"byteCount\000"
- 2737      436F756E 
- 2737      7400
- 2738              	.LASF29:
- 2739 022e 5350494D 		.ascii	"SPIM_ReadRxStatus\000"
- 2739      5F526561 
- 2739      64527853 
- 2739      74617475 
- 2739      7300
- 2740              	.LASF42:
- 2741 0240 62756649 		.ascii	"bufIndex\000"
- 2741      6E646578 
- 2741      00
- 2742              	.LASF44:
- 2743 0249 5350494D 		.ascii	"SPIM_EnableInt\000"
- 2743      5F456E61 
- 2743      626C6549 
- 2743      6E7400
- 2744              	.LASF14:
- 2745 0258 73697A65 		.ascii	"sizetype\000"
- 2745      74797065 
- 2745      00
- 2746              	.LASF6:
- 2747 0261 6C6F6E67 		.ascii	"long long int\000"
- 2747      206C6F6E 
- 2747      6720696E 
- 2747      7400
- 2748              	.LASF15:
- 2749 026f 5350494D 		.ascii	"SPIM_Init\000"
- 2749      5F496E69 
- 2749      7400
- 2750              	.LASF43:
- 2751 0279 5350494D 		.ascii	"SPIM_ClearFIFO\000"
- 2751      5F436C65 
- 2751      61724649 
- 2751      464F00
- 2752              	.LASF52:
- 2753 0288 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\SPIM.c\000"
- 2753      6E657261 
- 2753      7465645F 
- 2753      536F7572 
- 2753      63655C50 
- 2754              	.LASF38:
- 2755 02a8 5350494D 		.ascii	"SPIM_ClearTxBuffer\000"
- 2755      5F436C65 
- 2755      61725478 
- 2755      42756666 
- 2755      657200
- 2756              	.LASF40:
- 2757 02bb 62756666 		.ascii	"buffer\000"
- 2757      657200
- 2758              	.LASF47:
- 2759 02c2 5350494D 		.ascii	"SPIM_ReadStatus\000"
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccpy3yIR.s 			page 72
+ 2734      66666572 
+ 2734      53697A65 
+ 2735              	.LASF7:
+ 2736 0230 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2736      206C6F6E 
+ 2736      6720756E 
+ 2736      7369676E 
+ 2736      65642069 
+ 2737              	.LASF41:
+ 2738 0247 62797465 		.ascii	"byteCount\000"
+ 2738      436F756E 
+ 2738      7400
+ 2739              	.LASF29:
+ 2740 0251 5350494D 		.ascii	"SPIM_ReadRxStatus\000"
+ 2740      5F526561 
+ 2740      64527853 
+ 2740      74617475 
+ 2740      7300
+ 2741              	.LASF42:
+ 2742 0263 62756649 		.ascii	"bufIndex\000"
+ 2742      6E646578 
+ 2742      00
+ 2743              	.LASF44:
+ 2744 026c 5350494D 		.ascii	"SPIM_EnableInt\000"
+ 2744      5F456E61 
+ 2744      626C6549 
+ 2744      6E7400
+ 2745              	.LASF14:
+ 2746 027b 73697A65 		.ascii	"sizetype\000"
+ 2746      74797065 
+ 2746      00
+ 2747              	.LASF6:
+ 2748 0284 6C6F6E67 		.ascii	"long long int\000"
+ 2748      206C6F6E 
+ 2748      6720696E 
+ 2748      7400
+ 2749              	.LASF15:
+ 2750 0292 5350494D 		.ascii	"SPIM_Init\000"
+ 2750      5F496E69 
+ 2750      7400
+ 2751              	.LASF43:
+ 2752 029c 5350494D 		.ascii	"SPIM_ClearFIFO\000"
+ 2752      5F436C65 
+ 2752      61724649 
+ 2752      464F00
+ 2753              	.LASF52:
+ 2754 02ab 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\SPIM.c\000"
+ 2754      6E657261 
+ 2754      7465645F 
+ 2754      536F7572 
+ 2754      63655C50 
+ 2755              	.LASF38:
+ 2756 02cb 5350494D 		.ascii	"SPIM_ClearTxBuffer\000"
+ 2756      5F436C65 
+ 2756      61725478 
+ 2756      42756666 
+ 2756      657200
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cckbvZTb.s 			page 72
 
 
- 2759      5F526561 
- 2759      64537461 
- 2759      74757300 
- 2760              	.LASF51:
- 2761 02d2 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
- 2761      4320342E 
- 2761      372E3320 
- 2761      32303133 
- 2761      30333132 
- 2762 0305 616E6368 		.ascii	"anch revision 196615]\000"
- 2762      20726576 
- 2762      6973696F 
- 2762      6E203139 
- 2762      36363135 
- 2763              	.LASF21:
- 2764 031b 5350494D 		.ascii	"SPIM_EnableRxInt\000"
- 2764      5F456E61 
- 2764      626C6552 
- 2764      78496E74 
- 2764      00
- 2765              	.LASF4:
- 2766 032c 6C6F6E67 		.ascii	"long int\000"
- 2766      20696E74 
- 2766      00
- 2767              	.LASF27:
- 2768 0335 746D7053 		.ascii	"tmpStatus\000"
- 2768      74617475 
- 2768      7300
- 2769              	.LASF0:
- 2770 033f 7369676E 		.ascii	"signed char\000"
- 2770      65642063 
- 2770      68617200 
- 2771              	.LASF16:
- 2772 034b 5350494D 		.ascii	"SPIM_Start\000"
- 2772      5F537461 
- 2772      727400
- 2773              	.LASF28:
- 2774 0356 5350494D 		.ascii	"SPIM_ReadTxStatus\000"
- 2774      5F526561 
- 2774      64547853 
- 2774      74617475 
- 2774      7300
- 2775              	.LASF23:
- 2776 0368 5350494D 		.ascii	"SPIM_DisableRxInt\000"
- 2776      5F446973 
- 2776      61626C65 
- 2776      5278496E 
- 2776      7400
- 2777              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br
+ 2757              	.LASF40:
+ 2758 02de 62756666 		.ascii	"buffer\000"
+ 2758      657200
+ 2759              	.LASF47:
+ 2760 02e5 5350494D 		.ascii	"SPIM_ReadStatus\000"
+ 2760      5F526561 
+ 2760      64537461 
+ 2760      74757300 
+ 2761              	.LASF51:
+ 2762 02f5 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 2762      4320342E 
+ 2762      372E3320 
+ 2762      32303133 
+ 2762      30333132 
+ 2763 0328 616E6368 		.ascii	"anch revision 196615]\000"
+ 2763      20726576 
+ 2763      6973696F 
+ 2763      6E203139 
+ 2763      36363135 
+ 2764              	.LASF21:
+ 2765 033e 5350494D 		.ascii	"SPIM_EnableRxInt\000"
+ 2765      5F456E61 
+ 2765      626C6552 
+ 2765      78496E74 
+ 2765      00
+ 2766              	.LASF4:
+ 2767 034f 6C6F6E67 		.ascii	"long int\000"
+ 2767      20696E74 
+ 2767      00
+ 2768              	.LASF27:
+ 2769 0358 746D7053 		.ascii	"tmpStatus\000"
+ 2769      74617475 
+ 2769      7300
+ 2770              	.LASF0:
+ 2771 0362 7369676E 		.ascii	"signed char\000"
+ 2771      65642063 
+ 2771      68617200 
+ 2772              	.LASF16:
+ 2773 036e 5350494D 		.ascii	"SPIM_Start\000"
+ 2773      5F537461 
+ 2773      727400
+ 2774              	.LASF28:
+ 2775 0379 5350494D 		.ascii	"SPIM_ReadTxStatus\000"
+ 2775      5F526561 
+ 2775      64547853 
+ 2775      74617475 
+ 2775      7300
+ 2776              	.LASF23:
+ 2777 038b 5350494D 		.ascii	"SPIM_DisableRxInt\000"
+ 2777      5F446973 
+ 2777      61626C65 
+ 2777      5278496E 
+ 2777      7400
+ 2778              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br

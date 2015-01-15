@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc4l378M.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
   30:.\Generated_Source\PSoC4/Bootloadable_1.c **** *  the device.
   31:.\Generated_Source\PSoC4/Bootloadable_1.c **** *
   32:.\Generated_Source\PSoC4/Bootloadable_1.c **** *******************************************************************************/
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 2
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc4l378M.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/Bootloadable_1.c **** void Bootloadable_1_Load(void) 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
   52:.\Generated_Source\PSoC4/Bootloadable_1.c **** *  None
   53:.\Generated_Source\PSoC4/Bootloadable_1.c **** *
   54:.\Generated_Source\PSoC4/Bootloadable_1.c **** *******************************************************************************/
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 3
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc4l378M.s 			page 3
 
 
   55:.\Generated_Source\PSoC4/Bootloadable_1.c **** void Bootloadable_1_SetFlashByte(uint32 address, uint8 runType) 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  100              		.loc 1 69 0
  101 0034 3B1C     		mov	r3, r7
  102 0036 9633     		add	r3, r3, #150
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 4
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc4l378M.s 			page 4
 
 
  103 0038 0022     		mov	r2, #0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  147 0082 3B1C     		mov	r3, r7
  148 0084 8E33     		add	r3, r3, #142
  149 0086 1A88     		ldrh	r2, [r3]
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 5
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc4l378M.s 			page 5
 
 
  150 0088 3B1C     		mov	r3, r7
@@ -272,7 +272,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  174 000c 84000000 		.4byte	.LASF22
  175 0010 01       		.byte	0x1
  176 0011 5A000000 		.4byte	.LASF23
- 177 0015 17010000 		.4byte	.LASF24
+ 177 0015 3B010000 		.4byte	.LASF24
  178 0019 00000000 		.4byte	.Ldebug_ranges0+0
  179 001d 00000000 		.4byte	0
  180 0021 00000000 		.4byte	0
@@ -280,15 +280,15 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  182 0029 02       		.uleb128 0x2
  183 002a 01       		.byte	0x1
  184 002b 06       		.byte	0x6
- 185 002c A8010000 		.4byte	.LASF0
+ 185 002c D0010000 		.4byte	.LASF0
  186 0030 02       		.uleb128 0x2
  187 0031 01       		.byte	0x1
  188 0032 08       		.byte	0x8
- 189 0033 6A010000 		.4byte	.LASF1
+ 189 0033 1C010000 		.4byte	.LASF1
  190 0037 02       		.uleb128 0x2
  191 0038 02       		.byte	0x2
  192 0039 05       		.byte	0x5
- 193 003a BF010000 		.4byte	.LASF2
+ 193 003a E2010000 		.4byte	.LASF2
  194 003e 02       		.uleb128 0x2
  195 003f 02       		.byte	0x2
  196 0040 07       		.byte	0x7
@@ -296,9 +296,9 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  198 0045 02       		.uleb128 0x2
  199 0046 04       		.byte	0x4
  200 0047 05       		.byte	0x5
- 201 0048 80010000 		.4byte	.LASF4
+ 201 0048 32010000 		.4byte	.LASF4
  202 004c 02       		.uleb128 0x2
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 6
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc4l378M.s 			page 6
 
 
  203 004d 04       		.byte	0x4
@@ -326,7 +326,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  225 0075 5B       		.byte	0x5b
  226 0076 30000000 		.4byte	0x30
  227 007a 04       		.uleb128 0x4
- 228 007b C9010000 		.4byte	.LASF10
+ 228 007b EC010000 		.4byte	.LASF10
  229 007f 02       		.byte	0x2
  230 0080 5C       		.byte	0x5c
  231 0081 3E000000 		.4byte	0x3e
@@ -338,27 +338,27 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  237 0090 02       		.uleb128 0x2
  238 0091 04       		.byte	0x4
  239 0092 04       		.byte	0x4
- 240 0093 B9010000 		.4byte	.LASF12
+ 240 0093 DC010000 		.4byte	.LASF12
  241 0097 02       		.uleb128 0x2
  242 0098 08       		.byte	0x8
  243 0099 04       		.byte	0x4
- 244 009a 89010000 		.4byte	.LASF13
+ 244 009a B1010000 		.4byte	.LASF13
  245 009e 02       		.uleb128 0x2
  246 009f 01       		.byte	0x1
  247 00a0 08       		.byte	0x8
- 248 00a1 B4010000 		.4byte	.LASF14
+ 248 00a1 17010000 		.4byte	.LASF14
  249 00a5 05       		.uleb128 0x5
  250 00a6 85000000 		.4byte	0x85
  251 00aa 02       		.uleb128 0x2
  252 00ab 04       		.byte	0x4
  253 00ac 07       		.byte	0x7
- 254 00ad DF010000 		.4byte	.LASF15
+ 254 00ad 02020000 		.4byte	.LASF15
  255 00b1 06       		.uleb128 0x6
  256 00b2 01       		.byte	0x1
  257 00b3 22000000 		.4byte	.LASF25
  258 00b7 01       		.byte	0x1
  259 00b8 21       		.byte	0x21
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 7
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc4l378M.s 			page 7
 
 
  260 00b9 01       		.byte	0x1
@@ -394,7 +394,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  290 00fc 91       		.byte	0x91
  291 00fd E37E     		.sleb128 -157
  292 00ff 09       		.uleb128 0x9
- 293 0100 78010000 		.4byte	.LASF18
+ 293 0100 2A010000 		.4byte	.LASF18
  294 0104 01       		.byte	0x1
  295 0105 39       		.byte	0x39
  296 0106 85000000 		.4byte	0x85
@@ -402,7 +402,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  298 010b 91       		.byte	0x91
  299 010c 70       		.sleb128 -16
  300 010d 09       		.uleb128 0x9
- 301 010e D7010000 		.4byte	.LASF19
+ 301 010e FA010000 		.4byte	.LASF19
  302 0112 01       		.byte	0x1
  303 0113 3A       		.byte	0x3a
  304 0114 47010000 		.4byte	0x147
@@ -410,7 +410,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  306 0119 91       		.byte	0x91
  307 011a E87E     		.sleb128 -152
  308 011c 09       		.uleb128 0x9
- 309 011d D0010000 		.4byte	.LASF20
+ 309 011d F3010000 		.4byte	.LASF20
  310 0121 01       		.byte	0x1
  311 0122 40       		.byte	0x40
  312 0123 7A000000 		.4byte	0x7a
@@ -418,10 +418,10 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  314 0128 91       		.byte	0x91
  315 0129 6E       		.sleb128 -18
  316 012a 09       		.uleb128 0x9
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 8
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc4l378M.s 			page 8
 
 
- 317 012b 90010000 		.4byte	.LASF21
+ 317 012b B8010000 		.4byte	.LASF21
  318 012f 01       		.byte	0x1
  319 0130 41       		.byte	0x41
  320 0131 85000000 		.4byte	0x85
@@ -445,7 +445,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  338 0155 7F       		.byte	0x7f
  339 0156 00       		.byte	0
  340 0157 0D       		.uleb128 0xd
- 341 0158 99010000 		.4byte	.LASF27
+ 341 0158 C1010000 		.4byte	.LASF27
  342 015c 03       		.byte	0x3
  343 015d 37       		.byte	0x37
  344 015e A5000000 		.4byte	0xa5
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  371 0015 02       		.uleb128 0x2
  372 0016 24       		.uleb128 0x24
  373 0017 00       		.byte	0
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 9
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc4l378M.s 			page 9
 
 
  374 0018 0B       		.uleb128 0xb
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  428 004e 12       		.uleb128 0x12
  429 004f 01       		.uleb128 0x1
  430 0050 40       		.uleb128 0x40
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 10
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc4l378M.s 			page 10
 
 
  431 0051 06       		.uleb128 0x6
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  485 0089 49       		.uleb128 0x49
  486 008a 13       		.uleb128 0x13
  487 008b 02       		.uleb128 0x2
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 11
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc4l378M.s 			page 11
 
 
  488 008c 0A       		.uleb128 0xa
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  542              		.section	.debug_loc,"",%progbits
  543              	.Ldebug_loc0:
  544              	.LLST0:
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 12
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc4l378M.s 			page 12
 
 
  545 0000 00000000 		.4byte	.LFB0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  599              		.section	.debug_ranges,"",%progbits
  600              	.Ldebug_ranges0:
  601 0000 00000000 		.4byte	.LFB0
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 13
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc4l378M.s 			page 13
 
 
  602 0004 18000000 		.4byte	.LFE0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  626      6973696F 
  626      6E203139 
  626      36363135 
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 14
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc4l378M.s 			page 14
 
 
  627              	.LASF9:
@@ -805,69 +805,74 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 1
  635              	.LASF16:
  636 010f 61646472 		.ascii	"address\000"
  636      65737300 
- 637              	.LASF24:
- 638 0117 433A5C55 		.ascii	"C:\\Users\\Steve\\Desktop\\Projects\\MarsRover\\BYU"
- 638      73657273 
- 638      5C537465 
- 638      76655C44 
- 638      65736B74 
- 639 0144 2D4D6172 		.ascii	"-Mars-Rover\\RoverLink\\RoverLink.cydsn\000"
- 639      732D526F 
- 639      7665725C 
- 639      526F7665 
- 639      724C696E 
- 640              	.LASF1:
- 641 016a 756E7369 		.ascii	"unsigned char\000"
- 641      676E6564 
- 641      20636861 
- 641      7200
- 642              	.LASF18:
- 643 0178 666C7341 		.ascii	"flsAddr\000"
- 643      64647200 
- 644              	.LASF4:
- 645 0180 6C6F6E67 		.ascii	"long int\000"
- 645      20696E74 
- 645      00
- 646              	.LASF13:
- 647 0189 646F7562 		.ascii	"double\000"
- 647      6C6500
- 648              	.LASF21:
- 649 0190 62617365 		.ascii	"baseAddr\000"
- 649      41646472 
- 649      00
- 650              	.LASF27:
- 651 0199 63794274 		.ascii	"cyBtldrRunType\000"
- 651      6C647252 
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccoEJtR5.s 			page 15
+ 637              	.LASF14:
+ 638 0117 63686172 		.ascii	"char\000"
+ 638      00
+ 639              	.LASF1:
+ 640 011c 756E7369 		.ascii	"unsigned char\000"
+ 640      676E6564 
+ 640      20636861 
+ 640      7200
+ 641              	.LASF18:
+ 642 012a 666C7341 		.ascii	"flsAddr\000"
+ 642      64647200 
+ 643              	.LASF4:
+ 644 0132 6C6F6E67 		.ascii	"long int\000"
+ 644      20696E74 
+ 644      00
+ 645              	.LASF24:
+ 646 013b 433A5C55 		.ascii	"C:\\Users\\Steve\\Desktop\\Projects\\MarsRover\\BYU"
+ 646      73657273 
+ 646      5C537465 
+ 646      76655C44 
+ 646      65736B74 
+ 647 0168 2D4D6172 		.ascii	"-MarsRover\\MasterControllerBoard\\MasterController"
+ 647      73526F76 
+ 647      65725C4D 
+ 647      61737465 
+ 647      72436F6E 
+ 648 0199 5C4D6173 		.ascii	"\\MasterController.cydsn\000"
+ 648      74657243 
+ 648      6F6E7472 
+ 648      6F6C6C65 
+ 648      722E6379 
+ 649              	.LASF13:
+ 650 01b1 646F7562 		.ascii	"double\000"
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc4l378M.s 			page 15
 
 
- 651      756E5479 
- 651      706500
- 652              	.LASF0:
- 653 01a8 7369676E 		.ascii	"signed char\000"
- 653      65642063 
- 653      68617200 
- 654              	.LASF14:
- 655 01b4 63686172 		.ascii	"char\000"
- 655      00
- 656              	.LASF12:
- 657 01b9 666C6F61 		.ascii	"float\000"
- 657      7400
- 658              	.LASF2:
- 659 01bf 73686F72 		.ascii	"short int\000"
- 659      7420696E 
- 659      7400
- 660              	.LASF10:
- 661 01c9 75696E74 		.ascii	"uint16\000"
- 661      313600
- 662              	.LASF20:
- 663 01d0 726F774E 		.ascii	"rowNum\000"
- 663      756D00
- 664              	.LASF19:
- 665 01d7 726F7744 		.ascii	"rowData\000"
- 665      61746100 
- 666              	.LASF15:
- 667 01df 73697A65 		.ascii	"sizetype\000"
- 667      74797065 
- 667      00
- 668              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br
+ 650      6C6500
+ 651              	.LASF21:
+ 652 01b8 62617365 		.ascii	"baseAddr\000"
+ 652      41646472 
+ 652      00
+ 653              	.LASF27:
+ 654 01c1 63794274 		.ascii	"cyBtldrRunType\000"
+ 654      6C647252 
+ 654      756E5479 
+ 654      706500
+ 655              	.LASF0:
+ 656 01d0 7369676E 		.ascii	"signed char\000"
+ 656      65642063 
+ 656      68617200 
+ 657              	.LASF12:
+ 658 01dc 666C6F61 		.ascii	"float\000"
+ 658      7400
+ 659              	.LASF2:
+ 660 01e2 73686F72 		.ascii	"short int\000"
+ 660      7420696E 
+ 660      7400
+ 661              	.LASF10:
+ 662 01ec 75696E74 		.ascii	"uint16\000"
+ 662      313600
+ 663              	.LASF20:
+ 664 01f3 726F774E 		.ascii	"rowNum\000"
+ 664      756D00
+ 665              	.LASF19:
+ 666 01fa 726F7744 		.ascii	"rowData\000"
+ 666      61746100 
+ 667              	.LASF15:
+ 668 0202 73697A65 		.ascii	"sizetype\000"
+ 668      74797065 
+ 668      00
+ 669              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br

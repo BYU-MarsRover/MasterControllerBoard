@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
   41              		.loc 1 14 0
   42 000c FB1D     		add	r3, r7, #7
   43 000e 1B78     		ldrb	r3, [r3]
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 2
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 2
 
 
   44 0010 181C     		mov	r0, r3
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
   95              	.LC1:
   96 0014 02       		.byte	2
   97 0015 00       		.byte	0
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 3
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 3
 
 
   98 0016 FF       		.byte	-1
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  127              		.cfi_def_cfa_offset 8
  128              		.cfi_offset 7, -8
  129              		.cfi_offset 14, -4
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 4
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 4
 
 
  130 0002 90B0     		sub	sp, sp, #64
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  172 004a 1B88     		ldrh	r3, [r3]
  173 004c 1B0A     		lsr	r3, r3, #8
  174 004e 9BB2     		uxth	r3, r3
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 5
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 5
 
 
  175 0050 DAB2     		uxtb	r2, r3
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
   49:.\wiznet5500.c **** 	udpConfig[4] = ephemUdpPort>>8;
  218              		.loc 2 49 0
  219 00a0 3B1C     		mov	r3, r7
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 6
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 6
 
 
  220 00a2 3C33     		add	r3, r3, #60
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  265              		.loc 2 58 0
  266 00fa 6420     		mov	r0, #100
  267 00fc FFF7FEFF 		bl	CyDelay
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 7
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 7
 
 
   59:.\wiznet5500.c **** 	wiznetOpen();
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  304 0140 3B1C     		mov	r3, r7
  305 0142 3E33     		add	r3, r3, #62
  306 0144 1B88     		ldrh	r3, [r3]
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 8
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 8
 
 
  307 0146 DBB2     		uxtb	r3, r3
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
   83:.\wiznet5500.c **** // Public Functions
   84:.\wiznet5500.c **** void wiznetOpen(void){
  353              		.loc 2 84 0
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 9
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 9
 
 
  354              		.cfi_startproc
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  402              		.cfi_endproc
  403              	.LFE36:
  404              		.size	wiznetClose, .-wiznetClose
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 10
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 10
 
 
  405 0012 C046     		.section	.text.wiznetSend,"ax",%progbits
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  453              		.size	wiznetSend, .-wiznetSend
  454              		.section	.text.wiznetClearInterrupts,"ax",%progbits
  455              		.align	2
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 11
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 11
 
 
  456              		.global	wiznetClearInterrupts
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  497              		.code	16
  498              		.thumb_func
  499              		.type	wiznetConfigInterrupts, %function
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 12
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 12
 
 
  500              	wiznetConfigInterrupts:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  548 003e C046     		.section	.text.wiznetWriteUdpFrame,"ax",%progbits
  549              		.align	2
  550              		.global	wiznetWriteUdpFrame
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 13
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 13
 
 
  551              		.code	16
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  129:.\wiznet5500.c **** 	// wiznetRead16b(WIZNET_Sn_TX_WR,WIZNET_BLK_S0_REG);
  130:.\wiznet5500.c **** 	return wiznetTxPointer;
  592              		.loc 2 130 0
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 14
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 14
 
 
  593 0032 034B     		ldr	r3, .L18
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  644 0010 CB18     		add	r3, r1, r3
  645 0012 1A70     		strb	r2, [r3]
  134:.\wiznet5500.c **** 	uint8_t readArray[256];
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 15
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 15
 
 
  135:.\wiznet5500.c **** 	wiznetReadArray(0, blkSelect, readArray, 255);
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  695              		.loc 2 139 0 is_stmt 1
  696 006a 2D4B     		ldr	r3, .L27+16
  697 006c 181C     		mov	r0, r3
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 16
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 16
 
 
  698 006e FFF7FEFF 		bl	tfp_printf
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  747 00c4 BB18     		add	r3, r7, r2
  748 00c6 1749     		ldr	r1, .L27+20
  749 00c8 7A18     		add	r2, r7, r1
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 17
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 17
 
 
  750 00ca 1278     		ldrb	r2, [r2]
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  796 0110 F7FEFFFF 		.word	-265
  797 0114 28000000 		.word	.LC6
  798 0118 0F010000 		.word	271
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 18
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 18
 
 
  799 011c 2C000000 		.word	.LC8
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  846 002a 1B88     		ldrh	r3, [r3]
  847 002c DBB2     		uxtb	r3, r3
  848 002e 181C     		mov	r0, r3
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 19
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 19
 
 
  849 0030 FFF7FEFF 		bl	transferSPI
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  892 0002 82B0     		sub	sp, sp, #8
  893              	.LCFI27:
  894              		.cfi_def_cfa_offset 16
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 20
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 20
 
 
  895 0004 00AF     		add	r7, sp, #0
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  939 0056 FFF7FEFF 		bl	transferSPI
  177:.\wiznet5500.c **** 		transferSPI(data&0xFF);
  940              		.loc 2 177 0
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 21
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 21
 
 
  941 005a BB1C     		add	r3, r7, #2
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  184:.\wiznet5500.c **** 		// Address Phase
  185:.\wiznet5500.c **** 		transferSPI(regAddr>>8);
  989              		.loc 2 185 0
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 22
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 22
 
 
  990 001c BB1D     		add	r3, r7, #6
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1035 0070 0F32     		add	r2, r2, #15
  1036 0072 1278     		ldrb	r2, [r2]
  1037 0074 0132     		add	r2, r2, #1
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 23
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 23
 
 
  1038 0076 1A70     		strb	r2, [r3]
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1085 000c 1980     		strh	r1, [r3]
  1086 000e 7B1D     		add	r3, r7, #5
  1087 0010 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 24
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 24
 
 
  200:.\wiznet5500.c **** 	WIZ_SS_Write(LOW); // Begin a WizNet SPI Frame. Three Phases: Address, Control, Data
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1129 0060 05B0     		add	sp, sp, #20
  1130              		@ sp needed for prologue
  1131 0062 90BD     		pop	{r4, r7, pc}
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 25
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 25
 
 
  1132              		.cfi_endproc
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  220:.\wiznet5500.c **** 		
  221:.\wiznet5500.c **** 		// Control Phase
  222:.\wiznet5500.c **** 		transferSPI(((blkSel&0x1F)<<3)|(0x00<<2)|0x00);		
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 26
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 26
 
 
  1179              		.loc 2 222 0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1226              		.code	16
  1227              		.thumb_func
  1228              		.type	wiznetReadArray, %function
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 27
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 27
 
 
  1229              	wiznetReadArray:
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1272 003a 1B78     		ldrb	r3, [r3]
  1273 003c DB00     		lsl	r3, r3, #3
  1274 003e DBB2     		uxtb	r3, r3
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 28
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 28
 
 
  1275 0040 181C     		mov	r0, r3
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1317 0086 BD46     		mov	sp, r7
  1318 0088 05B0     		add	sp, sp, #20
  1319              		@ sp needed for prologue
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 29
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 29
 
 
  1320 008a 90BD     		pop	{r4, r7, pc}
@@ -1696,10 +1696,10 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1332 0006 00000000 		.4byte	.Ldebug_abbrev0
  1333 000a 04       		.byte	0x4
  1334 000b 01       		.uleb128 0x1
- 1335 000c 84020000 		.4byte	.LASF49
+ 1335 000c A7020000 		.4byte	.LASF49
  1336 0010 01       		.byte	0x1
- 1337 0011 64010000 		.4byte	.LASF50
- 1338 0015 00000000 		.4byte	.LASF51
+ 1337 0011 81010000 		.4byte	.LASF50
+ 1338 0015 F2000000 		.4byte	.LASF51
  1339 0019 00000000 		.4byte	.Ldebug_ranges0+0
  1340 001d 00000000 		.4byte	0
  1341 0021 00000000 		.4byte	0
@@ -1707,48 +1707,48 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1343 0029 02       		.uleb128 0x2
  1344 002a 01       		.byte	0x1
  1345 002b 06       		.byte	0x6
- 1346 002c F7000000 		.4byte	.LASF0
+ 1346 002c A4000000 		.4byte	.LASF0
  1347 0030 03       		.uleb128 0x3
- 1348 0031 1A020000 		.4byte	.LASF3
+ 1348 0031 3D020000 		.4byte	.LASF3
  1349 0035 03       		.byte	0x3
  1350 0036 2A       		.byte	0x2a
  1351 0037 3B000000 		.4byte	0x3b
  1352 003b 02       		.uleb128 0x2
  1353 003c 01       		.byte	0x1
  1354 003d 08       		.byte	0x8
- 1355 003e 56010000 		.4byte	.LASF1
+ 1355 003e 73010000 		.4byte	.LASF1
  1356 0042 02       		.uleb128 0x2
  1357 0043 02       		.byte	0x2
  1358 0044 05       		.byte	0x5
- 1359 0045 6B020000 		.4byte	.LASF2
+ 1359 0045 8E020000 		.4byte	.LASF2
  1360 0049 03       		.uleb128 0x3
- 1361 004a 62020000 		.4byte	.LASF4
+ 1361 004a 85020000 		.4byte	.LASF4
  1362 004e 03       		.byte	0x3
  1363 004f 36       		.byte	0x36
  1364 0050 54000000 		.4byte	0x54
  1365 0054 02       		.uleb128 0x2
  1366 0055 02       		.byte	0x2
  1367 0056 07       		.byte	0x7
- 1368 0057 90000000 		.4byte	.LASF5
+ 1368 0057 3D000000 		.4byte	.LASF5
  1369 005b 02       		.uleb128 0x2
  1370 005c 04       		.byte	0x4
  1371 005d 05       		.byte	0x5
- 1372 005e D7020000 		.4byte	.LASF6
+ 1372 005e FA020000 		.4byte	.LASF6
  1373 0062 02       		.uleb128 0x2
  1374 0063 04       		.byte	0x4
  1375 0064 07       		.byte	0x7
- 1376 0065 1F010000 		.4byte	.LASF7
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 30
+ 1376 0065 CC000000 		.4byte	.LASF7
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 30
 
 
  1377 0069 02       		.uleb128 0x2
  1378 006a 08       		.byte	0x8
  1379 006b 05       		.byte	0x5
- 1380 006c 45020000 		.4byte	.LASF8
+ 1380 006c 68020000 		.4byte	.LASF8
  1381 0070 02       		.uleb128 0x2
  1382 0071 08       		.byte	0x8
  1383 0072 07       		.byte	0x7
- 1384 0073 03020000 		.4byte	.LASF9
+ 1384 0073 26020000 		.4byte	.LASF9
  1385 0077 04       		.uleb128 0x4
  1386 0078 04       		.byte	0x4
  1387 0079 05       		.byte	0x5
@@ -1756,30 +1756,30 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1389 007e 02       		.uleb128 0x2
  1390 007f 04       		.byte	0x4
  1391 0080 07       		.byte	0x7
- 1392 0081 EC010000 		.4byte	.LASF10
+ 1392 0081 0F020000 		.4byte	.LASF10
  1393 0085 03       		.uleb128 0x3
- 1394 0086 31010000 		.4byte	.LASF11
+ 1394 0086 DE000000 		.4byte	.LASF11
  1395 008a 04       		.byte	0x4
  1396 008b 5B       		.byte	0x5b
  1397 008c 3B000000 		.4byte	0x3b
  1398 0090 02       		.uleb128 0x2
  1399 0091 04       		.byte	0x4
  1400 0092 04       		.byte	0x4
- 1401 0093 EC000000 		.4byte	.LASF12
+ 1401 0093 99000000 		.4byte	.LASF12
  1402 0097 02       		.uleb128 0x2
  1403 0098 08       		.byte	0x8
  1404 0099 04       		.byte	0x4
- 1405 009a 8A010000 		.4byte	.LASF13
+ 1405 009a A7010000 		.4byte	.LASF13
  1406 009e 02       		.uleb128 0x2
  1407 009f 01       		.byte	0x1
  1408 00a0 08       		.byte	0x8
- 1409 00a1 53020000 		.4byte	.LASF14
+ 1409 00a1 76020000 		.4byte	.LASF14
  1410 00a5 02       		.uleb128 0x2
  1411 00a6 04       		.byte	0x4
  1412 00a7 07       		.byte	0x7
- 1413 00a8 3C020000 		.4byte	.LASF15
+ 1413 00a8 5F020000 		.4byte	.LASF15
  1414 00ac 05       		.uleb128 0x5
- 1415 00ad 84000000 		.4byte	.LASF52
+ 1415 00ad 31000000 		.4byte	.LASF52
  1416 00b1 01       		.byte	0x1
  1417 00b2 0D       		.byte	0xd
  1418 00b3 01       		.byte	0x1
@@ -1790,7 +1790,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1423 00c4 01       		.byte	0x1
  1424 00c5 D8000000 		.4byte	0xd8
  1425 00c9 06       		.uleb128 0x6
- 1426 00ca F2000000 		.4byte	.LASF16
+ 1426 00ca 9F000000 		.4byte	.LASF16
  1427 00ce 01       		.byte	0x1
  1428 00cf 0D       		.byte	0xd
  1429 00d0 30000000 		.4byte	0x30
@@ -1798,12 +1798,12 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1431 00d5 91       		.byte	0x91
  1432 00d6 77       		.sleb128 -9
  1433 00d7 00       		.byte	0
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 31
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 31
 
 
  1434 00d8 07       		.uleb128 0x7
  1435 00d9 01       		.byte	0x1
- 1436 00da 4B010000 		.4byte	.LASF28
+ 1436 00da 68010000 		.4byte	.LASF28
  1437 00de 02       		.byte	0x2
  1438 00df 19       		.byte	0x19
  1439 00e0 01       		.byte	0x1
@@ -1813,7 +1813,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1443 00ed 01       		.byte	0x1
  1444 00ee 6E010000 		.4byte	0x16e
  1445 00f2 06       		.uleb128 0x6
- 1446 00f3 0D010000 		.4byte	.LASF17
+ 1446 00f3 BA000000 		.4byte	.LASF17
  1447 00f7 02       		.byte	0x2
  1448 00f8 19       		.byte	0x19
  1449 00f9 30000000 		.4byte	0x30
@@ -1821,7 +1821,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1451 00fe 91       		.byte	0x91
  1452 00ff BF7F     		.sleb128 -65
  1453 0101 06       		.uleb128 0x6
- 1454 0102 F9010000 		.4byte	.LASF18
+ 1454 0102 1C020000 		.4byte	.LASF18
  1455 0106 02       		.byte	0x2
  1456 0107 19       		.byte	0x19
  1457 0108 30000000 		.4byte	0x30
@@ -1829,7 +1829,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1459 010d 91       		.byte	0x91
  1460 010e BE7F     		.sleb128 -66
  1461 0110 06       		.uleb128 0x6
- 1462 0111 A3000000 		.4byte	.LASF19
+ 1462 0111 50000000 		.4byte	.LASF19
  1463 0115 02       		.byte	0x2
  1464 0116 19       		.byte	0x19
  1465 0117 49000000 		.4byte	0x49
@@ -1837,7 +1837,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1467 011c 91       		.byte	0x91
  1468 011d BC7F     		.sleb128 -68
  1469 011f 08       		.uleb128 0x8
- 1470 0120 29020000 		.4byte	.LASF20
+ 1470 0120 4C020000 		.4byte	.LASF20
  1471 0124 02       		.byte	0x2
  1472 0125 1B       		.byte	0x1b
  1473 0126 6E010000 		.4byte	0x16e
@@ -1845,7 +1845,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1475 012b 91       		.byte	0x91
  1476 012c 60       		.sleb128 -32
  1477 012d 08       		.uleb128 0x8
- 1478 012e 03010000 		.4byte	.LASF21
+ 1478 012e B0000000 		.4byte	.LASF21
  1479 0132 02       		.byte	0x2
  1480 0133 1E       		.byte	0x1e
  1481 0134 7E010000 		.4byte	0x17e
@@ -1853,18 +1853,18 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1483 0139 91       		.byte	0x91
  1484 013a 4C       		.sleb128 -52
  1485 013b 08       		.uleb128 0x8
- 1486 013c AE000000 		.4byte	.LASF22
+ 1486 013c 5B000000 		.4byte	.LASF22
  1487 0140 02       		.byte	0x2
  1488 0141 29       		.byte	0x29
  1489 0142 8E010000 		.4byte	0x18e
  1490 0146 02       		.byte	0x2
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 32
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 32
 
 
  1491 0147 91       		.byte	0x91
  1492 0148 44       		.sleb128 -60
  1493 0149 08       		.uleb128 0x8
- 1494 014a B6010000 		.4byte	.LASF23
+ 1494 014a D3010000 		.4byte	.LASF23
  1495 014e 02       		.byte	0x2
  1496 014f 30       		.byte	0x30
  1497 0150 49000000 		.4byte	0x49
@@ -1907,7 +1907,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1534 019d 00       		.byte	0
  1535 019e 0D       		.uleb128 0xd
  1536 019f 01       		.byte	0x1
- 1537 01a0 D5000000 		.4byte	.LASF24
+ 1537 01a0 82000000 		.4byte	.LASF24
  1538 01a4 02       		.byte	0x2
  1539 01a5 54       		.byte	0x54
  1540 01a6 01       		.byte	0x1
@@ -1917,8 +1917,8 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1544 01b3 01       		.byte	0x1
  1545 01b4 0D       		.uleb128 0xd
  1546 01b5 01       		.byte	0x1
- 1547 01b6 E0000000 		.4byte	.LASF25
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 33
+ 1547 01b6 8D000000 		.4byte	.LASF25
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 33
 
 
  1548 01ba 02       		.byte	0x2
@@ -1930,7 +1930,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1554 01c9 01       		.byte	0x1
  1555 01ca 0D       		.uleb128 0xd
  1556 01cb 01       		.byte	0x1
- 1557 01cc F9020000 		.4byte	.LASF26
+ 1557 01cc 1C030000 		.4byte	.LASF26
  1558 01d0 02       		.byte	0x2
  1559 01d1 5C       		.byte	0x5c
  1560 01d2 01       		.byte	0x1
@@ -1940,7 +1940,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1564 01df 01       		.byte	0x1
  1565 01e0 0D       		.uleb128 0xd
  1566 01e1 01       		.byte	0x1
- 1567 01e2 BF000000 		.4byte	.LASF27
+ 1567 01e2 6C000000 		.4byte	.LASF27
  1568 01e6 02       		.byte	0x2
  1569 01e7 69       		.byte	0x69
  1570 01e8 01       		.byte	0x1
@@ -1950,7 +1950,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1574 01f5 01       		.byte	0x1
  1575 01f6 07       		.uleb128 0x7
  1576 01f7 01       		.byte	0x1
- 1577 01f8 73010000 		.4byte	.LASF29
+ 1577 01f8 90010000 		.4byte	.LASF29
  1578 01fc 02       		.byte	0x2
  1579 01fd 6F       		.byte	0x6f
  1580 01fe 01       		.byte	0x1
@@ -1960,7 +1960,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1584 020b 01       		.byte	0x1
  1585 020c 2D020000 		.4byte	0x22d
  1586 0210 06       		.uleb128 0x6
- 1587 0211 CD020000 		.4byte	.LASF30
+ 1587 0211 F0020000 		.4byte	.LASF30
  1588 0215 02       		.byte	0x2
  1589 0216 6F       		.byte	0x6f
  1590 0217 30000000 		.4byte	0x30
@@ -1968,7 +1968,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1592 021c 91       		.byte	0x91
  1593 021d 77       		.sleb128 -9
  1594 021e 06       		.uleb128 0x6
- 1595 021f 91010000 		.4byte	.LASF31
+ 1595 021f AE010000 		.4byte	.LASF31
  1596 0223 02       		.byte	0x2
  1597 0224 6F       		.byte	0x6f
  1598 0225 30000000 		.4byte	0x30
@@ -1978,10 +1978,10 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1602 022c 00       		.byte	0
  1603 022d 0E       		.uleb128 0xe
  1604 022e 01       		.byte	0x1
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 34
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 34
 
 
- 1605 022f D8010000 		.4byte	.LASF42
+ 1605 022f F5010000 		.4byte	.LASF42
  1606 0233 02       		.byte	0x2
  1607 0234 75       		.byte	0x75
  1608 0235 01       		.byte	0x1
@@ -1992,7 +1992,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1613 0246 01       		.byte	0x1
  1614 0247 68020000 		.4byte	0x268
  1615 024b 06       		.uleb128 0x6
- 1616 024c 45010000 		.4byte	.LASF32
+ 1616 024c 09020000 		.4byte	.LASF32
  1617 0250 02       		.byte	0x2
  1618 0251 75       		.byte	0x75
  1619 0252 68020000 		.4byte	0x268
@@ -2013,7 +2013,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1634 026a 30000000 		.4byte	0x30
  1635 026e 07       		.uleb128 0x7
  1636 026f 01       		.byte	0x1
- 1637 0270 C3010000 		.4byte	.LASF33
+ 1637 0270 E0010000 		.4byte	.LASF33
  1638 0274 02       		.byte	0x2
  1639 0275 85       		.byte	0x85
  1640 0276 01       		.byte	0x1
@@ -2023,7 +2023,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1644 0283 01       		.byte	0x1
  1645 0284 ED020000 		.4byte	0x2ed
  1646 0288 06       		.uleb128 0x6
- 1647 0289 58020000 		.4byte	.LASF34
+ 1647 0289 7B020000 		.4byte	.LASF34
  1648 028d 02       		.byte	0x2
  1649 028e 85       		.byte	0x85
  1650 028f 30000000 		.4byte	0x30
@@ -2031,14 +2031,14 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1652 0294 91       		.byte	0x91
  1653 0295 EF7D     		.sleb128 -273
  1654 0297 08       		.uleb128 0x8
- 1655 0298 32020000 		.4byte	.LASF35
+ 1655 0298 55020000 		.4byte	.LASF35
  1656 029c 02       		.byte	0x2
  1657 029d 86       		.byte	0x86
  1658 029e ED020000 		.4byte	0x2ed
  1659 02a2 03       		.byte	0x3
  1660 02a3 91       		.byte	0x91
  1661 02a4 F47D     		.sleb128 -268
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 35
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 35
 
 
  1662 02a6 11       		.uleb128 0x11
@@ -2088,7 +2088,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1706 02fc 00       		.byte	0
  1707 02fd 07       		.uleb128 0x7
  1708 02fe 01       		.byte	0x1
- 1709 02ff 9B010000 		.4byte	.LASF36
+ 1709 02ff B8010000 		.4byte	.LASF36
  1710 0303 02       		.byte	0x2
  1711 0304 97       		.byte	0x97
  1712 0305 01       		.byte	0x1
@@ -2098,10 +2098,10 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1716 0312 01       		.byte	0x1
  1717 0313 42030000 		.4byte	0x342
  1718 0317 06       		.uleb128 0x6
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 36
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 36
 
 
- 1719 0318 17010000 		.4byte	.LASF37
+ 1719 0318 C4000000 		.4byte	.LASF37
  1720 031c 02       		.byte	0x2
  1721 031d 97       		.byte	0x97
  1722 031e 49000000 		.4byte	0x49
@@ -2109,7 +2109,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1724 0323 91       		.byte	0x91
  1725 0324 76       		.sleb128 -10
  1726 0325 06       		.uleb128 0x6
- 1727 0326 64000000 		.4byte	.LASF38
+ 1727 0326 11000000 		.4byte	.LASF38
  1728 032a 02       		.byte	0x2
  1729 032b 97       		.byte	0x97
  1730 032c 30000000 		.4byte	0x30
@@ -2117,7 +2117,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1732 0331 91       		.byte	0x91
  1733 0332 75       		.sleb128 -11
  1734 0333 06       		.uleb128 0x6
- 1735 0334 F2000000 		.4byte	.LASF16
+ 1735 0334 9F000000 		.4byte	.LASF16
  1736 0338 02       		.byte	0x2
  1737 0339 97       		.byte	0x97
  1738 033a 30000000 		.4byte	0x30
@@ -2127,7 +2127,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1742 0341 00       		.byte	0
  1743 0342 07       		.uleb128 0x7
  1744 0343 01       		.byte	0x1
- 1745 0344 75020000 		.4byte	.LASF39
+ 1745 0344 98020000 		.4byte	.LASF39
  1746 0348 02       		.byte	0x2
  1747 0349 A6       		.byte	0xa6
  1748 034a 01       		.byte	0x1
@@ -2137,7 +2137,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1752 0357 01       		.byte	0x1
  1753 0358 87030000 		.4byte	0x387
  1754 035c 06       		.uleb128 0x6
- 1755 035d 17010000 		.4byte	.LASF37
+ 1755 035d C4000000 		.4byte	.LASF37
  1756 0361 02       		.byte	0x2
  1757 0362 A6       		.byte	0xa6
  1758 0363 49000000 		.4byte	0x49
@@ -2145,7 +2145,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1760 0368 91       		.byte	0x91
  1761 0369 76       		.sleb128 -10
  1762 036a 06       		.uleb128 0x6
- 1763 036b 64000000 		.4byte	.LASF38
+ 1763 036b 11000000 		.4byte	.LASF38
  1764 036f 02       		.byte	0x2
  1765 0370 A6       		.byte	0xa6
  1766 0371 30000000 		.4byte	0x30
@@ -2153,12 +2153,12 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1768 0376 91       		.byte	0x91
  1769 0377 75       		.sleb128 -11
  1770 0378 06       		.uleb128 0x6
- 1771 0379 F2000000 		.4byte	.LASF16
+ 1771 0379 9F000000 		.4byte	.LASF16
  1772 037d 02       		.byte	0x2
  1773 037e A6       		.byte	0xa6
  1774 037f 49000000 		.4byte	0x49
  1775 0383 02       		.byte	0x2
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 37
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 37
 
 
  1776 0384 91       		.byte	0x91
@@ -2166,7 +2166,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1778 0386 00       		.byte	0
  1779 0387 07       		.uleb128 0x7
  1780 0388 01       		.byte	0x1
- 1781 0389 53000000 		.4byte	.LASF40
+ 1781 0389 00000000 		.4byte	.LASF40
  1782 038d 02       		.byte	0x2
  1783 038e B6       		.byte	0xb6
  1784 038f 01       		.byte	0x1
@@ -2176,7 +2176,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1788 039c 01       		.byte	0x1
  1789 039d F0030000 		.4byte	0x3f0
  1790 03a1 06       		.uleb128 0x6
- 1791 03a2 17010000 		.4byte	.LASF37
+ 1791 03a2 C4000000 		.4byte	.LASF37
  1792 03a6 02       		.byte	0x2
  1793 03a7 B6       		.byte	0xb6
  1794 03a8 49000000 		.4byte	0x49
@@ -2184,7 +2184,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1796 03ad 91       		.byte	0x91
  1797 03ae 6E       		.sleb128 -18
  1798 03af 06       		.uleb128 0x6
- 1799 03b0 64000000 		.4byte	.LASF38
+ 1799 03b0 11000000 		.4byte	.LASF38
  1800 03b4 02       		.byte	0x2
  1801 03b5 B6       		.byte	0xb6
  1802 03b6 30000000 		.4byte	0x30
@@ -2192,7 +2192,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1804 03bb 91       		.byte	0x91
  1805 03bc 6D       		.sleb128 -19
  1806 03bd 06       		.uleb128 0x6
- 1807 03be E0020000 		.4byte	.LASF41
+ 1807 03be 03030000 		.4byte	.LASF41
  1808 03c2 02       		.byte	0x2
  1809 03c3 B6       		.byte	0xb6
  1810 03c4 68020000 		.4byte	0x268
@@ -2218,14 +2218,14 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1830 03eb 02       		.byte	0x2
  1831 03ec 91       		.byte	0x91
  1832 03ed 77       		.sleb128 -9
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 38
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 38
 
 
  1833 03ee 00       		.byte	0
  1834 03ef 00       		.byte	0
  1835 03f0 0E       		.uleb128 0xe
  1836 03f1 01       		.byte	0x1
- 1837 03f2 A9010000 		.4byte	.LASF43
+ 1837 03f2 C6010000 		.4byte	.LASF43
  1838 03f6 02       		.byte	0x2
  1839 03f7 C7       		.byte	0xc7
  1840 03f8 01       		.byte	0x1
@@ -2236,7 +2236,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1845 0409 01       		.byte	0x1
  1846 040a 39040000 		.4byte	0x439
  1847 040e 06       		.uleb128 0x6
- 1848 040f 17010000 		.4byte	.LASF37
+ 1848 040f C4000000 		.4byte	.LASF37
  1849 0413 02       		.byte	0x2
  1850 0414 C7       		.byte	0xc7
  1851 0415 49000000 		.4byte	0x49
@@ -2244,7 +2244,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1853 041a 91       		.byte	0x91
  1854 041b 66       		.sleb128 -26
  1855 041c 06       		.uleb128 0x6
- 1856 041d 64000000 		.4byte	.LASF38
+ 1856 041d 11000000 		.4byte	.LASF38
  1857 0421 02       		.byte	0x2
  1858 0422 C7       		.byte	0xc7
  1859 0423 30000000 		.4byte	0x30
@@ -2252,7 +2252,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1861 0428 91       		.byte	0x91
  1862 0429 65       		.sleb128 -27
  1863 042a 08       		.uleb128 0x8
- 1864 042b 22020000 		.4byte	.LASF44
+ 1864 042b 45020000 		.4byte	.LASF44
  1865 042f 02       		.byte	0x2
  1866 0430 D1       		.byte	0xd1
  1867 0431 30000000 		.4byte	0x30
@@ -2262,7 +2262,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1871 0438 00       		.byte	0
  1872 0439 0E       		.uleb128 0xe
  1873 043a 01       		.byte	0x1
- 1874 043b 37010000 		.4byte	.LASF45
+ 1874 043b E4000000 		.4byte	.LASF45
  1875 043f 02       		.byte	0x2
  1876 0440 D6       		.byte	0xd6
  1877 0441 01       		.byte	0x1
@@ -2273,18 +2273,18 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1882 0452 01       		.byte	0x1
  1883 0453 82040000 		.4byte	0x482
  1884 0457 06       		.uleb128 0x6
- 1885 0458 17010000 		.4byte	.LASF37
+ 1885 0458 C4000000 		.4byte	.LASF37
  1886 045c 02       		.byte	0x2
  1887 045d D6       		.byte	0xd6
  1888 045e 49000000 		.4byte	0x49
  1889 0462 02       		.byte	0x2
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 39
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 39
 
 
  1890 0463 91       		.byte	0x91
  1891 0464 6E       		.sleb128 -18
  1892 0465 06       		.uleb128 0x6
- 1893 0466 64000000 		.4byte	.LASF38
+ 1893 0466 11000000 		.4byte	.LASF38
  1894 046a 02       		.byte	0x2
  1895 046b D6       		.byte	0xd6
  1896 046c 30000000 		.4byte	0x30
@@ -2292,7 +2292,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1898 0471 91       		.byte	0x91
  1899 0472 6D       		.sleb128 -19
  1900 0473 08       		.uleb128 0x8
- 1901 0474 22020000 		.4byte	.LASF44
+ 1901 0474 45020000 		.4byte	.LASF44
  1902 0478 02       		.byte	0x2
  1903 0479 D7       		.byte	0xd7
  1904 047a 49000000 		.4byte	0x49
@@ -2302,7 +2302,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1908 0481 00       		.byte	0
  1909 0482 07       		.uleb128 0x7
  1910 0483 01       		.byte	0x1
- 1911 0484 74000000 		.4byte	.LASF46
+ 1911 0484 21000000 		.4byte	.LASF46
  1912 0488 02       		.byte	0x2
  1913 0489 E7       		.byte	0xe7
  1914 048a 01       		.byte	0x1
@@ -2312,7 +2312,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1918 0497 01       		.byte	0x1
  1919 0498 EB040000 		.4byte	0x4eb
  1920 049c 06       		.uleb128 0x6
- 1921 049d 17010000 		.4byte	.LASF37
+ 1921 049d C4000000 		.4byte	.LASF37
  1922 04a1 02       		.byte	0x2
  1923 04a2 E7       		.byte	0xe7
  1924 04a3 49000000 		.4byte	0x49
@@ -2320,7 +2320,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1926 04a8 91       		.byte	0x91
  1927 04a9 66       		.sleb128 -26
  1928 04aa 06       		.uleb128 0x6
- 1929 04ab 64000000 		.4byte	.LASF38
+ 1929 04ab 11000000 		.4byte	.LASF38
  1930 04af 02       		.byte	0x2
  1931 04b0 E7       		.byte	0xe7
  1932 04b1 30000000 		.4byte	0x30
@@ -2328,7 +2328,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1934 04b6 91       		.byte	0x91
  1935 04b7 65       		.sleb128 -27
  1936 04b8 06       		.uleb128 0x6
- 1937 04b9 6B000000 		.4byte	.LASF47
+ 1937 04b9 18000000 		.4byte	.LASF47
  1938 04bd 02       		.byte	0x2
  1939 04be E7       		.byte	0xe7
  1940 04bf 68020000 		.4byte	0x268
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1944 04c6 0F       		.uleb128 0xf
  1945 04c7 6C656E00 		.ascii	"len\000"
  1946 04cb 02       		.byte	0x2
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 40
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 40
 
 
  1947 04cc E7       		.byte	0xe7
@@ -2360,7 +2360,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  1963 04e9 00       		.byte	0
  1964 04ea 00       		.byte	0
  1965 04eb 08       		.uleb128 0x8
- 1966 04ec E9020000 		.4byte	.LASF48
+ 1966 04ec 0C030000 		.4byte	.LASF48
  1967 04f0 02       		.byte	0x2
  1968 04f1 17       		.byte	0x17
  1969 04f2 49000000 		.4byte	0x49
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  2001 0019 0B       		.uleb128 0xb
  2002 001a 3E       		.uleb128 0x3e
  2003 001b 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 41
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 41
 
 
  2004 001c 03       		.uleb128 0x3
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  2058 0053 05       		.uleb128 0x5
  2059 0054 00       		.byte	0
  2060 0055 03       		.uleb128 0x3
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 42
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 42
 
 
  2061 0056 0E       		.uleb128 0xe
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  2115 008d 11       		.uleb128 0x11
  2116 008e 01       		.uleb128 0x1
  2117 008f 12       		.uleb128 0x12
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 43
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 43
 
 
  2118 0090 01       		.uleb128 0x1
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  2172 00c6 06       		.uleb128 0x6
  2173 00c7 9642     		.uleb128 0x2116
  2174 00c9 0C       		.uleb128 0xc
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 44
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 44
 
 
  2175 00ca 00       		.byte	0
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  2229 0101 0B       		.uleb128 0xb
  2230 0102 01       		.byte	0x1
  2231 0103 11       		.uleb128 0x11
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 45
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 45
 
 
  2232 0104 01       		.uleb128 0x1
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  2286 006a 00000000 		.4byte	0
  2287 006e 00000000 		.4byte	0
  2288              	.LLST2:
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 46
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 46
 
 
  2289 0072 00000000 		.4byte	.LFB35
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  2343 00f6 00000000 		.4byte	.LFB38
  2344 00fa 02000000 		.4byte	.LCFI12
  2345 00fe 0200     		.2byte	0x2
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 47
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 47
 
 
  2346 0100 7D       		.byte	0x7d
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  2400 0182 44000000 		.4byte	.LFE40
  2401 0186 0200     		.2byte	0x2
  2402 0188 77       		.byte	0x77
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 48
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 48
 
 
  2403 0189 10       		.sleb128 16
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  2457 020f 00       		.sleb128 0
  2458 0210 02000000 		.4byte	.LCFI26
  2459 0214 04000000 		.4byte	.LCFI27
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 49
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 49
 
 
  2460 0218 0200     		.2byte	0x2
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  2514 0298 06000000 		.4byte	.LCFI34
  2515 029c 64000000 		.4byte	.LFE45
  2516 02a0 0200     		.2byte	0x2
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 50
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 50
 
 
  2517 02a2 77       		.byte	0x77
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  2571 000a 04       		.byte	0x4
  2572 000b 00       		.byte	0
  2573 000c 0000     		.2byte	0
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 51
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 51
 
 
  2574 000e 0000     		.2byte	0
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  2628 004c 60000000 		.4byte	.LFE42
  2629 0050 00000000 		.4byte	.LFB43
  2630 0054 72000000 		.4byte	.LFE43
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 52
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 52
 
 
  2631 0058 00000000 		.4byte	.LFB44
@@ -3078,261 +3078,266 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 1
  2643      00000201 
  2643      FB0E0D00 
  2643      01010101 
- 2644              	.LASF51:
- 2645 0000 433A5C55 		.ascii	"C:\\Users\\Steve\\Desktop\\Projects\\MarsRover\\BYU"
- 2645      73657273 
- 2645      5C537465 
- 2645      76655C44 
- 2645      65736B74 
- 2646 002d 2D4D6172 		.ascii	"-Mars-Rover\\RoverLink\\RoverLink.cydsn\000"
- 2646      732D526F 
- 2646      7665725C 
- 2646      526F7665 
- 2646      724C696E 
- 2647              	.LASF40:
- 2648 0053 77697A6E 		.ascii	"wiznetWriteArray\000"
- 2648      65745772 
- 2648      69746541 
- 2648      72726179 
- 2648      00
- 2649              	.LASF38:
- 2650 0064 626C6B53 		.ascii	"blkSel\000"
- 2650      656C00
- 2651              	.LASF47:
- 2652 006b 64737441 		.ascii	"dstArray\000"
- 2652      72726179 
- 2652      00
- 2653              	.LASF46:
- 2654 0074 77697A6E 		.ascii	"wiznetReadArray\000"
- 2654      65745265 
- 2654      61644172 
- 2654      72617900 
- 2655              	.LASF52:
- 2656 0084 7472616E 		.ascii	"transferSPI\000"
- 2656      73666572 
- 2656      53504900 
- 2657              	.LASF5:
- 2658 0090 73686F72 		.ascii	"short unsigned int\000"
- 2658      7420756E 
- 2658      7369676E 
- 2658      65642069 
- 2658      6E7400
- 2659              	.LASF19:
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 53
+ 2644              	.LASF40:
+ 2645 0000 77697A6E 		.ascii	"wiznetWriteArray\000"
+ 2645      65745772 
+ 2645      69746541 
+ 2645      72726179 
+ 2645      00
+ 2646              	.LASF38:
+ 2647 0011 626C6B53 		.ascii	"blkSel\000"
+ 2647      656C00
+ 2648              	.LASF47:
+ 2649 0018 64737441 		.ascii	"dstArray\000"
+ 2649      72726179 
+ 2649      00
+ 2650              	.LASF46:
+ 2651 0021 77697A6E 		.ascii	"wiznetReadArray\000"
+ 2651      65745265 
+ 2651      61644172 
+ 2651      72617900 
+ 2652              	.LASF52:
+ 2653 0031 7472616E 		.ascii	"transferSPI\000"
+ 2653      73666572 
+ 2653      53504900 
+ 2654              	.LASF5:
+ 2655 003d 73686F72 		.ascii	"short unsigned int\000"
+ 2655      7420756E 
+ 2655      7369676E 
+ 2655      65642069 
+ 2655      6E7400
+ 2656              	.LASF19:
+ 2657 0050 64737455 		.ascii	"dstUdpPort\000"
+ 2657      6470506F 
+ 2657      727400
+ 2658              	.LASF22:
+ 2659 005b 77697A6E 		.ascii	"wiznetOldMacAddr\000"
+ 2659      65744F6C 
+ 2659      644D6163 
+ 2659      41646472 
+ 2659      00
+ 2660              	.LASF27:
+ 2661 006c 77697A6E 		.ascii	"wiznetClearInterrupts\000"
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 53
 
 
- 2660 00a3 64737455 		.ascii	"dstUdpPort\000"
- 2660      6470506F 
- 2660      727400
- 2661              	.LASF22:
- 2662 00ae 77697A6E 		.ascii	"wiznetOldMacAddr\000"
- 2662      65744F6C 
- 2662      644D6163 
- 2662      41646472 
- 2662      00
- 2663              	.LASF27:
- 2664 00bf 77697A6E 		.ascii	"wiznetClearInterrupts\000"
- 2664      6574436C 
- 2664      65617249 
- 2664      6E746572 
- 2664      72757074 
- 2665              	.LASF24:
- 2666 00d5 77697A6E 		.ascii	"wiznetOpen\000"
- 2666      65744F70 
- 2666      656E00
- 2667              	.LASF25:
- 2668 00e0 77697A6E 		.ascii	"wiznetClose\000"
- 2668      6574436C 
- 2668      6F736500 
- 2669              	.LASF12:
- 2670 00ec 666C6F61 		.ascii	"float\000"
- 2670      7400
- 2671              	.LASF16:
- 2672 00f2 64617461 		.ascii	"data\000"
- 2672      00
- 2673              	.LASF0:
- 2674 00f7 7369676E 		.ascii	"signed char\000"
- 2674      65642063 
- 2674      68617200 
- 2675              	.LASF21:
- 2676 0103 75647043 		.ascii	"udpConfig\000"
- 2676      6F6E6669 
- 2676      6700
- 2677              	.LASF17:
- 2678 010d 6F776E49 		.ascii	"ownIpAddr\000"
- 2678      70416464 
- 2678      7200
- 2679              	.LASF37:
- 2680 0117 72656741 		.ascii	"regAddr\000"
- 2680      64647200 
- 2681              	.LASF7:
- 2682 011f 6C6F6E67 		.ascii	"long unsigned int\000"
- 2682      20756E73 
- 2682      69676E65 
- 2682      6420696E 
- 2682      7400
- 2683              	.LASF11:
- 2684 0131 75696E74 		.ascii	"uint8\000"
- 2684      3800
- 2685              	.LASF45:
- 2686 0137 77697A6E 		.ascii	"wiznetRead16b\000"
- 2686      65745265 
- 2686      61643136 
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 54
+ 2661      6574436C 
+ 2661      65617249 
+ 2661      6E746572 
+ 2661      72757074 
+ 2662              	.LASF24:
+ 2663 0082 77697A6E 		.ascii	"wiznetOpen\000"
+ 2663      65744F70 
+ 2663      656E00
+ 2664              	.LASF25:
+ 2665 008d 77697A6E 		.ascii	"wiznetClose\000"
+ 2665      6574436C 
+ 2665      6F736500 
+ 2666              	.LASF12:
+ 2667 0099 666C6F61 		.ascii	"float\000"
+ 2667      7400
+ 2668              	.LASF16:
+ 2669 009f 64617461 		.ascii	"data\000"
+ 2669      00
+ 2670              	.LASF0:
+ 2671 00a4 7369676E 		.ascii	"signed char\000"
+ 2671      65642063 
+ 2671      68617200 
+ 2672              	.LASF21:
+ 2673 00b0 75647043 		.ascii	"udpConfig\000"
+ 2673      6F6E6669 
+ 2673      6700
+ 2674              	.LASF17:
+ 2675 00ba 6F776E49 		.ascii	"ownIpAddr\000"
+ 2675      70416464 
+ 2675      7200
+ 2676              	.LASF37:
+ 2677 00c4 72656741 		.ascii	"regAddr\000"
+ 2677      64647200 
+ 2678              	.LASF7:
+ 2679 00cc 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2679      20756E73 
+ 2679      69676E65 
+ 2679      6420696E 
+ 2679      7400
+ 2680              	.LASF11:
+ 2681 00de 75696E74 		.ascii	"uint8\000"
+ 2681      3800
+ 2682              	.LASF45:
+ 2683 00e4 77697A6E 		.ascii	"wiznetRead16b\000"
+ 2683      65745265 
+ 2683      61643136 
+ 2683      6200
+ 2684              	.LASF51:
+ 2685 00f2 433A5C55 		.ascii	"C:\\Users\\Steve\\Desktop\\Projects\\MarsRover\\BYU"
+ 2685      73657273 
+ 2685      5C537465 
+ 2685      76655C44 
+ 2685      65736B74 
+ 2686 011f 2D4D6172 		.ascii	"-MarsRover\\MasterControllerBoard\\MasterController"
+ 2686      73526F76 
+ 2686      65725C4D 
+ 2686      61737465 
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 54
 
 
- 2686      6200
- 2687              	.LASF32:
- 2688 0145 61727261 		.ascii	"array\000"
- 2688      7900
- 2689              	.LASF28:
- 2690 014b 77697A6E 		.ascii	"wiznetInit\000"
- 2690      6574496E 
- 2690      697400
- 2691              	.LASF1:
- 2692 0156 756E7369 		.ascii	"unsigned char\000"
- 2692      676E6564 
- 2692      20636861 
- 2692      7200
- 2693              	.LASF50:
- 2694 0164 2E5C7769 		.ascii	".\\wiznet5500.c\000"
- 2694      7A6E6574 
- 2694      35353030 
- 2694      2E6300
- 2695              	.LASF29:
- 2696 0173 77697A6E 		.ascii	"wiznetConfigInterrupts\000"
- 2696      6574436F 
- 2696      6E666967 
- 2696      496E7465 
- 2696      72727570 
- 2697              	.LASF13:
- 2698 018a 646F7562 		.ascii	"double\000"
- 2698      6C6500
- 2699              	.LASF31:
- 2700 0191 736F636B 		.ascii	"socketInt\000"
- 2700      6574496E 
- 2700      7400
- 2701              	.LASF36:
- 2702 019b 77697A6E 		.ascii	"wiznetWrite8b\000"
- 2702      65745772 
- 2702      69746538 
- 2702      6200
- 2703              	.LASF43:
- 2704 01a9 77697A6E 		.ascii	"wiznetRead8b\000"
- 2704      65745265 
- 2704      61643862 
- 2704      00
- 2705              	.LASF23:
- 2706 01b6 65706865 		.ascii	"ephemUdpPort\000"
- 2706      6D556470 
- 2706      506F7274 
- 2706      00
- 2707              	.LASF33:
- 2708 01c3 77697A6E 		.ascii	"wiznetPrintRegisters\000"
- 2708      65745072 
- 2708      696E7452 
- 2708      65676973 
- 2708      74657273 
- 2709              	.LASF42:
- 2710 01d8 77697A6E 		.ascii	"wiznetWriteUdpFrame\000"
- 2710      65745772 
- 2710      69746555 
- 2710      64704672 
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 55
+ 2686      72436F6E 
+ 2687 0150 5C4D6173 		.ascii	"\\MasterController.cydsn\000"
+ 2687      74657243 
+ 2687      6F6E7472 
+ 2687      6F6C6C65 
+ 2687      722E6379 
+ 2688              	.LASF28:
+ 2689 0168 77697A6E 		.ascii	"wiznetInit\000"
+ 2689      6574496E 
+ 2689      697400
+ 2690              	.LASF1:
+ 2691 0173 756E7369 		.ascii	"unsigned char\000"
+ 2691      676E6564 
+ 2691      20636861 
+ 2691      7200
+ 2692              	.LASF50:
+ 2693 0181 2E5C7769 		.ascii	".\\wiznet5500.c\000"
+ 2693      7A6E6574 
+ 2693      35353030 
+ 2693      2E6300
+ 2694              	.LASF29:
+ 2695 0190 77697A6E 		.ascii	"wiznetConfigInterrupts\000"
+ 2695      6574436F 
+ 2695      6E666967 
+ 2695      496E7465 
+ 2695      72727570 
+ 2696              	.LASF13:
+ 2697 01a7 646F7562 		.ascii	"double\000"
+ 2697      6C6500
+ 2698              	.LASF31:
+ 2699 01ae 736F636B 		.ascii	"socketInt\000"
+ 2699      6574496E 
+ 2699      7400
+ 2700              	.LASF36:
+ 2701 01b8 77697A6E 		.ascii	"wiznetWrite8b\000"
+ 2701      65745772 
+ 2701      69746538 
+ 2701      6200
+ 2702              	.LASF43:
+ 2703 01c6 77697A6E 		.ascii	"wiznetRead8b\000"
+ 2703      65745265 
+ 2703      61643862 
+ 2703      00
+ 2704              	.LASF23:
+ 2705 01d3 65706865 		.ascii	"ephemUdpPort\000"
+ 2705      6D556470 
+ 2705      506F7274 
+ 2705      00
+ 2706              	.LASF33:
+ 2707 01e0 77697A6E 		.ascii	"wiznetPrintRegisters\000"
+ 2707      65745072 
+ 2707      696E7452 
+ 2707      65676973 
+ 2707      74657273 
+ 2708              	.LASF42:
+ 2709 01f5 77697A6E 		.ascii	"wiznetWriteUdpFrame\000"
+ 2709      65745772 
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 55
 
 
- 2710      616D6500 
- 2711              	.LASF10:
- 2712 01ec 756E7369 		.ascii	"unsigned int\000"
- 2712      676E6564 
- 2712      20696E74 
- 2712      00
- 2713              	.LASF18:
- 2714 01f9 64737449 		.ascii	"dstIpAddr\000"
- 2714      70416464 
- 2714      7200
- 2715              	.LASF9:
- 2716 0203 6C6F6E67 		.ascii	"long long unsigned int\000"
- 2716      206C6F6E 
- 2716      6720756E 
- 2716      7369676E 
- 2716      65642069 
- 2717              	.LASF3:
- 2718 021a 75696E74 		.ascii	"uint8_t\000"
- 2718      385F7400 
- 2719              	.LASF44:
- 2720 0222 72657375 		.ascii	"result\000"
- 2720      6C7400
- 2721              	.LASF20:
- 2722 0229 636D6441 		.ascii	"cmdArray\000"
- 2722      72726179 
- 2722      00
- 2723              	.LASF35:
- 2724 0232 72656164 		.ascii	"readArray\000"
- 2724      41727261 
- 2724      7900
- 2725              	.LASF15:
- 2726 023c 73697A65 		.ascii	"sizetype\000"
- 2726      74797065 
- 2726      00
- 2727              	.LASF8:
- 2728 0245 6C6F6E67 		.ascii	"long long int\000"
- 2728      206C6F6E 
- 2728      6720696E 
- 2728      7400
- 2729              	.LASF14:
- 2730 0253 63686172 		.ascii	"char\000"
- 2730      00
- 2731              	.LASF34:
- 2732 0258 626C6B53 		.ascii	"blkSelect\000"
- 2732      656C6563 
- 2732      7400
- 2733              	.LASF4:
- 2734 0262 75696E74 		.ascii	"uint16_t\000"
- 2734      31365F74 
- 2734      00
- 2735              	.LASF2:
- 2736 026b 73686F72 		.ascii	"short int\000"
- 2736      7420696E 
- 2736      7400
- 2737              	.LASF39:
- 2738 0275 77697A6E 		.ascii	"wiznetWrite16b\000"
- 2738      65745772 
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccloT0QO.s 			page 56
+ 2709      69746555 
+ 2709      64704672 
+ 2709      616D6500 
+ 2710              	.LASF32:
+ 2711 0209 61727261 		.ascii	"array\000"
+ 2711      7900
+ 2712              	.LASF10:
+ 2713 020f 756E7369 		.ascii	"unsigned int\000"
+ 2713      676E6564 
+ 2713      20696E74 
+ 2713      00
+ 2714              	.LASF18:
+ 2715 021c 64737449 		.ascii	"dstIpAddr\000"
+ 2715      70416464 
+ 2715      7200
+ 2716              	.LASF9:
+ 2717 0226 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2717      206C6F6E 
+ 2717      6720756E 
+ 2717      7369676E 
+ 2717      65642069 
+ 2718              	.LASF3:
+ 2719 023d 75696E74 		.ascii	"uint8_t\000"
+ 2719      385F7400 
+ 2720              	.LASF44:
+ 2721 0245 72657375 		.ascii	"result\000"
+ 2721      6C7400
+ 2722              	.LASF20:
+ 2723 024c 636D6441 		.ascii	"cmdArray\000"
+ 2723      72726179 
+ 2723      00
+ 2724              	.LASF35:
+ 2725 0255 72656164 		.ascii	"readArray\000"
+ 2725      41727261 
+ 2725      7900
+ 2726              	.LASF15:
+ 2727 025f 73697A65 		.ascii	"sizetype\000"
+ 2727      74797065 
+ 2727      00
+ 2728              	.LASF8:
+ 2729 0268 6C6F6E67 		.ascii	"long long int\000"
+ 2729      206C6F6E 
+ 2729      6720696E 
+ 2729      7400
+ 2730              	.LASF14:
+ 2731 0276 63686172 		.ascii	"char\000"
+ 2731      00
+ 2732              	.LASF34:
+ 2733 027b 626C6B53 		.ascii	"blkSelect\000"
+ 2733      656C6563 
+ 2733      7400
+ 2734              	.LASF4:
+ 2735 0285 75696E74 		.ascii	"uint16_t\000"
+ 2735      31365F74 
+ 2735      00
+ 2736              	.LASF2:
+ 2737 028e 73686F72 		.ascii	"short int\000"
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cc77CCnr.s 			page 56
 
 
- 2738      69746531 
- 2738      366200
- 2739              	.LASF49:
- 2740 0284 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
- 2740      4320342E 
- 2740      372E3320 
- 2740      32303133 
- 2740      30333132 
- 2741 02b7 616E6368 		.ascii	"anch revision 196615]\000"
- 2741      20726576 
- 2741      6973696F 
- 2741      6E203139 
- 2741      36363135 
- 2742              	.LASF30:
- 2743 02cd 636F6D6D 		.ascii	"commonInt\000"
- 2743      6F6E496E 
- 2743      7400
- 2744              	.LASF6:
- 2745 02d7 6C6F6E67 		.ascii	"long int\000"
- 2745      20696E74 
- 2745      00
- 2746              	.LASF41:
- 2747 02e0 73726341 		.ascii	"srcArray\000"
- 2747      72726179 
- 2747      00
- 2748              	.LASF48:
- 2749 02e9 77697A6E 		.ascii	"wiznetTxPointer\000"
- 2749      65745478 
- 2749      506F696E 
- 2749      74657200 
- 2750              	.LASF26:
- 2751 02f9 77697A6E 		.ascii	"wiznetSend\000"
- 2751      65745365 
- 2751      6E6400
- 2752              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br
+ 2737      7420696E 
+ 2737      7400
+ 2738              	.LASF39:
+ 2739 0298 77697A6E 		.ascii	"wiznetWrite16b\000"
+ 2739      65745772 
+ 2739      69746531 
+ 2739      366200
+ 2740              	.LASF49:
+ 2741 02a7 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 2741      4320342E 
+ 2741      372E3320 
+ 2741      32303133 
+ 2741      30333132 
+ 2742 02da 616E6368 		.ascii	"anch revision 196615]\000"
+ 2742      20726576 
+ 2742      6973696F 
+ 2742      6E203139 
+ 2742      36363135 
+ 2743              	.LASF30:
+ 2744 02f0 636F6D6D 		.ascii	"commonInt\000"
+ 2744      6F6E496E 
+ 2744      7400
+ 2745              	.LASF6:
+ 2746 02fa 6C6F6E67 		.ascii	"long int\000"
+ 2746      20696E74 
+ 2746      00
+ 2747              	.LASF41:
+ 2748 0303 73726341 		.ascii	"srcArray\000"
+ 2748      72726179 
+ 2748      00
+ 2749              	.LASF48:
+ 2750 030c 77697A6E 		.ascii	"wiznetTxPointer\000"
+ 2750      65745478 
+ 2750      506F696E 
+ 2750      74657200 
+ 2751              	.LASF26:
+ 2752 031c 77697A6E 		.ascii	"wiznetSend\000"
+ 2752      65745365 
+ 2752      6E6400
+ 2753              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br

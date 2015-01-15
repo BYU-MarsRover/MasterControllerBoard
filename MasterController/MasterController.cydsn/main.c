@@ -99,7 +99,7 @@ void setup(void){
 	// Compose Tasks and Routines
 	
 	// Application Init and Warmup
-	printf("BYU Mars Rover 2015\n");
+	printf("BYU Mars Rover 2015 v0.1111\n");
 	
 	sys_health.systemState = STARTUP;
 
@@ -108,6 +108,8 @@ void setup(void){
 	rover_status.roverCurrent = 200;
 	rover_status.mAhCounter = 784;
 	rover_status.dragonLinkRSSI = 50;
+	
+	arm_status.systemState = STARTUP;
 
 
 	imu.xacc = 	-14;
@@ -162,13 +164,16 @@ void loop(void){
 	
 	LED_Write(!WIZ_RDY_Read()); // Warns if the Wiznet Ready Line isn't high.
 	
+	// LED_Write(1);
+	
 	if(WIZ_INT_Read() == LOW){
 		wiznetClearInterrupts();
-		LED_Write(HIGH);
+		LED_Write(1);
 	}
 	
 	if(BUTTON_PRESSED){
 		wiznetClearInterrupts();
+		// LED_Write(1);
 		// uint8_t testPacket[] = "Test Packet! 16"; //{0x00,0x55,0x55,0x55,0x55,0xFE}; //
 		// wiznetWriteUdpFrame(GPS_STRING,sizeof(GPS_STRING));
 		// wiznetSend();
@@ -181,24 +186,34 @@ void loop(void){
 		
 		// gps_position.lat = ;
 		
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_SYS_HEALTH_MSG_ID,sys_health);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_ROVER_STATUS_MSG_ID,rover_status);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_ARM_STATUS_MSG_ID,arm_status);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_GPS_MSG_ID,gps);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_IMU_MSG_ID,imu);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_LRS_MSG_ID,lrs);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_DRIVE_MSG_ID,drive);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_VIDEO_MSG_ID,video);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_ARM_MSG_ID,arm);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_ISHAAMA_MSG_ID,ishaama);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_LIFERAY_MSG_ID,liferay);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_CUSTOM_DEBUG_1_MSG_ID,custom_debug_1);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_CUSTOM_DEBUG_2_MSG_ID,custom_debug_2);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_CUSTOM_DEBUG_3_MSG_ID,custom_debug_3);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_PING_MSG_ID,ping);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_TELEMETRY_CONFIG_MSG_ID,telemetry_config);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_REQ_FIELDS_ONCE_MSG_ID,req_fields_once);
-		roverlinkSendFrame(BASESTATION_1,ROVERLINK_BROADCAST_MSG_ID,broadcast);
+		uint8_t testArray[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+		
+		//roverlinkSendFrame(BASESTATION_1,ROVERLINK_SYS_HEALTH_MSG_ID,sys_health);
+		
+		for(uint8_t i=0; i<16; i++){
+			roverlinkSendFrame(BASESTATION_1,i,testArray);
+			for(uint8_t j=0; j<8; j++){
+				testArray[j] = testArray[j]+1;
+			}
+		}
+		
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_ROVER_STATUS_MSG_ID,rover_status);
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_ARM_STATUS_MSG_ID,arm_status);
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_GPS_MSG_ID,gps);
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_IMU_MSG_ID,imu);
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_LRS_MSG_ID,lrs);
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_DRIVE_MSG_ID,drive);
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_VIDEO_MSG_ID,video);
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_ARM_MSG_ID,arm);
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_ISHAAMA_MSG_ID,ishaama);
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_LIFERAY_MSG_ID,liferay);
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_CUSTOM_DEBUG_1_MSG_ID,custom_debug_1);
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_CUSTOM_DEBUG_2_MSG_ID,custom_debug_2);
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_CUSTOM_DEBUG_3_MSG_ID,custom_debug_3);
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_PING_MSG_ID,ping);
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_TELEMETRY_CONFIG_MSG_ID,telemetry_config);
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_REQ_FIELDS_ONCE_MSG_ID,req_fields_once);
+		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_BROADCAST_MSG_ID,broadcast);
 		
 		// while(BUTTON_PRESSED);
 		CyDelay(100);
@@ -290,13 +305,25 @@ void roverlinkSendFrame(uint8_t dstAddr, uint8_t msgId, void *payload){
 		#define ROVERLINK_HEADER_LEN 5
 		uint8_t header[ROVERLINK_HEADER_LEN] = {0xFE,((srcAddr<<4)&0xF0)|(dstAddr&0x0F),(ROVERLINK_RESPONSE&0xC0)|(msgId&0x3F),seqCount,len};
 	#else
-		#define ROVERLINK_HEADER_LEN 4
-		uint8_t header[ROVERLINK_HEADER_LEN] = {((srcAddr<<4)&0xF0)|(dstAddr&0x0F),(ROVERLINK_RESPONSE&0xC0)|(msgId&0x3F),seqCount,len};
+		// #define ROVERLINK_HEADER_LEN 4
+		#define ROVERLINK_HEADER_LEN 6
+		// uint8_t header[ROVERLINK_HEADER_LEN] = {((srcAddr<<4)&0xF0)|(dstAddr&0x0F),(ROVERLINK_RESPONSE&0xC0)|(msgId&0x3F),seqCount,len};
+		uint8_t header[ROVERLINK_HEADER_LEN] = {srcAddr,dstAddr,ROVERLINK_RESPONSE,msgId,seqCount,len};
 	#endif
 
 	wiznetWriteUdpFrame(header,ROVERLINK_HEADER_LEN);
 	// printf("Length = %u\n",len);
-	if(len > 0) wiznetWriteUdpFrame((uint8_t *)payload,len);
+	// CyDelay();
+	if(len > 0) wiznetWriteUdpFrame((uint8_t *)payload,len); //  The devil line!
+	for(uint8_t i=0; i<ROVERLINK_HEADER_LEN;i++){
+		printf("%X%X",header[i]>>4,header[i]&0x0F);
+	}
+	printf("\n");
+	// for(uint8_t i=0; i<len;i++){
+		// printf("%x",payload[i]);
+	// }
+	
+	// printf("%s",payload);
 	wiznetSend();
 	
 	while(WIZ_INT_Read() == HIGH);
