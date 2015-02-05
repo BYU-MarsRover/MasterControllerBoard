@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
   30:.\Generated_Source\PSoC4/SW.c **** ********************************************************************************
   31:.\Generated_Source\PSoC4/SW.c **** *
   32:.\Generated_Source\PSoC4/SW.c **** * Summary:
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 2
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/SW.c **** *  Assign a new value to the digital port's data output register.  
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
   66 0036 0F32     		add	r2, r2, #15
   67 0038 1278     		ldrb	r2, [r2]
   68 003a 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 3
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 3
 
 
   47:.\Generated_Source\PSoC4/SW.c **** }
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
   95              		.cfi_offset 14, -4
   96 0002 82B0     		sub	sp, sp, #8
   97              	.LCFI4:
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 4
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 4
 
 
   98              		.cfi_def_cfa_offset 16
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
   90:.\Generated_Source\PSoC4/SW.c **** * Return: 
   91:.\Generated_Source\PSoC4/SW.c **** *  Returns the current value of the Digital Port as a right justified number
   92:.\Generated_Source\PSoC4/SW.c **** *  
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 5
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 5
 
 
   93:.\Generated_Source\PSoC4/SW.c **** * Note:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
  110:.\Generated_Source\PSoC4/SW.c **** * Parameters:  
  111:.\Generated_Source\PSoC4/SW.c **** *  None 
  112:.\Generated_Source\PSoC4/SW.c **** *
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 6
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 6
 
 
  113:.\Generated_Source\PSoC4/SW.c **** * Return: 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
  130:.\Generated_Source\PSoC4/SW.c ****     * Summary:
  131:.\Generated_Source\PSoC4/SW.c ****     *  Clears any active interrupts attached to port and returns the value of the 
  132:.\Generated_Source\PSoC4/SW.c ****     *  interrupt status register.
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 7
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 7
 
 
  133:.\Generated_Source\PSoC4/SW.c ****     *
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
  251 002c 10000440 		.word	1074003984
  252              		.cfi_endproc
  253              	.LFE4:
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 8
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 8
 
 
  254              		.size	SW_ClearInterrupt, .-SW_ClearInterrupt
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
  308 0064 696E7400 		.ascii	"int\000"
  309 0068 02       		.uleb128 0x2
  310 0069 04       		.byte	0x4
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 9
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 9
 
 
  311 006a 07       		.byte	0x7
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
  365 00d9 6F000000 		.4byte	0x6f
  366 00dd 02       		.byte	0x2
  367 00de 91       		.byte	0x91
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 10
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 10
 
 
  368 00df 77       		.sleb128 -9
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
  422 0157 01       		.byte	0x1
  423 0158 08       		.uleb128 0x8
  424 0159 50010000 		.4byte	.LASF23
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 11
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 11
 
 
  425 015d 01       		.byte	0x1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
  479 002c 16       		.uleb128 0x16
  480 002d 00       		.byte	0
  481 002e 03       		.uleb128 0x3
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 12
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 12
 
 
  482 002f 0E       		.uleb128 0xe
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
  536 0066 00       		.byte	0
  537 0067 00       		.byte	0
  538 0068 08       		.uleb128 0x8
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 13
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 13
 
 
  539 0069 34       		.uleb128 0x34
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
  593 00a0 11       		.uleb128 0x11
  594 00a1 01       		.uleb128 0x1
  595 00a2 12       		.uleb128 0x12
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 14
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 14
 
 
  596 00a3 01       		.uleb128 0x1
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
  650 0068 00000000 		.4byte	0
  651 006c 00000000 		.4byte	0
  652              	.LLST2:
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 15
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 15
 
 
  653 0070 00000000 		.4byte	.LFB2
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
  707 00f6 77       		.byte	0x77
  708 00f7 10       		.sleb128 16
  709 00f8 00000000 		.4byte	0
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 16
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 16
 
 
  710 00fc 00000000 		.4byte	0
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
  753 0021 72656733 		.ascii	"reg32\000"
  753      3200
  754              	.LASF17:
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 17
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 17
 
 
  755 0027 76616C75 		.ascii	"value\000"
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
  776              	.LASF8:
  777 0111 756E7369 		.ascii	"unsigned int\000"
  777      676E6564 
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 18
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 18
 
 
  777      20696E74 
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 1
  801              	.LASF0:
  802 01d4 7369676E 		.ascii	"signed char\000"
  802      65642063 
-ARM GAS  C:\Users\Steve\AppData\Local\Temp\ccAvgHXg.s 			page 19
+ARM GAS  C:\Users\Steve\AppData\Local\Temp\cca5rqy6.s 			page 19
 
 
  802      68617200 

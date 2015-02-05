@@ -2,7 +2,7 @@
 --	Conversion of MasterController.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed Jan 28 17:39:20 2015
+--	Wed Feb 04 19:08:27 2015
 --
 
 USE cypress.cypress.all;
@@ -675,7 +675,7 @@ Net_55D <= ((\SPIM:BSPIM:state_1\ and \SPIM:BSPIM:state_0\ and Net_55)
 		divisor=>0,
 		period=>"500000000",
 		is_direct=>'0',
-		is_digital=>'0')
+		is_digital=>'1')
 	PORT MAP(clock_out=>\SPIM:Net_276\,
 		dig_domain_out=>open);
 \SPIM:BSPIM:ClkEn\:cy_psoc3_udb_clock_enable_v1_0

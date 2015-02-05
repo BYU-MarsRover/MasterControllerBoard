@@ -337,6 +337,37 @@
 <VisibleNodeIds>
 <v>MasterController</v>
 <v>MasterController\MasterController</v>
+<v>MasterController\MasterController\CortexM0</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\ADC_SAR_Seq_1.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\ADC_SAR_Seq_1_INT.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\ADC_SAR_Seq_1_intClock.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\ADC_SAR_Seq_1_IRQ.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\ADC_SAR_Seq_1_PM.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\BAT_AMPS.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\BAT_VOLT.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\Bootloadable_1.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\Clock_2MHz.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\Cm0Start.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\cybootloader.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\CyFlash.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\CyLib.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\cymetadata.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\cyPm.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\cyutils.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\I2C.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\I2C_BOOT.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\I2C_I2C.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\I2C_I2C_BOOT.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\I2C_I2C_INT.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\I2C_I2C_MASTER.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\I2C_PM.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\I2C_scl.lst</v>
+<v>MasterController\MasterController\CortexM0\ARM_GCC_473\Debug\Listing Files\I2C_sda.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>

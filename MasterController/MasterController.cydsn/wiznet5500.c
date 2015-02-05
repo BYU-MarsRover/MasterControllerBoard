@@ -131,8 +131,8 @@ uint16_t wiznetReadUdpFrame(uint8_t *array, uint8_t len){
 	
 	// uint16_t recvSize = 0;
 	wiznetRxPointer = wiznetRead16b(WIZNET_Sn_RX_WR,WIZNET_BLK_S0_REG);
-	// wiznetWrite8b(WIZNET_Sn_CR,WIZNET_BLK_S0_REG,0x40);
 	wiznetWrite16b(WIZNET_Sn_RX_RD,WIZNET_BLK_S0_REG,wiznetRxPointer);
+	wiznetWrite8b(WIZNET_Sn_CR,WIZNET_BLK_S0_REG,0x40);
 	return wiznetRxPointer;
 	// return recvSize;
 }
