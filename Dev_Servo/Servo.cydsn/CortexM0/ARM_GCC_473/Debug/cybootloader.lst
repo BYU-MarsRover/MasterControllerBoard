@@ -1,0 +1,4650 @@
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"cybootloader.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	cy_meta_loader
+  18              		.section	.cyloadermeta,"a",%progbits
+  19              		.align	2
+  20              		.type	cy_meta_loader, %object
+  21              		.size	cy_meta_loader, 64
+  22              	cy_meta_loader:
+  23 0000 00       		.byte	0
+  24 0001 00       		.byte	0
+  25 0002 00       		.byte	0
+  26 0003 00       		.byte	0
+  27 0004 00       		.byte	0
+  28 0005 00       		.byte	0
+  29 0006 00       		.byte	0
+  30 0007 00       		.byte	0
+  31 0008 00       		.byte	0
+  32 0009 00       		.byte	0
+  33 000a 00       		.byte	0
+  34 000b 00       		.byte	0
+  35 000c 00       		.byte	0
+  36 000d 00       		.byte	0
+  37 000e 00       		.byte	0
+  38 000f 00       		.byte	0
+  39 0010 00       		.byte	0
+  40 0011 00       		.byte	0
+  41 0012 01       		.byte	1
+  42 0013 00       		.byte	0
+  43 0014 01       		.byte	1
+  44 0015 00       		.byte	0
+  45 0016 00       		.byte	0
+  46 0017 00       		.byte	0
+  47 0018 00       		.byte	0
+  48 0019 00       		.byte	0
+  49 001a 00       		.byte	0
+  50 001b 00       		.byte	0
+  51 001c 00       		.byte	0
+  52 001d 00       		.byte	0
+  53 001e 00       		.byte	0
+  54 001f 00       		.byte	0
+  55 0020 00       		.byte	0
+  56 0021 00       		.byte	0
+  57 0022 00       		.byte	0
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 2
+
+
+  58 0023 00       		.byte	0
+  59 0024 00       		.byte	0
+  60 0025 00       		.byte	0
+  61 0026 00       		.byte	0
+  62 0027 00       		.byte	0
+  63 0028 00       		.byte	0
+  64 0029 00       		.byte	0
+  65 002a 00       		.byte	0
+  66 002b 00       		.byte	0
+  67 002c 00       		.byte	0
+  68 002d 00       		.byte	0
+  69 002e 00       		.byte	0
+  70 002f 00       		.byte	0
+  71 0030 00       		.byte	0
+  72 0031 00       		.byte	0
+  73 0032 00       		.byte	0
+  74 0033 00       		.byte	0
+  75 0034 00       		.byte	0
+  76 0035 00       		.byte	0
+  77 0036 00       		.byte	0
+  78 0037 00       		.byte	0
+  79 0038 00       		.byte	0
+  80 0039 00       		.byte	0
+  81 003a 00       		.byte	0
+  82 003b 00       		.byte	0
+  83 003c 00       		.byte	0
+  84 003d 00       		.byte	0
+  85 003e 00       		.byte	0
+  86 003f 00       		.byte	0
+  87              		.global	cy_bootloader
+  88              		.section	.cybootloader,"a",%progbits
+  89              		.align	2
+  90              		.type	cy_bootloader, %object
+  91              		.size	cy_bootloader, 3840
+  92              	cy_bootloader:
+  93 0000 00       		.byte	0
+  94 0001 10       		.byte	16
+  95 0002 00       		.byte	0
+  96 0003 20       		.byte	32
+  97 0004 11       		.byte	17
+  98 0005 00       		.byte	0
+  99 0006 00       		.byte	0
+ 100 0007 00       		.byte	0
+ 101 0008 6D       		.byte	109
+ 102 0009 03       		.byte	3
+ 103 000a 00       		.byte	0
+ 104 000b 00       		.byte	0
+ 105 000c 6D       		.byte	109
+ 106 000d 03       		.byte	3
+ 107 000e 00       		.byte	0
+ 108 000f 00       		.byte	0
+ 109 0010 08       		.byte	8
+ 110 0011 B5       		.byte	-75
+ 111 0012 00       		.byte	0
+ 112 0013 F0       		.byte	-16
+ 113 0014 9B       		.byte	-101
+ 114 0015 FD       		.byte	-3
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 3
+
+
+ 115 0016 00       		.byte	0
+ 116 0017 F0       		.byte	-16
+ 117 0018 AB       		.byte	-85
+ 118 0019 F9       		.byte	-7
+ 119 001a 00       		.byte	0
+ 120 001b 00       		.byte	0
+ 121 001c F8       		.byte	-8
+ 122 001d B5       		.byte	-75
+ 123 001e 72       		.byte	114
+ 124 001f B6       		.byte	-74
+ 125 0020 80       		.byte	-128
+ 126 0021 22       		.byte	34
+ 127 0022 00       		.byte	0
+ 128 0023 21       		.byte	33
+ 129 0024 D2       		.byte	-46
+ 130 0025 00       		.byte	0
+ 131 0026 4A       		.byte	74
+ 132 0027 48       		.byte	72
+ 133 0028 00       		.byte	0
+ 134 0029 F0       		.byte	-16
+ 135 002a 0F       		.byte	15
+ 136 002b FF       		.byte	-1
+ 137 002c 80       		.byte	-128
+ 138 002d 23       		.byte	35
+ 139 002e DA       		.byte	-38
+ 140 002f 00       		.byte	0
+ 141 0030 48       		.byte	72
+ 142 0031 48       		.byte	72
+ 143 0032 00       		.byte	0
+ 144 0033 21       		.byte	33
+ 145 0034 00       		.byte	0
+ 146 0035 F0       		.byte	-16
+ 147 0036 09       		.byte	9
+ 148 0037 FF       		.byte	-1
+ 149 0038 00       		.byte	0
+ 150 0039 23       		.byte	35
+ 151 003a 18       		.byte	24
+ 152 003b 1C       		.byte	28
+ 153 003c 46       		.byte	70
+ 154 003d 49       		.byte	73
+ 155 003e FF       		.byte	-1
+ 156 003f 25       		.byte	37
+ 157 0040 5C       		.byte	92
+ 158 0041 58       		.byte	88
+ 159 0042 47       		.byte	71
+ 160 0043 00       		.byte	0
+ 161 0044 26       		.byte	38
+ 162 0045 1C       		.byte	28
+ 163 0046 AE       		.byte	-82
+ 164 0047 43       		.byte	67
+ 165 0048 10       		.byte	16
+ 166 0049 31       		.byte	49
+ 167 004a E2       		.byte	-30
+ 168 004b B2       		.byte	-78
+ 169 004c 35       		.byte	53
+ 170 004d 1C       		.byte	28
+ 171 004e C9       		.byte	-55
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 4
+
+
+ 172 004f 19       		.byte	25
+ 173 0050 00       		.byte	0
+ 174 0051 2A       		.byte	42
+ 175 0052 07       		.byte	7
+ 176 0053 D0       		.byte	-48
+ 177 0054 0E       		.byte	14
+ 178 0055 78       		.byte	120
+ 179 0056 4F       		.byte	79
+ 180 0057 78       		.byte	120
+ 181 0058 76       		.byte	118
+ 182 0059 19       		.byte	25
+ 183 005a 01       		.byte	1
+ 184 005b 3A       		.byte	58
+ 185 005c 37       		.byte	55
+ 186 005d 70       		.byte	112
+ 187 005e D2       		.byte	-46
+ 188 005f B2       		.byte	-78
+ 189 0060 02       		.byte	2
+ 190 0061 31       		.byte	49
+ 191 0062 F5       		.byte	-11
+ 192 0063 E7       		.byte	-25
+ 193 0064 E4       		.byte	-28
+ 194 0065 B2       		.byte	-78
+ 195 0066 04       		.byte	4
+ 196 0067 33       		.byte	51
+ 197 0068 00       		.byte	0
+ 198 0069 19       		.byte	25
+ 199 006a 10       		.byte	16
+ 200 006b 2B       		.byte	43
+ 201 006c E6       		.byte	-26
+ 202 006d D1       		.byte	-47
+ 203 006e C0       		.byte	-64
+ 204 006f 23       		.byte	35
+ 205 0070 3A       		.byte	58
+ 206 0071 4D       		.byte	77
+ 207 0072 3B       		.byte	59
+ 208 0073 4F       		.byte	79
+ 209 0074 99       		.byte	-103
+ 210 0075 04       		.byte	4
+ 211 0076 80       		.byte	-128
+ 212 0077 24       		.byte	36
+ 213 0078 99       		.byte	-103
+ 214 0079 26       		.byte	38
+ 215 007a 3A       		.byte	58
+ 216 007b 48       		.byte	72
+ 217 007c 3A       		.byte	58
+ 218 007d 4B       		.byte	75
+ 219 007e 29       		.byte	41
+ 220 007f 60       		.byte	96
+ 221 0080 3E       		.byte	62
+ 222 0081 60       		.byte	96
+ 223 0082 E1       		.byte	-31
+ 224 0083 03       		.byte	3
+ 225 0084 39       		.byte	57
+ 226 0085 4E       		.byte	78
+ 227 0086 04       		.byte	4
+ 228 0087 60       		.byte	96
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 5
+
+
+ 229 0088 40       		.byte	64
+ 230 0089 25       		.byte	37
+ 231 008a 19       		.byte	25
+ 232 008b 60       		.byte	96
+ 233 008c C0       		.byte	-64
+ 234 008d 27       		.byte	39
+ 235 008e 38       		.byte	56
+ 236 008f 48       		.byte	72
+ 237 0090 38       		.byte	56
+ 238 0091 49       		.byte	73
+ 239 0092 35       		.byte	53
+ 240 0093 60       		.byte	96
+ 241 0094 7C       		.byte	124
+ 242 0095 03       		.byte	3
+ 243 0096 38       		.byte	56
+ 244 0097 4B       		.byte	75
+ 245 0098 38       		.byte	56
+ 246 0099 4E       		.byte	78
+ 247 009a 04       		.byte	4
+ 248 009b 60       		.byte	96
+ 249 009c 31       		.byte	49
+ 250 009d 25       		.byte	37
+ 251 009e 0A       		.byte	10
+ 252 009f 60       		.byte	96
+ 253 00a0 02       		.byte	2
+ 254 00a1 22       		.byte	34
+ 255 00a2 1A       		.byte	26
+ 256 00a3 60       		.byte	96
+ 257 00a4 99       		.byte	-103
+ 258 00a5 27       		.byte	39
+ 259 00a6 35       		.byte	53
+ 260 00a7 60       		.byte	96
+ 261 00a8 35       		.byte	53
+ 262 00a9 48       		.byte	72
+ 263 00aa 80       		.byte	-128
+ 264 00ab 21       		.byte	33
+ 265 00ac 35       		.byte	53
+ 266 00ad 4D       		.byte	77
+ 267 00ae 3C       		.byte	60
+ 268 00af 04       		.byte	4
+ 269 00b0 0B       		.byte	11
+ 270 00b1 06       		.byte	6
+ 271 00b2 35       		.byte	53
+ 272 00b3 4E       		.byte	78
+ 273 00b4 04       		.byte	4
+ 274 00b5 60       		.byte	96
+ 275 00b6 80       		.byte	-128
+ 276 00b7 27       		.byte	39
+ 277 00b8 2B       		.byte	43
+ 278 00b9 60       		.byte	96
+ 279 00ba 34       		.byte	52
+ 280 00bb 48       		.byte	72
+ 281 00bc 34       		.byte	52
+ 282 00bd 49       		.byte	73
+ 283 00be 35       		.byte	53
+ 284 00bf 4B       		.byte	75
+ 285 00c0 34       		.byte	52
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 6
+
+
+ 286 00c1 60       		.byte	96
+ 287 00c2 35       		.byte	53
+ 288 00c3 4D       		.byte	77
+ 289 00c4 BC       		.byte	-68
+ 290 00c5 05       		.byte	5
+ 291 00c6 04       		.byte	4
+ 292 00c7 60       		.byte	96
+ 293 00c8 19       		.byte	25
+ 294 00c9 60       		.byte	96
+ 295 00ca 2E       		.byte	46
+ 296 00cb 78       		.byte	120
+ 297 00cc 06       		.byte	6
+ 298 00cd 27       		.byte	39
+ 299 00ce 32       		.byte	50
+ 300 00cf 43       		.byte	67
+ 301 00d0 2A       		.byte	42
+ 302 00d1 70       		.byte	112
+ 303 00d2 2A       		.byte	42
+ 304 00d3 78       		.byte	120
+ 305 00d4 31       		.byte	49
+ 306 00d5 4C       		.byte	76
+ 307 00d6 3A       		.byte	58
+ 308 00d7 43       		.byte	67
+ 309 00d8 2A       		.byte	42
+ 310 00d9 70       		.byte	112
+ 311 00da 20       		.byte	32
+ 312 00db 68       		.byte	104
+ 313 00dc 80       		.byte	-128
+ 314 00dd 21       		.byte	33
+ 315 00de CB       		.byte	-53
+ 316 00df 02       		.byte	2
+ 317 00e0 03       		.byte	3
+ 318 00e1 43       		.byte	67
+ 319 00e2 2F       		.byte	47
+ 320 00e3 4D       		.byte	77
+ 321 00e4 2F       		.byte	47
+ 322 00e5 4E       		.byte	78
+ 323 00e6 23       		.byte	35
+ 324 00e7 60       		.byte	96
+ 325 00e8 28       		.byte	40
+ 326 00e9 78       		.byte	120
+ 327 00ea 2F       		.byte	47
+ 328 00eb 4F       		.byte	79
+ 329 00ec 31       		.byte	49
+ 330 00ed 78       		.byte	120
+ 331 00ee 3A       		.byte	58
+ 332 00ef 78       		.byte	120
+ 333 00f0 17       		.byte	23
+ 334 00f1 2A       		.byte	42
+ 335 00f2 05       		.byte	5
+ 336 00f3 D9       		.byte	-39
+ 337 00f4 2D       		.byte	45
+ 338 00f5 4B       		.byte	75
+ 339 00f6 78       		.byte	120
+ 340 00f7 78       		.byte	120
+ 341 00f8 B9       		.byte	-71
+ 342 00f9 78       		.byte	120
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 7
+
+
+ 343 00fa 03       		.byte	3
+ 344 00fb 3F       		.byte	63
+ 345 00fc 9F       		.byte	-97
+ 346 00fd 42       		.byte	66
+ 347 00fe F6       		.byte	-10
+ 348 00ff D1       		.byte	-47
+ 349 0100 2B       		.byte	43
+ 350 0101 4D       		.byte	77
+ 351 0102 2C       		.byte	44
+ 352 0103 4E       		.byte	78
+ 353 0104 2C       		.byte	44
+ 354 0105 4F       		.byte	79
+ 355 0106 19       		.byte	25
+ 356 0107 22       		.byte	34
+ 357 0108 28       		.byte	40
+ 358 0109 60       		.byte	96
+ 359 010a 31       		.byte	49
+ 360 010b 60       		.byte	96
+ 361 010c 05       		.byte	5
+ 362 010d 20       		.byte	32
+ 363 010e 3A       		.byte	58
+ 364 010f 60       		.byte	96
+ 365 0110 00       		.byte	0
+ 366 0111 F0       		.byte	-16
+ 367 0112 DE       		.byte	-34
+ 368 0113 FA       		.byte	-6
+ 369 0114 29       		.byte	41
+ 370 0115 48       		.byte	72
+ 371 0116 2A       		.byte	42
+ 372 0117 4B       		.byte	75
+ 373 0118 01       		.byte	1
+ 374 0119 78       		.byte	120
+ 375 011a 05       		.byte	5
+ 376 011b 20       		.byte	32
+ 377 011c 19       		.byte	25
+ 378 011d 60       		.byte	96
+ 379 011e 00       		.byte	0
+ 380 011f F0       		.byte	-16
+ 381 0120 0B       		.byte	11
+ 382 0121 FB       		.byte	-5
+ 383 0122 28       		.byte	40
+ 384 0123 4E       		.byte	78
+ 385 0124 25       		.byte	37
+ 386 0125 68       		.byte	104
+ 387 0126 28       		.byte	40
+ 388 0127 4A       		.byte	74
+ 389 0128 2E       		.byte	46
+ 390 0129 40       		.byte	64
+ 391 012a 28       		.byte	40
+ 392 012b 48       		.byte	72
+ 393 012c 26       		.byte	38
+ 394 012d 60       		.byte	96
+ 395 012e 20       		.byte	32
+ 396 012f 27       		.byte	39
+ 397 0130 10       		.byte	16
+ 398 0131 24       		.byte	36
+ 399 0132 14       		.byte	20
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 8
+
+
+ 400 0133 60       		.byte	96
+ 401 0134 26       		.byte	38
+ 402 0135 4D       		.byte	77
+ 403 0136 07       		.byte	7
+ 404 0137 60       		.byte	96
+ 405 0138 26       		.byte	38
+ 406 0139 4E       		.byte	78
+ 407 013a 27       		.byte	39
+ 408 013b 4F       		.byte	79
+ 409 013c 80       		.byte	-128
+ 410 013d 21       		.byte	33
+ 411 013e 27       		.byte	39
+ 412 013f 4C       		.byte	76
+ 413 0140 27       		.byte	39
+ 414 0141 4A       		.byte	74
+ 415 0142 28       		.byte	40
+ 416 0143 48       		.byte	72
+ 417 0144 0B       		.byte	11
+ 418 0145 06       		.byte	6
+ 419 0146 2B       		.byte	43
+ 420 0147 60       		.byte	96
+ 421 0148 33       		.byte	51
+ 422 0149 60       		.byte	96
+ 423 014a 14       		.byte	20
+ 424 014b 60       		.byte	96
+ 425 014c 07       		.byte	7
+ 426 014d 60       		.byte	96
+ 427 014e F8       		.byte	-8
+ 428 014f BD       		.byte	-67
+ 429 0150 00       		.byte	0
+ 430 0151 30       		.byte	48
+ 431 0152 0F       		.byte	15
+ 432 0153 40       		.byte	64
+ 433 0154 00       		.byte	0
+ 434 0155 40       		.byte	64
+ 435 0156 0F       		.byte	15
+ 436 0157 40       		.byte	64
+ 437 0158 68       		.byte	104
+ 438 0159 0E       		.byte	14
+ 439 015a 00       		.byte	0
+ 440 015b 00       		.byte	0
+ 441 015c 04       		.byte	4
+ 442 015d 00       		.byte	0
+ 443 015e 01       		.byte	1
+ 444 015f 40       		.byte	64
+ 445 0160 10       		.byte	16
+ 446 0161 00       		.byte	0
+ 447 0162 01       		.byte	1
+ 448 0163 40       		.byte	64
+ 449 0164 00       		.byte	0
+ 450 0165 00       		.byte	0
+ 451 0166 04       		.byte	4
+ 452 0167 40       		.byte	64
+ 453 0168 08       		.byte	8
+ 454 0169 00       		.byte	0
+ 455 016a 04       		.byte	4
+ 456 016b 40       		.byte	64
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 9
+
+
+ 457 016c 00       		.byte	0
+ 458 016d 01       		.byte	1
+ 459 016e 04       		.byte	4
+ 460 016f 40       		.byte	64
+ 461 0170 08       		.byte	8
+ 462 0171 01       		.byte	1
+ 463 0172 04       		.byte	4
+ 464 0173 40       		.byte	64
+ 465 0174 08       		.byte	8
+ 466 0175 03       		.byte	3
+ 467 0176 04       		.byte	4
+ 468 0177 40       		.byte	64
+ 469 0178 00       		.byte	0
+ 470 0179 04       		.byte	4
+ 471 017a 04       		.byte	4
+ 472 017b 40       		.byte	64
+ 473 017c 08       		.byte	8
+ 474 017d 04       		.byte	4
+ 475 017e 04       		.byte	4
+ 476 017f 40       		.byte	64
+ 477 0180 00       		.byte	0
+ 478 0181 50       		.byte	80
+ 479 0182 0F       		.byte	15
+ 480 0183 40       		.byte	64
+ 481 0184 04       		.byte	4
+ 482 0185 50       		.byte	80
+ 483 0186 0F       		.byte	15
+ 484 0187 40       		.byte	64
+ 485 0188 10       		.byte	16
+ 486 0189 50       		.byte	80
+ 487 018a 0F       		.byte	15
+ 488 018b 40       		.byte	64
+ 489 018c 18       		.byte	24
+ 490 018d 50       		.byte	80
+ 491 018e 0F       		.byte	15
+ 492 018f 40       		.byte	64
+ 493 0190 10       		.byte	16
+ 494 0191 00       		.byte	0
+ 495 0192 01       		.byte	1
+ 496 0193 00       		.byte	0
+ 497 0194 20       		.byte	32
+ 498 0195 01       		.byte	1
+ 499 0196 05       		.byte	5
+ 500 0197 40       		.byte	64
+ 501 0198 00       		.byte	0
+ 502 0199 70       		.byte	112
+ 503 019a 0F       		.byte	15
+ 504 019b 40       		.byte	64
+ 505 019c 00       		.byte	0
+ 506 019d 01       		.byte	1
+ 507 019e 0B       		.byte	11
+ 508 019f 40       		.byte	64
+ 509 01a0 CC       		.byte	-52
+ 510 01a1 F1       		.byte	-15
+ 511 01a2 FF       		.byte	-1
+ 512 01a3 0F       		.byte	15
+ 513 01a4 CD       		.byte	-51
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 10
+
+
+ 514 01a5 F1       		.byte	-15
+ 515 01a6 FF       		.byte	-1
+ 516 01a7 0F       		.byte	15
+ 517 01a8 C9       		.byte	-55
+ 518 01a9 F1       		.byte	-15
+ 519 01aa FF       		.byte	-1
+ 520 01ab 0F       		.byte	15
+ 521 01ac BD       		.byte	-67
+ 522 01ad F1       		.byte	-15
+ 523 01ae FF       		.byte	-1
+ 524 01af 0F       		.byte	15
+ 525 01b0 1C       		.byte	28
+ 526 01b1 FF       		.byte	-1
+ 527 01b2 0B       		.byte	11
+ 528 01b3 40       		.byte	64
+ 529 01b4 20       		.byte	32
+ 530 01b5 FF       		.byte	-1
+ 531 01b6 0B       		.byte	11
+ 532 01b7 40       		.byte	64
+ 533 01b8 2C       		.byte	44
+ 534 01b9 FF       		.byte	-1
+ 535 01ba 0B       		.byte	11
+ 536 01bb 40       		.byte	64
+ 537 01bc E5       		.byte	-27
+ 538 01bd F1       		.byte	-15
+ 539 01be FF       		.byte	-1
+ 540 01bf 0F       		.byte	15
+ 541 01c0 28       		.byte	40
+ 542 01c1 FF       		.byte	-1
+ 543 01c2 0B       		.byte	11
+ 544 01c3 40       		.byte	64
+ 545 01c4 FF       		.byte	-1
+ 546 01c5 FF       		.byte	-1
+ 547 01c6 FB       		.byte	-5
+ 548 01c7 FF       		.byte	-1
+ 549 01c8 08       		.byte	8
+ 550 01c9 02       		.byte	2
+ 551 01ca 02       		.byte	2
+ 552 01cb 40       		.byte	64
+ 553 01cc 20       		.byte	32
+ 554 01cd 02       		.byte	2
+ 555 01ce 02       		.byte	2
+ 556 01cf 40       		.byte	64
+ 557 01d0 08       		.byte	8
+ 558 01d1 01       		.byte	1
+ 559 01d2 0B       		.byte	11
+ 560 01d3 40       		.byte	64
+ 561 01d4 04       		.byte	4
+ 562 01d5 01       		.byte	1
+ 563 01d6 0B       		.byte	11
+ 564 01d7 40       		.byte	64
+ 565 01d8 AF       		.byte	-81
+ 566 01d9 04       		.byte	4
+ 567 01da 00       		.byte	0
+ 568 01db 80       		.byte	-128
+ 569 01dc 10       		.byte	16
+ 570 01dd 00       		.byte	0
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 11
+
+
+ 571 01de 00       		.byte	0
+ 572 01df 80       		.byte	-128
+ 573 01e0 00       		.byte	0
+ 574 01e1 00       		.byte	0
+ 575 01e2 02       		.byte	2
+ 576 01e3 40       		.byte	64
+ 577 01e4 40       		.byte	64
+ 578 01e5 00       		.byte	0
+ 579 01e6 02       		.byte	2
+ 580 01e7 40       		.byte	64
+ 581 01e8 10       		.byte	16
+ 582 01e9 B5       		.byte	-75
+ 583 01ea 06       		.byte	6
+ 584 01eb 4C       		.byte	76
+ 585 01ec 23       		.byte	35
+ 586 01ed 78       		.byte	120
+ 587 01ee 00       		.byte	0
+ 588 01ef 2B       		.byte	43
+ 589 01f0 07       		.byte	7
+ 590 01f1 D1       		.byte	-47
+ 591 01f2 05       		.byte	5
+ 592 01f3 48       		.byte	72
+ 593 01f4 00       		.byte	0
+ 594 01f5 28       		.byte	40
+ 595 01f6 02       		.byte	2
+ 596 01f7 D0       		.byte	-48
+ 597 01f8 04       		.byte	4
+ 598 01f9 48       		.byte	72
+ 599 01fa 00       		.byte	0
+ 600 01fb E0       		.byte	-32
+ 601 01fc 00       		.byte	0
+ 602 01fd BF       		.byte	-65
+ 603 01fe 01       		.byte	1
+ 604 01ff 21       		.byte	33
+ 605 0200 21       		.byte	33
+ 606 0201 70       		.byte	112
+ 607 0202 10       		.byte	16
+ 608 0203 BD       		.byte	-67
+ 609 0204 F0       		.byte	-16
+ 610 0205 00       		.byte	0
+ 611 0206 00       		.byte	0
+ 612 0207 20       		.byte	32
+ 613 0208 00       		.byte	0
+ 614 0209 00       		.byte	0
+ 615 020a 00       		.byte	0
+ 616 020b 00       		.byte	0
+ 617 020c 64       		.byte	100
+ 618 020d 0E       		.byte	14
+ 619 020e 00       		.byte	0
+ 620 020f 00       		.byte	0
+ 621 0210 08       		.byte	8
+ 622 0211 B5       		.byte	-75
+ 623 0212 08       		.byte	8
+ 624 0213 4B       		.byte	75
+ 625 0214 00       		.byte	0
+ 626 0215 2B       		.byte	43
+ 627 0216 03       		.byte	3
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 12
+
+
+ 628 0217 D0       		.byte	-48
+ 629 0218 07       		.byte	7
+ 630 0219 48       		.byte	72
+ 631 021a 08       		.byte	8
+ 632 021b 49       		.byte	73
+ 633 021c 00       		.byte	0
+ 634 021d E0       		.byte	-32
+ 635 021e 00       		.byte	0
+ 636 021f BF       		.byte	-65
+ 637 0220 07       		.byte	7
+ 638 0221 48       		.byte	72
+ 639 0222 01       		.byte	1
+ 640 0223 68       		.byte	104
+ 641 0224 00       		.byte	0
+ 642 0225 29       		.byte	41
+ 643 0226 03       		.byte	3
+ 644 0227 D0       		.byte	-48
+ 645 0228 06       		.byte	6
+ 646 0229 4A       		.byte	74
+ 647 022a 00       		.byte	0
+ 648 022b 2A       		.byte	42
+ 649 022c 00       		.byte	0
+ 650 022d D0       		.byte	-48
+ 651 022e 90       		.byte	-112
+ 652 022f 47       		.byte	71
+ 653 0230 08       		.byte	8
+ 654 0231 BD       		.byte	-67
+ 655 0232 C0       		.byte	-64
+ 656 0233 46       		.byte	70
+ 657 0234 00       		.byte	0
+ 658 0235 00       		.byte	0
+ 659 0236 00       		.byte	0
+ 660 0237 00       		.byte	0
+ 661 0238 64       		.byte	100
+ 662 0239 0E       		.byte	14
+ 663 023a 00       		.byte	0
+ 664 023b 00       		.byte	0
+ 665 023c F4       		.byte	-12
+ 666 023d 00       		.byte	0
+ 667 023e 00       		.byte	0
+ 668 023f 20       		.byte	32
+ 669 0240 D0       		.byte	-48
+ 670 0241 00       		.byte	0
+ 671 0242 00       		.byte	0
+ 672 0243 20       		.byte	32
+ 673 0244 00       		.byte	0
+ 674 0245 00       		.byte	0
+ 675 0246 00       		.byte	0
+ 676 0247 00       		.byte	0
+ 677 0248 10       		.byte	16
+ 678 0249 B5       		.byte	-75
+ 679 024a 62       		.byte	98
+ 680 024b B6       		.byte	-74
+ 681 024c 00       		.byte	0
+ 682 024d F0       		.byte	-16
+ 683 024e E2       		.byte	-30
+ 684 024f FC       		.byte	-4
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 13
+
+
+ 685 0250 00       		.byte	0
+ 686 0251 28       		.byte	40
+ 687 0252 0E       		.byte	14
+ 688 0253 D1       		.byte	-47
+ 689 0254 65       		.byte	101
+ 690 0255 24       		.byte	36
+ 691 0256 01       		.byte	1
+ 692 0257 20       		.byte	32
+ 693 0258 00       		.byte	0
+ 694 0259 F0       		.byte	-16
+ 695 025a 58       		.byte	88
+ 696 025b FA       		.byte	-6
+ 697 025c 00       		.byte	0
+ 698 025d F0       		.byte	-16
+ 699 025e DA       		.byte	-38
+ 700 025f FC       		.byte	-4
+ 701 0260 00       		.byte	0
+ 702 0261 28       		.byte	40
+ 703 0262 06       		.byte	6
+ 704 0263 D1       		.byte	-47
+ 705 0264 01       		.byte	1
+ 706 0265 3C       		.byte	60
+ 707 0266 E4       		.byte	-28
+ 708 0267 B2       		.byte	-78
+ 709 0268 00       		.byte	0
+ 710 0269 2C       		.byte	44
+ 711 026a F4       		.byte	-12
+ 712 026b D1       		.byte	-47
+ 713 026c 03       		.byte	3
+ 714 026d 4B       		.byte	75
+ 715 026e 40       		.byte	64
+ 716 026f 22       		.byte	34
+ 717 0270 1A       		.byte	26
+ 718 0271 60       		.byte	96
+ 719 0272 00       		.byte	0
+ 720 0273 F0       		.byte	-16
+ 721 0274 C1       		.byte	-63
+ 722 0275 FC       		.byte	-4
+ 723 0276 00       		.byte	0
+ 724 0277 F0       		.byte	-16
+ 725 0278 3B       		.byte	59
+ 726 0279 FC       		.byte	-4
+ 727 027a FE       		.byte	-2
+ 728 027b E7       		.byte	-25
+ 729 027c C0       		.byte	-64
+ 730 027d 00       		.byte	0
+ 731 027e 00       		.byte	0
+ 732 027f 20       		.byte	32
+ 733 0280 08       		.byte	8
+ 734 0281 B5       		.byte	-75
+ 735 0282 00       		.byte	0
+ 736 0283 F0       		.byte	-16
+ 737 0284 CD       		.byte	-51
+ 738 0285 F8       		.byte	-8
+ 739 0286 00       		.byte	0
+ 740 0287 F0       		.byte	-16
+ 741 0288 05       		.byte	5
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 14
+
+
+ 742 0289 F9       		.byte	-7
+ 743 028a 00       		.byte	0
+ 744 028b F0       		.byte	-16
+ 745 028c 6D       		.byte	109
+ 746 028d F9       		.byte	-7
+ 747 028e 08       		.byte	8
+ 748 028f BD       		.byte	-67
+ 749 0290 70       		.byte	112
+ 750 0291 B5       		.byte	-75
+ 751 0292 05       		.byte	5
+ 752 0293 4B       		.byte	75
+ 753 0294 0D       		.byte	13
+ 754 0295 1C       		.byte	28
+ 755 0296 16       		.byte	22
+ 756 0297 1C       		.byte	28
+ 757 0298 00       		.byte	0
+ 758 0299 24       		.byte	36
+ 759 029a C9       		.byte	-55
+ 760 029b B2       		.byte	-78
+ 761 029c 1C       		.byte	28
+ 762 029d 80       		.byte	-128
+ 763 029e 00       		.byte	0
+ 764 029f F0       		.byte	-16
+ 765 02a0 57       		.byte	87
+ 766 02a1 F9       		.byte	-7
+ 767 02a2 35       		.byte	53
+ 768 02a3 80       		.byte	-128
+ 769 02a4 20       		.byte	32
+ 770 02a5 1C       		.byte	28
+ 771 02a6 70       		.byte	112
+ 772 02a7 BD       		.byte	-67
+ 773 02a8 0C       		.byte	12
+ 774 02a9 01       		.byte	1
+ 775 02aa 00       		.byte	0
+ 776 02ab 20       		.byte	32
+ 777 02ac F0       		.byte	-16
+ 778 02ad B5       		.byte	-75
+ 779 02ae 0A       		.byte	10
+ 780 02af 27       		.byte	39
+ 781 02b0 5F       		.byte	95
+ 782 02b1 43       		.byte	67
+ 783 02b2 87       		.byte	-121
+ 784 02b3 B0       		.byte	-80
+ 785 02b4 02       		.byte	2
+ 786 02b5 90       		.byte	-112
+ 787 02b6 05       		.byte	5
+ 788 02b7 91       		.byte	-111
+ 789 02b8 16       		.byte	22
+ 790 02b9 1C       		.byte	28
+ 791 02ba 00       		.byte	0
+ 792 02bb 25       		.byte	37
+ 793 02bc 2A       		.byte	42
+ 794 02bd 4C       		.byte	76
+ 795 02be BD       		.byte	-67
+ 796 02bf 42       		.byte	66
+ 797 02c0 19       		.byte	25
+ 798 02c1 DA       		.byte	-38
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 15
+
+
+ 799 02c2 00       		.byte	0
+ 800 02c3 F0       		.byte	-16
+ 801 02c4 D5       		.byte	-43
+ 802 02c5 F8       		.byte	-8
+ 803 02c6 80       		.byte	-128
+ 804 02c7 B2       		.byte	-78
+ 805 02c8 20       		.byte	32
+ 806 02c9 80       		.byte	-128
+ 807 02ca 23       		.byte	35
+ 808 02cb 88       		.byte	-120
+ 809 02cc 00       		.byte	0
+ 810 02cd 2B       		.byte	43
+ 811 02ce 0C       		.byte	12
+ 812 02cf D0       		.byte	-48
+ 813 02d0 02       		.byte	2
+ 814 02d1 20       		.byte	32
+ 815 02d2 27       		.byte	39
+ 816 02d3 88       		.byte	-120
+ 817 02d4 00       		.byte	0
+ 818 02d5 F0       		.byte	-16
+ 819 02d6 1A       		.byte	26
+ 820 02d7 FA       		.byte	-6
+ 821 02d8 00       		.byte	0
+ 822 02d9 F0       		.byte	-16
+ 823 02da CA       		.byte	-54
+ 824 02db F8       		.byte	-8
+ 825 02dc 81       		.byte	-127
+ 826 02dd B2       		.byte	-78
+ 827 02de 21       		.byte	33
+ 828 02df 80       		.byte	-128
+ 829 02e0 22       		.byte	34
+ 830 02e1 88       		.byte	-120
+ 831 02e2 BA       		.byte	-70
+ 832 02e3 42       		.byte	66
+ 833 02e4 F4       		.byte	-12
+ 834 02e5 D8       		.byte	-40
+ 835 02e6 00       		.byte	0
+ 836 02e7 27       		.byte	39
+ 837 02e8 06       		.byte	6
+ 838 02e9 E0       		.byte	-32
+ 839 02ea 01       		.byte	1
+ 840 02eb 20       		.byte	32
+ 841 02ec 01       		.byte	1
+ 842 02ed 35       		.byte	53
+ 843 02ee 00       		.byte	0
+ 844 02ef F0       		.byte	-16
+ 845 02f0 0D       		.byte	13
+ 846 02f1 FA       		.byte	-6
+ 847 02f2 AD       		.byte	-83
+ 848 02f3 B2       		.byte	-78
+ 849 02f4 E2       		.byte	-30
+ 850 02f5 E7       		.byte	-25
+ 851 02f6 05       		.byte	5
+ 852 02f7 27       		.byte	39
+ 853 02f8 00       		.byte	0
+ 854 02f9 25       		.byte	37
+ 855 02fa 35       		.byte	53
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 16
+
+
+ 856 02fb 80       		.byte	-128
+ 857 02fc 20       		.byte	32
+ 858 02fd 88       		.byte	-120
+ 859 02fe 00       		.byte	0
+ 860 02ff 28       		.byte	40
+ 861 0300 2F       		.byte	47
+ 862 0301 D0       		.byte	-48
+ 863 0302 23       		.byte	35
+ 864 0303 88       		.byte	-120
+ 865 0304 30       		.byte	48
+ 866 0305 88       		.byte	-120
+ 867 0306 01       		.byte	1
+ 868 0307 93       		.byte	-109
+ 869 0308 01       		.byte	1
+ 870 0309 99       		.byte	-103
+ 871 030a 42       		.byte	66
+ 872 030b 18       		.byte	24
+ 873 030c 05       		.byte	5
+ 874 030d 99       		.byte	-103
+ 875 030e 93       		.byte	-109
+ 876 030f B2       		.byte	-78
+ 877 0310 33       		.byte	51
+ 878 0311 80       		.byte	-128
+ 879 0312 8B       		.byte	-117
+ 880 0313 42       		.byte	66
+ 881 0314 21       		.byte	33
+ 882 0315 D2       		.byte	-46
+ 883 0316 01       		.byte	1
+ 884 0317 98       		.byte	-104
+ 885 0318 2A       		.byte	42
+ 886 0319 18       		.byte	24
+ 887 031a 93       		.byte	-109
+ 888 031b B2       		.byte	-78
+ 889 031c 04       		.byte	4
+ 890 031d 93       		.byte	-109
+ 891 031e 04       		.byte	4
+ 892 031f 99       		.byte	-103
+ 893 0320 8D       		.byte	-115
+ 894 0321 42       		.byte	66
+ 895 0322 09       		.byte	9
+ 896 0323 D0       		.byte	-48
+ 897 0324 02       		.byte	2
+ 898 0325 99       		.byte	-103
+ 899 0326 48       		.byte	72
+ 900 0327 19       		.byte	25
+ 901 0328 03       		.byte	3
+ 902 0329 90       		.byte	-112
+ 903 032a 00       		.byte	0
+ 904 032b F0       		.byte	-16
+ 905 032c 87       		.byte	-121
+ 906 032d F8       		.byte	-8
+ 907 032e 03       		.byte	3
+ 908 032f 9A       		.byte	-102
+ 909 0330 01       		.byte	1
+ 910 0331 35       		.byte	53
+ 911 0332 10       		.byte	16
+ 912 0333 70       		.byte	112
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 17
+
+
+ 913 0334 AD       		.byte	-83
+ 914 0335 B2       		.byte	-78
+ 915 0336 F2       		.byte	-14
+ 916 0337 E7       		.byte	-25
+ 917 0338 72       		.byte	114
+ 918 0339 B6       		.byte	-74
+ 919 033a 20       		.byte	32
+ 920 033b 88       		.byte	-120
+ 921 033c 01       		.byte	1
+ 922 033d 9A       		.byte	-102
+ 923 033e 83       		.byte	-125
+ 924 033f 1A       		.byte	26
+ 925 0340 99       		.byte	-103
+ 926 0341 B2       		.byte	-78
+ 927 0342 21       		.byte	33
+ 928 0343 80       		.byte	-128
+ 929 0344 62       		.byte	98
+ 930 0345 B6       		.byte	-74
+ 931 0346 02       		.byte	2
+ 932 0347 98       		.byte	-104
+ 933 0348 42       		.byte	66
+ 934 0349 19       		.byte	25
+ 935 034a 01       		.byte	1
+ 936 034b 3A       		.byte	58
+ 937 034c 13       		.byte	19
+ 938 034d 78       		.byte	120
+ 939 034e 17       		.byte	23
+ 940 034f 2B       		.byte	43
+ 941 0350 D4       		.byte	-44
+ 942 0351 D0       		.byte	-48
+ 943 0352 05       		.byte	5
+ 944 0353 20       		.byte	32
+ 945 0354 00       		.byte	0
+ 946 0355 F0       		.byte	-16
+ 947 0356 DA       		.byte	-38
+ 948 0357 F9       		.byte	-7
+ 949 0358 D0       		.byte	-48
+ 950 0359 E7       		.byte	-25
+ 951 035a 30       		.byte	48
+ 952 035b 80       		.byte	-128
+ 953 035c 00       		.byte	0
+ 954 035d F0       		.byte	-16
+ 955 035e 9A       		.byte	-102
+ 956 035f F8       		.byte	-8
+ 957 0360 05       		.byte	5
+ 958 0361 27       		.byte	39
+ 959 0362 38       		.byte	56
+ 960 0363 1C       		.byte	28
+ 961 0364 07       		.byte	7
+ 962 0365 B0       		.byte	-80
+ 963 0366 F0       		.byte	-16
+ 964 0367 BD       		.byte	-67
+ 965 0368 0C       		.byte	12
+ 966 0369 01       		.byte	1
+ 967 036a 00       		.byte	0
+ 968 036b 20       		.byte	32
+ 969 036c 00       		.byte	0
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 18
+
+
+ 970 036d B5       		.byte	-75
+ 971 036e FE       		.byte	-2
+ 972 036f E7       		.byte	-25
+ 973 0370 70       		.byte	112
+ 974 0371 B5       		.byte	-75
+ 975 0372 0F       		.byte	15
+ 976 0373 49       		.byte	73
+ 977 0374 0F       		.byte	15
+ 978 0375 4A       		.byte	74
+ 979 0376 01       		.byte	1
+ 980 0377 39       		.byte	57
+ 981 0378 4B       		.byte	75
+ 982 0379 1C       		.byte	28
+ 983 037a 14       		.byte	20
+ 984 037b D0       		.byte	-48
+ 985 037c 50       		.byte	80
+ 986 037d 68       		.byte	104
+ 987 037e 95       		.byte	-107
+ 988 037f 68       		.byte	104
+ 989 0380 14       		.byte	20
+ 990 0381 68       		.byte	104
+ 991 0382 03       		.byte	3
+ 992 0383 1C       		.byte	28
+ 993 0384 1E       		.byte	30
+ 994 0385 1A       		.byte	26
+ 995 0386 AE       		.byte	-82
+ 996 0387 42       		.byte	66
+ 997 0388 02       		.byte	2
+ 998 0389 D0       		.byte	-48
+ 999 038a 40       		.byte	64
+ 1000 038b CC       		.byte	-52
+ 1001 038c 40       		.byte	64
+ 1002 038d C3       		.byte	-61
+ 1003 038e F9       		.byte	-7
+ 1004 038f E7       		.byte	-25
+ 1005 0390 D0       		.byte	-48
+ 1006 0391 68       		.byte	104
+ 1007 0392 1D       		.byte	29
+ 1008 0393 1C       		.byte	28
+ 1009 0394 5C       		.byte	92
+ 1010 0395 1B       		.byte	27
+ 1011 0396 84       		.byte	-124
+ 1012 0397 42       		.byte	66
+ 1013 0398 02       		.byte	2
+ 1014 0399 D0       		.byte	-48
+ 1015 039a 00       		.byte	0
+ 1016 039b 26       		.byte	38
+ 1017 039c 40       		.byte	64
+ 1018 039d C3       		.byte	-61
+ 1019 039e F9       		.byte	-7
+ 1020 039f E7       		.byte	-25
+ 1021 03a0 10       		.byte	16
+ 1022 03a1 32       		.byte	50
+ 1023 03a2 01       		.byte	1
+ 1024 03a3 39       		.byte	57
+ 1025 03a4 E8       		.byte	-24
+ 1026 03a5 E7       		.byte	-25
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 19
+
+
+ 1027 03a6 00       		.byte	0
+ 1028 03a7 F0       		.byte	-16
+ 1029 03a8 21       		.byte	33
+ 1030 03a9 FD       		.byte	-3
+ 1031 03aa FF       		.byte	-1
+ 1032 03ab F7       		.byte	-9
+ 1033 03ac 4D       		.byte	77
+ 1034 03ad FF       		.byte	-1
+ 1035 03ae FE       		.byte	-2
+ 1036 03af E7       		.byte	-25
+ 1037 03b0 01       		.byte	1
+ 1038 03b1 00       		.byte	0
+ 1039 03b2 00       		.byte	0
+ 1040 03b3 00       		.byte	0
+ 1041 03b4 B8       		.byte	-72
+ 1042 03b5 0E       		.byte	14
+ 1043 03b6 00       		.byte	0
+ 1044 03b7 00       		.byte	0
+ 1045 03b8 08       		.byte	8
+ 1046 03b9 B5       		.byte	-75
+ 1047 03ba 00       		.byte	0
+ 1048 03bb 23       		.byte	35
+ 1049 03bc 9A       		.byte	-102
+ 1050 03bd 00       		.byte	0
+ 1051 03be 03       		.byte	3
+ 1052 03bf 2B       		.byte	43
+ 1053 03c0 02       		.byte	2
+ 1054 03c1 D8       		.byte	-40
+ 1055 03c2 0C       		.byte	12
+ 1056 03c3 48       		.byte	72
+ 1057 03c4 81       		.byte	-127
+ 1058 03c5 58       		.byte	88
+ 1059 03c6 00       		.byte	0
+ 1060 03c7 E0       		.byte	-32
+ 1061 03c8 0B       		.byte	11
+ 1062 03c9 49       		.byte	73
+ 1063 03ca 0C       		.byte	12
+ 1064 03cb 48       		.byte	72
+ 1065 03cc 01       		.byte	1
+ 1066 03cd 33       		.byte	51
+ 1067 03ce 81       		.byte	-127
+ 1068 03cf 50       		.byte	80
+ 1069 03d0 30       		.byte	48
+ 1070 03d1 2B       		.byte	43
+ 1071 03d2 F3       		.byte	-13
+ 1072 03d3 D1       		.byte	-47
+ 1073 03d4 FF       		.byte	-1
+ 1074 03d5 F7       		.byte	-9
+ 1075 03d6 22       		.byte	34
+ 1076 03d7 FE       		.byte	-2
+ 1077 03d8 09       		.byte	9
+ 1078 03d9 49       		.byte	73
+ 1079 03da 0A       		.byte	10
+ 1080 03db 4B       		.byte	75
+ 1081 03dc 08       		.byte	8
+ 1082 03dd 68       		.byte	104
+ 1083 03de 00       		.byte	0
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 20
+
+
+ 1084 03df 22       		.byte	34
+ 1085 03e0 1A       		.byte	26
+ 1086 03e1 60       		.byte	96
+ 1087 03e2 00       		.byte	0
+ 1088 03e3 28       		.byte	40
+ 1089 03e4 00       		.byte	0
+ 1090 03e5 D1       		.byte	-47
+ 1091 03e6 08       		.byte	8
+ 1092 03e7 60       		.byte	96
+ 1093 03e8 80       		.byte	-128
+ 1094 03e9 23       		.byte	35
+ 1095 03ea 01       		.byte	1
+ 1096 03eb 22       		.byte	34
+ 1097 03ec D9       		.byte	-39
+ 1098 03ed 05       		.byte	5
+ 1099 03ee 0A       		.byte	10
+ 1100 03ef 60       		.byte	96
+ 1101 03f0 08       		.byte	8
+ 1102 03f1 BD       		.byte	-67
+ 1103 03f2 C0       		.byte	-64
+ 1104 03f3 46       		.byte	70
+ 1105 03f4 00       		.byte	0
+ 1106 03f5 00       		.byte	0
+ 1107 03f6 00       		.byte	0
+ 1108 03f7 00       		.byte	0
+ 1109 03f8 6D       		.byte	109
+ 1110 03f9 03       		.byte	3
+ 1111 03fa 00       		.byte	0
+ 1112 03fb 00       		.byte	0
+ 1113 03fc 00       		.byte	0
+ 1114 03fd 00       		.byte	0
+ 1115 03fe 00       		.byte	0
+ 1116 03ff 20       		.byte	32
+ 1117 0400 C0       		.byte	-64
+ 1118 0401 00       		.byte	0
+ 1119 0402 00       		.byte	0
+ 1120 0403 20       		.byte	32
+ 1121 0404 C8       		.byte	-56
+ 1122 0405 00       		.byte	0
+ 1123 0406 00       		.byte	0
+ 1124 0407 20       		.byte	32
+ 1125 0408 08       		.byte	8
+ 1126 0409 B5       		.byte	-75
+ 1127 040a 04       		.byte	4
+ 1128 040b 4B       		.byte	75
+ 1129 040c 80       		.byte	-128
+ 1130 040d 22       		.byte	34
+ 1131 040e 19       		.byte	25
+ 1132 040f 68       		.byte	104
+ 1133 0410 10       		.byte	16
+ 1134 0411 06       		.byte	6
+ 1135 0412 08       		.byte	8
+ 1136 0413 43       		.byte	67
+ 1137 0414 18       		.byte	24
+ 1138 0415 60       		.byte	96
+ 1139 0416 00       		.byte	0
+ 1140 0417 F0       		.byte	-16
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 21
+
+
+ 1141 0418 49       		.byte	73
+ 1142 0419 F9       		.byte	-7
+ 1143 041a 08       		.byte	8
+ 1144 041b BD       		.byte	-67
+ 1145 041c 00       		.byte	0
+ 1146 041d 00       		.byte	0
+ 1147 041e 06       		.byte	6
+ 1148 041f 40       		.byte	64
+ 1149 0420 08       		.byte	8
+ 1150 0421 B5       		.byte	-75
+ 1151 0422 05       		.byte	5
+ 1152 0423 4B       		.byte	75
+ 1153 0424 1A       		.byte	26
+ 1154 0425 78       		.byte	120
+ 1155 0426 00       		.byte	0
+ 1156 0427 2A       		.byte	42
+ 1157 0428 03       		.byte	3
+ 1158 0429 D1       		.byte	-47
+ 1159 042a 01       		.byte	1
+ 1160 042b 20       		.byte	32
+ 1161 042c 18       		.byte	24
+ 1162 042d 70       		.byte	112
+ 1163 042e 00       		.byte	0
+ 1164 042f F0       		.byte	-16
+ 1165 0430 BD       		.byte	-67
+ 1166 0431 F8       		.byte	-8
+ 1167 0432 FF       		.byte	-1
+ 1168 0433 F7       		.byte	-9
+ 1169 0434 E9       		.byte	-23
+ 1170 0435 FF       		.byte	-1
+ 1171 0436 08       		.byte	8
+ 1172 0437 BD       		.byte	-67
+ 1173 0438 10       		.byte	16
+ 1174 0439 01       		.byte	1
+ 1175 043a 00       		.byte	0
+ 1176 043b 20       		.byte	32
+ 1177 043c 09       		.byte	9
+ 1178 043d 4B       		.byte	75
+ 1179 043e 00       		.byte	0
+ 1180 043f B5       		.byte	-75
+ 1181 0440 19       		.byte	25
+ 1182 0441 68       		.byte	104
+ 1183 0442 09       		.byte	9
+ 1184 0443 4B       		.byte	75
+ 1185 0444 1A       		.byte	26
+ 1186 0445 68       		.byte	104
+ 1187 0446 91       		.byte	-111
+ 1188 0447 42       		.byte	66
+ 1189 0448 0A       		.byte	10
+ 1190 0449 D0       		.byte	-48
+ 1191 044a 19       		.byte	25
+ 1192 044b 68       		.byte	104
+ 1193 044c 4A       		.byte	74
+ 1194 044d 1C       		.byte	28
+ 1195 044e 40       		.byte	64
+ 1196 044f 39       		.byte	57
+ 1197 0450 48       		.byte	72
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 22
+
+
+ 1198 0451 1E       		.byte	30
+ 1199 0452 81       		.byte	-127
+ 1200 0453 41       		.byte	65
+ 1201 0454 48       		.byte	72
+ 1202 0455 42       		.byte	66
+ 1203 0456 05       		.byte	5
+ 1204 0457 49       		.byte	73
+ 1205 0458 02       		.byte	2
+ 1206 0459 40       		.byte	64
+ 1207 045a 88       		.byte	-120
+ 1208 045b 5C       		.byte	92
+ 1209 045c 1A       		.byte	26
+ 1210 045d 60       		.byte	96
+ 1211 045e 00       		.byte	0
+ 1212 045f E0       		.byte	-32
+ 1213 0460 00       		.byte	0
+ 1214 0461 20       		.byte	32
+ 1215 0462 00       		.byte	0
+ 1216 0463 BD       		.byte	-67
+ 1217 0464 AC       		.byte	-84
+ 1218 0465 01       		.byte	1
+ 1219 0466 00       		.byte	0
+ 1220 0467 20       		.byte	32
+ 1221 0468 24       		.byte	36
+ 1222 0469 01       		.byte	1
+ 1223 046a 00       		.byte	0
+ 1224 046b 20       		.byte	32
+ 1225 046c 68       		.byte	104
+ 1226 046d 01       		.byte	1
+ 1227 046e 00       		.byte	0
+ 1228 046f 20       		.byte	32
+ 1229 0470 06       		.byte	6
+ 1230 0471 4B       		.byte	75
+ 1231 0472 07       		.byte	7
+ 1232 0473 4A       		.byte	74
+ 1233 0474 1B       		.byte	27
+ 1234 0475 68       		.byte	104
+ 1235 0476 11       		.byte	17
+ 1236 0477 68       		.byte	104
+ 1237 0478 00       		.byte	0
+ 1238 0479 B5       		.byte	-75
+ 1239 047a 8B       		.byte	-117
+ 1240 047b 42       		.byte	66
+ 1241 047c 02       		.byte	2
+ 1242 047d D3       		.byte	-45
+ 1243 047e 12       		.byte	18
+ 1244 047f 68       		.byte	104
+ 1245 0480 98       		.byte	-104
+ 1246 0481 1A       		.byte	26
+ 1247 0482 02       		.byte	2
+ 1248 0483 E0       		.byte	-32
+ 1249 0484 10       		.byte	16
+ 1250 0485 68       		.byte	104
+ 1251 0486 41       		.byte	65
+ 1252 0487 33       		.byte	51
+ 1253 0488 18       		.byte	24
+ 1254 0489 1A       		.byte	26
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 23
+
+
+ 1255 048a 00       		.byte	0
+ 1256 048b BD       		.byte	-67
+ 1257 048c AC       		.byte	-84
+ 1258 048d 01       		.byte	1
+ 1259 048e 00       		.byte	0
+ 1260 048f 20       		.byte	32
+ 1261 0490 24       		.byte	36
+ 1262 0491 01       		.byte	1
+ 1263 0492 00       		.byte	0
+ 1264 0493 20       		.byte	32
+ 1265 0494 0C       		.byte	12
+ 1266 0495 4A       		.byte	74
+ 1267 0496 0D       		.byte	13
+ 1268 0497 4B       		.byte	75
+ 1269 0498 00       		.byte	0
+ 1270 0499 21       		.byte	33
+ 1271 049a 30       		.byte	48
+ 1272 049b B5       		.byte	-75
+ 1273 049c 10       		.byte	16
+ 1274 049d 68       		.byte	104
+ 1275 049e 11       		.byte	17
+ 1276 049f 60       		.byte	96
+ 1277 04a0 1D       		.byte	29
+ 1278 04a1 68       		.byte	104
+ 1279 04a2 80       		.byte	-128
+ 1280 04a3 24       		.byte	36
+ 1281 04a4 64       		.byte	100
+ 1282 04a5 02       		.byte	2
+ 1283 04a6 2C       		.byte	44
+ 1284 04a7 43       		.byte	67
+ 1285 04a8 1C       		.byte	28
+ 1286 04a9 60       		.byte	96
+ 1287 04aa 1D       		.byte	29
+ 1288 04ab 68       		.byte	104
+ 1289 04ac 08       		.byte	8
+ 1290 04ad 4C       		.byte	76
+ 1291 04ae 2C       		.byte	44
+ 1292 04af 40       		.byte	64
+ 1293 04b0 1C       		.byte	28
+ 1294 04b1 60       		.byte	96
+ 1295 04b2 08       		.byte	8
+ 1296 04b3 4B       		.byte	75
+ 1297 04b4 08       		.byte	8
+ 1298 04b5 4C       		.byte	76
+ 1299 04b6 1D       		.byte	29
+ 1300 04b7 68       		.byte	104
+ 1301 04b8 08       		.byte	8
+ 1302 04b9 4B       		.byte	75
+ 1303 04ba 25       		.byte	37
+ 1304 04bb 60       		.byte	96
+ 1305 04bc 19       		.byte	25
+ 1306 04bd 70       		.byte	112
+ 1307 04be 08       		.byte	8
+ 1308 04bf 4D       		.byte	77
+ 1309 04c0 08       		.byte	8
+ 1310 04c1 49       		.byte	73
+ 1311 04c2 29       		.byte	41
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 24
+
+
+ 1312 04c3 60       		.byte	96
+ 1313 04c4 10       		.byte	16
+ 1314 04c5 60       		.byte	96
+ 1315 04c6 30       		.byte	48
+ 1316 04c7 BD       		.byte	-67
+ 1317 04c8 C8       		.byte	-56
+ 1318 04c9 0F       		.byte	15
+ 1319 04ca 06       		.byte	6
+ 1320 04cb 40       		.byte	64
+ 1321 04cc 04       		.byte	4
+ 1322 04cd 03       		.byte	3
+ 1323 04ce 06       		.byte	6
+ 1324 04cf 40       		.byte	64
+ 1325 04d0 FF       		.byte	-1
+ 1326 04d1 FF       		.byte	-1
+ 1327 04d2 FE       		.byte	-2
+ 1328 04d3 FF       		.byte	-1
+ 1329 04d4 24       		.byte	36
+ 1330 04d5 01       		.byte	1
+ 1331 04d6 00       		.byte	0
+ 1332 04d7 20       		.byte	32
+ 1333 04d8 AC       		.byte	-84
+ 1334 04d9 01       		.byte	1
+ 1335 04da 00       		.byte	0
+ 1336 04db 20       		.byte	32
+ 1337 04dc A9       		.byte	-87
+ 1338 04dd 01       		.byte	1
+ 1339 04de 00       		.byte	0
+ 1340 04df 20       		.byte	32
+ 1341 04e0 C0       		.byte	-64
+ 1342 04e1 0F       		.byte	15
+ 1343 04e2 06       		.byte	6
+ 1344 04e3 40       		.byte	64
+ 1345 04e4 ED       		.byte	-19
+ 1346 04e5 0F       		.byte	15
+ 1347 04e6 00       		.byte	0
+ 1348 04e7 00       		.byte	0
+ 1349 04e8 12       		.byte	18
+ 1350 04e9 49       		.byte	73
+ 1351 04ea 10       		.byte	16
+ 1352 04eb B5       		.byte	-75
+ 1353 04ec 0A       		.byte	10
+ 1354 04ed 68       		.byte	104
+ 1355 04ee 53       		.byte	83
+ 1356 04ef 1C       		.byte	28
+ 1357 04f0 3F       		.byte	63
+ 1358 04f1 3A       		.byte	58
+ 1359 04f2 54       		.byte	84
+ 1360 04f3 1E       		.byte	30
+ 1361 04f4 A2       		.byte	-94
+ 1362 04f5 41       		.byte	65
+ 1363 04f6 54       		.byte	84
+ 1364 04f7 42       		.byte	66
+ 1365 04f8 23       		.byte	35
+ 1366 04f9 40       		.byte	64
+ 1367 04fa 0F       		.byte	15
+ 1368 04fb 4A       		.byte	74
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 25
+
+
+ 1369 04fc 14       		.byte	20
+ 1370 04fd 68       		.byte	104
+ 1371 04fe A3       		.byte	-93
+ 1372 04ff 42       		.byte	66
+ 1373 0500 FB       		.byte	-5
+ 1374 0501 D0       		.byte	-48
+ 1375 0502 0C       		.byte	12
+ 1376 0503 68       		.byte	104
+ 1377 0504 12       		.byte	18
+ 1378 0505 68       		.byte	104
+ 1379 0506 94       		.byte	-108
+ 1380 0507 42       		.byte	66
+ 1381 0508 08       		.byte	8
+ 1382 0509 D1       		.byte	-47
+ 1383 050a 0C       		.byte	12
+ 1384 050b 4C       		.byte	76
+ 1385 050c 0F       		.byte	15
+ 1386 050d 22       		.byte	34
+ 1387 050e 24       		.byte	36
+ 1388 050f 68       		.byte	104
+ 1389 0510 22       		.byte	34
+ 1390 0511 40       		.byte	64
+ 1391 0512 08       		.byte	8
+ 1392 0513 2A       		.byte	42
+ 1393 0514 02       		.byte	2
+ 1394 0515 D0       		.byte	-48
+ 1395 0516 0A       		.byte	10
+ 1396 0517 4A       		.byte	74
+ 1397 0518 10       		.byte	16
+ 1398 0519 60       		.byte	96
+ 1399 051a 0A       		.byte	10
+ 1400 051b E0       		.byte	-32
+ 1401 051c 09       		.byte	9
+ 1402 051d 4C       		.byte	76
+ 1403 051e 02       		.byte	2
+ 1404 051f 22       		.byte	34
+ 1405 0520 22       		.byte	34
+ 1406 0521 60       		.byte	96
+ 1407 0522 09       		.byte	9
+ 1408 0523 4C       		.byte	76
+ 1409 0524 C0       		.byte	-64
+ 1410 0525 B2       		.byte	-78
+ 1411 0526 E0       		.byte	-32
+ 1412 0527 54       		.byte	84
+ 1413 0528 0B       		.byte	11
+ 1414 0529 60       		.byte	96
+ 1415 052a 08       		.byte	8
+ 1416 052b 4B       		.byte	75
+ 1417 052c 19       		.byte	25
+ 1418 052d 68       		.byte	104
+ 1419 052e 0A       		.byte	10
+ 1420 052f 43       		.byte	67
+ 1421 0530 1A       		.byte	26
+ 1422 0531 60       		.byte	96
+ 1423 0532 10       		.byte	16
+ 1424 0533 BD       		.byte	-67
+ 1425 0534 20       		.byte	32
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 26
+
+
+ 1426 0535 01       		.byte	1
+ 1427 0536 00       		.byte	0
+ 1428 0537 20       		.byte	32
+ 1429 0538 1C       		.byte	28
+ 1430 0539 01       		.byte	1
+ 1431 053a 00       		.byte	0
+ 1432 053b 20       		.byte	32
+ 1433 053c 08       		.byte	8
+ 1434 053d 02       		.byte	2
+ 1435 053e 06       		.byte	6
+ 1436 053f 40       		.byte	64
+ 1437 0540 40       		.byte	64
+ 1438 0541 02       		.byte	2
+ 1439 0542 06       		.byte	6
+ 1440 0543 40       		.byte	64
+ 1441 0544 80       		.byte	-128
+ 1442 0545 0F       		.byte	15
+ 1443 0546 06       		.byte	6
+ 1444 0547 40       		.byte	64
+ 1445 0548 28       		.byte	40
+ 1446 0549 01       		.byte	1
+ 1447 054a 00       		.byte	0
+ 1448 054b 20       		.byte	32
+ 1449 054c 88       		.byte	-120
+ 1450 054d 0F       		.byte	15
+ 1451 054e 06       		.byte	6
+ 1452 054f 40       		.byte	64
+ 1453 0550 38       		.byte	56
+ 1454 0551 B5       		.byte	-75
+ 1455 0552 04       		.byte	4
+ 1456 0553 1C       		.byte	28
+ 1457 0554 45       		.byte	69
+ 1458 0555 18       		.byte	24
+ 1459 0556 AC       		.byte	-84
+ 1460 0557 42       		.byte	66
+ 1461 0558 04       		.byte	4
+ 1462 0559 D0       		.byte	-48
+ 1463 055a 20       		.byte	32
+ 1464 055b 78       		.byte	120
+ 1465 055c FF       		.byte	-1
+ 1466 055d F7       		.byte	-9
+ 1467 055e C4       		.byte	-60
+ 1468 055f FF       		.byte	-1
+ 1469 0560 01       		.byte	1
+ 1470 0561 34       		.byte	52
+ 1471 0562 F8       		.byte	-8
+ 1472 0563 E7       		.byte	-25
+ 1473 0564 38       		.byte	56
+ 1474 0565 BD       		.byte	-67
+ 1475 0566 00       		.byte	0
+ 1476 0567 00       		.byte	0
+ 1477 0568 0B       		.byte	11
+ 1478 0569 4A       		.byte	74
+ 1479 056a 00       		.byte	0
+ 1480 056b 23       		.byte	35
+ 1481 056c 11       		.byte	17
+ 1482 056d 68       		.byte	104
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 27
+
+
+ 1483 056e 10       		.byte	16
+ 1484 056f B5       		.byte	-75
+ 1485 0570 13       		.byte	19
+ 1486 0571 60       		.byte	96
+ 1487 0572 0A       		.byte	10
+ 1488 0573 4B       		.byte	75
+ 1489 0574 80       		.byte	-128
+ 1490 0575 20       		.byte	32
+ 1491 0576 1C       		.byte	28
+ 1492 0577 68       		.byte	104
+ 1493 0578 40       		.byte	64
+ 1494 0579 02       		.byte	2
+ 1495 057a 20       		.byte	32
+ 1496 057b 43       		.byte	67
+ 1497 057c 18       		.byte	24
+ 1498 057d 60       		.byte	96
+ 1499 057e 1C       		.byte	28
+ 1500 057f 68       		.byte	104
+ 1501 0580 07       		.byte	7
+ 1502 0581 48       		.byte	72
+ 1503 0582 20       		.byte	32
+ 1504 0583 40       		.byte	64
+ 1505 0584 18       		.byte	24
+ 1506 0585 60       		.byte	96
+ 1507 0586 07       		.byte	7
+ 1508 0587 4B       		.byte	75
+ 1509 0588 07       		.byte	7
+ 1510 0589 48       		.byte	72
+ 1511 058a 1C       		.byte	28
+ 1512 058b 68       		.byte	104
+ 1513 058c 02       		.byte	2
+ 1514 058d 23       		.byte	35
+ 1515 058e 99       		.byte	-103
+ 1516 058f 43       		.byte	67
+ 1517 0590 04       		.byte	4
+ 1518 0591 60       		.byte	96
+ 1519 0592 11       		.byte	17
+ 1520 0593 60       		.byte	96
+ 1521 0594 10       		.byte	16
+ 1522 0595 BD       		.byte	-67
+ 1523 0596 C0       		.byte	-64
+ 1524 0597 46       		.byte	70
+ 1525 0598 88       		.byte	-120
+ 1526 0599 0F       		.byte	15
+ 1527 059a 06       		.byte	6
+ 1528 059b 40       		.byte	64
+ 1529 059c 04       		.byte	4
+ 1530 059d 02       		.byte	2
+ 1531 059e 06       		.byte	6
+ 1532 059f 40       		.byte	64
+ 1533 05a0 FF       		.byte	-1
+ 1534 05a1 FF       		.byte	-1
+ 1535 05a2 FE       		.byte	-2
+ 1536 05a3 FF       		.byte	-1
+ 1537 05a4 1C       		.byte	28
+ 1538 05a5 01       		.byte	1
+ 1539 05a6 00       		.byte	0
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 28
+
+
+ 1540 05a7 20       		.byte	32
+ 1541 05a8 20       		.byte	32
+ 1542 05a9 01       		.byte	1
+ 1543 05aa 00       		.byte	0
+ 1544 05ab 20       		.byte	32
+ 1545 05ac 1B       		.byte	27
+ 1546 05ad 4A       		.byte	74
+ 1547 05ae 1C       		.byte	28
+ 1548 05af 4B       		.byte	75
+ 1549 05b0 1C       		.byte	28
+ 1550 05b1 48       		.byte	72
+ 1551 05b2 10       		.byte	16
+ 1552 05b3 B5       		.byte	-75
+ 1553 05b4 1C       		.byte	28
+ 1554 05b5 49       		.byte	73
+ 1555 05b6 00       		.byte	0
+ 1556 05b7 24       		.byte	36
+ 1557 05b8 1A       		.byte	26
+ 1558 05b9 60       		.byte	96
+ 1559 05ba 04       		.byte	4
+ 1560 05bb 60       		.byte	96
+ 1561 05bc 01       		.byte	1
+ 1562 05bd 22       		.byte	34
+ 1563 05be 1B       		.byte	27
+ 1564 05bf 4B       		.byte	75
+ 1565 05c0 1B       		.byte	27
+ 1566 05c1 48       		.byte	72
+ 1567 05c2 0A       		.byte	10
+ 1568 05c3 60       		.byte	96
+ 1569 05c4 1B       		.byte	27
+ 1570 05c5 49       		.byte	73
+ 1571 05c6 03       		.byte	3
+ 1572 05c7 60       		.byte	96
+ 1573 05c8 07       		.byte	7
+ 1574 05c9 20       		.byte	32
+ 1575 05ca 08       		.byte	8
+ 1576 05cb 60       		.byte	96
+ 1577 05cc 1A       		.byte	26
+ 1578 05cd 49       		.byte	73
+ 1579 05ce 1B       		.byte	27
+ 1580 05cf 48       		.byte	72
+ 1581 05d0 04       		.byte	4
+ 1582 05d1 60       		.byte	96
+ 1583 05d2 0A       		.byte	10
+ 1584 05d3 60       		.byte	96
+ 1585 05d4 1A       		.byte	26
+ 1586 05d5 4A       		.byte	74
+ 1587 05d6 13       		.byte	19
+ 1588 05d7 60       		.byte	96
+ 1589 05d8 1A       		.byte	26
+ 1590 05d9 4B       		.byte	75
+ 1591 05da 1C       		.byte	28
+ 1592 05db 60       		.byte	96
+ 1593 05dc 00       		.byte	0
+ 1594 05dd F0       		.byte	-16
+ 1595 05de 6E       		.byte	110
+ 1596 05df F8       		.byte	-8
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 29
+
+
+ 1597 05e0 19       		.byte	25
+ 1598 05e1 48       		.byte	72
+ 1599 05e2 00       		.byte	0
+ 1600 05e3 F0       		.byte	-16
+ 1601 05e4 49       		.byte	73
+ 1602 05e5 F8       		.byte	-8
+ 1603 05e6 03       		.byte	3
+ 1604 05e7 20       		.byte	32
+ 1605 05e8 00       		.byte	0
+ 1606 05e9 F0       		.byte	-16
+ 1607 05ea 4C       		.byte	76
+ 1608 05eb F8       		.byte	-8
+ 1609 05ec 17       		.byte	23
+ 1610 05ed 48       		.byte	72
+ 1611 05ee 18       		.byte	24
+ 1612 05ef 49       		.byte	73
+ 1613 05f0 18       		.byte	24
+ 1614 05f1 4A       		.byte	74
+ 1615 05f2 19       		.byte	25
+ 1616 05f3 4B       		.byte	75
+ 1617 05f4 04       		.byte	4
+ 1618 05f5 60       		.byte	96
+ 1619 05f6 0C       		.byte	12
+ 1620 05f7 60       		.byte	96
+ 1621 05f8 14       		.byte	20
+ 1622 05f9 60       		.byte	96
+ 1623 05fa 18       		.byte	24
+ 1624 05fb 49       		.byte	73
+ 1625 05fc 1C       		.byte	28
+ 1626 05fd 60       		.byte	96
+ 1627 05fe 18       		.byte	24
+ 1628 05ff 4A       		.byte	74
+ 1629 0600 18       		.byte	24
+ 1630 0601 4B       		.byte	75
+ 1631 0602 04       		.byte	4
+ 1632 0603 20       		.byte	32
+ 1633 0604 08       		.byte	8
+ 1634 0605 60       		.byte	96
+ 1635 0606 14       		.byte	20
+ 1636 0607 60       		.byte	96
+ 1637 0608 17       		.byte	23
+ 1638 0609 48       		.byte	72
+ 1639 060a 1C       		.byte	28
+ 1640 060b 60       		.byte	96
+ 1641 060c 17       		.byte	23
+ 1642 060d 49       		.byte	73
+ 1643 060e 18       		.byte	24
+ 1644 060f 4A       		.byte	74
+ 1645 0610 18       		.byte	24
+ 1646 0611 4B       		.byte	75
+ 1647 0612 04       		.byte	4
+ 1648 0613 60       		.byte	96
+ 1649 0614 0C       		.byte	12
+ 1650 0615 70       		.byte	112
+ 1651 0616 14       		.byte	20
+ 1652 0617 60       		.byte	96
+ 1653 0618 1C       		.byte	28
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 30
+
+
+ 1654 0619 60       		.byte	96
+ 1655 061a 10       		.byte	16
+ 1656 061b BD       		.byte	-67
+ 1657 061c 0B       		.byte	11
+ 1658 061d 00       		.byte	0
+ 1659 061e 00       		.byte	0
+ 1660 061f 02       		.byte	2
+ 1661 0620 00       		.byte	0
+ 1662 0621 00       		.byte	0
+ 1663 0622 06       		.byte	6
+ 1664 0623 40       		.byte	64
+ 1665 0624 40       		.byte	64
+ 1666 0625 00       		.byte	0
+ 1667 0626 06       		.byte	6
+ 1668 0627 40       		.byte	64
+ 1669 0628 48       		.byte	72
+ 1670 0629 00       		.byte	0
+ 1671 062a 06       		.byte	6
+ 1672 062b 40       		.byte	64
+ 1673 062c 07       		.byte	7
+ 1674 062d 00       		.byte	0
+ 1675 062e 00       		.byte	0
+ 1676 062f 80       		.byte	-128
+ 1677 0630 00       		.byte	0
+ 1678 0631 03       		.byte	3
+ 1679 0632 06       		.byte	6
+ 1680 0633 40       		.byte	64
+ 1681 0634 04       		.byte	4
+ 1682 0635 03       		.byte	3
+ 1683 0636 06       		.byte	6
+ 1684 0637 40       		.byte	64
+ 1685 0638 44       		.byte	68
+ 1686 0639 00       		.byte	0
+ 1687 063a 06       		.byte	6
+ 1688 063b 40       		.byte	64
+ 1689 063c 10       		.byte	16
+ 1690 063d 03       		.byte	3
+ 1691 063e 06       		.byte	6
+ 1692 063f 40       		.byte	64
+ 1693 0640 00       		.byte	0
+ 1694 0641 02       		.byte	2
+ 1695 0642 06       		.byte	6
+ 1696 0643 40       		.byte	64
+ 1697 0644 04       		.byte	4
+ 1698 0645 02       		.byte	2
+ 1699 0646 06       		.byte	6
+ 1700 0647 40       		.byte	64
+ 1701 0648 25       		.byte	37
+ 1702 0649 0C       		.byte	12
+ 1703 064a 00       		.byte	0
+ 1704 064b 00       		.byte	0
+ 1705 064c 88       		.byte	-120
+ 1706 064d 0E       		.byte	14
+ 1707 064e 06       		.byte	6
+ 1708 064f 40       		.byte	64
+ 1709 0650 C8       		.byte	-56
+ 1710 0651 0E       		.byte	14
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 31
+
+
+ 1711 0652 06       		.byte	6
+ 1712 0653 40       		.byte	64
+ 1713 0654 48       		.byte	72
+ 1714 0655 0F       		.byte	15
+ 1715 0656 06       		.byte	6
+ 1716 0657 40       		.byte	64
+ 1717 0658 08       		.byte	8
+ 1718 0659 0F       		.byte	15
+ 1719 065a 06       		.byte	6
+ 1720 065b 40       		.byte	64
+ 1721 065c C8       		.byte	-56
+ 1722 065d 0F       		.byte	15
+ 1723 065e 06       		.byte	6
+ 1724 065f 40       		.byte	64
+ 1725 0660 88       		.byte	-120
+ 1726 0661 0F       		.byte	15
+ 1727 0662 06       		.byte	6
+ 1728 0663 40       		.byte	64
+ 1729 0664 AC       		.byte	-84
+ 1730 0665 01       		.byte	1
+ 1731 0666 00       		.byte	0
+ 1732 0667 20       		.byte	32
+ 1733 0668 24       		.byte	36
+ 1734 0669 01       		.byte	1
+ 1735 066a 00       		.byte	0
+ 1736 066b 20       		.byte	32
+ 1737 066c A9       		.byte	-87
+ 1738 066d 01       		.byte	1
+ 1739 066e 00       		.byte	0
+ 1740 066f 20       		.byte	32
+ 1741 0670 20       		.byte	32
+ 1742 0671 01       		.byte	1
+ 1743 0672 00       		.byte	0
+ 1744 0673 20       		.byte	32
+ 1745 0674 1C       		.byte	28
+ 1746 0675 01       		.byte	1
+ 1747 0676 00       		.byte	0
+ 1748 0677 20       		.byte	32
+ 1749 0678 01       		.byte	1
+ 1750 0679 4B       		.byte	75
+ 1751 067a 98       		.byte	-104
+ 1752 067b 66       		.byte	102
+ 1753 067c 70       		.byte	112
+ 1754 067d 47       		.byte	71
+ 1755 067e C0       		.byte	-64
+ 1756 067f 46       		.byte	70
+ 1757 0680 00       		.byte	0
+ 1758 0681 00       		.byte	0
+ 1759 0682 00       		.byte	0
+ 1760 0683 20       		.byte	32
+ 1761 0684 38       		.byte	56
+ 1762 0685 B5       		.byte	-75
+ 1763 0686 04       		.byte	4
+ 1764 0687 1C       		.byte	28
+ 1765 0688 00       		.byte	0
+ 1766 0689 F0       		.byte	-16
+ 1767 068a 2B       		.byte	43
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 32
+
+
+ 1768 068b F8       		.byte	-8
+ 1769 068c 05       		.byte	5
+ 1770 068d 4B       		.byte	75
+ 1771 068e 06       		.byte	6
+ 1772 068f 49       		.byte	73
+ 1773 0690 1D       		.byte	29
+ 1774 0691 68       		.byte	104
+ 1775 0692 A2       		.byte	-94
+ 1776 0693 05       		.byte	5
+ 1777 0694 2C       		.byte	44
+ 1778 0695 1C       		.byte	28
+ 1779 0696 0C       		.byte	12
+ 1780 0697 40       		.byte	64
+ 1781 0698 14       		.byte	20
+ 1782 0699 43       		.byte	67
+ 1783 069a 1C       		.byte	28
+ 1784 069b 60       		.byte	96
+ 1785 069c 00       		.byte	0
+ 1786 069d F0       		.byte	-16
+ 1787 069e 25       		.byte	37
+ 1788 069f F8       		.byte	-8
+ 1789 06a0 38       		.byte	56
+ 1790 06a1 BD       		.byte	-67
+ 1791 06a2 C0       		.byte	-64
+ 1792 06a3 46       		.byte	70
+ 1793 06a4 08       		.byte	8
+ 1794 06a5 E4       		.byte	-28
+ 1795 06a6 00       		.byte	0
+ 1796 06a7 E0       		.byte	-32
+ 1797 06a8 FF       		.byte	-1
+ 1798 06a9 FF       		.byte	-1
+ 1799 06aa 3F       		.byte	63
+ 1800 06ab FF       		.byte	-1
+ 1801 06ac 80       		.byte	-128
+ 1802 06ad 22       		.byte	34
+ 1803 06ae 02       		.byte	2
+ 1804 06af 4B       		.byte	75
+ 1805 06b0 D0       		.byte	-48
+ 1806 06b1 00       		.byte	0
+ 1807 06b2 18       		.byte	24
+ 1808 06b3 60       		.byte	96
+ 1809 06b4 70       		.byte	112
+ 1810 06b5 47       		.byte	71
+ 1811 06b6 C0       		.byte	-64
+ 1812 06b7 46       		.byte	70
+ 1813 06b8 00       		.byte	0
+ 1814 06b9 E1       		.byte	-31
+ 1815 06ba 00       		.byte	0
+ 1816 06bb E0       		.byte	-32
+ 1817 06bc 80       		.byte	-128
+ 1818 06bd 22       		.byte	34
+ 1819 06be 02       		.byte	2
+ 1820 06bf 4B       		.byte	75
+ 1821 06c0 D0       		.byte	-48
+ 1822 06c1 00       		.byte	0
+ 1823 06c2 18       		.byte	24
+ 1824 06c3 60       		.byte	96
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 33
+
+
+ 1825 06c4 70       		.byte	112
+ 1826 06c5 47       		.byte	71
+ 1827 06c6 C0       		.byte	-64
+ 1828 06c7 46       		.byte	70
+ 1829 06c8 80       		.byte	-128
+ 1830 06c9 E1       		.byte	-31
+ 1831 06ca 00       		.byte	0
+ 1832 06cb E0       		.byte	-32
+ 1833 06cc 00       		.byte	0
+ 1834 06cd 00       		.byte	0
+ 1835 06ce 00       		.byte	0
+ 1836 06cf 00       		.byte	0
+ 1837 06d0 02       		.byte	2
+ 1838 06d1 30       		.byte	48
+ 1839 06d2 80       		.byte	-128
+ 1840 06d3 08       		.byte	8
+ 1841 06d4 04       		.byte	4
+ 1842 06d5 D0       		.byte	-48
+ 1843 06d6 C0       		.byte	-64
+ 1844 06d7 46       		.byte	70
+ 1845 06d8 01       		.byte	1
+ 1846 06d9 38       		.byte	56
+ 1847 06da FD       		.byte	-3
+ 1848 06db D1       		.byte	-47
+ 1849 06dc C0       		.byte	-64
+ 1850 06dd 46       		.byte	70
+ 1851 06de C0       		.byte	-64
+ 1852 06df 46       		.byte	70
+ 1853 06e0 70       		.byte	112
+ 1854 06e1 47       		.byte	71
+ 1855 06e2 EF       		.byte	-17
+ 1856 06e3 F3       		.byte	-13
+ 1857 06e4 10       		.byte	16
+ 1858 06e5 80       		.byte	-128
+ 1859 06e6 72       		.byte	114
+ 1860 06e7 B6       		.byte	-74
+ 1861 06e8 70       		.byte	112
+ 1862 06e9 47       		.byte	71
+ 1863 06ea 80       		.byte	-128
+ 1864 06eb F3       		.byte	-13
+ 1865 06ec 10       		.byte	16
+ 1866 06ed 88       		.byte	-120
+ 1867 06ee 70       		.byte	112
+ 1868 06ef 47       		.byte	71
+ 1869 06f0 01       		.byte	1
+ 1870 06f1 BE       		.byte	-66
+ 1871 06f2 70       		.byte	112
+ 1872 06f3 47       		.byte	71
+ 1873 06f4 03       		.byte	3
+ 1874 06f5 4B       		.byte	75
+ 1875 06f6 04       		.byte	4
+ 1876 06f7 49       		.byte	73
+ 1877 06f8 1A       		.byte	26
+ 1878 06f9 68       		.byte	104
+ 1879 06fa 90       		.byte	-112
+ 1880 06fb B2       		.byte	-78
+ 1881 06fc 08       		.byte	8
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 34
+
+
+ 1882 06fd 43       		.byte	67
+ 1883 06fe 18       		.byte	24
+ 1884 06ff 60       		.byte	96
+ 1885 0700 70       		.byte	112
+ 1886 0701 47       		.byte	71
+ 1887 0702 C0       		.byte	-64
+ 1888 0703 46       		.byte	70
+ 1889 0704 0C       		.byte	12
+ 1890 0705 ED       		.byte	-19
+ 1891 0706 00       		.byte	0
+ 1892 0707 E0       		.byte	-32
+ 1893 0708 04       		.byte	4
+ 1894 0709 00       		.byte	0
+ 1895 070a FA       		.byte	-6
+ 1896 070b 05       		.byte	5
+ 1897 070c 10       		.byte	16
+ 1898 070d B5       		.byte	-75
+ 1899 070e 04       		.byte	4
+ 1900 070f 1C       		.byte	28
+ 1901 0710 80       		.byte	-128
+ 1902 0711 22       		.byte	34
+ 1903 0712 07       		.byte	7
+ 1904 0713 4B       		.byte	75
+ 1905 0714 10       		.byte	16
+ 1906 0715 02       		.byte	2
+ 1907 0716 84       		.byte	-124
+ 1908 0717 42       		.byte	66
+ 1909 0718 05       		.byte	5
+ 1910 0719 D9       		.byte	-39
+ 1911 071a 18       		.byte	24
+ 1912 071b 68       		.byte	104
+ 1913 071c FF       		.byte	-1
+ 1914 071d F7       		.byte	-9
+ 1915 071e D8       		.byte	-40
+ 1916 071f FF       		.byte	-1
+ 1917 0720 04       		.byte	4
+ 1918 0721 49       		.byte	73
+ 1919 0722 64       		.byte	100
+ 1920 0723 18       		.byte	24
+ 1921 0724 F4       		.byte	-12
+ 1922 0725 E7       		.byte	-25
+ 1923 0726 58       		.byte	88
+ 1924 0727 68       		.byte	104
+ 1925 0728 60       		.byte	96
+ 1926 0729 43       		.byte	67
+ 1927 072a FF       		.byte	-1
+ 1928 072b F7       		.byte	-9
+ 1929 072c D1       		.byte	-47
+ 1930 072d FF       		.byte	-1
+ 1931 072e 10       		.byte	16
+ 1932 072f BD       		.byte	-67
+ 1933 0730 D4       		.byte	-44
+ 1934 0731 00       		.byte	0
+ 1935 0732 00       		.byte	0
+ 1936 0733 20       		.byte	32
+ 1937 0734 00       		.byte	0
+ 1938 0735 80       		.byte	-128
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 35
+
+
+ 1939 0736 FF       		.byte	-1
+ 1940 0737 FF       		.byte	-1
+ 1941 0738 08       		.byte	8
+ 1942 0739 B5       		.byte	-75
+ 1943 073a 03       		.byte	3
+ 1944 073b 4B       		.byte	75
+ 1945 073c 19       		.byte	25
+ 1946 073d 7A       		.byte	122
+ 1947 073e 48       		.byte	72
+ 1948 073f 43       		.byte	67
+ 1949 0740 FF       		.byte	-1
+ 1950 0741 F7       		.byte	-9
+ 1951 0742 C6       		.byte	-58
+ 1952 0743 FF       		.byte	-1
+ 1953 0744 08       		.byte	8
+ 1954 0745 BD       		.byte	-67
+ 1955 0746 C0       		.byte	-64
+ 1956 0747 46       		.byte	70
+ 1957 0748 D4       		.byte	-44
+ 1958 0749 00       		.byte	0
+ 1959 074a 00       		.byte	0
+ 1960 074b 20       		.byte	32
+ 1961 074c 00       		.byte	0
+ 1962 074d 47       		.byte	71
+ 1963 074e 00       		.byte	0
+ 1964 074f 00       		.byte	0
+ 1965 0750 38       		.byte	56
+ 1966 0751 B5       		.byte	-75
+ 1967 0752 04       		.byte	4
+ 1968 0753 1C       		.byte	28
+ 1969 0754 01       		.byte	1
+ 1970 0755 38       		.byte	56
+ 1971 0756 06       		.byte	6
+ 1972 0757 28       		.byte	40
+ 1973 0758 0B       		.byte	11
+ 1974 0759 D8       		.byte	-40
+ 1975 075a 00       		.byte	0
+ 1976 075b F0       		.byte	-16
+ 1977 075c 3D       		.byte	61
+ 1978 075d FB       		.byte	-5
+ 1979 075e 24       		.byte	36
+ 1980 075f 06       		.byte	6
+ 1981 0760 26       		.byte	38
+ 1982 0761 0F       		.byte	15
+ 1983 0762 11       		.byte	17
+ 1984 0763 08       		.byte	8
+ 1985 0764 04       		.byte	4
+ 1986 0765 00       		.byte	0
+ 1987 0766 17       		.byte	23
+ 1988 0767 48       		.byte	72
+ 1989 0768 20       		.byte	32
+ 1990 0769 E0       		.byte	-32
+ 1991 076a 17       		.byte	23
+ 1992 076b 4B       		.byte	75
+ 1993 076c 09       		.byte	9
+ 1994 076d E0       		.byte	-32
+ 1995 076e 17       		.byte	23
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 36
+
+
+ 1996 076f 4B       		.byte	75
+ 1997 0770 07       		.byte	7
+ 1998 0771 E0       		.byte	-32
+ 1999 0772 00       		.byte	0
+ 2000 0773 20       		.byte	32
+ 2001 0774 FF       		.byte	-1
+ 2002 0775 F7       		.byte	-9
+ 2003 0776 BC       		.byte	-68
+ 2004 0777 FF       		.byte	-1
+ 2005 0778 00       		.byte	0
+ 2006 0779 23       		.byte	35
+ 2007 077a 02       		.byte	2
+ 2008 077b E0       		.byte	-32
+ 2009 077c 14       		.byte	20
+ 2010 077d 4B       		.byte	75
+ 2011 077e 00       		.byte	0
+ 2012 077f E0       		.byte	-32
+ 2013 0780 14       		.byte	20
+ 2014 0781 4B       		.byte	75
+ 2015 0782 5A       		.byte	90
+ 2016 0783 78       		.byte	120
+ 2017 0784 18       		.byte	24
+ 2018 0785 78       		.byte	120
+ 2019 0786 00       		.byte	0
+ 2020 0787 02       		.byte	2
+ 2021 0788 10       		.byte	16
+ 2022 0789 43       		.byte	67
+ 2023 078a 02       		.byte	2
+ 2024 078b 2C       		.byte	44
+ 2025 078c 04       		.byte	4
+ 2026 078d D0       		.byte	-48
+ 2027 078e 03       		.byte	3
+ 2028 078f 2C       		.byte	44
+ 2029 0790 07       		.byte	7
+ 2030 0791 D0       		.byte	-48
+ 2031 0792 01       		.byte	1
+ 2032 0793 2C       		.byte	44
+ 2033 0794 15       		.byte	21
+ 2034 0795 D1       		.byte	-47
+ 2035 0796 04       		.byte	4
+ 2036 0797 E0       		.byte	-32
+ 2037 0798 04       		.byte	4
+ 2038 0799 0A       		.byte	10
+ 2039 079a 03       		.byte	3
+ 2040 079b 02       		.byte	2
+ 2041 079c 23       		.byte	35
+ 2042 079d 43       		.byte	67
+ 2043 079e 98       		.byte	-104
+ 2044 079f B2       		.byte	-78
+ 2045 07a0 0F       		.byte	15
+ 2046 07a1 E0       		.byte	-32
+ 2047 07a2 00       		.byte	0
+ 2048 07a3 BA       		.byte	-70
+ 2049 07a4 0D       		.byte	13
+ 2050 07a5 E0       		.byte	-32
+ 2051 07a6 0C       		.byte	12
+ 2052 07a7 48       		.byte	72
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 37
+
+
+ 2053 07a8 00       		.byte	0
+ 2054 07a9 E0       		.byte	-32
+ 2055 07aa 0C       		.byte	12
+ 2056 07ab 48       		.byte	72
+ 2057 07ac C5       		.byte	-59
+ 2058 07ad 78       		.byte	120
+ 2059 07ae 81       		.byte	-127
+ 2060 07af 78       		.byte	120
+ 2061 07b0 42       		.byte	66
+ 2062 07b1 78       		.byte	120
+ 2063 07b2 03       		.byte	3
+ 2064 07b3 78       		.byte	120
+ 2065 07b4 18       		.byte	24
+ 2066 07b5 06       		.byte	6
+ 2067 07b6 28       		.byte	40
+ 2068 07b7 43       		.byte	67
+ 2069 07b8 0D       		.byte	13
+ 2070 07b9 02       		.byte	2
+ 2071 07ba 28       		.byte	40
+ 2072 07bb 43       		.byte	67
+ 2073 07bc 11       		.byte	17
+ 2074 07bd 04       		.byte	4
+ 2075 07be 08       		.byte	8
+ 2076 07bf 43       		.byte	67
+ 2077 07c0 E3       		.byte	-29
+ 2078 07c1 E7       		.byte	-25
+ 2079 07c2 38       		.byte	56
+ 2080 07c3 BD       		.byte	-67
+ 2081 07c4 D8       		.byte	-40
+ 2082 07c5 7F       		.byte	127
+ 2083 07c6 00       		.byte	0
+ 2084 07c7 00       		.byte	0
+ 2085 07c8 C5       		.byte	-59
+ 2086 07c9 7F       		.byte	127
+ 2087 07ca 00       		.byte	0
+ 2088 07cb 00       		.byte	0
+ 2089 07cc D4       		.byte	-44
+ 2090 07cd 7F       		.byte	127
+ 2091 07ce 00       		.byte	0
+ 2092 07cf 00       		.byte	0
+ 2093 07d0 D2       		.byte	-46
+ 2094 07d1 7F       		.byte	127
+ 2095 07d2 00       		.byte	0
+ 2096 07d3 00       		.byte	0
+ 2097 07d4 D6       		.byte	-42
+ 2098 07d5 7F       		.byte	127
+ 2099 07d6 00       		.byte	0
+ 2100 07d7 00       		.byte	0
+ 2101 07d8 C1       		.byte	-63
+ 2102 07d9 7F       		.byte	127
+ 2103 07da 00       		.byte	0
+ 2104 07db 00       		.byte	0
+ 2105 07dc C9       		.byte	-55
+ 2106 07dd 7F       		.byte	127
+ 2107 07de 00       		.byte	0
+ 2108 07df 00       		.byte	0
+ 2109 07e0 38       		.byte	56
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 38
+
+
+ 2110 07e1 B5       		.byte	-75
+ 2111 07e2 02       		.byte	2
+ 2112 07e3 20       		.byte	32
+ 2113 07e4 FF       		.byte	-1
+ 2114 07e5 F7       		.byte	-9
+ 2115 07e6 B4       		.byte	-76
+ 2116 07e7 FF       		.byte	-1
+ 2117 07e8 05       		.byte	5
+ 2118 07e9 1C       		.byte	28
+ 2119 07ea 03       		.byte	3
+ 2120 07eb 20       		.byte	32
+ 2121 07ec FF       		.byte	-1
+ 2122 07ed F7       		.byte	-9
+ 2123 07ee B0       		.byte	-80
+ 2124 07ef FF       		.byte	-1
+ 2125 07f0 6C       		.byte	108
+ 2126 07f1 1C       		.byte	28
+ 2127 07f2 E1       		.byte	-31
+ 2128 07f3 01       		.byte	1
+ 2129 07f4 0C       		.byte	12
+ 2130 07f5 18       		.byte	24
+ 2131 07f6 02       		.byte	2
+ 2132 07f7 20       		.byte	32
+ 2133 07f8 FF       		.byte	-1
+ 2134 07f9 F7       		.byte	-9
+ 2135 07fa AA       		.byte	-86
+ 2136 07fb FF       		.byte	-1
+ 2137 07fc 00       		.byte	0
+ 2138 07fd 23       		.byte	35
+ 2139 07fe 42       		.byte	66
+ 2140 07ff 1C       		.byte	28
+ 2141 0800 D2       		.byte	-46
+ 2142 0801 01       		.byte	1
+ 2143 0802 19       		.byte	25
+ 2144 0803 1C       		.byte	28
+ 2145 0804 A2       		.byte	-94
+ 2146 0805 42       		.byte	66
+ 2147 0806 09       		.byte	9
+ 2148 0807 D2       		.byte	-46
+ 2149 0808 10       		.byte	16
+ 2150 0809 78       		.byte	120
+ 2151 080a 45       		.byte	69
+ 2152 080b 1E       		.byte	30
+ 2153 080c ED       		.byte	-19
+ 2154 080d B2       		.byte	-78
+ 2155 080e FD       		.byte	-3
+ 2156 080f 2D       		.byte	45
+ 2157 0810 00       		.byte	0
+ 2158 0811 D8       		.byte	-40
+ 2159 0812 01       		.byte	1
+ 2160 0813 21       		.byte	33
+ 2161 0814 C3       		.byte	-61
+ 2162 0815 18       		.byte	24
+ 2163 0816 DB       		.byte	-37
+ 2164 0817 B2       		.byte	-78
+ 2165 0818 01       		.byte	1
+ 2166 0819 32       		.byte	50
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 39
+
+
+ 2167 081a F3       		.byte	-13
+ 2168 081b E7       		.byte	-25
+ 2169 081c 05       		.byte	5
+ 2170 081d 48       		.byte	72
+ 2171 081e 5B       		.byte	91
+ 2172 081f 42       		.byte	66
+ 2173 0820 05       		.byte	5
+ 2174 0821 78       		.byte	120
+ 2175 0822 DC       		.byte	-36
+ 2176 0823 B2       		.byte	-78
+ 2177 0824 AC       		.byte	-84
+ 2178 0825 42       		.byte	66
+ 2179 0826 01       		.byte	1
+ 2180 0827 D0       		.byte	-48
+ 2181 0828 06       		.byte	6
+ 2182 0829 20       		.byte	32
+ 2183 082a 02       		.byte	2
+ 2184 082b E0       		.byte	-32
+ 2185 082c 00       		.byte	0
+ 2186 082d 29       		.byte	41
+ 2187 082e FB       		.byte	-5
+ 2188 082f D0       		.byte	-48
+ 2189 0830 00       		.byte	0
+ 2190 0831 20       		.byte	32
+ 2191 0832 38       		.byte	56
+ 2192 0833 BD       		.byte	-67
+ 2193 0834 C0       		.byte	-64
+ 2194 0835 7F       		.byte	127
+ 2195 0836 00       		.byte	0
+ 2196 0837 00       		.byte	0
+ 2197 0838 F0       		.byte	-16
+ 2198 0839 B5       		.byte	-75
+ 2199 083a A3       		.byte	-93
+ 2200 083b 4C       		.byte	76
+ 2201 083c A5       		.byte	-91
+ 2202 083d 44       		.byte	68
+ 2203 083e FF       		.byte	-1
+ 2204 083f F7       		.byte	-9
+ 2205 0840 1F       		.byte	31
+ 2206 0841 FD       		.byte	-3
+ 2207 0842 62       		.byte	98
+ 2208 0843 B6       		.byte	-74
+ 2209 0844 00       		.byte	0
+ 2210 0845 25       		.byte	37
+ 2211 0846 00       		.byte	0
+ 2212 0847 95       		.byte	-107
+ 2213 0848 00       		.byte	0
+ 2214 0849 26       		.byte	38
+ 2215 084a 03       		.byte	3
+ 2216 084b AF       		.byte	-81
+ 2217 084c 96       		.byte	-106
+ 2218 084d 21       		.byte	33
+ 2219 084e 24       		.byte	36
+ 2220 084f A8       		.byte	-88
+ 2221 0850 49       		.byte	73
+ 2222 0851 00       		.byte	0
+ 2223 0852 3A       		.byte	58
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 40
+
+
+ 2224 0853 1C       		.byte	28
+ 2225 0854 FF       		.byte	-1
+ 2226 0855 23       		.byte	35
+ 2227 0856 FF       		.byte	-1
+ 2228 0857 F7       		.byte	-9
+ 2229 0858 29       		.byte	41
+ 2230 0859 FD       		.byte	-3
+ 2231 085a 00       		.byte	0
+ 2232 085b 28       		.byte	40
+ 2233 085c F5       		.byte	-11
+ 2234 085d D1       		.byte	-47
+ 2235 085e 39       		.byte	57
+ 2236 085f 88       		.byte	-120
+ 2237 0860 04       		.byte	4
+ 2238 0861 23       		.byte	35
+ 2239 0862 06       		.byte	6
+ 2240 0863 29       		.byte	41
+ 2241 0864 67       		.byte	103
+ 2242 0865 D9       		.byte	-39
+ 2243 0866 24       		.byte	36
+ 2244 0867 AA       		.byte	-86
+ 2245 0868 14       		.byte	20
+ 2246 0869 78       		.byte	120
+ 2247 086a 01       		.byte	1
+ 2248 086b 2C       		.byte	44
+ 2249 086c 63       		.byte	99
+ 2250 086d D1       		.byte	-47
+ 2251 086e 93       		.byte	-109
+ 2252 086f 23       		.byte	35
+ 2253 0870 6B       		.byte	107
+ 2254 0871 44       		.byte	68
+ 2255 0872 92       		.byte	-110
+ 2256 0873 22       		.byte	34
+ 2257 0874 1F       		.byte	31
+ 2258 0875 78       		.byte	120
+ 2259 0876 6A       		.byte	106
+ 2260 0877 44       		.byte	68
+ 2261 0878 13       		.byte	19
+ 2262 0879 78       		.byte	120
+ 2263 087a 3C       		.byte	60
+ 2264 087b 02       		.byte	2
+ 2265 087c 1C       		.byte	28
+ 2266 087d 43       		.byte	67
+ 2267 087e 24       		.byte	36
+ 2268 087f AF       		.byte	-81
+ 2269 0880 3A       		.byte	58
+ 2270 0881 19       		.byte	25
+ 2271 0882 17       		.byte	23
+ 2272 0883 79       		.byte	121
+ 2273 0884 53       		.byte	83
+ 2274 0885 79       		.byte	121
+ 2275 0886 01       		.byte	1
+ 2276 0887 97       		.byte	-105
+ 2277 0888 E7       		.byte	-25
+ 2278 0889 1D       		.byte	29
+ 2279 088a 9C       		.byte	-100
+ 2280 088b 46       		.byte	70
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 41
+
+
+ 2281 088c 03       		.byte	3
+ 2282 088d 23       		.byte	35
+ 2283 088e 8F       		.byte	-113
+ 2284 088f 42       		.byte	66
+ 2285 0890 51       		.byte	81
+ 2286 0891 D8       		.byte	-40
+ 2287 0892 91       		.byte	-111
+ 2288 0893 79       		.byte	121
+ 2289 0894 04       		.byte	4
+ 2290 0895 23       		.byte	35
+ 2291 0896 17       		.byte	23
+ 2292 0897 29       		.byte	41
+ 2293 0898 4D       		.byte	77
+ 2294 0899 D1       		.byte	-47
+ 2295 089a E3       		.byte	-29
+ 2296 089b 18       		.byte	24
+ 2297 089c 9B       		.byte	-101
+ 2298 089d B2       		.byte	-78
+ 2299 089e 00       		.byte	0
+ 2300 089f 2B       		.byte	43
+ 2301 08a0 08       		.byte	8
+ 2302 08a1 D0       		.byte	-48
+ 2303 08a2 BA       		.byte	-70
+ 2304 08a3 AA       		.byte	-86
+ 2305 08a4 89       		.byte	-119
+ 2306 08a5 49       		.byte	73
+ 2307 08a6 D7       		.byte	-41
+ 2308 08a7 18       		.byte	24
+ 2309 08a8 7A       		.byte	122
+ 2310 08a9 18       		.byte	24
+ 2311 08aa 17       		.byte	23
+ 2312 08ab 78       		.byte	120
+ 2313 08ac 01       		.byte	1
+ 2314 08ad 3B       		.byte	59
+ 2315 08ae C0       		.byte	-64
+ 2316 08af 19       		.byte	25
+ 2317 08b0 80       		.byte	-128
+ 2318 08b1 B2       		.byte	-78
+ 2319 08b2 F3       		.byte	-13
+ 2320 08b3 E7       		.byte	-25
+ 2321 08b4 62       		.byte	98
+ 2322 08b5 46       		.byte	70
+ 2323 08b6 40       		.byte	64
+ 2324 08b7 42       		.byte	66
+ 2325 08b8 01       		.byte	1
+ 2326 08b9 9F       		.byte	-97
+ 2327 08ba 11       		.byte	17
+ 2328 08bb 02       		.byte	2
+ 2329 08bc 82       		.byte	-126
+ 2330 08bd B2       		.byte	-78
+ 2331 08be 39       		.byte	57
+ 2332 08bf 43       		.byte	67
+ 2333 08c0 08       		.byte	8
+ 2334 08c1 23       		.byte	35
+ 2335 08c2 91       		.byte	-111
+ 2336 08c3 42       		.byte	66
+ 2337 08c4 37       		.byte	55
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 42
+
+
+ 2338 08c5 D1       		.byte	-47
+ 2339 08c6 68       		.byte	104
+ 2340 08c7 E0       		.byte	-32
+ 2341 08c8 34       		.byte	52
+ 2342 08c9 29       		.byte	41
+ 2343 08ca 00       		.byte	0
+ 2344 08cb D0       		.byte	-48
+ 2345 08cc 9A       		.byte	-102
+ 2346 08cd E0       		.byte	-32
+ 2347 08ce 01       		.byte	1
+ 2348 08cf 2D       		.byte	45
+ 2349 08d0 00       		.byte	0
+ 2350 08d1 D0       		.byte	-48
+ 2351 08d2 F6       		.byte	-10
+ 2352 08d3 E0       		.byte	-32
+ 2353 08d4 03       		.byte	3
+ 2354 08d5 2C       		.byte	44
+ 2355 08d6 00       		.byte	0
+ 2356 08d7 D0       		.byte	-48
+ 2357 08d8 F3       		.byte	-13
+ 2358 08d9 E0       		.byte	-32
+ 2359 08da 6F       		.byte	111
+ 2360 08db A8       		.byte	-88
+ 2361 08dc 00       		.byte	0
+ 2362 08dd 21       		.byte	33
+ 2363 08de 80       		.byte	-128
+ 2364 08df 22       		.byte	34
+ 2365 08e0 00       		.byte	0
+ 2366 08e1 F0       		.byte	-16
+ 2367 08e2 B3       		.byte	-77
+ 2368 08e3 FA       		.byte	-6
+ 2369 08e4 80       		.byte	-128
+ 2370 08e5 26       		.byte	38
+ 2371 08e6 6F       		.byte	111
+ 2372 08e7 A9       		.byte	-87
+ 2373 08e8 88       		.byte	-120
+ 2374 08e9 19       		.byte	25
+ 2375 08ea 35       		.byte	53
+ 2376 08eb 19       		.byte	25
+ 2377 08ec 26       		.byte	38
+ 2378 08ed 39       		.byte	57
+ 2379 08ee E2       		.byte	-30
+ 2380 08ef 1E       		.byte	30
+ 2381 08f0 FF       		.byte	-1
+ 2382 08f1 39       		.byte	57
+ 2383 08f2 AE       		.byte	-82
+ 2384 08f3 B2       		.byte	-78
+ 2385 08f4 00       		.byte	0
+ 2386 08f5 F0       		.byte	-16
+ 2387 08f6 A0       		.byte	-96
+ 2388 08f7 FA       		.byte	-6
+ 2389 08f8 83       		.byte	-125
+ 2390 08f9 2E       		.byte	46
+ 2391 08fa 00       		.byte	0
+ 2392 08fb D0       		.byte	-48
+ 2393 08fc DA       		.byte	-38
+ 2394 08fd E0       		.byte	-32
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 43
+
+
+ 2395 08fe BC       		.byte	-68
+ 2396 08ff 79       		.byte	121
+ 2397 0900 79       		.byte	121
+ 2398 0901 79       		.byte	121
+ 2399 0902 00       		.byte	0
+ 2400 0903 9F       		.byte	-97
+ 2401 0904 26       		.byte	38
+ 2402 0905 02       		.byte	2
+ 2403 0906 0E       		.byte	14
+ 2404 0907 43       		.byte	67
+ 2405 0908 00       		.byte	0
+ 2406 0909 2F       		.byte	47
+ 2407 090a 0A       		.byte	10
+ 2408 090b D1       		.byte	-47
+ 2409 090c 39       		.byte	57
+ 2410 090d 1C       		.byte	28
+ 2411 090e 80       		.byte	-128
+ 2412 090f 22       		.byte	34
+ 2413 0910 04       		.byte	4
+ 2414 0911 A8       		.byte	-88
+ 2415 0912 00       		.byte	0
+ 2416 0913 F0       		.byte	-16
+ 2417 0914 9A       		.byte	-102
+ 2418 0915 FA       		.byte	-6
+ 2419 0916 FF       		.byte	-1
+ 2420 0917 20       		.byte	32
+ 2421 0918 04       		.byte	4
+ 2422 0919 A9       		.byte	-87
+ 2423 091a 00       		.byte	0
+ 2424 091b F0       		.byte	-16
+ 2425 091c F3       		.byte	-13
+ 2426 091d F9       		.byte	-7
+ 2427 091e 01       		.byte	1
+ 2428 091f 20       		.byte	32
+ 2429 0920 00       		.byte	0
+ 2430 0921 90       		.byte	-112
+ 2431 0922 30       		.byte	48
+ 2432 0923 1C       		.byte	28
+ 2433 0924 6F       		.byte	111
+ 2434 0925 A9       		.byte	-87
+ 2435 0926 00       		.byte	0
+ 2436 0927 F0       		.byte	-16
+ 2437 0928 ED       		.byte	-19
+ 2438 0929 F9       		.byte	-7
+ 2439 092a 01       		.byte	1
+ 2440 092b 25       		.byte	37
+ 2441 092c 00       		.byte	0
+ 2442 092d 28       		.byte	40
+ 2443 092e 00       		.byte	0
+ 2444 092f D1       		.byte	-47
+ 2445 0930 C3       		.byte	-61
+ 2446 0931 E0       		.byte	-32
+ 2447 0932 00       		.byte	0
+ 2448 0933 26       		.byte	38
+ 2449 0934 0A       		.byte	10
+ 2450 0935 23       		.byte	35
+ 2451 0936 00       		.byte	0
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 44
+
+
+ 2452 0937 21       		.byte	33
+ 2453 0938 68       		.byte	104
+ 2454 0939 46       		.byte	70
+ 2455 093a 91       		.byte	-111
+ 2456 093b 30       		.byte	48
+ 2457 093c 01       		.byte	1
+ 2458 093d 27       		.byte	39
+ 2459 093e 03       		.byte	3
+ 2460 093f 70       		.byte	112
+ 2461 0940 6A       		.byte	106
+ 2462 0941 46       		.byte	70
+ 2463 0942 24       		.byte	36
+ 2464 0943 AC       		.byte	-84
+ 2465 0944 6B       		.byte	107
+ 2466 0945 46       		.byte	70
+ 2467 0946 92       		.byte	-110
+ 2468 0947 33       		.byte	51
+ 2469 0948 0E       		.byte	14
+ 2470 0949 32       		.byte	50
+ 2471 094a 27       		.byte	39
+ 2472 094b 70       		.byte	112
+ 2473 094c 00       		.byte	0
+ 2474 094d 20       		.byte	32
+ 2475 094e 0F       		.byte	15
+ 2476 094f 1D       		.byte	29
+ 2477 0950 19       		.byte	25
+ 2478 0951 70       		.byte	112
+ 2479 0952 58       		.byte	88
+ 2480 0953 70       		.byte	112
+ 2481 0954 11       		.byte	17
+ 2482 0955 80       		.byte	-128
+ 2483 0956 BB       		.byte	-69
+ 2484 0957 B2       		.byte	-78
+ 2485 0958 5C       		.byte	92
+ 2486 0959 4F       		.byte	79
+ 2487 095a BA       		.byte	-70
+ 2488 095b AC       		.byte	-84
+ 2489 095c E4       		.byte	-28
+ 2490 095d 18       		.byte	24
+ 2491 095e E4       		.byte	-28
+ 2492 095f 19       		.byte	25
+ 2493 0960 27       		.byte	39
+ 2494 0961 78       		.byte	120
+ 2495 0962 01       		.byte	1
+ 2496 0963 3B       		.byte	59
+ 2497 0964 C0       		.byte	-64
+ 2498 0965 19       		.byte	25
+ 2499 0966 9B       		.byte	-101
+ 2500 0967 B2       		.byte	-78
+ 2501 0968 80       		.byte	-128
+ 2502 0969 B2       		.byte	-78
+ 2503 096a 00       		.byte	0
+ 2504 096b 2B       		.byte	43
+ 2505 096c F4       		.byte	-12
+ 2506 096d D1       		.byte	-47
+ 2507 096e 44       		.byte	68
+ 2508 096f 42       		.byte	66
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 45
+
+
+ 2509 0970 A0       		.byte	-96
+ 2510 0971 B2       		.byte	-78
+ 2511 0972 BA       		.byte	-70
+ 2512 0973 AF       		.byte	-81
+ 2513 0974 56       		.byte	86
+ 2514 0975 4C       		.byte	76
+ 2515 0976 7B       		.byte	123
+ 2516 0977 18       		.byte	24
+ 2517 0978 1F       		.byte	31
+ 2518 0979 19       		.byte	25
+ 2519 097a 56       		.byte	86
+ 2520 097b 4C       		.byte	76
+ 2521 097c 38       		.byte	56
+ 2522 097d 70       		.byte	112
+ 2523 097e 1F       		.byte	31
+ 2524 097f 19       		.byte	25
+ 2525 0980 55       		.byte	85
+ 2526 0981 4C       		.byte	76
+ 2527 0982 00       		.byte	0
+ 2528 0983 0A       		.byte	10
+ 2529 0984 38       		.byte	56
+ 2530 0985 70       		.byte	112
+ 2531 0986 1B       		.byte	27
+ 2532 0987 19       		.byte	25
+ 2533 0988 17       		.byte	23
+ 2534 0989 27       		.byte	39
+ 2535 098a 07       		.byte	7
+ 2536 098b 31       		.byte	49
+ 2537 098c 1F       		.byte	31
+ 2538 098d 70       		.byte	112
+ 2539 098e 89       		.byte	-119
+ 2540 098f B2       		.byte	-78
+ 2541 0990 24       		.byte	36
+ 2542 0991 A8       		.byte	-88
+ 2543 0992 96       		.byte	-106
+ 2544 0993 23       		.byte	35
+ 2545 0994 FF       		.byte	-1
+ 2546 0995 F7       		.byte	-9
+ 2547 0996 7C       		.byte	124
+ 2548 0997 FC       		.byte	-4
+ 2549 0998 57       		.byte	87
+ 2550 0999 E7       		.byte	-25
+ 2551 099a 24       		.byte	36
+ 2552 099b AF       		.byte	-81
+ 2553 099c 79       		.byte	121
+ 2554 099d 78       		.byte	120
+ 2555 099e 3B       		.byte	59
+ 2556 099f 79       		.byte	121
+ 2557 09a0 08       		.byte	8
+ 2558 09a1 1C       		.byte	28
+ 2559 09a2 31       		.byte	49
+ 2560 09a3 38       		.byte	56
+ 2561 09a4 0A       		.byte	10
+ 2562 09a5 28       		.byte	40
+ 2563 09a6 01       		.byte	1
+ 2564 09a7 D9       		.byte	-39
+ 2565 09a8 05       		.byte	5
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 46
+
+
+ 2566 09a9 23       		.byte	35
+ 2567 09aa C4       		.byte	-60
+ 2568 09ab E7       		.byte	-25
+ 2569 09ac 00       		.byte	0
+ 2570 09ad F0       		.byte	-16
+ 2571 09ae 0A       		.byte	10
+ 2572 09af FA       		.byte	-6
+ 2573 09b0 06       		.byte	6
+ 2574 09b1 11       		.byte	17
+ 2575 09b2 FC       		.byte	-4
+ 2576 09b3 8C       		.byte	-116
+ 2577 09b4 2F       		.byte	47
+ 2578 09b5 FC       		.byte	-4
+ 2579 09b6 32       		.byte	50
+ 2580 09b7 42       		.byte	66
+ 2581 09b8 8C       		.byte	-116
+ 2582 09b9 50       		.byte	80
+ 2583 09ba 78       		.byte	120
+ 2584 09bb 00       		.byte	0
+ 2585 09bc 01       		.byte	1
+ 2586 09bd 2D       		.byte	45
+ 2587 09be 00       		.byte	0
+ 2588 09bf D0       		.byte	-48
+ 2589 09c0 7F       		.byte	127
+ 2590 09c1 E0       		.byte	-32
+ 2591 09c2 00       		.byte	0
+ 2592 09c3 2C       		.byte	44
+ 2593 09c4 7D       		.byte	125
+ 2594 09c5 D1       		.byte	-47
+ 2595 09c6 FF       		.byte	-1
+ 2596 09c7 F7       		.byte	-9
+ 2597 09c8 0B       		.byte	11
+ 2598 09c9 FF       		.byte	-1
+ 2599 09ca 43       		.byte	67
+ 2600 09cb 42       		.byte	66
+ 2601 09cc 43       		.byte	67
+ 2602 09cd 41       		.byte	65
+ 2603 09ce 3B       		.byte	59
+ 2604 09cf 71       		.byte	113
+ 2605 09d0 63       		.byte	99
+ 2606 09d1 E0       		.byte	-32
+ 2607 09d2 01       		.byte	1
+ 2608 09d3 2D       		.byte	45
+ 2609 09d4 75       		.byte	117
+ 2610 09d5 D1       		.byte	-47
+ 2611 09d6 01       		.byte	1
+ 2612 09d7 2C       		.byte	44
+ 2613 09d8 73       		.byte	115
+ 2614 09d9 D1       		.byte	-47
+ 2615 09da 00       		.byte	0
+ 2616 09db 2B       		.byte	43
+ 2617 09dc 71       		.byte	113
+ 2618 09dd D1       		.byte	-47
+ 2619 09de 3F       		.byte	63
+ 2620 09df 4A       		.byte	74
+ 2621 09e0 25       		.byte	37
+ 2622 09e1 A8       		.byte	-88
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 47
+
+
+ 2623 09e2 14       		.byte	20
+ 2624 09e3 68       		.byte	104
+ 2625 09e4 21       		.byte	33
+ 2626 09e5 88       		.byte	-120
+ 2627 09e6 95       		.byte	-107
+ 2628 09e7 24       		.byte	36
+ 2629 09e8 CF       		.byte	-49
+ 2630 09e9 09       		.byte	9
+ 2631 09ea 07       		.byte	7
+ 2632 09eb 70       		.byte	112
+ 2633 09ec 3A       		.byte	58
+ 2634 09ed 0A       		.byte	10
+ 2635 09ee 97       		.byte	-105
+ 2636 09ef 20       		.byte	32
+ 2637 09f0 96       		.byte	-106
+ 2638 09f1 27       		.byte	39
+ 2639 09f2 FF       		.byte	-1
+ 2640 09f3 21       		.byte	33
+ 2641 09f4 6C       		.byte	108
+ 2642 09f5 44       		.byte	68
+ 2643 09f6 6F       		.byte	111
+ 2644 09f7 44       		.byte	68
+ 2645 09f8 68       		.byte	104
+ 2646 09f9 44       		.byte	68
+ 2647 09fa 39       		.byte	57
+ 2648 09fb 70       		.byte	112
+ 2649 09fc 22       		.byte	34
+ 2650 09fd 70       		.byte	112
+ 2651 09fe 03       		.byte	3
+ 2652 09ff 70       		.byte	112
+ 2653 0a00 04       		.byte	4
+ 2654 0a01 21       		.byte	33
+ 2655 0a02 99       		.byte	-103
+ 2656 0a03 E7       		.byte	-25
+ 2657 0a04 01       		.byte	1
+ 2658 0a05 2D       		.byte	45
+ 2659 0a06 5C       		.byte	92
+ 2660 0a07 D1       		.byte	-47
+ 2661 0a08 02       		.byte	2
+ 2662 0a09 2C       		.byte	44
+ 2663 0a0a 5A       		.byte	90
+ 2664 0a0b D9       		.byte	-39
+ 2665 0a0c 6B       		.byte	107
+ 2666 0a0d E7       		.byte	-25
+ 2667 0a0e 01       		.byte	1
+ 2668 0a0f 2D       		.byte	45
+ 2669 0a10 57       		.byte	87
+ 2670 0a11 D1       		.byte	-47
+ 2671 0a12 19       		.byte	25
+ 2672 0a13 E7       		.byte	-25
+ 2673 0a14 01       		.byte	1
+ 2674 0a15 2D       		.byte	45
+ 2675 0a16 54       		.byte	84
+ 2676 0a17 D1       		.byte	-47
+ 2677 0a18 96       		.byte	-106
+ 2678 0a19 20       		.byte	32
+ 2679 0a1a 37       		.byte	55
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 48
+
+
+ 2680 0a1b 19       		.byte	25
+ 2681 0a1c 43       		.byte	67
+ 2682 0a1d 00       		.byte	0
+ 2683 0a1e 9F       		.byte	-97
+ 2684 0a1f 42       		.byte	66
+ 2685 0a20 4D       		.byte	77
+ 2686 0a21 D8       		.byte	-40
+ 2687 0a22 6F       		.byte	111
+ 2688 0a23 AA       		.byte	-86
+ 2689 0a24 90       		.byte	-112
+ 2690 0a25 19       		.byte	25
+ 2691 0a26 25       		.byte	37
+ 2692 0a27 A9       		.byte	-87
+ 2693 0a28 22       		.byte	34
+ 2694 0a29 1C       		.byte	28
+ 2695 0a2a 00       		.byte	0
+ 2696 0a2b F0       		.byte	-16
+ 2697 0a2c 05       		.byte	5
+ 2698 0a2d FA       		.byte	-6
+ 2699 0a2e BE       		.byte	-66
+ 2700 0a2f B2       		.byte	-78
+ 2701 0a30 00       		.byte	0
+ 2702 0a31 23       		.byte	35
+ 2703 0a32 80       		.byte	-128
+ 2704 0a33 E7       		.byte	-25
+ 2705 0a34 00       		.byte	0
+ 2706 0a35 2C       		.byte	44
+ 2707 0a36 44       		.byte	68
+ 2708 0a37 D1       		.byte	-47
+ 2709 0a38 04       		.byte	4
+ 2710 0a39 AB       		.byte	-85
+ 2711 0a3a 29       		.byte	41
+ 2712 0a3b 4A       		.byte	74
+ 2713 0a3c 19       		.byte	25
+ 2714 0a3d 1C       		.byte	28
+ 2715 0a3e A0       		.byte	-96
+ 2716 0a3f CA       		.byte	-54
+ 2717 0a40 A0       		.byte	-96
+ 2718 0a41 C1       		.byte	-63
+ 2719 0a42 25       		.byte	37
+ 2720 0a43 AF       		.byte	-81
+ 2721 0a44 21       		.byte	33
+ 2722 0a45 CB       		.byte	-53
+ 2723 0a46 21       		.byte	33
+ 2724 0a47 C7       		.byte	-57
+ 2725 0a48 08       		.byte	8
+ 2726 0a49 21       		.byte	33
+ 2727 0a4a 01       		.byte	1
+ 2728 0a4b 25       		.byte	37
+ 2729 0a4c 23       		.byte	35
+ 2730 0a4d 1C       		.byte	28
+ 2731 0a4e 73       		.byte	115
+ 2732 0a4f E7       		.byte	-25
+ 2733 0a50 01       		.byte	1
+ 2734 0a51 2D       		.byte	45
+ 2735 0a52 36       		.byte	54
+ 2736 0a53 D1       		.byte	-47
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 49
+
+
+ 2737 0a54 03       		.byte	3
+ 2738 0a55 2C       		.byte	44
+ 2739 0a56 34       		.byte	52
+ 2740 0a57 D1       		.byte	-47
+ 2741 0a58 96       		.byte	-106
+ 2742 0a59 22       		.byte	34
+ 2743 0a5a 6A       		.byte	106
+ 2744 0a5b 44       		.byte	68
+ 2745 0a5c 95       		.byte	-107
+ 2746 0a5d 21       		.byte	33
+ 2747 0a5e 17       		.byte	23
+ 2748 0a5f 78       		.byte	120
+ 2749 0a60 69       		.byte	105
+ 2750 0a61 44       		.byte	68
+ 2751 0a62 0C       		.byte	12
+ 2752 0a63 78       		.byte	120
+ 2753 0a64 38       		.byte	56
+ 2754 0a65 02       		.byte	2
+ 2755 0a66 1A       		.byte	26
+ 2756 0a67 02       		.byte	2
+ 2757 0a68 20       		.byte	32
+ 2758 0a69 43       		.byte	67
+ 2759 0a6a 87       		.byte	-121
+ 2760 0a6b 18       		.byte	24
+ 2761 0a6c FF       		.byte	-1
+ 2762 0a6d 01       		.byte	1
+ 2763 0a6e 00       		.byte	0
+ 2764 0a6f 22       		.byte	34
+ 2765 0a70 80       		.byte	-128
+ 2766 0a71 21       		.byte	33
+ 2767 0a72 01       		.byte	1
+ 2768 0a73 39       		.byte	57
+ 2769 0a74 CC       		.byte	-52
+ 2770 0a75 5D       		.byte	93
+ 2771 0a76 12       		.byte	18
+ 2772 0a77 19       		.byte	25
+ 2773 0a78 D2       		.byte	-46
+ 2774 0a79 B2       		.byte	-78
+ 2775 0a7a 00       		.byte	0
+ 2776 0a7b 29       		.byte	41
+ 2777 0a7c F9       		.byte	-7
+ 2778 0a7d D1       		.byte	-47
+ 2779 0a7e 00       		.byte	0
+ 2780 0a7f 2B       		.byte	43
+ 2781 0a80 08       		.byte	8
+ 2782 0a81 D1       		.byte	-47
+ 2783 0a82 FF       		.byte	-1
+ 2784 0a83 28       		.byte	40
+ 2785 0a84 06       		.byte	6
+ 2786 0a85 D1       		.byte	-47
+ 2787 0a86 17       		.byte	23
+ 2788 0a87 4B       		.byte	75
+ 2789 0a88 17       		.byte	23
+ 2790 0a89 49       		.byte	73
+ 2791 0a8a 18       		.byte	24
+ 2792 0a8b 78       		.byte	120
+ 2793 0a8c 0C       		.byte	12
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 50
+
+
+ 2794 0a8d 78       		.byte	120
+ 2795 0a8e 17       		.byte	23
+ 2796 0a8f 1A       		.byte	26
+ 2797 0a90 3A       		.byte	58
+ 2798 0a91 1B       		.byte	27
+ 2799 0a92 D2       		.byte	-46
+ 2800 0a93 B2       		.byte	-78
+ 2801 0a94 50       		.byte	80
+ 2802 0a95 42       		.byte	66
+ 2803 0a96 24       		.byte	36
+ 2804 0a97 AB       		.byte	-85
+ 2805 0a98 18       		.byte	24
+ 2806 0a99 71       		.byte	113
+ 2807 0a9a 00       		.byte	0
+ 2808 0a9b 23       		.byte	35
+ 2809 0a9c 01       		.byte	1
+ 2810 0a9d 21       		.byte	33
+ 2811 0a9e 4B       		.byte	75
+ 2812 0a9f E7       		.byte	-25
+ 2813 0aa0 FF       		.byte	-1
+ 2814 0aa1 F7       		.byte	-9
+ 2815 0aa2 9E       		.byte	-98
+ 2816 0aa3 FE       		.byte	-2
+ 2817 0aa4 00       		.byte	0
+ 2818 0aa5 28       		.byte	40
+ 2819 0aa6 02       		.byte	2
+ 2820 0aa7 D1       		.byte	-47
+ 2821 0aa8 10       		.byte	16
+ 2822 0aa9 48       		.byte	72
+ 2823 0aaa 80       		.byte	-128
+ 2824 0aab 24       		.byte	36
+ 2825 0aac 04       		.byte	4
+ 2826 0aad 60       		.byte	96
+ 2827 0aae FF       		.byte	-1
+ 2828 0aaf F7       		.byte	-9
+ 2829 0ab0 21       		.byte	33
+ 2830 0ab1 FE       		.byte	-2
+ 2831 0ab2 06       		.byte	6
+ 2832 0ab3 E0       		.byte	-32
+ 2833 0ab4 01       		.byte	1
+ 2834 0ab5 25       		.byte	37
+ 2835 0ab6 00       		.byte	0
+ 2836 0ab7 26       		.byte	38
+ 2837 0ab8 01       		.byte	1
+ 2838 0ab9 E0       		.byte	-32
+ 2839 0aba 06       		.byte	6
+ 2840 0abb 1C       		.byte	28
+ 2841 0abc B8       		.byte	-72
+ 2842 0abd E7       		.byte	-25
+ 2843 0abe 03       		.byte	3
+ 2844 0abf 23       		.byte	35
+ 2845 0ac0 39       		.byte	57
+ 2846 0ac1 E7       		.byte	-25
+ 2847 0ac2 04       		.byte	4
+ 2848 0ac3 23       		.byte	35
+ 2849 0ac4 37       		.byte	55
+ 2850 0ac5 E7       		.byte	-25
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 51
+
+
+ 2851 0ac6 C0       		.byte	-64
+ 2852 0ac7 46       		.byte	70
+ 2853 0ac8 14       		.byte	20
+ 2854 0ac9 FD       		.byte	-3
+ 2855 0aca FF       		.byte	-1
+ 2856 0acb FF       		.byte	-1
+ 2857 0acc A7       		.byte	-89
+ 2858 0acd FD       		.byte	-3
+ 2859 0ace FF       		.byte	-1
+ 2860 0acf FF       		.byte	-1
+ 2861 0ad0 AC       		.byte	-84
+ 2862 0ad1 FD       		.byte	-3
+ 2863 0ad2 FF       		.byte	-1
+ 2864 0ad3 FF       		.byte	-1
+ 2865 0ad4 AD       		.byte	-83
+ 2866 0ad5 FD       		.byte	-3
+ 2867 0ad6 FF       		.byte	-1
+ 2868 0ad7 FF       		.byte	-1
+ 2869 0ad8 AE       		.byte	-82
+ 2870 0ad9 FD       		.byte	-3
+ 2871 0ada FF       		.byte	-1
+ 2872 0adb FF       		.byte	-1
+ 2873 0adc E4       		.byte	-28
+ 2874 0add 00       		.byte	0
+ 2875 0ade 00       		.byte	0
+ 2876 0adf 20       		.byte	32
+ 2877 0ae0 8C       		.byte	-116
+ 2878 0ae1 0E       		.byte	14
+ 2879 0ae2 00       		.byte	0
+ 2880 0ae3 00       		.byte	0
+ 2881 0ae4 D0       		.byte	-48
+ 2882 0ae5 7F       		.byte	127
+ 2883 0ae6 00       		.byte	0
+ 2884 0ae7 00       		.byte	0
+ 2885 0ae8 D1       		.byte	-47
+ 2886 0ae9 7F       		.byte	127
+ 2887 0aea 00       		.byte	0
+ 2888 0aeb 00       		.byte	0
+ 2889 0aec C0       		.byte	-64
+ 2890 0aed 00       		.byte	0
+ 2891 0aee 00       		.byte	0
+ 2892 0aef 20       		.byte	32
+ 2893 0af0 14       		.byte	20
+ 2894 0af1 48       		.byte	72
+ 2895 0af2 10       		.byte	16
+ 2896 0af3 B5       		.byte	-75
+ 2897 0af4 03       		.byte	3
+ 2898 0af5 68       		.byte	104
+ 2899 0af6 00       		.byte	0
+ 2900 0af7 22       		.byte	34
+ 2901 0af8 19       		.byte	25
+ 2902 0af9 68       		.byte	104
+ 2903 0afa 0B       		.byte	11
+ 2904 0afb 1C       		.byte	28
+ 2905 0afc 01       		.byte	1
+ 2906 0afd 3B       		.byte	59
+ 2907 0afe BF       		.byte	-65
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 52
+
+
+ 2908 0aff 2B       		.byte	43
+ 2909 0b00 03       		.byte	3
+ 2910 0b01 D0       		.byte	-48
+ 2911 0b02 1C       		.byte	28
+ 2912 0b03 78       		.byte	120
+ 2913 0b04 12       		.byte	18
+ 2914 0b05 19       		.byte	25
+ 2915 0b06 D2       		.byte	-46
+ 2916 0b07 B2       		.byte	-78
+ 2917 0b08 F8       		.byte	-8
+ 2918 0b09 E7       		.byte	-25
+ 2919 0b0a 40       		.byte	64
+ 2920 0b0b 68       		.byte	104
+ 2921 0b0c 04       		.byte	4
+ 2922 0b0d 78       		.byte	120
+ 2923 0b0e A2       		.byte	-94
+ 2924 0b0f 1A       		.byte	26
+ 2925 0b10 D3       		.byte	-45
+ 2926 0b11 B2       		.byte	-78
+ 2927 0b12 A3       		.byte	-93
+ 2928 0b13 42       		.byte	66
+ 2929 0b14 01       		.byte	1
+ 2930 0b15 D1       		.byte	-47
+ 2931 0b16 00       		.byte	0
+ 2932 0b17 29       		.byte	41
+ 2933 0b18 02       		.byte	2
+ 2934 0b19 D1       		.byte	-47
+ 2935 0b1a 00       		.byte	0
+ 2936 0b1b 20       		.byte	32
+ 2937 0b1c FF       		.byte	-1
+ 2938 0b1d F7       		.byte	-9
+ 2939 0b1e E8       		.byte	-24
+ 2940 0b1f FD       		.byte	-3
+ 2941 0b20 FF       		.byte	-1
+ 2942 0b21 F7       		.byte	-9
+ 2943 0b22 5E       		.byte	94
+ 2944 0b23 FE       		.byte	-2
+ 2945 0b24 08       		.byte	8
+ 2946 0b25 4C       		.byte	76
+ 2947 0b26 21       		.byte	33
+ 2948 0b27 68       		.byte	104
+ 2949 0b28 22       		.byte	34
+ 2950 0b29 1C       		.byte	28
+ 2951 0b2a 40       		.byte	64
+ 2952 0b2b 29       		.byte	41
+ 2953 0b2c 01       		.byte	1
+ 2954 0b2d D0       		.byte	-48
+ 2955 0b2e 00       		.byte	0
+ 2956 0b2f 28       		.byte	40
+ 2957 0b30 03       		.byte	3
+ 2958 0b31 D0       		.byte	-48
+ 2959 0b32 00       		.byte	0
+ 2960 0b33 23       		.byte	35
+ 2961 0b34 13       		.byte	19
+ 2962 0b35 60       		.byte	96
+ 2963 0b36 FF       		.byte	-1
+ 2964 0b37 F7       		.byte	-9
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 53
+
+
+ 2965 0b38 7F       		.byte	127
+ 2966 0b39 FE       		.byte	-2
+ 2967 0b3a 80       		.byte	-128
+ 2968 0b3b 20       		.byte	32
+ 2969 0b3c 20       		.byte	32
+ 2970 0b3d 60       		.byte	96
+ 2971 0b3e FF       		.byte	-1
+ 2972 0b3f F7       		.byte	-9
+ 2973 0b40 D9       		.byte	-39
+ 2974 0b41 FD       		.byte	-3
+ 2975 0b42 10       		.byte	16
+ 2976 0b43 BD       		.byte	-67
+ 2977 0b44 E4       		.byte	-28
+ 2978 0b45 00       		.byte	0
+ 2979 0b46 00       		.byte	0
+ 2980 0b47 20       		.byte	32
+ 2981 0b48 C0       		.byte	-64
+ 2982 0b49 00       		.byte	0
+ 2983 0b4a 00       		.byte	0
+ 2984 0b4b 20       		.byte	32
+ 2985 0b4c 08       		.byte	8
+ 2986 0b4d B5       		.byte	-75
+ 2987 0b4e 0B       		.byte	11
+ 2988 0b4f 4B       		.byte	75
+ 2989 0b50 10       		.byte	16
+ 2990 0b51 20       		.byte	32
+ 2991 0b52 1A       		.byte	26
+ 2992 0b53 68       		.byte	104
+ 2993 0b54 0A       		.byte	10
+ 2994 0b55 49       		.byte	73
+ 2995 0b56 02       		.byte	2
+ 2996 0b57 40       		.byte	64
+ 2997 0b58 00       		.byte	0
+ 2998 0b59 D1       		.byte	-47
+ 2999 0b5a 0A       		.byte	10
+ 3000 0b5b 60       		.byte	96
+ 3001 0b5c 0B       		.byte	11
+ 3002 0b5d 68       		.byte	104
+ 3003 0b5e 80       		.byte	-128
+ 3004 0b5f 2B       		.byte	43
+ 3005 0b60 0B       		.byte	11
+ 3006 0b61 D1       		.byte	-47
+ 3007 0b62 00       		.byte	0
+ 3008 0b63 22       		.byte	34
+ 3009 0b64 01       		.byte	1
+ 3010 0b65 20       		.byte	32
+ 3011 0b66 0A       		.byte	10
+ 3012 0b67 60       		.byte	96
+ 3013 0b68 FF       		.byte	-1
+ 3014 0b69 F7       		.byte	-9
+ 3015 0b6a F2       		.byte	-14
+ 3016 0b6b FD       		.byte	-3
+ 3017 0b6c 00       		.byte	0
+ 3018 0b6d 28       		.byte	40
+ 3019 0b6e 04       		.byte	4
+ 3020 0b6f D0       		.byte	-48
+ 3021 0b70 01       		.byte	1
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 54
+
+
+ 3022 0b71 20       		.byte	32
+ 3023 0b72 FF       		.byte	-1
+ 3024 0b73 F7       		.byte	-9
+ 3025 0b74 ED       		.byte	-19
+ 3026 0b75 FD       		.byte	-3
+ 3027 0b76 FF       		.byte	-1
+ 3028 0b77 F7       		.byte	-9
+ 3029 0b78 E9       		.byte	-23
+ 3030 0b79 FD       		.byte	-3
+ 3031 0b7a 08       		.byte	8
+ 3032 0b7b BD       		.byte	-67
+ 3033 0b7c 00       		.byte	0
+ 3034 0b7d 03       		.byte	3
+ 3035 0b7e 0B       		.byte	11
+ 3036 0b7f 40       		.byte	64
+ 3037 0b80 C0       		.byte	-64
+ 3038 0b81 00       		.byte	0
+ 3039 0b82 00       		.byte	0
+ 3040 0b83 20       		.byte	32
+ 3041 0b84 0D       		.byte	13
+ 3042 0b85 4B       		.byte	75
+ 3043 0b86 84       		.byte	-124
+ 3044 0b87 22       		.byte	34
+ 3045 0b88 D0       		.byte	-48
+ 3046 0b89 04       		.byte	4
+ 3047 0b8a 18       		.byte	24
+ 3048 0b8b 60       		.byte	96
+ 3049 0b8c 19       		.byte	25
+ 3050 0b8d 68       		.byte	104
+ 3051 0b8e 80       		.byte	-128
+ 3052 0b8f 22       		.byte	34
+ 3053 0b90 50       		.byte	80
+ 3054 0b91 02       		.byte	2
+ 3055 0b92 08       		.byte	8
+ 3056 0b93 43       		.byte	67
+ 3057 0b94 18       		.byte	24
+ 3058 0b95 60       		.byte	96
+ 3059 0b96 19       		.byte	25
+ 3060 0b97 68       		.byte	104
+ 3061 0b98 09       		.byte	9
+ 3062 0b99 48       		.byte	72
+ 3063 0b9a 19       		.byte	25
+ 3064 0b9b 60       		.byte	96
+ 3065 0b9c C3       		.byte	-61
+ 3066 0b9d 23       		.byte	35
+ 3067 0b9e 9A       		.byte	-102
+ 3068 0b9f 00       		.byte	0
+ 3069 0ba0 02       		.byte	2
+ 3070 0ba1 60       		.byte	96
+ 3071 0ba2 08       		.byte	8
+ 3072 0ba3 4B       		.byte	75
+ 3073 0ba4 08       		.byte	8
+ 3074 0ba5 4A       		.byte	74
+ 3075 0ba6 09       		.byte	9
+ 3076 0ba7 48       		.byte	72
+ 3077 0ba8 00       		.byte	0
+ 3078 0ba9 21       		.byte	33
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 55
+
+
+ 3079 0baa 19       		.byte	25
+ 3080 0bab 60       		.byte	96
+ 3081 0bac 02       		.byte	2
+ 3082 0bad 60       		.byte	96
+ 3083 0bae 08       		.byte	8
+ 3084 0baf 49       		.byte	73
+ 3085 0bb0 08       		.byte	8
+ 3086 0bb1 4B       		.byte	75
+ 3087 0bb2 09       		.byte	9
+ 3088 0bb3 48       		.byte	72
+ 3089 0bb4 1C       		.byte	28
+ 3090 0bb5 22       		.byte	34
+ 3091 0bb6 19       		.byte	25
+ 3092 0bb7 60       		.byte	96
+ 3093 0bb8 02       		.byte	2
+ 3094 0bb9 60       		.byte	96
+ 3095 0bba 70       		.byte	112
+ 3096 0bbb 47       		.byte	71
+ 3097 0bbc 00       		.byte	0
+ 3098 0bbd 01       		.byte	1
+ 3099 0bbe 05       		.byte	5
+ 3100 0bbf 40       		.byte	64
+ 3101 0bc0 24       		.byte	36
+ 3102 0bc1 01       		.byte	1
+ 3103 0bc2 05       		.byte	5
+ 3104 0bc3 40       		.byte	64
+ 3105 0bc4 38       		.byte	56
+ 3106 0bc5 01       		.byte	1
+ 3107 0bc6 05       		.byte	5
+ 3108 0bc7 40       		.byte	64
+ 3109 0bc8 10       		.byte	16
+ 3110 0bc9 27       		.byte	39
+ 3111 0bca 00       		.byte	0
+ 3112 0bcb 00       		.byte	0
+ 3113 0bcc 14       		.byte	20
+ 3114 0bcd 01       		.byte	1
+ 3115 0bce 05       		.byte	5
+ 3116 0bcf 40       		.byte	64
+ 3117 0bd0 88       		.byte	-120
+ 3118 0bd1 13       		.byte	19
+ 3119 0bd2 00       		.byte	0
+ 3120 0bd3 00       		.byte	0
+ 3121 0bd4 0C       		.byte	12
+ 3122 0bd5 01       		.byte	1
+ 3123 0bd6 05       		.byte	5
+ 3124 0bd7 40       		.byte	64
+ 3125 0bd8 28       		.byte	40
+ 3126 0bd9 01       		.byte	1
+ 3127 0bda 05       		.byte	5
+ 3128 0bdb 40       		.byte	64
+ 3129 0bdc 08       		.byte	8
+ 3130 0bdd B5       		.byte	-75
+ 3131 0bde FF       		.byte	-1
+ 3132 0bdf F7       		.byte	-9
+ 3133 0be0 80       		.byte	-128
+ 3134 0be1 FD       		.byte	-3
+ 3135 0be2 04       		.byte	4
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 56
+
+
+ 3136 0be3 4B       		.byte	75
+ 3137 0be4 01       		.byte	1
+ 3138 0be5 21       		.byte	33
+ 3139 0be6 1A       		.byte	26
+ 3140 0be7 68       		.byte	104
+ 3141 0be8 0A       		.byte	10
+ 3142 0be9 43       		.byte	67
+ 3143 0bea 1A       		.byte	26
+ 3144 0beb 60       		.byte	96
+ 3145 0bec FF       		.byte	-1
+ 3146 0bed F7       		.byte	-9
+ 3147 0bee 7D       		.byte	125
+ 3148 0bef FD       		.byte	-3
+ 3149 0bf0 08       		.byte	8
+ 3150 0bf1 BD       		.byte	-67
+ 3151 0bf2 C0       		.byte	-64
+ 3152 0bf3 46       		.byte	70
+ 3153 0bf4 00       		.byte	0
+ 3154 0bf5 00       		.byte	0
+ 3155 0bf6 05       		.byte	5
+ 3156 0bf7 40       		.byte	64
+ 3157 0bf8 10       		.byte	16
+ 3158 0bf9 B5       		.byte	-75
+ 3159 0bfa 05       		.byte	5
+ 3160 0bfb 4C       		.byte	76
+ 3161 0bfc 23       		.byte	35
+ 3162 0bfd 78       		.byte	120
+ 3163 0bfe 00       		.byte	0
+ 3164 0bff 2B       		.byte	43
+ 3165 0c00 03       		.byte	3
+ 3166 0c01 D1       		.byte	-47
+ 3167 0c02 FF       		.byte	-1
+ 3168 0c03 F7       		.byte	-9
+ 3169 0c04 BF       		.byte	-65
+ 3170 0c05 FF       		.byte	-1
+ 3171 0c06 01       		.byte	1
+ 3172 0c07 20       		.byte	32
+ 3173 0c08 20       		.byte	32
+ 3174 0c09 70       		.byte	112
+ 3175 0c0a FF       		.byte	-1
+ 3176 0c0b F7       		.byte	-9
+ 3177 0c0c E7       		.byte	-25
+ 3178 0c0d FF       		.byte	-1
+ 3179 0c0e 10       		.byte	16
+ 3180 0c0f BD       		.byte	-67
+ 3181 0c10 18       		.byte	24
+ 3182 0c11 01       		.byte	1
+ 3183 0c12 00       		.byte	0
+ 3184 0c13 20       		.byte	32
+ 3185 0c14 02       		.byte	2
+ 3186 0c15 4B       		.byte	75
+ 3187 0c16 18       		.byte	24
+ 3188 0c17 68       		.byte	104
+ 3189 0c18 01       		.byte	1
+ 3190 0c19 06       		.byte	6
+ 3191 0c1a C8       		.byte	-56
+ 3192 0c1b 0F       		.byte	15
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 57
+
+
+ 3193 0c1c 70       		.byte	112
+ 3194 0c1d 47       		.byte	71
+ 3195 0c1e C0       		.byte	-64
+ 3196 0c1f 46       		.byte	70
+ 3197 0c20 04       		.byte	4
+ 3198 0c21 00       		.byte	0
+ 3199 0c22 04       		.byte	4
+ 3200 0c23 40       		.byte	64
+ 3201 0c24 26       		.byte	38
+ 3202 0c25 4B       		.byte	75
+ 3203 0c26 10       		.byte	16
+ 3204 0c27 B5       		.byte	-75
+ 3205 0c28 18       		.byte	24
+ 3206 0c29 68       		.byte	104
+ 3207 0c2a 00       		.byte	0
+ 3208 0c2b 28       		.byte	40
+ 3209 0c2c 00       		.byte	0
+ 3210 0c2d D0       		.byte	-48
+ 3211 0c2e 80       		.byte	-128
+ 3212 0c2f 47       		.byte	71
+ 3213 0c30 24       		.byte	36
+ 3214 0c31 49       		.byte	73
+ 3215 0c32 0A       		.byte	10
+ 3216 0c33 68       		.byte	104
+ 3217 0c34 52       		.byte	82
+ 3218 0c35 07       		.byte	7
+ 3219 0c36 1D       		.byte	29
+ 3220 0c37 D5       		.byte	-43
+ 3221 0c38 23       		.byte	35
+ 3222 0c39 4C       		.byte	76
+ 3223 0c3a 23       		.byte	35
+ 3224 0c3b 68       		.byte	104
+ 3225 0c3c 1A       		.byte	26
+ 3226 0c3d 07       		.byte	7
+ 3227 0c3e 16       		.byte	22
+ 3228 0c3f D0       		.byte	-48
+ 3229 0c40 22       		.byte	34
+ 3230 0c41 4B       		.byte	75
+ 3231 0c42 23       		.byte	35
+ 3232 0c43 4A       		.byte	74
+ 3233 0c44 18       		.byte	24
+ 3234 0c45 68       		.byte	104
+ 3235 0c46 11       		.byte	17
+ 3236 0c47 68       		.byte	104
+ 3237 0c48 4B       		.byte	75
+ 3238 0c49 1C       		.byte	28
+ 3239 0c4a 40       		.byte	64
+ 3240 0c4b 39       		.byte	57
+ 3241 0c4c 4C       		.byte	76
+ 3242 0c4d 1E       		.byte	30
+ 3243 0c4e A1       		.byte	-95
+ 3244 0c4f 41       		.byte	65
+ 3245 0c50 4C       		.byte	76
+ 3246 0c51 42       		.byte	66
+ 3247 0c52 20       		.byte	32
+ 3248 0c53 49       		.byte	73
+ 3249 0c54 23       		.byte	35
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 58
+
+
+ 3250 0c55 40       		.byte	64
+ 3251 0c56 0C       		.byte	12
+ 3252 0c57 68       		.byte	104
+ 3253 0c58 A3       		.byte	-93
+ 3254 0c59 42       		.byte	66
+ 3255 0c5a 03       		.byte	3
+ 3256 0c5b D1       		.byte	-47
+ 3257 0c5c 1E       		.byte	30
+ 3258 0c5d 4B       		.byte	75
+ 3259 0c5e 20       		.byte	32
+ 3260 0c5f 22       		.byte	34
+ 3261 0c60 1A       		.byte	26
+ 3262 0c61 70       		.byte	112
+ 3263 0c62 E9       		.byte	-23
+ 3264 0c63 E7       		.byte	-25
+ 3265 0c64 1D       		.byte	29
+ 3266 0c65 49       		.byte	73
+ 3267 0c66 C0       		.byte	-64
+ 3268 0c67 B2       		.byte	-78
+ 3269 0c68 C8       		.byte	-56
+ 3270 0c69 54       		.byte	84
+ 3271 0c6a 13       		.byte	19
+ 3272 0c6b 60       		.byte	96
+ 3273 0c6c E4       		.byte	-28
+ 3274 0c6d E7       		.byte	-25
+ 3275 0c6e 1C       		.byte	28
+ 3276 0c6f 49       		.byte	73
+ 3277 0c70 04       		.byte	4
+ 3278 0c71 20       		.byte	32
+ 3279 0c72 08       		.byte	8
+ 3280 0c73 60       		.byte	96
+ 3281 0c74 1B       		.byte	27
+ 3282 0c75 4A       		.byte	74
+ 3283 0c76 14       		.byte	20
+ 3284 0c77 68       		.byte	104
+ 3285 0c78 A2       		.byte	-94
+ 3286 0c79 07       		.byte	7
+ 3287 0c7a 20       		.byte	32
+ 3288 0c7b D5       		.byte	-43
+ 3289 0c7c 1A       		.byte	26
+ 3290 0c7d 4B       		.byte	75
+ 3291 0c7e 0F       		.byte	15
+ 3292 0c7f 21       		.byte	33
+ 3293 0c80 18       		.byte	24
+ 3294 0c81 68       		.byte	104
+ 3295 0c82 01       		.byte	1
+ 3296 0c83 40       		.byte	64
+ 3297 0c84 08       		.byte	8
+ 3298 0c85 29       		.byte	41
+ 3299 0c86 17       		.byte	23
+ 3300 0c87 D0       		.byte	-48
+ 3301 0c88 18       		.byte	24
+ 3302 0c89 4A       		.byte	74
+ 3303 0c8a 19       		.byte	25
+ 3304 0c8b 4B       		.byte	75
+ 3305 0c8c 14       		.byte	20
+ 3306 0c8d 68       		.byte	104
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 59
+
+
+ 3307 0c8e 18       		.byte	24
+ 3308 0c8f 68       		.byte	104
+ 3309 0c90 84       		.byte	-124
+ 3310 0c91 42       		.byte	66
+ 3311 0c92 0C       		.byte	12
+ 3312 0c93 D0       		.byte	-48
+ 3313 0c94 1C       		.byte	28
+ 3314 0c95 68       		.byte	104
+ 3315 0c96 62       		.byte	98
+ 3316 0c97 1C       		.byte	28
+ 3317 0c98 3F       		.byte	63
+ 3318 0c99 3C       		.byte	60
+ 3319 0c9a 60       		.byte	96
+ 3320 0c9b 1E       		.byte	30
+ 3321 0c9c 84       		.byte	-124
+ 3322 0c9d 41       		.byte	65
+ 3323 0c9e 61       		.byte	97
+ 3324 0c9f 42       		.byte	66
+ 3325 0ca0 14       		.byte	20
+ 3326 0ca1 48       		.byte	72
+ 3327 0ca2 0A       		.byte	10
+ 3328 0ca3 40       		.byte	64
+ 3329 0ca4 84       		.byte	-124
+ 3330 0ca5 5C       		.byte	92
+ 3331 0ca6 14       		.byte	20
+ 3332 0ca7 49       		.byte	73
+ 3333 0ca8 0C       		.byte	12
+ 3334 0ca9 60       		.byte	96
+ 3335 0caa 1A       		.byte	26
+ 3336 0cab 60       		.byte	96
+ 3337 0cac E6       		.byte	-26
+ 3338 0cad E7       		.byte	-25
+ 3339 0cae 13       		.byte	19
+ 3340 0caf 4C       		.byte	76
+ 3341 0cb0 02       		.byte	2
+ 3342 0cb1 21       		.byte	33
+ 3343 0cb2 22       		.byte	34
+ 3344 0cb3 68       		.byte	104
+ 3345 0cb4 8A       		.byte	-118
+ 3346 0cb5 43       		.byte	67
+ 3347 0cb6 22       		.byte	34
+ 3348 0cb7 60       		.byte	96
+ 3349 0cb8 11       		.byte	17
+ 3350 0cb9 4B       		.byte	75
+ 3351 0cba 02       		.byte	2
+ 3352 0cbb 20       		.byte	32
+ 3353 0cbc 18       		.byte	24
+ 3354 0cbd 60       		.byte	96
+ 3355 0cbe 10       		.byte	16
+ 3356 0cbf BD       		.byte	-67
+ 3357 0cc0 14       		.byte	20
+ 3358 0cc1 01       		.byte	1
+ 3359 0cc2 00       		.byte	0
+ 3360 0cc3 20       		.byte	32
+ 3361 0cc4 CC       		.byte	-52
+ 3362 0cc5 0F       		.byte	15
+ 3363 0cc6 06       		.byte	6
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 60
+
+
+ 3364 0cc7 40       		.byte	64
+ 3365 0cc8 08       		.byte	8
+ 3366 0cc9 03       		.byte	3
+ 3367 0cca 06       		.byte	6
+ 3368 0ccb 40       		.byte	64
+ 3369 0ccc 40       		.byte	64
+ 3370 0ccd 03       		.byte	3
+ 3371 0cce 06       		.byte	6
+ 3372 0ccf 40       		.byte	64
+ 3373 0cd0 AC       		.byte	-84
+ 3374 0cd1 01       		.byte	1
+ 3375 0cd2 00       		.byte	0
+ 3376 0cd3 20       		.byte	32
+ 3377 0cd4 24       		.byte	36
+ 3378 0cd5 01       		.byte	1
+ 3379 0cd6 00       		.byte	0
+ 3380 0cd7 20       		.byte	32
+ 3381 0cd8 A9       		.byte	-87
+ 3382 0cd9 01       		.byte	1
+ 3383 0cda 00       		.byte	0
+ 3384 0cdb 20       		.byte	32
+ 3385 0cdc 68       		.byte	104
+ 3386 0cdd 01       		.byte	1
+ 3387 0cde 00       		.byte	0
+ 3388 0cdf 20       		.byte	32
+ 3389 0ce0 C0       		.byte	-64
+ 3390 0ce1 0F       		.byte	15
+ 3391 0ce2 06       		.byte	6
+ 3392 0ce3 40       		.byte	64
+ 3393 0ce4 8C       		.byte	-116
+ 3394 0ce5 0F       		.byte	15
+ 3395 0ce6 06       		.byte	6
+ 3396 0ce7 40       		.byte	64
+ 3397 0ce8 08       		.byte	8
+ 3398 0ce9 02       		.byte	2
+ 3399 0cea 06       		.byte	6
+ 3400 0ceb 40       		.byte	64
+ 3401 0cec 20       		.byte	32
+ 3402 0ced 01       		.byte	1
+ 3403 0cee 00       		.byte	0
+ 3404 0cef 20       		.byte	32
+ 3405 0cf0 1C       		.byte	28
+ 3406 0cf1 01       		.byte	1
+ 3407 0cf2 00       		.byte	0
+ 3408 0cf3 20       		.byte	32
+ 3409 0cf4 28       		.byte	40
+ 3410 0cf5 01       		.byte	1
+ 3411 0cf6 00       		.byte	0
+ 3412 0cf7 20       		.byte	32
+ 3413 0cf8 40       		.byte	64
+ 3414 0cf9 02       		.byte	2
+ 3415 0cfa 06       		.byte	6
+ 3416 0cfb 40       		.byte	64
+ 3417 0cfc 88       		.byte	-120
+ 3418 0cfd 0F       		.byte	15
+ 3419 0cfe 06       		.byte	6
+ 3420 0cff 40       		.byte	64
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 61
+
+
+ 3421 0d00 80       		.byte	-128
+ 3422 0d01 0F       		.byte	15
+ 3423 0d02 06       		.byte	6
+ 3424 0d03 40       		.byte	64
+ 3425 0d04 F0       		.byte	-16
+ 3426 0d05 B5       		.byte	-75
+ 3427 0d06 00       		.byte	0
+ 3428 0d07 23       		.byte	35
+ 3429 0d08 A7       		.byte	-89
+ 3430 0d09 B0       		.byte	-80
+ 3431 0d0a 07       		.byte	7
+ 3432 0d0b 1C       		.byte	28
+ 3433 0d0c 01       		.byte	1
+ 3434 0d0d 93       		.byte	-109
+ 3435 0d0e FF       		.byte	-1
+ 3436 0d0f 28       		.byte	40
+ 3437 0d10 45       		.byte	69
+ 3438 0d11 D8       		.byte	-40
+ 3439 0d12 99       		.byte	-103
+ 3440 0d13 42       		.byte	66
+ 3441 0d14 43       		.byte	67
+ 3442 0d15 D0       		.byte	-48
+ 3443 0d16 24       		.byte	36
+ 3444 0d17 4A       		.byte	74
+ 3445 0d18 24       		.byte	36
+ 3446 0d19 4C       		.byte	76
+ 3447 0d1a 04       		.byte	4
+ 3448 0d1b AE       		.byte	-82
+ 3449 0d1c 26       		.byte	38
+ 3450 0d1d 60       		.byte	96
+ 3451 0d1e 7F       		.byte	127
+ 3452 0d1f 25       		.byte	37
+ 3453 0d20 04       		.byte	4
+ 3454 0d21 92       		.byte	-110
+ 3455 0d22 06       		.byte	6
+ 3456 0d23 A8       		.byte	-88
+ 3457 0d24 80       		.byte	-128
+ 3458 0d25 22       		.byte	34
+ 3459 0d26 75       		.byte	117
+ 3460 0d27 60       		.byte	96
+ 3461 0d28 00       		.byte	0
+ 3462 0d29 F0       		.byte	-16
+ 3463 0d2a 86       		.byte	-122
+ 3464 0d2b F8       		.byte	-8
+ 3465 0d2c 20       		.byte	32
+ 3466 0d2d 4D       		.byte	77
+ 3467 0d2e 21       		.byte	33
+ 3468 0d2f 49       		.byte	73
+ 3469 0d30 29       		.byte	41
+ 3470 0d31 60       		.byte	96
+ 3471 0d32 2B       		.byte	43
+ 3472 0d33 68       		.byte	104
+ 3473 0d34 00       		.byte	0
+ 3474 0d35 2B       		.byte	43
+ 3475 0d36 FC       		.byte	-4
+ 3476 0d37 DB       		.byte	-37
+ 3477 0d38 20       		.byte	32
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 62
+
+
+ 3478 0d39 68       		.byte	104
+ 3479 0d3a A0       		.byte	-96
+ 3480 0d3b 21       		.byte	33
+ 3481 0d3c 02       		.byte	2
+ 3482 0d3d 90       		.byte	-112
+ 3483 0d3e 02       		.byte	2
+ 3484 0d3f 9A       		.byte	-102
+ 3485 0d40 0B       		.byte	11
+ 3486 0d41 06       		.byte	6
+ 3487 0d42 9A       		.byte	-102
+ 3488 0d43 42       		.byte	66
+ 3489 0d44 01       		.byte	1
+ 3490 0d45 D1       		.byte	-47
+ 3491 0d46 00       		.byte	0
+ 3492 0d47 20       		.byte	32
+ 3493 0d48 04       		.byte	4
+ 3494 0d49 E0       		.byte	-32
+ 3495 0d4a 02       		.byte	2
+ 3496 0d4b 98       		.byte	-104
+ 3497 0d4c 02       		.byte	2
+ 3498 0d4d 0F       		.byte	15
+ 3499 0d4e 0F       		.byte	15
+ 3500 0d4f 2A       		.byte	42
+ 3501 0d50 02       		.byte	2
+ 3502 0d51 D1       		.byte	-47
+ 3503 0d52 09       		.byte	9
+ 3504 0d53 20       		.byte	32
+ 3505 0d54 01       		.byte	1
+ 3506 0d55 90       		.byte	-112
+ 3507 0d56 03       		.byte	3
+ 3508 0d57 E0       		.byte	-32
+ 3509 0d58 21       		.byte	33
+ 3510 0d59 68       		.byte	104
+ 3511 0d5a 0B       		.byte	11
+ 3512 0d5b 0F       		.byte	15
+ 3513 0d5c 0A       		.byte	10
+ 3514 0d5d 2B       		.byte	43
+ 3515 0d5e FB       		.byte	-5
+ 3516 0d5f D1       		.byte	-47
+ 3517 0d60 01       		.byte	1
+ 3518 0d61 9A       		.byte	-102
+ 3519 0d62 00       		.byte	0
+ 3520 0d63 2A       		.byte	42
+ 3521 0d64 1D       		.byte	29
+ 3522 0d65 D1       		.byte	-47
+ 3523 0d66 26       		.byte	38
+ 3524 0d67 60       		.byte	96
+ 3525 0d68 13       		.byte	19
+ 3526 0d69 4E       		.byte	78
+ 3527 0d6a 3F       		.byte	63
+ 3528 0d6b 04       		.byte	4
+ 3529 0d6c 37       		.byte	55
+ 3530 0d6d 43       		.byte	67
+ 3531 0d6e 04       		.byte	4
+ 3532 0d6f 97       		.byte	-105
+ 3533 0d70 FF       		.byte	-1
+ 3534 0d71 F7       		.byte	-9
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 63
+
+
+ 3535 0d72 B7       		.byte	-73
+ 3536 0d73 FC       		.byte	-4
+ 3537 0d74 11       		.byte	17
+ 3538 0d75 49       		.byte	73
+ 3539 0d76 12       		.byte	18
+ 3540 0d77 4A       		.byte	74
+ 3541 0d78 0B       		.byte	11
+ 3542 0d79 68       		.byte	104
+ 3543 0d7a 03       		.byte	3
+ 3544 0d7b 93       		.byte	-109
+ 3545 0d7c 2A       		.byte	42
+ 3546 0d7d 60       		.byte	96
+ 3547 0d7e 2F       		.byte	47
+ 3548 0d7f 68       		.byte	104
+ 3549 0d80 00       		.byte	0
+ 3550 0d81 2F       		.byte	47
+ 3551 0d82 FC       		.byte	-4
+ 3552 0d83 DB       		.byte	-37
+ 3553 0d84 03       		.byte	3
+ 3554 0d85 9D       		.byte	-99
+ 3555 0d86 A0       		.byte	-96
+ 3556 0d87 26       		.byte	38
+ 3557 0d88 0D       		.byte	13
+ 3558 0d89 60       		.byte	96
+ 3559 0d8a FF       		.byte	-1
+ 3560 0d8b F7       		.byte	-9
+ 3561 0d8c AE       		.byte	-82
+ 3562 0d8d FC       		.byte	-4
+ 3563 0d8e 24       		.byte	36
+ 3564 0d8f 68       		.byte	104
+ 3565 0d90 31       		.byte	49
+ 3566 0d91 06       		.byte	6
+ 3567 0d92 02       		.byte	2
+ 3568 0d93 94       		.byte	-108
+ 3569 0d94 02       		.byte	2
+ 3570 0d95 98       		.byte	-104
+ 3571 0d96 88       		.byte	-120
+ 3572 0d97 42       		.byte	66
+ 3573 0d98 03       		.byte	3
+ 3574 0d99 D0       		.byte	-48
+ 3575 0d9a 02       		.byte	2
+ 3576 0d9b 98       		.byte	-104
+ 3577 0d9c 00       		.byte	0
+ 3578 0d9d E0       		.byte	-32
+ 3579 0d9e 01       		.byte	1
+ 3580 0d9f 20       		.byte	32
+ 3581 0da0 01       		.byte	1
+ 3582 0da1 90       		.byte	-112
+ 3583 0da2 01       		.byte	1
+ 3584 0da3 98       		.byte	-104
+ 3585 0da4 27       		.byte	39
+ 3586 0da5 B0       		.byte	-80
+ 3587 0da6 F0       		.byte	-16
+ 3588 0da7 BD       		.byte	-67
+ 3589 0da8 B6       		.byte	-74
+ 3590 0da9 D7       		.byte	-41
+ 3591 0daa 00       		.byte	0
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 64
+
+
+ 3592 0dab 00       		.byte	0
+ 3593 0dac 08       		.byte	8
+ 3594 0dad 00       		.byte	0
+ 3595 0dae 00       		.byte	0
+ 3596 0daf 40       		.byte	64
+ 3597 0db0 04       		.byte	4
+ 3598 0db1 00       		.byte	0
+ 3599 0db2 00       		.byte	0
+ 3600 0db3 40       		.byte	64
+ 3601 0db4 04       		.byte	4
+ 3602 0db5 00       		.byte	0
+ 3603 0db6 00       		.byte	0
+ 3604 0db7 80       		.byte	-128
+ 3605 0db8 B6       		.byte	-74
+ 3606 0db9 D8       		.byte	-40
+ 3607 0dba 00       		.byte	0
+ 3608 0dbb 00       		.byte	0
+ 3609 0dbc 08       		.byte	8
+ 3610 0dbd 01       		.byte	1
+ 3611 0dbe 0B       		.byte	11
+ 3612 0dbf 40       		.byte	64
+ 3613 0dc0 05       		.byte	5
+ 3614 0dc1 00       		.byte	0
+ 3615 0dc2 00       		.byte	0
+ 3616 0dc3 80       		.byte	-128
+ 3617 0dc4 02       		.byte	2
+ 3618 0dc5 B4       		.byte	-76
+ 3619 0dc6 71       		.byte	113
+ 3620 0dc7 46       		.byte	70
+ 3621 0dc8 49       		.byte	73
+ 3622 0dc9 08       		.byte	8
+ 3623 0dca 49       		.byte	73
+ 3624 0dcb 00       		.byte	0
+ 3625 0dcc 09       		.byte	9
+ 3626 0dcd 56       		.byte	86
+ 3627 0dce 49       		.byte	73
+ 3628 0dcf 00       		.byte	0
+ 3629 0dd0 8E       		.byte	-114
+ 3630 0dd1 44       		.byte	68
+ 3631 0dd2 02       		.byte	2
+ 3632 0dd3 BC       		.byte	-68
+ 3633 0dd4 70       		.byte	112
+ 3634 0dd5 47       		.byte	71
+ 3635 0dd6 C0       		.byte	-64
+ 3636 0dd7 46       		.byte	70
+ 3637 0dd8 02       		.byte	2
+ 3638 0dd9 B4       		.byte	-76
+ 3639 0dda 71       		.byte	113
+ 3640 0ddb 46       		.byte	70
+ 3641 0ddc 49       		.byte	73
+ 3642 0ddd 08       		.byte	8
+ 3643 0dde 49       		.byte	73
+ 3644 0ddf 00       		.byte	0
+ 3645 0de0 09       		.byte	9
+ 3646 0de1 5C       		.byte	92
+ 3647 0de2 49       		.byte	73
+ 3648 0de3 00       		.byte	0
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 65
+
+
+ 3649 0de4 8E       		.byte	-114
+ 3650 0de5 44       		.byte	68
+ 3651 0de6 02       		.byte	2
+ 3652 0de7 BC       		.byte	-68
+ 3653 0de8 70       		.byte	112
+ 3654 0de9 47       		.byte	71
+ 3655 0dea C0       		.byte	-64
+ 3656 0deb 46       		.byte	70
+ 3657 0dec 70       		.byte	112
+ 3658 0ded B5       		.byte	-75
+ 3659 0dee 0E       		.byte	14
+ 3660 0def 4B       		.byte	75
+ 3661 0df0 0E       		.byte	14
+ 3662 0df1 4D       		.byte	77
+ 3663 0df2 00       		.byte	0
+ 3664 0df3 24       		.byte	36
+ 3665 0df4 E8       		.byte	-24
+ 3666 0df5 1A       		.byte	26
+ 3667 0df6 85       		.byte	-123
+ 3668 0df7 10       		.byte	16
+ 3669 0df8 1E       		.byte	30
+ 3670 0df9 1C       		.byte	28
+ 3671 0dfa AC       		.byte	-84
+ 3672 0dfb 42       		.byte	66
+ 3673 0dfc 04       		.byte	4
+ 3674 0dfd D0       		.byte	-48
+ 3675 0dfe A1       		.byte	-95
+ 3676 0dff 00       		.byte	0
+ 3677 0e00 72       		.byte	114
+ 3678 0e01 58       		.byte	88
+ 3679 0e02 90       		.byte	-112
+ 3680 0e03 47       		.byte	71
+ 3681 0e04 01       		.byte	1
+ 3682 0e05 34       		.byte	52
+ 3683 0e06 F8       		.byte	-8
+ 3684 0e07 E7       		.byte	-25
+ 3685 0e08 00       		.byte	0
+ 3686 0e09 F0       		.byte	-16
+ 3687 0e0a 44       		.byte	68
+ 3688 0e0b F8       		.byte	-8
+ 3689 0e0c 08       		.byte	8
+ 3690 0e0d 49       		.byte	73
+ 3691 0e0e 09       		.byte	9
+ 3692 0e0f 4A       		.byte	74
+ 3693 0e10 0E       		.byte	14
+ 3694 0e11 1C       		.byte	28
+ 3695 0e12 54       		.byte	84
+ 3696 0e13 1A       		.byte	26
+ 3697 0e14 A5       		.byte	-91
+ 3698 0e15 10       		.byte	16
+ 3699 0e16 00       		.byte	0
+ 3700 0e17 24       		.byte	36
+ 3701 0e18 AC       		.byte	-84
+ 3702 0e19 42       		.byte	66
+ 3703 0e1a 04       		.byte	4
+ 3704 0e1b D0       		.byte	-48
+ 3705 0e1c A3       		.byte	-93
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 66
+
+
+ 3706 0e1d 00       		.byte	0
+ 3707 0e1e F0       		.byte	-16
+ 3708 0e1f 58       		.byte	88
+ 3709 0e20 80       		.byte	-128
+ 3710 0e21 47       		.byte	71
+ 3711 0e22 01       		.byte	1
+ 3712 0e23 34       		.byte	52
+ 3713 0e24 F8       		.byte	-8
+ 3714 0e25 E7       		.byte	-25
+ 3715 0e26 70       		.byte	112
+ 3716 0e27 BD       		.byte	-67
+ 3717 0e28 A0       		.byte	-96
+ 3718 0e29 0E       		.byte	14
+ 3719 0e2a 00       		.byte	0
+ 3720 0e2b 00       		.byte	0
+ 3721 0e2c A0       		.byte	-96
+ 3722 0e2d 0E       		.byte	14
+ 3723 0e2e 00       		.byte	0
+ 3724 0e2f 00       		.byte	0
+ 3725 0e30 A0       		.byte	-96
+ 3726 0e31 0E       		.byte	14
+ 3727 0e32 00       		.byte	0
+ 3728 0e33 00       		.byte	0
+ 3729 0e34 A8       		.byte	-88
+ 3730 0e35 0E       		.byte	14
+ 3731 0e36 00       		.byte	0
+ 3732 0e37 00       		.byte	0
+ 3733 0e38 10       		.byte	16
+ 3734 0e39 B5       		.byte	-75
+ 3735 0e3a 00       		.byte	0
+ 3736 0e3b 23       		.byte	35
+ 3737 0e3c 93       		.byte	-109
+ 3738 0e3d 42       		.byte	66
+ 3739 0e3e 03       		.byte	3
+ 3740 0e3f D0       		.byte	-48
+ 3741 0e40 CC       		.byte	-52
+ 3742 0e41 5C       		.byte	92
+ 3743 0e42 C4       		.byte	-60
+ 3744 0e43 54       		.byte	84
+ 3745 0e44 01       		.byte	1
+ 3746 0e45 33       		.byte	51
+ 3747 0e46 F9       		.byte	-7
+ 3748 0e47 E7       		.byte	-25
+ 3749 0e48 10       		.byte	16
+ 3750 0e49 BD       		.byte	-67
+ 3751 0e4a 00       		.byte	0
+ 3752 0e4b B5       		.byte	-75
+ 3753 0e4c 82       		.byte	-126
+ 3754 0e4d 18       		.byte	24
+ 3755 0e4e 03       		.byte	3
+ 3756 0e4f 1C       		.byte	28
+ 3757 0e50 93       		.byte	-109
+ 3758 0e51 42       		.byte	66
+ 3759 0e52 02       		.byte	2
+ 3760 0e53 D0       		.byte	-48
+ 3761 0e54 19       		.byte	25
+ 3762 0e55 70       		.byte	112
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 67
+
+
+ 3763 0e56 01       		.byte	1
+ 3764 0e57 33       		.byte	51
+ 3765 0e58 FA       		.byte	-6
+ 3766 0e59 E7       		.byte	-25
+ 3767 0e5a 00       		.byte	0
+ 3768 0e5b BD       		.byte	-67
+ 3769 0e5c E8       		.byte	-24
+ 3770 0e5d 0E       		.byte	14
+ 3771 0e5e 00       		.byte	0
+ 3772 0e5f 00       		.byte	0
+ 3773 0e60 05       		.byte	5
+ 3774 0e61 00       		.byte	0
+ 3775 0e62 00       		.byte	0
+ 3776 0e63 00       		.byte	0
+ 3777 0e64 00       		.byte	0
+ 3778 0e65 00       		.byte	0
+ 3779 0e66 00       		.byte	0
+ 3780 0e67 00       		.byte	0
+ 3781 0e68 01       		.byte	1
+ 3782 0e69 33       		.byte	51
+ 3783 0e6a 0F       		.byte	15
+ 3784 0e6b 40       		.byte	64
+ 3785 0e6c 03       		.byte	3
+ 3786 0e6d 41       		.byte	65
+ 3787 0e6e 0F       		.byte	15
+ 3788 0e6f 40       		.byte	64
+ 3789 0e70 04       		.byte	4
+ 3790 0e71 43       		.byte	67
+ 3791 0e72 0F       		.byte	15
+ 3792 0e73 40       		.byte	64
+ 3793 0e74 02       		.byte	2
+ 3794 0e75 60       		.byte	96
+ 3795 0e76 0F       		.byte	15
+ 3796 0e77 40       		.byte	64
+ 3797 0e78 E6       		.byte	-26
+ 3798 0e79 10       		.byte	16
+ 3799 0e7a 62       		.byte	98
+ 3800 0e7b 04       		.byte	4
+ 3801 0e7c 8E       		.byte	-114
+ 3802 0e7d 04       		.byte	4
+ 3803 0e7e D8       		.byte	-40
+ 3804 0e7f 40       		.byte	64
+ 3805 0e80 18       		.byte	24
+ 3806 0e81 80       		.byte	-128
+ 3807 0e82 8C       		.byte	-116
+ 3808 0e83 40       		.byte	64
+ 3809 0e84 C6       		.byte	-58
+ 3810 0e85 08       		.byte	8
+ 3811 0e86 E6       		.byte	-26
+ 3812 0e87 08       		.byte	8
+ 3813 0e88 02       		.byte	2
+ 3814 0e89 01       		.byte	1
+ 3815 0e8a 11       		.byte	17
+ 3816 0e8b 01       		.byte	1
+ 3817 0e8c 93       		.byte	-109
+ 3818 0e8d 11       		.byte	17
+ 3819 0e8e C8       		.byte	-56
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 68
+
+
+ 3820 0e8f 04       		.byte	4
+ 3821 0e90 11       		.byte	17
+ 3822 0e91 14       		.byte	20
+ 3823 0e92 01       		.byte	1
+ 3824 0e93 01       		.byte	1
+ 3825 0e94 F8       		.byte	-8
+ 3826 0e95 B5       		.byte	-75
+ 3827 0e96 C0       		.byte	-64
+ 3828 0e97 46       		.byte	70
+ 3829 0e98 F8       		.byte	-8
+ 3830 0e99 BC       		.byte	-68
+ 3831 0e9a 08       		.byte	8
+ 3832 0e9b BC       		.byte	-68
+ 3833 0e9c 9E       		.byte	-98
+ 3834 0e9d 46       		.byte	70
+ 3835 0e9e 70       		.byte	112
+ 3836 0e9f 47       		.byte	71
+ 3837 0ea0 11       		.byte	17
+ 3838 0ea1 02       		.byte	2
+ 3839 0ea2 00       		.byte	0
+ 3840 0ea3 00       		.byte	0
+ 3841 0ea4 B9       		.byte	-71
+ 3842 0ea5 03       		.byte	3
+ 3843 0ea6 00       		.byte	0
+ 3844 0ea7 00       		.byte	0
+ 3845 0ea8 F8       		.byte	-8
+ 3846 0ea9 B5       		.byte	-75
+ 3847 0eaa C0       		.byte	-64
+ 3848 0eab 46       		.byte	70
+ 3849 0eac F8       		.byte	-8
+ 3850 0ead BC       		.byte	-68
+ 3851 0eae 08       		.byte	8
+ 3852 0eaf BC       		.byte	-68
+ 3853 0eb0 9E       		.byte	-98
+ 3854 0eb1 46       		.byte	70
+ 3855 0eb2 70       		.byte	112
+ 3856 0eb3 47       		.byte	71
+ 3857 0eb4 E9       		.byte	-23
+ 3858 0eb5 01       		.byte	1
+ 3859 0eb6 00       		.byte	0
+ 3860 0eb7 00       		.byte	0
+ 3861 0eb8 C8       		.byte	-56
+ 3862 0eb9 0E       		.byte	14
+ 3863 0eba 00       		.byte	0
+ 3864 0ebb 00       		.byte	0
+ 3865 0ebc D0       		.byte	-48
+ 3866 0ebd 00       		.byte	0
+ 3867 0ebe 00       		.byte	0
+ 3868 0ebf 20       		.byte	32
+ 3869 0ec0 20       		.byte	32
+ 3870 0ec1 00       		.byte	0
+ 3871 0ec2 00       		.byte	0
+ 3872 0ec3 00       		.byte	0
+ 3873 0ec4 C0       		.byte	-64
+ 3874 0ec5 00       		.byte	0
+ 3875 0ec6 00       		.byte	0
+ 3876 0ec7 00       		.byte	0
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 69
+
+
+ 3877 0ec8 00       		.byte	0
+ 3878 0ec9 00       		.byte	0
+ 3879 0eca 00       		.byte	0
+ 3880 0ecb 00       		.byte	0
+ 3881 0ecc 00       		.byte	0
+ 3882 0ecd 00       		.byte	0
+ 3883 0ece E0       		.byte	-32
+ 3884 0ecf 2E       		.byte	46
+ 3885 0ed0 C0       		.byte	-64
+ 3886 0ed1 5D       		.byte	93
+ 3887 0ed2 00       		.byte	0
+ 3888 0ed3 00       		.byte	0
+ 3889 0ed4 18       		.byte	24
+ 3890 0ed5 00       		.byte	0
+ 3891 0ed6 00       		.byte	0
+ 3892 0ed7 00       		.byte	0
+ 3893 0ed8 00       		.byte	0
+ 3894 0ed9 36       		.byte	54
+ 3895 0eda 6E       		.byte	110
+ 3896 0edb 01       		.byte	1
+ 3897 0edc 5C       		.byte	92
+ 3898 0edd 0E       		.byte	14
+ 3899 0ede 00       		.byte	0
+ 3900 0edf 00       		.byte	0
+ 3901 0ee0 60       		.byte	96
+ 3902 0ee1 0E       		.byte	14
+ 3903 0ee2 00       		.byte	0
+ 3904 0ee3 00       		.byte	0
+ 3905 0ee4 00       		.byte	0
+ 3906 0ee5 00       		.byte	0
+ 3907 0ee6 00       		.byte	0
+ 3908 0ee7 00       		.byte	0
+ 3909 0ee8 00       		.byte	0
+ 3910 0ee9 00       		.byte	0
+ 3911 0eea 00       		.byte	0
+ 3912 0eeb 00       		.byte	0
+ 3913 0eec 00       		.byte	0
+ 3914 0eed 00       		.byte	0
+ 3915 0eee 00       		.byte	0
+ 3916 0eef 00       		.byte	0
+ 3917 0ef0 00       		.byte	0
+ 3918 0ef1 00       		.byte	0
+ 3919 0ef2 00       		.byte	0
+ 3920 0ef3 00       		.byte	0
+ 3921 0ef4 00       		.byte	0
+ 3922 0ef5 00       		.byte	0
+ 3923 0ef6 00       		.byte	0
+ 3924 0ef7 00       		.byte	0
+ 3925 0ef8 00       		.byte	0
+ 3926 0ef9 00       		.byte	0
+ 3927 0efa 00       		.byte	0
+ 3928 0efb 00       		.byte	0
+ 3929 0efc 00       		.byte	0
+ 3930 0efd 00       		.byte	0
+ 3931 0efe 00       		.byte	0
+ 3932 0eff 00       		.byte	0
+ 3933              		.global	cy_metadata
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 70
+
+
+ 3934              		.section	.cymeta,"a",%progbits
+ 3935              		.align	2
+ 3936              		.type	cy_metadata, %object
+ 3937              		.size	cy_metadata, 12
+ 3938              	cy_metadata:
+ 3939 0000 00       		.byte	0
+ 3940 0001 02       		.byte	2
+ 3941 0002 04       		.byte	4
+ 3942 0003 C8       		.byte	-56
+ 3943 0004 11       		.byte	17
+ 3944 0005 93       		.byte	-109
+ 3945 0006 11       		.byte	17
+ 3946 0007 00       		.byte	0
+ 3947 0008 04       		.byte	4
+ 3948 0009 CC       		.byte	-52
+ 3949 000a CA       		.byte	-54
+ 3950 000b 87       		.byte	-121
+ 3951              		.global	cy_meta_flashprotect
+ 3952              		.section	.cyflashprotect,"a",%progbits
+ 3953              		.align	2
+ 3954              		.type	cy_meta_flashprotect, %object
+ 3955              		.size	cy_meta_flashprotect, 32
+ 3956              	cy_meta_flashprotect:
+ 3957 0000 FF       		.byte	-1
+ 3958 0001 FF       		.byte	-1
+ 3959 0002 01       		.byte	1
+ 3960 0003 00       		.byte	0
+ 3961 0004 00       		.byte	0
+ 3962 0005 00       		.byte	0
+ 3963 0006 00       		.byte	0
+ 3964 0007 00       		.byte	0
+ 3965 0008 00       		.byte	0
+ 3966 0009 00       		.byte	0
+ 3967 000a 00       		.byte	0
+ 3968 000b 00       		.byte	0
+ 3969 000c 00       		.byte	0
+ 3970 000d 00       		.byte	0
+ 3971 000e 00       		.byte	0
+ 3972 000f 00       		.byte	0
+ 3973 0010 00       		.byte	0
+ 3974 0011 00       		.byte	0
+ 3975 0012 00       		.byte	0
+ 3976 0013 00       		.byte	0
+ 3977 0014 00       		.byte	0
+ 3978 0015 00       		.byte	0
+ 3979 0016 00       		.byte	0
+ 3980 0017 00       		.byte	0
+ 3981 0018 00       		.byte	0
+ 3982 0019 00       		.byte	0
+ 3983 001a 00       		.byte	0
+ 3984 001b 00       		.byte	0
+ 3985 001c 00       		.byte	0
+ 3986 001d 00       		.byte	0
+ 3987 001e 00       		.byte	0
+ 3988 001f 00       		.byte	0
+ 3989              		.global	cy_meta_chipprotect
+ 3990              		.section	.cychipprotect,"a",%progbits
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 71
+
+
+ 3991              		.align	2
+ 3992              		.type	cy_meta_chipprotect, %object
+ 3993              		.size	cy_meta_chipprotect, 1
+ 3994              	cy_meta_chipprotect:
+ 3995 0000 01       		.byte	1
+ 3996 0001 000000   		.text
+ 3997              	.Letext0:
+ 3998              		.file 1 ".\\Generated_Source\\PSoC4\\cybootloader.c"
+ 3999              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
+ 4000              		.section	.debug_info,"",%progbits
+ 4001              	.Ldebug_info0:
+ 4002 0000 4E010000 		.4byte	0x14e
+ 4003 0004 0200     		.2byte	0x2
+ 4004 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 4005 000a 04       		.byte	0x4
+ 4006 000b 01       		.uleb128 0x1
+ 4007 000c 47010000 		.4byte	.LASF18
+ 4008 0010 01       		.byte	0x1
+ 4009 0011 C7000000 		.4byte	.LASF19
+ 4010 0015 51000000 		.4byte	.LASF20
+ 4011 0019 00000000 		.4byte	.Ldebug_line0
+ 4012 001d 02       		.uleb128 0x2
+ 4013 001e 01       		.byte	0x1
+ 4014 001f 06       		.byte	0x6
+ 4015 0020 99010000 		.4byte	.LASF0
+ 4016 0024 02       		.uleb128 0x2
+ 4017 0025 01       		.byte	0x1
+ 4018 0026 08       		.byte	0x8
+ 4019 0027 43000000 		.4byte	.LASF1
+ 4020 002b 02       		.uleb128 0x2
+ 4021 002c 02       		.byte	0x2
+ 4022 002d 05       		.byte	0x5
+ 4023 002e 37010000 		.4byte	.LASF2
+ 4024 0032 02       		.uleb128 0x2
+ 4025 0033 02       		.byte	0x2
+ 4026 0034 07       		.byte	0x7
+ 4027 0035 A0000000 		.4byte	.LASF3
+ 4028 0039 02       		.uleb128 0x2
+ 4029 003a 04       		.byte	0x4
+ 4030 003b 05       		.byte	0x5
+ 4031 003c 90010000 		.4byte	.LASF4
+ 4032 0040 02       		.uleb128 0x2
+ 4033 0041 04       		.byte	0x4
+ 4034 0042 07       		.byte	0x7
+ 4035 0043 8E000000 		.4byte	.LASF5
+ 4036 0047 02       		.uleb128 0x2
+ 4037 0048 08       		.byte	0x8
+ 4038 0049 05       		.byte	0x5
+ 4039 004a 24010000 		.4byte	.LASF6
+ 4040 004e 02       		.uleb128 0x2
+ 4041 004f 08       		.byte	0x8
+ 4042 0050 07       		.byte	0x7
+ 4043 0051 EF000000 		.4byte	.LASF7
+ 4044 0055 03       		.uleb128 0x3
+ 4045 0056 04       		.byte	0x4
+ 4046 0057 05       		.byte	0x5
+ 4047 0058 696E7400 		.ascii	"int\000"
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 72
+
+
+ 4048 005c 02       		.uleb128 0x2
+ 4049 005d 04       		.byte	0x4
+ 4050 005e 07       		.byte	0x7
+ 4051 005f BA000000 		.4byte	.LASF8
+ 4052 0063 04       		.uleb128 0x4
+ 4053 0064 41010000 		.4byte	.LASF21
+ 4054 0068 02       		.byte	0x2
+ 4055 0069 5B       		.byte	0x5b
+ 4056 006a 24000000 		.4byte	0x24
+ 4057 006e 02       		.uleb128 0x2
+ 4058 006f 04       		.byte	0x4
+ 4059 0070 04       		.byte	0x4
+ 4060 0071 3D000000 		.4byte	.LASF9
+ 4061 0075 02       		.uleb128 0x2
+ 4062 0076 08       		.byte	0x8
+ 4063 0077 04       		.byte	0x4
+ 4064 0078 B3000000 		.4byte	.LASF10
+ 4065 007c 02       		.uleb128 0x2
+ 4066 007d 01       		.byte	0x1
+ 4067 007e 08       		.byte	0x8
+ 4068 007f 32010000 		.4byte	.LASF11
+ 4069 0083 05       		.uleb128 0x5
+ 4070 0084 63000000 		.4byte	0x63
+ 4071 0088 93000000 		.4byte	0x93
+ 4072 008c 06       		.uleb128 0x6
+ 4073 008d 93000000 		.4byte	0x93
+ 4074 0091 3F       		.byte	0x3f
+ 4075 0092 00       		.byte	0
+ 4076 0093 02       		.uleb128 0x2
+ 4077 0094 04       		.byte	0x4
+ 4078 0095 07       		.byte	0x7
+ 4079 0096 1B010000 		.4byte	.LASF12
+ 4080 009a 07       		.uleb128 0x7
+ 4081 009b 22000000 		.4byte	.LASF13
+ 4082 009f 01       		.byte	0x1
+ 4083 00a0 0D       		.byte	0xd
+ 4084 00a1 AC000000 		.4byte	0xac
+ 4085 00a5 01       		.byte	0x1
+ 4086 00a6 05       		.byte	0x5
+ 4087 00a7 03       		.byte	0x3
+ 4088 00a8 00000000 		.4byte	cy_meta_loader
+ 4089 00ac 08       		.uleb128 0x8
+ 4090 00ad 83000000 		.4byte	0x83
+ 4091 00b1 05       		.uleb128 0x5
+ 4092 00b2 63000000 		.4byte	0x63
+ 4093 00b6 C2000000 		.4byte	0xc2
+ 4094 00ba 09       		.uleb128 0x9
+ 4095 00bb 93000000 		.4byte	0x93
+ 4096 00bf FF0E     		.2byte	0xeff
+ 4097 00c1 00       		.byte	0
+ 4098 00c2 07       		.uleb128 0x7
+ 4099 00c3 14000000 		.4byte	.LASF14
+ 4100 00c7 01       		.byte	0x1
+ 4101 00c8 1E       		.byte	0x1e
+ 4102 00c9 D4000000 		.4byte	0xd4
+ 4103 00cd 01       		.byte	0x1
+ 4104 00ce 05       		.byte	0x5
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 73
+
+
+ 4105 00cf 03       		.byte	0x3
+ 4106 00d0 00000000 		.4byte	cy_bootloader
+ 4107 00d4 08       		.uleb128 0x8
+ 4108 00d5 B1000000 		.4byte	0xb1
+ 4109 00d9 05       		.uleb128 0x5
+ 4110 00da 63000000 		.4byte	0x63
+ 4111 00de E9000000 		.4byte	0xe9
+ 4112 00e2 06       		.uleb128 0x6
+ 4113 00e3 93000000 		.4byte	0x93
+ 4114 00e7 0B       		.byte	0xb
+ 4115 00e8 00       		.byte	0
+ 4116 00e9 0A       		.uleb128 0xa
+ 4117 00ea 31000000 		.4byte	.LASF15
+ 4118 00ee 01       		.byte	0x1
+ 4119 00ef 0702     		.2byte	0x207
+ 4120 00f1 FC000000 		.4byte	0xfc
+ 4121 00f5 01       		.byte	0x1
+ 4122 00f6 05       		.byte	0x5
+ 4123 00f7 03       		.byte	0x3
+ 4124 00f8 00000000 		.4byte	cy_metadata
+ 4125 00fc 08       		.uleb128 0x8
+ 4126 00fd D9000000 		.4byte	0xd9
+ 4127 0101 05       		.uleb128 0x5
+ 4128 0102 63000000 		.4byte	0x63
+ 4129 0106 11010000 		.4byte	0x111
+ 4130 010a 06       		.uleb128 0x6
+ 4131 010b 93000000 		.4byte	0x93
+ 4132 010f 1F       		.byte	0x1f
+ 4133 0110 00       		.byte	0
+ 4134 0111 0A       		.uleb128 0xa
+ 4135 0112 06010000 		.4byte	.LASF16
+ 4136 0116 01       		.byte	0x1
+ 4137 0117 1202     		.2byte	0x212
+ 4138 0119 24010000 		.4byte	0x124
+ 4139 011d 01       		.byte	0x1
+ 4140 011e 05       		.byte	0x5
+ 4141 011f 03       		.byte	0x3
+ 4142 0120 00000000 		.4byte	cy_meta_flashprotect
+ 4143 0124 08       		.uleb128 0x8
+ 4144 0125 01010000 		.4byte	0x101
+ 4145 0129 05       		.uleb128 0x5
+ 4146 012a 63000000 		.4byte	0x63
+ 4147 012e 39010000 		.4byte	0x139
+ 4148 0132 06       		.uleb128 0x6
+ 4149 0133 93000000 		.4byte	0x93
+ 4150 0137 00       		.byte	0
+ 4151 0138 00       		.byte	0
+ 4152 0139 0A       		.uleb128 0xa
+ 4153 013a 00000000 		.4byte	.LASF17
+ 4154 013e 01       		.byte	0x1
+ 4155 013f 1F02     		.2byte	0x21f
+ 4156 0141 4C010000 		.4byte	0x14c
+ 4157 0145 01       		.byte	0x1
+ 4158 0146 05       		.byte	0x5
+ 4159 0147 03       		.byte	0x3
+ 4160 0148 00000000 		.4byte	cy_meta_chipprotect
+ 4161 014c 08       		.uleb128 0x8
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 74
+
+
+ 4162 014d 29010000 		.4byte	0x129
+ 4163 0151 00       		.byte	0
+ 4164              		.section	.debug_abbrev,"",%progbits
+ 4165              	.Ldebug_abbrev0:
+ 4166 0000 01       		.uleb128 0x1
+ 4167 0001 11       		.uleb128 0x11
+ 4168 0002 01       		.byte	0x1
+ 4169 0003 25       		.uleb128 0x25
+ 4170 0004 0E       		.uleb128 0xe
+ 4171 0005 13       		.uleb128 0x13
+ 4172 0006 0B       		.uleb128 0xb
+ 4173 0007 03       		.uleb128 0x3
+ 4174 0008 0E       		.uleb128 0xe
+ 4175 0009 1B       		.uleb128 0x1b
+ 4176 000a 0E       		.uleb128 0xe
+ 4177 000b 10       		.uleb128 0x10
+ 4178 000c 06       		.uleb128 0x6
+ 4179 000d 00       		.byte	0
+ 4180 000e 00       		.byte	0
+ 4181 000f 02       		.uleb128 0x2
+ 4182 0010 24       		.uleb128 0x24
+ 4183 0011 00       		.byte	0
+ 4184 0012 0B       		.uleb128 0xb
+ 4185 0013 0B       		.uleb128 0xb
+ 4186 0014 3E       		.uleb128 0x3e
+ 4187 0015 0B       		.uleb128 0xb
+ 4188 0016 03       		.uleb128 0x3
+ 4189 0017 0E       		.uleb128 0xe
+ 4190 0018 00       		.byte	0
+ 4191 0019 00       		.byte	0
+ 4192 001a 03       		.uleb128 0x3
+ 4193 001b 24       		.uleb128 0x24
+ 4194 001c 00       		.byte	0
+ 4195 001d 0B       		.uleb128 0xb
+ 4196 001e 0B       		.uleb128 0xb
+ 4197 001f 3E       		.uleb128 0x3e
+ 4198 0020 0B       		.uleb128 0xb
+ 4199 0021 03       		.uleb128 0x3
+ 4200 0022 08       		.uleb128 0x8
+ 4201 0023 00       		.byte	0
+ 4202 0024 00       		.byte	0
+ 4203 0025 04       		.uleb128 0x4
+ 4204 0026 16       		.uleb128 0x16
+ 4205 0027 00       		.byte	0
+ 4206 0028 03       		.uleb128 0x3
+ 4207 0029 0E       		.uleb128 0xe
+ 4208 002a 3A       		.uleb128 0x3a
+ 4209 002b 0B       		.uleb128 0xb
+ 4210 002c 3B       		.uleb128 0x3b
+ 4211 002d 0B       		.uleb128 0xb
+ 4212 002e 49       		.uleb128 0x49
+ 4213 002f 13       		.uleb128 0x13
+ 4214 0030 00       		.byte	0
+ 4215 0031 00       		.byte	0
+ 4216 0032 05       		.uleb128 0x5
+ 4217 0033 01       		.uleb128 0x1
+ 4218 0034 01       		.byte	0x1
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 75
+
+
+ 4219 0035 49       		.uleb128 0x49
+ 4220 0036 13       		.uleb128 0x13
+ 4221 0037 01       		.uleb128 0x1
+ 4222 0038 13       		.uleb128 0x13
+ 4223 0039 00       		.byte	0
+ 4224 003a 00       		.byte	0
+ 4225 003b 06       		.uleb128 0x6
+ 4226 003c 21       		.uleb128 0x21
+ 4227 003d 00       		.byte	0
+ 4228 003e 49       		.uleb128 0x49
+ 4229 003f 13       		.uleb128 0x13
+ 4230 0040 2F       		.uleb128 0x2f
+ 4231 0041 0B       		.uleb128 0xb
+ 4232 0042 00       		.byte	0
+ 4233 0043 00       		.byte	0
+ 4234 0044 07       		.uleb128 0x7
+ 4235 0045 34       		.uleb128 0x34
+ 4236 0046 00       		.byte	0
+ 4237 0047 03       		.uleb128 0x3
+ 4238 0048 0E       		.uleb128 0xe
+ 4239 0049 3A       		.uleb128 0x3a
+ 4240 004a 0B       		.uleb128 0xb
+ 4241 004b 3B       		.uleb128 0x3b
+ 4242 004c 0B       		.uleb128 0xb
+ 4243 004d 49       		.uleb128 0x49
+ 4244 004e 13       		.uleb128 0x13
+ 4245 004f 3F       		.uleb128 0x3f
+ 4246 0050 0C       		.uleb128 0xc
+ 4247 0051 02       		.uleb128 0x2
+ 4248 0052 0A       		.uleb128 0xa
+ 4249 0053 00       		.byte	0
+ 4250 0054 00       		.byte	0
+ 4251 0055 08       		.uleb128 0x8
+ 4252 0056 26       		.uleb128 0x26
+ 4253 0057 00       		.byte	0
+ 4254 0058 49       		.uleb128 0x49
+ 4255 0059 13       		.uleb128 0x13
+ 4256 005a 00       		.byte	0
+ 4257 005b 00       		.byte	0
+ 4258 005c 09       		.uleb128 0x9
+ 4259 005d 21       		.uleb128 0x21
+ 4260 005e 00       		.byte	0
+ 4261 005f 49       		.uleb128 0x49
+ 4262 0060 13       		.uleb128 0x13
+ 4263 0061 2F       		.uleb128 0x2f
+ 4264 0062 05       		.uleb128 0x5
+ 4265 0063 00       		.byte	0
+ 4266 0064 00       		.byte	0
+ 4267 0065 0A       		.uleb128 0xa
+ 4268 0066 34       		.uleb128 0x34
+ 4269 0067 00       		.byte	0
+ 4270 0068 03       		.uleb128 0x3
+ 4271 0069 0E       		.uleb128 0xe
+ 4272 006a 3A       		.uleb128 0x3a
+ 4273 006b 0B       		.uleb128 0xb
+ 4274 006c 3B       		.uleb128 0x3b
+ 4275 006d 05       		.uleb128 0x5
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 76
+
+
+ 4276 006e 49       		.uleb128 0x49
+ 4277 006f 13       		.uleb128 0x13
+ 4278 0070 3F       		.uleb128 0x3f
+ 4279 0071 0C       		.uleb128 0xc
+ 4280 0072 02       		.uleb128 0x2
+ 4281 0073 0A       		.uleb128 0xa
+ 4282 0074 00       		.byte	0
+ 4283 0075 00       		.byte	0
+ 4284 0076 00       		.byte	0
+ 4285              		.section	.debug_aranges,"",%progbits
+ 4286 0000 14000000 		.4byte	0x14
+ 4287 0004 0200     		.2byte	0x2
+ 4288 0006 00000000 		.4byte	.Ldebug_info0
+ 4289 000a 04       		.byte	0x4
+ 4290 000b 00       		.byte	0
+ 4291 000c 0000     		.2byte	0
+ 4292 000e 0000     		.2byte	0
+ 4293 0010 00000000 		.4byte	0
+ 4294 0014 00000000 		.4byte	0
+ 4295              		.section	.debug_line,"",%progbits
+ 4296              	.Ldebug_line0:
+ 4297 0000 51000000 		.section	.debug_str,"MS",%progbits,1
+ 4297      02004B00 
+ 4297      00000201 
+ 4297      FB0E0D00 
+ 4297      01010101 
+ 4298              	.LASF17:
+ 4299 0000 63795F6D 		.ascii	"cy_meta_chipprotect\000"
+ 4299      6574615F 
+ 4299      63686970 
+ 4299      70726F74 
+ 4299      65637400 
+ 4300              	.LASF14:
+ 4301 0014 63795F62 		.ascii	"cy_bootloader\000"
+ 4301      6F6F746C 
+ 4301      6F616465 
+ 4301      7200
+ 4302              	.LASF13:
+ 4303 0022 63795F6D 		.ascii	"cy_meta_loader\000"
+ 4303      6574615F 
+ 4303      6C6F6164 
+ 4303      657200
+ 4304              	.LASF15:
+ 4305 0031 63795F6D 		.ascii	"cy_metadata\000"
+ 4305      65746164 
+ 4305      61746100 
+ 4306              	.LASF9:
+ 4307 003d 666C6F61 		.ascii	"float\000"
+ 4307      7400
+ 4308              	.LASF1:
+ 4309 0043 756E7369 		.ascii	"unsigned char\000"
+ 4309      676E6564 
+ 4309      20636861 
+ 4309      7200
+ 4310              	.LASF20:
+ 4311 0051 433A5C55 		.ascii	"C:\\Users\\Jared\\Documents\\PSoC Creator\\Workspac"
+ 4311      73657273 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 77
+
+
+ 4311      5C4A6172 
+ 4311      65645C44 
+ 4311      6F63756D 
+ 4312 007f 65315C53 		.ascii	"e1\\Servo.cydsn\000"
+ 4312      6572766F 
+ 4312      2E637964 
+ 4312      736E00
+ 4313              	.LASF5:
+ 4314 008e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 4314      20756E73 
+ 4314      69676E65 
+ 4314      6420696E 
+ 4314      7400
+ 4315              	.LASF3:
+ 4316 00a0 73686F72 		.ascii	"short unsigned int\000"
+ 4316      7420756E 
+ 4316      7369676E 
+ 4316      65642069 
+ 4316      6E7400
+ 4317              	.LASF10:
+ 4318 00b3 646F7562 		.ascii	"double\000"
+ 4318      6C6500
+ 4319              	.LASF8:
+ 4320 00ba 756E7369 		.ascii	"unsigned int\000"
+ 4320      676E6564 
+ 4320      20696E74 
+ 4320      00
+ 4321              	.LASF19:
+ 4322 00c7 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\cybootloader.c\000"
+ 4322      6E657261 
+ 4322      7465645F 
+ 4322      536F7572 
+ 4322      63655C50 
+ 4323              	.LASF7:
+ 4324 00ef 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 4324      206C6F6E 
+ 4324      6720756E 
+ 4324      7369676E 
+ 4324      65642069 
+ 4325              	.LASF16:
+ 4326 0106 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 4326      6574615F 
+ 4326      666C6173 
+ 4326      6870726F 
+ 4326      74656374 
+ 4327              	.LASF12:
+ 4328 011b 73697A65 		.ascii	"sizetype\000"
+ 4328      74797065 
+ 4328      00
+ 4329              	.LASF6:
+ 4330 0124 6C6F6E67 		.ascii	"long long int\000"
+ 4330      206C6F6E 
+ 4330      6720696E 
+ 4330      7400
+ 4331              	.LASF11:
+ 4332 0132 63686172 		.ascii	"char\000"
+ 4332      00
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccNR19oz.s 			page 78
+
+
+ 4333              	.LASF2:
+ 4334 0137 73686F72 		.ascii	"short int\000"
+ 4334      7420696E 
+ 4334      7400
+ 4335              	.LASF21:
+ 4336 0141 75696E74 		.ascii	"uint8\000"
+ 4336      3800
+ 4337              	.LASF18:
+ 4338 0147 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 4338      4320342E 
+ 4338      372E3320 
+ 4338      32303133 
+ 4338      30333132 
+ 4339 017a 616E6368 		.ascii	"anch revision 196615]\000"
+ 4339      20726576 
+ 4339      6973696F 
+ 4339      6E203139 
+ 4339      36363135 
+ 4340              	.LASF4:
+ 4341 0190 6C6F6E67 		.ascii	"long int\000"
+ 4341      20696E74 
+ 4341      00
+ 4342              	.LASF0:
+ 4343 0199 7369676E 		.ascii	"signed char\000"
+ 4343      65642063 
+ 4343      68617200 
+ 4344              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br

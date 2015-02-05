@@ -1,0 +1,666 @@
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cctQyRI2.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"events.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.BTN0_EVENT_func,"ax",%progbits
+  18              		.align	2
+  19              		.global	BTN0_EVENT_func
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	BTN0_EVENT_func, %function
+  23              	BTN0_EVENT_func:
+  24              	.LFB33:
+  25              		.file 1 ".\\events.c"
+   1:.\events.c    **** /* ========================================
+   2:.\events.c    ****  *
+   3:.\events.c    ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\events.c    ****  * All Rights Reserved
+   5:.\events.c    ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\events.c    ****  *
+   7:.\events.c    ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\events.c    ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\events.c    ****  *
+  10:.\events.c    ****  * ========================================
+  11:.\events.c    **** */
+  12:.\events.c    **** #include "events.h"
+  13:.\events.c    **** 
+  14:.\events.c    **** extern volatile uint16_t sys_events;
+  15:.\events.c    **** extern volatile uint16_t compareValue;
+  16:.\events.c    **** 
+  17:.\events.c    **** void BTN0_EVENT_func()
+  18:.\events.c    **** {
+  26              		.loc 1 18 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 00AF     		add	r7, sp, #0
+  34              	.LCFI1:
+  35              		.cfi_def_cfa_register 7
+  19:.\events.c    ****     compareValue += INC_DEC;
+  36              		.loc 1 19 0
+  37 0004 094B     		ldr	r3, .L3
+  38 0006 1B88     		ldrh	r3, [r3]
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cctQyRI2.s 			page 2
+
+
+  39 0008 9BB2     		uxth	r3, r3
+  40 000a 6433     		add	r3, r3, #100
+  41 000c 9AB2     		uxth	r2, r3
+  42 000e 074B     		ldr	r3, .L3
+  43 0010 1A80     		strh	r2, [r3]
+  20:.\events.c    ****     if (compareValue > MAX_SERVO)
+  44              		.loc 1 20 0
+  45 0012 064B     		ldr	r3, .L3
+  46 0014 1B88     		ldrh	r3, [r3]
+  47 0016 9AB2     		uxth	r2, r3
+  48 0018 FA23     		mov	r3, #250
+  49 001a DB00     		lsl	r3, r3, #3
+  50 001c 9A42     		cmp	r2, r3
+  51 001e 03D9     		bls	.L1
+  21:.\events.c    ****         compareValue = MAX_SERVO; // we don't allow the servo to go beyond maximum position
+  52              		.loc 1 21 0
+  53 0020 024B     		ldr	r3, .L3
+  54 0022 FA22     		mov	r2, #250
+  55 0024 D200     		lsl	r2, r2, #3
+  56 0026 1A80     		strh	r2, [r3]
+  57              	.L1:
+  22:.\events.c    ****     //LED_Write(!LED_Read()); // just toggle LED for now.
+  23:.\events.c    **** }
+  58              		.loc 1 23 0
+  59 0028 BD46     		mov	sp, r7
+  60              		@ sp needed for prologue
+  61 002a 80BD     		pop	{r7, pc}
+  62              	.L4:
+  63              		.align	2
+  64              	.L3:
+  65 002c 00000000 		.word	compareValue
+  66              		.cfi_endproc
+  67              	.LFE33:
+  68              		.size	BTN0_EVENT_func, .-BTN0_EVENT_func
+  69              		.section	.text.BTN1_EVENT_func,"ax",%progbits
+  70              		.align	2
+  71              		.global	BTN1_EVENT_func
+  72              		.code	16
+  73              		.thumb_func
+  74              		.type	BTN1_EVENT_func, %function
+  75              	BTN1_EVENT_func:
+  76              	.LFB34:
+  24:.\events.c    **** 
+  25:.\events.c    **** void BTN1_EVENT_func()
+  26:.\events.c    **** {
+  77              		.loc 1 26 0
+  78              		.cfi_startproc
+  79 0000 80B5     		push	{r7, lr}
+  80              	.LCFI2:
+  81              		.cfi_def_cfa_offset 8
+  82              		.cfi_offset 7, -8
+  83              		.cfi_offset 14, -4
+  84 0002 00AF     		add	r7, sp, #0
+  85              	.LCFI3:
+  86              		.cfi_def_cfa_register 7
+  27:.\events.c    ****     compareValue -= INC_DEC;
+  87              		.loc 1 27 0
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cctQyRI2.s 			page 3
+
+
+  88 0004 094B     		ldr	r3, .L7
+  89 0006 1B88     		ldrh	r3, [r3]
+  90 0008 9BB2     		uxth	r3, r3
+  91 000a 643B     		sub	r3, r3, #100
+  92 000c 9AB2     		uxth	r2, r3
+  93 000e 074B     		ldr	r3, .L7
+  94 0010 1A80     		strh	r2, [r3]
+  28:.\events.c    ****     if (compareValue < MIN_SERVO)
+  95              		.loc 1 28 0
+  96 0012 064B     		ldr	r3, .L7
+  97 0014 1B88     		ldrh	r3, [r3]
+  98 0016 9AB2     		uxth	r2, r3
+  99 0018 054B     		ldr	r3, .L7+4
+ 100 001a 9A42     		cmp	r2, r3
+ 101 001c 03D8     		bhi	.L5
+  29:.\events.c    ****         compareValue = MIN_SERVO; // don't allow servo to go beyond min pos
+ 102              		.loc 1 29 0
+ 103 001e 034B     		ldr	r3, .L7
+ 104 0020 FA22     		mov	r2, #250
+ 105 0022 9200     		lsl	r2, r2, #2
+ 106 0024 1A80     		strh	r2, [r3]
+ 107              	.L5:
+  30:.\events.c    ****     //LED1_Write(!LED1_Read()); // toggle blue LED    
+  31:.\events.c    **** }
+ 108              		.loc 1 31 0
+ 109 0026 BD46     		mov	sp, r7
+ 110              		@ sp needed for prologue
+ 111 0028 80BD     		pop	{r7, pc}
+ 112              	.L8:
+ 113 002a C046     		.align	2
+ 114              	.L7:
+ 115 002c 00000000 		.word	compareValue
+ 116 0030 E7030000 		.word	999
+ 117              		.cfi_endproc
+ 118              	.LFE34:
+ 119              		.size	BTN1_EVENT_func, .-BTN1_EVENT_func
+ 120              		.section	.text.PWM_MOVE_SERVO_EVENT_func,"ax",%progbits
+ 121              		.align	2
+ 122              		.global	PWM_MOVE_SERVO_EVENT_func
+ 123              		.code	16
+ 124              		.thumb_func
+ 125              		.type	PWM_MOVE_SERVO_EVENT_func, %function
+ 126              	PWM_MOVE_SERVO_EVENT_func:
+ 127              	.LFB35:
+  32:.\events.c    **** 
+  33:.\events.c    **** void PWM_MOVE_SERVO_EVENT_func() // should be called every 25ms
+  34:.\events.c    **** { // just write new compare value to PWM module to move the servo
+ 128              		.loc 1 34 0
+ 129              		.cfi_startproc
+ 130 0000 80B5     		push	{r7, lr}
+ 131              	.LCFI4:
+ 132              		.cfi_def_cfa_offset 8
+ 133              		.cfi_offset 7, -8
+ 134              		.cfi_offset 14, -4
+ 135 0002 00AF     		add	r7, sp, #0
+ 136              	.LCFI5:
+ 137              		.cfi_def_cfa_register 7
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cctQyRI2.s 			page 4
+
+
+  35:.\events.c    ****     PWM_Servo_WriteCompare(compareValue);
+ 138              		.loc 1 35 0
+ 139 0004 034B     		ldr	r3, .L10
+ 140 0006 1B88     		ldrh	r3, [r3]
+ 141 0008 9BB2     		uxth	r3, r3
+ 142 000a 181C     		mov	r0, r3
+ 143 000c FFF7FEFF 		bl	PWM_Servo_WriteCompare
+  36:.\events.c    **** }
+ 144              		.loc 1 36 0
+ 145 0010 BD46     		mov	sp, r7
+ 146              		@ sp needed for prologue
+ 147 0012 80BD     		pop	{r7, pc}
+ 148              	.L11:
+ 149              		.align	2
+ 150              	.L10:
+ 151 0014 00000000 		.word	compareValue
+ 152              		.cfi_endproc
+ 153              	.LFE35:
+ 154              		.size	PWM_MOVE_SERVO_EVENT_func, .-PWM_MOVE_SERVO_EVENT_func
+ 155              		.text
+ 156              	.Letext0:
+ 157              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.0\\psoc creator\\import\\gnu_cs\\arm\\4
+ 158              		.section	.debug_info,"",%progbits
+ 159              	.Ldebug_info0:
+ 160 0000 E4000000 		.4byte	0xe4
+ 161 0004 0200     		.2byte	0x2
+ 162 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 163 000a 04       		.byte	0x4
+ 164 000b 01       		.uleb128 0x1
+ 165 000c 36000000 		.4byte	.LASF16
+ 166 0010 01       		.byte	0x1
+ 167 0011 2B000000 		.4byte	.LASF17
+ 168 0015 B1000000 		.4byte	.LASF18
+ 169 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 170 001d 00000000 		.4byte	0
+ 171 0021 00000000 		.4byte	0
+ 172 0025 00000000 		.4byte	.Ldebug_line0
+ 173 0029 02       		.uleb128 0x2
+ 174 002a 01       		.byte	0x1
+ 175 002b 06       		.byte	0x6
+ 176 002c 26010000 		.4byte	.LASF0
+ 177 0030 02       		.uleb128 0x2
+ 178 0031 01       		.byte	0x1
+ 179 0032 08       		.byte	0x8
+ 180 0033 F0000000 		.4byte	.LASF1
+ 181 0037 02       		.uleb128 0x2
+ 182 0038 02       		.byte	0x2
+ 183 0039 05       		.byte	0x5
+ 184 003a 52010000 		.4byte	.LASF2
+ 185 003e 03       		.uleb128 0x3
+ 186 003f A8000000 		.4byte	.LASF19
+ 187 0043 02       		.byte	0x2
+ 188 0044 36       		.byte	0x36
+ 189 0045 49000000 		.4byte	0x49
+ 190 0049 02       		.uleb128 0x2
+ 191 004a 02       		.byte	0x2
+ 192 004b 07       		.byte	0x7
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cctQyRI2.s 			page 5
+
+
+ 193 004c 13010000 		.4byte	.LASF3
+ 194 0050 02       		.uleb128 0x2
+ 195 0051 04       		.byte	0x4
+ 196 0052 05       		.byte	0x5
+ 197 0053 03010000 		.4byte	.LASF4
+ 198 0057 02       		.uleb128 0x2
+ 199 0058 04       		.byte	0x4
+ 200 0059 07       		.byte	0x7
+ 201 005a 7F000000 		.4byte	.LASF5
+ 202 005e 02       		.uleb128 0x2
+ 203 005f 08       		.byte	0x8
+ 204 0060 05       		.byte	0x5
+ 205 0061 00000000 		.4byte	.LASF6
+ 206 0065 02       		.uleb128 0x2
+ 207 0066 08       		.byte	0x8
+ 208 0067 07       		.byte	0x7
+ 209 0068 91000000 		.4byte	.LASF7
+ 210 006c 04       		.uleb128 0x4
+ 211 006d 04       		.byte	0x4
+ 212 006e 05       		.byte	0x5
+ 213 006f 696E7400 		.ascii	"int\000"
+ 214 0073 02       		.uleb128 0x2
+ 215 0074 04       		.byte	0x4
+ 216 0075 07       		.byte	0x7
+ 217 0076 1E000000 		.4byte	.LASF8
+ 218 007a 02       		.uleb128 0x2
+ 219 007b 04       		.byte	0x4
+ 220 007c 04       		.byte	0x4
+ 221 007d 4C010000 		.4byte	.LASF9
+ 222 0081 02       		.uleb128 0x2
+ 223 0082 08       		.byte	0x8
+ 224 0083 04       		.byte	0x4
+ 225 0084 0C010000 		.4byte	.LASF10
+ 226 0088 02       		.uleb128 0x2
+ 227 0089 01       		.byte	0x1
+ 228 008a 08       		.byte	0x8
+ 229 008b FE000000 		.4byte	.LASF11
+ 230 008f 02       		.uleb128 0x2
+ 231 0090 04       		.byte	0x4
+ 232 0091 07       		.byte	0x7
+ 233 0092 79010000 		.4byte	.LASF12
+ 234 0096 05       		.uleb128 0x5
+ 235 0097 01       		.byte	0x1
+ 236 0098 0E000000 		.4byte	.LASF13
+ 237 009c 01       		.byte	0x1
+ 238 009d 11       		.byte	0x11
+ 239 009e 00000000 		.4byte	.LFB33
+ 240 00a2 30000000 		.4byte	.LFE33
+ 241 00a6 00000000 		.4byte	.LLST0
+ 242 00aa 01       		.byte	0x1
+ 243 00ab 05       		.uleb128 0x5
+ 244 00ac 01       		.byte	0x1
+ 245 00ad 5C010000 		.4byte	.LASF14
+ 246 00b1 01       		.byte	0x1
+ 247 00b2 19       		.byte	0x19
+ 248 00b3 00000000 		.4byte	.LFB34
+ 249 00b7 34000000 		.4byte	.LFE34
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cctQyRI2.s 			page 6
+
+
+ 250 00bb 2C000000 		.4byte	.LLST1
+ 251 00bf 01       		.byte	0x1
+ 252 00c0 06       		.uleb128 0x6
+ 253 00c1 01       		.byte	0x1
+ 254 00c2 32010000 		.4byte	.LASF15
+ 255 00c6 01       		.byte	0x1
+ 256 00c7 21       		.byte	0x21
+ 257 00c8 00000000 		.4byte	.LFB35
+ 258 00cc 18000000 		.4byte	.LFE35
+ 259 00d0 58000000 		.4byte	.LLST2
+ 260 00d4 01       		.byte	0x1
+ 261 00d5 07       		.uleb128 0x7
+ 262 00d6 6C010000 		.4byte	.LASF20
+ 263 00da 01       		.byte	0x1
+ 264 00db 0F       		.byte	0xf
+ 265 00dc E2000000 		.4byte	0xe2
+ 266 00e0 01       		.byte	0x1
+ 267 00e1 01       		.byte	0x1
+ 268 00e2 08       		.uleb128 0x8
+ 269 00e3 3E000000 		.4byte	0x3e
+ 270 00e7 00       		.byte	0
+ 271              		.section	.debug_abbrev,"",%progbits
+ 272              	.Ldebug_abbrev0:
+ 273 0000 01       		.uleb128 0x1
+ 274 0001 11       		.uleb128 0x11
+ 275 0002 01       		.byte	0x1
+ 276 0003 25       		.uleb128 0x25
+ 277 0004 0E       		.uleb128 0xe
+ 278 0005 13       		.uleb128 0x13
+ 279 0006 0B       		.uleb128 0xb
+ 280 0007 03       		.uleb128 0x3
+ 281 0008 0E       		.uleb128 0xe
+ 282 0009 1B       		.uleb128 0x1b
+ 283 000a 0E       		.uleb128 0xe
+ 284 000b 55       		.uleb128 0x55
+ 285 000c 06       		.uleb128 0x6
+ 286 000d 11       		.uleb128 0x11
+ 287 000e 01       		.uleb128 0x1
+ 288 000f 52       		.uleb128 0x52
+ 289 0010 01       		.uleb128 0x1
+ 290 0011 10       		.uleb128 0x10
+ 291 0012 06       		.uleb128 0x6
+ 292 0013 00       		.byte	0
+ 293 0014 00       		.byte	0
+ 294 0015 02       		.uleb128 0x2
+ 295 0016 24       		.uleb128 0x24
+ 296 0017 00       		.byte	0
+ 297 0018 0B       		.uleb128 0xb
+ 298 0019 0B       		.uleb128 0xb
+ 299 001a 3E       		.uleb128 0x3e
+ 300 001b 0B       		.uleb128 0xb
+ 301 001c 03       		.uleb128 0x3
+ 302 001d 0E       		.uleb128 0xe
+ 303 001e 00       		.byte	0
+ 304 001f 00       		.byte	0
+ 305 0020 03       		.uleb128 0x3
+ 306 0021 16       		.uleb128 0x16
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cctQyRI2.s 			page 7
+
+
+ 307 0022 00       		.byte	0
+ 308 0023 03       		.uleb128 0x3
+ 309 0024 0E       		.uleb128 0xe
+ 310 0025 3A       		.uleb128 0x3a
+ 311 0026 0B       		.uleb128 0xb
+ 312 0027 3B       		.uleb128 0x3b
+ 313 0028 0B       		.uleb128 0xb
+ 314 0029 49       		.uleb128 0x49
+ 315 002a 13       		.uleb128 0x13
+ 316 002b 00       		.byte	0
+ 317 002c 00       		.byte	0
+ 318 002d 04       		.uleb128 0x4
+ 319 002e 24       		.uleb128 0x24
+ 320 002f 00       		.byte	0
+ 321 0030 0B       		.uleb128 0xb
+ 322 0031 0B       		.uleb128 0xb
+ 323 0032 3E       		.uleb128 0x3e
+ 324 0033 0B       		.uleb128 0xb
+ 325 0034 03       		.uleb128 0x3
+ 326 0035 08       		.uleb128 0x8
+ 327 0036 00       		.byte	0
+ 328 0037 00       		.byte	0
+ 329 0038 05       		.uleb128 0x5
+ 330 0039 2E       		.uleb128 0x2e
+ 331 003a 00       		.byte	0
+ 332 003b 3F       		.uleb128 0x3f
+ 333 003c 0C       		.uleb128 0xc
+ 334 003d 03       		.uleb128 0x3
+ 335 003e 0E       		.uleb128 0xe
+ 336 003f 3A       		.uleb128 0x3a
+ 337 0040 0B       		.uleb128 0xb
+ 338 0041 3B       		.uleb128 0x3b
+ 339 0042 0B       		.uleb128 0xb
+ 340 0043 11       		.uleb128 0x11
+ 341 0044 01       		.uleb128 0x1
+ 342 0045 12       		.uleb128 0x12
+ 343 0046 01       		.uleb128 0x1
+ 344 0047 40       		.uleb128 0x40
+ 345 0048 06       		.uleb128 0x6
+ 346 0049 9742     		.uleb128 0x2117
+ 347 004b 0C       		.uleb128 0xc
+ 348 004c 00       		.byte	0
+ 349 004d 00       		.byte	0
+ 350 004e 06       		.uleb128 0x6
+ 351 004f 2E       		.uleb128 0x2e
+ 352 0050 00       		.byte	0
+ 353 0051 3F       		.uleb128 0x3f
+ 354 0052 0C       		.uleb128 0xc
+ 355 0053 03       		.uleb128 0x3
+ 356 0054 0E       		.uleb128 0xe
+ 357 0055 3A       		.uleb128 0x3a
+ 358 0056 0B       		.uleb128 0xb
+ 359 0057 3B       		.uleb128 0x3b
+ 360 0058 0B       		.uleb128 0xb
+ 361 0059 11       		.uleb128 0x11
+ 362 005a 01       		.uleb128 0x1
+ 363 005b 12       		.uleb128 0x12
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cctQyRI2.s 			page 8
+
+
+ 364 005c 01       		.uleb128 0x1
+ 365 005d 40       		.uleb128 0x40
+ 366 005e 06       		.uleb128 0x6
+ 367 005f 9642     		.uleb128 0x2116
+ 368 0061 0C       		.uleb128 0xc
+ 369 0062 00       		.byte	0
+ 370 0063 00       		.byte	0
+ 371 0064 07       		.uleb128 0x7
+ 372 0065 34       		.uleb128 0x34
+ 373 0066 00       		.byte	0
+ 374 0067 03       		.uleb128 0x3
+ 375 0068 0E       		.uleb128 0xe
+ 376 0069 3A       		.uleb128 0x3a
+ 377 006a 0B       		.uleb128 0xb
+ 378 006b 3B       		.uleb128 0x3b
+ 379 006c 0B       		.uleb128 0xb
+ 380 006d 49       		.uleb128 0x49
+ 381 006e 13       		.uleb128 0x13
+ 382 006f 3F       		.uleb128 0x3f
+ 383 0070 0C       		.uleb128 0xc
+ 384 0071 3C       		.uleb128 0x3c
+ 385 0072 0C       		.uleb128 0xc
+ 386 0073 00       		.byte	0
+ 387 0074 00       		.byte	0
+ 388 0075 08       		.uleb128 0x8
+ 389 0076 35       		.uleb128 0x35
+ 390 0077 00       		.byte	0
+ 391 0078 49       		.uleb128 0x49
+ 392 0079 13       		.uleb128 0x13
+ 393 007a 00       		.byte	0
+ 394 007b 00       		.byte	0
+ 395 007c 00       		.byte	0
+ 396              		.section	.debug_loc,"",%progbits
+ 397              	.Ldebug_loc0:
+ 398              	.LLST0:
+ 399 0000 00000000 		.4byte	.LFB33
+ 400 0004 02000000 		.4byte	.LCFI0
+ 401 0008 0200     		.2byte	0x2
+ 402 000a 7D       		.byte	0x7d
+ 403 000b 00       		.sleb128 0
+ 404 000c 02000000 		.4byte	.LCFI0
+ 405 0010 04000000 		.4byte	.LCFI1
+ 406 0014 0200     		.2byte	0x2
+ 407 0016 7D       		.byte	0x7d
+ 408 0017 08       		.sleb128 8
+ 409 0018 04000000 		.4byte	.LCFI1
+ 410 001c 30000000 		.4byte	.LFE33
+ 411 0020 0200     		.2byte	0x2
+ 412 0022 77       		.byte	0x77
+ 413 0023 08       		.sleb128 8
+ 414 0024 00000000 		.4byte	0
+ 415 0028 00000000 		.4byte	0
+ 416              	.LLST1:
+ 417 002c 00000000 		.4byte	.LFB34
+ 418 0030 02000000 		.4byte	.LCFI2
+ 419 0034 0200     		.2byte	0x2
+ 420 0036 7D       		.byte	0x7d
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cctQyRI2.s 			page 9
+
+
+ 421 0037 00       		.sleb128 0
+ 422 0038 02000000 		.4byte	.LCFI2
+ 423 003c 04000000 		.4byte	.LCFI3
+ 424 0040 0200     		.2byte	0x2
+ 425 0042 7D       		.byte	0x7d
+ 426 0043 08       		.sleb128 8
+ 427 0044 04000000 		.4byte	.LCFI3
+ 428 0048 34000000 		.4byte	.LFE34
+ 429 004c 0200     		.2byte	0x2
+ 430 004e 77       		.byte	0x77
+ 431 004f 08       		.sleb128 8
+ 432 0050 00000000 		.4byte	0
+ 433 0054 00000000 		.4byte	0
+ 434              	.LLST2:
+ 435 0058 00000000 		.4byte	.LFB35
+ 436 005c 02000000 		.4byte	.LCFI4
+ 437 0060 0200     		.2byte	0x2
+ 438 0062 7D       		.byte	0x7d
+ 439 0063 00       		.sleb128 0
+ 440 0064 02000000 		.4byte	.LCFI4
+ 441 0068 04000000 		.4byte	.LCFI5
+ 442 006c 0200     		.2byte	0x2
+ 443 006e 7D       		.byte	0x7d
+ 444 006f 08       		.sleb128 8
+ 445 0070 04000000 		.4byte	.LCFI5
+ 446 0074 18000000 		.4byte	.LFE35
+ 447 0078 0200     		.2byte	0x2
+ 448 007a 77       		.byte	0x77
+ 449 007b 08       		.sleb128 8
+ 450 007c 00000000 		.4byte	0
+ 451 0080 00000000 		.4byte	0
+ 452              		.section	.debug_aranges,"",%progbits
+ 453 0000 2C000000 		.4byte	0x2c
+ 454 0004 0200     		.2byte	0x2
+ 455 0006 00000000 		.4byte	.Ldebug_info0
+ 456 000a 04       		.byte	0x4
+ 457 000b 00       		.byte	0
+ 458 000c 0000     		.2byte	0
+ 459 000e 0000     		.2byte	0
+ 460 0010 00000000 		.4byte	.LFB33
+ 461 0014 30000000 		.4byte	.LFE33-.LFB33
+ 462 0018 00000000 		.4byte	.LFB34
+ 463 001c 34000000 		.4byte	.LFE34-.LFB34
+ 464 0020 00000000 		.4byte	.LFB35
+ 465 0024 18000000 		.4byte	.LFE35-.LFB35
+ 466 0028 00000000 		.4byte	0
+ 467 002c 00000000 		.4byte	0
+ 468              		.section	.debug_ranges,"",%progbits
+ 469              	.Ldebug_ranges0:
+ 470 0000 00000000 		.4byte	.LFB33
+ 471 0004 30000000 		.4byte	.LFE33
+ 472 0008 00000000 		.4byte	.LFB34
+ 473 000c 34000000 		.4byte	.LFE34
+ 474 0010 00000000 		.4byte	.LFB35
+ 475 0014 18000000 		.4byte	.LFE35
+ 476 0018 00000000 		.4byte	0
+ 477 001c 00000000 		.4byte	0
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cctQyRI2.s 			page 10
+
+
+ 478              		.section	.debug_line,"",%progbits
+ 479              	.Ldebug_line0:
+ 480 0000 04010000 		.section	.debug_str,"MS",%progbits,1
+ 480      0200C700 
+ 480      00000201 
+ 480      FB0E0D00 
+ 480      01010101 
+ 481              	.LASF6:
+ 482 0000 6C6F6E67 		.ascii	"long long int\000"
+ 482      206C6F6E 
+ 482      6720696E 
+ 482      7400
+ 483              	.LASF13:
+ 484 000e 42544E30 		.ascii	"BTN0_EVENT_func\000"
+ 484      5F455645 
+ 484      4E545F66 
+ 484      756E6300 
+ 485              	.LASF8:
+ 486 001e 756E7369 		.ascii	"unsigned int\000"
+ 486      676E6564 
+ 486      20696E74 
+ 486      00
+ 487              	.LASF17:
+ 488 002b 2E5C6576 		.ascii	".\\events.c\000"
+ 488      656E7473 
+ 488      2E6300
+ 489              	.LASF16:
+ 490 0036 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 490      4320342E 
+ 490      372E3320 
+ 490      32303133 
+ 490      30333132 
+ 491 0069 616E6368 		.ascii	"anch revision 196615]\000"
+ 491      20726576 
+ 491      6973696F 
+ 491      6E203139 
+ 491      36363135 
+ 492              	.LASF5:
+ 493 007f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 493      20756E73 
+ 493      69676E65 
+ 493      6420696E 
+ 493      7400
+ 494              	.LASF7:
+ 495 0091 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 495      206C6F6E 
+ 495      6720756E 
+ 495      7369676E 
+ 495      65642069 
+ 496              	.LASF19:
+ 497 00a8 75696E74 		.ascii	"uint16_t\000"
+ 497      31365F74 
+ 497      00
+ 498              	.LASF18:
+ 499 00b1 433A5C55 		.ascii	"C:\\Users\\Jared\\Documents\\PSoC Creator\\Workspac"
+ 499      73657273 
+ 499      5C4A6172 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cctQyRI2.s 			page 11
+
+
+ 499      65645C44 
+ 499      6F63756D 
+ 500 00df 65315C42 		.ascii	"e1\\Buttons.cydsn\000"
+ 500      7574746F 
+ 500      6E732E63 
+ 500      7964736E 
+ 500      00
+ 501              	.LASF1:
+ 502 00f0 756E7369 		.ascii	"unsigned char\000"
+ 502      676E6564 
+ 502      20636861 
+ 502      7200
+ 503              	.LASF11:
+ 504 00fe 63686172 		.ascii	"char\000"
+ 504      00
+ 505              	.LASF4:
+ 506 0103 6C6F6E67 		.ascii	"long int\000"
+ 506      20696E74 
+ 506      00
+ 507              	.LASF10:
+ 508 010c 646F7562 		.ascii	"double\000"
+ 508      6C6500
+ 509              	.LASF3:
+ 510 0113 73686F72 		.ascii	"short unsigned int\000"
+ 510      7420756E 
+ 510      7369676E 
+ 510      65642069 
+ 510      6E7400
+ 511              	.LASF0:
+ 512 0126 7369676E 		.ascii	"signed char\000"
+ 512      65642063 
+ 512      68617200 
+ 513              	.LASF15:
+ 514 0132 50574D5F 		.ascii	"PWM_MOVE_SERVO_EVENT_func\000"
+ 514      4D4F5645 
+ 514      5F534552 
+ 514      564F5F45 
+ 514      56454E54 
+ 515              	.LASF9:
+ 516 014c 666C6F61 		.ascii	"float\000"
+ 516      7400
+ 517              	.LASF2:
+ 518 0152 73686F72 		.ascii	"short int\000"
+ 518      7420696E 
+ 518      7400
+ 519              	.LASF14:
+ 520 015c 42544E31 		.ascii	"BTN1_EVENT_func\000"
+ 520      5F455645 
+ 520      4E545F66 
+ 520      756E6300 
+ 521              	.LASF20:
+ 522 016c 636F6D70 		.ascii	"compareValue\000"
+ 522      61726556 
+ 522      616C7565 
+ 522      00
+ 523              	.LASF12:
+ 524 0179 73697A65 		.ascii	"sizetype\000"
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cctQyRI2.s 			page 12
+
+
+ 524      74797065 
+ 524      00
+ 525              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br
