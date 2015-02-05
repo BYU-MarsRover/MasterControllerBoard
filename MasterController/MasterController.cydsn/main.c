@@ -65,6 +65,10 @@
 #include "wiznet5500.h"		// Wiznet Module Library, implements rover and Cypress elements.
 
 
+void roverlinkSendFrame(uint8_t, uint8_t, void *);
+void roverlinkReceiveFrame(void);
+
+
 // CY_ISR(CY_TIMER1_OVF_vect){
 	
 // }
@@ -162,13 +166,35 @@ void loop(void){
 	// printf("%d\n",SW_Read());
 	// static uint16_t forcedWritePointer = 0;
 	
-	LED_Write(!WIZ_RDY_Read()); // Warns if the Wiznet Ready Line isn't high.
+	// LED_Write(!WIZ_RDY_Read()); // Warns if the Wiznet Ready Line isn't high.
 	
 	// LED_Write(1);
 	
 	if(WIZ_INT_Read() == LOW){
+		// 
 		wiznetClearInterrupts();
-		LED_Write(1);
+		
+		
+		uint8_t tempArray[100];
+		uint16_t wiznetPointer = wiznetReadUdpFrame(tempArray,60);
+		
+		printf("%u\n",wiznetPointer);
+		printf("\n\t");
+		for(uint8_t c=0; c<16; c++)	printf("%X\t",c);
+		printf("\n");
+		for(uint8_t j=0; j<2; j++){
+			printf("%X\t",j);
+			for(uint8_t k=0; k<16; k++){
+				printf("%X\t",tempArray[(16*j)+k]);
+			}
+			printf("\n");
+		}
+		printf("\n");
+		
+		//printf("%u",tempArray[8]);
+		LED_Write(tempArray[8]);
+		
+		
 	}
 	
 	if(BUTTON_PRESSED){
@@ -186,6 +212,14 @@ void loop(void){
 		
 		// gps_position.lat = ;
 		
+		
+		wiznetPrintRegisters(WIZNET_BLK_COMMON);
+		wiznetPrintRegisters(WIZNET_BLK_S0_REG);
+		wiznetPrintRegisters(WIZNET_BLK_S0_RX);
+		
+		
+		
+		/*
 		uint8_t testArray[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
 		
 		//roverlinkSendFrame(BASESTATION_1,ROVERLINK_SYS_HEALTH_MSG_ID,sys_health);
@@ -196,6 +230,7 @@ void loop(void){
 				testArray[j] = testArray[j]+1;
 			}
 		}
+		*/
 		
 		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_ROVER_STATUS_MSG_ID,rover_status);
 		// roverlinkSendFrame(BASESTATION_1,ROVERLINK_ARM_STATUS_MSG_ID,arm_status);
@@ -239,7 +274,7 @@ void loop(void){
 	
 	// CyDelay(100);
 	// CyDelayUs();
-	LED_Write(0); // turn LED off
+	// LED_Write(0); // turn LED off
 }
 
 uint8_t cypressInit(void){
@@ -288,6 +323,14 @@ uint8_t cypressInit(void){
 // The never Writes the basestation, nor sends Requests, it only Responds.
 // A rover board response is sent either A) To the board requesting info, or BASESTATION_1 for telemetry, or B) Broadcast for both types.
 
+
+
+
+
+// void roverlinkReceiveFrame(void){
+	// wiznetReadUdpFrame()
+	
+// }
 
 // void roverlinkSendFrame(uint8_t srcAddr, uint8_t dstAddr, uint8_t wrReqRes, uint8_t msgId, void *payload, uint8_t len){
 void roverlinkSendFrame(uint8_t dstAddr, uint8_t msgId, void *payload){

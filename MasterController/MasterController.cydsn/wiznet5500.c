@@ -21,6 +21,7 @@
 
 // Global Variables
 static uint16_t wiznetTxPointer;
+static uint16_t wiznetRxPointer;
 
 void wiznetInit(uint8_t ownIpAddr, uint8_t dstIpAddr, uint16_t dstUdpPort){
 	// This is terrible, need a better way.
@@ -45,10 +46,12 @@ void wiznetInit(uint8_t ownIpAddr, uint8_t dstIpAddr, uint16_t dstUdpPort){
 	cmdArray[18] = ownIpAddr;
 	
 	// Ephemeral Port (WizNet's own UDP Port when sending UDP, usually value above 0xC000)
-	uint16_t ephemUdpPort = (0xC000 + ((wiznetOldMacAddr[5]*(1+ownIpAddr))&0x3FFF) ); //Nice way to generate unique Ephemeral Port
-	udpConfig[4] = ephemUdpPort>>8;
-	udpConfig[5] = ephemUdpPort&0xFF;
+	// uint16_t ephemUdpPort = (0xC000 + ((wiznetOldMacAddr[5]*(1+ownIpAddr))&0x3FFF) ); //Nice way to generate unique Ephemeral Port
+	// udpConfig[4] = ephemUdpPort>>8;
+	// udpConfig[5] = ephemUdpPort&0xFF;
 	
+	udpConfig[4] = dstUdpPort>>8;
+	udpConfig[5] = dstUdpPort&0xFF;
 	
 	// Write all the thus prepared values to the WizNet Module and Open the Socket
 	wiznetWriteArray(WIZNET_MR,WIZNET_BLK_COMMON,cmdArray,sizeof(cmdArray));
@@ -59,7 +62,7 @@ void wiznetInit(uint8_t ownIpAddr, uint8_t dstIpAddr, uint16_t dstUdpPort){
 	wiznetOpen();
 	
 	// Configure Wiznet Interrupts
-	wiznetConfigInterrupts(0x00,WIZNET_Sn_IMR_SEND_OK);
+	wiznetConfigInterrupts(0x00,(WIZNET_Sn_IMR_SEND_OK | WIZNET_Sn_IMR_RECV) );
 
 	// Write sequential values to the TX Buffer, to know where on earth it is writing from.
 	WIZ_SS_Write(LOW); // Begin a WizNet SPI Frame. Three Phases: Address, Control, Data
@@ -95,6 +98,15 @@ void wiznetSend(void){
 	wiznetTxPointer = wiznetRead16b(WIZNET_Sn_TX_WR,WIZNET_BLK_S0_REG);
 }
 
+void wiznetReceive(void){
+	uint16_t recvSize;
+	wiznetRxPointer = wiznetRead16b(WIZNET_Sn_RX_RD,WIZNET_BLK_S0_REG);
+	wiznetWrite8b(WIZNET_Sn_CR,WIZNET_BLK_S0_REG,0x40);
+	wiznetWrite16b(WIZNET_Sn_RX_RD,WIZNET_BLK_S0_REG,wiznetRxPointer);
+	
+	// printf(%u,wiznetRxPointer);
+}
+
 // void wiznetReceive(void){
 	
 // }
@@ -112,6 +124,17 @@ void wiznetConfigInterrupts(uint8_t commonInt, uint8_t socketInt){
 	wiznetWrite8b(WIZNET_Sn_IMR,WIZNET_BLK_S0_REG, socketInt);
 	wiznetWrite8b(WIZNET_SIMR,WIZNET_BLK_COMMON, 0x01); // Hardwired to just Socket 0
 	wiznetWrite8b(WIZNET_IMR,WIZNET_BLK_COMMON, commonInt);
+}
+
+uint16_t wiznetReadUdpFrame(uint8_t *array, uint8_t len){
+	wiznetReadArray(wiznetRxPointer, WIZNET_BLK_S0_RX, array, len);
+	
+	// uint16_t recvSize = 0;
+	wiznetRxPointer = wiznetRead16b(WIZNET_Sn_RX_WR,WIZNET_BLK_S0_REG);
+	// wiznetWrite8b(WIZNET_Sn_CR,WIZNET_BLK_S0_REG,0x40);
+	wiznetWrite16b(WIZNET_Sn_RX_RD,WIZNET_BLK_S0_REG,wiznetRxPointer);
+	return wiznetRxPointer;
+	// return recvSize;
 }
 
 uint16_t wiznetWriteUdpFrame(uint8_t *array, uint8_t len){

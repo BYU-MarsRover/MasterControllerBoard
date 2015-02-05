@@ -33,7 +33,7 @@
 #include <stdint.h>
 #include "roverlink.h"
 
-
+// Yikes!!!!! <steve>, scrap all this to a C file! No variables in headers!
 //*** Global Variables
 // General and Timing
 static volatile uint32_t timer1ms = 0; 

@@ -64,6 +64,50 @@
   <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\WIZ_RDY.c" value="ARM_C_FILE;WIZ_RDY" />
   <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\WIZ_RDY.h" value="NONE;WIZ_RDY" />
   <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\WIZ_RDY_aliases.h" value="NONE;WIZ_RDY" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C.c" value="ARM_C_FILE;I2C" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C.h" value="NONE;I2C" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C_I2C.h" value="NONE;I2C" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C_I2C_INT.c" value="ARM_C_FILE;I2C" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C_I2C.c" value="ARM_C_FILE;I2C" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C_I2C_BOOT.c" value="ARM_C_FILE;I2C" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C_I2C_MASTER.c" value="ARM_C_FILE;I2C" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C_PM.c" value="ARM_C_FILE;I2C" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C_BOOT.c" value="ARM_C_FILE;I2C" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C_PINS.h" value="NONE;I2C" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C_I2C_PVT.h" value="NONE;I2C" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C_PVT.h" value="NONE;I2C" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\Timer_1.c" value="ARM_C_FILE;Timer_1" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\Timer_1.h" value="NONE;Timer_1" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\Timer_1_PM.c" value="ARM_C_FILE;Timer_1" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\Clock_2MHz.c" value="ARM_C_FILE;Clock_2MHz" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\Clock_2MHz.h" value="NONE;Clock_2MHz" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\SERVO_3.c" value="ARM_C_FILE;SERVO_3" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\SERVO_3.h" value="NONE;SERVO_3" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\SERVO_3_aliases.h" value="NONE;SERVO_3" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\SERVO_4.c" value="ARM_C_FILE;SERVO_4" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\SERVO_4.h" value="NONE;SERVO_4" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\SERVO_4_aliases.h" value="NONE;SERVO_4" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\SERVO_2.c" value="ARM_C_FILE;SERVO_2" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\SERVO_2.h" value="NONE;SERVO_2" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\SERVO_2_aliases.h" value="NONE;SERVO_2" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\SERVO_1.c" value="ARM_C_FILE;SERVO_1" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\SERVO_1.h" value="NONE;SERVO_1" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\SERVO_1_aliases.h" value="NONE;SERVO_1" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\ADC_SAR_Seq_1.c" value="ARM_C_FILE;ADC_SAR_Seq_1" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\ADC_SAR_Seq_1.h" value="NONE;ADC_SAR_Seq_1" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\ADC_SAR_Seq_1_PM.c" value="ARM_C_FILE;ADC_SAR_Seq_1" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\ADC_SAR_Seq_1_INT.c" value="ARM_C_FILE;ADC_SAR_Seq_1" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\BAT_VOLT.c" value="ARM_C_FILE;BAT_VOLT" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\BAT_VOLT.h" value="NONE;BAT_VOLT" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\BAT_VOLT_aliases.h" value="NONE;BAT_VOLT" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\BAT_AMPS.c" value="ARM_C_FILE;BAT_AMPS" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\BAT_AMPS.h" value="NONE;BAT_AMPS" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\BAT_AMPS_aliases.h" value="NONE;BAT_AMPS" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\ISR_ICP.c" value="ARM_C_FILE;ISR_ICP" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\ISR_ICP.h" value="NONE;ISR_ICP" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\PPM_IN.c" value="ARM_C_FILE;PPM_IN" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\PPM_IN.h" value="NONE;PPM_IN" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\PPM_IN_aliases.h" value="NONE;PPM_IN" />
   <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\UART_tx.c" value="ARM_C_FILE;UART_tx" />
   <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\UART_tx.h" value="NONE;UART_tx" />
   <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\UART_tx_aliases.h" value="NONE;UART_tx" />
@@ -72,6 +116,16 @@
   <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\UART_rx_aliases.h" value="NONE;UART_rx" />
   <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\SPIM_IntClock.c" value="ARM_C_FILE;SPIM_IntClock" />
   <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\SPIM_IntClock.h" value="NONE;SPIM_IntClock" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C_sda.c" value="ARM_C_FILE;I2C_sda" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C_sda.h" value="NONE;I2C_sda" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C_sda_aliases.h" value="NONE;I2C_sda" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C_scl.c" value="ARM_C_FILE;I2C_scl" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C_scl.h" value="NONE;I2C_scl" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\I2C_scl_aliases.h" value="NONE;I2C_scl" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\ADC_SAR_Seq_1_intClock.c" value="ARM_C_FILE;ADC_SAR_Seq_1_intClock" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\ADC_SAR_Seq_1_intClock.h" value="NONE;ADC_SAR_Seq_1_intClock" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\ADC_SAR_Seq_1_IRQ.c" value="ARM_C_FILE;ADC_SAR_Seq_1_IRQ" />
+  <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\ADC_SAR_Seq_1_IRQ.h" value="NONE;ADC_SAR_Seq_1_IRQ" />
   <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\cm0gcc.ld" value="NONE;cy_boot" />
   <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\Cm0RealView.scat" value="NONE;cy_boot" />
   <file name="C:\Users\Steve\Desktop\Projects\MarsRover\BYU-MarsRover\MasterControllerBoard\MasterController\MasterController.cydsn\codegentemp\Cm0Start.c" value="ARM_C_FILE;cy_boot" />
