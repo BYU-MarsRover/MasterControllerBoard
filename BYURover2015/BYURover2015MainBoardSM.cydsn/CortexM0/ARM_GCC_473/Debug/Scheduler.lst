@@ -1,0 +1,1129 @@
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"Scheduler.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.comm	gpsIncoming,80,4
+  18              		.section	.text.initTodoList,"ax",%progbits
+  19              		.align	2
+  20              		.global	initTodoList
+  21              		.code	16
+  22              		.thumb_func
+  23              		.type	initTodoList, %function
+  24              	initTodoList:
+  25              	.LFB33:
+  26              		.file 1 ".\\Scheduler.c"
+   1:.\Scheduler.c **** /* ========================================
+   2:.\Scheduler.c ****  *
+   3:.\Scheduler.c ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\Scheduler.c ****  * All Rights Reserved
+   5:.\Scheduler.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\Scheduler.c ****  *
+   7:.\Scheduler.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\Scheduler.c ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\Scheduler.c ****  *
+  10:.\Scheduler.c ****  * ========================================
+  11:.\Scheduler.c **** */
+  12:.\Scheduler.c **** #include "Scheduler.h"
+  13:.\Scheduler.c **** 
+  14:.\Scheduler.c **** void initTodoList(ToDoList* todo)
+  15:.\Scheduler.c **** {
+  27              		.loc 1 15 0
+  28              		.cfi_startproc
+  29 0000 80B5     		push	{r7, lr}
+  30              	.LCFI0:
+  31              		.cfi_def_cfa_offset 8
+  32              		.cfi_offset 7, -8
+  33              		.cfi_offset 14, -4
+  34 0002 82B0     		sub	sp, sp, #8
+  35              	.LCFI1:
+  36              		.cfi_def_cfa_offset 16
+  37 0004 00AF     		add	r7, sp, #0
+  38              	.LCFI2:
+  39              		.cfi_def_cfa_register 7
+  40 0006 7860     		str	r0, [r7, #4]
+  16:.\Scheduler.c ****     todo->gimbalPan = 0;
+  41              		.loc 1 16 0
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 2
+
+
+  42 0008 7B68     		ldr	r3, [r7, #4]
+  43 000a 0022     		mov	r2, #0
+  44 000c 9A80     		strh	r2, [r3, #4]
+  17:.\Scheduler.c ****     todo->gimbalTilt = 0;
+  45              		.loc 1 17 0
+  46 000e 7B68     		ldr	r3, [r7, #4]
+  47 0010 0022     		mov	r2, #0
+  48 0012 DA80     		strh	r2, [r3, #6]
+  18:.\Scheduler.c ****     todo->leftWheels = 0;
+  49              		.loc 1 18 0
+  50 0014 7B68     		ldr	r3, [r7, #4]
+  51 0016 0022     		mov	r2, #0
+  52 0018 1A80     		strh	r2, [r3]
+  19:.\Scheduler.c ****     todo->rightWheels = 0;
+  53              		.loc 1 19 0
+  54 001a 7B68     		ldr	r3, [r7, #4]
+  55 001c 0022     		mov	r2, #0
+  56 001e 5A80     		strh	r2, [r3, #2]
+  20:.\Scheduler.c **** }
+  57              		.loc 1 20 0
+  58 0020 BD46     		mov	sp, r7
+  59 0022 02B0     		add	sp, sp, #8
+  60              		@ sp needed for prologue
+  61 0024 80BD     		pop	{r7, pc}
+  62              		.cfi_endproc
+  63              	.LFE33:
+  64              		.size	initTodoList, .-initTodoList
+  65 0026 C046     		.section	.text.initReport,"ax",%progbits
+  66              		.align	2
+  67              		.global	initReport
+  68              		.code	16
+  69              		.thumb_func
+  70              		.type	initReport, %function
+  71              	initReport:
+  72              	.LFB34:
+  21:.\Scheduler.c **** 
+  22:.\Scheduler.c **** void initReport(Report* report)
+  23:.\Scheduler.c **** {
+  73              		.loc 1 23 0
+  74              		.cfi_startproc
+  75 0000 80B5     		push	{r7, lr}
+  76              	.LCFI3:
+  77              		.cfi_def_cfa_offset 8
+  78              		.cfi_offset 7, -8
+  79              		.cfi_offset 14, -4
+  80 0002 82B0     		sub	sp, sp, #8
+  81              	.LCFI4:
+  82              		.cfi_def_cfa_offset 16
+  83 0004 00AF     		add	r7, sp, #0
+  84              	.LCFI5:
+  85              		.cfi_def_cfa_register 7
+  86 0006 7860     		str	r0, [r7, #4]
+  24:.\Scheduler.c ****     report->gimbalPan = 0;
+  87              		.loc 1 24 0
+  88 0008 7B68     		ldr	r3, [r7, #4]
+  89 000a 0022     		mov	r2, #0
+  90 000c 9A80     		strh	r2, [r3, #4]
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 3
+
+
+  25:.\Scheduler.c ****     report->gimbalTilt = 0;
+  91              		.loc 1 25 0
+  92 000e 7B68     		ldr	r3, [r7, #4]
+  93 0010 0022     		mov	r2, #0
+  94 0012 DA80     		strh	r2, [r3, #6]
+  26:.\Scheduler.c ****     memset(report->gpsData, 0, CHAR_ARRAY_MAX_SIZE);
+  95              		.loc 1 26 0
+  96 0014 7B68     		ldr	r3, [r7, #4]
+  97 0016 0833     		add	r3, r3, #8
+  98 0018 181C     		mov	r0, r3
+  99 001a 0021     		mov	r1, #0
+ 100 001c 5022     		mov	r2, #80
+ 101 001e FFF7FEFF 		bl	memset
+  27:.\Scheduler.c ****     report->leftWheels = 0;
+ 102              		.loc 1 27 0
+ 103 0022 7B68     		ldr	r3, [r7, #4]
+ 104 0024 0022     		mov	r2, #0
+ 105 0026 1A80     		strh	r2, [r3]
+  28:.\Scheduler.c ****     report->rightWheels = 0;
+ 106              		.loc 1 28 0
+ 107 0028 7B68     		ldr	r3, [r7, #4]
+ 108 002a 0022     		mov	r2, #0
+ 109 002c 5A80     		strh	r2, [r3, #2]
+  29:.\Scheduler.c **** }
+ 110              		.loc 1 29 0
+ 111 002e BD46     		mov	sp, r7
+ 112 0030 02B0     		add	sp, sp, #8
+ 113              		@ sp needed for prologue
+ 114 0032 80BD     		pop	{r7, pc}
+ 115              		.cfi_endproc
+ 116              	.LFE34:
+ 117              		.size	initReport, .-initReport
+ 118              		.comm	taskSchedulerState,1,1
+ 119              		.section	.text.taskScheduler,"ax",%progbits
+ 120              		.align	2
+ 121              		.global	taskScheduler
+ 122              		.code	16
+ 123              		.thumb_func
+ 124              		.type	taskScheduler, %function
+ 125              	taskScheduler:
+ 126              	.LFB35:
+  30:.\Scheduler.c **** 
+  31:.\Scheduler.c **** enum taskSchedulerStates {init_taskScheduler, read, update, report, wait} taskSchedulerState;
+  32:.\Scheduler.c **** 
+  33:.\Scheduler.c **** void taskScheduler()
+  34:.\Scheduler.c **** {
+ 127              		.loc 1 34 0
+ 128              		.cfi_startproc
+ 129 0000 80B5     		push	{r7, lr}
+ 130              	.LCFI6:
+ 131              		.cfi_def_cfa_offset 8
+ 132              		.cfi_offset 7, -8
+ 133              		.cfi_offset 14, -4
+ 134 0002 00AF     		add	r7, sp, #0
+ 135              	.LCFI7:
+ 136              		.cfi_def_cfa_register 7
+  35:.\Scheduler.c ****     //State Actions
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 4
+
+
+  36:.\Scheduler.c ****     switch (taskSchedulerState) 
+ 137              		.loc 1 36 0
+ 138 0004 0C4B     		ldr	r3, .L20
+ 139 0006 1B78     		ldrb	r3, [r3]
+ 140 0008 042B     		cmp	r3, #4
+ 141 000a 05D8     		bhi	.L4
+ 142 000c 9A00     		lsl	r2, r3, #2
+ 143 000e 0B4B     		ldr	r3, .L20+4
+ 144 0010 D318     		add	r3, r2, r3
+ 145 0012 1B68     		ldr	r3, [r3]
+ 146 0014 9F46     		mov	pc, r3
+ 147              		.section	.rodata
+ 148              		.align	2
+ 149              	.L10:
+ 150 0000 16000000 		.word	.L18
+ 151 0004 16000000 		.word	.L18
+ 152 0008 16000000 		.word	.L18
+ 153 000c 16000000 		.word	.L18
+ 154 0010 16000000 		.word	.L18
+ 155              		.section	.text.taskScheduler
+ 156              	.L18:
+  37:.\Scheduler.c ****     {
+  38:.\Scheduler.c ****         case init_taskScheduler:
+  39:.\Scheduler.c ****             
+  40:.\Scheduler.c ****         break;
+  41:.\Scheduler.c ****         case read:
+  42:.\Scheduler.c ****         //Take top Package off of Wiznet Buffer
+  43:.\Scheduler.c ****         //Open it up
+  44:.\Scheduler.c ****         //Parse and save all pieces of data into ToDo list struct
+  45:.\Scheduler.c ****         break;
+  46:.\Scheduler.c ****         case update:
+  47:.\Scheduler.c ****         //Write var to pwm components
+  48:.\Scheduler.c ****         //Switch camera
+  49:.\Scheduler.c ****         break;
+  50:.\Scheduler.c ****         case report:
+  51:.\Scheduler.c ****         
+  52:.\Scheduler.c ****         break;
+  53:.\Scheduler.c ****         case wait:
+  54:.\Scheduler.c ****         
+  55:.\Scheduler.c ****         break;
+ 157              		.loc 1 55 0
+ 158 0016 C046     		mov	r8, r8
+ 159              	.L4:
+  56:.\Scheduler.c ****     }    
+  57:.\Scheduler.c ****        
+  58:.\Scheduler.c ****     //Transitions
+  59:.\Scheduler.c ****     switch(taskSchedulerState)
+ 160              		.loc 1 59 0
+ 161 0018 074B     		ldr	r3, .L20
+ 162 001a 1B78     		ldrb	r3, [r3]
+ 163 001c 042B     		cmp	r3, #4
+ 164 001e 09D8     		bhi	.L3
+ 165 0020 9A00     		lsl	r2, r3, #2
+ 166 0022 074B     		ldr	r3, .L20+8
+ 167 0024 D318     		add	r3, r2, r3
+ 168 0026 1B68     		ldr	r3, [r3]
+ 169 0028 9F46     		mov	pc, r3
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 5
+
+
+ 170              		.section	.rodata
+ 171              		.align	2
+ 172              	.L17:
+ 173 0014 2A000000 		.word	.L12
+ 174 0018 32000000 		.word	.L19
+ 175 001c 32000000 		.word	.L19
+ 176 0020 32000000 		.word	.L19
+ 177 0024 32000000 		.word	.L19
+ 178              		.section	.text.taskScheduler
+ 179              	.L12:
+  60:.\Scheduler.c ****     {
+  61:.\Scheduler.c ****         case init_taskScheduler:
+  62:.\Scheduler.c ****             taskSchedulerState = wait;
+ 180              		.loc 1 62 0
+ 181 002a 034B     		ldr	r3, .L20
+ 182 002c 0422     		mov	r2, #4
+ 183 002e 1A70     		strb	r2, [r3]
+  63:.\Scheduler.c ****         break;
+ 184              		.loc 1 63 0
+ 185 0030 00E0     		b	.L3
+ 186              	.L19:
+  64:.\Scheduler.c ****         case read:
+  65:.\Scheduler.c ****         
+  66:.\Scheduler.c ****         break;
+  67:.\Scheduler.c ****         case update:
+  68:.\Scheduler.c ****         
+  69:.\Scheduler.c ****         break;
+  70:.\Scheduler.c ****         case report:
+  71:.\Scheduler.c ****         
+  72:.\Scheduler.c ****         break;
+  73:.\Scheduler.c ****         case wait:
+  74:.\Scheduler.c ****             
+  75:.\Scheduler.c ****         break;
+ 187              		.loc 1 75 0
+ 188 0032 C046     		mov	r8, r8
+ 189              	.L3:
+  76:.\Scheduler.c ****         
+  77:.\Scheduler.c ****     }
+  78:.\Scheduler.c ****     
+  79:.\Scheduler.c **** }
+ 190              		.loc 1 79 0
+ 191 0034 BD46     		mov	sp, r7
+ 192              		@ sp needed for prologue
+ 193 0036 80BD     		pop	{r7, pc}
+ 194              	.L21:
+ 195              		.align	2
+ 196              	.L20:
+ 197 0038 00000000 		.word	taskSchedulerState
+ 198 003c 00000000 		.word	.L10
+ 199 0040 14000000 		.word	.L17
+ 200              		.cfi_endproc
+ 201              	.LFE35:
+ 202              		.size	taskScheduler, .-taskScheduler
+ 203              		.text
+ 204              	.Letext0:
+ 205              		.file 2 ".\\Scheduler.h"
+ 206              		.file 3 "./Generated_Source/PSoC4/cytypes.h"
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 6
+
+
+ 207              		.section	.debug_info,"",%progbits
+ 208              	.Ldebug_info0:
+ 209 0000 13020000 		.4byte	0x213
+ 210 0004 0200     		.2byte	0x2
+ 211 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 212 000a 04       		.byte	0x4
+ 213 000b 01       		.uleb128 0x1
+ 214 000c 13010000 		.4byte	.LASF32
+ 215 0010 01       		.byte	0x1
+ 216 0011 65000000 		.4byte	.LASF33
+ 217 0015 5C010000 		.4byte	.LASF34
+ 218 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 219 001d 00000000 		.4byte	0
+ 220 0021 00000000 		.4byte	0
+ 221 0025 00000000 		.4byte	.Ldebug_line0
+ 222 0029 02       		.uleb128 0x2
+ 223 002a 01       		.byte	0x1
+ 224 002b 06       		.byte	0x6
+ 225 002c FC010000 		.4byte	.LASF0
+ 226 0030 02       		.uleb128 0x2
+ 227 0031 01       		.byte	0x1
+ 228 0032 08       		.byte	0x8
+ 229 0033 73000000 		.4byte	.LASF1
+ 230 0037 02       		.uleb128 0x2
+ 231 0038 02       		.byte	0x2
+ 232 0039 05       		.byte	0x5
+ 233 003a 09010000 		.4byte	.LASF2
+ 234 003e 02       		.uleb128 0x2
+ 235 003f 02       		.byte	0x2
+ 236 0040 07       		.byte	0x7
+ 237 0041 52000000 		.4byte	.LASF3
+ 238 0045 02       		.uleb128 0x2
+ 239 0046 04       		.byte	0x4
+ 240 0047 05       		.byte	0x5
+ 241 0048 C7010000 		.4byte	.LASF4
+ 242 004c 02       		.uleb128 0x2
+ 243 004d 04       		.byte	0x4
+ 244 004e 07       		.byte	0x7
+ 245 004f 40000000 		.4byte	.LASF5
+ 246 0053 02       		.uleb128 0x2
+ 247 0054 08       		.byte	0x8
+ 248 0055 05       		.byte	0x5
+ 249 0056 EC000000 		.4byte	.LASF6
+ 250 005a 02       		.uleb128 0x2
+ 251 005b 08       		.byte	0x8
+ 252 005c 07       		.byte	0x7
+ 253 005d B9000000 		.4byte	.LASF7
+ 254 0061 03       		.uleb128 0x3
+ 255 0062 04       		.byte	0x4
+ 256 0063 05       		.byte	0x5
+ 257 0064 696E7400 		.ascii	"int\000"
+ 258 0068 02       		.uleb128 0x2
+ 259 0069 04       		.byte	0x4
+ 260 006a 07       		.byte	0x7
+ 261 006b A7000000 		.4byte	.LASF8
+ 262 006f 04       		.uleb128 0x4
+ 263 0070 9B000000 		.4byte	.LASF17
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 7
+
+
+ 264 0074 03       		.byte	0x3
+ 265 0075 5C       		.byte	0x5c
+ 266 0076 3E000000 		.4byte	0x3e
+ 267 007a 02       		.uleb128 0x2
+ 268 007b 04       		.byte	0x4
+ 269 007c 04       		.byte	0x4
+ 270 007d 2E000000 		.4byte	.LASF9
+ 271 0081 02       		.uleb128 0x2
+ 272 0082 08       		.byte	0x8
+ 273 0083 04       		.byte	0x4
+ 274 0084 81000000 		.4byte	.LASF10
+ 275 0088 02       		.uleb128 0x2
+ 276 0089 01       		.byte	0x1
+ 277 008a 08       		.byte	0x8
+ 278 008b 04010000 		.4byte	.LASF11
+ 279 008f 02       		.uleb128 0x2
+ 280 0090 04       		.byte	0x4
+ 281 0091 07       		.byte	0x7
+ 282 0092 D8000000 		.4byte	.LASF12
+ 283 0096 05       		.uleb128 0x5
+ 284 0097 08020000 		.4byte	.LASF19
+ 285 009b 08       		.byte	0x8
+ 286 009c 02       		.byte	0x2
+ 287 009d 2B       		.byte	0x2b
+ 288 009e DB000000 		.4byte	0xdb
+ 289 00a2 06       		.uleb128 0x6
+ 290 00a3 E1000000 		.4byte	.LASF13
+ 291 00a7 02       		.byte	0x2
+ 292 00a8 2D       		.byte	0x2d
+ 293 00a9 6F000000 		.4byte	0x6f
+ 294 00ad 02       		.byte	0x2
+ 295 00ae 23       		.byte	0x23
+ 296 00af 00       		.uleb128 0
+ 297 00b0 06       		.uleb128 0x6
+ 298 00b1 34000000 		.4byte	.LASF14
+ 299 00b5 02       		.byte	0x2
+ 300 00b6 2E       		.byte	0x2e
+ 301 00b7 6F000000 		.4byte	0x6f
+ 302 00bb 02       		.byte	0x2
+ 303 00bc 23       		.byte	0x23
+ 304 00bd 02       		.uleb128 0x2
+ 305 00be 06       		.uleb128 0x6
+ 306 00bf FA000000 		.4byte	.LASF15
+ 307 00c3 02       		.byte	0x2
+ 308 00c4 2F       		.byte	0x2f
+ 309 00c5 6F000000 		.4byte	0x6f
+ 310 00c9 02       		.byte	0x2
+ 311 00ca 23       		.byte	0x23
+ 312 00cb 04       		.uleb128 0x4
+ 313 00cc 06       		.uleb128 0x6
+ 314 00cd 00000000 		.4byte	.LASF16
+ 315 00d1 02       		.byte	0x2
+ 316 00d2 30       		.byte	0x30
+ 317 00d3 6F000000 		.4byte	0x6f
+ 318 00d7 02       		.byte	0x2
+ 319 00d8 23       		.byte	0x23
+ 320 00d9 06       		.uleb128 0x6
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 8
+
+
+ 321 00da 00       		.byte	0
+ 322 00db 04       		.uleb128 0x4
+ 323 00dc 12000000 		.4byte	.LASF18
+ 324 00e0 02       		.byte	0x2
+ 325 00e1 31       		.byte	0x31
+ 326 00e2 96000000 		.4byte	0x96
+ 327 00e6 05       		.uleb128 0x5
+ 328 00e7 0B000000 		.4byte	.LASF20
+ 329 00eb 58       		.byte	0x58
+ 330 00ec 02       		.byte	0x2
+ 331 00ed 33       		.byte	0x33
+ 332 00ee 39010000 		.4byte	0x139
+ 333 00f2 06       		.uleb128 0x6
+ 334 00f3 E1000000 		.4byte	.LASF13
+ 335 00f7 02       		.byte	0x2
+ 336 00f8 35       		.byte	0x35
+ 337 00f9 6F000000 		.4byte	0x6f
+ 338 00fd 02       		.byte	0x2
+ 339 00fe 23       		.byte	0x23
+ 340 00ff 00       		.uleb128 0
+ 341 0100 06       		.uleb128 0x6
+ 342 0101 34000000 		.4byte	.LASF14
+ 343 0105 02       		.byte	0x2
+ 344 0106 36       		.byte	0x36
+ 345 0107 6F000000 		.4byte	0x6f
+ 346 010b 02       		.byte	0x2
+ 347 010c 23       		.byte	0x23
+ 348 010d 02       		.uleb128 0x2
+ 349 010e 06       		.uleb128 0x6
+ 350 010f FA000000 		.4byte	.LASF15
+ 351 0113 02       		.byte	0x2
+ 352 0114 37       		.byte	0x37
+ 353 0115 6F000000 		.4byte	0x6f
+ 354 0119 02       		.byte	0x2
+ 355 011a 23       		.byte	0x23
+ 356 011b 04       		.uleb128 0x4
+ 357 011c 06       		.uleb128 0x6
+ 358 011d 00000000 		.4byte	.LASF16
+ 359 0121 02       		.byte	0x2
+ 360 0122 38       		.byte	0x38
+ 361 0123 6F000000 		.4byte	0x6f
+ 362 0127 02       		.byte	0x2
+ 363 0128 23       		.byte	0x23
+ 364 0129 06       		.uleb128 0x6
+ 365 012a 06       		.uleb128 0x6
+ 366 012b D0000000 		.4byte	.LASF21
+ 367 012f 02       		.byte	0x2
+ 368 0130 39       		.byte	0x39
+ 369 0131 39010000 		.4byte	0x139
+ 370 0135 02       		.byte	0x2
+ 371 0136 23       		.byte	0x23
+ 372 0137 08       		.uleb128 0x8
+ 373 0138 00       		.byte	0
+ 374 0139 07       		.uleb128 0x7
+ 375 013a 88000000 		.4byte	0x88
+ 376 013e 49010000 		.4byte	0x149
+ 377 0142 08       		.uleb128 0x8
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 9
+
+
+ 378 0143 8F000000 		.4byte	0x8f
+ 379 0147 4F       		.byte	0x4f
+ 380 0148 00       		.byte	0
+ 381 0149 04       		.uleb128 0x4
+ 382 014a 24020000 		.4byte	.LASF22
+ 383 014e 02       		.byte	0x2
+ 384 014f 3A       		.byte	0x3a
+ 385 0150 E6000000 		.4byte	0xe6
+ 386 0154 09       		.uleb128 0x9
+ 387 0155 E8010000 		.4byte	.LASF35
+ 388 0159 01       		.byte	0x1
+ 389 015a 01       		.byte	0x1
+ 390 015b 1F       		.byte	0x1f
+ 391 015c 7F010000 		.4byte	0x17f
+ 392 0160 0A       		.uleb128 0xa
+ 393 0161 11020000 		.4byte	.LASF23
+ 394 0165 00       		.sleb128 0
+ 395 0166 0A       		.uleb128 0xa
+ 396 0167 88000000 		.4byte	.LASF24
+ 397 016b 01       		.sleb128 1
+ 398 016c 0A       		.uleb128 0xa
+ 399 016d 27000000 		.4byte	.LASF25
+ 400 0171 02       		.sleb128 2
+ 401 0172 0A       		.uleb128 0xa
+ 402 0173 0B000000 		.4byte	.LASF20
+ 403 0177 03       		.sleb128 3
+ 404 0178 0A       		.uleb128 0xa
+ 405 0179 A2000000 		.4byte	.LASF26
+ 406 017d 04       		.sleb128 4
+ 407 017e 00       		.byte	0
+ 408 017f 0B       		.uleb128 0xb
+ 409 0180 01       		.byte	0x1
+ 410 0181 D0010000 		.4byte	.LASF27
+ 411 0185 01       		.byte	0x1
+ 412 0186 0E       		.byte	0xe
+ 413 0187 01       		.byte	0x1
+ 414 0188 00000000 		.4byte	.LFB33
+ 415 018c 26000000 		.4byte	.LFE33
+ 416 0190 00000000 		.4byte	.LLST0
+ 417 0194 01       		.byte	0x1
+ 418 0195 A8010000 		.4byte	0x1a8
+ 419 0199 0C       		.uleb128 0xc
+ 420 019a B4000000 		.4byte	.LASF29
+ 421 019e 01       		.byte	0x1
+ 422 019f 0E       		.byte	0xe
+ 423 01a0 A8010000 		.4byte	0x1a8
+ 424 01a4 02       		.byte	0x2
+ 425 01a5 91       		.byte	0x91
+ 426 01a6 74       		.sleb128 -12
+ 427 01a7 00       		.byte	0
+ 428 01a8 0D       		.uleb128 0xd
+ 429 01a9 04       		.byte	0x4
+ 430 01aa DB000000 		.4byte	0xdb
+ 431 01ae 0E       		.uleb128 0xe
+ 432 01af 01       		.byte	0x1
+ 433 01b0 DD010000 		.4byte	.LASF28
+ 434 01b4 01       		.byte	0x1
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 10
+
+
+ 435 01b5 16       		.byte	0x16
+ 436 01b6 01       		.byte	0x1
+ 437 01b7 00000000 		.4byte	.LFB34
+ 438 01bb 34000000 		.4byte	.LFE34
+ 439 01bf 38000000 		.4byte	.LLST1
+ 440 01c3 01       		.byte	0x1
+ 441 01c4 D7010000 		.4byte	0x1d7
+ 442 01c8 0C       		.uleb128 0xc
+ 443 01c9 0B000000 		.4byte	.LASF20
+ 444 01cd 01       		.byte	0x1
+ 445 01ce 16       		.byte	0x16
+ 446 01cf D7010000 		.4byte	0x1d7
+ 447 01d3 02       		.byte	0x2
+ 448 01d4 91       		.byte	0x91
+ 449 01d5 74       		.sleb128 -12
+ 450 01d6 00       		.byte	0
+ 451 01d7 0D       		.uleb128 0xd
+ 452 01d8 04       		.byte	0x4
+ 453 01d9 49010000 		.4byte	0x149
+ 454 01dd 0F       		.uleb128 0xf
+ 455 01de 01       		.byte	0x1
+ 456 01df 8D000000 		.4byte	.LASF36
+ 457 01e3 01       		.byte	0x1
+ 458 01e4 21       		.byte	0x21
+ 459 01e5 00000000 		.4byte	.LFB35
+ 460 01e9 44000000 		.4byte	.LFE35
+ 461 01ed 70000000 		.4byte	.LLST2
+ 462 01f1 01       		.byte	0x1
+ 463 01f2 10       		.uleb128 0x10
+ 464 01f3 1B000000 		.4byte	.LASF30
+ 465 01f7 02       		.byte	0x2
+ 466 01f8 44       		.byte	0x44
+ 467 01f9 39010000 		.4byte	0x139
+ 468 01fd 01       		.byte	0x1
+ 469 01fe 05       		.byte	0x5
+ 470 01ff 03       		.byte	0x3
+ 471 0200 00000000 		.4byte	gpsIncoming
+ 472 0204 10       		.uleb128 0x10
+ 473 0205 B4010000 		.4byte	.LASF31
+ 474 0209 01       		.byte	0x1
+ 475 020a 1F       		.byte	0x1f
+ 476 020b 54010000 		.4byte	0x154
+ 477 020f 01       		.byte	0x1
+ 478 0210 05       		.byte	0x5
+ 479 0211 03       		.byte	0x3
+ 480 0212 00000000 		.4byte	taskSchedulerState
+ 481 0216 00       		.byte	0
+ 482              		.section	.debug_abbrev,"",%progbits
+ 483              	.Ldebug_abbrev0:
+ 484 0000 01       		.uleb128 0x1
+ 485 0001 11       		.uleb128 0x11
+ 486 0002 01       		.byte	0x1
+ 487 0003 25       		.uleb128 0x25
+ 488 0004 0E       		.uleb128 0xe
+ 489 0005 13       		.uleb128 0x13
+ 490 0006 0B       		.uleb128 0xb
+ 491 0007 03       		.uleb128 0x3
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 11
+
+
+ 492 0008 0E       		.uleb128 0xe
+ 493 0009 1B       		.uleb128 0x1b
+ 494 000a 0E       		.uleb128 0xe
+ 495 000b 55       		.uleb128 0x55
+ 496 000c 06       		.uleb128 0x6
+ 497 000d 11       		.uleb128 0x11
+ 498 000e 01       		.uleb128 0x1
+ 499 000f 52       		.uleb128 0x52
+ 500 0010 01       		.uleb128 0x1
+ 501 0011 10       		.uleb128 0x10
+ 502 0012 06       		.uleb128 0x6
+ 503 0013 00       		.byte	0
+ 504 0014 00       		.byte	0
+ 505 0015 02       		.uleb128 0x2
+ 506 0016 24       		.uleb128 0x24
+ 507 0017 00       		.byte	0
+ 508 0018 0B       		.uleb128 0xb
+ 509 0019 0B       		.uleb128 0xb
+ 510 001a 3E       		.uleb128 0x3e
+ 511 001b 0B       		.uleb128 0xb
+ 512 001c 03       		.uleb128 0x3
+ 513 001d 0E       		.uleb128 0xe
+ 514 001e 00       		.byte	0
+ 515 001f 00       		.byte	0
+ 516 0020 03       		.uleb128 0x3
+ 517 0021 24       		.uleb128 0x24
+ 518 0022 00       		.byte	0
+ 519 0023 0B       		.uleb128 0xb
+ 520 0024 0B       		.uleb128 0xb
+ 521 0025 3E       		.uleb128 0x3e
+ 522 0026 0B       		.uleb128 0xb
+ 523 0027 03       		.uleb128 0x3
+ 524 0028 08       		.uleb128 0x8
+ 525 0029 00       		.byte	0
+ 526 002a 00       		.byte	0
+ 527 002b 04       		.uleb128 0x4
+ 528 002c 16       		.uleb128 0x16
+ 529 002d 00       		.byte	0
+ 530 002e 03       		.uleb128 0x3
+ 531 002f 0E       		.uleb128 0xe
+ 532 0030 3A       		.uleb128 0x3a
+ 533 0031 0B       		.uleb128 0xb
+ 534 0032 3B       		.uleb128 0x3b
+ 535 0033 0B       		.uleb128 0xb
+ 536 0034 49       		.uleb128 0x49
+ 537 0035 13       		.uleb128 0x13
+ 538 0036 00       		.byte	0
+ 539 0037 00       		.byte	0
+ 540 0038 05       		.uleb128 0x5
+ 541 0039 13       		.uleb128 0x13
+ 542 003a 01       		.byte	0x1
+ 543 003b 03       		.uleb128 0x3
+ 544 003c 0E       		.uleb128 0xe
+ 545 003d 0B       		.uleb128 0xb
+ 546 003e 0B       		.uleb128 0xb
+ 547 003f 3A       		.uleb128 0x3a
+ 548 0040 0B       		.uleb128 0xb
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 12
+
+
+ 549 0041 3B       		.uleb128 0x3b
+ 550 0042 0B       		.uleb128 0xb
+ 551 0043 01       		.uleb128 0x1
+ 552 0044 13       		.uleb128 0x13
+ 553 0045 00       		.byte	0
+ 554 0046 00       		.byte	0
+ 555 0047 06       		.uleb128 0x6
+ 556 0048 0D       		.uleb128 0xd
+ 557 0049 00       		.byte	0
+ 558 004a 03       		.uleb128 0x3
+ 559 004b 0E       		.uleb128 0xe
+ 560 004c 3A       		.uleb128 0x3a
+ 561 004d 0B       		.uleb128 0xb
+ 562 004e 3B       		.uleb128 0x3b
+ 563 004f 0B       		.uleb128 0xb
+ 564 0050 49       		.uleb128 0x49
+ 565 0051 13       		.uleb128 0x13
+ 566 0052 38       		.uleb128 0x38
+ 567 0053 0A       		.uleb128 0xa
+ 568 0054 00       		.byte	0
+ 569 0055 00       		.byte	0
+ 570 0056 07       		.uleb128 0x7
+ 571 0057 01       		.uleb128 0x1
+ 572 0058 01       		.byte	0x1
+ 573 0059 49       		.uleb128 0x49
+ 574 005a 13       		.uleb128 0x13
+ 575 005b 01       		.uleb128 0x1
+ 576 005c 13       		.uleb128 0x13
+ 577 005d 00       		.byte	0
+ 578 005e 00       		.byte	0
+ 579 005f 08       		.uleb128 0x8
+ 580 0060 21       		.uleb128 0x21
+ 581 0061 00       		.byte	0
+ 582 0062 49       		.uleb128 0x49
+ 583 0063 13       		.uleb128 0x13
+ 584 0064 2F       		.uleb128 0x2f
+ 585 0065 0B       		.uleb128 0xb
+ 586 0066 00       		.byte	0
+ 587 0067 00       		.byte	0
+ 588 0068 09       		.uleb128 0x9
+ 589 0069 04       		.uleb128 0x4
+ 590 006a 01       		.byte	0x1
+ 591 006b 03       		.uleb128 0x3
+ 592 006c 0E       		.uleb128 0xe
+ 593 006d 0B       		.uleb128 0xb
+ 594 006e 0B       		.uleb128 0xb
+ 595 006f 3A       		.uleb128 0x3a
+ 596 0070 0B       		.uleb128 0xb
+ 597 0071 3B       		.uleb128 0x3b
+ 598 0072 0B       		.uleb128 0xb
+ 599 0073 01       		.uleb128 0x1
+ 600 0074 13       		.uleb128 0x13
+ 601 0075 00       		.byte	0
+ 602 0076 00       		.byte	0
+ 603 0077 0A       		.uleb128 0xa
+ 604 0078 28       		.uleb128 0x28
+ 605 0079 00       		.byte	0
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 13
+
+
+ 606 007a 03       		.uleb128 0x3
+ 607 007b 0E       		.uleb128 0xe
+ 608 007c 1C       		.uleb128 0x1c
+ 609 007d 0D       		.uleb128 0xd
+ 610 007e 00       		.byte	0
+ 611 007f 00       		.byte	0
+ 612 0080 0B       		.uleb128 0xb
+ 613 0081 2E       		.uleb128 0x2e
+ 614 0082 01       		.byte	0x1
+ 615 0083 3F       		.uleb128 0x3f
+ 616 0084 0C       		.uleb128 0xc
+ 617 0085 03       		.uleb128 0x3
+ 618 0086 0E       		.uleb128 0xe
+ 619 0087 3A       		.uleb128 0x3a
+ 620 0088 0B       		.uleb128 0xb
+ 621 0089 3B       		.uleb128 0x3b
+ 622 008a 0B       		.uleb128 0xb
+ 623 008b 27       		.uleb128 0x27
+ 624 008c 0C       		.uleb128 0xc
+ 625 008d 11       		.uleb128 0x11
+ 626 008e 01       		.uleb128 0x1
+ 627 008f 12       		.uleb128 0x12
+ 628 0090 01       		.uleb128 0x1
+ 629 0091 40       		.uleb128 0x40
+ 630 0092 06       		.uleb128 0x6
+ 631 0093 9742     		.uleb128 0x2117
+ 632 0095 0C       		.uleb128 0xc
+ 633 0096 01       		.uleb128 0x1
+ 634 0097 13       		.uleb128 0x13
+ 635 0098 00       		.byte	0
+ 636 0099 00       		.byte	0
+ 637 009a 0C       		.uleb128 0xc
+ 638 009b 05       		.uleb128 0x5
+ 639 009c 00       		.byte	0
+ 640 009d 03       		.uleb128 0x3
+ 641 009e 0E       		.uleb128 0xe
+ 642 009f 3A       		.uleb128 0x3a
+ 643 00a0 0B       		.uleb128 0xb
+ 644 00a1 3B       		.uleb128 0x3b
+ 645 00a2 0B       		.uleb128 0xb
+ 646 00a3 49       		.uleb128 0x49
+ 647 00a4 13       		.uleb128 0x13
+ 648 00a5 02       		.uleb128 0x2
+ 649 00a6 0A       		.uleb128 0xa
+ 650 00a7 00       		.byte	0
+ 651 00a8 00       		.byte	0
+ 652 00a9 0D       		.uleb128 0xd
+ 653 00aa 0F       		.uleb128 0xf
+ 654 00ab 00       		.byte	0
+ 655 00ac 0B       		.uleb128 0xb
+ 656 00ad 0B       		.uleb128 0xb
+ 657 00ae 49       		.uleb128 0x49
+ 658 00af 13       		.uleb128 0x13
+ 659 00b0 00       		.byte	0
+ 660 00b1 00       		.byte	0
+ 661 00b2 0E       		.uleb128 0xe
+ 662 00b3 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 14
+
+
+ 663 00b4 01       		.byte	0x1
+ 664 00b5 3F       		.uleb128 0x3f
+ 665 00b6 0C       		.uleb128 0xc
+ 666 00b7 03       		.uleb128 0x3
+ 667 00b8 0E       		.uleb128 0xe
+ 668 00b9 3A       		.uleb128 0x3a
+ 669 00ba 0B       		.uleb128 0xb
+ 670 00bb 3B       		.uleb128 0x3b
+ 671 00bc 0B       		.uleb128 0xb
+ 672 00bd 27       		.uleb128 0x27
+ 673 00be 0C       		.uleb128 0xc
+ 674 00bf 11       		.uleb128 0x11
+ 675 00c0 01       		.uleb128 0x1
+ 676 00c1 12       		.uleb128 0x12
+ 677 00c2 01       		.uleb128 0x1
+ 678 00c3 40       		.uleb128 0x40
+ 679 00c4 06       		.uleb128 0x6
+ 680 00c5 9642     		.uleb128 0x2116
+ 681 00c7 0C       		.uleb128 0xc
+ 682 00c8 01       		.uleb128 0x1
+ 683 00c9 13       		.uleb128 0x13
+ 684 00ca 00       		.byte	0
+ 685 00cb 00       		.byte	0
+ 686 00cc 0F       		.uleb128 0xf
+ 687 00cd 2E       		.uleb128 0x2e
+ 688 00ce 00       		.byte	0
+ 689 00cf 3F       		.uleb128 0x3f
+ 690 00d0 0C       		.uleb128 0xc
+ 691 00d1 03       		.uleb128 0x3
+ 692 00d2 0E       		.uleb128 0xe
+ 693 00d3 3A       		.uleb128 0x3a
+ 694 00d4 0B       		.uleb128 0xb
+ 695 00d5 3B       		.uleb128 0x3b
+ 696 00d6 0B       		.uleb128 0xb
+ 697 00d7 11       		.uleb128 0x11
+ 698 00d8 01       		.uleb128 0x1
+ 699 00d9 12       		.uleb128 0x12
+ 700 00da 01       		.uleb128 0x1
+ 701 00db 40       		.uleb128 0x40
+ 702 00dc 06       		.uleb128 0x6
+ 703 00dd 9742     		.uleb128 0x2117
+ 704 00df 0C       		.uleb128 0xc
+ 705 00e0 00       		.byte	0
+ 706 00e1 00       		.byte	0
+ 707 00e2 10       		.uleb128 0x10
+ 708 00e3 34       		.uleb128 0x34
+ 709 00e4 00       		.byte	0
+ 710 00e5 03       		.uleb128 0x3
+ 711 00e6 0E       		.uleb128 0xe
+ 712 00e7 3A       		.uleb128 0x3a
+ 713 00e8 0B       		.uleb128 0xb
+ 714 00e9 3B       		.uleb128 0x3b
+ 715 00ea 0B       		.uleb128 0xb
+ 716 00eb 49       		.uleb128 0x49
+ 717 00ec 13       		.uleb128 0x13
+ 718 00ed 3F       		.uleb128 0x3f
+ 719 00ee 0C       		.uleb128 0xc
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 15
+
+
+ 720 00ef 02       		.uleb128 0x2
+ 721 00f0 0A       		.uleb128 0xa
+ 722 00f1 00       		.byte	0
+ 723 00f2 00       		.byte	0
+ 724 00f3 00       		.byte	0
+ 725              		.section	.debug_loc,"",%progbits
+ 726              	.Ldebug_loc0:
+ 727              	.LLST0:
+ 728 0000 00000000 		.4byte	.LFB33
+ 729 0004 02000000 		.4byte	.LCFI0
+ 730 0008 0200     		.2byte	0x2
+ 731 000a 7D       		.byte	0x7d
+ 732 000b 00       		.sleb128 0
+ 733 000c 02000000 		.4byte	.LCFI0
+ 734 0010 04000000 		.4byte	.LCFI1
+ 735 0014 0200     		.2byte	0x2
+ 736 0016 7D       		.byte	0x7d
+ 737 0017 08       		.sleb128 8
+ 738 0018 04000000 		.4byte	.LCFI1
+ 739 001c 06000000 		.4byte	.LCFI2
+ 740 0020 0200     		.2byte	0x2
+ 741 0022 7D       		.byte	0x7d
+ 742 0023 10       		.sleb128 16
+ 743 0024 06000000 		.4byte	.LCFI2
+ 744 0028 26000000 		.4byte	.LFE33
+ 745 002c 0200     		.2byte	0x2
+ 746 002e 77       		.byte	0x77
+ 747 002f 10       		.sleb128 16
+ 748 0030 00000000 		.4byte	0
+ 749 0034 00000000 		.4byte	0
+ 750              	.LLST1:
+ 751 0038 00000000 		.4byte	.LFB34
+ 752 003c 02000000 		.4byte	.LCFI3
+ 753 0040 0200     		.2byte	0x2
+ 754 0042 7D       		.byte	0x7d
+ 755 0043 00       		.sleb128 0
+ 756 0044 02000000 		.4byte	.LCFI3
+ 757 0048 04000000 		.4byte	.LCFI4
+ 758 004c 0200     		.2byte	0x2
+ 759 004e 7D       		.byte	0x7d
+ 760 004f 08       		.sleb128 8
+ 761 0050 04000000 		.4byte	.LCFI4
+ 762 0054 06000000 		.4byte	.LCFI5
+ 763 0058 0200     		.2byte	0x2
+ 764 005a 7D       		.byte	0x7d
+ 765 005b 10       		.sleb128 16
+ 766 005c 06000000 		.4byte	.LCFI5
+ 767 0060 34000000 		.4byte	.LFE34
+ 768 0064 0200     		.2byte	0x2
+ 769 0066 77       		.byte	0x77
+ 770 0067 10       		.sleb128 16
+ 771 0068 00000000 		.4byte	0
+ 772 006c 00000000 		.4byte	0
+ 773              	.LLST2:
+ 774 0070 00000000 		.4byte	.LFB35
+ 775 0074 02000000 		.4byte	.LCFI6
+ 776 0078 0200     		.2byte	0x2
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 16
+
+
+ 777 007a 7D       		.byte	0x7d
+ 778 007b 00       		.sleb128 0
+ 779 007c 02000000 		.4byte	.LCFI6
+ 780 0080 04000000 		.4byte	.LCFI7
+ 781 0084 0200     		.2byte	0x2
+ 782 0086 7D       		.byte	0x7d
+ 783 0087 08       		.sleb128 8
+ 784 0088 04000000 		.4byte	.LCFI7
+ 785 008c 44000000 		.4byte	.LFE35
+ 786 0090 0200     		.2byte	0x2
+ 787 0092 77       		.byte	0x77
+ 788 0093 08       		.sleb128 8
+ 789 0094 00000000 		.4byte	0
+ 790 0098 00000000 		.4byte	0
+ 791              		.section	.debug_aranges,"",%progbits
+ 792 0000 2C000000 		.4byte	0x2c
+ 793 0004 0200     		.2byte	0x2
+ 794 0006 00000000 		.4byte	.Ldebug_info0
+ 795 000a 04       		.byte	0x4
+ 796 000b 00       		.byte	0
+ 797 000c 0000     		.2byte	0
+ 798 000e 0000     		.2byte	0
+ 799 0010 00000000 		.4byte	.LFB33
+ 800 0014 26000000 		.4byte	.LFE33-.LFB33
+ 801 0018 00000000 		.4byte	.LFB34
+ 802 001c 34000000 		.4byte	.LFE34-.LFB34
+ 803 0020 00000000 		.4byte	.LFB35
+ 804 0024 44000000 		.4byte	.LFE35-.LFB35
+ 805 0028 00000000 		.4byte	0
+ 806 002c 00000000 		.4byte	0
+ 807              		.section	.debug_ranges,"",%progbits
+ 808              	.Ldebug_ranges0:
+ 809 0000 00000000 		.4byte	.LFB33
+ 810 0004 26000000 		.4byte	.LFE33
+ 811 0008 00000000 		.4byte	.LFB34
+ 812 000c 34000000 		.4byte	.LFE34
+ 813 0010 00000000 		.4byte	.LFB35
+ 814 0014 44000000 		.4byte	.LFE35
+ 815 0018 00000000 		.4byte	0
+ 816 001c 00000000 		.4byte	0
+ 817              		.section	.debug_line,"",%progbits
+ 818              	.Ldebug_line0:
+ 819 0000 A4000000 		.section	.debug_str,"MS",%progbits,1
+ 819      02005B00 
+ 819      00000201 
+ 819      FB0E0D00 
+ 819      01010101 
+ 820              	.LASF16:
+ 821 0000 67696D62 		.ascii	"gimbalTilt\000"
+ 821      616C5469 
+ 821      6C7400
+ 822              	.LASF20:
+ 823 000b 7265706F 		.ascii	"report\000"
+ 823      727400
+ 824              	.LASF18:
+ 825 0012 546F446F 		.ascii	"ToDoList\000"
+ 825      4C697374 
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 17
+
+
+ 825      00
+ 826              	.LASF30:
+ 827 001b 67707349 		.ascii	"gpsIncoming\000"
+ 827      6E636F6D 
+ 827      696E6700 
+ 828              	.LASF25:
+ 829 0027 75706461 		.ascii	"update\000"
+ 829      746500
+ 830              	.LASF9:
+ 831 002e 666C6F61 		.ascii	"float\000"
+ 831      7400
+ 832              	.LASF14:
+ 833 0034 72696768 		.ascii	"rightWheels\000"
+ 833      74576865 
+ 833      656C7300 
+ 834              	.LASF5:
+ 835 0040 6C6F6E67 		.ascii	"long unsigned int\000"
+ 835      20756E73 
+ 835      69676E65 
+ 835      6420696E 
+ 835      7400
+ 836              	.LASF3:
+ 837 0052 73686F72 		.ascii	"short unsigned int\000"
+ 837      7420756E 
+ 837      7369676E 
+ 837      65642069 
+ 837      6E7400
+ 838              	.LASF33:
+ 839 0065 2E5C5363 		.ascii	".\\Scheduler.c\000"
+ 839      68656475 
+ 839      6C65722E 
+ 839      6300
+ 840              	.LASF1:
+ 841 0073 756E7369 		.ascii	"unsigned char\000"
+ 841      676E6564 
+ 841      20636861 
+ 841      7200
+ 842              	.LASF10:
+ 843 0081 646F7562 		.ascii	"double\000"
+ 843      6C6500
+ 844              	.LASF24:
+ 845 0088 72656164 		.ascii	"read\000"
+ 845      00
+ 846              	.LASF36:
+ 847 008d 7461736B 		.ascii	"taskScheduler\000"
+ 847      53636865 
+ 847      64756C65 
+ 847      7200
+ 848              	.LASF17:
+ 849 009b 75696E74 		.ascii	"uint16\000"
+ 849      313600
+ 850              	.LASF26:
+ 851 00a2 77616974 		.ascii	"wait\000"
+ 851      00
+ 852              	.LASF8:
+ 853 00a7 756E7369 		.ascii	"unsigned int\000"
+ 853      676E6564 
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 18
+
+
+ 853      20696E74 
+ 853      00
+ 854              	.LASF29:
+ 855 00b4 746F646F 		.ascii	"todo\000"
+ 855      00
+ 856              	.LASF7:
+ 857 00b9 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 857      206C6F6E 
+ 857      6720756E 
+ 857      7369676E 
+ 857      65642069 
+ 858              	.LASF21:
+ 859 00d0 67707344 		.ascii	"gpsData\000"
+ 859      61746100 
+ 860              	.LASF12:
+ 861 00d8 73697A65 		.ascii	"sizetype\000"
+ 861      74797065 
+ 861      00
+ 862              	.LASF13:
+ 863 00e1 6C656674 		.ascii	"leftWheels\000"
+ 863      57686565 
+ 863      6C7300
+ 864              	.LASF6:
+ 865 00ec 6C6F6E67 		.ascii	"long long int\000"
+ 865      206C6F6E 
+ 865      6720696E 
+ 865      7400
+ 866              	.LASF15:
+ 867 00fa 67696D62 		.ascii	"gimbalPan\000"
+ 867      616C5061 
+ 867      6E00
+ 868              	.LASF11:
+ 869 0104 63686172 		.ascii	"char\000"
+ 869      00
+ 870              	.LASF2:
+ 871 0109 73686F72 		.ascii	"short int\000"
+ 871      7420696E 
+ 871      7400
+ 872              	.LASF32:
+ 873 0113 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 873      4320342E 
+ 873      372E3320 
+ 873      32303133 
+ 873      30333132 
+ 874 0146 616E6368 		.ascii	"anch revision 196615]\000"
+ 874      20726576 
+ 874      6973696F 
+ 874      6E203139 
+ 874      36363135 
+ 875              	.LASF34:
+ 876 015c 433A5C55 		.ascii	"C:\\Users\\Jeffrey Nybo\\Documents\\PSoC Creator\\B"
+ 876      73657273 
+ 876      5C4A6566 
+ 876      66726579 
+ 876      204E7962 
+ 877 018a 5955526F 		.ascii	"YURover2015\\BYURover2015MainBoardSM.cydsn\000"
+ 877      76657232 
+ARM GAS  C:\Users\JEFFRE~1\AppData\Local\Temp\ccQyZ0We.s 			page 19
+
+
+ 877      3031355C 
+ 877      42595552 
+ 877      6F766572 
+ 878              	.LASF31:
+ 879 01b4 7461736B 		.ascii	"taskSchedulerState\000"
+ 879      53636865 
+ 879      64756C65 
+ 879      72537461 
+ 879      746500
+ 880              	.LASF4:
+ 881 01c7 6C6F6E67 		.ascii	"long int\000"
+ 881      20696E74 
+ 881      00
+ 882              	.LASF27:
+ 883 01d0 696E6974 		.ascii	"initTodoList\000"
+ 883      546F646F 
+ 883      4C697374 
+ 883      00
+ 884              	.LASF28:
+ 885 01dd 696E6974 		.ascii	"initReport\000"
+ 885      5265706F 
+ 885      727400
+ 886              	.LASF35:
+ 887 01e8 7461736B 		.ascii	"taskSchedulerStates\000"
+ 887      53636865 
+ 887      64756C65 
+ 887      72537461 
+ 887      74657300 
+ 888              	.LASF0:
+ 889 01fc 7369676E 		.ascii	"signed char\000"
+ 889      65642063 
+ 889      68617200 
+ 890              	.LASF19:
+ 891 0208 746F646F 		.ascii	"todolist\000"
+ 891      6C697374 
+ 891      00
+ 892              	.LASF23:
+ 893 0211 696E6974 		.ascii	"init_taskScheduler\000"
+ 893      5F746173 
+ 893      6B536368 
+ 893      6564756C 
+ 893      657200
+ 894              	.LASF22:
+ 895 0224 5265706F 		.ascii	"Report\000"
+ 895      727400
+ 896              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br
