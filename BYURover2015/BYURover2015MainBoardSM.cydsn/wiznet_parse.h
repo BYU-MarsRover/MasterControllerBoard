@@ -15,23 +15,19 @@
 
 #define CHAR_ARRAY_MAX_SIZE 80
 
-/*
-volatile uint8_t RX[16] = {0x0, 0x1, 0xC, 0x8, 0x0, 0x0, 0x0, 0x4, 0x0, 0x3, 0xE, 0x8, 0x0, 0x0, 0x0, 0x0};
-						// 0	1	 2	  3    4    5    6    7    8    9    10   11   12   13   14   15
-*/
-//roverlinkSendFrame(pointer to first bit, size of file)
-//#include wiznet5500.h
-//create a super struct that contains structures 0-15 in the .xml file
-//call sizeof(super_struct) to pass the size
-
-typedef struct todolist{ //Jeff needs to change this in his code
+//I created this struct with the purpose of testing.
+//It needs to be duplicated in the main code base and then deleted.
+/*typedef struct todolist{
 	uint16_t leftWheels;
 	uint16_t rightWheels;
 	uint16_t gimbalPan;
 	uint16_t gimbalTilt;
 } ToDoList;
+*/
 
-//183 bytes
+//needs init function
+//ideally as the substructs are changed, we shouldn't have to 
+//recall the init function to copy all the updated values back in. 
 typedef struct reportSuperStruct{
 	roverlink_sys_health_t sys_health; 
 	roverlink_rover_status_t rover_status;
@@ -46,14 +42,19 @@ typedef struct reportSuperStruct{
 	roverlink_arm_t arm; 
 	roverlink_ishaama_t ishaama; 
 	roverlink_liferay_t liferay; 
-	//roverlink_custom_debug_1_t* custom_debug_1;
+	//roverlink_custom_debug_1_t* custom_debug_1;	// these structs can be added later if we need them
 	//roverlink_custom_debug_2_t* cutom_debug_2; 
 	//roverlink_custom_debug_3_t* custom_debug_3;
 } Report;
 
-
+//parses incoming packets
 void wiznet_parse(ToDoList* todo);
-void send_packet(Report *report);
-//void print_ToDoList(ToDoList *todo);
+
+//stores all system status reports and values into a large struct.
+//packages the struct and sends it to the wiznet
+void send_packet(Report *report);// may not need to pass the report in
+
+// used for debugging purposes
+//void print_ToDoList(ToDoList *todo); 
 
 #endif /* WIZNET_PARSE_H_ */
