@@ -1,0 +1,392 @@
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccjXYCeQ.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.main,"ax",%progbits
+  18              		.align	2
+  19              		.global	main
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	main, %function
+  23              	main:
+  24              	.LFB33:
+  25              		.file 1 ".\\main.c"
+   1:.\main.c      **** /*
+   2:.\main.c      **** * Author: Marshall Garey
+   3:.\main.c      **** * Created on Jan 24, 2015
+   4:.\main.c      **** * Test code for interrupts with UART - for the GPS
+   5:.\main.c      **** */
+   6:.\main.c      **** #include <project.h>
+   7:.\main.c      **** #include "gps_uart.h"
+   8:.\main.c      **** 
+   9:.\main.c      **** int main()
+  10:.\main.c      **** {   
+  26              		.loc 1 10 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 00AF     		add	r7, sp, #0
+  34              	.LCFI1:
+  35              		.cfi_def_cfa_register 7
+  11:.\main.c      ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  12:.\main.c      ****     UART_1_Start();
+  36              		.loc 1 12 0
+  37 0004 FFF7FEFF 		bl	UART_1_Start
+  13:.\main.c      ****     UART_2_Start();
+  38              		.loc 1 13 0
+  39 0008 FFF7FEFF 		bl	UART_2_Start
+  14:.\main.c      ****     ISR_UART_1_StartEx(my_UART_ISR);
+  40              		.loc 1 14 0
+  41 000c 054B     		ldr	r3, .L3
+  42 000e 181C     		mov	r0, r3
+  43 0010 FFF7FEFF 		bl	ISR_UART_1_StartEx
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccjXYCeQ.s 			page 2
+
+
+  15:.\main.c      ****     init_printf(NULL, putdata);
+  44              		.loc 1 15 0
+  45 0014 044B     		ldr	r3, .L3+4
+  46 0016 0020     		mov	r0, #0
+  47 0018 191C     		mov	r1, r3
+  48 001a FFF7FEFF 		bl	init_printf
+  16:.\main.c      ****     
+  17:.\main.c      ****     CyGlobalIntEnable; /* Uncomment this line to enable global interrupts. */
+  49              		.loc 1 17 0
+  50              	@ 17 ".\main.c" 1
+  51 001e 62B6     		CPSIE   i
+  52              	@ 0 "" 2
+  53              		.code	16
+  54              	.L2:
+  18:.\main.c      ****     for(;;)
+  19:.\main.c      ****     {
+  20:.\main.c      ****         /* Place your application code here. */
+  21:.\main.c      ****     }
+  55              		.loc 1 21 0 discriminator 1
+  56 0020 FEE7     		b	.L2
+  57              	.L4:
+  58 0022 C046     		.align	2
+  59              	.L3:
+  60 0024 00000000 		.word	my_UART_ISR
+  61 0028 00000000 		.word	putdata
+  62              		.cfi_endproc
+  63              	.LFE33:
+  64              		.size	main, .-main
+  65              		.text
+  66              	.Letext0:
+  67              		.section	.debug_info,"",%progbits
+  68              	.Ldebug_info0:
+  69 0000 A1000000 		.4byte	0xa1
+  70 0004 0200     		.2byte	0x2
+  71 0006 00000000 		.4byte	.Ldebug_abbrev0
+  72 000a 04       		.byte	0x4
+  73 000b 01       		.uleb128 0x1
+  74 000c 20000000 		.4byte	.LASF13
+  75 0010 01       		.byte	0x1
+  76 0011 3F010000 		.4byte	.LASF14
+  77 0015 DE000000 		.4byte	.LASF15
+  78 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  79 001d 00000000 		.4byte	0
+  80 0021 00000000 		.4byte	0
+  81 0025 00000000 		.4byte	.Ldebug_line0
+  82 0029 02       		.uleb128 0x2
+  83 002a 01       		.byte	0x1
+  84 002b 06       		.byte	0x6
+  85 002c D2000000 		.4byte	.LASF0
+  86 0030 02       		.uleb128 0x2
+  87 0031 01       		.byte	0x1
+  88 0032 08       		.byte	0x8
+  89 0033 92000000 		.4byte	.LASF1
+  90 0037 02       		.uleb128 0x2
+  91 0038 02       		.byte	0x2
+  92 0039 05       		.byte	0x5
+  93 003a AE000000 		.4byte	.LASF2
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccjXYCeQ.s 			page 3
+
+
+  94 003e 02       		.uleb128 0x2
+  95 003f 02       		.byte	0x2
+  96 0040 07       		.byte	0x7
+  97 0041 BF000000 		.4byte	.LASF3
+  98 0045 02       		.uleb128 0x2
+  99 0046 04       		.byte	0x4
+ 100 0047 05       		.byte	0x5
+ 101 0048 A5000000 		.4byte	.LASF4
+ 102 004c 02       		.uleb128 0x2
+ 103 004d 04       		.byte	0x4
+ 104 004e 07       		.byte	0x7
+ 105 004f 69000000 		.4byte	.LASF5
+ 106 0053 02       		.uleb128 0x2
+ 107 0054 08       		.byte	0x8
+ 108 0055 05       		.byte	0x5
+ 109 0056 00000000 		.4byte	.LASF6
+ 110 005a 02       		.uleb128 0x2
+ 111 005b 08       		.byte	0x8
+ 112 005c 07       		.byte	0x7
+ 113 005d 7B000000 		.4byte	.LASF7
+ 114 0061 03       		.uleb128 0x3
+ 115 0062 04       		.byte	0x4
+ 116 0063 05       		.byte	0x5
+ 117 0064 696E7400 		.ascii	"int\000"
+ 118 0068 02       		.uleb128 0x2
+ 119 0069 04       		.byte	0x4
+ 120 006a 07       		.byte	0x7
+ 121 006b 0E000000 		.4byte	.LASF8
+ 122 006f 02       		.uleb128 0x2
+ 123 0070 04       		.byte	0x4
+ 124 0071 04       		.byte	0x4
+ 125 0072 39010000 		.4byte	.LASF9
+ 126 0076 02       		.uleb128 0x2
+ 127 0077 08       		.byte	0x8
+ 128 0078 04       		.byte	0x4
+ 129 0079 B8000000 		.4byte	.LASF10
+ 130 007d 02       		.uleb128 0x2
+ 131 007e 01       		.byte	0x1
+ 132 007f 08       		.byte	0x8
+ 133 0080 A0000000 		.4byte	.LASF11
+ 134 0084 02       		.uleb128 0x2
+ 135 0085 04       		.byte	0x4
+ 136 0086 07       		.byte	0x7
+ 137 0087 48010000 		.4byte	.LASF12
+ 138 008b 04       		.uleb128 0x4
+ 139 008c 01       		.byte	0x1
+ 140 008d 1B000000 		.4byte	.LASF16
+ 141 0091 01       		.byte	0x1
+ 142 0092 09       		.byte	0x9
+ 143 0093 61000000 		.4byte	0x61
+ 144 0097 00000000 		.4byte	.LFB33
+ 145 009b 2C000000 		.4byte	.LFE33
+ 146 009f 00000000 		.4byte	.LLST0
+ 147 00a3 01       		.byte	0x1
+ 148 00a4 00       		.byte	0
+ 149              		.section	.debug_abbrev,"",%progbits
+ 150              	.Ldebug_abbrev0:
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccjXYCeQ.s 			page 4
+
+
+ 151 0000 01       		.uleb128 0x1
+ 152 0001 11       		.uleb128 0x11
+ 153 0002 01       		.byte	0x1
+ 154 0003 25       		.uleb128 0x25
+ 155 0004 0E       		.uleb128 0xe
+ 156 0005 13       		.uleb128 0x13
+ 157 0006 0B       		.uleb128 0xb
+ 158 0007 03       		.uleb128 0x3
+ 159 0008 0E       		.uleb128 0xe
+ 160 0009 1B       		.uleb128 0x1b
+ 161 000a 0E       		.uleb128 0xe
+ 162 000b 55       		.uleb128 0x55
+ 163 000c 06       		.uleb128 0x6
+ 164 000d 11       		.uleb128 0x11
+ 165 000e 01       		.uleb128 0x1
+ 166 000f 52       		.uleb128 0x52
+ 167 0010 01       		.uleb128 0x1
+ 168 0011 10       		.uleb128 0x10
+ 169 0012 06       		.uleb128 0x6
+ 170 0013 00       		.byte	0
+ 171 0014 00       		.byte	0
+ 172 0015 02       		.uleb128 0x2
+ 173 0016 24       		.uleb128 0x24
+ 174 0017 00       		.byte	0
+ 175 0018 0B       		.uleb128 0xb
+ 176 0019 0B       		.uleb128 0xb
+ 177 001a 3E       		.uleb128 0x3e
+ 178 001b 0B       		.uleb128 0xb
+ 179 001c 03       		.uleb128 0x3
+ 180 001d 0E       		.uleb128 0xe
+ 181 001e 00       		.byte	0
+ 182 001f 00       		.byte	0
+ 183 0020 03       		.uleb128 0x3
+ 184 0021 24       		.uleb128 0x24
+ 185 0022 00       		.byte	0
+ 186 0023 0B       		.uleb128 0xb
+ 187 0024 0B       		.uleb128 0xb
+ 188 0025 3E       		.uleb128 0x3e
+ 189 0026 0B       		.uleb128 0xb
+ 190 0027 03       		.uleb128 0x3
+ 191 0028 08       		.uleb128 0x8
+ 192 0029 00       		.byte	0
+ 193 002a 00       		.byte	0
+ 194 002b 04       		.uleb128 0x4
+ 195 002c 2E       		.uleb128 0x2e
+ 196 002d 00       		.byte	0
+ 197 002e 3F       		.uleb128 0x3f
+ 198 002f 0C       		.uleb128 0xc
+ 199 0030 03       		.uleb128 0x3
+ 200 0031 0E       		.uleb128 0xe
+ 201 0032 3A       		.uleb128 0x3a
+ 202 0033 0B       		.uleb128 0xb
+ 203 0034 3B       		.uleb128 0x3b
+ 204 0035 0B       		.uleb128 0xb
+ 205 0036 49       		.uleb128 0x49
+ 206 0037 13       		.uleb128 0x13
+ 207 0038 11       		.uleb128 0x11
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccjXYCeQ.s 			page 5
+
+
+ 208 0039 01       		.uleb128 0x1
+ 209 003a 12       		.uleb128 0x12
+ 210 003b 01       		.uleb128 0x1
+ 211 003c 40       		.uleb128 0x40
+ 212 003d 06       		.uleb128 0x6
+ 213 003e 9642     		.uleb128 0x2116
+ 214 0040 0C       		.uleb128 0xc
+ 215 0041 00       		.byte	0
+ 216 0042 00       		.byte	0
+ 217 0043 00       		.byte	0
+ 218              		.section	.debug_loc,"",%progbits
+ 219              	.Ldebug_loc0:
+ 220              	.LLST0:
+ 221 0000 00000000 		.4byte	.LFB33
+ 222 0004 02000000 		.4byte	.LCFI0
+ 223 0008 0200     		.2byte	0x2
+ 224 000a 7D       		.byte	0x7d
+ 225 000b 00       		.sleb128 0
+ 226 000c 02000000 		.4byte	.LCFI0
+ 227 0010 04000000 		.4byte	.LCFI1
+ 228 0014 0200     		.2byte	0x2
+ 229 0016 7D       		.byte	0x7d
+ 230 0017 08       		.sleb128 8
+ 231 0018 04000000 		.4byte	.LCFI1
+ 232 001c 2C000000 		.4byte	.LFE33
+ 233 0020 0200     		.2byte	0x2
+ 234 0022 77       		.byte	0x77
+ 235 0023 08       		.sleb128 8
+ 236 0024 00000000 		.4byte	0
+ 237 0028 00000000 		.4byte	0
+ 238              		.section	.debug_aranges,"",%progbits
+ 239 0000 1C000000 		.4byte	0x1c
+ 240 0004 0200     		.2byte	0x2
+ 241 0006 00000000 		.4byte	.Ldebug_info0
+ 242 000a 04       		.byte	0x4
+ 243 000b 00       		.byte	0
+ 244 000c 0000     		.2byte	0
+ 245 000e 0000     		.2byte	0
+ 246 0010 00000000 		.4byte	.LFB33
+ 247 0014 2C000000 		.4byte	.LFE33-.LFB33
+ 248 0018 00000000 		.4byte	0
+ 249 001c 00000000 		.4byte	0
+ 250              		.section	.debug_ranges,"",%progbits
+ 251              	.Ldebug_ranges0:
+ 252 0000 00000000 		.4byte	.LFB33
+ 253 0004 2C000000 		.4byte	.LFE33
+ 254 0008 00000000 		.4byte	0
+ 255 000c 00000000 		.4byte	0
+ 256              		.section	.debug_line,"",%progbits
+ 257              	.Ldebug_line0:
+ 258 0000 3E000000 		.section	.debug_str,"MS",%progbits,1
+ 258      02001F00 
+ 258      00000201 
+ 258      FB0E0D00 
+ 258      01010101 
+ 259              	.LASF6:
+ 260 0000 6C6F6E67 		.ascii	"long long int\000"
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccjXYCeQ.s 			page 6
+
+
+ 260      206C6F6E 
+ 260      6720696E 
+ 260      7400
+ 261              	.LASF8:
+ 262 000e 756E7369 		.ascii	"unsigned int\000"
+ 262      676E6564 
+ 262      20696E74 
+ 262      00
+ 263              	.LASF16:
+ 264 001b 6D61696E 		.ascii	"main\000"
+ 264      00
+ 265              	.LASF13:
+ 266 0020 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 266      4320342E 
+ 266      372E3320 
+ 266      32303133 
+ 266      30333132 
+ 267 0053 616E6368 		.ascii	"anch revision 196615]\000"
+ 267      20726576 
+ 267      6973696F 
+ 267      6E203139 
+ 267      36363135 
+ 268              	.LASF5:
+ 269 0069 6C6F6E67 		.ascii	"long unsigned int\000"
+ 269      20756E73 
+ 269      69676E65 
+ 269      6420696E 
+ 269      7400
+ 270              	.LASF7:
+ 271 007b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 271      206C6F6E 
+ 271      6720756E 
+ 271      7369676E 
+ 271      65642069 
+ 272              	.LASF1:
+ 273 0092 756E7369 		.ascii	"unsigned char\000"
+ 273      676E6564 
+ 273      20636861 
+ 273      7200
+ 274              	.LASF11:
+ 275 00a0 63686172 		.ascii	"char\000"
+ 275      00
+ 276              	.LASF4:
+ 277 00a5 6C6F6E67 		.ascii	"long int\000"
+ 277      20696E74 
+ 277      00
+ 278              	.LASF2:
+ 279 00ae 73686F72 		.ascii	"short int\000"
+ 279      7420696E 
+ 279      7400
+ 280              	.LASF10:
+ 281 00b8 646F7562 		.ascii	"double\000"
+ 281      6C6500
+ 282              	.LASF3:
+ 283 00bf 73686F72 		.ascii	"short unsigned int\000"
+ 283      7420756E 
+ 283      7369676E 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccjXYCeQ.s 			page 7
+
+
+ 283      65642069 
+ 283      6E7400
+ 284              	.LASF0:
+ 285 00d2 7369676E 		.ascii	"signed char\000"
+ 285      65642063 
+ 285      68617200 
+ 286              	.LASF15:
+ 287 00de 433A5C55 		.ascii	"C:\\Users\\Jared\\Documents\\PSoC Creator\\MasterCo"
+ 287      73657273 
+ 287      5C4A6172 
+ 287      65645C44 
+ 287      6F63756D 
+ 288 010c 6E74726F 		.ascii	"ntrollerBoard\\MasterController\\GPS_Dev.cydsn\000"
+ 288      6C6C6572 
+ 288      426F6172 
+ 288      645C4D61 
+ 288      73746572 
+ 289              	.LASF9:
+ 290 0139 666C6F61 		.ascii	"float\000"
+ 290      7400
+ 291              	.LASF14:
+ 292 013f 2E5C6D61 		.ascii	".\\main.c\000"
+ 292      696E2E63 
+ 292      00
+ 293              	.LASF12:
+ 294 0148 73697A65 		.ascii	"sizetype\000"
+ 294      74797065 
+ 294      00
+ 295              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br
