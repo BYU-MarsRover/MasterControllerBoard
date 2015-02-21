@@ -27,3 +27,82 @@ void send_report(Report* report){//may not need to pass the report struct in sin
 	//need to double check that I've passed the correct parameters in. 	 
 	roverlinkSendFrame(report, sizeof(report));
 }
+
+void report_init(){
+//system_health
+	Report.system_health.systemTimestamp = 0x00;//uint32_t
+	Report.system_health.systemStamp = 0x00; //uint8_t
+	Report.system_health.cpuLoad = 0x00;//uint16_t
+	Report.system_health.busErrors = 0x00;//uint16_t
+	Report.system_health.ethernetErrors = 0x00;//uint16_t
+	Report.system_health.someOtherMetric = 0x00;//uint16_t
+//rover_status init
+	Report.rover_status.systemState = 0x00; //uint8_t
+	Report.rover_status.roverVoltage = 0x00;//uint16_t
+	Report.rover_status.roverCurrent = -0x7D0; //int16_t
+	Report.rover_status.mAhCounter = 0x00; //int32_t
+	Report.rover_status.ubntLinkInteg = 0x00; //uint16_t
+	Report.rover_status.dragonLinkRSSI = 0x00; //uint16_t
+//arm_status
+	Report.arm_status.systemState  = 0x00; //uint8_t
+	Report.arm_status.dynamixelErrors = 0x00; //uint16_t
+	Report.arm_status.pid1_error = -0x7D0; //uint16_t
+	Report.arm_status.pid2_error = -0x7D0; //uint16_t
+	Report.arm_status.pid3_error = -0x7D0; //uint16_t
+//reserved_1
+//gps
+	Report.gps.systemTimestamp = 0x00; //uint32_t
+	Report.gps.lat = -0x35A4E8FF; //int32_t
+	Report.gps.lon = -0x6B49D1FF; //int32_t
+	Report.gps.alt = -0x989680; //int32_t
+	Report.gps.hdop = 0x00; //uint16_t
+	Report.gps.vdop = 0x00; //uint16_t
+	Report.gps.vel = 0x00; //uint16_t
+	Report.gps.course = 0x00; //uint16_t
+	Report.gps.fix_type = 0x00; //uint8_t
+	Report.gps.sats = 0x00; //uint8_t
+//IMU
+	Report.imu.xacc = 0x00; //int16_t
+	Report.imu.yacc = 0x00; //int16_t
+	Report.imu.zacc = 0x00; //int16_t
+	Report.imu.xgyro = 0x00; //int16_t
+	Report.imu.ygyro = 0x00; //int16_t
+	Report.imu.zgyro = 0x00; //int16_t
+	Report.imu.xmag = 0x00; //int16_t
+	Report.imu.ymag = 0x00; //int16_t
+	Report.imu.zmag = 0x00; //int16_t
+//reserved_2
+//LRS 
+ 	Report.lrs.ppmCh1 = 0x5DC; //uint16_t
+ 	Report.lrs.ppmCh2 = 0x5DC; //uint16_t
+ 	Report.lrs.ppmCh3 = 0x5DC; //uint16_t
+ 	Report.lrs.ppmCh4 = 0x5DC; //uint16_t
+ 	Report.lrs.ppmCh5 = 0x5DC; //uint16_t
+ 	Report.lrs.ppmCh6 = 0x5DC; //uint16_t
+ 	Report.lrs.ppmCh7 = 0x5DC; //uint16_t
+ 	Report.lrs.ppmCh8 = 0x5DC; //uint16_t
+ //DRIVE
+ 	Report.drive.driveFwd = 0x00; //in16_t
+ 	Report.drive.driveTurn = 0x00; //int16_t
+ //VIDEO
+ 	Report.video.gimbalPan = 0x00; //int16_t
+ 	Report.video.gimbalTilt = 0x00; // int16_t
+ 	Report.video.gimbalZoom = 0x00; //uint16_t
+ 	Report.video.camSelect = 0x00; //int8_t
+ //ARM
+ 	Report.arm.baseAzimuth = 0x00; //int16_t
+ 	Report.arm.shoulder = 0x00; //int16_t
+ 	Report.arm.elbow = 0x00; //int16_t
+ 	Report.arm.wristTilt = 0x00; //int16_t
+ 	Report.arm.wristRotate = 0x00; //int16_t
+ 	Report.arm.effectorA = 0x00; //int16_t
+ 	Report.arm.effectorB = 0x00; //int16_t
+//ISHAAMA
+ 	Report.ishaama.hygrometer = 0x00; //uint16-t
+ 	Report.ishaama.phMeter = 0x00; //uint16_t
+ //LIFERAY
+ 	Report.liferay.laserDutyCycle = 0x00; //uint8_t
+ //custom_debug_1
+ //custom_debug_2
+ //custom_debug_3
+}

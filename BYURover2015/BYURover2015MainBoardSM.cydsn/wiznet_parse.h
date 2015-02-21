@@ -54,6 +54,9 @@ void wiznet_parse(ToDoList* todo);
 //packages the struct and sends it to the wiznet
 void send_packet(Report *report);// may not need to pass the report in
 
+//initializes the report structure
+void report_init();
+
 // used for debugging purposes
 //void print_ToDoList(ToDoList *todo); 
 
