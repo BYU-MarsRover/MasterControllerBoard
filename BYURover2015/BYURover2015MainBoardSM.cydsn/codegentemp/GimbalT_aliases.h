@@ -1,9 +1,10 @@
 /*******************************************************************************
 * File Name: GimbalT.h  
-* Version 2.5
+* Version 2.10
 *
 * Description:
-*  This file containts Control Register function prototypes and register defines
+*  This file contains the Alias definitions for Per-Pin APIs in cypins.h. 
+*  Information on using these APIs can be found in the System Reference Guide.
 *
 * Note:
 *
@@ -19,12 +20,18 @@
 
 #include "cytypes.h"
 #include "cyfitter.h"
+#include "cypins.h"
 
 
 /***************************************
 *              Constants        
 ***************************************/
-#define GimbalT_0		GimbalT__0__PC
+#define GimbalT_0		(GimbalT__0__PC)
+#define GimbalT_0_PS		(GimbalT__0__PS)
+#define GimbalT_0_PC		(GimbalT__0__PC)
+#define GimbalT_0_DR		(GimbalT__0__DR)
+#define GimbalT_0_SHIFT	(GimbalT__0__SHIFT)
+
 
 #endif /* End Pins GimbalT_ALIASES_H */
 

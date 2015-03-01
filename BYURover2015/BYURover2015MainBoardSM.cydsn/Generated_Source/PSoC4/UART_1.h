@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: UART_1.h
-* Version 1.20
+* Version 2.0
 *
 * Description:
 *  This file provides constants and parameter values for the SCB Component.
@@ -8,7 +8,7 @@
 * Note:
 *
 ********************************************************************************
-* Copyright 2013-2013-2013-2014, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2013-2014, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -22,19 +22,9 @@
 #include <cytypes.h>
 #include <CyLib.h>
 
-
-/***************************************
-*  Conditional Compilation Parameters
-****************************************/
-
-#define UART_1_CY_SCBIP_V0 (CYIPBLOCK_m0s8scb_VERSION == 0u)
-#define UART_1_CY_SCBIP_V1 (CYIPBLOCK_m0s8scb_VERSION >= 1u)
-
-#if(UART_1_CY_SCBIP_V1)
-    #define UART_1_CY_SCBIP_V1_I2C_ONLY   (1u) /* SCB IP V1 supports only I2C */
-#else
-    #define UART_1_CY_SCBIP_V1_I2C_ONLY   (0u) /* SCB IP V0 supports I2C, SPI, UART */
-#endif /* (UART_1_CY_SCBIP_V1) */
+#define UART_1_CY_SCBIP_V0    (CYIPBLOCK_m0s8scb_VERSION == 0u)
+#define UART_1_CY_SCBIP_V1    (CYIPBLOCK_m0s8scb_VERSION == 1u)
+#define UART_1_CY_SCBIP_V2    (CYIPBLOCK_m0s8scb_VERSION >= 2u)
 
 #define UART_1_SCB_MODE                     (4u)
 
@@ -53,15 +43,15 @@
 #define UART_1_SCB_MODE_UNCONFIG_CONST_CFG  (UART_1_SCB_MODE_UNCONFIG  == UART_1_SCB_MODE)
 
 /* Condition compilation for includes */
-#define UART_1_SCB_MODE_I2C_INC       (0u !=(UART_1_SCB_MODE_I2C       & UART_1_SCB_MODE))
-#define UART_1_SCB_MODE_EZI2C_INC     (0u !=(UART_1_SCB_MODE_EZI2C     & UART_1_SCB_MODE))
-#if(!UART_1_CY_SCBIP_V1_I2C_ONLY)
-#define UART_1_SCB_MODE_SPI_INC       (0u !=(UART_1_SCB_MODE_SPI       & UART_1_SCB_MODE))
-#define UART_1_SCB_MODE_UART_INC      (0u !=(UART_1_SCB_MODE_UART      & UART_1_SCB_MODE))
+#define UART_1_SCB_MODE_I2C_INC      (0u !=(UART_1_SCB_MODE_I2C   & UART_1_SCB_MODE))
+#define UART_1_SCB_MODE_EZI2C_INC    (0u !=(UART_1_SCB_MODE_EZI2C & UART_1_SCB_MODE))
+#if(!UART_1_CY_SCBIP_V1)
+    #define UART_1_SCB_MODE_SPI_INC  (0u !=(UART_1_SCB_MODE_SPI   & UART_1_SCB_MODE))
+    #define UART_1_SCB_MODE_UART_INC (0u !=(UART_1_SCB_MODE_UART  & UART_1_SCB_MODE))
 #else
-#define UART_1_SCB_MODE_SPI_INC       (0u)
-#define UART_1_SCB_MODE_UART_INC      (0u)
-#endif /* ((!UART_1_CY_SCBIP_V1_I2C_ONLY) */
+    #define UART_1_SCB_MODE_SPI_INC  (0u)
+    #define UART_1_SCB_MODE_UART_INC (0u)
+#endif /* (!UART_1_CY_SCBIP_V1) */
 
 /* Interrupts remove options */
 #define UART_1_REMOVE_SCB_IRQ             (1u)
@@ -75,9 +65,9 @@
 #define UART_1_SCB_INTR_MODE_INTERNAL (1u)
 #define UART_1_SCB_INTR_MODE_EXTERNAL (2u)
 
-/* Bootloader communication interface enable */
-#define UART_1_BTLDR_COMM_ENABLED ((CYDEV_BOOTLOADER_IO_COMP == CyBtldr_UART_1) || \
-                                             (CYDEV_BOOTLOADER_IO_COMP == CyBtldr_Custom_Interface))
+/* Internal clock remove option */
+#define UART_1_REMOVE_SCB_CLK     (0u)
+#define UART_1_SCB_CLK_INTERNAL   (0u == UART_1_REMOVE_SCB_CLK)
 
 
 /***************************************
@@ -85,6 +75,10 @@
 ****************************************/
 
 #include "UART_1_PINS.h"
+
+#if (UART_1_SCB_CLK_INTERNAL)
+    #include "UART_1_SCBCLK.h"
+#endif /* (UART_1_SCB_CLK_INTERNAL) */
 
 
 /***************************************
@@ -114,33 +108,14 @@ void UART_1_Wakeup(void);
 /* Custom interrupt handler */
 void UART_1_SetCustomInterruptHandler(cyisraddress func);
 
-#if defined(CYDEV_BOOTLOADER_IO_COMP) && (UART_1_BTLDR_COMM_ENABLED)
-    /* Bootloader Physical layer functions */
-    void UART_1_CyBtldrCommStart(void);
-    void UART_1_CyBtldrCommStop (void);
-    void UART_1_CyBtldrCommReset(void);
-    cystatus UART_1_CyBtldrCommRead       (uint8 pData[], uint16 size, uint16 * count, uint8 timeOut);
-    cystatus UART_1_CyBtldrCommWrite(const uint8 pData[], uint16 size, uint16 * count, uint8 timeOut);
-
-    #if(CYDEV_BOOTLOADER_IO_COMP == CyBtldr_UART_1)
-        #define CyBtldrCommStart    UART_1_CyBtldrCommStart
-        #define CyBtldrCommStop     UART_1_CyBtldrCommStop
-        #define CyBtldrCommReset    UART_1_CyBtldrCommReset
-        #define CyBtldrCommWrite    UART_1_CyBtldrCommWrite
-        #define CyBtldrCommRead     UART_1_CyBtldrCommRead
-    #endif /* (CYDEV_BOOTLOADER_IO_COMP == CyBtldr_UART_1) */
-
-#endif /*defined(CYDEV_BOOTLOADER_IO_COMP) && ((CYDEV_BOOTLOADER_IO_COMP == CyBtldr_UART_1) || \
-                                                    (CYDEV_BOOTLOADER_IO_COMP == CyBtldr_Custom_Interface)) */
-
 /* Interface to internal interrupt component */
-#if(UART_1_SCB_IRQ_INTERNAL)
+#if (UART_1_SCB_IRQ_INTERNAL)
     #define UART_1_EnableInt()        CyIntEnable      (UART_1_ISR_NUMBER)
     #define UART_1_DisableInt()       CyIntDisable     (UART_1_ISR_NUMBER)
     #define UART_1_ClearPendingInt()  CyIntClearPending(UART_1_ISR_NUMBER)
 #endif /* (UART_1_SCB_IRQ_INTERNAL) */
 
-#if(UART_1_UART_RX_WAKEUP_IRQ)
+#if (UART_1_UART_RX_WAKEUP_IRQ)
     #define UART_1_RxWakeEnableInt()        CyIntEnable      (UART_1_RX_WAKE_ISR_NUMBER)
     #define UART_1_RxWakeDisableInt()       CyIntDisable     (UART_1_RX_WAKE_ISR_NUMBER)
     #define UART_1_RxWakeClearPendingInt()  CyIntClearPending(UART_1_RX_WAKE_ISR_NUMBER)
@@ -156,6 +131,7 @@ void UART_1_SetCustomInterruptHandler(cyisraddress func);
 #define UART_1_GetRxInterruptSource()                (UART_1_INTR_RX_REG)
 #define UART_1_GetRxInterruptMode()                  (UART_1_INTR_RX_MASK_REG)
 #define UART_1_GetRxInterruptSourceMasked()          (UART_1_INTR_RX_MASKED_REG)
+void UART_1_SetRxFifoLevel(uint32 level);
 
 /* APIs to service INTR_TX register */
 #define UART_1_SetTxInterruptMode(interruptMask)     UART_1_WRITE_INTR_TX_MASK(interruptMask)
@@ -164,9 +140,10 @@ void UART_1_SetCustomInterruptHandler(cyisraddress func);
 #define UART_1_GetTxInterruptSource()                (UART_1_INTR_TX_REG)
 #define UART_1_GetTxInterruptMode()                  (UART_1_INTR_TX_MASK_REG)
 #define UART_1_GetTxInterruptSourceMasked()          (UART_1_INTR_TX_MASKED_REG)
+void UART_1_SetTxFifoLevel(uint32 level);
 
 /* APIs to service INTR_MASTER register */
-#define UART_1_SetMasterInterruptMode(interruptMask)    UART_1_WRITE_INTR_MASTER_MASK(interruptMask)
+#define UART_1_SetMasterInterruptMode(interruptMask)     UART_1_WRITE_INTR_MASTER_MASK(interruptMask)
 #define UART_1_ClearMasterInterruptSource(interruptMask) UART_1_CLEAR_INTR_MASTER(interruptMask)
 #define UART_1_SetMasterInterrupt(interruptMask)         UART_1_SET_INTR_MASTER(interruptMask)
 #define UART_1_GetMasterInterruptSource()                (UART_1_INTR_MASTER_REG)
@@ -182,9 +159,9 @@ void UART_1_SetCustomInterruptHandler(cyisraddress func);
 #define UART_1_GetSlaveInterruptSourceMasked()          (UART_1_INTR_SLAVE_MASKED_REG)
 
 
-/**********************************
+/***************************************
 *     Vars with External Linkage
-**********************************/
+***************************************/
 
 extern uint8 UART_1_initVar;
 
@@ -199,7 +176,7 @@ extern uint8 UART_1_initVar;
 #define UART_1_STATUS_REG             (*(reg32 *) UART_1_SCB__STATUS)
 #define UART_1_STATUS_PTR             ( (reg32 *) UART_1_SCB__STATUS)
 
-#if(!UART_1_CY_SCBIP_V1_I2C_ONLY)
+#if (!UART_1_CY_SCBIP_V1)
     #define UART_1_SPI_CTRL_REG           (*(reg32 *) UART_1_SCB__SPI_CTRL)
     #define UART_1_SPI_CTRL_PTR           ( (reg32 *) UART_1_SCB__SPI_CTRL)
 
@@ -217,7 +194,12 @@ extern uint8 UART_1_initVar;
 
     #define UART_1_UART_RX_STATUS_REG     (*(reg32 *) UART_1_SCB__UART_RX_STATUS)
     #define UART_1_UART_RX_STATUS_PTR     ( (reg32 *) UART_1_SCB__UART_RX_STATUS)
-#endif /* (!UART_1_CY_SCBIP_V1_I2C_ONLY) */
+#endif /* (!UART_1_CY_SCBIP_V1) */
+
+#if !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1)
+    #define UART_1_UART_FLOW_CTRL_REG     (*(reg32 *) UART_1_SCB__UART_FLOW_CTRL)
+    #define UART_1_UART_FLOW_CTRL_PTR     ( (reg32 *) UART_1_SCB__UART_FLOW_CTRL)
+#endif /* !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
 
 #define UART_1_I2C_CTRL_REG           (*(reg32 *) UART_1_SCB__I2C_CTRL)
 #define UART_1_I2C_CTRL_PTR           ( (reg32 *) UART_1_SCB__I2C_CTRL)
@@ -279,7 +261,7 @@ extern uint8 UART_1_initVar;
 #define UART_1_INTR_I2C_EC_MASKED_REG (*(reg32 *) UART_1_SCB__INTR_I2C_EC_MASKED)
 #define UART_1_INTR_I2C_EC_MASKED_PTR ( (reg32 *) UART_1_SCB__INTR_I2C_EC_MASKED)
 
-#if(!UART_1_CY_SCBIP_V1_I2C_ONLY)
+#if (!UART_1_CY_SCBIP_V1)
     #define UART_1_INTR_SPI_EC_REG        (*(reg32 *) UART_1_SCB__INTR_SPI_EC)
     #define UART_1_INTR_SPI_EC_PTR        ( (reg32 *) UART_1_SCB__INTR_SPI_EC)
 
@@ -288,7 +270,7 @@ extern uint8 UART_1_initVar;
 
     #define UART_1_INTR_SPI_EC_MASKED_REG (*(reg32 *) UART_1_SCB__INTR_SPI_EC_MASKED)
     #define UART_1_INTR_SPI_EC_MASKED_PTR ( (reg32 *) UART_1_SCB__INTR_SPI_EC_MASKED)
-#endif /* (!UART_1_CY_SCBIP_V1_I2C_ONLY) */
+#endif /* (!UART_1_CY_SCBIP_V1) */
 
 #define UART_1_INTR_MASTER_REG        (*(reg32 *) UART_1_SCB__INTR_M)
 #define UART_1_INTR_MASTER_PTR        ( (reg32 *) UART_1_SCB__INTR_M)
@@ -338,6 +320,14 @@ extern uint8 UART_1_initVar;
 #define UART_1_INTR_RX_MASKED_REG     (*(reg32 *) UART_1_SCB__INTR_RX_MASKED)
 #define UART_1_INTR_RX_MASKED_PTR     ( (reg32 *) UART_1_SCB__INTR_RX_MASKED)
 
+#if (UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1)
+    #define UART_1_FF_DATA_NR_LOG2_PLUS1_MASK (0x0Fu) /* FF_DATA_NR_LOG2_PLUS1 = 4, MASK = 2^4 - 1 = 15 */
+    #define UART_1_FF_DATA_NR_LOG2_MASK       (0x07u) /* FF_DATA_NR_LOG2 = 3, MASK = 2^3 - 1 = 7 */
+#else
+    #define UART_1_FF_DATA_NR_LOG2_PLUS1_MASK (0x1Fu) /* FF_DATA_NR_LOG2_PLUS1 = 5, MASK = 2^5 - 1 = 31 */
+    #define UART_1_FF_DATA_NR_LOG2_MASK       (0x0Fu) /* FF_DATA_NR_LOG2 = 4, MASK = 2^4 - 1 = 15 */
+#endif /* (UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
+
 
 /***************************************
 *        Registers Constants
@@ -358,14 +348,20 @@ extern uint8 UART_1_initVar;
 #define UART_1_CTRL_EC_AM_MODE_POS    (8u)  /* [8]     Externally clocked address match    */
 #define UART_1_CTRL_EC_OP_MODE_POS    (9u)  /* [9]     Externally clocked operation mode   */
 #define UART_1_CTRL_EZBUF_MODE_POS    (10u) /* [10]    EZ buffer is enabled                */
-#define UART_1_CTRL_ADDR_ACCEPT_POS   (16u) /* [16]    Put matched address in RX FIFO      */
-#define UART_1_CTRL_BLOCK_POS         (17u) /* [17]    Ext and Int logic to resolve colide */
-#define UART_1_CTRL_MODE_POS          (24u) /* [25:24] Operation mode                      */
-#define UART_1_CTRL_ENABLED_POS       (31u) /* [31]    Enable SCB block                    */
+#if !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1)
+    #define UART_1_CTRL_BYTE_MODE_POS (11u) /* [11]    Determines the number of bits per FIFO data element */
+#endif /* !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
+#define UART_1_CTRL_ADDR_ACCEPT_POS   (16u) /* [16]    Put matched address in RX FIFO       */
+#define UART_1_CTRL_BLOCK_POS         (17u) /* [17]    Ext and Int logic to resolve collide */
+#define UART_1_CTRL_MODE_POS          (24u) /* [25:24] Operation mode                       */
+#define UART_1_CTRL_ENABLED_POS       (31u) /* [31]    Enable SCB block                     */
 #define UART_1_CTRL_OVS_MASK          ((uint32) 0x0Fu)
 #define UART_1_CTRL_EC_AM_MODE        ((uint32) 0x01u << UART_1_CTRL_EC_AM_MODE_POS)
 #define UART_1_CTRL_EC_OP_MODE        ((uint32) 0x01u << UART_1_CTRL_EC_OP_MODE_POS)
 #define UART_1_CTRL_EZBUF_MODE        ((uint32) 0x01u << UART_1_CTRL_EZBUF_MODE_POS)
+#if !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1)
+    #define UART_1_CTRL_BYTE_MODE ((uint32) 0x01u << UART_1_CTRL_BYTE_MODE_POS)
+#endif /* !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
 #define UART_1_CTRL_ADDR_ACCEPT       ((uint32) 0x01u << UART_1_CTRL_ADDR_ACCEPT_POS)
 #define UART_1_CTRL_BLOCK             ((uint32) 0x01u << UART_1_CTRL_BLOCK_POS)
 #define UART_1_CTRL_MODE_MASK         ((uint32) 0x03u << UART_1_CTRL_MODE_POS)
@@ -375,7 +371,7 @@ extern uint8 UART_1_initVar;
 #define UART_1_CTRL_ENABLED           ((uint32) 0x01u << UART_1_CTRL_ENABLED_POS)
 
 /* UART_1_STATUS_REG */
-#define UART_1_STATUS_EC_BUSY_POS     (0u)  /* [0] Bus busy. Externaly clocked loigc access to EZ memory */
+#define UART_1_STATUS_EC_BUSY_POS     (0u)  /* [0] Bus busy. Externally clocked logic access to EZ memory */
 #define UART_1_STATUS_EC_BUSY         ((uint32) 0x0Fu)
 
 /* UART_1_SPI_CTRL_REG  */
@@ -384,7 +380,14 @@ extern uint8 UART_1_initVar;
 #define UART_1_SPI_CTRL_CPHA_POS              (2u)  /* [2]     SCLK phase                                 */
 #define UART_1_SPI_CTRL_CPOL_POS              (3u)  /* [3]     SCLK polarity                              */
 #define UART_1_SPI_CTRL_LATE_MISO_SAMPLE_POS  (4u)  /* [4]     Late MISO sample enabled                   */
-#define UART_1_SPI_CTRL_LOOPBACK_POS          (16u) /* [16]    Local loopback control enabled             */
+#if !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1)
+    #define UART_1_SPI_CTRL_SCLK_CONTINUOUS_POS   (5u)  /* [5]     Enable continuous SCLK generation */
+    #define UART_1_SPI_CTRL_SSEL0_POLARITY_POS    (8u)  /* [8]     SS0 polarity                      */
+    #define UART_1_SPI_CTRL_SSEL1_POLARITY_POS    (9u)  /* [9]     SS1 polarity                      */
+    #define UART_1_SPI_CTRL_SSEL2_POLARITY_POS    (10u) /* [10]    SS2 polarity                      */
+    #define UART_1_SPI_CTRL_SSEL3_POLARITY_POS    (11u) /* [11]    SS3 polarity                      */
+#endif /* !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
+#define UART_1_SPI_CTRL_LOOPBACK_POS          (16u) /* [16]    Local loop-back control enabled            */
 #define UART_1_SPI_CTRL_MODE_POS              (24u) /* [25:24] Submode of SPI operation                   */
 #define UART_1_SPI_CTRL_SLAVE_SELECT_POS      (26u) /* [27:26] Selects SPI SS signal                      */
 #define UART_1_SPI_CTRL_MASTER_MODE_POS       (31u) /* [31]    Master mode enabled                        */
@@ -395,6 +398,15 @@ extern uint8 UART_1_initVar;
 #define UART_1_SPI_CTRL_CPOL                  ((uint32) 0x01u << UART_1_SPI_CTRL_CPOL_POS)
 #define UART_1_SPI_CTRL_LATE_MISO_SAMPLE      ((uint32) 0x01u << \
                                                                     UART_1_SPI_CTRL_LATE_MISO_SAMPLE_POS)
+#if !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1)
+    #define UART_1_SPI_CTRL_SCLK_CONTINUOUS  ((uint32) 0x01u << UART_1_SPI_CTRL_SCLK_CONTINUOUS_POS)
+    #define UART_1_SPI_CTRL_SSEL0_POLARITY   ((uint32) 0x01u << UART_1_SPI_CTRL_SSEL_POLARITY0_POS)
+    #define UART_1_SPI_CTRL_SSEL1_POLARITY   ((uint32) 0x01u << UART_1_SPI_CTRL_SSEL_POLARITY1_POS)
+    #define UART_1_SPI_CTRL_SSEL2_POLARITY   ((uint32) 0x01u << UART_1_SPI_CTRL_SSEL_POLARITY2_POS)
+    #define UART_1_SPI_CTRL_SSEL3_POLARITY   ((uint32) 0x01u << UART_1_SPI_CTRL_SSEL_POLARITY3_POS)
+    #define UART_1_SPI_CTRL_SSEL_POLARITY_MASK ((uint32)0x0Fu << UART_1_SPI_CTRL_SSEL0_POLARITY_POS)
+#endif /* !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
+
 #define UART_1_SPI_CTRL_LOOPBACK              ((uint32) 0x01u << UART_1_SPI_CTRL_LOOPBACK_POS)
 #define UART_1_SPI_CTRL_MODE_MASK             ((uint32) 0x03u << UART_1_SPI_CTRL_MODE_POS)
 #define UART_1_SPI_CTRL_MODE_MOTOROLA         ((uint32) 0x00u)
@@ -415,7 +427,7 @@ extern uint8 UART_1_initVar;
 #define UART_1_SPI_STATUS_EZBUF_ADDR_MASK ((uint32) 0xFFu << UART_1_I2C_STATUS_EZBUF_ADDR_POS)
 
 /* UART_1_UART_CTRL */
-#define UART_1_UART_CTRL_LOOPBACK_POS         (16u) /* [16] Loopback     */
+#define UART_1_UART_CTRL_LOOPBACK_POS         (16u) /* [16] Loop-back    */
 #define UART_1_UART_CTRL_MODE_POS             (24u) /* [24] UART subMode */
 #define UART_1_UART_CTRL_LOOPBACK             ((uint32) 0x01u << UART_1_UART_CTRL_LOOPBACK_POS)
 #define UART_1_UART_CTRL_MODE_UART_STD        ((uint32) 0x00u)
@@ -440,15 +452,15 @@ extern uint8 UART_1_initVar;
                                                                     UART_1_UART_TX_CTRL_RETRY_ON_NACK_POS)
 
 /* UART_1_UART_RX_CTRL */
-#define UART_1_UART_RX_CTRL_STOP_BITS_POS             (0u)  /* [2:0] Stop bits: (Stop bits + 1) * 0.5 prd   */
+#define UART_1_UART_RX_CTRL_STOP_BITS_POS             (0u)  /* [2:0] Stop bits: (Stop bits + 1) * 0.5 period*/
 #define UART_1_UART_RX_CTRL_PARITY_POS                (4u)  /* [4]   Parity bit                             */
 #define UART_1_UART_RX_CTRL_PARITY_ENABLED_POS        (5u)  /* [5]   Parity enable                          */
 #define UART_1_UART_RX_CTRL_POLARITY_POS              (6u)  /* [6]   IrDA: inverts polarity of RX signal    */
 #define UART_1_UART_RX_CTRL_DROP_ON_PARITY_ERR_POS    (8u)  /* [8]   Drop and lost RX FIFO on parity error  */
 #define UART_1_UART_RX_CTRL_DROP_ON_FRAME_ERR_POS     (9u)  /* [9]   Drop and lost RX FIFO on frame error   */
 #define UART_1_UART_RX_CTRL_MP_MODE_POS               (10u) /* [10]  Multi-processor mode                   */
-#define UART_1_UART_RX_CTRL_LIN_MODE_POS              (12u) /* [12]  Lin mode: applicable for UART Standart */
-#define UART_1_UART_RX_CTRL_SKIP_START_POS            (13u) /* [13]  Skip start not: only for UART Standart */
+#define UART_1_UART_RX_CTRL_LIN_MODE_POS              (12u) /* [12]  Lin mode: applicable for UART Standard */
+#define UART_1_UART_RX_CTRL_SKIP_START_POS            (13u) /* [13]  Skip start not: only for UART Standard */
 #define UART_1_UART_RX_CTRL_BREAK_WIDTH_POS           (16u) /* [19:16]  Break width: (Break width + 1)      */
 #define UART_1_UART_TX_CTRL_ONE_STOP_BIT              ((uint32) 0x01u)
 #define UART_1_UART_TX_CTRL_ONE_HALF_STOP_BITS        ((uint32) 0x02u)
@@ -473,20 +485,35 @@ extern uint8 UART_1_initVar;
 #define UART_1_UART_RX_CTRL_BREAK_WIDTH_MASK          ((uint32) 0x0Fu << \
                                                                     UART_1_UART_RX_CTRL_BREAK_WIDTH_POS)
 /* UART_1_UART_RX_STATUS_REG */
-#define UART_1_UART_RX_STATUS_BR_COUNTER_POS     (0u)  /* [11:0] Baute Rate counter */
+#define UART_1_UART_RX_STATUS_BR_COUNTER_POS     (0u)  /* [11:0] Baud Rate counter */
 #define UART_1_UART_RX_STATUS_BR_COUNTER_MASK    ((uint32) 0xFFFu)
 
+#if !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1)
+    /* UART_1_UART_FLOW_CTRL_REG */
+    #define UART_1_UART_FLOW_CTRL_TRIGGER_LEVEL_POS    (0u)  /* [7:0] RTS RX FIFO trigger level         */
+    #define UART_1_UART_FLOW_CTRL_RTS_POLARITY_POS     (16u) /* [16]  Polarity of the RTS output signal */
+    #define UART_1_UART_FLOW_CTRL_CTS_POLARITY_POS     (24u) /* [24]  Polarity of the CTS input signal  */
+    #define UART_1_UART_FLOW_CTRL_CTS_ENABLED_POS      (25u) /* [25]  Enable CTS signal                 */
+    #define UART_1_UART_FLOW_CTRL_TRIGGER_LEVEL_MASK   ((uint32) UART_1_FF_DATA_NR_LOG2_MASK)
+    #define UART_1_UART_FLOW_CTRL_RTS_POLARITY         ((uint32) 0x01u << \
+                                                                       UART_1_UART_FLOW_CTRL_RTS_POLARITY_POS)
+    #define UART_1_UART_FLOW_CTRL_CTS_POLARITY         ((uint32) 0x01u << \
+                                                                       UART_1_UART_FLOW_CTRL_CTS_POLARITY_POS)
+    #define UART_1_UART_FLOW_CTRL_CTS_ENABLE           ((uint32) 0x01u << \
+                                                                       UART_1_UART_FLOW_CTRL_CTS_ENABLED_POS)
+#endif /* !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
+
 /* UART_1_I2C_CTRL */
-#define UART_1_I2C_CTRL_HIGH_PHASE_OVS_POS           (0u)   /* [3:0] Oversampling factor high: masrer only */
-#define UART_1_I2C_CTRL_LOW_PHASE_OVS_POS            (4u)   /* [7:4] Oversampling factor low:  masrer only */
-#define UART_1_I2C_CTRL_M_READY_DATA_ACK_POS         (8u)   /* [8]   Master ACKs data wgile RX FIFO != FULL*/
+#define UART_1_I2C_CTRL_HIGH_PHASE_OVS_POS           (0u)   /* [3:0] Oversampling factor high: master only */
+#define UART_1_I2C_CTRL_LOW_PHASE_OVS_POS            (4u)   /* [7:4] Oversampling factor low:  master only */
+#define UART_1_I2C_CTRL_M_READY_DATA_ACK_POS         (8u)   /* [8]   Master ACKs data while RX FIFO != FULL*/
 #define UART_1_I2C_CTRL_M_NOT_READY_DATA_NACK_POS    (9u)   /* [9]   Master NACKs data if RX FIFO ==  FULL */
 #define UART_1_I2C_CTRL_S_GENERAL_IGNORE_POS         (11u)  /* [11]  Slave ignores General call            */
 #define UART_1_I2C_CTRL_S_READY_ADDR_ACK_POS         (12u)  /* [12]  Slave ACKs Address if RX FIFO != FULL */
 #define UART_1_I2C_CTRL_S_READY_DATA_ACK_POS         (13u)  /* [13]  Slave ACKs data while RX FIFO == FULL */
 #define UART_1_I2C_CTRL_S_NOT_READY_ADDR_NACK_POS    (14u)  /* [14]  Slave NACKs address if RX FIFO == FULL*/
 #define UART_1_I2C_CTRL_S_NOT_READY_DATA_NACK_POS    (15u)  /* [15]  Slave NACKs data if RX FIFO is  FULL  */
-#define UART_1_I2C_CTRL_LOOPBACK_POS                 (16u)  /* [16]  Loopback                              */
+#define UART_1_I2C_CTRL_LOOPBACK_POS                 (16u)  /* [16]  Loop-back                             */
 #define UART_1_I2C_CTRL_SLAVE_MODE_POS               (30u)  /* [30]  Slave mode enabled                    */
 #define UART_1_I2C_CTRL_MASTER_MODE_POS              (31u)  /* [31]  Master mode enabled                   */
 #define UART_1_I2C_CTRL_HIGH_PHASE_OVS_MASK  ((uint32) 0x0Fu)
@@ -551,7 +578,9 @@ extern uint8 UART_1_initVar;
 #define UART_1_I2C_SLAVE_CMD_S_NACK_POS   (1u)  /* [1] Slave generate NACK */
 #define UART_1_I2C_SLAVE_CMD_S_ACK        ((uint32) 0x01u)
 #define UART_1_I2C_SLAVE_CMD_S_NACK       ((uint32) 0x01u << UART_1_I2C_SLAVE_CMD_S_NACK_POS)
-/* UART_1_I2C_CFG  */
+
+/* UART_1_I2C_CFG_REG */
+#if (UART_1_CY_SCBIP_V0)
 #define UART_1_I2C_CFG_SDA_FILT_HYS_POS           (0u)  /* [1:0]   Trim bits for the I2C SDA filter         */
 #define UART_1_I2C_CFG_SDA_FILT_TRIM_POS          (2u)  /* [3:2]   Trim bits for the I2C SDA filter         */
 #define UART_1_I2C_CFG_SCL_FILT_HYS_POS           (4u)  /* [5:4]   Trim bits for the I2C SCL filter         */
@@ -562,9 +591,9 @@ extern uint8 UART_1_initVar;
 #define UART_1_I2C_CFG_SDA_FILT_ENABLED_POS       (17u) /* [17]    I2C SDA filter enabled                   */
 #define UART_1_I2C_CFG_SCL_FILT_HS_POS            (24u) /* [24]    '0': 50 ns filter, '1': 10 ns filter     */
 #define UART_1_I2C_CFG_SCL_FILT_ENABLED_POS       (25u) /* [25]    I2C SCL filter enabled                   */
-#define UART_1_I2C_CFG_SDA_FILT_OUT_HS_POS        (26u) /* [26]    '0': 50ns filter, '1': 10 ns filter      */
+#define UART_1_I2C_CFG_SDA_FILT_OUT_HS_POS        (26u) /* [26]    '0': 50 ns filter, '1': 10 ns filter     */
 #define UART_1_I2C_CFG_SDA_FILT_OUT_ENABLED_POS   (27u) /* [27]    I2C SDA output delay filter enabled      */
-#define UART_1_I2C_CFG_SDA_FILT_HYS_MASK          ((uint32) 0x00u)
+#define UART_1_I2C_CFG_SDA_FILT_HYS_MASK          ((uint32) 0x03u)
 #define UART_1_I2C_CFG_SDA_FILT_TRIM_MASK         ((uint32) 0x03u << \
                                                                 UART_1_I2C_CFG_SDA_FILT_TRIM_POS)
 #define UART_1_I2C_CFG_SCL_FILT_HYS_MASK          ((uint32) 0x03u << \
@@ -587,9 +616,34 @@ extern uint8 UART_1_initVar;
                                                                 UART_1_I2C_CFG_SDA_FILT_OUT_HS_POS)
 #define UART_1_I2C_CFG_SDA_FILT_OUT_ENABLED       ((uint32) 0x01u << \
                                                                 UART_1_I2C_CFG_SDA_FILT_OUT_ENABLED_POS)
+#else
+#define UART_1_I2C_CFG_SDA_IN_FILT_TRIM_POS   (0u)  /* [1:0] Trim bits for "i2c_sda_in" 50 ns filter */
+#define UART_1_I2C_CFG_SDA_IN_FILT_SEL_POS    (4u)  /* [4]   "i2c_sda_in" filter delay: 0 ns and 50 ns */
+#define UART_1_I2C_CFG_SCL_IN_FILT_TRIM_POS   (8u)  /* [9:8] Trim bits for "i2c_scl_in" 50 ns filter */
+#define UART_1_I2C_CFG_SCL_IN_FILT_SEL_POS    (12u) /* [12]  "i2c_scl_in" filter delay: 0 ns and 50 ns */
+#define UART_1_I2C_CFG_SDA_OUT_FILT0_TRIM_POS (16u) /* [17:16] Trim bits for "i2c_sda_out" 50 ns filter 0 */
+#define UART_1_I2C_CFG_SDA_OUT_FILT1_TRIM_POS (18u) /* [19:18] Trim bits for "i2c_sda_out" 50 ns filter 1 */
+#define UART_1_I2C_CFG_SDA_OUT_FILT2_TRIM_POS (20u) /* [21:20] Trim bits for "i2c_sda_out" 50 ns filter 2 */
+#define UART_1_I2C_CFG_SDA_OUT_FILT_SEL_POS   (28u) /* [29:28] Cumulative "i2c_sda_out" filter delay: */
+
+#define UART_1_I2C_CFG_SDA_IN_FILT_TRIM_MASK  ((uint32) 0x03u)
+#define UART_1_I2C_CFG_SDA_IN_FILT_SEL        ((uint32) 0x01u << UART_1_I2C_CFG_SDA_IN_FILT_SEL_POS)
+#define UART_1_I2C_CFG_SCL_IN_FILT_TRIM_MASK  ((uint32) 0x03u << \
+                                                            UART_1_I2C_CFG_SCL_IN_FILT_TRIM_POS)
+#define UART_1_I2C_CFG_SCL_IN_FILT_SEL        ((uint32) 0x01u << UART_1_I2C_CFG_SCL_IN_FILT_SEL_POS)
+#define UART_1_I2C_CFG_SDA_OUT_FILT0_TRIM_MASK ((uint32) 0x03u << \
+                                                            UART_1_I2C_CFG_SDA_OUT_FILT0_TRIM_POS)
+#define UART_1_I2C_CFG_SDA_OUT_FILT1_TRIM_MASK ((uint32) 0x03u << \
+                                                            UART_1_I2C_CFG_SDA_OUT_FILT1_TRIM_POS)
+#define UART_1_I2C_CFG_SDA_OUT_FILT2_TRIM_MASK ((uint32) 0x03u << \
+                                                            UART_1_I2C_CFG_SDA_OUT_FILT2_TRIM_POS)
+#define UART_1_I2C_CFG_SDA_OUT_FILT_SEL_MASK   ((uint32) 0x03u << \
+                                                            UART_1_I2C_CFG_SDA_OUT_FILT_SEL_POS)
+#endif /* (UART_1_CY_SCBIP_V0) */
+
 
 /* UART_1_TX_CTRL_REG */
-#define UART_1_TX_CTRL_DATA_WIDTH_POS     (0u)  /* [3:0] Dataframe width: (Data width - 1) */
+#define UART_1_TX_CTRL_DATA_WIDTH_POS     (0u)  /* [3:0] Data frame width: (Data width - 1) */
 #define UART_1_TX_CTRL_MSB_FIRST_POS      (8u)  /* [8]   MSB first shifter-out             */
 #define UART_1_TX_CTRL_ENABLED_POS        (31u) /* [31]  Transmitter enabled               */
 #define UART_1_TX_CTRL_DATA_WIDTH_MASK    ((uint32) 0x0Fu)
@@ -599,9 +653,9 @@ extern uint8 UART_1_initVar;
 
 /* UART_1_TX_CTRL_FIFO_REG */
 #define UART_1_TX_FIFO_CTRL_TRIGGER_LEVEL_POS     (0u)  /* [2:0] Trigger level                              */
-#define UART_1_TX_FIFO_CTRL_CLEAR_POS             (16u) /* [16]  Clear TX FIFO: claared after set           */
+#define UART_1_TX_FIFO_CTRL_CLEAR_POS             (16u) /* [16]  Clear TX FIFO: cleared after set           */
 #define UART_1_TX_FIFO_CTRL_FREEZE_POS            (17u) /* [17]  Freeze TX FIFO: HW do not inc read pointer */
-#define UART_1_TX_FIFO_CTRL_TRIGGER_LEVEL_MASK    ((uint32) 0x07u)
+#define UART_1_TX_FIFO_CTRL_TRIGGER_LEVEL_MASK    ((uint32) UART_1_FF_DATA_NR_LOG2_MASK)
 #define UART_1_TX_FIFO_CTRL_CLEAR                 ((uint32) 0x01u << UART_1_TX_FIFO_CTRL_CLEAR_POS)
 #define UART_1_TX_FIFO_CTRL_FREEZE                ((uint32) 0x01u << UART_1_TX_FIFO_CTRL_FREEZE_POS)
 
@@ -610,17 +664,19 @@ extern uint8 UART_1_initVar;
 #define UART_1_TX_FIFO_SR_VALID_POS       (15u) /* [15]    Shifter status of TX FIFO    */
 #define UART_1_TX_FIFO_STATUS_RD_PTR_POS  (16u) /* [18:16] TX FIFO read pointer         */
 #define UART_1_TX_FIFO_STATUS_WR_PTR_POS  (24u) /* [26:24] TX FIFO write pointer        */
-#define UART_1_TX_FIFO_STATUS_USED_MASK   ((uint32) 0x0Fu)
+#define UART_1_TX_FIFO_STATUS_USED_MASK   ((uint32) UART_1_FF_DATA_NR_LOG2_PLUS1_MASK)
 #define UART_1_TX_FIFO_SR_VALID           ((uint32) 0x01u << UART_1_TX_FIFO_SR_VALID_POS)
-#define UART_1_TX_FIFO_STATUS_RD_PTR_MASK ((uint32) 0x07u << UART_1_TX_FIFO_STATUS_RD_PTR_POS)
-#define UART_1_TX_FIFO_STATUS_WR_PTR_MASK ((uint32) 0x07u << UART_1_TX_FIFO_STATUS_WR_PTR_POS)
+#define UART_1_TX_FIFO_STATUS_RD_PTR_MASK ((uint32) UART_1_FF_DATA_NR_LOG2_MASK << \
+                                                                    UART_1_TX_FIFO_STATUS_RD_PTR_POS)
+#define UART_1_TX_FIFO_STATUS_WR_PTR_MASK ((uint32) UART_1_FF_DATA_NR_LOG2_MASK << \
+                                                                    UART_1_TX_FIFO_STATUS_WR_PTR_POS)
 
 /* UART_1_TX_FIFO_WR_REG */
 #define UART_1_TX_FIFO_WR_POS    (0u)  /* [15:0] Data written into TX FIFO */
 #define UART_1_TX_FIFO_WR_MASK   ((uint32) 0xFFu)
 
 /* UART_1_RX_CTRL_REG */
-#define UART_1_RX_CTRL_DATA_WIDTH_POS     (0u)  /* [3:0] Dataframe width: (Data width - 1) */
+#define UART_1_RX_CTRL_DATA_WIDTH_POS     (0u)  /* [3:0] Data frame width: (Data width - 1) */
 #define UART_1_RX_CTRL_MSB_FIRST_POS      (8u)  /* [8]   MSB first shifter-out             */
 #define UART_1_RX_CTRL_MEDIAN_POS         (9u)  /* [9]   Median filter                     */
 #define UART_1_RX_CTRL_ENABLED_POS        (31u) /* [31]  Receiver enabled                  */
@@ -633,9 +689,9 @@ extern uint8 UART_1_initVar;
 
 /* UART_1_RX_FIFO_CTRL_REG */
 #define UART_1_RX_FIFO_CTRL_TRIGGER_LEVEL_POS     (0u)   /* [2:0] Trigger level                            */
-#define UART_1_RX_FIFO_CTRL_CLEAR_POS             (16u)  /* [16]  Clear RX FIFO: claar after set           */
+#define UART_1_RX_FIFO_CTRL_CLEAR_POS             (16u)  /* [16]  Clear RX FIFO: clear after set           */
 #define UART_1_RX_FIFO_CTRL_FREEZE_POS            (17u)  /* [17]  Freeze RX FIFO: HW writes has not effect */
-#define UART_1_RX_FIFO_CTRL_TRIGGER_LEVEL_MASK    ((uint32) 0x07u)
+#define UART_1_RX_FIFO_CTRL_TRIGGER_LEVEL_MASK    ((uint32) UART_1_FF_DATA_NR_LOG2_MASK)
 #define UART_1_RX_FIFO_CTRL_CLEAR                 ((uint32) 0x01u << UART_1_RX_FIFO_CTRL_CLEAR_POS)
 #define UART_1_RX_FIFO_CTRL_FREEZE                ((uint32) 0x01u << UART_1_RX_FIFO_CTRL_FREEZE_POS)
 
@@ -644,10 +700,12 @@ extern uint8 UART_1_initVar;
 #define UART_1_RX_FIFO_SR_VALID_POS       (15u)  /* [15]    Shifter status of RX FIFO    */
 #define UART_1_RX_FIFO_STATUS_RD_PTR_POS  (16u)  /* [18:16] RX FIFO read pointer         */
 #define UART_1_RX_FIFO_STATUS_WR_PTR_POS  (24u)  /* [26:24] RX FIFO write pointer        */
-#define UART_1_RX_FIFO_STATUS_USED_MASK   ((uint32) 0x0Fu)
+#define UART_1_RX_FIFO_STATUS_USED_MASK   ((uint32) UART_1_FF_DATA_NR_LOG2_PLUS1_MASK)
 #define UART_1_RX_FIFO_SR_VALID           ((uint32) 0x01u << UART_1_RX_FIFO_SR_VALID_POS)
-#define UART_1_RX_FIFO_STATUS_RD_PTR_MASK ((uint32) 0x07u << UART_1_RX_FIFO_STATUS_RD_PTR_POS)
-#define UART_1_RX_FIFO_STATUS_WR_PTR_MASK ((uint32) 0x07u << UART_1_RX_FIFO_STATUS_WR_PTR_POS)
+#define UART_1_RX_FIFO_STATUS_RD_PTR_MASK ((uint32) UART_1_FF_DATA_NR_LOG2_MASK << \
+                                                                    UART_1_RX_FIFO_STATUS_RD_PTR_POS)
+#define UART_1_RX_FIFO_STATUS_WR_PTR_MASK ((uint32) UART_1_FF_DATA_NR_LOG2_MASK << \
+                                                                    UART_1_RX_FIFO_STATUS_WR_PTR_POS)
 
 /* UART_1_RX_MATCH_REG */
 #define UART_1_RX_MATCH_ADDR_POS     (0u)  /* [7:0]   Slave address                        */
@@ -668,7 +726,7 @@ extern uint8 UART_1_initVar;
 #define UART_1_RX_FIFO_RD_SILENT_MASK    ((uint32) 0xFFu)
 
 /* UART_1_EZBUF_DATA_REG */
-#define UART_1_EZBUF_DATA_POS   (0u)  /* [7:0] Data from Ez Memory */
+#define UART_1_EZBUF_DATA_POS   (0u)  /* [7:0] Data from EZ Memory */
 #define UART_1_EZBUF_DATA_MASK  ((uint32) 0xFFu)
 
 /*  UART_1_INTR_CAUSE_REG */
@@ -712,7 +770,7 @@ extern uint8 UART_1_initVar;
 #define UART_1_INTR_MASTER_I2C_ACK_POS        (2u)  /* [2] Master receives NACK: address or write to slave  */
 #define UART_1_INTR_MASTER_I2C_STOP_POS       (4u)  /* [4] Master detects the Stop: only self generated Stop*/
 #define UART_1_INTR_MASTER_I2C_BUS_ERROR_POS  (8u)  /* [8] Master detects bus error: misplaced Start or Stop*/
-#define UART_1_INTR_MASTER_SPI_DONE_POS       (9u)  /* [9] Master complete trasfer: Only for SPI            */
+#define UART_1_INTR_MASTER_SPI_DONE_POS       (9u)  /* [9] Master complete transfer: Only for SPI           */
 #define UART_1_INTR_MASTER_I2C_ARB_LOST       ((uint32) 0x01u)
 #define UART_1_INTR_MASTER_I2C_NACK           ((uint32) 0x01u << UART_1_INTR_MASTER_I2C_NACK_POS)
 #define UART_1_INTR_MASTER_I2C_ACK            ((uint32) 0x01u << UART_1_INTR_MASTER_I2C_ACK_POS)
@@ -729,13 +787,13 @@ extern uint8 UART_1_initVar;
 #define UART_1_INTR_SLAVE_I2C_NACK_POS             (1u)  /* [1]  Slave receives NACK: master reads data   */
 #define UART_1_INTR_SLAVE_I2C_ACK_POS              (2u)  /* [2]  Slave receives ACK: master reads data    */
 #define UART_1_INTR_SLAVE_I2C_WRITE_STOP_POS       (3u)  /* [3]  Slave detects end of write transaction   */
-#define UART_1_INTR_SLAVE_I2C_STOP_POS             (4u)  /* [4]  Slave detects end of transaction intened */
+#define UART_1_INTR_SLAVE_I2C_STOP_POS             (4u)  /* [4]  Slave detects end of transaction intended */
 #define UART_1_INTR_SLAVE_I2C_START_POS            (5u)  /* [5]  Slave detects Start                      */
 #define UART_1_INTR_SLAVE_I2C_ADDR_MATCH_POS       (6u)  /* [6]  Slave address matches                    */
 #define UART_1_INTR_SLAVE_I2C_GENERAL_POS          (7u)  /* [7]  General call received                    */
 #define UART_1_INTR_SLAVE_I2C_BUS_ERROR_POS        (8u)  /* [8]  Slave detects bus error                  */
 #define UART_1_INTR_SLAVE_SPI_EZBUF_WRITE_STOP_POS (9u)  /* [9]  Slave write complete: Only for SPI       */
-#define UART_1_INTR_SLAVE_SPI_EZBUF_STOP_POS       (10u) /* [10] Slave end of transaciton: Only for SPI   */
+#define UART_1_INTR_SLAVE_SPI_EZBUF_STOP_POS       (10u) /* [10] Slave end of transaction: Only for SPI   */
 #define UART_1_INTR_SLAVE_SPI_BUS_ERROR_POS        (11u) /* [11] Slave detects bus error: Only for SPI    */
 #define UART_1_INTR_SLAVE_I2C_ARB_LOST             ((uint32) 0x01u)
 #define UART_1_INTR_SLAVE_I2C_NACK                 ((uint32) 0x01u << \
@@ -775,6 +833,7 @@ extern uint8 UART_1_initVar;
 #define UART_1_INTR_TX_UART_DONE_POS      (9u)  /* [9]  UART transmitter done even                       */
 #define UART_1_INTR_TX_UART_ARB_LOST_POS  (10u) /* [10] UART lost arbitration: LIN or SmartCard          */
 #define UART_1_INTR_TX_TRIGGER            ((uint32) 0x01u)
+#define UART_1_INTR_TX_FIFO_LEVEL         (UART_1_INTR_TX_TRIGGER)
 #define UART_1_INTR_TX_NOT_FULL           ((uint32) 0x01u << UART_1_INTR_TX_NOT_FULL_POS)
 #define UART_1_INTR_TX_EMPTY              ((uint32) 0x01u << UART_1_INTR_TX_EMPTY_POS)
 #define UART_1_INTR_TX_OVERFLOW           ((uint32) 0x01u << UART_1_INTR_TX_OVERFLOW_POS)
@@ -796,9 +855,10 @@ extern uint8 UART_1_initVar;
 #define UART_1_INTR_RX_BLOCKED_POS        (7u)   /* [7]  No access to the EZ memory            */
 #define UART_1_INTR_RX_FRAME_ERROR_POS    (8u)   /* [8]  Frame error in received data frame    */
 #define UART_1_INTR_RX_PARITY_ERROR_POS   (9u)   /* [9]  Parity error in received data frame   */
-#define UART_1_INTR_RX_BAUD_DETECT_POS    (10u)  /* [10] LIN baudrate detection is completed   */
+#define UART_1_INTR_RX_BAUD_DETECT_POS    (10u)  /* [10] LIN baud rate detection is completed   */
 #define UART_1_INTR_RX_BREAK_DETECT_POS   (11u)  /* [11] Break detection is successful         */
 #define UART_1_INTR_RX_TRIGGER            ((uint32) 0x01u)
+#define UART_1_INTR_RX_FIFO_LEVEL         (UART_1_INTR_RX_TRIGGER)
 #define UART_1_INTR_RX_NOT_EMPTY          ((uint32) 0x01u << UART_1_INTR_RX_NOT_EMPTY_POS)
 #define UART_1_INTR_RX_FULL               ((uint32) 0x01u << UART_1_INTR_RX_FULL_POS)
 #define UART_1_INTR_RX_OVERFLOW           ((uint32) 0x01u << UART_1_INTR_RX_OVERFLOW_POS)
@@ -809,7 +869,7 @@ extern uint8 UART_1_initVar;
 #define UART_1_INTR_RX_BAUD_DETECT        ((uint32) 0x01u << UART_1_INTR_RX_BAUD_DETECT_POS)
 #define UART_1_INTR_RX_BREAK_DETECT       ((uint32) 0x01u << UART_1_INTR_RX_BREAK_DETECT_POS)
 
-/* Define all interupt soureces */
+/* Define all interrupt sources */
 #define UART_1_INTR_I2C_EC_ALL    (UART_1_INTR_I2C_EC_WAKE_UP    | \
                                              UART_1_INTR_I2C_EC_EZBUF_STOP | \
                                              UART_1_INTR_I2C_EC_EZBUF_WRITE_STOP)
@@ -823,7 +883,7 @@ extern uint8 UART_1_initVar;
                                              UART_1_INTR_MASTER_I2C_ACK       | \
                                              UART_1_INTR_MASTER_I2C_STOP      | \
                                              UART_1_INTR_MASTER_I2C_BUS_ERROR | \
-                                             UART_1_INTR_MASTER_SPI_DONE )
+                                             UART_1_INTR_MASTER_SPI_DONE)
 
 #define UART_1_INTR_SLAVE_ALL     (UART_1_INTR_SLAVE_I2C_ARB_LOST      | \
                                              UART_1_INTR_SLAVE_I2C_NACK          | \
@@ -882,11 +942,13 @@ extern uint8 UART_1_initVar;
 
 
 /***************************************
-*    SCB Common Macro Definitions
+*    Common Macro Definitions
 ***************************************/
 
-/* Re-enables the SCB IP. The clear enable bit has a different effect on the scb IP depending on the version.* CY_SCBIP_V0: resets state, status, TX and RX FIFOs.
-* CY_SCBIP_V1 or later: resets state, status, TX and RX FIFOs and interrupt sources.
+/* Re-enables the SCB IP. A clear enable bit has a different effect
+* on the scb IP depending on the version:
+*  CY_SCBIP_V0: resets state, status, TX and RX FIFOs.
+*  CY_SCBIP_V1 or later: resets state, status, TX and RX FIFOs and interrupt sources.
 */
 #define UART_1_SCB_SW_RESET \
                         do{           \
@@ -926,10 +988,12 @@ extern uint8 UART_1_initVar;
                                                     UART_1_INTR_I2C_EC_MASK_REG = (uint32) (sourceMask); \
                                                 }while(0)
 
-#define UART_1_WRITE_INTR_SPI_EC_MASK(sourceMask) \
+#if (!UART_1_CY_SCBIP_V1)
+    #define UART_1_WRITE_INTR_SPI_EC_MASK(sourceMask) \
                                                 do{         \
                                                     UART_1_INTR_SPI_EC_MASK_REG = (uint32) (sourceMask); \
                                                 }while(0)
+#endif /* (!UART_1_CY_SCBIP_V1) */
 
 #define UART_1_WRITE_INTR_MASTER_MASK(sourceMask) \
                                                 do{         \
@@ -956,11 +1020,12 @@ extern uint8 UART_1_initVar;
                                                 do{     \
                                                     UART_1_INTR_I2C_EC_MASK_REG |= (uint32) (sourceMask); \
                                                 }while(0)
-
-#define UART_1_ENABLE_INTR_SPI_EC(sourceMask) \
+#if (!UART_1_CY_SCBIP_V1)
+    #define UART_1_ENABLE_INTR_SPI_EC(sourceMask) \
                                                 do{     \
                                                     UART_1_INTR_SPI_EC_MASK_REG |= (uint32) (sourceMask); \
                                                 }while(0)
+#endif /* (!UART_1_CY_SCBIP_V1) */
 
 #define UART_1_ENABLE_INTR_MASTER(sourceMask) \
                                                 do{     \
@@ -988,10 +1053,12 @@ extern uint8 UART_1_initVar;
                                     UART_1_INTR_I2C_EC_MASK_REG &= ((uint32) ~((uint32) (sourceMask))); \
                                 }while(0)
 
-#define UART_1_DISABLE_INTR_SPI_EC(sourceMask) \
+#if (!UART_1_CY_SCBIP_V1)
+    #define UART_1_DISABLE_INTR_SPI_EC(sourceMask) \
                                 do{                      \
                                     UART_1_INTR_SPI_EC_MASK_REG &= ((uint32) ~((uint32) (sourceMask))); \
                                  }while(0)
+#endif /* (!UART_1_CY_SCBIP_V1) */
 
 #define UART_1_DISABLE_INTR_MASTER(sourceMask) \
                                 do{                      \
@@ -1040,10 +1107,12 @@ extern uint8 UART_1_initVar;
                                                     UART_1_INTR_I2C_EC_REG = (uint32) (sourceMask); \
                                                 }while(0)
 
-#define UART_1_CLEAR_INTR_SPI_EC(sourceMask)  \
+#if (!UART_1_CY_SCBIP_V1)
+    #define UART_1_CLEAR_INTR_SPI_EC(sourceMask)  \
                                                 do{     \
                                                     UART_1_INTR_SPI_EC_REG = (uint32) (sourceMask); \
                                                 }while(0)
+#endif /* (!UART_1_CY_SCBIP_V1) */
 
 #define UART_1_CLEAR_INTR_MASTER(sourceMask)  \
                                                 do{     \
@@ -1070,7 +1139,9 @@ extern uint8 UART_1_initVar;
 
 /* Return true if sourceMask is set in INTR_X_MASKED_REG */
 #define UART_1_CHECK_INTR_I2C_EC(sourceMask)  (0u != (UART_1_INTR_I2C_EC_REG & (sourceMask)))
-#define UART_1_CHECK_INTR_SPI_EC(sourceMask)  (0u != (UART_1_INTR_SPI_EC_REG & (sourceMask)))
+#if (!UART_1_CY_SCBIP_V1)
+    #define UART_1_CHECK_INTR_SPI_EC(sourceMask)  (0u != (UART_1_INTR_SPI_EC_REG & (sourceMask)))
+#endif /* (!UART_1_CY_SCBIP_V1) */
 #define UART_1_CHECK_INTR_MASTER(sourceMask)  (0u != (UART_1_INTR_MASTER_REG & (sourceMask)))
 #define UART_1_CHECK_INTR_SLAVE(sourceMask)   (0u != (UART_1_INTR_SLAVE_REG  & (sourceMask)))
 #define UART_1_CHECK_INTR_TX(sourceMask)      (0u != (UART_1_INTR_TX_REG     & (sourceMask)))
@@ -1079,8 +1150,10 @@ extern uint8 UART_1_initVar;
 /* Return true if sourceMask is set in UART_1_INTR_X_MASKED_REG */
 #define UART_1_CHECK_INTR_I2C_EC_MASKED(sourceMask)   (0u != (UART_1_INTR_I2C_EC_MASKED_REG & \
                                                                        (sourceMask)))
-#define UART_1_CHECK_INTR_SPI_EC_MASKED(sourceMask)   (0u != (UART_1_INTR_SPI_EC_MASKED_REG & \
+#if (!UART_1_CY_SCBIP_V1)
+    #define UART_1_CHECK_INTR_SPI_EC_MASKED(sourceMask)   (0u != (UART_1_INTR_SPI_EC_MASKED_REG & \
                                                                        (sourceMask)))
+#endif /* (!UART_1_CY_SCBIP_V1) */
 #define UART_1_CHECK_INTR_MASTER_MASKED(sourceMask)   (0u != (UART_1_INTR_MASTER_MASKED_REG & \
                                                                        (sourceMask)))
 #define UART_1_CHECK_INTR_SLAVE_MASKED(sourceMask)    (0u != (UART_1_INTR_SLAVE_MASKED_REG  & \
@@ -1090,7 +1163,7 @@ extern uint8 UART_1_initVar;
 #define UART_1_CHECK_INTR_RX_MASKED(sourceMask)       (0u != (UART_1_INTR_RX_MASKED_REG     & \
                                                                        (sourceMask)))
 
-/* Return true if sourceMask is set in UART_1_CTRL_REG: generaly is used to check enable bit */
+/* Return true if sourceMask is set in UART_1_CTRL_REG: generally is used to check enable bit */
 #define UART_1_GET_CTRL_ENABLED    (0u != (UART_1_CTRL_REG & UART_1_CTRL_ENABLED))
 
 #define UART_1_CHECK_SLAVE_AUTO_ADDR_NACK     (0u != (UART_1_I2C_CTRL_REG & \
@@ -1213,10 +1286,17 @@ extern uint8 UART_1_initVar;
                                 UART_1_I2C_SLAVE_CMD_REG = UART_1_I2C_SLAVE_CMD_S_ACK; \
                             }while(0)
 
-#define UART_1_I2C_SLAVE_GENERATE_NACK \
-                            do{                  \
+#if (UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1)
+    /* Slave NACK generation for EC_AM logic on address phase. Ticket ID #183902 */
+    void UART_1_I2CSlaveNackGeneration(void);
+    #define UART_1_I2C_SLAVE_GENERATE_NACK UART_1_I2CSlaveNackGeneration()
+
+#else
+    #define UART_1_I2C_SLAVE_GENERATE_NACK \
+                            do{                      \
                                 UART_1_I2C_SLAVE_CMD_REG = UART_1_I2C_SLAVE_CMD_S_NACK; \
                             }while(0)
+#endif /* (UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
 
 #define UART_1_I2C_SLAVE_CLEAR_NACK \
                             do{               \
@@ -1234,11 +1314,37 @@ extern uint8 UART_1_initVar;
 #define UART_1_DEFAULT_I2C_CFG_SDA_FILT_TRIM  (0x02u)
 #define UART_1_EC_AM_I2C_CFG_SDA_FILT_TRIM    (0x03u)
 
-#define UART_1_SET_I2C_CFG_SDA_FILT_TRIM(sdaTrim) \
+#if (UART_1_CY_SCBIP_V0)
+    #define UART_1_SET_I2C_CFG_SDA_FILT_TRIM(sdaTrim) \
         do{                                                 \
             UART_1_I2C_CFG_REG =                  \
                             ((UART_1_I2C_CFG_REG & (uint32) ~UART_1_I2C_CFG_SDA_FILT_TRIM_MASK) | \
                              ((uint32) ((uint32) (sdaTrim) <<UART_1_I2C_CFG_SDA_FILT_TRIM_POS)));           \
+        }while(0)
+#endif /* (UART_1_CY_SCBIP_V0) */
+
+/* Enable/Disable analog and digital filter */
+#define UART_1_DIGITAL_FILTER_DISABLE    (0u)
+#define UART_1_DIGITAL_FILTER_ENABLE     (1u)
+#define UART_1_I2C_DATA_RATE_FS_MODE_MAX (400u)
+#if (UART_1_CY_SCBIP_V0)
+    /* UART_1_I2C_CFG_SDA_FILT_OUT_ENABLED is disabled by default */
+    #define UART_1_I2C_CFG_FILT_MASK  (UART_1_I2C_CFG_SDA_FILT_ENABLED | \
+                                                 UART_1_I2C_CFG_SCL_FILT_ENABLED)
+#else
+    /* UART_1_I2C_CFG_SDA_OUT_FILT_SEL_MASK is disabled by default */
+    #define UART_1_I2C_CFG_FILT_MASK  (UART_1_I2C_CFG_SDA_IN_FILT_SEL | \
+                                                 UART_1_I2C_CFG_SCL_IN_FILT_SEL)
+#endif /* (UART_1_CY_SCBIP_V0) */
+
+#define UART_1_I2C_CFG_ANALOG_FITER_DISABLE \
+        do{                                           \
+            UART_1_I2C_CFG_REG &= (uint32) ~UART_1_I2C_CFG_FILT_MASK; \
+        }while(0)
+
+#define UART_1_I2C_CFG_ANALOG_FITER_ENABLE \
+        do{                                          \
+            UART_1_I2C_CFG_REG |= (uint32)  UART_1_I2C_CFG_FILT_MASK; \
         }while(0)
 
 /* Return slave select number from SPI_CTRL register */
@@ -1252,13 +1358,17 @@ extern uint8 UART_1_initVar;
 /* Return true if bit is set in UART_1_SPI_STATUS_REG */
 #define UART_1_CHECK_SPI_STATUS(sourceMask)   (0u != (UART_1_SPI_STATUS_REG & (sourceMask)))
 
+/* Return FIFO size depends on UART_1_CTRL_BYTE_MODE bit */
+#define UART_1_GET_FIFO_SIZE(condition) ((0u != (condition)) ? \
+                                                    (2u * UART_1_FIFO_SIZE) : (UART_1_FIFO_SIZE))
+
 
 /***************************************
-*       SCB Init Macros Definitions
+*       Get Macros Definitions
 ***************************************/
 
 /* UART_1_CTRL */
-#define UART_1_GET_CTRL_OVS(oversample)   ((((uint32) (oversample)) - 1u) & UART_1_CTRL_OVS_MASK)
+#define UART_1_GET_CTRL_OVS(oversample)       (((uint32) (oversample) - 1u) & UART_1_CTRL_OVS_MASK)
 
 #define UART_1_GET_CTRL_EC_OP_MODE(opMode)        ((0u != (opMode)) ? \
                                                                 (UART_1_CTRL_EC_OP_MODE)  : (0u))
@@ -1272,19 +1382,25 @@ extern uint8 UART_1_initVar;
 #define UART_1_GET_CTRL_ADDR_ACCEPT(acceptAddr)   ((0u != (acceptAddr)) ? \
                                                                 (UART_1_CTRL_ADDR_ACCEPT) : (0u))
 
+#if (UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1)
+    #define UART_1_GET_CTRL_BYTE_MODE(mode)   (0u)
+#else
+    #define UART_1_GET_CTRL_BYTE_MODE(mode)   ((0u != (mode)) ? \
+                                                            (UART_1_CTRL_BYTE_MODE) : (0u))
+#endif /* (UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
+
 /* UART_1_I2C_CTRL */
 #define UART_1_GET_I2C_CTRL_HIGH_PHASE_OVS(oversampleHigh) (((uint32) (oversampleHigh) - 1u) & \
                                                                         UART_1_I2C_CTRL_HIGH_PHASE_OVS_MASK)
 
-#define UART_1_GET_I2C_CTRL_LOW_PHASE_OVS(oversampleLow)   (((uint32) (((uint32) (oversampleLow) - 1u) << \
-                                                                    UART_1_I2C_CTRL_LOW_PHASE_OVS_POS)) &  \
+#define UART_1_GET_I2C_CTRL_LOW_PHASE_OVS(oversampleLow)  ((((uint32) (oversampleLow) - 1u) << \
+                                                                    UART_1_I2C_CTRL_LOW_PHASE_OVS_POS) &  \
                                                                     UART_1_I2C_CTRL_LOW_PHASE_OVS_MASK)
 
 #define UART_1_GET_I2C_CTRL_S_NOT_READY_ADDR_NACK(wakeNack) ((0u != (wakeNack)) ? \
                                                             (UART_1_I2C_CTRL_S_NOT_READY_ADDR_NACK) : (0u))
 
-#define UART_1_GET_I2C_CTRL_SL_MSTR_MODE(mode)    ((uint32) ((uint32)(mode) << \
-                                                                    UART_1_I2C_CTRL_SLAVE_MODE_POS))
+#define UART_1_GET_I2C_CTRL_SL_MSTR_MODE(mode)    ((uint32)(mode) << UART_1_I2C_CTRL_SLAVE_MODE_POS)
 
 /* UART_1_SPI_CTRL */
 #define UART_1_GET_SPI_CTRL_CONTINUOUS(separate)  ((0u != (separate)) ? \
@@ -1293,28 +1409,39 @@ extern uint8 UART_1_initVar;
 #define UART_1_GET_SPI_CTRL_SELECT_PRECEDE(mode)  ((0u != (mode)) ? \
                                                                       (UART_1_SPI_CTRL_SELECT_PRECEDE) : (0u))
 
-#define UART_1_GET_SPI_CTRL_SCLK_MODE(mode)       (((uint32) ((uint32) (mode) << \
-                                                                        UART_1_SPI_CTRL_CPHA_POS)) & \
+#define UART_1_GET_SPI_CTRL_SCLK_MODE(mode)       (((uint32) (mode) << \
+                                                                        UART_1_SPI_CTRL_CPHA_POS) & \
                                                                         UART_1_SPI_CTRL_SCLK_MODE_MASK)
 
 #define UART_1_GET_SPI_CTRL_LATE_MISO_SAMPLE(lateMiso) ((0u != (lateMiso)) ? \
                                                                     (UART_1_SPI_CTRL_LATE_MISO_SAMPLE) : (0u))
 
-#define UART_1_GET_SPI_CTRL_SUB_MODE(mode)        (((uint32) (((uint32) (mode)) << \
-                                                                        UART_1_SPI_CTRL_MODE_POS)) & \
-                                                                        UART_1_SPI_CTRL_MODE_MASK)
+#if (UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1)
+    #define UART_1_GET_SPI_CTRL_SCLK_CONTINUOUS(sclkType) (0u)
+    #define UART_1_GET_SPI_CTRL_SSEL_POLARITY(polarity)   (0u)
+#else
+    #define UART_1_GET_SPI_CTRL_SCLK_CONTINUOUS(sclkType) ((0u != (sclkType)) ? \
+                                                                    (UART_1_SPI_CTRL_SCLK_CONTINUOUS) : (0u))
 
-#define UART_1_GET_SPI_CTRL_SLAVE_SELECT(select)  (((uint32) ((uint32) (select) << \
-                                                                      UART_1_SPI_CTRL_SLAVE_SELECT_POS)) & \
+    #define UART_1_GET_SPI_CTRL_SSEL_POLARITY(polarity)   (((uint32) (polarity) << \
+                                                                     UART_1_SPI_CTRL_SSEL0_POLARITY_POS) & \
+                                                                     UART_1_SPI_CTRL_SSEL_POLARITY_MASK)
+#endif /* ((UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
+
+#define UART_1_GET_SPI_CTRL_SUB_MODE(mode)        (((uint32) (mode) << UART_1_SPI_CTRL_MODE_POS) & \
+                                                                                 UART_1_SPI_CTRL_MODE_MASK)
+
+#define UART_1_GET_SPI_CTRL_SLAVE_SELECT(select)  (((uint32) (select) << \
+                                                                      UART_1_SPI_CTRL_SLAVE_SELECT_POS) & \
                                                                       UART_1_SPI_CTRL_SLAVE_SELECT_MASK)
 
 #define UART_1_GET_SPI_CTRL_MASTER_MODE(mode)     ((0u != (mode)) ? \
                                                                 (UART_1_SPI_CTRL_MASTER) : (0u))
 
 /* UART_1_UART_CTRL */
-#define UART_1_GET_UART_CTRL_MODE(mode)           (((uint32) ((uint32) (mode) << \
-                                                                            UART_1_UART_CTRL_MODE_POS)) & \
-                                                                                UART_1_UART_CTRL_MODE_MASK)
+#define UART_1_GET_UART_CTRL_MODE(mode)           (((uint32) (mode) << \
+                                                                            UART_1_UART_CTRL_MODE_POS) & \
+                                                                            UART_1_UART_CTRL_MODE_MASK)
 
 /* UART_1_UART_RX_CTRL */
 #define UART_1_GET_UART_RX_CTRL_MODE(stopBits)    (((uint32) (stopBits) - 1u) & \
@@ -1345,6 +1472,21 @@ extern uint8 UART_1_initVar;
 #define UART_1_GET_UART_TX_CTRL_RETRY_NACK(nack)  ((0u != (nack)) ? \
                                                                (UART_1_UART_TX_CTRL_RETRY_ON_NACK) : (0u))
 
+/* UART_1_UART_FLOW_CTRL */
+#if !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1)
+    #define UART_1_GET_UART_FLOW_CTRL_TRIGGER_LEVEL(level)   ( (uint32) (level) & \
+                                                                 UART_1_UART_FLOW_CTRL_TRIGGER_LEVEL_MASK)
+
+    #define UART_1_GET_UART_FLOW_CTRL_RTS_POLARITY(polarity) ((0u != (polarity)) ? \
+                                                                (UART_1_UART_FLOW_CTRL_RTS_POLARITY) : (0u))
+
+    #define UART_1_GET_UART_FLOW_CTRL_CTS_POLARITY(polarity) ((0u != (polarity)) ? \
+                                                                (UART_1_UART_FLOW_CTRL_CTS_POLARITY) : (0u))
+
+    #define UART_1_GET_UART_FLOW_CTRL_CTS_ENABLE(ctsEn)      ((0u != (ctsEn)) ? \
+                                                                (UART_1_UART_FLOW_CTRL_CTS_ENABLE) : (0u))
+#endif /* !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
+
 /* UART_1_RX_CTRL */
 #define UART_1_GET_RX_CTRL_DATA_WIDTH(dataWidth)  (((uint32) (dataWidth) - 1u) & \
                                                                 UART_1_RX_CTRL_DATA_WIDTH_MASK)
@@ -1357,8 +1499,8 @@ extern uint8 UART_1_initVar;
 
 /* UART_1_RX_MATCH */
 #define UART_1_GET_RX_MATCH_ADDR(addr)    ((uint32) (addr) & UART_1_RX_MATCH_ADDR_MASK)
-#define UART_1_GET_RX_MATCH_MASK(mask)    (((uint32) ((uint32) (mask) << \
-                                                            UART_1_RX_MATCH_MASK_POS)) & \
+#define UART_1_GET_RX_MATCH_MASK(mask)    (((uint32) (mask) << \
+                                                            UART_1_RX_MATCH_MASK_POS) & \
                                                             UART_1_RX_MATCH_MASK_MASK)
 
 /* UART_1_RX_FIFO_CTRL */
@@ -1376,26 +1518,28 @@ extern uint8 UART_1_initVar;
 #define UART_1_GET_TX_FIFO_CTRL_TRIGGER_LEVEL(level)  ((uint32) (level) & \
                                                                     UART_1_TX_FIFO_CTRL_TRIGGER_LEVEL_MASK)
 
-/* Clears register: configuration and interrupt mask */
+/* Clear register constants for configuration and interrupt mask */
 #define UART_1_CLEAR_REG          ((uint32) (0u))
 #define UART_1_NO_INTR_SOURCES    ((uint32) (0u))
 #define UART_1_DUMMY_PARAM        ((uint32) (0u))
 #define UART_1_SUBMODE_SPI_SLAVE  ((uint32) (0u))
 
-/* Return in case I2C read error */
+/* Return in case of I2C read error */
 #define UART_1_I2C_INVALID_BYTE   ((uint32) 0xFFFFFFFFu)
 #define UART_1_CHECK_VALID_BYTE   ((uint32) 0x80000000u)
 
 
 /***************************************
-*       Obsolete definitions
+* The following code is DEPRECATED and
+* must not be used.
 ***************************************/
 
-/* The following definitions are for version compatibility.
-* They are obsolete in SCB v1_20. Please do not use them in new projects
-*/
 #define UART_1_CHECK_INTR_EC_I2C(sourceMask)  UART_1_CHECK_INTR_I2C_EC(sourceMask)
-#define UART_1_CHECK_INTR_EC_SPI(sourceMask)  UART_1_CHECK_INTR_SPI_EC(sourceMask)
+#if (!UART_1_CY_SCBIP_V1)
+    #define UART_1_CHECK_INTR_EC_SPI(sourceMask)  UART_1_CHECK_INTR_SPI_EC(sourceMask)
+#endif /* (!UART_1_CY_SCBIP_V1) */
+
+#define UART_1_CY_SCBIP_V1_I2C_ONLY   (UART_1_CY_SCBIP_V1)
 
 #endif /* (CY_SCB_UART_1_H) */
 

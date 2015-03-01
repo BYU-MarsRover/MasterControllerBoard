@@ -1,9 +1,10 @@
 /*******************************************************************************
 * File Name: UART_1_rx.h  
-* Version 2.0
+* Version 2.10
 *
 * Description:
-*  This file containts Control Register function prototypes and register defines
+*  This file contains the Alias definitions for Per-Pin APIs in cypins.h. 
+*  Information on using these APIs can be found in the System Reference Guide.
 *
 * Note:
 *
@@ -19,12 +20,18 @@
 
 #include "cytypes.h"
 #include "cyfitter.h"
+#include "cypins.h"
 
 
 /***************************************
 *              Constants        
 ***************************************/
-#define UART_1_rx_0		UART_1_rx__0__PC
+#define UART_1_rx_0		(UART_1_rx__0__PC)
+#define UART_1_rx_0_PS		(UART_1_rx__0__PS)
+#define UART_1_rx_0_PC		(UART_1_rx__0__PC)
+#define UART_1_rx_0_DR		(UART_1_rx__0__DR)
+#define UART_1_rx_0_SHIFT	(UART_1_rx__0__SHIFT)
+
 
 #endif /* End Pins UART_1_rx_ALIASES_H */
 

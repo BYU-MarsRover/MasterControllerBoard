@@ -1,0 +1,1806 @@
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.comm	gpsIncoming,80,4
+  18              		.global	currentPos
+  19              		.data
+  20              		.align	2
+  21              		.type	currentPos, %object
+  22              		.size	currentPos, 4
+  23              	currentPos:
+  24 0000 DC050000 		.word	1500
+  25              		.global	tick
+  26              		.type	tick, %object
+  27              		.size	tick, 1
+  28              	tick:
+  29 0004 01       		.byte	1
+  30 0005 000000   		.section	.rodata
+  31              		.align	2
+  32              		.type	INCREMENT_AMMOUNT, %object
+  33              		.size	INCREMENT_AMMOUNT, 4
+  34              	INCREMENT_AMMOUNT:
+  35 0000 14000000 		.word	20
+  36              		.comm	sch,1104,4
+  37              		.section	.text.putdata,"ax",%progbits
+  38              		.align	2
+  39              		.global	putdata
+  40              		.code	16
+  41              		.thumb_func
+  42              		.type	putdata, %function
+  43              	putdata:
+  44              	.LFB33:
+  45              		.file 1 ".\\main.c"
+   1:.\main.c      **** /*
+   2:.\main.c      ****     BYU Mars Rover Main Board Scheduler Alpha (v1.0)
+   3:.\main.c      ****     Designed by: Jeffrey Nybo
+   4:.\main.c      ****     
+   5:.\main.c      ****     Description:
+   6:.\main.c      ****         This is a basic Scheduler intended for use on the main board of the BYU 2015
+   7:.\main.c      ****     University Rover Challenge Rover. The Scheduler consists of a basic 4 stage 
+   8:.\main.c      ****     mechanism: read, update, report, wait. Read, reads the top item in the incomming
+   9:.\main.c      ****     commands array. Update updates the actuators. Report, creates the report. Wait simply
+  10:.\main.c      ****     is a wait state to be used when there is nothing in the IncommingCommands array.
+  11:.\main.c      ****     
+  12:.\main.c      ****         Three structures are used in this implementation: IncommingCommands array, ToDoList and Rep
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 2
+
+
+  13:.\main.c      ****     The IncommingCommands array stores all of the incomming commands from the Wiznet (or in test ca
+  14:.\main.c      ****     from the computer via uart). The ToDoList is where all current to be executed commands are stor
+  15:.\main.c      ****     The report is a structure that maintains all of the information that will be sent back to the 
+  16:.\main.c      ****     source (computer or wiznet).
+  17:.\main.c      ****     
+  18:.\main.c      ****     
+  19:.\main.c      ****     
+  20:.\main.c      ****     
+  21:.\main.c      **** */
+  22:.\main.c      **** /*========================================
+  23:.\main.c      ****  *
+  24:.\main.c      ****  * Copyright BRIGHAM YOUNG UNIVERSITY, 2015
+  25:.\main.c      ****  * All Rights Reserved
+  26:.\main.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+  27:.\main.c      ****  *
+  28:.\main.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+  29:.\main.c      ****  * WHICH IS THE PROPERTY OF BRIGHAM YOUNG UNIVERSITY.
+  30:.\main.c      ****  *
+  31:.\main.c      ****  * ========================================
+  32:.\main.c      **** */
+  33:.\main.c      **** #include <project.h>
+  34:.\main.c      **** #include <stdbool.h>
+  35:.\main.c      **** #include <string.h>
+  36:.\main.c      **** 
+  37:.\main.c      **** #include "Scheduler.h"
+  38:.\main.c      **** 
+  39:.\main.c      **** /* Local vars */
+  40:.\main.c      **** uint32 currentPos = 1500;
+  41:.\main.c      **** volatile bool tick = true;
+  42:.\main.c      **** static const uint32 INCREMENT_AMMOUNT = 20;
+  43:.\main.c      **** Scheduler sch;
+  44:.\main.c      **** 
+  45:.\main.c      **** void putdata(void* p, char c)
+  46:.\main.c      **** {
+  46              		.loc 1 46 0
+  47              		.cfi_startproc
+  48 0000 80B5     		push	{r7, lr}
+  49              		.cfi_def_cfa_offset 8
+  50              		.cfi_offset 7, -8
+  51              		.cfi_offset 14, -4
+  52 0002 82B0     		sub	sp, sp, #8
+  53              		.cfi_def_cfa_offset 16
+  54 0004 00AF     		add	r7, sp, #0
+  55              		.cfi_def_cfa_register 7
+  56 0006 7860     		str	r0, [r7, #4]
+  57 0008 0A1C     		mov	r2, r1
+  58 000a FB1C     		add	r3, r7, #3
+  59 000c 1A70     		strb	r2, [r3]
+  47:.\main.c      ****     if(c == '\n')
+  60              		.loc 1 47 0
+  61 000e FB1C     		add	r3, r7, #3
+  62 0010 1B78     		ldrb	r3, [r3]
+  63 0012 0A2B     		cmp	r3, #10
+  64 0014 02D1     		bne	.L2
+  48:.\main.c      ****     {
+  49:.\main.c      ****      UART_1_UartPutChar('\r');   
+  65              		.loc 1 49 0
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 3
+
+
+  66 0016 0D20     		mov	r0, #13
+  67 0018 FFF7FEFF 		bl	UART_1_SpiUartWriteTxData
+  68              	.L2:
+  50:.\main.c      ****     }
+  51:.\main.c      ****     
+  52:.\main.c      ****  UART_1_UartPutChar(c);
+  69              		.loc 1 52 0
+  70 001c FB1C     		add	r3, r7, #3
+  71 001e 1B78     		ldrb	r3, [r3]
+  72 0020 181C     		mov	r0, r3
+  73 0022 FFF7FEFF 		bl	UART_1_SpiUartWriteTxData
+  53:.\main.c      **** }
+  74              		.loc 1 53 0
+  75 0026 BD46     		mov	sp, r7
+  76 0028 02B0     		add	sp, sp, #8
+  77              		@ sp needed
+  78 002a 80BD     		pop	{r7, pc}
+  79              		.cfi_endproc
+  80              	.LFE33:
+  81              		.size	putdata, .-putdata
+  82              		.section	.text.incrementPos,"ax",%progbits
+  83              		.align	2
+  84              		.global	incrementPos
+  85              		.code	16
+  86              		.thumb_func
+  87              		.type	incrementPos, %function
+  88              	incrementPos:
+  89              	.LFB34:
+  54:.\main.c      **** 
+  55:.\main.c      **** uint32 incrementPos(uint32* pos)
+  56:.\main.c      **** {
+  90              		.loc 1 56 0
+  91              		.cfi_startproc
+  92 0000 80B5     		push	{r7, lr}
+  93              		.cfi_def_cfa_offset 8
+  94              		.cfi_offset 7, -8
+  95              		.cfi_offset 14, -4
+  96 0002 82B0     		sub	sp, sp, #8
+  97              		.cfi_def_cfa_offset 16
+  98 0004 00AF     		add	r7, sp, #0
+  99              		.cfi_def_cfa_register 7
+ 100 0006 7860     		str	r0, [r7, #4]
+  57:.\main.c      ****     if(*pos > 2000)
+ 101              		.loc 1 57 0
+ 102 0008 7B68     		ldr	r3, [r7, #4]
+ 103 000a 1A68     		ldr	r2, [r3]
+ 104 000c FA23     		mov	r3, #250
+ 105 000e DB00     		lsl	r3, r3, #3
+ 106 0010 9A42     		cmp	r2, r3
+ 107 0012 04D9     		bls	.L4
+  58:.\main.c      ****     {
+  59:.\main.c      ****         *pos = 2000;
+ 108              		.loc 1 59 0
+ 109 0014 7B68     		ldr	r3, [r7, #4]
+ 110 0016 FA22     		mov	r2, #250
+ 111 0018 D200     		lsl	r2, r2, #3
+ 112 001a 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 4
+
+
+ 113 001c 0FE0     		b	.L5
+ 114              	.L4:
+  60:.\main.c      ****     }
+  61:.\main.c      ****     else if(*pos < 1000)
+ 115              		.loc 1 61 0
+ 116 001e 7B68     		ldr	r3, [r7, #4]
+ 117 0020 1A68     		ldr	r2, [r3]
+ 118 0022 0A4B     		ldr	r3, .L8
+ 119 0024 9A42     		cmp	r2, r3
+ 120 0026 04D8     		bhi	.L6
+  62:.\main.c      ****     {
+  63:.\main.c      ****      *pos = 1000;   
+ 121              		.loc 1 63 0
+ 122 0028 7B68     		ldr	r3, [r7, #4]
+ 123 002a FA22     		mov	r2, #250
+ 124 002c 9200     		lsl	r2, r2, #2
+ 125 002e 1A60     		str	r2, [r3]
+ 126 0030 05E0     		b	.L5
+ 127              	.L6:
+  64:.\main.c      ****     }
+  65:.\main.c      ****     else
+  66:.\main.c      ****     {
+  67:.\main.c      ****      *pos = *pos + INCREMENT_AMMOUNT;  
+ 128              		.loc 1 67 0
+ 129 0032 7B68     		ldr	r3, [r7, #4]
+ 130 0034 1A68     		ldr	r2, [r3]
+ 131 0036 1423     		mov	r3, #20
+ 132 0038 D218     		add	r2, r2, r3
+ 133 003a 7B68     		ldr	r3, [r7, #4]
+ 134 003c 1A60     		str	r2, [r3]
+ 135              	.L5:
+  68:.\main.c      ****     }
+  69:.\main.c      ****     
+  70:.\main.c      ****     return *pos;
+ 136              		.loc 1 70 0
+ 137 003e 7B68     		ldr	r3, [r7, #4]
+ 138 0040 1B68     		ldr	r3, [r3]
+  71:.\main.c      **** }
+ 139              		.loc 1 71 0
+ 140 0042 181C     		mov	r0, r3
+ 141 0044 BD46     		mov	sp, r7
+ 142 0046 02B0     		add	sp, sp, #8
+ 143              		@ sp needed
+ 144 0048 80BD     		pop	{r7, pc}
+ 145              	.L9:
+ 146 004a C046     		.align	2
+ 147              	.L8:
+ 148 004c E7030000 		.word	999
+ 149              		.cfi_endproc
+ 150              	.LFE34:
+ 151              		.size	incrementPos, .-incrementPos
+ 152              		.section	.text.decrementPos,"ax",%progbits
+ 153              		.align	2
+ 154              		.global	decrementPos
+ 155              		.code	16
+ 156              		.thumb_func
+ 157              		.type	decrementPos, %function
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 5
+
+
+ 158              	decrementPos:
+ 159              	.LFB35:
+  72:.\main.c      **** 
+  73:.\main.c      **** uint32 decrementPos(uint32* pos)
+  74:.\main.c      **** {
+ 160              		.loc 1 74 0
+ 161              		.cfi_startproc
+ 162 0000 80B5     		push	{r7, lr}
+ 163              		.cfi_def_cfa_offset 8
+ 164              		.cfi_offset 7, -8
+ 165              		.cfi_offset 14, -4
+ 166 0002 82B0     		sub	sp, sp, #8
+ 167              		.cfi_def_cfa_offset 16
+ 168 0004 00AF     		add	r7, sp, #0
+ 169              		.cfi_def_cfa_register 7
+ 170 0006 7860     		str	r0, [r7, #4]
+  75:.\main.c      ****      if(*pos > 2000)
+ 171              		.loc 1 75 0
+ 172 0008 7B68     		ldr	r3, [r7, #4]
+ 173 000a 1A68     		ldr	r2, [r3]
+ 174 000c FA23     		mov	r3, #250
+ 175 000e DB00     		lsl	r3, r3, #3
+ 176 0010 9A42     		cmp	r2, r3
+ 177 0012 04D9     		bls	.L11
+  76:.\main.c      ****     {
+  77:.\main.c      ****         *pos = 2000;
+ 178              		.loc 1 77 0
+ 179 0014 7B68     		ldr	r3, [r7, #4]
+ 180 0016 FA22     		mov	r2, #250
+ 181 0018 D200     		lsl	r2, r2, #3
+ 182 001a 1A60     		str	r2, [r3]
+ 183 001c 0FE0     		b	.L12
+ 184              	.L11:
+  78:.\main.c      ****     }
+  79:.\main.c      ****     else if(*pos < 1000)
+ 185              		.loc 1 79 0
+ 186 001e 7B68     		ldr	r3, [r7, #4]
+ 187 0020 1A68     		ldr	r2, [r3]
+ 188 0022 0A4B     		ldr	r3, .L15
+ 189 0024 9A42     		cmp	r2, r3
+ 190 0026 04D8     		bhi	.L13
+  80:.\main.c      ****     {
+  81:.\main.c      ****      *pos = 1000;   
+ 191              		.loc 1 81 0
+ 192 0028 7B68     		ldr	r3, [r7, #4]
+ 193 002a FA22     		mov	r2, #250
+ 194 002c 9200     		lsl	r2, r2, #2
+ 195 002e 1A60     		str	r2, [r3]
+ 196 0030 05E0     		b	.L12
+ 197              	.L13:
+  82:.\main.c      ****     }
+  83:.\main.c      ****     else
+  84:.\main.c      ****     {
+  85:.\main.c      ****      *pos = *pos - INCREMENT_AMMOUNT;  
+ 198              		.loc 1 85 0
+ 199 0032 7B68     		ldr	r3, [r7, #4]
+ 200 0034 1A68     		ldr	r2, [r3]
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 6
+
+
+ 201 0036 1423     		mov	r3, #20
+ 202 0038 D21A     		sub	r2, r2, r3
+ 203 003a 7B68     		ldr	r3, [r7, #4]
+ 204 003c 1A60     		str	r2, [r3]
+ 205              	.L12:
+  86:.\main.c      ****     }
+  87:.\main.c      ****     
+  88:.\main.c      ****     return *pos;
+ 206              		.loc 1 88 0
+ 207 003e 7B68     		ldr	r3, [r7, #4]
+ 208 0040 1B68     		ldr	r3, [r3]
+  89:.\main.c      **** }
+ 209              		.loc 1 89 0
+ 210 0042 181C     		mov	r0, r3
+ 211 0044 BD46     		mov	sp, r7
+ 212 0046 02B0     		add	sp, sp, #8
+ 213              		@ sp needed
+ 214 0048 80BD     		pop	{r7, pc}
+ 215              	.L16:
+ 216 004a C046     		.align	2
+ 217              	.L15:
+ 218 004c E7030000 		.word	999
+ 219              		.cfi_endproc
+ 220              	.LFE35:
+ 221              		.size	decrementPos, .-decrementPos
+ 222              		.section	.text.myISR,"ax",%progbits
+ 223              		.align	2
+ 224              		.global	myISR
+ 225              		.code	16
+ 226              		.thumb_func
+ 227              		.type	myISR, %function
+ 228              	myISR:
+ 229              	.LFB36:
+  90:.\main.c      **** 
+  91:.\main.c      **** CY_ISR(myISR)
+  92:.\main.c      **** {
+ 230              		.loc 1 92 0
+ 231              		.cfi_startproc
+ 232 0000 80B5     		push	{r7, lr}
+ 233              		.cfi_def_cfa_offset 8
+ 234              		.cfi_offset 7, -8
+ 235              		.cfi_offset 14, -4
+ 236 0002 82B0     		sub	sp, sp, #8
+ 237              		.cfi_def_cfa_offset 16
+ 238 0004 00AF     		add	r7, sp, #0
+ 239              		.cfi_def_cfa_register 7
+  93:.\main.c      ****     uint32 intr = (uint32) Timer_GetInterruptSourceMasked();
+ 240              		.loc 1 93 0
+ 241 0006 FFF7FEFF 		bl	Timer_GetInterruptSourceMasked
+ 242 000a 031C     		mov	r3, r0
+ 243 000c 7B60     		str	r3, [r7, #4]
+  94:.\main.c      ****     
+  95:.\main.c      ****     /* Insert interrupt code here */
+  96:.\main.c      ****     
+  97:.\main.c      ****     
+  98:.\main.c      ****     Timer_ClearInterrupt(intr);
+ 244              		.loc 1 98 0
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 7
+
+
+ 245 000e 7B68     		ldr	r3, [r7, #4]
+ 246 0010 181C     		mov	r0, r3
+ 247 0012 FFF7FEFF 		bl	Timer_ClearInterrupt
+  99:.\main.c      **** }
+ 248              		.loc 1 99 0
+ 249 0016 BD46     		mov	sp, r7
+ 250 0018 02B0     		add	sp, sp, #8
+ 251              		@ sp needed
+ 252 001a 80BD     		pop	{r7, pc}
+ 253              		.cfi_endproc
+ 254              	.LFE36:
+ 255              		.size	myISR, .-myISR
+ 256              		.section	.text.uartISR,"ax",%progbits
+ 257              		.align	2
+ 258              		.global	uartISR
+ 259              		.code	16
+ 260              		.thumb_func
+ 261              		.type	uartISR, %function
+ 262              	uartISR:
+ 263              	.LFB37:
+ 100:.\main.c      **** 
+ 101:.\main.c      **** /* UART Keyboard Command Module Interrupt Service Routine (KCMISR) */
+ 102:.\main.c      **** 
+ 103:.\main.c      **** CY_ISR(uartISR)
+ 104:.\main.c      **** {
+ 264              		.loc 1 104 0
+ 265              		.cfi_startproc
+ 266 0000 80B5     		push	{r7, lr}
+ 267              		.cfi_def_cfa_offset 8
+ 268              		.cfi_offset 7, -8
+ 269              		.cfi_offset 14, -4
+ 270 0002 00AF     		add	r7, sp, #0
+ 271              		.cfi_def_cfa_register 7
+ 105:.\main.c      **** //    uint32 intre = (uint32) UART_1_GetRxInterruptSourceMasked();
+ 106:.\main.c      **** //    uint32 getChar = (uint32) UART_1_UartGetChar();
+ 107:.\main.c      **** //    printf("Btn");
+ 108:.\main.c      **** //    /* Insert interrupt code here */
+ 109:.\main.c      **** //    switch(getChar)
+ 110:.\main.c      **** //    {
+ 111:.\main.c      **** //        case 'a':
+ 112:.\main.c      **** //        currentPos = 1920;
+ 113:.\main.c      **** //        P_WriteCompare(1920);
+ 114:.\main.c      **** //        break;
+ 115:.\main.c      **** //        
+ 116:.\main.c      **** //        case 'd':
+ 117:.\main.c      **** //        currentPos = 920;
+ 118:.\main.c      **** //        SignalGenerator_WriteCompare(920);
+ 119:.\main.c      **** //        break;
+ 120:.\main.c      **** //        
+ 121:.\main.c      **** //        case 'w':
+ 122:.\main.c      **** //        currentPos = 1420;
+ 123:.\main.c      **** //        P_WriteCompare(1420);
+ 124:.\main.c      **** //        break;
+ 125:.\main.c      **** //        
+ 126:.\main.c      **** //        case 'q':
+ 127:.\main.c      **** //        currentPos = 1670;
+ 128:.\main.c      **** //        P_WriteCompare(1670);
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 8
+
+
+ 129:.\main.c      **** //        break;
+ 130:.\main.c      **** //        
+ 131:.\main.c      **** //        case 'e':
+ 132:.\main.c      **** //        currentPos = 1170;
+ 133:.\main.c      **** //        P_WriteCompare(1170);
+ 134:.\main.c      **** //        break;
+ 135:.\main.c      **** //        
+ 136:.\main.c      **** //        
+ 137:.\main.c      **** //        
+ 138:.\main.c      **** //        case ',':
+ 139:.\main.c      **** //        P_WriteCompare(incrementPos(&currentPos));
+ 140:.\main.c      **** //        break;
+ 141:.\main.c      **** //        
+ 142:.\main.c      **** //        case '.':
+ 143:.\main.c      **** //        P_WriteCompare(decrementPos(&currentPos));
+ 144:.\main.c      **** //        break;
+ 145:.\main.c      **** //    }
+ 146:.\main.c      **** //    
+ 147:.\main.c      **** //    UART_1_ClearRxInterruptSource(intre);
+ 148:.\main.c      **** }
+ 272              		.loc 1 148 0
+ 273 0004 BD46     		mov	sp, r7
+ 274              		@ sp needed
+ 275 0006 80BD     		pop	{r7, pc}
+ 276              		.cfi_endproc
+ 277              	.LFE37:
+ 278              		.size	uartISR, .-uartISR
+ 279              		.section	.text.Servo_isr,"ax",%progbits
+ 280              		.align	2
+ 281              		.global	Servo_isr
+ 282              		.code	16
+ 283              		.thumb_func
+ 284              		.type	Servo_isr, %function
+ 285              	Servo_isr:
+ 286              	.LFB38:
+ 149:.\main.c      **** 
+ 150:.\main.c      **** 
+ 151:.\main.c      **** CY_ISR(Servo_isr)
+ 152:.\main.c      **** {
+ 287              		.loc 1 152 0
+ 288              		.cfi_startproc
+ 289 0000 80B5     		push	{r7, lr}
+ 290              		.cfi_def_cfa_offset 8
+ 291              		.cfi_offset 7, -8
+ 292              		.cfi_offset 14, -4
+ 293 0002 00AF     		add	r7, sp, #0
+ 294              		.cfi_def_cfa_register 7
+ 153:.\main.c      ****         switch(SignalSel_Read())
+ 295              		.loc 1 153 0
+ 296 0004 FFF7FEFF 		bl	SignalSel_Read
+ 297 0008 031C     		mov	r3, r0
+ 298 000a 012B     		cmp	r3, #1
+ 299 000c 16D0     		beq	.L21
+ 300 000e 02DC     		bgt	.L22
+ 301 0010 002B     		cmp	r3, #0
+ 302 0012 05D0     		beq	.L23
+ 303 0014 39E0     		b	.L20
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 9
+
+
+ 304              	.L22:
+ 305 0016 022B     		cmp	r3, #2
+ 306 0018 1DD0     		beq	.L24
+ 307 001a 032B     		cmp	r3, #3
+ 308 001c 28D0     		beq	.L25
+ 309 001e 34E0     		b	.L20
+ 310              	.L23:
+ 154:.\main.c      ****         {
+ 155:.\main.c      ****             
+ 156:.\main.c      ****             case 0:
+ 157:.\main.c      ****             SignalGenerator_WriteCompare(sch.PWMCurrentValues[0]);
+ 311              		.loc 1 157 0
+ 312 0020 1E4A     		ldr	r2, .L27
+ 313 0022 8923     		mov	r3, #137
+ 314 0024 DB00     		lsl	r3, r3, #3
+ 315 0026 D35A     		ldrh	r3, [r2, r3]
+ 316 0028 181C     		mov	r0, r3
+ 317 002a FFF7FEFF 		bl	SignalGenerator_WriteCompare
+ 158:.\main.c      ****             InputValue_Write(1);
+ 318              		.loc 1 158 0
+ 319 002e 0120     		mov	r0, #1
+ 320 0030 FFF7FEFF 		bl	InputValue_Write
+ 159:.\main.c      ****             SignalSel_Write(1);  
+ 321              		.loc 1 159 0
+ 322 0034 0120     		mov	r0, #1
+ 323 0036 FFF7FEFF 		bl	SignalSel_Write
+ 160:.\main.c      ****             break;
+ 324              		.loc 1 160 0
+ 325 003a 2DE0     		b	.L19
+ 326              	.L21:
+ 161:.\main.c      ****             
+ 162:.\main.c      ****             case 1:
+ 163:.\main.c      ****             SignalGenerator_WriteCompare(sch.PWMCurrentValues[1]);
+ 327              		.loc 1 163 0
+ 328 003c 174A     		ldr	r2, .L27
+ 329 003e 184B     		ldr	r3, .L27+4
+ 330 0040 D35A     		ldrh	r3, [r2, r3]
+ 331 0042 181C     		mov	r0, r3
+ 332 0044 FFF7FEFF 		bl	SignalGenerator_WriteCompare
+ 164:.\main.c      ****             InputValue_Write(1);
+ 333              		.loc 1 164 0
+ 334 0048 0120     		mov	r0, #1
+ 335 004a FFF7FEFF 		bl	InputValue_Write
+ 165:.\main.c      ****             SignalSel_Write(2);
+ 336              		.loc 1 165 0
+ 337 004e 0220     		mov	r0, #2
+ 338 0050 FFF7FEFF 		bl	SignalSel_Write
+ 166:.\main.c      ****             break;
+ 339              		.loc 1 166 0
+ 340 0054 20E0     		b	.L19
+ 341              	.L24:
+ 167:.\main.c      ****             
+ 168:.\main.c      ****             case 2:
+ 169:.\main.c      ****             SignalGenerator_WriteCompare(sch.PWMCurrentValues[2]);
+ 342              		.loc 1 169 0
+ 343 0056 114A     		ldr	r2, .L27
+ 344 0058 124B     		ldr	r3, .L27+8
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 10
+
+
+ 345 005a D35A     		ldrh	r3, [r2, r3]
+ 346 005c 181C     		mov	r0, r3
+ 347 005e FFF7FEFF 		bl	SignalGenerator_WriteCompare
+ 170:.\main.c      ****             InputValue_Write(1);
+ 348              		.loc 1 170 0
+ 349 0062 0120     		mov	r0, #1
+ 350 0064 FFF7FEFF 		bl	InputValue_Write
+ 171:.\main.c      ****             SignalSel_Write(3);
+ 351              		.loc 1 171 0
+ 352 0068 0320     		mov	r0, #3
+ 353 006a FFF7FEFF 		bl	SignalSel_Write
+ 172:.\main.c      ****             break;
+ 354              		.loc 1 172 0
+ 355 006e 13E0     		b	.L19
+ 356              	.L25:
+ 173:.\main.c      ****             
+ 174:.\main.c      ****             case 3:
+ 175:.\main.c      ****             SignalGenerator_WriteCompare(sch.PWMCurrentValues[3]);
+ 357              		.loc 1 175 0
+ 358 0070 0A4A     		ldr	r2, .L27
+ 359 0072 0D4B     		ldr	r3, .L27+12
+ 360 0074 D35A     		ldrh	r3, [r2, r3]
+ 361 0076 181C     		mov	r0, r3
+ 362 0078 FFF7FEFF 		bl	SignalGenerator_WriteCompare
+ 176:.\main.c      ****             InputValue_Write(1);
+ 363              		.loc 1 176 0
+ 364 007c 0120     		mov	r0, #1
+ 365 007e FFF7FEFF 		bl	InputValue_Write
+ 177:.\main.c      ****             SignalSel_Write(0);
+ 366              		.loc 1 177 0
+ 367 0082 0020     		mov	r0, #0
+ 368 0084 FFF7FEFF 		bl	SignalSel_Write
+ 178:.\main.c      ****             break;
+ 369              		.loc 1 178 0
+ 370 0088 06E0     		b	.L19
+ 371              	.L20:
+ 179:.\main.c      ****             
+ 180:.\main.c      ****             default:
+ 181:.\main.c      ****             InputValue_Write(0);
+ 372              		.loc 1 181 0
+ 373 008a 0020     		mov	r0, #0
+ 374 008c FFF7FEFF 		bl	InputValue_Write
+ 182:.\main.c      ****             SignalSel_Write(0);
+ 375              		.loc 1 182 0
+ 376 0090 0020     		mov	r0, #0
+ 377 0092 FFF7FEFF 		bl	SignalSel_Write
+ 183:.\main.c      ****             break;
+ 378              		.loc 1 183 0
+ 379 0096 C046     		mov	r8, r8
+ 380              	.L19:
+ 184:.\main.c      ****         
+ 185:.\main.c      ****         
+ 186:.\main.c      ****     }
+ 187:.\main.c      **** }
+ 381              		.loc 1 187 0
+ 382 0098 BD46     		mov	sp, r7
+ 383              		@ sp needed
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 11
+
+
+ 384 009a 80BD     		pop	{r7, pc}
+ 385              	.L28:
+ 386              		.align	2
+ 387              	.L27:
+ 388 009c 00000000 		.word	sch
+ 389 00a0 4A040000 		.word	1098
+ 390 00a4 4C040000 		.word	1100
+ 391 00a8 4E040000 		.word	1102
+ 392              		.cfi_endproc
+ 393              	.LFE38:
+ 394              		.size	Servo_isr, .-Servo_isr
+ 395              		.section	.rodata
+ 396              		.align	2
+ 397              	.LC5:
+ 398 0004 7469636B 		.ascii	"tick TRUE \012\015\000"
+ 398      20545255 
+ 398      45200A0D 
+ 398      00
+ 399 0011 000000   		.align	2
+ 400              	.LC7:
+ 401 0014 72756E6E 		.ascii	"runningTick \012\015\000"
+ 401      696E6754 
+ 401      69636B20 
+ 401      0A0D00
+ 402 0023 00       		.section	.text.main,"ax",%progbits
+ 403              		.align	2
+ 404              		.global	main
+ 405              		.code	16
+ 406              		.thumb_func
+ 407              		.type	main, %function
+ 408              	main:
+ 409              	.LFB39:
+ 188:.\main.c      **** 
+ 189:.\main.c      **** 
+ 190:.\main.c      **** int main()
+ 191:.\main.c      **** {
+ 410              		.loc 1 191 0
+ 411              		.cfi_startproc
+ 412 0000 80B5     		push	{r7, lr}
+ 413              		.cfi_def_cfa_offset 8
+ 414              		.cfi_offset 7, -8
+ 415              		.cfi_offset 14, -4
+ 416 0002 00AF     		add	r7, sp, #0
+ 417              		.cfi_def_cfa_register 7
+ 192:.\main.c      ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+ 193:.\main.c      ****     init_printf(NULL, putdata);
+ 418              		.loc 1 193 0
+ 419 0004 174B     		ldr	r3, .L32
+ 420 0006 0020     		mov	r0, #0
+ 421 0008 191C     		mov	r1, r3
+ 422 000a FFF7FEFF 		bl	init_printf
+ 194:.\main.c      ****     Timer_Start();
+ 423              		.loc 1 194 0
+ 424 000e FFF7FEFF 		bl	Timer_Start
+ 195:.\main.c      ****     UART_1_Start();
+ 425              		.loc 1 195 0
+ 426 0012 FFF7FEFF 		bl	UART_1_Start
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 12
+
+
+ 196:.\main.c      ****     isr_StartEx(myISR);
+ 427              		.loc 1 196 0
+ 428 0016 144B     		ldr	r3, .L32+4
+ 429 0018 181C     		mov	r0, r3
+ 430 001a FFF7FEFF 		bl	isr_StartEx
+ 197:.\main.c      ****     ISRUART_StartEx(uartISR);
+ 431              		.loc 1 197 0
+ 432 001e 134B     		ldr	r3, .L32+8
+ 433 0020 181C     		mov	r0, r3
+ 434 0022 FFF7FEFF 		bl	ISRUART_StartEx
+ 198:.\main.c      ****     //SignalSel_Start();
+ 199:.\main.c      ****     //P_Start();
+ 200:.\main.c      ****     CyDelay(5000);
+ 435              		.loc 1 200 0
+ 436 0026 124B     		ldr	r3, .L32+12
+ 437 0028 181C     		mov	r0, r3
+ 438 002a FFF7FEFF 		bl	CyDelay
+ 201:.\main.c      ****     isr_StartEx(myISR);
+ 439              		.loc 1 201 0
+ 440 002e 0E4B     		ldr	r3, .L32+4
+ 441 0030 181C     		mov	r0, r3
+ 442 0032 FFF7FEFF 		bl	isr_StartEx
+ 202:.\main.c      ****     
+ 203:.\main.c      ****      CyGlobalIntEnable;  /* Uncomment this line to enable global interrupts. */
+ 443              		.loc 1 203 0
+ 444              	@ 203 ".\main.c" 1
+ 445 0036 62B6     		CPSIE   i
+ 446              	@ 0 "" 2
+ 204:.\main.c      ****     
+ 205:.\main.c      ****    
+ 206:.\main.c      ****    
+ 207:.\main.c      ****     tick = false;
+ 447              		.loc 1 207 0
+ 448              		.code	16
+ 449 0038 0E4B     		ldr	r3, .L32+16
+ 450 003a 0022     		mov	r2, #0
+ 451 003c 1A70     		strb	r2, [r3]
+ 452              	.L31:
+ 208:.\main.c      ****    // breatheState = init;
+ 209:.\main.c      ****     for(;;)
+ 210:.\main.c      ****     {
+ 211:.\main.c      ****         /* Place your application code here. */
+ 212:.\main.c      ****         //printf("Hello World \n\r");
+ 213:.\main.c      ****         //CyDelay(50);
+ 214:.\main.c      ****        
+ 215:.\main.c      ****         
+ 216:.\main.c      ****         if(tick == true)
+ 453              		.loc 1 216 0
+ 454 003e 0D4B     		ldr	r3, .L32+16
+ 455 0040 1B78     		ldrb	r3, [r3]
+ 456 0042 DBB2     		uxtb	r3, r3
+ 457 0044 002B     		cmp	r3, #0
+ 458 0046 0BD0     		beq	.L30
+ 217:.\main.c      ****         {
+ 218:.\main.c      ****         printf("tick TRUE \n\r");
+ 459              		.loc 1 218 0
+ 460 0048 0B4B     		ldr	r3, .L32+20
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 13
+
+
+ 461 004a 181C     		mov	r0, r3
+ 462 004c FFF7FEFF 		bl	tfp_printf
+ 219:.\main.c      ****         
+ 220:.\main.c      ****         printf("runningTick \n\r");
+ 463              		.loc 1 220 0
+ 464 0050 0A4B     		ldr	r3, .L32+24
+ 465 0052 181C     		mov	r0, r3
+ 466 0054 FFF7FEFF 		bl	tfp_printf
+ 221:.\main.c      ****        // breatheTickFunction();
+ 222:.\main.c      ****         
+ 223:.\main.c      ****         tick = false;
+ 467              		.loc 1 223 0
+ 468 0058 064B     		ldr	r3, .L32+16
+ 469 005a 0022     		mov	r2, #0
+ 470 005c 1A70     		strb	r2, [r3]
+ 224:.\main.c      ****         
+ 225:.\main.c      ****         }
+ 226:.\main.c      ****         //Tasks to perform
+ 227:.\main.c      ****         //read input State Machine
+ 228:.\main.c      ****         //Ouptuts State Machine
+ 229:.\main.c      ****     }
+ 471              		.loc 1 229 0
+ 472 005e EEE7     		b	.L31
+ 473              	.L30:
+ 474 0060 EDE7     		b	.L31
+ 475              	.L33:
+ 476 0062 C046     		.align	2
+ 477              	.L32:
+ 478 0064 00000000 		.word	putdata
+ 479 0068 00000000 		.word	myISR
+ 480 006c 00000000 		.word	uartISR
+ 481 0070 88130000 		.word	5000
+ 482 0074 00000000 		.word	tick
+ 483 0078 04000000 		.word	.LC5
+ 484 007c 14000000 		.word	.LC7
+ 485              		.cfi_endproc
+ 486              	.LFE39:
+ 487              		.size	main, .-main
+ 488              		.text
+ 489              	.Letext0:
+ 490              		.file 2 ".\\Generated_Source\\PSoC4/cytypes.h"
+ 491              		.file 3 ".\\Scheduler.h"
+ 492              		.section	.debug_info,"",%progbits
+ 493              	.Ldebug_info0:
+ 494 0000 F8020000 		.4byte	0x2f8
+ 495 0004 0400     		.2byte	0x4
+ 496 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 497 000a 04       		.byte	0x4
+ 498 000b 01       		.uleb128 0x1
+ 499 000c A6000000 		.4byte	.LASF42
+ 500 0010 01       		.byte	0x1
+ 501 0011 B8010000 		.4byte	.LASF43
+ 502 0015 2F000000 		.4byte	.LASF44
+ 503 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 504 001d 00000000 		.4byte	0
+ 505 0021 00000000 		.4byte	.Ldebug_line0
+ 506 0025 02       		.uleb128 0x2
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 14
+
+
+ 507 0026 01       		.byte	0x1
+ 508 0027 06       		.byte	0x6
+ 509 0028 73020000 		.4byte	.LASF0
+ 510 002c 02       		.uleb128 0x2
+ 511 002d 01       		.byte	0x1
+ 512 002e 08       		.byte	0x8
+ 513 002f D4010000 		.4byte	.LASF1
+ 514 0033 02       		.uleb128 0x2
+ 515 0034 02       		.byte	0x2
+ 516 0035 05       		.byte	0x5
+ 517 0036 3D020000 		.4byte	.LASF2
+ 518 003a 02       		.uleb128 0x2
+ 519 003b 02       		.byte	0x2
+ 520 003c 07       		.byte	0x7
+ 521 003d 81010000 		.4byte	.LASF3
+ 522 0041 02       		.uleb128 0x2
+ 523 0042 04       		.byte	0x4
+ 524 0043 05       		.byte	0x5
+ 525 0044 58020000 		.4byte	.LASF4
+ 526 0048 02       		.uleb128 0x2
+ 527 0049 04       		.byte	0x4
+ 528 004a 07       		.byte	0x7
+ 529 004b 6F010000 		.4byte	.LASF5
+ 530 004f 02       		.uleb128 0x2
+ 531 0050 08       		.byte	0x8
+ 532 0051 05       		.byte	0x5
+ 533 0052 25020000 		.4byte	.LASF6
+ 534 0056 02       		.uleb128 0x2
+ 535 0057 08       		.byte	0x8
+ 536 0058 07       		.byte	0x7
+ 537 0059 2D010000 		.4byte	.LASF7
+ 538 005d 03       		.uleb128 0x3
+ 539 005e 04       		.byte	0x4
+ 540 005f 05       		.byte	0x5
+ 541 0060 696E7400 		.ascii	"int\000"
+ 542 0064 02       		.uleb128 0x2
+ 543 0065 04       		.byte	0x4
+ 544 0066 07       		.byte	0x7
+ 545 0067 E2010000 		.4byte	.LASF8
+ 546 006b 04       		.uleb128 0x4
+ 547 006c C1010000 		.4byte	.LASF9
+ 548 0070 02       		.byte	0x2
+ 549 0071 A2       		.byte	0xa2
+ 550 0072 3A000000 		.4byte	0x3a
+ 551 0076 04       		.uleb128 0x4
+ 552 0077 C8010000 		.4byte	.LASF10
+ 553 007b 02       		.byte	0x2
+ 554 007c A3       		.byte	0xa3
+ 555 007d 48000000 		.4byte	0x48
+ 556 0081 02       		.uleb128 0x2
+ 557 0082 04       		.byte	0x4
+ 558 0083 04       		.byte	0x4
+ 559 0084 A0000000 		.4byte	.LASF11
+ 560 0088 02       		.uleb128 0x2
+ 561 0089 08       		.byte	0x8
+ 562 008a 04       		.byte	0x4
+ 563 008b 9F010000 		.4byte	.LASF12
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 15
+
+
+ 564 008f 02       		.uleb128 0x2
+ 565 0090 01       		.byte	0x1
+ 566 0091 08       		.byte	0x8
+ 567 0092 61020000 		.4byte	.LASF13
+ 568 0096 02       		.uleb128 0x2
+ 569 0097 04       		.byte	0x4
+ 570 0098 07       		.byte	0x7
+ 571 0099 11020000 		.4byte	.LASF14
+ 572 009d 05       		.uleb128 0x5
+ 573 009e 04       		.byte	0x4
+ 574 009f 06       		.uleb128 0x6
+ 575 00a0 91020000 		.4byte	.LASF20
+ 576 00a4 08       		.byte	0x8
+ 577 00a5 03       		.byte	0x3
+ 578 00a6 2B       		.byte	0x2b
+ 579 00a7 DC000000 		.4byte	0xdc
+ 580 00ab 07       		.uleb128 0x7
+ 581 00ac 1A020000 		.4byte	.LASF15
+ 582 00b0 03       		.byte	0x3
+ 583 00b1 2D       		.byte	0x2d
+ 584 00b2 6B000000 		.4byte	0x6b
+ 585 00b6 00       		.byte	0
+ 586 00b7 07       		.uleb128 0x7
+ 587 00b8 4C010000 		.4byte	.LASF16
+ 588 00bc 03       		.byte	0x3
+ 589 00bd 2E       		.byte	0x2e
+ 590 00be 6B000000 		.4byte	0x6b
+ 591 00c2 02       		.byte	0x2
+ 592 00c3 07       		.uleb128 0x7
+ 593 00c4 33020000 		.4byte	.LASF17
+ 594 00c8 03       		.byte	0x3
+ 595 00c9 2F       		.byte	0x2f
+ 596 00ca 6B000000 		.4byte	0x6b
+ 597 00ce 04       		.byte	0x4
+ 598 00cf 07       		.uleb128 0x7
+ 599 00d0 00000000 		.4byte	.LASF18
+ 600 00d4 03       		.byte	0x3
+ 601 00d5 30       		.byte	0x30
+ 602 00d6 6B000000 		.4byte	0x6b
+ 603 00da 06       		.byte	0x6
+ 604 00db 00       		.byte	0
+ 605 00dc 04       		.uleb128 0x4
+ 606 00dd 1A000000 		.4byte	.LASF19
+ 607 00e1 03       		.byte	0x3
+ 608 00e2 31       		.byte	0x31
+ 609 00e3 9F000000 		.4byte	0x9f
+ 610 00e7 06       		.uleb128 0x6
+ 611 00e8 0B000000 		.4byte	.LASF21
+ 612 00ec 58       		.byte	0x58
+ 613 00ed 03       		.byte	0x3
+ 614 00ee 33       		.byte	0x33
+ 615 00ef 30010000 		.4byte	0x130
+ 616 00f3 07       		.uleb128 0x7
+ 617 00f4 1A020000 		.4byte	.LASF15
+ 618 00f8 03       		.byte	0x3
+ 619 00f9 35       		.byte	0x35
+ 620 00fa 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 16
+
+
+ 621 00fe 00       		.byte	0
+ 622 00ff 07       		.uleb128 0x7
+ 623 0100 4C010000 		.4byte	.LASF16
+ 624 0104 03       		.byte	0x3
+ 625 0105 36       		.byte	0x36
+ 626 0106 6B000000 		.4byte	0x6b
+ 627 010a 02       		.byte	0x2
+ 628 010b 07       		.uleb128 0x7
+ 629 010c 33020000 		.4byte	.LASF17
+ 630 0110 03       		.byte	0x3
+ 631 0111 37       		.byte	0x37
+ 632 0112 6B000000 		.4byte	0x6b
+ 633 0116 04       		.byte	0x4
+ 634 0117 07       		.uleb128 0x7
+ 635 0118 00000000 		.4byte	.LASF18
+ 636 011c 03       		.byte	0x3
+ 637 011d 38       		.byte	0x38
+ 638 011e 6B000000 		.4byte	0x6b
+ 639 0122 06       		.byte	0x6
+ 640 0123 07       		.uleb128 0x7
+ 641 0124 09020000 		.4byte	.LASF22
+ 642 0128 03       		.byte	0x3
+ 643 0129 39       		.byte	0x39
+ 644 012a 30010000 		.4byte	0x130
+ 645 012e 08       		.byte	0x8
+ 646 012f 00       		.byte	0
+ 647 0130 08       		.uleb128 0x8
+ 648 0131 8F000000 		.4byte	0x8f
+ 649 0135 40010000 		.4byte	0x140
+ 650 0139 09       		.uleb128 0x9
+ 651 013a 96000000 		.4byte	0x96
+ 652 013e 4F       		.byte	0x4f
+ 653 013f 00       		.byte	0
+ 654 0140 04       		.uleb128 0x4
+ 655 0141 A5020000 		.4byte	.LASF23
+ 656 0145 03       		.byte	0x3
+ 657 0146 3A       		.byte	0x3a
+ 658 0147 E7000000 		.4byte	0xe7
+ 659 014b 0A       		.uleb128 0xa
+ 660 014c F4010000 		.4byte	.LASF24
+ 661 0150 5004     		.2byte	0x450
+ 662 0152 03       		.byte	0x3
+ 663 0153 3C       		.byte	0x3c
+ 664 0154 8A010000 		.4byte	0x18a
+ 665 0158 07       		.uleb128 0x7
+ 666 0159 EF010000 		.4byte	.LASF25
+ 667 015d 03       		.byte	0x3
+ 668 015e 3E       		.byte	0x3e
+ 669 015f DC000000 		.4byte	0xdc
+ 670 0163 00       		.byte	0
+ 671 0164 07       		.uleb128 0x7
+ 672 0165 0B000000 		.4byte	.LASF21
+ 673 0169 03       		.byte	0x3
+ 674 016a 3F       		.byte	0x3f
+ 675 016b 40010000 		.4byte	0x140
+ 676 016f 08       		.byte	0x8
+ 677 0170 07       		.uleb128 0x7
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 17
+
+
+ 678 0171 7F020000 		.4byte	.LASF26
+ 679 0175 03       		.byte	0x3
+ 680 0176 40       		.byte	0x40
+ 681 0177 8A010000 		.4byte	0x18a
+ 682 017b 60       		.byte	0x60
+ 683 017c 0B       		.uleb128 0xb
+ 684 017d 47020000 		.4byte	.LASF27
+ 685 0181 03       		.byte	0x3
+ 686 0182 41       		.byte	0x41
+ 687 0183 9B010000 		.4byte	0x19b
+ 688 0187 4804     		.2byte	0x448
+ 689 0189 00       		.byte	0
+ 690 018a 08       		.uleb128 0x8
+ 691 018b 6B000000 		.4byte	0x6b
+ 692 018f 9B010000 		.4byte	0x19b
+ 693 0193 0C       		.uleb128 0xc
+ 694 0194 96000000 		.4byte	0x96
+ 695 0198 F301     		.2byte	0x1f3
+ 696 019a 00       		.byte	0
+ 697 019b 08       		.uleb128 0x8
+ 698 019c 6B000000 		.4byte	0x6b
+ 699 01a0 AB010000 		.4byte	0x1ab
+ 700 01a4 09       		.uleb128 0x9
+ 701 01a5 96000000 		.4byte	0x96
+ 702 01a9 03       		.byte	0x3
+ 703 01aa 00       		.byte	0
+ 704 01ab 04       		.uleb128 0x4
+ 705 01ac 96000000 		.4byte	.LASF28
+ 706 01b0 03       		.byte	0x3
+ 707 01b1 42       		.byte	0x42
+ 708 01b2 4B010000 		.4byte	0x14b
+ 709 01b6 0D       		.uleb128 0xd
+ 710 01b7 12000000 		.4byte	.LASF31
+ 711 01bb 01       		.byte	0x1
+ 712 01bc 2D       		.byte	0x2d
+ 713 01bd 00000000 		.4byte	.LFB33
+ 714 01c1 2C000000 		.4byte	.LFE33-.LFB33
+ 715 01c5 01       		.uleb128 0x1
+ 716 01c6 9C       		.byte	0x9c
+ 717 01c7 E4010000 		.4byte	0x1e4
+ 718 01cb 0E       		.uleb128 0xe
+ 719 01cc 7000     		.ascii	"p\000"
+ 720 01ce 01       		.byte	0x1
+ 721 01cf 2D       		.byte	0x2d
+ 722 01d0 9D000000 		.4byte	0x9d
+ 723 01d4 02       		.uleb128 0x2
+ 724 01d5 91       		.byte	0x91
+ 725 01d6 74       		.sleb128 -12
+ 726 01d7 0E       		.uleb128 0xe
+ 727 01d8 6300     		.ascii	"c\000"
+ 728 01da 01       		.byte	0x1
+ 729 01db 2D       		.byte	0x2d
+ 730 01dc 8F000000 		.4byte	0x8f
+ 731 01e0 02       		.uleb128 0x2
+ 732 01e1 91       		.byte	0x91
+ 733 01e2 73       		.sleb128 -13
+ 734 01e3 00       		.byte	0
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 18
+
+
+ 735 01e4 0F       		.uleb128 0xf
+ 736 01e5 58010000 		.4byte	.LASF29
+ 737 01e9 01       		.byte	0x1
+ 738 01ea 37       		.byte	0x37
+ 739 01eb 76000000 		.4byte	0x76
+ 740 01ef 00000000 		.4byte	.LFB34
+ 741 01f3 50000000 		.4byte	.LFE34-.LFB34
+ 742 01f7 01       		.uleb128 0x1
+ 743 01f8 9C       		.byte	0x9c
+ 744 01f9 0C020000 		.4byte	0x20c
+ 745 01fd 0E       		.uleb128 0xe
+ 746 01fe 706F7300 		.ascii	"pos\000"
+ 747 0202 01       		.byte	0x1
+ 748 0203 37       		.byte	0x37
+ 749 0204 0C020000 		.4byte	0x20c
+ 750 0208 02       		.uleb128 0x2
+ 751 0209 91       		.byte	0x91
+ 752 020a 74       		.sleb128 -12
+ 753 020b 00       		.byte	0
+ 754 020c 10       		.uleb128 0x10
+ 755 020d 04       		.byte	0x4
+ 756 020e 76000000 		.4byte	0x76
+ 757 0212 0F       		.uleb128 0xf
+ 758 0213 66020000 		.4byte	.LASF30
+ 759 0217 01       		.byte	0x1
+ 760 0218 49       		.byte	0x49
+ 761 0219 76000000 		.4byte	0x76
+ 762 021d 00000000 		.4byte	.LFB35
+ 763 0221 50000000 		.4byte	.LFE35-.LFB35
+ 764 0225 01       		.uleb128 0x1
+ 765 0226 9C       		.byte	0x9c
+ 766 0227 3A020000 		.4byte	0x23a
+ 767 022b 0E       		.uleb128 0xe
+ 768 022c 706F7300 		.ascii	"pos\000"
+ 769 0230 01       		.byte	0x1
+ 770 0231 49       		.byte	0x49
+ 771 0232 0C020000 		.4byte	0x20c
+ 772 0236 02       		.uleb128 0x2
+ 773 0237 91       		.byte	0x91
+ 774 0238 74       		.sleb128 -12
+ 775 0239 00       		.byte	0
+ 776 023a 0D       		.uleb128 0xd
+ 777 023b 99010000 		.4byte	.LASF32
+ 778 023f 01       		.byte	0x1
+ 779 0240 5B       		.byte	0x5b
+ 780 0241 00000000 		.4byte	.LFB36
+ 781 0245 1C000000 		.4byte	.LFE36-.LFB36
+ 782 0249 01       		.uleb128 0x1
+ 783 024a 9C       		.byte	0x9c
+ 784 024b 5E020000 		.4byte	0x25e
+ 785 024f 11       		.uleb128 0x11
+ 786 0250 A0020000 		.4byte	.LASF36
+ 787 0254 01       		.byte	0x1
+ 788 0255 5D       		.byte	0x5d
+ 789 0256 76000000 		.4byte	0x76
+ 790 025a 02       		.uleb128 0x2
+ 791 025b 91       		.byte	0x91
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 19
+
+
+ 792 025c 74       		.sleb128 -12
+ 793 025d 00       		.byte	0
+ 794 025e 12       		.uleb128 0x12
+ 795 025f 44010000 		.4byte	.LASF33
+ 796 0263 01       		.byte	0x1
+ 797 0264 67       		.byte	0x67
+ 798 0265 00000000 		.4byte	.LFB37
+ 799 0269 08000000 		.4byte	.LFE37-.LFB37
+ 800 026d 01       		.uleb128 0x1
+ 801 026e 9C       		.byte	0x9c
+ 802 026f 13       		.uleb128 0x13
+ 803 0270 65010000 		.4byte	.LASF34
+ 804 0274 01       		.byte	0x1
+ 805 0275 97       		.byte	0x97
+ 806 0276 00000000 		.4byte	.LFB38
+ 807 027a AC000000 		.4byte	.LFE38-.LFB38
+ 808 027e 01       		.uleb128 0x1
+ 809 027f 9C       		.byte	0x9c
+ 810 0280 14       		.uleb128 0x14
+ 811 0281 CF010000 		.4byte	.LASF35
+ 812 0285 01       		.byte	0x1
+ 813 0286 BE       		.byte	0xbe
+ 814 0287 5D000000 		.4byte	0x5d
+ 815 028b 00000000 		.4byte	.LFB39
+ 816 028f 80000000 		.4byte	.LFE39-.LFB39
+ 817 0293 01       		.uleb128 0x1
+ 818 0294 9C       		.byte	0x9c
+ 819 0295 11       		.uleb128 0x11
+ 820 0296 A6010000 		.4byte	.LASF37
+ 821 029a 01       		.byte	0x1
+ 822 029b 2A       		.byte	0x2a
+ 823 029c A6020000 		.4byte	0x2a6
+ 824 02a0 05       		.uleb128 0x5
+ 825 02a1 03       		.byte	0x3
+ 826 02a2 00000000 		.4byte	INCREMENT_AMMOUNT
+ 827 02a6 15       		.uleb128 0x15
+ 828 02a7 76000000 		.4byte	0x76
+ 829 02ab 16       		.uleb128 0x16
+ 830 02ac 23000000 		.4byte	.LASF38
+ 831 02b0 03       		.byte	0x3
+ 832 02b1 44       		.byte	0x44
+ 833 02b2 30010000 		.4byte	0x130
+ 834 02b6 05       		.uleb128 0x5
+ 835 02b7 03       		.byte	0x3
+ 836 02b8 00000000 		.4byte	gpsIncoming
+ 837 02bc 16       		.uleb128 0x16
+ 838 02bd FE010000 		.4byte	.LASF39
+ 839 02c1 01       		.byte	0x1
+ 840 02c2 28       		.byte	0x28
+ 841 02c3 76000000 		.4byte	0x76
+ 842 02c7 05       		.uleb128 0x5
+ 843 02c8 03       		.byte	0x3
+ 844 02c9 00000000 		.4byte	currentPos
+ 845 02cd 16       		.uleb128 0x16
+ 846 02ce 94010000 		.4byte	.LASF40
+ 847 02d2 01       		.byte	0x1
+ 848 02d3 29       		.byte	0x29
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 20
+
+
+ 849 02d4 DE020000 		.4byte	0x2de
+ 850 02d8 05       		.uleb128 0x5
+ 851 02d9 03       		.byte	0x3
+ 852 02da 00000000 		.4byte	tick
+ 853 02de 17       		.uleb128 0x17
+ 854 02df E3020000 		.4byte	0x2e3
+ 855 02e3 02       		.uleb128 0x2
+ 856 02e4 01       		.byte	0x1
+ 857 02e5 02       		.byte	0x2
+ 858 02e6 9A020000 		.4byte	.LASF41
+ 859 02ea 18       		.uleb128 0x18
+ 860 02eb 73636800 		.ascii	"sch\000"
+ 861 02ef 01       		.byte	0x1
+ 862 02f0 2B       		.byte	0x2b
+ 863 02f1 AB010000 		.4byte	0x1ab
+ 864 02f5 05       		.uleb128 0x5
+ 865 02f6 03       		.byte	0x3
+ 866 02f7 00000000 		.4byte	sch
+ 867 02fb 00       		.byte	0
+ 868              		.section	.debug_abbrev,"",%progbits
+ 869              	.Ldebug_abbrev0:
+ 870 0000 01       		.uleb128 0x1
+ 871 0001 11       		.uleb128 0x11
+ 872 0002 01       		.byte	0x1
+ 873 0003 25       		.uleb128 0x25
+ 874 0004 0E       		.uleb128 0xe
+ 875 0005 13       		.uleb128 0x13
+ 876 0006 0B       		.uleb128 0xb
+ 877 0007 03       		.uleb128 0x3
+ 878 0008 0E       		.uleb128 0xe
+ 879 0009 1B       		.uleb128 0x1b
+ 880 000a 0E       		.uleb128 0xe
+ 881 000b 55       		.uleb128 0x55
+ 882 000c 17       		.uleb128 0x17
+ 883 000d 11       		.uleb128 0x11
+ 884 000e 01       		.uleb128 0x1
+ 885 000f 10       		.uleb128 0x10
+ 886 0010 17       		.uleb128 0x17
+ 887 0011 00       		.byte	0
+ 888 0012 00       		.byte	0
+ 889 0013 02       		.uleb128 0x2
+ 890 0014 24       		.uleb128 0x24
+ 891 0015 00       		.byte	0
+ 892 0016 0B       		.uleb128 0xb
+ 893 0017 0B       		.uleb128 0xb
+ 894 0018 3E       		.uleb128 0x3e
+ 895 0019 0B       		.uleb128 0xb
+ 896 001a 03       		.uleb128 0x3
+ 897 001b 0E       		.uleb128 0xe
+ 898 001c 00       		.byte	0
+ 899 001d 00       		.byte	0
+ 900 001e 03       		.uleb128 0x3
+ 901 001f 24       		.uleb128 0x24
+ 902 0020 00       		.byte	0
+ 903 0021 0B       		.uleb128 0xb
+ 904 0022 0B       		.uleb128 0xb
+ 905 0023 3E       		.uleb128 0x3e
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 21
+
+
+ 906 0024 0B       		.uleb128 0xb
+ 907 0025 03       		.uleb128 0x3
+ 908 0026 08       		.uleb128 0x8
+ 909 0027 00       		.byte	0
+ 910 0028 00       		.byte	0
+ 911 0029 04       		.uleb128 0x4
+ 912 002a 16       		.uleb128 0x16
+ 913 002b 00       		.byte	0
+ 914 002c 03       		.uleb128 0x3
+ 915 002d 0E       		.uleb128 0xe
+ 916 002e 3A       		.uleb128 0x3a
+ 917 002f 0B       		.uleb128 0xb
+ 918 0030 3B       		.uleb128 0x3b
+ 919 0031 0B       		.uleb128 0xb
+ 920 0032 49       		.uleb128 0x49
+ 921 0033 13       		.uleb128 0x13
+ 922 0034 00       		.byte	0
+ 923 0035 00       		.byte	0
+ 924 0036 05       		.uleb128 0x5
+ 925 0037 0F       		.uleb128 0xf
+ 926 0038 00       		.byte	0
+ 927 0039 0B       		.uleb128 0xb
+ 928 003a 0B       		.uleb128 0xb
+ 929 003b 00       		.byte	0
+ 930 003c 00       		.byte	0
+ 931 003d 06       		.uleb128 0x6
+ 932 003e 13       		.uleb128 0x13
+ 933 003f 01       		.byte	0x1
+ 934 0040 03       		.uleb128 0x3
+ 935 0041 0E       		.uleb128 0xe
+ 936 0042 0B       		.uleb128 0xb
+ 937 0043 0B       		.uleb128 0xb
+ 938 0044 3A       		.uleb128 0x3a
+ 939 0045 0B       		.uleb128 0xb
+ 940 0046 3B       		.uleb128 0x3b
+ 941 0047 0B       		.uleb128 0xb
+ 942 0048 01       		.uleb128 0x1
+ 943 0049 13       		.uleb128 0x13
+ 944 004a 00       		.byte	0
+ 945 004b 00       		.byte	0
+ 946 004c 07       		.uleb128 0x7
+ 947 004d 0D       		.uleb128 0xd
+ 948 004e 00       		.byte	0
+ 949 004f 03       		.uleb128 0x3
+ 950 0050 0E       		.uleb128 0xe
+ 951 0051 3A       		.uleb128 0x3a
+ 952 0052 0B       		.uleb128 0xb
+ 953 0053 3B       		.uleb128 0x3b
+ 954 0054 0B       		.uleb128 0xb
+ 955 0055 49       		.uleb128 0x49
+ 956 0056 13       		.uleb128 0x13
+ 957 0057 38       		.uleb128 0x38
+ 958 0058 0B       		.uleb128 0xb
+ 959 0059 00       		.byte	0
+ 960 005a 00       		.byte	0
+ 961 005b 08       		.uleb128 0x8
+ 962 005c 01       		.uleb128 0x1
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 22
+
+
+ 963 005d 01       		.byte	0x1
+ 964 005e 49       		.uleb128 0x49
+ 965 005f 13       		.uleb128 0x13
+ 966 0060 01       		.uleb128 0x1
+ 967 0061 13       		.uleb128 0x13
+ 968 0062 00       		.byte	0
+ 969 0063 00       		.byte	0
+ 970 0064 09       		.uleb128 0x9
+ 971 0065 21       		.uleb128 0x21
+ 972 0066 00       		.byte	0
+ 973 0067 49       		.uleb128 0x49
+ 974 0068 13       		.uleb128 0x13
+ 975 0069 2F       		.uleb128 0x2f
+ 976 006a 0B       		.uleb128 0xb
+ 977 006b 00       		.byte	0
+ 978 006c 00       		.byte	0
+ 979 006d 0A       		.uleb128 0xa
+ 980 006e 13       		.uleb128 0x13
+ 981 006f 01       		.byte	0x1
+ 982 0070 03       		.uleb128 0x3
+ 983 0071 0E       		.uleb128 0xe
+ 984 0072 0B       		.uleb128 0xb
+ 985 0073 05       		.uleb128 0x5
+ 986 0074 3A       		.uleb128 0x3a
+ 987 0075 0B       		.uleb128 0xb
+ 988 0076 3B       		.uleb128 0x3b
+ 989 0077 0B       		.uleb128 0xb
+ 990 0078 01       		.uleb128 0x1
+ 991 0079 13       		.uleb128 0x13
+ 992 007a 00       		.byte	0
+ 993 007b 00       		.byte	0
+ 994 007c 0B       		.uleb128 0xb
+ 995 007d 0D       		.uleb128 0xd
+ 996 007e 00       		.byte	0
+ 997 007f 03       		.uleb128 0x3
+ 998 0080 0E       		.uleb128 0xe
+ 999 0081 3A       		.uleb128 0x3a
+ 1000 0082 0B       		.uleb128 0xb
+ 1001 0083 3B       		.uleb128 0x3b
+ 1002 0084 0B       		.uleb128 0xb
+ 1003 0085 49       		.uleb128 0x49
+ 1004 0086 13       		.uleb128 0x13
+ 1005 0087 38       		.uleb128 0x38
+ 1006 0088 05       		.uleb128 0x5
+ 1007 0089 00       		.byte	0
+ 1008 008a 00       		.byte	0
+ 1009 008b 0C       		.uleb128 0xc
+ 1010 008c 21       		.uleb128 0x21
+ 1011 008d 00       		.byte	0
+ 1012 008e 49       		.uleb128 0x49
+ 1013 008f 13       		.uleb128 0x13
+ 1014 0090 2F       		.uleb128 0x2f
+ 1015 0091 05       		.uleb128 0x5
+ 1016 0092 00       		.byte	0
+ 1017 0093 00       		.byte	0
+ 1018 0094 0D       		.uleb128 0xd
+ 1019 0095 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 23
+
+
+ 1020 0096 01       		.byte	0x1
+ 1021 0097 3F       		.uleb128 0x3f
+ 1022 0098 19       		.uleb128 0x19
+ 1023 0099 03       		.uleb128 0x3
+ 1024 009a 0E       		.uleb128 0xe
+ 1025 009b 3A       		.uleb128 0x3a
+ 1026 009c 0B       		.uleb128 0xb
+ 1027 009d 3B       		.uleb128 0x3b
+ 1028 009e 0B       		.uleb128 0xb
+ 1029 009f 27       		.uleb128 0x27
+ 1030 00a0 19       		.uleb128 0x19
+ 1031 00a1 11       		.uleb128 0x11
+ 1032 00a2 01       		.uleb128 0x1
+ 1033 00a3 12       		.uleb128 0x12
+ 1034 00a4 06       		.uleb128 0x6
+ 1035 00a5 40       		.uleb128 0x40
+ 1036 00a6 18       		.uleb128 0x18
+ 1037 00a7 9642     		.uleb128 0x2116
+ 1038 00a9 19       		.uleb128 0x19
+ 1039 00aa 01       		.uleb128 0x1
+ 1040 00ab 13       		.uleb128 0x13
+ 1041 00ac 00       		.byte	0
+ 1042 00ad 00       		.byte	0
+ 1043 00ae 0E       		.uleb128 0xe
+ 1044 00af 05       		.uleb128 0x5
+ 1045 00b0 00       		.byte	0
+ 1046 00b1 03       		.uleb128 0x3
+ 1047 00b2 08       		.uleb128 0x8
+ 1048 00b3 3A       		.uleb128 0x3a
+ 1049 00b4 0B       		.uleb128 0xb
+ 1050 00b5 3B       		.uleb128 0x3b
+ 1051 00b6 0B       		.uleb128 0xb
+ 1052 00b7 49       		.uleb128 0x49
+ 1053 00b8 13       		.uleb128 0x13
+ 1054 00b9 02       		.uleb128 0x2
+ 1055 00ba 18       		.uleb128 0x18
+ 1056 00bb 00       		.byte	0
+ 1057 00bc 00       		.byte	0
+ 1058 00bd 0F       		.uleb128 0xf
+ 1059 00be 2E       		.uleb128 0x2e
+ 1060 00bf 01       		.byte	0x1
+ 1061 00c0 3F       		.uleb128 0x3f
+ 1062 00c1 19       		.uleb128 0x19
+ 1063 00c2 03       		.uleb128 0x3
+ 1064 00c3 0E       		.uleb128 0xe
+ 1065 00c4 3A       		.uleb128 0x3a
+ 1066 00c5 0B       		.uleb128 0xb
+ 1067 00c6 3B       		.uleb128 0x3b
+ 1068 00c7 0B       		.uleb128 0xb
+ 1069 00c8 27       		.uleb128 0x27
+ 1070 00c9 19       		.uleb128 0x19
+ 1071 00ca 49       		.uleb128 0x49
+ 1072 00cb 13       		.uleb128 0x13
+ 1073 00cc 11       		.uleb128 0x11
+ 1074 00cd 01       		.uleb128 0x1
+ 1075 00ce 12       		.uleb128 0x12
+ 1076 00cf 06       		.uleb128 0x6
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 24
+
+
+ 1077 00d0 40       		.uleb128 0x40
+ 1078 00d1 18       		.uleb128 0x18
+ 1079 00d2 9742     		.uleb128 0x2117
+ 1080 00d4 19       		.uleb128 0x19
+ 1081 00d5 01       		.uleb128 0x1
+ 1082 00d6 13       		.uleb128 0x13
+ 1083 00d7 00       		.byte	0
+ 1084 00d8 00       		.byte	0
+ 1085 00d9 10       		.uleb128 0x10
+ 1086 00da 0F       		.uleb128 0xf
+ 1087 00db 00       		.byte	0
+ 1088 00dc 0B       		.uleb128 0xb
+ 1089 00dd 0B       		.uleb128 0xb
+ 1090 00de 49       		.uleb128 0x49
+ 1091 00df 13       		.uleb128 0x13
+ 1092 00e0 00       		.byte	0
+ 1093 00e1 00       		.byte	0
+ 1094 00e2 11       		.uleb128 0x11
+ 1095 00e3 34       		.uleb128 0x34
+ 1096 00e4 00       		.byte	0
+ 1097 00e5 03       		.uleb128 0x3
+ 1098 00e6 0E       		.uleb128 0xe
+ 1099 00e7 3A       		.uleb128 0x3a
+ 1100 00e8 0B       		.uleb128 0xb
+ 1101 00e9 3B       		.uleb128 0x3b
+ 1102 00ea 0B       		.uleb128 0xb
+ 1103 00eb 49       		.uleb128 0x49
+ 1104 00ec 13       		.uleb128 0x13
+ 1105 00ed 02       		.uleb128 0x2
+ 1106 00ee 18       		.uleb128 0x18
+ 1107 00ef 00       		.byte	0
+ 1108 00f0 00       		.byte	0
+ 1109 00f1 12       		.uleb128 0x12
+ 1110 00f2 2E       		.uleb128 0x2e
+ 1111 00f3 00       		.byte	0
+ 1112 00f4 3F       		.uleb128 0x3f
+ 1113 00f5 19       		.uleb128 0x19
+ 1114 00f6 03       		.uleb128 0x3
+ 1115 00f7 0E       		.uleb128 0xe
+ 1116 00f8 3A       		.uleb128 0x3a
+ 1117 00f9 0B       		.uleb128 0xb
+ 1118 00fa 3B       		.uleb128 0x3b
+ 1119 00fb 0B       		.uleb128 0xb
+ 1120 00fc 27       		.uleb128 0x27
+ 1121 00fd 19       		.uleb128 0x19
+ 1122 00fe 11       		.uleb128 0x11
+ 1123 00ff 01       		.uleb128 0x1
+ 1124 0100 12       		.uleb128 0x12
+ 1125 0101 06       		.uleb128 0x6
+ 1126 0102 40       		.uleb128 0x40
+ 1127 0103 18       		.uleb128 0x18
+ 1128 0104 9742     		.uleb128 0x2117
+ 1129 0106 19       		.uleb128 0x19
+ 1130 0107 00       		.byte	0
+ 1131 0108 00       		.byte	0
+ 1132 0109 13       		.uleb128 0x13
+ 1133 010a 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 25
+
+
+ 1134 010b 00       		.byte	0
+ 1135 010c 3F       		.uleb128 0x3f
+ 1136 010d 19       		.uleb128 0x19
+ 1137 010e 03       		.uleb128 0x3
+ 1138 010f 0E       		.uleb128 0xe
+ 1139 0110 3A       		.uleb128 0x3a
+ 1140 0111 0B       		.uleb128 0xb
+ 1141 0112 3B       		.uleb128 0x3b
+ 1142 0113 0B       		.uleb128 0xb
+ 1143 0114 27       		.uleb128 0x27
+ 1144 0115 19       		.uleb128 0x19
+ 1145 0116 11       		.uleb128 0x11
+ 1146 0117 01       		.uleb128 0x1
+ 1147 0118 12       		.uleb128 0x12
+ 1148 0119 06       		.uleb128 0x6
+ 1149 011a 40       		.uleb128 0x40
+ 1150 011b 18       		.uleb128 0x18
+ 1151 011c 9642     		.uleb128 0x2116
+ 1152 011e 19       		.uleb128 0x19
+ 1153 011f 00       		.byte	0
+ 1154 0120 00       		.byte	0
+ 1155 0121 14       		.uleb128 0x14
+ 1156 0122 2E       		.uleb128 0x2e
+ 1157 0123 00       		.byte	0
+ 1158 0124 3F       		.uleb128 0x3f
+ 1159 0125 19       		.uleb128 0x19
+ 1160 0126 03       		.uleb128 0x3
+ 1161 0127 0E       		.uleb128 0xe
+ 1162 0128 3A       		.uleb128 0x3a
+ 1163 0129 0B       		.uleb128 0xb
+ 1164 012a 3B       		.uleb128 0x3b
+ 1165 012b 0B       		.uleb128 0xb
+ 1166 012c 49       		.uleb128 0x49
+ 1167 012d 13       		.uleb128 0x13
+ 1168 012e 11       		.uleb128 0x11
+ 1169 012f 01       		.uleb128 0x1
+ 1170 0130 12       		.uleb128 0x12
+ 1171 0131 06       		.uleb128 0x6
+ 1172 0132 40       		.uleb128 0x40
+ 1173 0133 18       		.uleb128 0x18
+ 1174 0134 9642     		.uleb128 0x2116
+ 1175 0136 19       		.uleb128 0x19
+ 1176 0137 00       		.byte	0
+ 1177 0138 00       		.byte	0
+ 1178 0139 15       		.uleb128 0x15
+ 1179 013a 26       		.uleb128 0x26
+ 1180 013b 00       		.byte	0
+ 1181 013c 49       		.uleb128 0x49
+ 1182 013d 13       		.uleb128 0x13
+ 1183 013e 00       		.byte	0
+ 1184 013f 00       		.byte	0
+ 1185 0140 16       		.uleb128 0x16
+ 1186 0141 34       		.uleb128 0x34
+ 1187 0142 00       		.byte	0
+ 1188 0143 03       		.uleb128 0x3
+ 1189 0144 0E       		.uleb128 0xe
+ 1190 0145 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 26
+
+
+ 1191 0146 0B       		.uleb128 0xb
+ 1192 0147 3B       		.uleb128 0x3b
+ 1193 0148 0B       		.uleb128 0xb
+ 1194 0149 49       		.uleb128 0x49
+ 1195 014a 13       		.uleb128 0x13
+ 1196 014b 3F       		.uleb128 0x3f
+ 1197 014c 19       		.uleb128 0x19
+ 1198 014d 02       		.uleb128 0x2
+ 1199 014e 18       		.uleb128 0x18
+ 1200 014f 00       		.byte	0
+ 1201 0150 00       		.byte	0
+ 1202 0151 17       		.uleb128 0x17
+ 1203 0152 35       		.uleb128 0x35
+ 1204 0153 00       		.byte	0
+ 1205 0154 49       		.uleb128 0x49
+ 1206 0155 13       		.uleb128 0x13
+ 1207 0156 00       		.byte	0
+ 1208 0157 00       		.byte	0
+ 1209 0158 18       		.uleb128 0x18
+ 1210 0159 34       		.uleb128 0x34
+ 1211 015a 00       		.byte	0
+ 1212 015b 03       		.uleb128 0x3
+ 1213 015c 08       		.uleb128 0x8
+ 1214 015d 3A       		.uleb128 0x3a
+ 1215 015e 0B       		.uleb128 0xb
+ 1216 015f 3B       		.uleb128 0x3b
+ 1217 0160 0B       		.uleb128 0xb
+ 1218 0161 49       		.uleb128 0x49
+ 1219 0162 13       		.uleb128 0x13
+ 1220 0163 3F       		.uleb128 0x3f
+ 1221 0164 19       		.uleb128 0x19
+ 1222 0165 02       		.uleb128 0x2
+ 1223 0166 18       		.uleb128 0x18
+ 1224 0167 00       		.byte	0
+ 1225 0168 00       		.byte	0
+ 1226 0169 00       		.byte	0
+ 1227              		.section	.debug_aranges,"",%progbits
+ 1228 0000 4C000000 		.4byte	0x4c
+ 1229 0004 0200     		.2byte	0x2
+ 1230 0006 00000000 		.4byte	.Ldebug_info0
+ 1231 000a 04       		.byte	0x4
+ 1232 000b 00       		.byte	0
+ 1233 000c 0000     		.2byte	0
+ 1234 000e 0000     		.2byte	0
+ 1235 0010 00000000 		.4byte	.LFB33
+ 1236 0014 2C000000 		.4byte	.LFE33-.LFB33
+ 1237 0018 00000000 		.4byte	.LFB34
+ 1238 001c 50000000 		.4byte	.LFE34-.LFB34
+ 1239 0020 00000000 		.4byte	.LFB35
+ 1240 0024 50000000 		.4byte	.LFE35-.LFB35
+ 1241 0028 00000000 		.4byte	.LFB36
+ 1242 002c 1C000000 		.4byte	.LFE36-.LFB36
+ 1243 0030 00000000 		.4byte	.LFB37
+ 1244 0034 08000000 		.4byte	.LFE37-.LFB37
+ 1245 0038 00000000 		.4byte	.LFB38
+ 1246 003c AC000000 		.4byte	.LFE38-.LFB38
+ 1247 0040 00000000 		.4byte	.LFB39
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 27
+
+
+ 1248 0044 80000000 		.4byte	.LFE39-.LFB39
+ 1249 0048 00000000 		.4byte	0
+ 1250 004c 00000000 		.4byte	0
+ 1251              		.section	.debug_ranges,"",%progbits
+ 1252              	.Ldebug_ranges0:
+ 1253 0000 00000000 		.4byte	.LFB33
+ 1254 0004 2C000000 		.4byte	.LFE33
+ 1255 0008 00000000 		.4byte	.LFB34
+ 1256 000c 50000000 		.4byte	.LFE34
+ 1257 0010 00000000 		.4byte	.LFB35
+ 1258 0014 50000000 		.4byte	.LFE35
+ 1259 0018 00000000 		.4byte	.LFB36
+ 1260 001c 1C000000 		.4byte	.LFE36
+ 1261 0020 00000000 		.4byte	.LFB37
+ 1262 0024 08000000 		.4byte	.LFE37
+ 1263 0028 00000000 		.4byte	.LFB38
+ 1264 002c AC000000 		.4byte	.LFE38
+ 1265 0030 00000000 		.4byte	.LFB39
+ 1266 0034 80000000 		.4byte	.LFE39
+ 1267 0038 00000000 		.4byte	0
+ 1268 003c 00000000 		.4byte	0
+ 1269              		.section	.debug_line,"",%progbits
+ 1270              	.Ldebug_line0:
+ 1271 0000 06010000 		.section	.debug_str,"MS",%progbits,1
+ 1271      02005600 
+ 1271      00000201 
+ 1271      FB0E0D00 
+ 1271      01010101 
+ 1272              	.LASF18:
+ 1273 0000 67696D62 		.ascii	"gimbalTilt\000"
+ 1273      616C5469 
+ 1273      6C7400
+ 1274              	.LASF21:
+ 1275 000b 7265706F 		.ascii	"report\000"
+ 1275      727400
+ 1276              	.LASF31:
+ 1277 0012 70757464 		.ascii	"putdata\000"
+ 1277      61746100 
+ 1278              	.LASF19:
+ 1279 001a 546F446F 		.ascii	"ToDoList\000"
+ 1279      4C697374 
+ 1279      00
+ 1280              	.LASF38:
+ 1281 0023 67707349 		.ascii	"gpsIncoming\000"
+ 1281      6E636F6D 
+ 1281      696E6700 
+ 1282              	.LASF44:
+ 1283 002f 433A5C55 		.ascii	"C:\\Users\\Clayton\\Documents\\Mars Rover\\MasterCo"
+ 1283      73657273 
+ 1283      5C436C61 
+ 1283      79746F6E 
+ 1283      5C446F63 
+ 1284 005d 6E74726F 		.ascii	"ntrollerBoard\\BYURover2015\\BYURover2015MainBoardS"
+ 1284      6C6C6572 
+ 1284      426F6172 
+ 1284      645C4259 
+ 1284      55526F76 
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 28
+
+
+ 1285 008e 4D2E6379 		.ascii	"M.cydsn\000"
+ 1285      64736E00 
+ 1286              	.LASF28:
+ 1287 0096 53636865 		.ascii	"Scheduler\000"
+ 1287      64756C65 
+ 1287      7200
+ 1288              	.LASF11:
+ 1289 00a0 666C6F61 		.ascii	"float\000"
+ 1289      7400
+ 1290              	.LASF42:
+ 1291 00a6 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
+ 1291      4320342E 
+ 1291      382E3420 
+ 1291      32303134 
+ 1291      30353236 
+ 1292 00d9 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m0 -mthumb -g -O"
+ 1292      20726576 
+ 1292      6973696F 
+ 1292      6E203231 
+ 1292      31333538 
+ 1293 010c 30202D73 		.ascii	"0 -std=gnu99 -ffunction-sections\000"
+ 1293      74643D67 
+ 1293      6E753939 
+ 1293      202D6666 
+ 1293      756E6374 
+ 1294              	.LASF7:
+ 1295 012d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1295      206C6F6E 
+ 1295      6720756E 
+ 1295      7369676E 
+ 1295      65642069 
+ 1296              	.LASF33:
+ 1297 0144 75617274 		.ascii	"uartISR\000"
+ 1297      49535200 
+ 1298              	.LASF16:
+ 1299 014c 72696768 		.ascii	"rightWheels\000"
+ 1299      74576865 
+ 1299      656C7300 
+ 1300              	.LASF29:
+ 1301 0158 696E6372 		.ascii	"incrementPos\000"
+ 1301      656D656E 
+ 1301      74506F73 
+ 1301      00
+ 1302              	.LASF34:
+ 1303 0165 53657276 		.ascii	"Servo_isr\000"
+ 1303      6F5F6973 
+ 1303      7200
+ 1304              	.LASF5:
+ 1305 016f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1305      20756E73 
+ 1305      69676E65 
+ 1305      6420696E 
+ 1305      7400
+ 1306              	.LASF3:
+ 1307 0181 73686F72 		.ascii	"short unsigned int\000"
+ 1307      7420756E 
+ 1307      7369676E 
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 29
+
+
+ 1307      65642069 
+ 1307      6E7400
+ 1308              	.LASF40:
+ 1309 0194 7469636B 		.ascii	"tick\000"
+ 1309      00
+ 1310              	.LASF32:
+ 1311 0199 6D794953 		.ascii	"myISR\000"
+ 1311      5200
+ 1312              	.LASF12:
+ 1313 019f 646F7562 		.ascii	"double\000"
+ 1313      6C6500
+ 1314              	.LASF37:
+ 1315 01a6 494E4352 		.ascii	"INCREMENT_AMMOUNT\000"
+ 1315      454D454E 
+ 1315      545F414D 
+ 1315      4D4F554E 
+ 1315      5400
+ 1316              	.LASF43:
+ 1317 01b8 2E5C6D61 		.ascii	".\\main.c\000"
+ 1317      696E2E63 
+ 1317      00
+ 1318              	.LASF9:
+ 1319 01c1 75696E74 		.ascii	"uint16\000"
+ 1319      313600
+ 1320              	.LASF10:
+ 1321 01c8 75696E74 		.ascii	"uint32\000"
+ 1321      333200
+ 1322              	.LASF35:
+ 1323 01cf 6D61696E 		.ascii	"main\000"
+ 1323      00
+ 1324              	.LASF1:
+ 1325 01d4 756E7369 		.ascii	"unsigned char\000"
+ 1325      676E6564 
+ 1325      20636861 
+ 1325      7200
+ 1326              	.LASF8:
+ 1327 01e2 756E7369 		.ascii	"unsigned int\000"
+ 1327      676E6564 
+ 1327      20696E74 
+ 1327      00
+ 1328              	.LASF25:
+ 1329 01ef 746F646F 		.ascii	"todo\000"
+ 1329      00
+ 1330              	.LASF24:
+ 1331 01f4 73636865 		.ascii	"scheduler\000"
+ 1331      64756C65 
+ 1331      7200
+ 1332              	.LASF39:
+ 1333 01fe 63757272 		.ascii	"currentPos\000"
+ 1333      656E7450 
+ 1333      6F7300
+ 1334              	.LASF22:
+ 1335 0209 67707344 		.ascii	"gpsData\000"
+ 1335      61746100 
+ 1336              	.LASF14:
+ 1337 0211 73697A65 		.ascii	"sizetype\000"
+ 1337      74797065 
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 30
+
+
+ 1337      00
+ 1338              	.LASF15:
+ 1339 021a 6C656674 		.ascii	"leftWheels\000"
+ 1339      57686565 
+ 1339      6C7300
+ 1340              	.LASF6:
+ 1341 0225 6C6F6E67 		.ascii	"long long int\000"
+ 1341      206C6F6E 
+ 1341      6720696E 
+ 1341      7400
+ 1342              	.LASF17:
+ 1343 0233 67696D62 		.ascii	"gimbalPan\000"
+ 1343      616C5061 
+ 1343      6E00
+ 1344              	.LASF2:
+ 1345 023d 73686F72 		.ascii	"short int\000"
+ 1345      7420696E 
+ 1345      7400
+ 1346              	.LASF27:
+ 1347 0247 50574D43 		.ascii	"PWMCurrentValues\000"
+ 1347      75727265 
+ 1347      6E745661 
+ 1347      6C756573 
+ 1347      00
+ 1348              	.LASF4:
+ 1349 0258 6C6F6E67 		.ascii	"long int\000"
+ 1349      20696E74 
+ 1349      00
+ 1350              	.LASF13:
+ 1351 0261 63686172 		.ascii	"char\000"
+ 1351      00
+ 1352              	.LASF30:
+ 1353 0266 64656372 		.ascii	"decrementPos\000"
+ 1353      656D656E 
+ 1353      74506F73 
+ 1353      00
+ 1354              	.LASF0:
+ 1355 0273 7369676E 		.ascii	"signed char\000"
+ 1355      65642063 
+ 1355      68617200 
+ 1356              	.LASF26:
+ 1357 027f 496E636F 		.ascii	"IncommingMessages\000"
+ 1357      6D6D696E 
+ 1357      674D6573 
+ 1357      73616765 
+ 1357      7300
+ 1358              	.LASF20:
+ 1359 0291 746F646F 		.ascii	"todolist\000"
+ 1359      6C697374 
+ 1359      00
+ 1360              	.LASF41:
+ 1361 029a 5F426F6F 		.ascii	"_Bool\000"
+ 1361      6C00
+ 1362              	.LASF36:
+ 1363 02a0 696E7472 		.ascii	"intr\000"
+ 1363      00
+ 1364              	.LASF23:
+ARM GAS  C:\Users\Clayton\AppData\Local\Temp\cc6SbqmR.s 			page 31
+
+
+ 1365 02a5 5265706F 		.ascii	"Report\000"
+ 1365      727400
+ 1366              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

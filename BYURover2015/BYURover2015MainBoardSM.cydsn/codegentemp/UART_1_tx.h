@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: UART_1_tx.h  
-* Version 2.0
+* Version 2.10
 *
 * Description:
 *  This file containts Control Register function prototypes and register defines
@@ -40,17 +40,15 @@ uint8   UART_1_tx_ClearInterrupt(void) ;
 /* Drive Modes */
 #define UART_1_tx_DRIVE_MODE_BITS        (3)
 #define UART_1_tx_DRIVE_MODE_IND_MASK    (0xFFFFFFFFu >> (32 - UART_1_tx_DRIVE_MODE_BITS))
-#define UART_1_tx_DRIVE_MODE_SHIFT       (0x00u)
-#define UART_1_tx_DRIVE_MODE_MASK        (0x07u << UART_1_tx_DRIVE_MODE_SHIFT)
 
-#define UART_1_tx_DM_ALG_HIZ         (0x00u << UART_1_tx_DRIVE_MODE_SHIFT)
-#define UART_1_tx_DM_DIG_HIZ         (0x01u << UART_1_tx_DRIVE_MODE_SHIFT)
-#define UART_1_tx_DM_RES_UP          (0x02u << UART_1_tx_DRIVE_MODE_SHIFT)
-#define UART_1_tx_DM_RES_DWN         (0x03u << UART_1_tx_DRIVE_MODE_SHIFT)
-#define UART_1_tx_DM_OD_LO           (0x04u << UART_1_tx_DRIVE_MODE_SHIFT)
-#define UART_1_tx_DM_OD_HI           (0x05u << UART_1_tx_DRIVE_MODE_SHIFT)
-#define UART_1_tx_DM_STRONG          (0x06u << UART_1_tx_DRIVE_MODE_SHIFT)
-#define UART_1_tx_DM_RES_UPDWN       (0x07u << UART_1_tx_DRIVE_MODE_SHIFT)
+#define UART_1_tx_DM_ALG_HIZ         (0x00u)
+#define UART_1_tx_DM_DIG_HIZ         (0x01u)
+#define UART_1_tx_DM_RES_UP          (0x02u)
+#define UART_1_tx_DM_RES_DWN         (0x03u)
+#define UART_1_tx_DM_OD_LO           (0x04u)
+#define UART_1_tx_DM_OD_HI           (0x05u)
+#define UART_1_tx_DM_STRONG          (0x06u)
+#define UART_1_tx_DM_RES_UPDWN       (0x07u)
 
 /* Digital Port Constants */
 #define UART_1_tx_MASK               UART_1_tx__MASK
@@ -78,6 +76,16 @@ uint8   UART_1_tx_ClearInterrupt(void) ;
     #define UART_1_tx_INTSTAT                (* (reg32 *) UART_1_tx__INTSTAT)
 
 #endif /* Interrupt Registers */
+
+
+/***************************************
+* The following code is DEPRECATED and 
+* must not be used.
+***************************************/
+
+#define UART_1_tx_DRIVE_MODE_SHIFT       (0x00u)
+#define UART_1_tx_DRIVE_MODE_MASK        (0x07u << UART_1_tx_DRIVE_MODE_SHIFT)
+
 
 #endif /* End Pins UART_1_tx_H */
 

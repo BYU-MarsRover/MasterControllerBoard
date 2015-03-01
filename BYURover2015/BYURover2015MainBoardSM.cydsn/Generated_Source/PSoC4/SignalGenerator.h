@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: SignalGenerator.h
-* Version 1.10
+* Version 2.0
 *
 * Description:
 *  This file provides constants and parameter values for the SignalGenerator
@@ -19,6 +19,8 @@
 #if !defined(CY_TCPWM_SignalGenerator_H)
 #define CY_TCPWM_SignalGenerator_H
 
+
+#include "CyLib.h"
 #include "cytypes.h"
 #include "cyfitter.h"
 
@@ -45,6 +47,7 @@ extern uint8  SignalGenerator_initVar;
 ****************************************/
 
 #define SignalGenerator_CY_TCPWM_V2                    (CYIPBLOCK_m0s8tcpwm_VERSION == 2u)
+#define SignalGenerator_CY_TCPWM_4000                  (CY_PSOC4_4000)
 
 /* TCPWM Configuration */
 #define SignalGenerator_CONFIG                         (1lu)
@@ -262,12 +265,25 @@ extern uint8  SignalGenerator_initVar;
 #define SignalGenerator_PWM_MODE_RIGHT                 (SignalGenerator_CC_MATCH_SET          |   \
                                                          SignalGenerator_OVERLOW_NO_CHANGE     |   \
                                                          SignalGenerator_UNDERFLOW_CLEAR)
-#define SignalGenerator_PWM_MODE_CENTER                (SignalGenerator_CC_MATCH_INVERT       |   \
-                                                         SignalGenerator_OVERLOW_NO_CHANGE     |   \
-                                                         SignalGenerator_UNDERFLOW_CLEAR)
-#define SignalGenerator_PWM_MODE_ASYM                  (SignalGenerator_CC_MATCH_NO_CHANGE    |   \
+#define SignalGenerator_PWM_MODE_ASYM                  (SignalGenerator_CC_MATCH_INVERT       |   \
                                                          SignalGenerator_OVERLOW_SET           |   \
-                                                         SignalGenerator_UNDERFLOW_CLEAR )
+                                                         SignalGenerator_UNDERFLOW_CLEAR)
+
+#if (SignalGenerator_CY_TCPWM_V2)
+    #if(SignalGenerator_CY_TCPWM_4000)
+        #define SignalGenerator_PWM_MODE_CENTER                (SignalGenerator_CC_MATCH_INVERT       |   \
+                                                                 SignalGenerator_OVERLOW_NO_CHANGE     |   \
+                                                                 SignalGenerator_UNDERFLOW_CLEAR)
+    #else
+        #define SignalGenerator_PWM_MODE_CENTER                (SignalGenerator_CC_MATCH_INVERT       |   \
+                                                                 SignalGenerator_OVERLOW_SET           |   \
+                                                                 SignalGenerator_UNDERFLOW_CLEAR)
+    #endif /* (SignalGenerator_CY_TCPWM_4000) */
+#else
+    #define SignalGenerator_PWM_MODE_CENTER                (SignalGenerator_CC_MATCH_INVERT       |   \
+                                                             SignalGenerator_OVERLOW_NO_CHANGE     |   \
+                                                             SignalGenerator_UNDERFLOW_CLEAR)
+#endif /* (SignalGenerator_CY_TCPWM_NEW) */
 
 /* Command operations without condition */
 #define SignalGenerator_CMD_CAPTURE                    (0u)
@@ -458,7 +474,69 @@ void   SignalGenerator_Wakeup(void);
 *    Initial Constants
 ***************************************/
 
+#define SignalGenerator_CTRL_QUAD_BASE_CONFIG                                                          \
+        (((uint32)(SignalGenerator_QUAD_ENCODING_MODES     << SignalGenerator_QUAD_MODE_SHIFT))       |\
+         ((uint32)(SignalGenerator_CONFIG                  << SignalGenerator_MODE_SHIFT)))
+
+#define SignalGenerator_CTRL_PWM_BASE_CONFIG                                                           \
+        (((uint32)(SignalGenerator_PWM_STOP_EVENT          << SignalGenerator_PWM_STOP_KILL_SHIFT))   |\
+         ((uint32)(SignalGenerator_PWM_OUT_INVERT          << SignalGenerator_INV_OUT_SHIFT))         |\
+         ((uint32)(SignalGenerator_PWM_OUT_N_INVERT        << SignalGenerator_INV_COMPL_OUT_SHIFT))   |\
+         ((uint32)(SignalGenerator_PWM_MODE                << SignalGenerator_MODE_SHIFT)))
+
+#define SignalGenerator_CTRL_PWM_RUN_MODE                                                              \
+            ((uint32)(SignalGenerator_PWM_RUN_MODE         << SignalGenerator_ONESHOT_SHIFT))
+            
+#define SignalGenerator_CTRL_PWM_ALIGN                                                                 \
+            ((uint32)(SignalGenerator_PWM_ALIGN            << SignalGenerator_UPDOWN_SHIFT))
+
+#define SignalGenerator_CTRL_PWM_KILL_EVENT                                                            \
+             ((uint32)(SignalGenerator_PWM_KILL_EVENT      << SignalGenerator_PWM_SYNC_KILL_SHIFT))
+
+#define SignalGenerator_CTRL_PWM_DEAD_TIME_CYCLE                                                       \
+            ((uint32)(SignalGenerator_PWM_DEAD_TIME_CYCLE  << SignalGenerator_PRESCALER_SHIFT))
+
+#define SignalGenerator_CTRL_PWM_PRESCALER                                                             \
+            ((uint32)(SignalGenerator_PWM_PRESCALER        << SignalGenerator_PRESCALER_SHIFT))
+
+#define SignalGenerator_CTRL_TIMER_BASE_CONFIG                                                         \
+        (((uint32)(SignalGenerator_TC_PRESCALER            << SignalGenerator_PRESCALER_SHIFT))       |\
+         ((uint32)(SignalGenerator_TC_COUNTER_MODE         << SignalGenerator_UPDOWN_SHIFT))          |\
+         ((uint32)(SignalGenerator_TC_RUN_MODE             << SignalGenerator_ONESHOT_SHIFT))         |\
+         ((uint32)(SignalGenerator_TC_COMP_CAP_MODE        << SignalGenerator_MODE_SHIFT)))
+        
+#define SignalGenerator_QUAD_SIGNALS_MODES                                                             \
+        (((uint32)(SignalGenerator_QUAD_PHIA_SIGNAL_MODE   << SignalGenerator_COUNT_SHIFT))           |\
+         ((uint32)(SignalGenerator_QUAD_INDEX_SIGNAL_MODE  << SignalGenerator_RELOAD_SHIFT))          |\
+         ((uint32)(SignalGenerator_QUAD_STOP_SIGNAL_MODE   << SignalGenerator_STOP_SHIFT))            |\
+         ((uint32)(SignalGenerator_QUAD_PHIB_SIGNAL_MODE   << SignalGenerator_START_SHIFT)))
+
+#define SignalGenerator_PWM_SIGNALS_MODES                                                              \
+        (((uint32)(SignalGenerator_PWM_SWITCH_SIGNAL_MODE  << SignalGenerator_CAPTURE_SHIFT))         |\
+         ((uint32)(SignalGenerator_PWM_COUNT_SIGNAL_MODE   << SignalGenerator_COUNT_SHIFT))           |\
+         ((uint32)(SignalGenerator_PWM_RELOAD_SIGNAL_MODE  << SignalGenerator_RELOAD_SHIFT))          |\
+         ((uint32)(SignalGenerator_PWM_STOP_SIGNAL_MODE    << SignalGenerator_STOP_SHIFT))            |\
+         ((uint32)(SignalGenerator_PWM_START_SIGNAL_MODE   << SignalGenerator_START_SHIFT)))
+
+#define SignalGenerator_TIMER_SIGNALS_MODES                                                            \
+        (((uint32)(SignalGenerator_TC_CAPTURE_SIGNAL_MODE  << SignalGenerator_CAPTURE_SHIFT))         |\
+         ((uint32)(SignalGenerator_TC_COUNT_SIGNAL_MODE    << SignalGenerator_COUNT_SHIFT))           |\
+         ((uint32)(SignalGenerator_TC_RELOAD_SIGNAL_MODE   << SignalGenerator_RELOAD_SHIFT))          |\
+         ((uint32)(SignalGenerator_TC_STOP_SIGNAL_MODE     << SignalGenerator_STOP_SHIFT))            |\
+         ((uint32)(SignalGenerator_TC_START_SIGNAL_MODE    << SignalGenerator_START_SHIFT)))
+        
+#define SignalGenerator_TIMER_UPDOWN_CNT_USED                                                          \
+                ((SignalGenerator__COUNT_UPDOWN0 == SignalGenerator_TC_COUNTER_MODE)                  ||\
+                 (SignalGenerator__COUNT_UPDOWN1 == SignalGenerator_TC_COUNTER_MODE))
+
+#define SignalGenerator_PWM_UPDOWN_CNT_USED                                                            \
+                ((SignalGenerator__CENTER == SignalGenerator_PWM_ALIGN)                               ||\
+                 (SignalGenerator__ASYMMETRIC == SignalGenerator_PWM_ALIGN))               
+        
 #define SignalGenerator_PWM_PR_INIT_VALUE              (1u)
+#define SignalGenerator_QUAD_PERIOD_INIT_VALUE         (0x8000u)
+
+
 
 #endif /* End CY_TCPWM_SignalGenerator_H */
 

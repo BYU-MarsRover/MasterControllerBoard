@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: UART_1_SPI_UART.c
-* Version 1.20
+* Version 2.0
 *
 * Description:
 *  This file provides the source code to the API for the SCB Component in
@@ -115,7 +115,7 @@
     *   - RX software buffer disabled: returns the number of used entries in
     *     RX FIFO.
     *   - RX software buffer enabled: returns the number of elements which were
-    *     placed in the receive buffer.
+    *     placed in the receive buffer. This does not include the hardware RX FIFO.
     *
     * Parameters:
     *  None
@@ -244,7 +244,7 @@
             /* TX software buffer has at least one room */
 
             if((UART_1_txBufferHead == UART_1_txBufferTail) &&
-               (UART_1_FIFO_SIZE != UART_1_GET_TX_FIFO_ENTRIES))
+               (UART_1_SPI_UART_FIFO_SIZE != UART_1_GET_TX_FIFO_ENTRIES))
             {
                 /* TX software buffer is empty: put data directly in TX FIFO */
                 UART_1_TX_FIFO_WR_REG = txData;
@@ -267,7 +267,7 @@
         }
         #else
         {
-            while(UART_1_FIFO_SIZE == UART_1_GET_TX_FIFO_ENTRIES)
+            while(UART_1_SPI_UART_FIFO_SIZE == UART_1_GET_TX_FIFO_ENTRIES)
             {
                 /* Block while TX FIFO is FULL */
             }

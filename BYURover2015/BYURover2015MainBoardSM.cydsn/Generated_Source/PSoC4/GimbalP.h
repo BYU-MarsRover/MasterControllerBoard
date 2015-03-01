@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: GimbalP.h  
-* Version 2.5
+* Version 2.10
 *
 * Description:
 *  This file containts Control Register function prototypes and register defines
@@ -40,17 +40,15 @@ uint8   GimbalP_ClearInterrupt(void) ;
 /* Drive Modes */
 #define GimbalP_DRIVE_MODE_BITS        (3)
 #define GimbalP_DRIVE_MODE_IND_MASK    (0xFFFFFFFFu >> (32 - GimbalP_DRIVE_MODE_BITS))
-#define GimbalP_DRIVE_MODE_SHIFT       (0x00u)
-#define GimbalP_DRIVE_MODE_MASK        (0x07u << GimbalP_DRIVE_MODE_SHIFT)
 
-#define GimbalP_DM_ALG_HIZ         (0x00u << GimbalP_DRIVE_MODE_SHIFT)
-#define GimbalP_DM_DIG_HIZ         (0x01u << GimbalP_DRIVE_MODE_SHIFT)
-#define GimbalP_DM_RES_UP          (0x02u << GimbalP_DRIVE_MODE_SHIFT)
-#define GimbalP_DM_RES_DWN         (0x03u << GimbalP_DRIVE_MODE_SHIFT)
-#define GimbalP_DM_OD_LO           (0x04u << GimbalP_DRIVE_MODE_SHIFT)
-#define GimbalP_DM_OD_HI           (0x05u << GimbalP_DRIVE_MODE_SHIFT)
-#define GimbalP_DM_STRONG          (0x06u << GimbalP_DRIVE_MODE_SHIFT)
-#define GimbalP_DM_RES_UPDWN       (0x07u << GimbalP_DRIVE_MODE_SHIFT)
+#define GimbalP_DM_ALG_HIZ         (0x00u)
+#define GimbalP_DM_DIG_HIZ         (0x01u)
+#define GimbalP_DM_RES_UP          (0x02u)
+#define GimbalP_DM_RES_DWN         (0x03u)
+#define GimbalP_DM_OD_LO           (0x04u)
+#define GimbalP_DM_OD_HI           (0x05u)
+#define GimbalP_DM_STRONG          (0x06u)
+#define GimbalP_DM_RES_UPDWN       (0x07u)
 
 /* Digital Port Constants */
 #define GimbalP_MASK               GimbalP__MASK
@@ -78,6 +76,16 @@ uint8   GimbalP_ClearInterrupt(void) ;
     #define GimbalP_INTSTAT                (* (reg32 *) GimbalP__INTSTAT)
 
 #endif /* Interrupt Registers */
+
+
+/***************************************
+* The following code is DEPRECATED and 
+* must not be used.
+***************************************/
+
+#define GimbalP_DRIVE_MODE_SHIFT       (0x00u)
+#define GimbalP_DRIVE_MODE_MASK        (0x07u << GimbalP_DRIVE_MODE_SHIFT)
+
 
 #endif /* End Pins GimbalP_H */
 

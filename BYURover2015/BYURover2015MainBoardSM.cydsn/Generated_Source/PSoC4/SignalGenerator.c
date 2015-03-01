@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: SignalGenerator.c
-* Version 1.10
+* Version 2.0
 *
 * Description:
 *  This file provides the source code to the API for the SignalGenerator
@@ -17,7 +17,6 @@
 *******************************************************************************/
 
 #include "SignalGenerator.h"
-#include "CyLib.h"
 
 uint8 SignalGenerator_initVar = 0u;
 
@@ -41,95 +40,31 @@ void SignalGenerator_Init(void)
 
     /* Set values from customizer to CTRL */
     #if (SignalGenerator__QUAD == SignalGenerator_CONFIG)
-        SignalGenerator_CONTROL_REG =
-        (((uint32)(SignalGenerator_QUAD_ENCODING_MODES     << SignalGenerator_QUAD_MODE_SHIFT))       |
-         ((uint32)(SignalGenerator_CONFIG                  << SignalGenerator_MODE_SHIFT)));
-    #endif  /* (SignalGenerator__QUAD == SignalGenerator_CONFIG) */
+        SignalGenerator_CONTROL_REG = SignalGenerator_CTRL_QUAD_BASE_CONFIG;
+        
+        /* Set values from customizer to CTRL1 */
+        SignalGenerator_TRIG_CONTROL1_REG  = SignalGenerator_QUAD_SIGNALS_MODES;
 
-    #if (SignalGenerator__PWM_SEL == SignalGenerator_CONFIG)
-        SignalGenerator_CONTROL_REG =
-        (((uint32)(SignalGenerator_PWM_STOP_EVENT          << SignalGenerator_PWM_STOP_KILL_SHIFT))    |
-         ((uint32)(SignalGenerator_PWM_OUT_INVERT          << SignalGenerator_INV_OUT_SHIFT))         |
-         ((uint32)(SignalGenerator_PWM_OUT_N_INVERT        << SignalGenerator_INV_COMPL_OUT_SHIFT))     |
-         ((uint32)(SignalGenerator_PWM_MODE                << SignalGenerator_MODE_SHIFT)));
-
-        #if (SignalGenerator__PWM_PR == SignalGenerator_PWM_MODE)
-            SignalGenerator_CONTROL_REG |=
-            ((uint32)(SignalGenerator_PWM_RUN_MODE         << SignalGenerator_ONESHOT_SHIFT));
-
-            SignalGenerator_WriteCounter(SignalGenerator_PWM_PR_INIT_VALUE);
-        #else
-            SignalGenerator_CONTROL_REG |=
-            (((uint32)(SignalGenerator_PWM_ALIGN           << SignalGenerator_UPDOWN_SHIFT))          |
-             ((uint32)(SignalGenerator_PWM_KILL_EVENT      << SignalGenerator_PWM_SYNC_KILL_SHIFT)));
-        #endif  /* (SignalGenerator__PWM_PR == SignalGenerator_PWM_MODE) */
-
-        #if (SignalGenerator__PWM_DT == SignalGenerator_PWM_MODE)
-            SignalGenerator_CONTROL_REG |=
-            ((uint32)(SignalGenerator_PWM_DEAD_TIME_CYCLE  << SignalGenerator_PRESCALER_SHIFT));
-        #endif  /* (SignalGenerator__PWM_DT == SignalGenerator_PWM_MODE) */
-
-        #if (SignalGenerator__PWM == SignalGenerator_PWM_MODE)
-            SignalGenerator_CONTROL_REG |=
-            ((uint32)SignalGenerator_PWM_PRESCALER         << SignalGenerator_PRESCALER_SHIFT);
-        #endif  /* (SignalGenerator__PWM == SignalGenerator_PWM_MODE) */
-    #endif  /* (SignalGenerator__PWM_SEL == SignalGenerator_CONFIG) */
-
-    #if (SignalGenerator__TIMER == SignalGenerator_CONFIG)
-        SignalGenerator_CONTROL_REG =
-        (((uint32)(SignalGenerator_TC_PRESCALER            << SignalGenerator_PRESCALER_SHIFT))   |
-         ((uint32)(SignalGenerator_TC_COUNTER_MODE         << SignalGenerator_UPDOWN_SHIFT))      |
-         ((uint32)(SignalGenerator_TC_RUN_MODE             << SignalGenerator_ONESHOT_SHIFT))     |
-         ((uint32)(SignalGenerator_TC_COMP_CAP_MODE        << SignalGenerator_MODE_SHIFT)));
-    #endif  /* (SignalGenerator__TIMER == SignalGenerator_CONFIG) */
-
-    /* Set values from customizer to CTRL1 */
-    #if (SignalGenerator__QUAD == SignalGenerator_CONFIG)
-        SignalGenerator_TRIG_CONTROL1_REG  =
-        (((uint32)(SignalGenerator_QUAD_PHIA_SIGNAL_MODE   << SignalGenerator_COUNT_SHIFT))       |
-         ((uint32)(SignalGenerator_QUAD_INDEX_SIGNAL_MODE  << SignalGenerator_RELOAD_SHIFT))      |
-         ((uint32)(SignalGenerator_QUAD_STOP_SIGNAL_MODE   << SignalGenerator_STOP_SHIFT))        |
-         ((uint32)(SignalGenerator_QUAD_PHIB_SIGNAL_MODE   << SignalGenerator_START_SHIFT)));
-    #endif  /* (SignalGenerator__QUAD == SignalGenerator_CONFIG) */
-
-    #if (SignalGenerator__PWM_SEL == SignalGenerator_CONFIG)
-        SignalGenerator_TRIG_CONTROL1_REG  =
-        (((uint32)(SignalGenerator_PWM_SWITCH_SIGNAL_MODE  << SignalGenerator_CAPTURE_SHIFT))     |
-         ((uint32)(SignalGenerator_PWM_COUNT_SIGNAL_MODE   << SignalGenerator_COUNT_SHIFT))       |
-         ((uint32)(SignalGenerator_PWM_RELOAD_SIGNAL_MODE  << SignalGenerator_RELOAD_SHIFT))      |
-         ((uint32)(SignalGenerator_PWM_STOP_SIGNAL_MODE    << SignalGenerator_STOP_SHIFT))        |
-         ((uint32)(SignalGenerator_PWM_START_SIGNAL_MODE   << SignalGenerator_START_SHIFT)));
-    #endif  /* (SignalGenerator__PWM_SEL == SignalGenerator_CONFIG) */
-
-    #if (SignalGenerator__TIMER == SignalGenerator_CONFIG)
-        SignalGenerator_TRIG_CONTROL1_REG  =
-        (((uint32)(SignalGenerator_TC_CAPTURE_SIGNAL_MODE  << SignalGenerator_CAPTURE_SHIFT))     |
-         ((uint32)(SignalGenerator_TC_COUNT_SIGNAL_MODE    << SignalGenerator_COUNT_SHIFT))       |
-         ((uint32)(SignalGenerator_TC_RELOAD_SIGNAL_MODE   << SignalGenerator_RELOAD_SHIFT))      |
-         ((uint32)(SignalGenerator_TC_STOP_SIGNAL_MODE     << SignalGenerator_STOP_SHIFT))        |
-         ((uint32)(SignalGenerator_TC_START_SIGNAL_MODE    << SignalGenerator_START_SHIFT)));
-    #endif  /* (SignalGenerator__TIMER == SignalGenerator_CONFIG) */
-
-    /* Set values from customizer to INTR */
-    #if (SignalGenerator__QUAD == SignalGenerator_CONFIG)
+        /* Set values from customizer to INTR */
         SignalGenerator_SetInterruptMode(SignalGenerator_QUAD_INTERRUPT_MASK);
+        
+         /* Set other values */
+        SignalGenerator_SetCounterMode(SignalGenerator_COUNT_DOWN);
+        SignalGenerator_WritePeriod(SignalGenerator_QUAD_PERIOD_INIT_VALUE);
+        SignalGenerator_WriteCounter(SignalGenerator_QUAD_PERIOD_INIT_VALUE);
     #endif  /* (SignalGenerator__QUAD == SignalGenerator_CONFIG) */
 
-    #if (SignalGenerator__PWM_SEL == SignalGenerator_CONFIG)
-        SignalGenerator_SetInterruptMode(SignalGenerator_PWM_INTERRUPT_MASK);
-    #endif  /* (SignalGenerator__PWM_SEL == SignalGenerator_CONFIG) */
-
     #if (SignalGenerator__TIMER == SignalGenerator_CONFIG)
+        SignalGenerator_CONTROL_REG = SignalGenerator_CTRL_TIMER_BASE_CONFIG;
+        
+        /* Set values from customizer to CTRL1 */
+        SignalGenerator_TRIG_CONTROL1_REG  = SignalGenerator_TIMER_SIGNALS_MODES;
+    
+        /* Set values from customizer to INTR */
         SignalGenerator_SetInterruptMode(SignalGenerator_TC_INTERRUPT_MASK);
-    #endif  /* (SignalGenerator__TIMER == SignalGenerator_CONFIG) */
-
-    /* Set other values from customizer */
-    #if (SignalGenerator__TIMER == SignalGenerator_CONFIG)
+        
+        /* Set other values from customizer */
         SignalGenerator_WritePeriod(SignalGenerator_TC_PERIOD_VALUE );
-
-        #if (SignalGenerator__COUNT_DOWN == SignalGenerator_TC_COUNTER_MODE)
-            SignalGenerator_WriteCounter(SignalGenerator_TC_PERIOD_VALUE );
-        #endif  /* (SignalGenerator__COUNT_DOWN == SignalGenerator_TC_COUNTER_MODE) */
 
         #if (SignalGenerator__COMPARE == SignalGenerator_TC_COMP_CAP_MODE)
             SignalGenerator_WriteCompare(SignalGenerator_TC_COMPARE_VALUE);
@@ -139,21 +74,49 @@ void SignalGenerator_Init(void)
                 SignalGenerator_WriteCompareBuf(SignalGenerator_TC_COMPARE_BUF_VALUE);
             #endif  /* (1u == SignalGenerator_TC_COMPARE_SWAP) */
         #endif  /* (SignalGenerator__COMPARE == SignalGenerator_TC_COMP_CAP_MODE) */
+
+        /* Initialize counter value */
+        #if (SignalGenerator_CY_TCPWM_V2 && SignalGenerator_TIMER_UPDOWN_CNT_USED && !SignalGenerator_CY_TCPWM_4000)
+            SignalGenerator_WriteCounter(1u);
+        #elif(SignalGenerator__COUNT_DOWN == SignalGenerator_TC_COUNTER_MODE)
+            SignalGenerator_WriteCounter(SignalGenerator_TC_PERIOD_VALUE);
+        #else
+            SignalGenerator_WriteCounter(0u);
+        #endif /* (SignalGenerator_CY_TCPWM_V2 && SignalGenerator_TIMER_UPDOWN_CNT_USED && !SignalGenerator_CY_TCPWM_4000) */
     #endif  /* (SignalGenerator__TIMER == SignalGenerator_CONFIG) */
 
     #if (SignalGenerator__PWM_SEL == SignalGenerator_CONFIG)
-        SignalGenerator_WritePeriod(SignalGenerator_PWM_PERIOD_VALUE );
-        SignalGenerator_WriteCompare(SignalGenerator_PWM_COMPARE_VALUE);
+        SignalGenerator_CONTROL_REG = SignalGenerator_CTRL_PWM_BASE_CONFIG;
 
-        #if (1u == SignalGenerator_PWM_COMPARE_SWAP)
-            SignalGenerator_SetCompareSwap(1u);
-            SignalGenerator_WriteCompareBuf(SignalGenerator_PWM_COMPARE_BUF_VALUE);
-        #endif  /* (1u == SignalGenerator_PWM_COMPARE_SWAP) */
+        #if (SignalGenerator__PWM_PR == SignalGenerator_PWM_MODE)
+            SignalGenerator_CONTROL_REG |= SignalGenerator_CTRL_PWM_RUN_MODE;
+            SignalGenerator_WriteCounter(SignalGenerator_PWM_PR_INIT_VALUE);
+        #else
+            SignalGenerator_CONTROL_REG |= SignalGenerator_CTRL_PWM_ALIGN | SignalGenerator_CTRL_PWM_KILL_EVENT;
+            
+            /* Initialize counter value */
+            #if (SignalGenerator_CY_TCPWM_V2 && SignalGenerator_PWM_UPDOWN_CNT_USED && !SignalGenerator_CY_TCPWM_4000)
+                SignalGenerator_WriteCounter(1u);
+            #elif (SignalGenerator__RIGHT == SignalGenerator_PWM_ALIGN)
+                SignalGenerator_WriteCounter(SignalGenerator_PWM_PERIOD_VALUE);
+            #else 
+                SignalGenerator_WriteCounter(0u);
+            #endif  /* (SignalGenerator_CY_TCPWM_V2 && SignalGenerator_PWM_UPDOWN_CNT_USED && !SignalGenerator_CY_TCPWM_4000) */
+        #endif  /* (SignalGenerator__PWM_PR == SignalGenerator_PWM_MODE) */
 
-        #if (1u == SignalGenerator_PWM_PERIOD_SWAP)
-            SignalGenerator_SetPeriodSwap(1u);
-            SignalGenerator_WritePeriodBuf(SignalGenerator_PWM_PERIOD_BUF_VALUE);
-        #endif  /* (1u == SignalGenerator_PWM_PERIOD_SWAP) */
+        #if (SignalGenerator__PWM_DT == SignalGenerator_PWM_MODE)
+            SignalGenerator_CONTROL_REG |= SignalGenerator_CTRL_PWM_DEAD_TIME_CYCLE;
+        #endif  /* (SignalGenerator__PWM_DT == SignalGenerator_PWM_MODE) */
+
+        #if (SignalGenerator__PWM == SignalGenerator_PWM_MODE)
+            SignalGenerator_CONTROL_REG |= SignalGenerator_CTRL_PWM_PRESCALER;
+        #endif  /* (SignalGenerator__PWM == SignalGenerator_PWM_MODE) */
+
+        /* Set values from customizer to CTRL1 */
+        SignalGenerator_TRIG_CONTROL1_REG  = SignalGenerator_PWM_SIGNALS_MODES;
+    
+        /* Set values from customizer to INTR */
+        SignalGenerator_SetInterruptMode(SignalGenerator_PWM_INTERRUPT_MASK);
 
         /* Set values from customizer to CTRL2 */
         #if (SignalGenerator__PWM_PR == SignalGenerator_PWM_MODE)
@@ -167,7 +130,6 @@ void SignalGenerator_Init(void)
             #endif  /* ( SignalGenerator_PWM_LEFT == SignalGenerator_PWM_ALIGN) */
 
             #if (SignalGenerator__RIGHT == SignalGenerator_PWM_ALIGN)
-                SignalGenerator_WriteCounter(SignalGenerator_PWM_PERIOD_VALUE);
                 SignalGenerator_TRIG_CONTROL2_REG = SignalGenerator_PWM_MODE_RIGHT;
             #endif  /* ( SignalGenerator_PWM_RIGHT == SignalGenerator_PWM_ALIGN) */
 
@@ -179,7 +141,22 @@ void SignalGenerator_Init(void)
                 SignalGenerator_TRIG_CONTROL2_REG = SignalGenerator_PWM_MODE_ASYM;
             #endif  /* (SignalGenerator__ASYMMETRIC == SignalGenerator_PWM_ALIGN) */
         #endif  /* (SignalGenerator__PWM_PR == SignalGenerator_PWM_MODE) */
+
+        /* Set other values from customizer */
+        SignalGenerator_WritePeriod(SignalGenerator_PWM_PERIOD_VALUE );
+        SignalGenerator_WriteCompare(SignalGenerator_PWM_COMPARE_VALUE);
+
+        #if (1u == SignalGenerator_PWM_COMPARE_SWAP)
+            SignalGenerator_SetCompareSwap(1u);
+            SignalGenerator_WriteCompareBuf(SignalGenerator_PWM_COMPARE_BUF_VALUE);
+        #endif  /* (1u == SignalGenerator_PWM_COMPARE_SWAP) */
+
+        #if (1u == SignalGenerator_PWM_PERIOD_SWAP)
+            SignalGenerator_SetPeriodSwap(1u);
+            SignalGenerator_WritePeriodBuf(SignalGenerator_PWM_PERIOD_BUF_VALUE);
+        #endif  /* (1u == SignalGenerator_PWM_PERIOD_SWAP) */
     #endif  /* (SignalGenerator__PWM_SEL == SignalGenerator_CONFIG) */
+    
 }
 
 
@@ -857,28 +834,29 @@ void SignalGenerator_SetPeriodSwap(uint32 swapEnable)
 *******************************************************************************/
 void SignalGenerator_WriteCompare(uint32 compare)
 {
-    #if (SignalGenerator_CY_TCPWM_V2)
+    #if (SignalGenerator_CY_TCPWM_4000)
         uint32 currentMode;
-    #endif /* (SignalGenerator_CY_TCPWM_V2) */
+    #endif /* (SignalGenerator_CY_TCPWM_4000) */
 
-    #if (SignalGenerator_CY_TCPWM_V2)
+    #if (SignalGenerator_CY_TCPWM_4000)
         currentMode = ((SignalGenerator_CONTROL_REG & SignalGenerator_UPDOWN_MASK) >> SignalGenerator_UPDOWN_SHIFT);
 
-        if (SignalGenerator__COUNT_DOWN == currentMode)
+        if (((uint32)SignalGenerator__COUNT_DOWN == currentMode) && (0xFFFFu != compare))
         {
-            SignalGenerator_COMP_CAP_REG = ((compare + 1u) & SignalGenerator_16BIT_MASK);
+            compare++;
         }
-        else if (SignalGenerator__COUNT_UP == currentMode)
+        else if (((uint32)SignalGenerator__COUNT_UP == currentMode) && (0u != compare))
         {
-            SignalGenerator_COMP_CAP_REG = ((compare - 1u) & SignalGenerator_16BIT_MASK);
+            compare--;
         }
         else
         {
-            SignalGenerator_COMP_CAP_REG = (compare & SignalGenerator_16BIT_MASK);
         }
-    #else
-        SignalGenerator_COMP_CAP_REG = (compare & SignalGenerator_16BIT_MASK);
-    #endif /* (SignalGenerator_CY_TCPWM_V2) */
+        
+    
+    #endif /* (SignalGenerator_CY_TCPWM_4000) */
+    
+    SignalGenerator_COMP_CAP_REG = (compare & SignalGenerator_16BIT_MASK);
 }
 
 
@@ -899,30 +877,32 @@ void SignalGenerator_WriteCompare(uint32 compare)
 *******************************************************************************/
 uint32 SignalGenerator_ReadCompare(void)
 {
-    #if (SignalGenerator_CY_TCPWM_V2)
+    #if (SignalGenerator_CY_TCPWM_4000)
         uint32 currentMode;
         uint32 regVal;
-    #endif /* (SignalGenerator_CY_TCPWM_V2) */
+    #endif /* (SignalGenerator_CY_TCPWM_4000) */
 
-    #if (SignalGenerator_CY_TCPWM_V2)
+    #if (SignalGenerator_CY_TCPWM_4000)
         currentMode = ((SignalGenerator_CONTROL_REG & SignalGenerator_UPDOWN_MASK) >> SignalGenerator_UPDOWN_SHIFT);
-
-        if (SignalGenerator__COUNT_DOWN == currentMode)
+        
+        regVal = SignalGenerator_COMP_CAP_REG;
+        
+        if (((uint32)SignalGenerator__COUNT_DOWN == currentMode) && (0u != regVal))
         {
-            regVal = ((SignalGenerator_COMP_CAP_REG - 1u) & SignalGenerator_16BIT_MASK);
+            regVal--;
         }
-        else if (SignalGenerator__COUNT_UP == currentMode)
+        else if (((uint32)SignalGenerator__COUNT_UP == currentMode) && (0xFFFFu != regVal))
         {
-            regVal = ((SignalGenerator_COMP_CAP_REG + 1u) & SignalGenerator_16BIT_MASK);
+            regVal++;
         }
         else
         {
-            regVal = (SignalGenerator_COMP_CAP_REG & SignalGenerator_16BIT_MASK);
         }
-        return (regVal);
+
+        return (regVal & SignalGenerator_16BIT_MASK);
     #else
         return (SignalGenerator_COMP_CAP_REG & SignalGenerator_16BIT_MASK);
-    #endif /* (SignalGenerator_CY_TCPWM_V2) */
+    #endif /* (SignalGenerator_CY_TCPWM_4000) */
 }
 
 
@@ -943,28 +923,27 @@ uint32 SignalGenerator_ReadCompare(void)
 *******************************************************************************/
 void SignalGenerator_WriteCompareBuf(uint32 compareBuf)
 {
-    #if (SignalGenerator_CY_TCPWM_V2)
+    #if (SignalGenerator_CY_TCPWM_4000)
         uint32 currentMode;
-    #endif /* (SignalGenerator_CY_TCPWM_V2) */
+    #endif /* (SignalGenerator_CY_TCPWM_4000) */
 
-    #if (SignalGenerator_CY_TCPWM_V2)
+    #if (SignalGenerator_CY_TCPWM_4000)
         currentMode = ((SignalGenerator_CONTROL_REG & SignalGenerator_UPDOWN_MASK) >> SignalGenerator_UPDOWN_SHIFT);
 
-        if (SignalGenerator__COUNT_DOWN == currentMode)
+        if (((uint32)SignalGenerator__COUNT_DOWN == currentMode) && (0xFFFFu != compareBuf))
         {
-            SignalGenerator_COMP_CAP_BUF_REG = ((compareBuf + 1u) & SignalGenerator_16BIT_MASK);
+            compareBuf++;
         }
-        else if (SignalGenerator__COUNT_UP == currentMode)
+        else if (((uint32)SignalGenerator__COUNT_UP == currentMode) && (0u != compareBuf))
         {
-            SignalGenerator_COMP_CAP_BUF_REG = ((compareBuf - 1u) & SignalGenerator_16BIT_MASK);
+            compareBuf --;
         }
         else
         {
-            SignalGenerator_COMP_CAP_BUF_REG = (compareBuf & SignalGenerator_16BIT_MASK);
         }
-    #else
-        SignalGenerator_COMP_CAP_BUF_REG = (compareBuf & SignalGenerator_16BIT_MASK);
-    #endif /* (SignalGenerator_CY_TCPWM_V2) */
+    #endif /* (SignalGenerator_CY_TCPWM_4000) */
+    
+    SignalGenerator_COMP_CAP_BUF_REG = (compareBuf & SignalGenerator_16BIT_MASK);
 }
 
 
@@ -985,30 +964,32 @@ void SignalGenerator_WriteCompareBuf(uint32 compareBuf)
 *******************************************************************************/
 uint32 SignalGenerator_ReadCompareBuf(void)
 {
-    #if (SignalGenerator_CY_TCPWM_V2)
+    #if (SignalGenerator_CY_TCPWM_4000)
         uint32 currentMode;
         uint32 regVal;
-    #endif /* (SignalGenerator_CY_TCPWM_V2) */
+    #endif /* (SignalGenerator_CY_TCPWM_4000) */
 
-    #if (SignalGenerator_CY_TCPWM_V2)
+    #if (SignalGenerator_CY_TCPWM_4000)
         currentMode = ((SignalGenerator_CONTROL_REG & SignalGenerator_UPDOWN_MASK) >> SignalGenerator_UPDOWN_SHIFT);
 
-        if (SignalGenerator__COUNT_DOWN == currentMode)
+        regVal = SignalGenerator_COMP_CAP_BUF_REG;
+        
+        if (((uint32)SignalGenerator__COUNT_DOWN == currentMode) && (0u != regVal))
         {
-            regVal = ((SignalGenerator_COMP_CAP_BUF_REG - 1u) & SignalGenerator_16BIT_MASK);
+            regVal--;
         }
-        else if (SignalGenerator__COUNT_UP == currentMode)
+        else if (((uint32)SignalGenerator__COUNT_UP == currentMode) && (0xFFFFu != regVal))
         {
-            regVal = ((SignalGenerator_COMP_CAP_BUF_REG + 1u) & SignalGenerator_16BIT_MASK);
+            regVal++;
         }
         else
         {
-            regVal = (SignalGenerator_COMP_CAP_BUF_REG & SignalGenerator_16BIT_MASK);
         }
-        return (regVal);
+
+        return (regVal & SignalGenerator_16BIT_MASK);
     #else
         return (SignalGenerator_COMP_CAP_BUF_REG & SignalGenerator_16BIT_MASK);
-    #endif /* (SignalGenerator_CY_TCPWM_V2) */
+    #endif /* (SignalGenerator_CY_TCPWM_4000) */
 }
 
 

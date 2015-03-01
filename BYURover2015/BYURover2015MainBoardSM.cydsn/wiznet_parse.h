@@ -17,13 +17,13 @@
 
 //I created this struct with the purpose of testing.
 //It needs to be duplicated in the main code base and then deleted.
-/*typedef struct todolist{
+typedef struct todolist{
 	uint16_t leftWheels;
 	uint16_t rightWheels;
 	uint16_t gimbalPan;
 	uint16_t gimbalTilt;
 } ToDoList;
-*/
+
 
 //needs init function
 //ideally as the substructs are changed, we shouldn't have to 
@@ -52,10 +52,10 @@ void wiznet_parse(ToDoList* todo);
 
 //stores all system status reports and values into a large struct.
 //packages the struct and sends it to the wiznet
-void send_packet(Report *report);// may not need to pass the report in
+void send_packet(Report* report);// may not need to pass the report in
 
 //initializes the report structure
-void report_init();
+void report_init(Report* report);
 
 // used for debugging purposes
 //void print_ToDoList(ToDoList *todo); 

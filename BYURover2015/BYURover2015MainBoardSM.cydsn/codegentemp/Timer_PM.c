@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: Timer_PM.c
-* Version 1.10
+* Version 2.0
 *
 * Description:
 *  This file contains the setup, control, and status commands to support

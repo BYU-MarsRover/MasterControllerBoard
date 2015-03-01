@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: .h
-* Version 1.20
+* Version 2.0
 *
 * Description:
 *  This private file provides constants and parameter values for the
@@ -33,17 +33,19 @@
 #define UART_1_GetI2CExtClkInterruptMode()                  (UART_1_INTR_I2C_EC_MASK_REG)
 #define UART_1_GetI2CExtClkInterruptSourceMasked()          (UART_1_INTR_I2C_EC_MASKED_REG)
 
-#if(!UART_1_CY_SCBIP_V1_I2C_ONLY)
-/* APIs to service INTR_SPI_EC register */
-#define UART_1_SetSpiExtClkInterruptMode(interruptMask) UART_1_WRITE_INTR_SPI_EC_MASK(interruptMask)
-#define UART_1_ClearSpiExtClkInterruptSource(interruptMask) UART_1_CLEAR_INTR_SPI_EC(interruptMask)
-#define UART_1_GetExtSpiClkInterruptSource()                 (UART_1_INTR_SPI_EC_REG)
-#define UART_1_GetExtSpiClkInterruptMode()                   (UART_1_INTR_SPI_EC_MASK_REG)
-#define UART_1_GetExtSpiClkInterruptSourceMasked()           (UART_1_INTR_SPI_EC_MASKED_REG)
-#endif /* (!UART_1_CY_SCBIP_V1_I2C_ONLY) */
+#if (!UART_1_CY_SCBIP_V1)
+    /* APIs to service INTR_SPI_EC register */
+    #define UART_1_SetSpiExtClkInterruptMode(interruptMask) \
+                                                                UART_1_WRITE_INTR_SPI_EC_MASK(interruptMask)
+    #define UART_1_ClearSpiExtClkInterruptSource(interruptMask) \
+                                                                UART_1_CLEAR_INTR_SPI_EC(interruptMask)
+    #define UART_1_GetExtSpiClkInterruptSource()                 (UART_1_INTR_SPI_EC_REG)
+    #define UART_1_GetExtSpiClkInterruptMode()                   (UART_1_INTR_SPI_EC_MASK_REG)
+    #define UART_1_GetExtSpiClkInterruptSourceMasked()           (UART_1_INTR_SPI_EC_MASKED_REG)
+#endif /* (!UART_1_CY_SCBIP_V1) */
 
 #if(UART_1_SCB_MODE_UNCONFIG_CONST_CFG)
-    extern void UART_1_SetPins(uint32 mode, uint32 subMode, uint32 uartTxRx);
+    extern void UART_1_SetPins(uint32 mode, uint32 subMode, uint32 uartEnableMask);
 #endif /* (UART_1_SCB_MODE_UNCONFIG_CONST_CFG) */
 
 
@@ -58,16 +60,16 @@
 extern UART_1_BACKUP_STRUCT UART_1_backup;
 
 #if(UART_1_SCB_MODE_UNCONFIG_CONST_CFG)
-    /* Common config vars */
+    /* Common configuration variables */
     extern uint8 UART_1_scbMode;
     extern uint8 UART_1_scbEnableWake;
     extern uint8 UART_1_scbEnableIntr;
 
-    /* I2C config vars */
+    /* I2C configuration variables */
     extern uint8 UART_1_mode;
     extern uint8 UART_1_acceptAddr;
 
-    /* SPI/UART config vars */
+    /* SPI/UART configuration variables */
     extern volatile uint8 * UART_1_rxBuffer;
     extern uint8   UART_1_rxDataBits;
     extern uint32  UART_1_rxBufferSize;
@@ -76,18 +78,18 @@ extern UART_1_BACKUP_STRUCT UART_1_backup;
     extern uint8   UART_1_txDataBits;
     extern uint32  UART_1_txBufferSize;
 
-    /* EZI2C config vars */
+    /* EZI2C configuration variables */
     extern uint8 UART_1_numberOfAddr;
     extern uint8 UART_1_subAddrSize;
 #endif /* (UART_1_SCB_MODE_UNCONFIG_CONST_CFG) */
 
 
 /***************************************
-*  Conditional Macro
+*        Conditional Macro
 ****************************************/
 
 #if(UART_1_SCB_MODE_UNCONFIG_CONST_CFG)
-    /* Define run time operation mode */
+    /* Defines run time operation mode */
     #define UART_1_SCB_MODE_I2C_RUNTM_CFG     (UART_1_SCB_MODE_I2C      == UART_1_scbMode)
     #define UART_1_SCB_MODE_SPI_RUNTM_CFG     (UART_1_SCB_MODE_SPI      == UART_1_scbMode)
     #define UART_1_SCB_MODE_UART_RUNTM_CFG    (UART_1_SCB_MODE_UART     == UART_1_scbMode)
@@ -95,9 +97,16 @@ extern UART_1_BACKUP_STRUCT UART_1_backup;
     #define UART_1_SCB_MODE_UNCONFIG_RUNTM_CFG \
                                                         (UART_1_SCB_MODE_UNCONFIG == UART_1_scbMode)
 
-    /* Define wakeup enable */
-    #define UART_1_SCB_WAKE_ENABLE_CHECK        (0u != UART_1_scbEnableWake)
+    /* Defines wakeup enable */
+    #define UART_1_SCB_WAKE_ENABLE_CHECK       (0u != UART_1_scbEnableWake)
 #endif /* (UART_1_SCB_MODE_UNCONFIG_CONST_CFG) */
+
+/* Defines maximum number of SCB pins */
+#if (!UART_1_CY_SCBIP_V1)
+    #define UART_1_SCB_PINS_NUMBER    (7u)
+#else
+    #define UART_1_SCB_PINS_NUMBER    (2u)
+#endif /* (!UART_1_CY_SCBIP_V1) */
 
 #endif /* (CY_SCB_PVT_UART_1_H) */
 
