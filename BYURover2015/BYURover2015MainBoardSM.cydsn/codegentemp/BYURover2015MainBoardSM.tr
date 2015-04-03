@@ -16,7 +16,7 @@
 ##################################################################### 
                     1::Clock Frequency Summary
 ===================================================================== 
-Number of clocks: 11
+Number of clocks: 14
 Clock: Clock_1             | N/A  | Target: 0.00 MHz   | 
 Clock: Clock_1(FFB)        | N/A  | Target: 0.00 MHz   | 
 Clock: Clock_2             | N/A  | Target: 1.00 MHz   | 
@@ -25,7 +25,10 @@ Clock: CyHFCLK             | N/A  | Target: 24.00 MHz  |
 Clock: CyILO               | N/A  | Target: 0.03 MHz   | 
 Clock: CyIMO               | N/A  | Target: 24.00 MHz  | 
 Clock: CyLFCLK             | N/A  | Target: 0.03 MHz   | 
+Clock: CyRouted1           | N/A  | Target: 24.00 MHz  | 
 Clock: CySYSCLK            | N/A  | Target: 24.00 MHz  | 
+Clock: SPI_1_SCBCLK        | N/A  | Target: 24.00 MHz  | 
+Clock: SPI_1_SCBCLK(FFB)   | N/A  | Target: 24.00 MHz  | 
 Clock: UART_1_SCBCLK       | N/A  | Target: 1.41 MHz   | 
 Clock: UART_1_SCBCLK(FFB)  | N/A  | Target: 1.41 MHz   | 
 
@@ -63,7 +66,7 @@ Port Name  Setup to Clk  Clock Name:Phase
 
 Port Name       Clock to Out  Clock Name:Phase  
 --------------  ------------  ----------------  
-GimbalP(0)_PAD  31307         CyHFCLK:R         
+GimbalP(0)_PAD  31281         CyHFCLK:R         
 GimbalT(0)_PAD  30928         CyHFCLK:R         
 L_Servo(0)_PAD  29456         CyHFCLK:R         
 R_Servo(0)_PAD  30151         CyHFCLK:R         

@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: UART_1_UART.c
-* Version 1.20
+* Version 2.0
 *
 * Description:
 *  This file provides the source code to the API for the SCB Component in
@@ -22,7 +22,7 @@
 #if(UART_1_SCB_MODE_UNCONFIG_CONST_CFG)
 
     /***************************************
-    *  Config Structure Initialization
+    *  Configuration Structure Initialization
     ***************************************/
 
     const UART_1_UART_INIT_STRUCT UART_1_configUart =
@@ -52,7 +52,12 @@
         UART_1_UART_INTR_RX_MASK,
         UART_1_UART_RX_TRIGGER_LEVEL,
         UART_1_UART_INTR_TX_MASK,
-        UART_1_UART_TX_TRIGGER_LEVEL
+        UART_1_UART_TX_TRIGGER_LEVEL,
+        (uint8) UART_1_UART_BYTE_MODE_ENABLE,
+        (uint8) UART_1_UART_CTS_ENABLE,
+        (uint8) UART_1_UART_CTS_POLARITY,
+        (uint8) UART_1_UART_RTS_POLARITY,
+        (uint8) UART_1_UART_RTS_FIFO_LEVEL
     };
 
 
@@ -74,14 +79,25 @@
     *******************************************************************************/
     void UART_1_UartInit(const UART_1_UART_INIT_STRUCT *config)
     {
+        uint32 pinsConfig;
+
         if(NULL == config)
         {
-            CYASSERT(0u != 0u); /* Halt execution due bad function parameter */
+            CYASSERT(0u != 0u); /* Halt execution due to bad function parameter */
         }
         else
         {
+            /* Get direction to configure UART pins: TX, RX or TX+RX */
+            pinsConfig  = config->direction;
+
+        #if !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1)
+            /* Add RTS and CTS pins to configure */
+            pinsConfig |= (0u != config->rtsRxFifoLevel) ? (UART_1_UART_RTS_PIN_ENABLE) : (0u);
+            pinsConfig |= (0u != config->enableCts)         ? (UART_1_UART_CTS_PIN_ENABLE) : (0u);
+        #endif /* !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
+
             /* Configure pins */
-            UART_1_SetPins(UART_1_SCB_MODE_UART, config->mode, config->direction);
+            UART_1_SetPins(UART_1_SCB_MODE_UART, config->mode, pinsConfig);
 
             /* Store internal configuration */
             UART_1_scbMode       = (uint8) UART_1_SCB_MODE_UART;
@@ -112,7 +128,8 @@
                 UART_1_CTRL_REG  = UART_1_GET_CTRL_OVS(config->oversample);
             }
 
-            UART_1_CTRL_REG     |= UART_1_GET_CTRL_ADDR_ACCEPT(config->multiprocAcceptAddr) |
+            UART_1_CTRL_REG     |= UART_1_GET_CTRL_BYTE_MODE  (config->enableByteMode)      |
+                                             UART_1_GET_CTRL_ADDR_ACCEPT(config->multiprocAcceptAddr) |
                                              UART_1_CTRL_UART;
 
             /* Configure sub-mode: UART, SmartCard or IrDA */
@@ -156,7 +173,12 @@
 
             UART_1_TX_FIFO_CTRL_REG = UART_1_GET_TX_FIFO_CTRL_TRIGGER_LEVEL(config->txTriggerLevel);
 
-
+        #if !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1)
+            UART_1_UART_FLOW_CTRL_REG = UART_1_GET_UART_FLOW_CTRL_CTS_ENABLE(config->enableCts) | \
+                                            UART_1_GET_UART_FLOW_CTRL_CTS_POLARITY (config->ctsPolarity)  | \
+                                            UART_1_GET_UART_FLOW_CTRL_RTS_POLARITY(config->rtsPolarity)   | \
+                                            UART_1_GET_UART_FLOW_CTRL_TRIGGER_LEVEL(config->rtsRxFifoLevel);
+        #endif /* !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
 
             /* Configure interrupt with UART handler but do not enable it */
             CyIntDisable    (UART_1_ISR_NUMBER);
@@ -183,7 +205,7 @@
             UART_1_rxBufferTail     = 0u;
             UART_1_rxBufferOverflow = 0u;
 
-            /* Clrea TX buffer indexes */
+            /* Clear TX buffer indexes */
             UART_1_txBufferHead = 0u;
             UART_1_txBufferTail = 0u;
         }
@@ -223,6 +245,10 @@
         UART_1_UART_TX_CTRL_REG = UART_1_UART_DEFAULT_UART_TX_CTRL;
         UART_1_TX_CTRL_REG      = UART_1_UART_DEFAULT_TX_CTRL;
         UART_1_TX_FIFO_CTRL_REG = UART_1_UART_DEFAULT_TX_FIFO_CTRL;
+
+    #if !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1)
+        UART_1_UART_FLOW_CTRL_REG = UART_1_UART_DEFAULT_FLOW_CTRL;
+    #endif /* !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
 
         /* Configure interrupt with UART handler but do not enable it */
     #if(UART_1_SCB_IRQ_INTERNAL)
@@ -265,8 +291,8 @@
 ********************************************************************************
 *
 * Summary:
-*  Sets the hardware detectable receiver address for the UART in the Multiprocessor
-*  mode.
+*  Sets the hardware detectable receiver address for the UART in the
+*  Multiprocessor mode.
 *
 * Parameters:
 *  address: Address for hardware address detection.
@@ -327,10 +353,11 @@ void UART_1_UartSetRxAddressMask(uint32 addressMask)
     *  This function is designed for ASCII characters and returns a char
     *  where 1 to 255 are valid characters and 0 indicates an error occurred or
     *  no data present.
-    *  - The RX software buffer is disabled: returns the data element retrieved from the RX FIFO.
+    *  - The RX software buffer is disabled: returns the data element
+    *    retrieved from the RX FIFO.
     *    Undefined data will be returned if the RX FIFO is empty.
-    *  - The RX software buffer is enabled: returns the data element from the software receive
-    *    buffer.
+    *  - The RX software buffer is enabled: returns the data element from
+    *    the software receive buffer.
     *
     * Parameters:
     *  None
@@ -340,12 +367,19 @@ void UART_1_UartSetRxAddressMask(uint32 addressMask)
     *  ASCII character values from 1 to 255 are valid.
     *  A returned zero signifies an error condition or no data available.
     *
+    * Side Effects:
+    *  The errors bits may not correspond with reading characters due to RX FIFO
+    *  and software buffer usage.
+    *  RX software buffer is enabled: The internal software buffer overflow
+    *  does not treat as an error condition.
+    *  Check SCB_rxBufferOverflow to capture that error condition.
+    *
     *******************************************************************************/
     uint32 UART_1_UartGetChar(void)
     {
         uint32 rxData = 0u;
 
-        /* Read data only if there is data to read */
+        /* Reads data only if there is data to read */
         if(0u != UART_1_SpiUartGetRxBufferSize())
         {
             rxData = UART_1_SpiUartReadRxData();
@@ -353,7 +387,7 @@ void UART_1_UartSetRxAddressMask(uint32 addressMask)
 
         if(UART_1_CHECK_INTR_RX(UART_1_INTR_RX_ERR))
         {
-            rxData = 0u; /* Error occurred: return zero */
+            rxData = 0u; /* Error occurred: returns zero */
             UART_1_ClearRxInterruptSource(UART_1_INTR_RX_ERR);
         }
 
@@ -366,19 +400,27 @@ void UART_1_UartSetRxAddressMask(uint32 addressMask)
     ********************************************************************************
     *
     * Summary:
-    *  Retrieves the next data element from the receive buffer, returns the received byte
-    *  and error condition.
-    *   - The RX software buffer is disabled: returns the data element retrieved from the RX FIFO.
-    *     Undefined data will be returned if the RX FIFO is empty.
-    *   - The RX software buffer is enabled: returns data element from the software receive
-    *     buffer.
+    *  Retrieves the next data element from the receive buffer, returns the
+    *  received byte and error condition.
+    *   - The RX software buffer is disabled: returns the data element retrieved
+    *     from the RX FIFO. Undefined data will be returned if the RX FIFO is
+    *     empty.
+    *   - The RX software buffer is enabled: returns data element from the
+    *     software receive buffer.
     *
     * Parameters:
     *  None
     *
     * Return:
-    *  Bits 15-8 contains status and bits 7-0 contains the next data element from
-    *  receive buffer. If the bits 15-8 are non-zero, an error has occurred.
+    *  Bits 7-0 contain the next data element from the receive buffer and
+    *  other bits contain the error condition.
+    *
+    * Side Effects:
+    *  The errors bits may not correspond with reading characters due to RX FIFO
+    *  and software buffer usage.
+    *  RX software buffer is disabled: The internal software buffer overflow
+    *  is not returned as status by this function.
+    *  Check SCB_rxBufferOverflow to capture that error condition.
     *
     *******************************************************************************/
     uint32 UART_1_UartGetByte(void)
@@ -391,10 +433,9 @@ void UART_1_UartSetRxAddressMask(uint32 addressMask)
 
         if(0u != UART_1_SpiUartGetRxBufferSize())
         {
-             /*
-             * Enable interrupt to receive more bytes: at least one byte is in
-             * buffer.
-             */
+            /* Enables interrupt to receive more bytes: at least one byte is in
+            * buffer.
+            */
             UART_1_SpiUartEnableIntRx(intSourceMask);
 
             /* Get received byte */
@@ -402,16 +443,14 @@ void UART_1_UartSetRxAddressMask(uint32 addressMask)
         }
         else
         {
-            /*
-            * Read byte directly from RX FIFO: the underflow is raised in case
-            * of empty. In other case the first received byte will be read.
+            /* Reads a byte directly from RX FIFO: underflow is raised in the case
+            * of empty. Otherwise the first received byte will be read.
             */
             rxData = UART_1_RX_FIFO_RD_REG;
 
-            /*
-            * Enable interrupt to receive more bytes.
-            * The RX_NOT_EMPTY interrupt is cleared by the interrupt routine in case
-            * the byte was received and read above.
+            /* Enables interrupt to receive more bytes.
+            * The RX_NOT_EMPTY interrupt is cleared by the interrupt routine
+            * in case the byte was received and read by code above.
             */
             UART_1_SpiUartEnableIntRx(intSourceMask);
         }
@@ -420,14 +459,75 @@ void UART_1_UartSetRxAddressMask(uint32 addressMask)
         tmpStatus = (UART_1_GetRxInterruptSource() & UART_1_INTR_RX_ERR);
         UART_1_ClearRxInterruptSource(UART_1_INTR_RX_ERR);
 
-        /*
-        * Put together data and error status:
-        * MP mode and accept address: the 9th bit is set to notify mark.
+        /* Puts together data and error status:
+        * MP mode and accept address: 9th bit is set to notify mark.
         */
         rxData |= ((uint32) (tmpStatus << 8u));
 
         return(rxData);
     }
+
+
+    #if !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1)
+        /*******************************************************************************
+        * Function Name: UART_1_UartSetRtsPolarity
+        ********************************************************************************
+        *
+        * Summary:
+        *  Sets active polarity of RTS output signal.
+        *
+        * Parameters:
+        *  polarity: Active polarity of RTS output signal.
+        *   UART_1_UART_RTS_ACTIVE_LOW  - RTS signal is active low.
+        *   UART_1_UART_RTS_ACTIVE_HIGH - RTS signal is active high.
+        *
+        * Return:
+        *  None
+        *
+        *******************************************************************************/
+        void UART_1_UartSetRtsPolarity(uint32 polarity)
+        {
+            if(0u != polarity)
+            {
+                UART_1_UART_FLOW_CTRL_REG |= (uint32)  UART_1_UART_FLOW_CTRL_RTS_POLARITY;
+            }
+            else
+            {
+                UART_1_UART_FLOW_CTRL_REG &= (uint32) ~UART_1_UART_FLOW_CTRL_RTS_POLARITY;
+            }
+        }
+
+
+        /*******************************************************************************
+        * Function Name: UART_1_UartSetRtsFifoLevel
+        ********************************************************************************
+        *
+        * Summary:
+        *  Sets level in the RX FIFO for RTS signal activation.
+        *  While the RX FIFO has fewer entries than the RX FIFO level the RTS signal
+        *  remains active, otherwise the RTS signal becomes inactive.
+        *
+        * Parameters:
+        *  level: Level in the RX FIFO for RTS signal activation.
+        *         The range of valid level values is between 0 and RX FIFO depth - 1.
+        *         Setting level value to 0 disables RTS signal activation.
+        *
+        * Return:
+        *  None
+        *
+        *******************************************************************************/
+        void UART_1_UartSetRtsFifoLevel(uint32 level)
+        {
+            uint32 uartFlowCtrl;
+
+            uartFlowCtrl = UART_1_UART_FLOW_CTRL_REG;
+
+            uartFlowCtrl &= ((uint32) ~UART_1_UART_FLOW_CTRL_TRIGGER_LEVEL_MASK); /* Clear level mask bits */
+            uartFlowCtrl |= ((uint32) (UART_1_UART_FLOW_CTRL_TRIGGER_LEVEL_MASK & level));
+
+            UART_1_UART_FLOW_CTRL_REG = uartFlowCtrl;
+        }
+    #endif /* !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
 
 #endif /* (UART_1_UART_RX_DIRECTION) */
 
@@ -457,7 +557,7 @@ void UART_1_UartSetRxAddressMask(uint32 addressMask)
 
         bufIndex = 0u;
 
-        /* Block the control flow until all data has been sent */
+        /* Blocks the control flow until all data has been sent */
         while(string[bufIndex] != ((char8) 0))
         {
             UART_1_UartPutChar((uint32) string[bufIndex]);
@@ -471,8 +571,8 @@ void UART_1_UartSetRxAddressMask(uint32 addressMask)
     ********************************************************************************
     *
     * Summary:
-    *  Places a byte of data followed by a carriage return (0x0D) and line feed (0x0A)
-    *  into the transmit buffer.
+    *  Places a byte of data followed by a carriage return (0x0D) and
+    *  line feed (0x0A) into the transmit buffer.
     *  This function is blocking and waits until there is space available to put
     *  all the requested data into the  transmit buffer.
     *
@@ -489,6 +589,78 @@ void UART_1_UartSetRxAddressMask(uint32 addressMask)
         UART_1_UartPutChar(0x0Du);       /* Blocks control flow until all data has been sent */
         UART_1_UartPutChar(0x0Au);       /* Blocks control flow until all data has been sent */
     }
+
+
+    #if !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1)
+        /*******************************************************************************
+        * Function Name: UART_1SCB_UartEnableCts
+        ********************************************************************************
+        *
+        * Summary:
+        *  Enables usage of CTS input signal by the UART transmitter.
+        *
+        * Parameters:
+        *  None
+        *
+        * Return:
+        *  None
+        *
+        *******************************************************************************/
+        void UART_1_UartEnableCts(void)
+        {
+            UART_1_UART_FLOW_CTRL_REG |= (uint32)  UART_1_UART_FLOW_CTRL_CTS_ENABLE;
+        }
+
+
+        /*******************************************************************************
+        * Function Name: UART_1_UartDisableCts
+        ********************************************************************************
+        *
+        * Summary:
+        *  Disables usage of CTS input signal by the UART transmitter.
+        *
+        * Parameters:
+        *  None
+        *
+        * Return:
+        *  None
+        *
+        *******************************************************************************/
+        void UART_1_UartDisableCts(void)
+        {
+            UART_1_UART_FLOW_CTRL_REG &= (uint32) ~UART_1_UART_FLOW_CTRL_CTS_ENABLE;
+        }
+
+
+        /*******************************************************************************
+        * Function Name: UART_1_UartSetCtsPolarity
+        ********************************************************************************
+        *
+        * Summary:
+        *  Sets active polarity of CTS input signal.
+        *
+        * Parameters:
+        *  polarity: Active polarity of CTS output signal.
+        *   UART_1_UART_CTS_ACTIVE_LOW  - CTS signal is active low.
+        *   UART_1_UART_CTS_ACTIVE_HIGH - CTS signal is active high.
+        *
+        * Return:
+        *  None
+        *
+        *******************************************************************************/
+        void UART_1_UartSetCtsPolarity(uint32 polarity)
+        {
+            if (0u != polarity)
+            {
+                UART_1_UART_FLOW_CTRL_REG |= (uint32)  UART_1_UART_FLOW_CTRL_CTS_POLARITY;
+            }
+            else
+            {
+                UART_1_UART_FLOW_CTRL_REG &= (uint32) ~UART_1_UART_FLOW_CTRL_CTS_POLARITY;
+            }
+        }
+    #endif /* !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
+
 #endif /* (UART_1_UART_TX_DIRECTION) */
 
 
@@ -500,8 +672,8 @@ void UART_1_UartSetRxAddressMask(uint32 addressMask)
     * Summary:
     *  Clears and enables interrupt on a falling edge of the Rx input. The GPIO
     *  event wakes up the device and SKIP_START feature allows the UART continue
-    *  receiving data bytes properly. The GPIO interrupt does not track in the active
-    *  mode therefore requires to be cleared by this API.
+    *  receiving data bytes properly. The GPIO interrupt does not track in the
+    *  active mode therefore requires to be cleared by this API.
     *
     * Parameters:
     *  None
@@ -513,7 +685,7 @@ void UART_1_UartSetRxAddressMask(uint32 addressMask)
     void UART_1_UartSaveConfig(void)
     {
         /* Clear interrupt activity:
-        *  - set skip start and disable RX. On GPIO wakeup RX will be enabled.
+        *  - set skip start and disable RX. At GPIO wakeup RX will be enabled.
         *  - clear rx_wake interrupt source as it triggers during normal operation.
         *  - clear wake interrupt pending state as it becomes pending in active mode.
         */
@@ -542,8 +714,8 @@ void UART_1_UartSetRxAddressMask(uint32 addressMask)
     ********************************************************************************
     *
     * Summary:
-    *  Disables the RX GPIO interrupt. Until this function is called the interrupt remains
-    *  active and triggers on every falling edge of the UART RX line.
+    *  Disables the RX GPIO interrupt. Until this function is called the interrupt
+    *  remains active and triggers on every falling edge of the UART RX line.
     *
     * Parameters:
     *  None
@@ -568,8 +740,8 @@ void UART_1_UartSetRxAddressMask(uint32 addressMask)
     ********************************************************************************
     *
     * Summary:
-    *  Handles the Interrupt Service Routine for the SCB UART mode GPIO wakeup event. This
-    *  event is configured to trigger on a falling edge of the RX line.
+    *  Handles the Interrupt Service Routine for the SCB UART mode GPIO wakeup
+    *  event. This event is configured to trigger on a falling edge of the RX line.
     *
     * Parameters:
     *  None
@@ -580,8 +752,8 @@ void UART_1_UartSetRxAddressMask(uint32 addressMask)
     *******************************************************************************/
     CY_ISR(UART_1_UART_WAKEUP_ISR)
     {
-        /* Clear interrupt source: the event becomes multi triggered and is only disabled
-        * by UART_1_UartRestoreConfig() call.
+        /* Clear interrupt source: the event becomes multi triggered and is
+        * only disabled by UART_1_UartRestoreConfig() call.
         */
     #if(UART_1_SCB_MODE_UNCONFIG_CONST_CFG)
         #if(UART_1_MOSI_SCL_RX_WAKE_PIN)

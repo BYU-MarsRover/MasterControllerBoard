@@ -18,11 +18,11 @@
         /* TODO: these are backwards from the diagram */
         bundle (dsi_out) {
             members (dsi_out_0, dsi_out_1, dsi_out_2, dsi_out_3);
-            direction : output;
+            direction : input;
         }
         bundle (dsi_in) {
             members (dsi_in_0, dsi_in_1, dsi_in_2, dsi_in_3);
-            direction : input;
+            direction : output;
         }
         pin (lfclk) { direction : output; }
         pin (hfclk) { direction : output; }
@@ -1053,30 +1053,30 @@
     }
 
     cell (m0s8lcdcell) {
-        bundle (common) {
-            members (common_0, common_1, common_2, common_3,
-                common_4, common_5, common_6, common_7,
-                common_8, common_9, common_10, common_11,
-                common_12, common_13, common_14, common_15);
+        bundle (com) {
+            members (com_0, com_1, com_2, com_3,
+                com_4, com_5, com_6, com_7,
+                com_8, com_9, com_10, com_11,
+                com_12, com_13, com_14, com_15);
             direction : output;
         }
-        bundle (segment) {
-            members (segment_0, segment_1, segment_2, segment_3,
-                segment_4, segment_5, segment_6, segment_7,
-                segment_8, segment_9, segment_10, segment_11,
-                segment_12, segment_13, segment_14, segment_15,
-                segment_16, segment_17, segment_18, segment_19,
-                segment_20, segment_21, segment_22, segment_23,
-                segment_24, segment_25, segment_26, segment_27,
-                segment_28, segment_29, segment_30, segment_31,
-                segment_32, segment_33, segment_34, segment_35,
-                segment_36, segment_37, segment_38, segment_39,
-                segment_40, segment_41, segment_42, segment_43,
-                segment_44, segment_45, segment_46, segment_47,
-                segment_48, segment_49, segment_50, segment_51,
-                segment_52, segment_53, segment_54, segment_55,
-                segment_56, segment_57, segment_58, segment_59,
-                segment_60, segment_61, segment_62, segment_63);
+        bundle (seg) {
+            members (seg_0, seg_1, seg_2, seg_3,
+                seg_4, seg_5, seg_6, seg_7,
+                seg_8, seg_9, seg_10, seg_11,
+                seg_12, seg_13, seg_14, seg_15,
+                seg_16, seg_17, seg_18, seg_19,
+                seg_20, seg_21, seg_22, seg_23,
+                seg_24, seg_25, seg_26, seg_27,
+                seg_28, seg_29, seg_30, seg_31,
+                seg_32, seg_33, seg_34, seg_35,
+                seg_36, seg_37, seg_38, seg_39,
+                seg_40, seg_41, seg_42, seg_43,
+                seg_44, seg_45, seg_46, seg_47,
+                seg_48, seg_49, seg_50, seg_51,
+                seg_52, seg_53, seg_54, seg_55,
+                seg_56, seg_57, seg_58, seg_59,
+                seg_60, seg_61, seg_62, seg_63);
             direction : output;
         }
         pin (clock) {
@@ -1099,6 +1099,8 @@
                 intrinsic_fall : 0.0;
             }
         }
+        pin (cts) { direction : input; }
+        pin (rts) { direction : output; }
         pin (rx) { direction : input; }
         pin (tx) { direction : output; }
         pin (mosi_m) { direction : output; }
@@ -1114,6 +1116,8 @@
         pin (sclk_s) { direction : input; }
         pin (scl) { direction : inout; }
         pin (sda) { direction : inout; }
+        pin (rx_req) { direction : output; }
+        pin (tx_req) { direction : output; }
     }
 
     cell (m0s8tcpwmcell) {
@@ -1362,6 +1366,15 @@
                 intrinsic_fall : 0.0;
             }
         }
+        pin (tr_sar_out) {
+            direction : output;
+            timing() {
+                timing_type : rising_edge;
+                related_pin : clock;
+                intrinsic_rise : 0.0;
+                intrinsic_fall : 0.0;
+            }
+        }
         pin (irq) {
             direction : output; 
             timing() {
@@ -1455,6 +1468,15 @@
     
     cell (p4anapumpcell) {
         pin (pump_clock) { direction : input; }
+    }
+
+    cell (p4blecell) {
+        pin (interrupt) { direction : output; }
+        pin (rfctrl_extpa_en) { direction : output; }
+    }
+
+    cell (m0s8gangedpicucell) {
+        pin (interrupt) { direction : output; }
     }
 
 /*}*/

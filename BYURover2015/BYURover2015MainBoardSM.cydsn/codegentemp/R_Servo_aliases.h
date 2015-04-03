@@ -1,9 +1,10 @@
 /*******************************************************************************
 * File Name: R_Servo.h  
-* Version 2.5
+* Version 2.10
 *
 * Description:
-*  This file containts Control Register function prototypes and register defines
+*  This file contains the Alias definitions for Per-Pin APIs in cypins.h. 
+*  Information on using these APIs can be found in the System Reference Guide.
 *
 * Note:
 *
@@ -19,12 +20,18 @@
 
 #include "cytypes.h"
 #include "cyfitter.h"
+#include "cypins.h"
 
 
 /***************************************
 *              Constants        
 ***************************************/
-#define R_Servo_0		R_Servo__0__PC
+#define R_Servo_0		(R_Servo__0__PC)
+#define R_Servo_0_PS		(R_Servo__0__PS)
+#define R_Servo_0_PC		(R_Servo__0__PC)
+#define R_Servo_0_DR		(R_Servo__0__DR)
+#define R_Servo_0_SHIFT	(R_Servo__0__SHIFT)
+
 
 #endif /* End Pins R_Servo_ALIASES_H */
 

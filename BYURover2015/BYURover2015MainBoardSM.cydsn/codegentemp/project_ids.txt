@@ -1,0 +1,5 @@
+C:\Users\Clayton\Documents\Mars Rover\MasterControllerBoard\BYURover2015\BYURover2015MainBoardSM.cydsn\BYURover2015MainBoardSM.cyprj|c75e543e-259e-4a6e-b75c-19d34dc098df
+C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|2da4fdf8-48d6-4008-a6e4-06fe44f6d9a7
+C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|72a8e638-2ed5-4abd-bfe1-590201dd6471
+C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|7778db23-38c3-4f34-922e-2a5e59ed3317
+C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|a89ea237-d654-43f6-bb04-1a5fe00a1c9b

@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: UART_1_PINS.h
-* Version 1.20
+* Version 2.0
 *
 * Description:
 *  This file provides constants and parameter values for the pin components
@@ -49,6 +49,8 @@
 #define UART_1_REMOVE_UART_RX_TX_PIN          (1u)
 #define UART_1_REMOVE_UART_RX_PIN             (0u)
 #define UART_1_REMOVE_UART_RX_WAKE_PIN        (1u)
+#define UART_1_REMOVE_UART_RTS_PIN            (1u)
+#define UART_1_REMOVE_UART_CTS_PIN            (1u)
 
 /* Unconfigured pins */
 #define UART_1_MOSI_SCL_RX_WAKE_PIN   (0u == UART_1_REMOVE_MOSI_SCL_RX_WAKE_PIN)
@@ -72,6 +74,8 @@
 #define UART_1_UART_RX_TX_PIN         (0u == UART_1_REMOVE_UART_RX_TX_PIN)
 #define UART_1_UART_RX_PIN            (0u == UART_1_REMOVE_UART_RX_PIN)
 #define UART_1_UART_RX_WAKE_PIN       (0u == UART_1_REMOVE_UART_RX_WAKE_PIN)
+#define UART_1_UART_RTS_PIN           (0u == UART_1_REMOVE_UART_RTS_PIN)
+#define UART_1_UART_CTS_PIN           (0u == UART_1_REMOVE_UART_CTS_PIN)
 
 
 /***************************************
@@ -159,6 +163,14 @@
 #if(UART_1_UART_RX_WAKE_PIN)
     #include "UART_1_rx_wake.h"
 #endif /* (UART_1_UART_RX_WAKE_PIN) */
+
+#if(UART_1_UART_RTS_PIN)
+    #include "UART_1_rts.h"
+#endif /* (UART_1_UART_RTS_PIN) */
+
+#if(UART_1_UART_CTS_PIN)
+    #include "UART_1_cts.h"
+#endif /* (UART_1_UART_CTS_PIN) */
 
 
 /***************************************
@@ -260,12 +272,6 @@
 #define UART_1_HSIOM_I2C_SEL      (0x0Eu)
 #define UART_1_HSIOM_SPI_SEL      (0x0Fu)
 
-#if(!UART_1_CY_SCBIP_V1_I2C_ONLY)
-    #define UART_1_SCB_PINS_NUMBER    (7u)
-#else
-    #define UART_1_SCB_PINS_NUMBER    (2u)
-#endif /* (!UART_1_CY_SCBIP_V1_I2C_ONLY) */
-
 #define UART_1_MOSI_SCL_RX_PIN_INDEX      (0u) /* RX pins without interrupt */
 #define UART_1_MOSI_SCL_RX_WAKE_PIN_INDEX (0u) /* RX pin with interrupt     */
 #define UART_1_MISO_SDA_TX_PIN_INDEX      (1u)
@@ -304,7 +310,7 @@
                         (reg) = (((reg) & ((uint32) ~(uint32) (mask))) | ((uint32) ((uint32) (mode) << (pos)))); \
                     }while(0)
 
-/* Set bit the in register */
+/* Set bit in the register */
 #define UART_1_SET_REGISTER_BIT(reg, mask, val) \
                     ((val) ? ((reg) |= (mask)) : ((reg) &= ((uint32) ~((uint32) (mask)))))
 
@@ -355,9 +361,9 @@
 
 #else
     #define UART_1_SET_I2C_SCL_DR(val) \
-                                                    do{ ; }while(0)
+                                                    do{ /* Does nothing */ }while(0)
     #define UART_1_SET_I2C_SCL_HSIOM_SEL(sel) \
-                                                    do{ ; }while(0)
+                                                    do{ /* Does nothing */ }while(0)
 
     #define UART_1_WAIT_SCL_SET_HIGH  (0u)
 #endif /* (UART_1_MOSI_SCL_RX_PIN) */

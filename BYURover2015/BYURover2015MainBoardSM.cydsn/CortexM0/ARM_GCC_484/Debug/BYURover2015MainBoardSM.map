@@ -1,0 +1,1361 @@
+Archive member included because of file (symbol)
+
+.\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+                              .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o (cyfitter_cfg)
+.\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+                              .\CortexM0\ARM_GCC_484\Debug\main.o (UART_1_Start)
+.\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+                              .\CortexM0\ARM_GCC_484\Debug\main.o (UART_1_SpiUartWriteTxData)
+.\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+                              .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o) (UART_1_UartInit)
+.\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+                              .\CortexM0\ARM_GCC_484\Debug\main.o (init_printf)
+.\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+                              .\CortexM0\ARM_GCC_484\Debug\main.o (isr_StartEx)
+.\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+                              .\CortexM0\ARM_GCC_484\Debug\main.o (Timer_Start)
+.\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyBootAsmGnu.o)
+                              .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o) (CyDelayCycles)
+.\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+                              .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o) (CyDelayUs)
+.\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+                              .\CortexM0\ARM_GCC_484\Debug\main.o (ISRUART_StartEx)
+.\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+                              .\CortexM0\ARM_GCC_484\Debug\main.o (SignalGenerator_WriteCompare)
+.\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalSel.o)
+                              .\CortexM0\ARM_GCC_484\Debug\main.o (SignalSel_Write)
+.\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(InputValue.o)
+                              .\CortexM0\ARM_GCC_484\Debug\main.o (InputValue_Write)
+.\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+                              .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o (SPI_1_SpiUartReadRxData)
+c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
+                              .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o) (__aeabi_uidiv)
+c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_divsi3.o)
+                              .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o (__aeabi_idiv)
+c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_dvmd_tls.o)
+                              c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-errno.o)
+                              .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o (__errno)
+c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-exit.o)
+                              c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o (exit)
+c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-impure.o)
+                              c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-exit.o) (_global_impure_ptr)
+c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-init.o)
+                              c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o (__libc_init_array)
+c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memcpy-stub.o)
+                              .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o (memcpy)
+c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memset.o)
+                              c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o (memset)
+
+Allocating common symbols
+Common symbol       size              file
+
+sch                 0x450             .\CortexM0\ARM_GCC_484\Debug\main.o
+taskSchedulerState  0x1               .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+gpsIncoming         0x50              .\CortexM0\ARM_GCC_484\Debug\main.o
+
+Discarded input sections
+
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
+ .data          0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+ .text          0x00000000       0x78 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.extab     0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.exidx     0x00000000        0x8 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\main.o
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\main.o
+ .text.incrementPos
+                0x00000000       0x50 .\CortexM0\ARM_GCC_484\Debug\main.o
+ .text.decrementPos
+                0x00000000       0x50 .\CortexM0\ARM_GCC_484\Debug\main.o
+ .text.Servo_isr
+                0x00000000       0xac .\CortexM0\ARM_GCC_484\Debug\main.o
+ COMMON         0x00000000      0x4a0 .\CortexM0\ARM_GCC_484\Debug\main.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+ .text.initTodoList
+                0x00000000       0x28 .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+ .text.initReport
+                0x00000000       0x34 .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+ .text.taskScheduler
+                0x00000000       0x44 .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+ .rodata        0x00000000       0x28 .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+ COMMON         0x00000000        0x1 .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+ .data          0x00000000       0x10 .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+ .bss           0x00000000       0xd8 .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+ .rodata        0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+ .text.wiznet_parse
+                0x00000000       0x7c .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+ .text.send_report
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+ .text.report_init
+                0x00000000      0x1d8 .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\spi.o
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\spi.o
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\spi.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .bss           0x00000000        0x2 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .text.transferSPI
+                0x00000000       0x38 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .rodata        0x00000000       0x34 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .text.wiznetInit
+                0x00000000      0x184 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .text.wiznetOpen
+                0x00000000       0x14 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .text.wiznetClose
+                0x00000000       0x14 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .text.wiznetSend
+                0x00000000       0x34 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .text.wiznetClearInterrupts
+                0x00000000       0x28 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .text.wiznetConfigInterrupts
+                0x00000000       0x40 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .text.wiznetWriteUdpFrame
+                0x00000000       0x44 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .text.wiznetPrintRegisters
+                0x00000000      0x138 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .text.wiznetWrite8b
+                0x00000000       0x60 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .text.wiznetWrite16b
+                0x00000000       0x74 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .text.wiznetWriteArray
+                0x00000000       0x94 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .text.wiznetRead8b
+                0x00000000       0x64 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .text.wiznetRead16b
+                0x00000000       0x80 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .text.wiznetReadArray
+                0x00000000       0x8c .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\cybootloader.o
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\cybootloader.o
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\cybootloader.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\cymetadata.o
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\cymetadata.o
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\cymetadata.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+ .data          0x00000000        0x4 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+ .text._exit    0x00000000       0x28 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+ .text._sbrk    0x00000000       0x54 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+ .text.CYCONFIGCPY
+                0x00000000       0x24 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+ .text.CYCONFIGCPYCODE
+                0x00000000       0x24 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .text.UART_1_Stop
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .text.UART_1_SetRxFifoLevel
+                0x00000000       0x34 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .text.UART_1_SetTxFifoLevel
+                0x00000000       0x34 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .text.UART_1_SetCustomInterruptHandler
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .text.UART_1_ScbModeStop
+                0x00000000        0x8 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .text.UART_1_I2CSlaveNackGeneration
+                0x00000000       0x50 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .text.UART_1_SpiUartReadRxData
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .text.UART_1_SpiUartGetRxBufferSize
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .text.UART_1_SpiUartClearRxBuffer
+                0x00000000       0x2c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .text.UART_1_SpiUartPutArray
+                0x00000000       0x34 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .text.UART_1_SpiUartGetTxBufferSize
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .text.UART_1_SpiUartClearTxBuffer
+                0x00000000       0x2c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .text.UART_1_SpiUartDisableIntRx
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .text.UART_1_SpiUartDisableIntTx
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .text.UART_1_UartSetRxAddress
+                0x00000000       0x34 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .text.UART_1_UartSetRxAddressMask
+                0x00000000       0x34 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .text.UART_1_UartGetChar
+                0x00000000       0x44 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .text.UART_1_UartGetByte
+                0x00000000       0x68 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .text.UART_1_UartPutString
+                0x00000000       0x34 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .text.UART_1_UartPutCRLF
+                0x00000000       0x24 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .text.putcp    0x00000000       0x24 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .text.tfp_sprintf
+                0x00000000       0x38 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .text.isr_Start
+                0x00000000       0x24 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .text.isr_Stop
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .text.isr_Interrupt
+                0x00000000        0x8 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .text.isr_GetVector
+                0x00000000       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .text.isr_GetPriority
+                0x00000000       0x2c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .text.isr_GetState
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .text.isr_SetPending
+                0x00000000       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .text.isr_ClearPending
+                0x00000000       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_Stop
+                0x00000000       0x30 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetMode
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetQDMode
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetPrescaler
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetOneShot
+                0x00000000       0x4c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetPWMMode
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetPWMSyncKill
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetPWMStopOnKill
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetPWMDeadTime
+                0x00000000       0x4c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetPWMInvert
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_ReadCounter
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetCounterMode
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_ReadPeriod
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetCompareSwap
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_WritePeriodBuf
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_ReadPeriodBuf
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetPeriodSwap
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_ReadCompare
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_WriteCompareBuf
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_ReadCompareBuf
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_ReadCapture
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_ReadCaptureBuf
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetCaptureMode
+                0x00000000       0x44 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetReloadMode
+                0x00000000       0x44 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetStartMode
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetStopMode
+                0x00000000       0x44 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetCountMode
+                0x00000000       0x44 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_ReadStatus
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_GetInterruptSource
+                0x00000000       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .text.Timer_SetInterrupt
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyBootAsmGnu.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyBootAsmGnu.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .bss           0x00000000       0x24 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .rodata        0x00000000       0x30 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysClkImoStart
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysClkImoStop
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysClkIloStart
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysClkIloStop
+                0x00000000       0x4c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysClkIloEnabled
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysClkWriteHfclkDirect
+                0x00000000       0x44 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysClkWriteSysclkDiv
+                0x00000000       0x44 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysClkWriteImoFreq
+                0x00000000      0x1e0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtLock
+                0x00000000       0x34 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtLocked
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtUnlock
+                0x00000000       0x4c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtReadEnabledStatus
+                0x00000000       0x30 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtWriteMode
+                0x00000000       0x60 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtReadMode
+                0x00000000       0x24 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtWriteClearOnMatch
+                0x00000000       0x70 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtReadClearOnMatch
+                0x00000000       0x40 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtEnable
+                0x00000000       0x68 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtDisable
+                0x00000000       0x68 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtWriteCascade
+                0x00000000       0x58 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtReadCascade
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtWriteMatch
+                0x00000000       0x6c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtWriteToggleBit
+                0x00000000       0x44 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtReadToggleBit
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtReadMatch
+                0x00000000       0x44 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtReadCount
+                0x00000000       0x54 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtGetInterruptSource
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtClearInterrupt
+                0x00000000       0x6c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysWdtResetCounters
+                0x00000000       0x28 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysClkLfclkPosedgeCatch
+                0x00000000       0x9c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysClkLfclkPosedgeRestore
+                0x00000000       0x3c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysLvdEnable
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysLvdDisable
+                0x00000000       0x28 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysLvdGetInterruptSource
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysLvdClearInterrupt
+                0x00000000       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysGetResetReason
+                0x00000000       0x30 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CyDisableInts
+                0x00000000       0x24 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CyEnableInts
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CyIntSetSysVector
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CyIntGetSysVector
+                0x00000000       0x34 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CyIntSetVector
+                0x00000000       0x4c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CyIntGetVector
+                0x00000000       0x38 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CyIntSetPriority
+                0x00000000       0xa8 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CyIntGetPriority
+                0x00000000       0x58 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CyIntEnable
+                0x00000000       0x2c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CyIntGetState
+                0x00000000       0x34 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CyIntDisable
+                0x00000000       0x2c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CyIntSetPending
+                0x00000000       0x2c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CyIntClearPending
+                0x00000000       0x2c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CyHalt   0x00000000       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySoftwareReset
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CyDelayFreq
+                0x00000000       0x80 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysTickStart
+                0x00000000       0x24 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysTickInit
+                0x00000000       0x60 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysTickEnable
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysTickStop
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysTickEnableInterrupt
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysTickDisableInterrupt
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysTickSetReload
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysTickGetReload
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysTickGetValue
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysTickGetCountFlag
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysTickClear
+                0x00000000       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysTickSetCallback
+                0x00000000       0x2c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysTickGetCallback
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text.CySysTickServiceCallbacks
+                0x00000000       0x44 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .text.ISRUART_Start
+                0x00000000       0x24 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .text.ISRUART_Stop
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .text.ISRUART_Interrupt
+                0x00000000        0x8 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .text.ISRUART_GetVector
+                0x00000000       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .text.ISRUART_GetPriority
+                0x00000000       0x30 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .text.ISRUART_GetState
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .text.ISRUART_SetPending
+                0x00000000       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .text.ISRUART_ClearPending
+                0x00000000       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .bss           0x00000000        0x1 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_Init
+                0x00000000       0x40 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_Enable
+                0x00000000       0x38 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_Start
+                0x00000000       0x24 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_Stop
+                0x00000000       0x30 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetMode
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetQDMode
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetPrescaler
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetOneShot
+                0x00000000       0x4c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetPWMMode
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetPWMSyncKill
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetPWMStopOnKill
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetPWMDeadTime
+                0x00000000       0x4c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetPWMInvert
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_WriteCounter
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_ReadCounter
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetCounterMode
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_WritePeriod
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_ReadPeriod
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetCompareSwap
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_WritePeriodBuf
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_ReadPeriodBuf
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetPeriodSwap
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_WriteCompare
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_ReadCompare
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_WriteCompareBuf
+                0x00000000       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_ReadCompareBuf
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_ReadCapture
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_ReadCaptureBuf
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetCaptureMode
+                0x00000000       0x44 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetReloadMode
+                0x00000000       0x44 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetStartMode
+                0x00000000       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetStopMode
+                0x00000000       0x44 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetCountMode
+                0x00000000       0x44 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_TriggerCommand
+                0x00000000       0x3c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_ReadStatus
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetInterruptMode
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_GetInterruptSourceMasked
+                0x00000000       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_GetInterruptSource
+                0x00000000       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_ClearInterrupt
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text.SignalGenerator_SetInterrupt
+                0x00000000       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalSel.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalSel.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalSel.o)
+ .text.SignalSel_Write
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalSel.o)
+ .text.SignalSel_Read
+                0x00000000       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalSel.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(InputValue.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(InputValue.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(InputValue.o)
+ .text.InputValue_Write
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(InputValue.o)
+ .text.InputValue_Read
+                0x00000000       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(InputValue.o)
+ .text          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+ .data          0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+ .bss           0x00000000        0x0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+ .text.SPI_1_SpiUartReadRxData
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+ .text.SPI_1_SpiUartGetRxBufferSize
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+ .text.SPI_1_SpiUartClearRxBuffer
+                0x00000000       0x2c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+ .text.SPI_1_SpiUartWriteTxData
+                0x00000000       0x2c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+ .text.SPI_1_SpiUartPutArray
+                0x00000000       0x34 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+ .text.SPI_1_SpiUartGetTxBufferSize
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+ .text.SPI_1_SpiUartClearTxBuffer
+                0x00000000       0x2c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+ .text.SPI_1_SpiUartDisableIntRx
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+ .text.SPI_1_SpiUartDisableIntTx
+                0x00000000       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
+ .text          0x00000000       0xc0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_divsi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_divsi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_divsi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-errno.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-errno.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-errno.o)
+ .text.__errno  0x00000000        0xc c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-errno.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-exit.o)
+ .text.exit     0x00000000       0x2c c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-impure.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-impure.o)
+ .data.impure_data
+                0x00000000       0x60 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-impure.o)
+ .rodata.str1.1
+                0x00000000        0x2 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-impure.o)
+ .rodata._global_impure_ptr
+                0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-impure.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-init.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-init.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-init.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memcpy-stub.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memcpy-stub.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memcpy-stub.o)
+ .text.memcpy   0x00000000       0x12 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memcpy-stub.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memset.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memset.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memset.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtend.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtend.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtend.o
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+rom              0x00000000         0x00008000         xr
+ram              0x20000000         0x00001000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
+LOAD c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+LOAD c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+START GROUP
+LOAD .\CortexM0\ARM_GCC_484\Debug\main.o
+LOAD .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+LOAD .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+LOAD .\CortexM0\ARM_GCC_484\Debug\spi.o
+LOAD .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+LOAD .\CortexM0\ARM_GCC_484\Debug\cybootloader.o
+LOAD .\CortexM0\ARM_GCC_484\Debug\cymetadata.o
+LOAD .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+LOAD .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a
+LOAD C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_484\Debug\CyComponentLibrary.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a
+LOAD c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a
+END GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtend.o
+LOAD c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a
+LOAD c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a
+END GROUP
+                0x00000000                CY_APPL_ORIGIN = 0x0
+                0x00000080                CY_FLASH_ROW_SIZE = 0x80
+                0x00000001                CY_APPL_NUM = 0x1
+                0x00000040                CY_METADATA_SIZE = 0x40
+                0x20000120                PROVIDE (__cy_heap_start, _end)
+                0x00000001                PROVIDE (__cy_region_num, ((__cy_regions_end - __cy_regions) / 0x10))
+                0x20001000                PROVIDE (__cy_stack, (ORIGIN (ram) + 0x1000))
+                0x20000c00                PROVIDE (__cy_heap_end, (__cy_stack - 0x400))
+
+.cybootloader   0x00000000      0xf00
+ *(.cybootloader)
+ .cybootloader  0x00000000      0xf00 .\CortexM0\ARM_GCC_484\Debug\cybootloader.o
+                0x00000000                cy_bootloader
+                0x00000f00                appl1_start = CY_APPL_ORIGIN?CY_APPL_ORIGIN:ALIGN (CY_FLASH_ROW_SIZE)
+                0x00004700                appl2_start = (appl1_start + ALIGN ((((0x8000 - appl1_start) - (0x2 * CY_FLASH_ROW_SIZE)) / 0x2), CY_FLASH_ROW_SIZE))
+                0x00000f00                appl_start = (CY_APPL_NUM == 0x1)?appl1_start:appl2_start
+
+.text           0x00000f00     0x1010
+ CREATE_OBJECT_SYMBOLS
+                0x00000f00                PROVIDE (__cy_interrupt_vector, RomVectors)
+ *(.romvectors)
+ .romvectors    0x00000f00       0x10 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+                0x00000f00                RomVectors
+                0x00000001                ASSERT ((. != __cy_interrupt_vector), No interrupt vector)
+                0x00000001                ASSERT (CY_APPL_ORIGIN?(SIZEOF (.cybootloader) <= CY_APPL_ORIGIN):0x1, Wrong image location)
+                0x00000f10                PROVIDE (__cy_reset, Reset)
+ *(.text.Reset)
+ .text.Reset    0x00000f10       0x14 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+                0x00000f10                Reset
+                0x00000001                ASSERT ((. != __cy_reset), No reset code)
+ *(.psocinit)
+ .psocinit      0x00000f24      0x300 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+                0x00001098                cyfitter_cfg
+                0x00001224                . = MAX (., 0x100)
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text          0x00001224       0x60 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+ .text.putdata  0x00001284       0x2c .\CortexM0\ARM_GCC_484\Debug\main.o
+                0x00001284                putdata
+ .text.myISR    0x000012b0       0x1c .\CortexM0\ARM_GCC_484\Debug\main.o
+                0x000012b0                myISR
+ .text.uartISR  0x000012cc        0x8 .\CortexM0\ARM_GCC_484\Debug\main.o
+                0x000012cc                uartISR
+ .text.main     0x000012d4       0x80 .\CortexM0\ARM_GCC_484\Debug\main.o
+                0x000012d4                main
+ .text.IntDefaultHandler
+                0x00001354        0x8 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+                0x00001354                IntDefaultHandler
+ .text.Start_c  0x0000135c       0x98 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+                0x0000135c                Start_c
+ .text.initialize_psoc
+                0x000013f4       0x74 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+                0x000013f4                initialize_psoc
+ .text.CYMEMZERO
+                0x00001468       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+ .text.cfg_write_bytes32
+                0x00001488       0x80 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+ .text.AnalogSetDefault
+                0x00001508        0x8 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+ .text.UART_1_Init
+                0x00001510        0xc .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+                0x00001510                UART_1_Init
+ .text.UART_1_Enable
+                0x0000151c       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+                0x0000151c                UART_1_Enable
+ .text.UART_1_Start
+                0x0000153c       0x24 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+                0x0000153c                UART_1_Start
+ .text.UART_1_ScbEnableIntr
+                0x00001560        0x8 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .text.UART_1_SpiUartWriteTxData
+                0x00001568       0x2c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+                0x00001568                UART_1_SpiUartWriteTxData
+ .text.UART_1_UartInit
+                0x00001594       0xa8 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+                0x00001594                UART_1_UartInit
+ .text.ui2a     0x0000163c       0xac .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .text.i2a      0x000016e8       0x34 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .text.a2d      0x0000171c       0x60 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .text.a2i      0x0000177c       0x74 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .text.putchw   0x000017f0       0x90 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .text.tfp_format
+                0x00001880      0x1cc .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+                0x00001880                tfp_format
+ .text.init_printf
+                0x00001a4c       0x24 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+                0x00001a4c                init_printf
+ .text.tfp_printf
+                0x00001a70       0x34 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+                0x00001a70                tfp_printf
+ .text.isr_StartEx
+                0x00001aa4       0x24 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+                0x00001aa4                isr_StartEx
+ .text.isr_SetVector
+                0x00001ac8       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+                0x00001ac8                isr_SetVector
+ .text.isr_SetPriority
+                0x00001ae4       0x50 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+                0x00001ae4                isr_SetPriority
+ .text.isr_Enable
+                0x00001b34       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+                0x00001b34                isr_Enable
+ .text.isr_Disable
+                0x00001b48       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+                0x00001b48                isr_Disable
+ .text.Timer_Init
+                0x00001b5c       0x3c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+                0x00001b5c                Timer_Init
+ .text.Timer_Enable
+                0x00001b98       0x38 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+                0x00001b98                Timer_Enable
+ .text.Timer_Start
+                0x00001bd0       0x24 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+                0x00001bd0                Timer_Start
+ .text.Timer_WriteCounter
+                0x00001bf4       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+                0x00001bf4                Timer_WriteCounter
+ .text.Timer_WritePeriod
+                0x00001c10       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+                0x00001c10                Timer_WritePeriod
+ .text.Timer_WriteCompare
+                0x00001c2c       0x1c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+                0x00001c2c                Timer_WriteCompare
+ .text.Timer_TriggerCommand
+                0x00001c48       0x3c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+                0x00001c48                Timer_TriggerCommand
+ .text.Timer_SetInterruptMode
+                0x00001c84       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+                0x00001c84                Timer_SetInterruptMode
+ .text.Timer_GetInterruptSourceMasked
+                0x00001c9c       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+                0x00001c9c                Timer_GetInterruptSourceMasked
+ .text.Timer_ClearInterrupt
+                0x00001cb0       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+                0x00001cb0                Timer_ClearInterrupt
+ .text          0x00001cc8       0x28 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyBootAsmGnu.o)
+                0x00001cc8                CyDelayCycles
+                0x00001cdc                CyEnterCriticalSection
+                0x00001ce4                CyExitCriticalSection
+ .text.CyDelay  0x00001cf0       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+                0x00001cf0                CyDelay
+ .text.CyDelayUs
+                0x00001d38       0x28 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+                0x00001d38                CyDelayUs
+ .text.ISRUART_StartEx
+                0x00001d60       0x24 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+                0x00001d60                ISRUART_StartEx
+ .text.ISRUART_SetVector
+                0x00001d84       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+                0x00001d84                ISRUART_SetVector
+ .text.ISRUART_SetPriority
+                0x00001d9c       0x50 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+                0x00001d9c                ISRUART_SetPriority
+ .text.ISRUART_Enable
+                0x00001dec       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+                0x00001dec                ISRUART_Enable
+ .text.ISRUART_Disable
+                0x00001e00       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+                0x00001e00                ISRUART_Disable
+ .text          0x00001e14       0x9c c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
+                0x00001e14                __aeabi_uidiv
+                0x00001e14                __udivsi3
+                0x00001e9c                __aeabi_uidivmod
+ .text          0x00001eb0        0x4 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_dvmd_tls.o)
+                0x00001eb0                __aeabi_idiv0
+                0x00001eb0                __aeabi_ldiv0
+ .text.__libc_init_array
+                0x00001eb4       0x4c c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-init.o)
+                0x00001eb4                __libc_init_array
+ .text.memset   0x00001f00       0x10 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memset.o)
+                0x00001f00                memset
+ *(.plt)
+ *(.gnu.warning)
+ *(.glue_7t)
+ .glue_7t       0x00000000        0x0 linker stubs
+ *(.glue_7)
+ .glue_7        0x00000000        0x0 linker stubs
+ *(.vfp11_veneer)
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+ *(.bootloader)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ *(.gcc_except_table)
+
+.v4_bx          0x00001f10        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.iplt           0x00001f10        0x0
+ .iplt          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+.eh_frame       0x00001f10        0x4
+ *(.eh_frame)
+ .eh_frame      0x00001f10        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+ .eh_frame      0x00001f10        0x4 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtend.o
+                0x00001f14                PROVIDE (__exidx_start, .)
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x00001f14                __exidx_end = .
+
+.rodata         0x00001f14       0xc4
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x00001f14       0x24 .\CortexM0\ARM_GCC_484\Debug\main.o
+ .rodata        0x00001f38       0x6c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+                0x00001fa4                . = ALIGN (0x4)
+ *(.init)
+ .init          0x00001fa4        0x4 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
+                0x00001fa4                _init
+ .init          0x00001fa8        0x8 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
+                0x00001fb0                . = ALIGN (0x4)
+                0x00001fb0                __preinit_array_start = .
+ *(.preinit_array)
+                0x00001fb0                __preinit_array_end = .
+                0x00001fb0                . = ALIGN (0x4)
+                0x00001fb0                __init_array_start = .
+ *(SORT(.init_array.*))
+ *(.init_array)
+ .init_array    0x00001fb0        0x4 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+ .init_array    0x00001fb4        0x4 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+                0x00001fb8                __init_array_end = .
+                0x00001fb8                . = ALIGN (0x4)
+ *(.fini)
+ .fini          0x00001fb8        0x4 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
+                0x00001fb8                _fini
+ .fini          0x00001fbc        0x8 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
+                0x00001fc4                . = ALIGN (0x4)
+                0x00001fc4                __fini_array_start = .
+ *(.fini_array)
+ .fini_array    0x00001fc4        0x4 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+ *(SORT(.fini_array.*))
+                0x00001fc8                __fini_array_end = .
+                0x00001fc8                . = ALIGN (0x4)
+ *crtbegin.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *crtend.o(.ctors)
+                0x00001fc8                . = ALIGN (0x4)
+ *crtbegin.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *crtend.o(.dtors)
+                0x00001fc8                . = ALIGN (0x4)
+                0x00001fc8                __cy_regions = .
+                0x00001fc8        0x4 LONG 0x1fd8 __cy_region_init_ram
+                0x00001fcc        0x4 LONG 0x200000d0 __cy_region_start_data
+                0x00001fd0        0x4 LONG 0x20 __cy_region_init_size_ram
+                0x00001fd4        0x4 LONG 0x30 __cy_region_zero_size_ram
+                0x00001fd8                __cy_regions_end = .
+                0x00001fd8                . = ALIGN (0x8)
+                0x00001fd8                _etext = .
+
+.ramvectors     0x20000000       0xc0
+                0x20000000                __cy_region_start_ram = .
+ *(.ramvectors)
+ .ramvectors    0x20000000       0xc0 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+                0x20000000                CyRamVectors
+
+.btldr_run      0x200000c0        0x4
+ *(.bootloaderruntype)
+ .bootloaderruntype
+                0x200000c0        0x4 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+                0x200000c0                cyBtldrRunType
+
+.noinit         0x200000c8        0x4
+ *(.noinit)
+ .noinit        0x200000c8        0x4 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+
+.data           0x200000d0       0x20 load address 0x00001fd8
+                0x200000d0                __cy_region_start_data = .
+ *(.jcr)
+ .jcr           0x200000d0        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+ .jcr           0x200000d0        0x4 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtend.o
+ *(.got.plt)
+ *(.got)
+ *(.shdata)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x200000d4        0x8 .\CortexM0\ARM_GCC_484\Debug\main.o
+                0x200000d4                currentPos
+                0x200000d8                tick
+ .data          0x200000dc        0x4 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+ .data          0x200000e0       0x10 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+                0x200000e0                cydelayFreqHz
+                0x200000e4                cydelayFreqKhz
+                0x200000e8                cydelayFreqMhz
+                0x200000ec                cydelay32kMs
+                0x200000f0                . = ALIGN (0x8)
+ *(.ram)
+                0x200000f0                _edata = .
+
+.igot.plt       0x200000f0        0x0 load address 0x00001ff8
+ .igot.plt      0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+
+.bss            0x200000f0       0x30 load address 0x00001ff8
+                0x200000f0                PROVIDE (__bss_start__, .)
+ *(.shbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x200000f0       0x1c c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+ .bss           0x2000010c        0x8 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+                0x2000010c                UART_1_initVar
+                0x20000110                UART_1_customIntrHandler
+ .bss           0x20000114        0x8 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .bss           0x2000011c        0x1 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+                0x2000011c                Timer_initVar
+ *(COMMON)
+                0x20000120                . = ALIGN (0x8)
+ *fill*         0x2000011d        0x3 
+ *(.ram.b)
+                0x20000120                _end = .
+                0x20000120                __end = .
+                0x20000120                PROVIDE (end, .)
+                0x20000120                PROVIDE (__bss_end__, .)
+                0x00001fd8                __cy_region_init_ram = LOADADDR (.data)
+                0x00000020                __cy_region_init_size_ram = (_edata - ADDR (.data))
+                0x00000030                __cy_region_zero_size_ram = (_end - _edata)
+
+.heap           0x20000120      0x100 load address 0x00001ff8
+                0x20000120                . = _end
+                0x20000220                . = (. + 0x100)
+ *fill*         0x20000120      0x100 
+                0x20000220                __cy_heap_limit = .
+
+.stack          0x20000c00      0x400
+                0x20000c00                __cy_stack_limit = .
+                0x20001000                . = (. + 0x400)
+ *fill*         0x20000c00      0x400 
+                0x00000001                ASSERT ((__cy_stack_limit >= __cy_heap_limit), region RAM overflowed with stack)
+
+.cyloadermeta   0xf0000000       0x40
+ *(.cyloadermeta)
+ .cyloadermeta  0xf0000000       0x40 .\CortexM0\ARM_GCC_484\Debug\cybootloader.o
+                0xf0000000                cy_meta_loader
+
+.cyloadablemeta
+                0x00007fc0       0x40
+ *(.cyloadablemeta)
+ .cyloadablemeta
+                0x00007fc0       0x40 .\CortexM0\ARM_GCC_484\Debug\cymetadata.o
+                0x00007fc0                cy_meta_loadable
+
+.cyflashprotect
+                0x90400000       0x20
+ *(.cyflashprotect)
+ .cyflashprotect
+                0x90400000       0x20 .\CortexM0\ARM_GCC_484\Debug\cybootloader.o
+                0x90400000                cy_meta_flashprotect
+
+.cymeta         0x90500000        0xc
+ *(.cymeta)
+ .cymeta        0x90500000        0xc .\CortexM0\ARM_GCC_484\Debug\cybootloader.o
+                0x90500000                cy_metadata
+
+.cychipprotect  0x90600000        0x4
+ *(.cychipprotect)
+ .cychipprotect
+                0x90600000        0x4 .\CortexM0\ARM_GCC_484\Debug\cybootloader.o
+                0x90600000                cy_meta_chipprotect
+
+.rel.dyn        0x00008000        0x0 load address 0x90600004
+ .rel.iplt      0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0xa58
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x50 .\CortexM0\ARM_GCC_484\Debug\main.o
+ .debug_aranges
+                0x00000050       0x30 .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+ .debug_aranges
+                0x00000080       0x30 .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+ .debug_aranges
+                0x000000b0       0x18 .\CortexM0\ARM_GCC_484\Debug\spi.o
+ .debug_aranges
+                0x000000c8       0x90 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .debug_aranges
+                0x00000158       0x18 .\CortexM0\ARM_GCC_484\Debug\cybootloader.o
+ .debug_aranges
+                0x00000170       0x18 .\CortexM0\ARM_GCC_484\Debug\cymetadata.o
+ .debug_aranges
+                0x00000188       0x48 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+ .debug_aranges
+                0x000001d0       0x58 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+ .debug_aranges
+                0x00000228       0x68 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .debug_aranges
+                0x00000290       0x60 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .debug_aranges
+                0x000002f0       0x50 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .debug_aranges
+                0x00000340       0x68 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .debug_aranges
+                0x000003a8       0x80 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .debug_aranges
+                0x00000428      0x158 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .debug_aranges
+                0x00000580       0x20 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyBootAsmGnu.o)
+ .debug_aranges
+                0x000005a0      0x230 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .debug_aranges
+                0x000007d0       0x80 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .debug_aranges
+                0x00000850      0x158 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .debug_aranges
+                0x000009a8       0x28 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalSel.o)
+ .debug_aranges
+                0x000009d0       0x28 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(InputValue.o)
+ .debug_aranges
+                0x000009f8       0x60 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0x4b9c
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x2fc .\CortexM0\ARM_GCC_484\Debug\main.o
+ .debug_info    0x000002fc      0x1f1 .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+ .debug_info    0x000004ed      0xa7a .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+ .debug_info    0x00000f67       0x80 .\CortexM0\ARM_GCC_484\Debug\spi.o
+ .debug_info    0x00000fe7      0x541 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .debug_info    0x00001528      0x14d .\CortexM0\ARM_GCC_484\Debug\cybootloader.o
+ .debug_info    0x00001675       0xb1 .\CortexM0\ARM_GCC_484\Debug\cymetadata.o
+ .debug_info    0x00001726      0x310 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+ .debug_info    0x00001a36      0x442 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+ .debug_info    0x00001e78      0x1eb .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .debug_info    0x00002063      0x20d .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .debug_info    0x00002270      0x1fe .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .debug_info    0x0000246e      0x401 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .debug_info    0x0000286f      0x241 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .debug_info    0x00002ab0      0x6f0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .debug_info    0x000031a0       0xb7 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyBootAsmGnu.o)
+ .debug_info    0x00003257      0xc5b .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .debug_info    0x00003eb2      0x241 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .debug_info    0x000040f3      0x6f0 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .debug_info    0x000047e3       0xd6 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalSel.o)
+ .debug_info    0x000048b9       0xd6 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(InputValue.o)
+ .debug_info    0x0000498f      0x20d .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+
+.debug_abbrev   0x00000000     0x17bc
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x16a .\CortexM0\ARM_GCC_484\Debug\main.o
+ .debug_abbrev  0x0000016a       0xf2 .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+ .debug_abbrev  0x0000025c      0x151 .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+ .debug_abbrev  0x000003ad       0x26 .\CortexM0\ARM_GCC_484\Debug\spi.o
+ .debug_abbrev  0x000003d3      0x147 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .debug_abbrev  0x0000051a       0x77 .\CortexM0\ARM_GCC_484\Debug\cybootloader.o
+ .debug_abbrev  0x00000591       0x5d .\CortexM0\ARM_GCC_484\Debug\cymetadata.o
+ .debug_abbrev  0x000005ee      0x1c5 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+ .debug_abbrev  0x000007b3      0x18a .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+ .debug_abbrev  0x0000093d      0x122 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .debug_abbrev  0x00000a5f      0x15c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .debug_abbrev  0x00000bbb       0xf9 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .debug_abbrev  0x00000cb4      0x193 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .debug_abbrev  0x00000e47      0x168 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .debug_abbrev  0x00000faf      0x109 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .debug_abbrev  0x000010b8       0x14 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyBootAsmGnu.o)
+ .debug_abbrev  0x000010cc      0x207 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .debug_abbrev  0x000012d3      0x168 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .debug_abbrev  0x0000143b      0x109 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .debug_abbrev  0x00001544       0x8e .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalSel.o)
+ .debug_abbrev  0x000015d2       0x8e .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(InputValue.o)
+ .debug_abbrev  0x00001660      0x15c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+
+.debug_line     0x00000000     0x23bd
+ *(.debug_line)
+ .debug_line    0x00000000      0x10a .\CortexM0\ARM_GCC_484\Debug\main.o
+ .debug_line    0x0000010a       0xa8 .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+ .debug_line    0x000001b2      0x1c5 .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+ .debug_line    0x00000377       0x1d .\CortexM0\ARM_GCC_484\Debug\spi.o
+ .debug_line    0x00000394      0x337 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .debug_line    0x000006cb       0x55 .\CortexM0\ARM_GCC_484\Debug\cybootloader.o
+ .debug_line    0x00000720       0x53 .\CortexM0\ARM_GCC_484\Debug\cymetadata.o
+ .debug_line    0x00000773      0x1bc .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+ .debug_line    0x0000092f      0x1b8 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+ .debug_line    0x00000ae7      0x121 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .debug_line    0x00000c08      0x127 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .debug_line    0x00000d2f      0x103 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .debug_line    0x00000e32      0x280 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .debug_line    0x000010b2      0x152 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .debug_line    0x00001204      0x36f .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .debug_line    0x00001573       0x69 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyBootAsmGnu.o)
+ .debug_line    0x000015dc      0x703 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .debug_line    0x00001cdf      0x156 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .debug_line    0x00001e35      0x379 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .debug_line    0x000021ae       0x74 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalSel.o)
+ .debug_line    0x00002222       0x75 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(InputValue.o)
+ .debug_line    0x00002297      0x126 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+
+.debug_frame    0x00000000     0x228c
+ *(.debug_frame)
+ .debug_frame   0x00000000       0xe4 .\CortexM0\ARM_GCC_484\Debug\main.o
+ .debug_frame   0x000000e4       0x6c .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+ .debug_frame   0x00000150       0x70 .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+ .debug_frame   0x000001c0      0x1e8 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .debug_frame   0x000003a8       0xc8 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+ .debug_frame   0x00000470      0x108 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+ .debug_frame   0x00000578      0x134 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .debug_frame   0x000006ac      0x128 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .debug_frame   0x000007d4       0xec .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .debug_frame   0x000008c0      0x15c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .debug_frame   0x00000a1c      0x190 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .debug_frame   0x00000bac      0x52c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .debug_frame   0x000010d8      0x83c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .debug_frame   0x00001914      0x190 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .debug_frame   0x00001aa4      0x52c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .debug_frame   0x00001fd0       0x4c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalSel.o)
+ .debug_frame   0x0000201c       0x4c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(InputValue.o)
+ .debug_frame   0x00002068      0x128 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+ .debug_frame   0x00002190       0x20 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
+ .debug_frame   0x000021b0       0x20 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_divsi3.o)
+ .debug_frame   0x000021d0       0x20 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-errno.o)
+ .debug_frame   0x000021f0       0x28 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-exit.o)
+ .debug_frame   0x00002218       0x2c c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-init.o)
+ .debug_frame   0x00002244       0x28 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x0000226c       0x20 c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memset.o)
+
+.debug_str      0x00000000     0x25fb
+ *(.debug_str)
+ .debug_str     0x00000000      0x25b .\CortexM0\ARM_GCC_484\Debug\main.o
+                                0x2ac (size before relaxing)
+ .debug_str     0x0000025b       0x71 .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+                                0x278 (size before relaxing)
+ .debug_str     0x000002cc      0x651 .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+                                0x9e3 (size before relaxing)
+ .debug_str     0x0000091d        0x8 .\CortexM0\ARM_GCC_484\Debug\spi.o
+                                0x195 (size before relaxing)
+ .debug_str     0x00000925      0x1c0 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+                                0x37f (size before relaxing)
+ .debug_str     0x00000ae5       0x80 .\CortexM0\ARM_GCC_484\Debug\cybootloader.o
+                                0x20d (size before relaxing)
+ .debug_str     0x00000b65       0x37 .\CortexM0\ARM_GCC_484\Debug\cymetadata.o
+                                0x1ca (size before relaxing)
+ .debug_str     0x00000b9c      0x132 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+                                0x2eb (size before relaxing)
+ .debug_str     0x00000cce      0x199 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+                                0x376 (size before relaxing)
+ .debug_str     0x00000e67      0x131 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+                                0x2de (size before relaxing)
+ .debug_str     0x00000f98      0x14b .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+                                0x2f6 (size before relaxing)
+ .debug_str     0x000010e3       0xf9 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+                                0x2b0 (size before relaxing)
+ .debug_str     0x000011dc       0xc1 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+                                0x1dc (size before relaxing)
+ .debug_str     0x0000129d       0xf3 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+                                0x2b5 (size before relaxing)
+ .debug_str     0x00001390      0x3f2 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+                                0x598 (size before relaxing)
+ .debug_str     0x00001782      0x700 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+                                0x8f5 (size before relaxing)
+ .debug_str     0x00001e82      0x104 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+                                0x2ed (size before relaxing)
+ .debug_str     0x00001f86      0x4cd .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+                                0x73c (size before relaxing)
+ .debug_str     0x00002453       0x4c .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalSel.o)
+                                0x1db (size before relaxing)
+ .debug_str     0x0000249f       0x47 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(InputValue.o)
+                                0x1de (size before relaxing)
+ .debug_str     0x000024e6      0x115 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+                                0x2ec (size before relaxing)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_ranges   0x00000000      0x8e8
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x40 .\CortexM0\ARM_GCC_484\Debug\main.o
+ .debug_ranges  0x00000040       0x20 .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+ .debug_ranges  0x00000060       0x20 .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+ .debug_ranges  0x00000080       0x80 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .debug_ranges  0x00000100       0x38 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+ .debug_ranges  0x00000138       0x48 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+ .debug_ranges  0x00000180       0x58 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .debug_ranges  0x000001d8       0x50 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .debug_ranges  0x00000228       0x40 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .debug_ranges  0x00000268       0x70 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .debug_ranges  0x000002d8       0x70 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .debug_ranges  0x00000348      0x148 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .debug_ranges  0x00000490      0x220 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .debug_ranges  0x000006b0       0x70 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .debug_ranges  0x00000720      0x148 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .debug_ranges  0x00000868       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalSel.o)
+ .debug_ranges  0x00000880       0x18 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(InputValue.o)
+ .debug_ranges  0x00000898       0x50 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+
+.comment        0x00000000       0x70
+ .comment       0x00000000       0x70 .\CortexM0\ARM_GCC_484\Debug\main.o
+                                 0x71 (size before relaxing)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\spi.o
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\cybootloader.o
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\cymetadata.o
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalSel.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(InputValue.o)
+ .comment       0x00000000       0x71 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.note.gnu.arm.ident
+ *(.note.gnu.arm.ident)
+
+.ARM.attributes
+                0x00000000       0x28
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x1e c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
+ .ARM.attributes
+                0x0000001e       0x2c c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+ .ARM.attributes
+                0x0000004a       0x1b c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.attributes
+                0x00000065       0x31 .\CortexM0\ARM_GCC_484\Debug\main.o
+ .ARM.attributes
+                0x00000096       0x31 .\CortexM0\ARM_GCC_484\Debug\Scheduler.o
+ .ARM.attributes
+                0x000000c7       0x31 .\CortexM0\ARM_GCC_484\Debug\wiznet_parse.o
+ .ARM.attributes
+                0x000000f8       0x31 .\CortexM0\ARM_GCC_484\Debug\spi.o
+ .ARM.attributes
+                0x00000129       0x31 .\CortexM0\ARM_GCC_484\Debug\wiznet5500.o
+ .ARM.attributes
+                0x0000015a       0x31 .\CortexM0\ARM_GCC_484\Debug\cybootloader.o
+ .ARM.attributes
+                0x0000018b       0x31 .\CortexM0\ARM_GCC_484\Debug\cymetadata.o
+ .ARM.attributes
+                0x000001bc       0x31 .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+ .ARM.attributes
+                0x000001ed       0x31 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(cyfitter_cfg.o)
+ .ARM.attributes
+                0x0000021e       0x31 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1.o)
+ .ARM.attributes
+                0x0000024f       0x31 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_SPI_UART.o)
+ .ARM.attributes
+                0x00000280       0x31 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(UART_1_UART.o)
+ .ARM.attributes
+                0x000002b1       0x31 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(tinyprintf_1_printf.o)
+ .ARM.attributes
+                0x000002e2       0x31 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(isr.o)
+ .ARM.attributes
+                0x00000313       0x31 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(Timer.o)
+ .ARM.attributes
+                0x00000344       0x21 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyBootAsmGnu.o)
+ .ARM.attributes
+                0x00000365       0x31 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(CyLib.o)
+ .ARM.attributes
+                0x00000396       0x31 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(ISRUART.o)
+ .ARM.attributes
+                0x000003c7       0x31 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalGenerator.o)
+ .ARM.attributes
+                0x000003f8       0x31 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SignalSel.o)
+ .ARM.attributes
+                0x00000429       0x31 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(InputValue.o)
+ .ARM.attributes
+                0x0000045a       0x31 .\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.a(SPI_1_SPI_UART.o)
+ .ARM.attributes
+                0x0000048b       0x1e c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x000004a9       0x1e c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_divsi3.o)
+ .ARM.attributes
+                0x000004c7       0x1e c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x000004e5       0x2c c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-errno.o)
+ .ARM.attributes
+                0x00000511       0x2c c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-exit.o)
+ .ARM.attributes
+                0x0000053d       0x2c c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-impure.o)
+ .ARM.attributes
+                0x00000569       0x2c c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-init.o)
+ .ARM.attributes
+                0x00000595       0x2c c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memcpy-stub.o)
+ .ARM.attributes
+                0x000005c1       0x2c c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memset.o)
+ .ARM.attributes
+                0x000005ed       0x2c c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtend.o
+ .ARM.attributes
+                0x00000619       0x1e c:/program files (x86)/cypress/psoc creator/3.1/psoc creator/import/gnu_cs/arm/4.8.4/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
+
+/DISCARD/
+ *(.note.GNU-stack)
+OUTPUT(.\CortexM0\ARM_GCC_484\Debug\BYURover2015MainBoardSM.elf elf32-littlearm)
