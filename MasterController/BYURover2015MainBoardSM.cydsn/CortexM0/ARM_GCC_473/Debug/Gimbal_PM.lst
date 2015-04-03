@@ -1,0 +1,1050 @@
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"Gimbal_PM.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.bss
+  18              		.align	2
+  19              	Gimbal_backup:
+  20 0000 00000000 		.space	8
+  20      00000000 
+  21              		.section	.text.Gimbal_SaveConfig,"ax",%progbits
+  22              		.align	2
+  23              		.global	Gimbal_SaveConfig
+  24              		.code	16
+  25              		.thumb_func
+  26              		.type	Gimbal_SaveConfig, %function
+  27              	Gimbal_SaveConfig:
+  28              	.LFB0:
+  29              		.file 1 ".\\Generated_Source\\PSoC4\\Gimbal_PM.c"
+   1:.\Generated_Source\PSoC4/Gimbal_PM.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/Gimbal_PM.c **** * File Name: Gimbal_PM.c
+   3:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Version 3.0
+   4:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+   5:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Description:
+   6:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  This file provides the power management source code to API for the
+   7:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  PWM.
+   8:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+   9:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Note:
+  10:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+  11:.\Generated_Source\PSoC4/Gimbal_PM.c **** ********************************************************************************
+  12:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  13:.\Generated_Source\PSoC4/Gimbal_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:.\Generated_Source\PSoC4/Gimbal_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:.\Generated_Source\PSoC4/Gimbal_PM.c **** * the software package with which this file was provided.
+  16:.\Generated_Source\PSoC4/Gimbal_PM.c **** *******************************************************************************/
+  17:.\Generated_Source\PSoC4/Gimbal_PM.c **** #include "cytypes.h"
+  18:.\Generated_Source\PSoC4/Gimbal_PM.c **** #include "Gimbal.h"
+  19:.\Generated_Source\PSoC4/Gimbal_PM.c **** 
+  20:.\Generated_Source\PSoC4/Gimbal_PM.c **** static Gimbal_backupStruct Gimbal_backup;
+  21:.\Generated_Source\PSoC4/Gimbal_PM.c **** 
+  22:.\Generated_Source\PSoC4/Gimbal_PM.c **** 
+  23:.\Generated_Source\PSoC4/Gimbal_PM.c **** /*******************************************************************************
+  24:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Function Name: Gimbal_SaveConfig
+  25:.\Generated_Source\PSoC4/Gimbal_PM.c **** ********************************************************************************
+  26:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+  27:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Summary:
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 2
+
+
+  28:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  Saves the current user configuration of the component.
+  29:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  
+  30:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Parameters:  
+  31:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  None
+  32:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+  33:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Return: 
+  34:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  None
+  35:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+  36:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Global variables:
+  37:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  Gimbal_backup:  Variables of this global structure are modified to 
+  38:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  store the values of non retention configuration registers when Sleep() API is 
+  39:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  called.
+  40:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+  41:.\Generated_Source\PSoC4/Gimbal_PM.c **** *******************************************************************************/
+  42:.\Generated_Source\PSoC4/Gimbal_PM.c **** void Gimbal_SaveConfig(void) 
+  43:.\Generated_Source\PSoC4/Gimbal_PM.c **** {
+  30              		.loc 1 43 0
+  31              		.cfi_startproc
+  32 0000 80B5     		push	{r7, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 7, -8
+  36              		.cfi_offset 14, -4
+  37 0002 00AF     		add	r7, sp, #0
+  38              	.LCFI1:
+  39              		.cfi_def_cfa_register 7
+  44:.\Generated_Source\PSoC4/Gimbal_PM.c ****     
+  45:.\Generated_Source\PSoC4/Gimbal_PM.c ****     #if(!Gimbal_UsingFixedFunction)
+  46:.\Generated_Source\PSoC4/Gimbal_PM.c ****         #if(!Gimbal_PWMModeIsCenterAligned)
+  47:.\Generated_Source\PSoC4/Gimbal_PM.c ****             Gimbal_backup.PWMPeriod = Gimbal_ReadPeriod();
+  40              		.loc 1 47 0
+  41 0004 FFF7FEFF 		bl	Gimbal_ReadPeriod
+  42 0008 031C     		mov	r3, r0
+  43 000a 1A1C     		mov	r2, r3
+  44 000c 0A4B     		ldr	r3, .L2
+  45 000e 9A80     		strh	r2, [r3, #4]
+  48:.\Generated_Source\PSoC4/Gimbal_PM.c ****         #endif /* (!Gimbal_PWMModeIsCenterAligned) */
+  49:.\Generated_Source\PSoC4/Gimbal_PM.c ****         Gimbal_backup.PWMUdb = Gimbal_ReadCounter();
+  46              		.loc 1 49 0
+  47 0010 FFF7FEFF 		bl	Gimbal_ReadCounter
+  48 0014 031C     		mov	r3, r0
+  49 0016 1A1C     		mov	r2, r3
+  50 0018 074B     		ldr	r3, .L2
+  51 001a 5A80     		strh	r2, [r3, #2]
+  50:.\Generated_Source\PSoC4/Gimbal_PM.c ****         #if (Gimbal_UseStatus)
+  51:.\Generated_Source\PSoC4/Gimbal_PM.c ****             Gimbal_backup.InterruptMaskValue = Gimbal_STATUS_MASK;
+  52              		.loc 1 51 0
+  53 001c 074B     		ldr	r3, .L2+4
+  54 001e 1B78     		ldrb	r3, [r3]
+  55 0020 DAB2     		uxtb	r2, r3
+  56 0022 054B     		ldr	r3, .L2
+  57 0024 9A71     		strb	r2, [r3, #6]
+  52:.\Generated_Source\PSoC4/Gimbal_PM.c ****         #endif /* (Gimbal_UseStatus) */
+  53:.\Generated_Source\PSoC4/Gimbal_PM.c ****         
+  54:.\Generated_Source\PSoC4/Gimbal_PM.c ****         #if(Gimbal_DeadBandMode == Gimbal__B_PWM__DBM_256_CLOCKS || \
+  55:.\Generated_Source\PSoC4/Gimbal_PM.c ****             Gimbal_DeadBandMode == Gimbal__B_PWM__DBM_2_4_CLOCKS)
+  56:.\Generated_Source\PSoC4/Gimbal_PM.c ****             Gimbal_backup.PWMdeadBandValue = Gimbal_ReadDeadTime();
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 3
+
+
+  57:.\Generated_Source\PSoC4/Gimbal_PM.c ****         #endif /*  deadband count is either 2-4 clocks or 256 clocks */
+  58:.\Generated_Source\PSoC4/Gimbal_PM.c ****         
+  59:.\Generated_Source\PSoC4/Gimbal_PM.c ****         #if(Gimbal_KillModeMinTime)
+  60:.\Generated_Source\PSoC4/Gimbal_PM.c ****              Gimbal_backup.PWMKillCounterPeriod = Gimbal_ReadKillTime();
+  61:.\Generated_Source\PSoC4/Gimbal_PM.c ****         #endif /* (Gimbal_KillModeMinTime) */
+  62:.\Generated_Source\PSoC4/Gimbal_PM.c ****         
+  63:.\Generated_Source\PSoC4/Gimbal_PM.c ****         #if(Gimbal_UseControl)
+  64:.\Generated_Source\PSoC4/Gimbal_PM.c ****             Gimbal_backup.PWMControlRegister = Gimbal_ReadControlRegister();
+  58              		.loc 1 64 0
+  59 0026 FFF7FEFF 		bl	Gimbal_ReadControlRegister
+  60 002a 031C     		mov	r3, r0
+  61 002c 1A1C     		mov	r2, r3
+  62 002e 024B     		ldr	r3, .L2
+  63 0030 DA71     		strb	r2, [r3, #7]
+  65:.\Generated_Source\PSoC4/Gimbal_PM.c ****         #endif /* (Gimbal_UseControl) */
+  66:.\Generated_Source\PSoC4/Gimbal_PM.c ****     #endif  /* (!Gimbal_UsingFixedFunction) */
+  67:.\Generated_Source\PSoC4/Gimbal_PM.c **** }
+  64              		.loc 1 67 0
+  65 0032 BD46     		mov	sp, r7
+  66              		@ sp needed for prologue
+  67 0034 80BD     		pop	{r7, pc}
+  68              	.L3:
+  69 0036 C046     		.align	2
+  70              	.L2:
+  71 0038 00000000 		.word	Gimbal_backup
+  72 003c 82000F40 		.word	1074724994
+  73              		.cfi_endproc
+  74              	.LFE0:
+  75              		.size	Gimbal_SaveConfig, .-Gimbal_SaveConfig
+  76              		.section	.text.Gimbal_RestoreConfig,"ax",%progbits
+  77              		.align	2
+  78              		.global	Gimbal_RestoreConfig
+  79              		.code	16
+  80              		.thumb_func
+  81              		.type	Gimbal_RestoreConfig, %function
+  82              	Gimbal_RestoreConfig:
+  83              	.LFB1:
+  68:.\Generated_Source\PSoC4/Gimbal_PM.c **** 
+  69:.\Generated_Source\PSoC4/Gimbal_PM.c **** 
+  70:.\Generated_Source\PSoC4/Gimbal_PM.c **** /*******************************************************************************
+  71:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Function Name: Gimbal_RestoreConfig
+  72:.\Generated_Source\PSoC4/Gimbal_PM.c **** ********************************************************************************
+  73:.\Generated_Source\PSoC4/Gimbal_PM.c **** * 
+  74:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Summary:
+  75:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  Restores the current user configuration of the component.
+  76:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+  77:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Parameters:  
+  78:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  None
+  79:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+  80:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Return: 
+  81:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  None
+  82:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+  83:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Global variables:
+  84:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  Gimbal_backup:  Variables of this global structure are used to  
+  85:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  restore the values of non retention registers on wakeup from sleep mode.
+  86:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+  87:.\Generated_Source\PSoC4/Gimbal_PM.c **** *******************************************************************************/
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 4
+
+
+  88:.\Generated_Source\PSoC4/Gimbal_PM.c **** void Gimbal_RestoreConfig(void) 
+  89:.\Generated_Source\PSoC4/Gimbal_PM.c **** {
+  84              		.loc 1 89 0
+  85              		.cfi_startproc
+  86 0000 80B5     		push	{r7, lr}
+  87              	.LCFI2:
+  88              		.cfi_def_cfa_offset 8
+  89              		.cfi_offset 7, -8
+  90              		.cfi_offset 14, -4
+  91 0002 00AF     		add	r7, sp, #0
+  92              	.LCFI3:
+  93              		.cfi_def_cfa_register 7
+  90:.\Generated_Source\PSoC4/Gimbal_PM.c ****         #if(!Gimbal_UsingFixedFunction)
+  91:.\Generated_Source\PSoC4/Gimbal_PM.c ****             #if(!Gimbal_PWMModeIsCenterAligned)
+  92:.\Generated_Source\PSoC4/Gimbal_PM.c ****                 Gimbal_WritePeriod(Gimbal_backup.PWMPeriod);
+  94              		.loc 1 92 0
+  95 0004 0A4B     		ldr	r3, .L5
+  96 0006 9B88     		ldrh	r3, [r3, #4]
+  97 0008 181C     		mov	r0, r3
+  98 000a FFF7FEFF 		bl	Gimbal_WritePeriod
+  93:.\Generated_Source\PSoC4/Gimbal_PM.c ****             #endif /* (!Gimbal_PWMModeIsCenterAligned) */
+  94:.\Generated_Source\PSoC4/Gimbal_PM.c ****             Gimbal_WriteCounter(Gimbal_backup.PWMUdb);
+  99              		.loc 1 94 0
+ 100 000e 084B     		ldr	r3, .L5
+ 101 0010 5B88     		ldrh	r3, [r3, #2]
+ 102 0012 181C     		mov	r0, r3
+ 103 0014 FFF7FEFF 		bl	Gimbal_WriteCounter
+  95:.\Generated_Source\PSoC4/Gimbal_PM.c ****             #if (Gimbal_UseStatus)
+  96:.\Generated_Source\PSoC4/Gimbal_PM.c ****                 Gimbal_STATUS_MASK = Gimbal_backup.InterruptMaskValue;
+ 104              		.loc 1 96 0
+ 105 0018 064B     		ldr	r3, .L5+4
+ 106 001a 054A     		ldr	r2, .L5
+ 107 001c 9279     		ldrb	r2, [r2, #6]
+ 108 001e 1A70     		strb	r2, [r3]
+  97:.\Generated_Source\PSoC4/Gimbal_PM.c ****             #endif /* (Gimbal_UseStatus) */
+  98:.\Generated_Source\PSoC4/Gimbal_PM.c ****             
+  99:.\Generated_Source\PSoC4/Gimbal_PM.c ****             #if(Gimbal_DeadBandMode == Gimbal__B_PWM__DBM_256_CLOCKS || \
+ 100:.\Generated_Source\PSoC4/Gimbal_PM.c ****                 Gimbal_DeadBandMode == Gimbal__B_PWM__DBM_2_4_CLOCKS)
+ 101:.\Generated_Source\PSoC4/Gimbal_PM.c ****                 Gimbal_WriteDeadTime(Gimbal_backup.PWMdeadBandValue);
+ 102:.\Generated_Source\PSoC4/Gimbal_PM.c ****             #endif /* deadband count is either 2-4 clocks or 256 clocks */
+ 103:.\Generated_Source\PSoC4/Gimbal_PM.c ****             
+ 104:.\Generated_Source\PSoC4/Gimbal_PM.c ****             #if(Gimbal_KillModeMinTime)
+ 105:.\Generated_Source\PSoC4/Gimbal_PM.c ****                 Gimbal_WriteKillTime(Gimbal_backup.PWMKillCounterPeriod);
+ 106:.\Generated_Source\PSoC4/Gimbal_PM.c ****             #endif /* (Gimbal_KillModeMinTime) */
+ 107:.\Generated_Source\PSoC4/Gimbal_PM.c ****             
+ 108:.\Generated_Source\PSoC4/Gimbal_PM.c ****             #if(Gimbal_UseControl)
+ 109:.\Generated_Source\PSoC4/Gimbal_PM.c ****                 Gimbal_WriteControlRegister(Gimbal_backup.PWMControlRegister); 
+ 109              		.loc 1 109 0
+ 110 0020 034B     		ldr	r3, .L5
+ 111 0022 DB79     		ldrb	r3, [r3, #7]
+ 112 0024 181C     		mov	r0, r3
+ 113 0026 FFF7FEFF 		bl	Gimbal_WriteControlRegister
+ 110:.\Generated_Source\PSoC4/Gimbal_PM.c ****             #endif /* (Gimbal_UseControl) */
+ 111:.\Generated_Source\PSoC4/Gimbal_PM.c ****         #endif  /* (!Gimbal_UsingFixedFunction) */
+ 112:.\Generated_Source\PSoC4/Gimbal_PM.c ****     }
+ 114              		.loc 1 112 0
+ 115 002a BD46     		mov	sp, r7
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 5
+
+
+ 116              		@ sp needed for prologue
+ 117 002c 80BD     		pop	{r7, pc}
+ 118              	.L6:
+ 119 002e C046     		.align	2
+ 120              	.L5:
+ 121 0030 00000000 		.word	Gimbal_backup
+ 122 0034 82000F40 		.word	1074724994
+ 123              		.cfi_endproc
+ 124              	.LFE1:
+ 125              		.size	Gimbal_RestoreConfig, .-Gimbal_RestoreConfig
+ 126              		.section	.text.Gimbal_Sleep,"ax",%progbits
+ 127              		.align	2
+ 128              		.global	Gimbal_Sleep
+ 129              		.code	16
+ 130              		.thumb_func
+ 131              		.type	Gimbal_Sleep, %function
+ 132              	Gimbal_Sleep:
+ 133              	.LFB2:
+ 113:.\Generated_Source\PSoC4/Gimbal_PM.c **** 
+ 114:.\Generated_Source\PSoC4/Gimbal_PM.c **** 
+ 115:.\Generated_Source\PSoC4/Gimbal_PM.c **** /*******************************************************************************
+ 116:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Function Name: Gimbal_Sleep
+ 117:.\Generated_Source\PSoC4/Gimbal_PM.c **** ********************************************************************************
+ 118:.\Generated_Source\PSoC4/Gimbal_PM.c **** * 
+ 119:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Summary:
+ 120:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  Disables block's operation and saves the user configuration. Should be called 
+ 121:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  just prior to entering sleep.
+ 122:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  
+ 123:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Parameters:  
+ 124:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  None
+ 125:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+ 126:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Return: 
+ 127:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  None
+ 128:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+ 129:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Global variables:
+ 130:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  Gimbal_backup.PWMEnableState:  Is modified depending on the enable 
+ 131:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  state of the block before entering sleep mode.
+ 132:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+ 133:.\Generated_Source\PSoC4/Gimbal_PM.c **** *******************************************************************************/
+ 134:.\Generated_Source\PSoC4/Gimbal_PM.c **** void Gimbal_Sleep(void) 
+ 135:.\Generated_Source\PSoC4/Gimbal_PM.c **** {
+ 134              		.loc 1 135 0
+ 135              		.cfi_startproc
+ 136 0000 80B5     		push	{r7, lr}
+ 137              	.LCFI4:
+ 138              		.cfi_def_cfa_offset 8
+ 139              		.cfi_offset 7, -8
+ 140              		.cfi_offset 14, -4
+ 141 0002 00AF     		add	r7, sp, #0
+ 142              	.LCFI5:
+ 143              		.cfi_def_cfa_register 7
+ 136:.\Generated_Source\PSoC4/Gimbal_PM.c ****     #if(Gimbal_UseControl)
+ 137:.\Generated_Source\PSoC4/Gimbal_PM.c ****         if(Gimbal_CTRL_ENABLE == (Gimbal_CONTROL & Gimbal_CTRL_ENABLE))
+ 144              		.loc 1 137 0
+ 145 0004 094B     		ldr	r3, .L10
+ 146 0006 1B78     		ldrb	r3, [r3]
+ 147 0008 DBB2     		uxtb	r3, r3
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 6
+
+
+ 148 000a DBB2     		uxtb	r3, r3
+ 149 000c 5BB2     		sxtb	r3, r3
+ 150 000e 002B     		cmp	r3, #0
+ 151 0010 03DA     		bge	.L8
+ 138:.\Generated_Source\PSoC4/Gimbal_PM.c ****         {
+ 139:.\Generated_Source\PSoC4/Gimbal_PM.c ****             /*Component is enabled */
+ 140:.\Generated_Source\PSoC4/Gimbal_PM.c ****             Gimbal_backup.PWMEnableState = 1u;
+ 152              		.loc 1 140 0
+ 153 0012 074B     		ldr	r3, .L10+4
+ 154 0014 0122     		mov	r2, #1
+ 155 0016 1A70     		strb	r2, [r3]
+ 156 0018 02E0     		b	.L9
+ 157              	.L8:
+ 141:.\Generated_Source\PSoC4/Gimbal_PM.c ****         }
+ 142:.\Generated_Source\PSoC4/Gimbal_PM.c ****         else
+ 143:.\Generated_Source\PSoC4/Gimbal_PM.c ****         {
+ 144:.\Generated_Source\PSoC4/Gimbal_PM.c ****             /* Component is disabled */
+ 145:.\Generated_Source\PSoC4/Gimbal_PM.c ****             Gimbal_backup.PWMEnableState = 0u;
+ 158              		.loc 1 145 0
+ 159 001a 054B     		ldr	r3, .L10+4
+ 160 001c 0022     		mov	r2, #0
+ 161 001e 1A70     		strb	r2, [r3]
+ 162              	.L9:
+ 146:.\Generated_Source\PSoC4/Gimbal_PM.c ****         }
+ 147:.\Generated_Source\PSoC4/Gimbal_PM.c ****     #endif /* (Gimbal_UseControl) */
+ 148:.\Generated_Source\PSoC4/Gimbal_PM.c **** 
+ 149:.\Generated_Source\PSoC4/Gimbal_PM.c ****     /* Stop component */
+ 150:.\Generated_Source\PSoC4/Gimbal_PM.c ****     Gimbal_Stop();
+ 163              		.loc 1 150 0
+ 164 0020 FFF7FEFF 		bl	Gimbal_Stop
+ 151:.\Generated_Source\PSoC4/Gimbal_PM.c ****     
+ 152:.\Generated_Source\PSoC4/Gimbal_PM.c ****     /* Save registers configuration */
+ 153:.\Generated_Source\PSoC4/Gimbal_PM.c ****     Gimbal_SaveConfig();
+ 165              		.loc 1 153 0
+ 166 0024 FFF7FEFF 		bl	Gimbal_SaveConfig
+ 154:.\Generated_Source\PSoC4/Gimbal_PM.c **** }
+ 167              		.loc 1 154 0
+ 168 0028 BD46     		mov	sp, r7
+ 169              		@ sp needed for prologue
+ 170 002a 80BD     		pop	{r7, pc}
+ 171              	.L11:
+ 172              		.align	2
+ 173              	.L10:
+ 174 002c 72000F40 		.word	1074724978
+ 175 0030 00000000 		.word	Gimbal_backup
+ 176              		.cfi_endproc
+ 177              	.LFE2:
+ 178              		.size	Gimbal_Sleep, .-Gimbal_Sleep
+ 179              		.section	.text.Gimbal_Wakeup,"ax",%progbits
+ 180              		.align	2
+ 181              		.global	Gimbal_Wakeup
+ 182              		.code	16
+ 183              		.thumb_func
+ 184              		.type	Gimbal_Wakeup, %function
+ 185              	Gimbal_Wakeup:
+ 186              	.LFB3:
+ 155:.\Generated_Source\PSoC4/Gimbal_PM.c **** 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 7
+
+
+ 156:.\Generated_Source\PSoC4/Gimbal_PM.c **** 
+ 157:.\Generated_Source\PSoC4/Gimbal_PM.c **** /*******************************************************************************
+ 158:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Function Name: Gimbal_Wakeup
+ 159:.\Generated_Source\PSoC4/Gimbal_PM.c **** ********************************************************************************
+ 160:.\Generated_Source\PSoC4/Gimbal_PM.c **** * 
+ 161:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Summary:
+ 162:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  Restores and enables the user configuration. Should be called just after 
+ 163:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  awaking from sleep.
+ 164:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  
+ 165:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Parameters:  
+ 166:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  None
+ 167:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+ 168:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Return: 
+ 169:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  None
+ 170:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+ 171:.\Generated_Source\PSoC4/Gimbal_PM.c **** * Global variables:
+ 172:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  Gimbal_backup.pwmEnable:  Is used to restore the enable state of 
+ 173:.\Generated_Source\PSoC4/Gimbal_PM.c **** *  block on wakeup from sleep mode.
+ 174:.\Generated_Source\PSoC4/Gimbal_PM.c **** *
+ 175:.\Generated_Source\PSoC4/Gimbal_PM.c **** *******************************************************************************/
+ 176:.\Generated_Source\PSoC4/Gimbal_PM.c **** void Gimbal_Wakeup(void) 
+ 177:.\Generated_Source\PSoC4/Gimbal_PM.c **** {
+ 187              		.loc 1 177 0
+ 188              		.cfi_startproc
+ 189 0000 80B5     		push	{r7, lr}
+ 190              	.LCFI6:
+ 191              		.cfi_def_cfa_offset 8
+ 192              		.cfi_offset 7, -8
+ 193              		.cfi_offset 14, -4
+ 194 0002 00AF     		add	r7, sp, #0
+ 195              	.LCFI7:
+ 196              		.cfi_def_cfa_register 7
+ 178:.\Generated_Source\PSoC4/Gimbal_PM.c ****      /* Restore registers values */
+ 179:.\Generated_Source\PSoC4/Gimbal_PM.c ****     Gimbal_RestoreConfig();
+ 197              		.loc 1 179 0
+ 198 0004 FFF7FEFF 		bl	Gimbal_RestoreConfig
+ 180:.\Generated_Source\PSoC4/Gimbal_PM.c ****     
+ 181:.\Generated_Source\PSoC4/Gimbal_PM.c ****     if(Gimbal_backup.PWMEnableState != 0u)
+ 199              		.loc 1 181 0
+ 200 0008 034B     		ldr	r3, .L14
+ 201 000a 1B78     		ldrb	r3, [r3]
+ 202 000c 002B     		cmp	r3, #0
+ 203 000e 01D0     		beq	.L12
+ 182:.\Generated_Source\PSoC4/Gimbal_PM.c ****     {
+ 183:.\Generated_Source\PSoC4/Gimbal_PM.c ****         /* Enable component's operation */
+ 184:.\Generated_Source\PSoC4/Gimbal_PM.c ****         Gimbal_Enable();
+ 204              		.loc 1 184 0
+ 205 0010 FFF7FEFF 		bl	Gimbal_Enable
+ 206              	.L12:
+ 185:.\Generated_Source\PSoC4/Gimbal_PM.c ****     } /* Do nothing if component's block was disabled before */
+ 186:.\Generated_Source\PSoC4/Gimbal_PM.c ****     
+ 187:.\Generated_Source\PSoC4/Gimbal_PM.c **** }
+ 207              		.loc 1 187 0
+ 208 0014 BD46     		mov	sp, r7
+ 209              		@ sp needed for prologue
+ 210 0016 80BD     		pop	{r7, pc}
+ 211              	.L15:
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 8
+
+
+ 212              		.align	2
+ 213              	.L14:
+ 214 0018 00000000 		.word	Gimbal_backup
+ 215              		.cfi_endproc
+ 216              	.LFE3:
+ 217              		.size	Gimbal_Wakeup, .-Gimbal_Wakeup
+ 218              		.text
+ 219              	.Letext0:
+ 220              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
+ 221              		.file 3 ".\\Generated_Source\\PSoC4\\Gimbal.h"
+ 222              		.section	.debug_info,"",%progbits
+ 223              	.Ldebug_info0:
+ 224 0000 71010000 		.4byte	0x171
+ 225 0004 0200     		.2byte	0x2
+ 226 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 227 000a 04       		.byte	0x4
+ 228 000b 01       		.uleb128 0x1
+ 229 000c A1010000 		.4byte	.LASF26
+ 230 0010 01       		.byte	0x1
+ 231 0011 19000000 		.4byte	.LASF27
+ 232 0015 69000000 		.4byte	.LASF28
+ 233 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 234 001d 00000000 		.4byte	0
+ 235 0021 00000000 		.4byte	0
+ 236 0025 00000000 		.4byte	.Ldebug_line0
+ 237 0029 02       		.uleb128 0x2
+ 238 002a 01       		.byte	0x1
+ 239 002b 06       		.byte	0x6
+ 240 002c 01020000 		.4byte	.LASF0
+ 241 0030 02       		.uleb128 0x2
+ 242 0031 01       		.byte	0x1
+ 243 0032 08       		.byte	0x8
+ 244 0033 DA000000 		.4byte	.LASF1
+ 245 0037 02       		.uleb128 0x2
+ 246 0038 02       		.byte	0x2
+ 247 0039 05       		.byte	0x5
+ 248 003a 97010000 		.4byte	.LASF2
+ 249 003e 02       		.uleb128 0x2
+ 250 003f 02       		.byte	0x2
+ 251 0040 07       		.byte	0x7
+ 252 0041 56000000 		.4byte	.LASF3
+ 253 0045 02       		.uleb128 0x2
+ 254 0046 04       		.byte	0x4
+ 255 0047 05       		.byte	0x5
+ 256 0048 EA010000 		.4byte	.LASF4
+ 257 004c 02       		.uleb128 0x2
+ 258 004d 04       		.byte	0x4
+ 259 004e 07       		.byte	0x7
+ 260 004f 04010000 		.4byte	.LASF5
+ 261 0053 02       		.uleb128 0x2
+ 262 0054 08       		.byte	0x8
+ 263 0055 05       		.byte	0x5
+ 264 0056 84010000 		.4byte	.LASF6
+ 265 005a 02       		.uleb128 0x2
+ 266 005b 08       		.byte	0x8
+ 267 005c 07       		.byte	0x7
+ 268 005d 4A010000 		.4byte	.LASF7
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 9
+
+
+ 269 0061 03       		.uleb128 0x3
+ 270 0062 04       		.byte	0x4
+ 271 0063 05       		.byte	0x5
+ 272 0064 696E7400 		.ascii	"int\000"
+ 273 0068 02       		.uleb128 0x2
+ 274 0069 04       		.byte	0x4
+ 275 006a 07       		.byte	0x7
+ 276 006b 3D010000 		.4byte	.LASF8
+ 277 006f 04       		.uleb128 0x4
+ 278 0070 16010000 		.4byte	.LASF9
+ 279 0074 02       		.byte	0x2
+ 280 0075 5B       		.byte	0x5b
+ 281 0076 30000000 		.4byte	0x30
+ 282 007a 04       		.uleb128 0x4
+ 283 007b 36010000 		.4byte	.LASF10
+ 284 007f 02       		.byte	0x2
+ 285 0080 5C       		.byte	0x5c
+ 286 0081 3E000000 		.4byte	0x3e
+ 287 0085 02       		.uleb128 0x2
+ 288 0086 04       		.byte	0x4
+ 289 0087 04       		.byte	0x4
+ 290 0088 D4000000 		.4byte	.LASF11
+ 291 008c 02       		.uleb128 0x2
+ 292 008d 08       		.byte	0x8
+ 293 008e 04       		.byte	0x4
+ 294 008f 2F010000 		.4byte	.LASF12
+ 295 0093 02       		.uleb128 0x2
+ 296 0094 01       		.byte	0x1
+ 297 0095 08       		.byte	0x8
+ 298 0096 92010000 		.4byte	.LASF13
+ 299 009a 04       		.uleb128 0x4
+ 300 009b 76010000 		.4byte	.LASF14
+ 301 009f 02       		.byte	0x2
+ 302 00a0 F0       		.byte	0xf0
+ 303 00a1 A5000000 		.4byte	0xa5
+ 304 00a5 05       		.uleb128 0x5
+ 305 00a6 6F000000 		.4byte	0x6f
+ 306 00aa 02       		.uleb128 0x2
+ 307 00ab 04       		.byte	0x4
+ 308 00ac 07       		.byte	0x7
+ 309 00ad 7B010000 		.4byte	.LASF15
+ 310 00b1 06       		.uleb128 0x6
+ 311 00b2 08       		.byte	0x8
+ 312 00b3 03       		.byte	0x3
+ 313 00b4 6A       		.byte	0x6a
+ 314 00b5 00010000 		.4byte	0x100
+ 315 00b9 07       		.uleb128 0x7
+ 316 00ba F5000000 		.4byte	.LASF16
+ 317 00be 03       		.byte	0x3
+ 318 00bf 6D       		.byte	0x6d
+ 319 00c0 6F000000 		.4byte	0x6f
+ 320 00c4 02       		.byte	0x2
+ 321 00c5 23       		.byte	0x23
+ 322 00c6 00       		.uleb128 0
+ 323 00c7 07       		.uleb128 0x7
+ 324 00c8 00000000 		.4byte	.LASF17
+ 325 00cc 03       		.byte	0x3
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 10
+
+
+ 326 00cd 70       		.byte	0x70
+ 327 00ce 7A000000 		.4byte	0x7a
+ 328 00d2 02       		.byte	0x2
+ 329 00d3 23       		.byte	0x23
+ 330 00d4 02       		.uleb128 0x2
+ 331 00d5 07       		.uleb128 0x7
+ 332 00d6 3E000000 		.4byte	.LASF18
+ 333 00da 03       		.byte	0x3
+ 334 00db 72       		.byte	0x72
+ 335 00dc 7A000000 		.4byte	0x7a
+ 336 00e0 02       		.byte	0x2
+ 337 00e1 23       		.byte	0x23
+ 338 00e2 04       		.uleb128 0x4
+ 339 00e3 07       		.uleb128 0x7
+ 340 00e4 0D020000 		.4byte	.LASF19
+ 341 00e8 03       		.byte	0x3
+ 342 00e9 75       		.byte	0x75
+ 343 00ea 6F000000 		.4byte	0x6f
+ 344 00ee 02       		.byte	0x2
+ 345 00ef 23       		.byte	0x23
+ 346 00f0 06       		.uleb128 0x6
+ 347 00f1 07       		.uleb128 0x7
+ 348 00f2 1C010000 		.4byte	.LASF20
+ 349 00f6 03       		.byte	0x3
+ 350 00f7 85       		.byte	0x85
+ 351 00f8 6F000000 		.4byte	0x6f
+ 352 00fc 02       		.byte	0x2
+ 353 00fd 23       		.byte	0x23
+ 354 00fe 07       		.uleb128 0x7
+ 355 00ff 00       		.byte	0
+ 356 0100 04       		.uleb128 0x4
+ 357 0101 20020000 		.4byte	.LASF21
+ 358 0105 03       		.byte	0x3
+ 359 0106 8A       		.byte	0x8a
+ 360 0107 B1000000 		.4byte	0xb1
+ 361 010b 08       		.uleb128 0x8
+ 362 010c 01       		.byte	0x1
+ 363 010d 07000000 		.4byte	.LASF22
+ 364 0111 01       		.byte	0x1
+ 365 0112 2A       		.byte	0x2a
+ 366 0113 01       		.byte	0x1
+ 367 0114 00000000 		.4byte	.LFB0
+ 368 0118 40000000 		.4byte	.LFE0
+ 369 011c 00000000 		.4byte	.LLST0
+ 370 0120 01       		.byte	0x1
+ 371 0121 08       		.uleb128 0x8
+ 372 0122 01       		.byte	0x1
+ 373 0123 61010000 		.4byte	.LASF23
+ 374 0127 01       		.byte	0x1
+ 375 0128 58       		.byte	0x58
+ 376 0129 01       		.byte	0x1
+ 377 012a 00000000 		.4byte	.LFB1
+ 378 012e 38000000 		.4byte	.LFE1
+ 379 0132 2C000000 		.4byte	.LLST1
+ 380 0136 01       		.byte	0x1
+ 381 0137 08       		.uleb128 0x8
+ 382 0138 01       		.byte	0x1
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 11
+
+
+ 383 0139 E8000000 		.4byte	.LASF24
+ 384 013d 01       		.byte	0x1
+ 385 013e 86       		.byte	0x86
+ 386 013f 01       		.byte	0x1
+ 387 0140 00000000 		.4byte	.LFB2
+ 388 0144 34000000 		.4byte	.LFE2
+ 389 0148 58000000 		.4byte	.LLST2
+ 390 014c 01       		.byte	0x1
+ 391 014d 08       		.uleb128 0x8
+ 392 014e 01       		.byte	0x1
+ 393 014f 48000000 		.4byte	.LASF25
+ 394 0153 01       		.byte	0x1
+ 395 0154 B0       		.byte	0xb0
+ 396 0155 01       		.byte	0x1
+ 397 0156 00000000 		.4byte	.LFB3
+ 398 015a 1C000000 		.4byte	.LFE3
+ 399 015e 84000000 		.4byte	.LLST3
+ 400 0162 01       		.byte	0x1
+ 401 0163 09       		.uleb128 0x9
+ 402 0164 F3010000 		.4byte	.LASF29
+ 403 0168 01       		.byte	0x1
+ 404 0169 14       		.byte	0x14
+ 405 016a 00010000 		.4byte	0x100
+ 406 016e 05       		.byte	0x5
+ 407 016f 03       		.byte	0x3
+ 408 0170 00000000 		.4byte	Gimbal_backup
+ 409 0174 00       		.byte	0
+ 410              		.section	.debug_abbrev,"",%progbits
+ 411              	.Ldebug_abbrev0:
+ 412 0000 01       		.uleb128 0x1
+ 413 0001 11       		.uleb128 0x11
+ 414 0002 01       		.byte	0x1
+ 415 0003 25       		.uleb128 0x25
+ 416 0004 0E       		.uleb128 0xe
+ 417 0005 13       		.uleb128 0x13
+ 418 0006 0B       		.uleb128 0xb
+ 419 0007 03       		.uleb128 0x3
+ 420 0008 0E       		.uleb128 0xe
+ 421 0009 1B       		.uleb128 0x1b
+ 422 000a 0E       		.uleb128 0xe
+ 423 000b 55       		.uleb128 0x55
+ 424 000c 06       		.uleb128 0x6
+ 425 000d 11       		.uleb128 0x11
+ 426 000e 01       		.uleb128 0x1
+ 427 000f 52       		.uleb128 0x52
+ 428 0010 01       		.uleb128 0x1
+ 429 0011 10       		.uleb128 0x10
+ 430 0012 06       		.uleb128 0x6
+ 431 0013 00       		.byte	0
+ 432 0014 00       		.byte	0
+ 433 0015 02       		.uleb128 0x2
+ 434 0016 24       		.uleb128 0x24
+ 435 0017 00       		.byte	0
+ 436 0018 0B       		.uleb128 0xb
+ 437 0019 0B       		.uleb128 0xb
+ 438 001a 3E       		.uleb128 0x3e
+ 439 001b 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 12
+
+
+ 440 001c 03       		.uleb128 0x3
+ 441 001d 0E       		.uleb128 0xe
+ 442 001e 00       		.byte	0
+ 443 001f 00       		.byte	0
+ 444 0020 03       		.uleb128 0x3
+ 445 0021 24       		.uleb128 0x24
+ 446 0022 00       		.byte	0
+ 447 0023 0B       		.uleb128 0xb
+ 448 0024 0B       		.uleb128 0xb
+ 449 0025 3E       		.uleb128 0x3e
+ 450 0026 0B       		.uleb128 0xb
+ 451 0027 03       		.uleb128 0x3
+ 452 0028 08       		.uleb128 0x8
+ 453 0029 00       		.byte	0
+ 454 002a 00       		.byte	0
+ 455 002b 04       		.uleb128 0x4
+ 456 002c 16       		.uleb128 0x16
+ 457 002d 00       		.byte	0
+ 458 002e 03       		.uleb128 0x3
+ 459 002f 0E       		.uleb128 0xe
+ 460 0030 3A       		.uleb128 0x3a
+ 461 0031 0B       		.uleb128 0xb
+ 462 0032 3B       		.uleb128 0x3b
+ 463 0033 0B       		.uleb128 0xb
+ 464 0034 49       		.uleb128 0x49
+ 465 0035 13       		.uleb128 0x13
+ 466 0036 00       		.byte	0
+ 467 0037 00       		.byte	0
+ 468 0038 05       		.uleb128 0x5
+ 469 0039 35       		.uleb128 0x35
+ 470 003a 00       		.byte	0
+ 471 003b 49       		.uleb128 0x49
+ 472 003c 13       		.uleb128 0x13
+ 473 003d 00       		.byte	0
+ 474 003e 00       		.byte	0
+ 475 003f 06       		.uleb128 0x6
+ 476 0040 13       		.uleb128 0x13
+ 477 0041 01       		.byte	0x1
+ 478 0042 0B       		.uleb128 0xb
+ 479 0043 0B       		.uleb128 0xb
+ 480 0044 3A       		.uleb128 0x3a
+ 481 0045 0B       		.uleb128 0xb
+ 482 0046 3B       		.uleb128 0x3b
+ 483 0047 0B       		.uleb128 0xb
+ 484 0048 01       		.uleb128 0x1
+ 485 0049 13       		.uleb128 0x13
+ 486 004a 00       		.byte	0
+ 487 004b 00       		.byte	0
+ 488 004c 07       		.uleb128 0x7
+ 489 004d 0D       		.uleb128 0xd
+ 490 004e 00       		.byte	0
+ 491 004f 03       		.uleb128 0x3
+ 492 0050 0E       		.uleb128 0xe
+ 493 0051 3A       		.uleb128 0x3a
+ 494 0052 0B       		.uleb128 0xb
+ 495 0053 3B       		.uleb128 0x3b
+ 496 0054 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 13
+
+
+ 497 0055 49       		.uleb128 0x49
+ 498 0056 13       		.uleb128 0x13
+ 499 0057 38       		.uleb128 0x38
+ 500 0058 0A       		.uleb128 0xa
+ 501 0059 00       		.byte	0
+ 502 005a 00       		.byte	0
+ 503 005b 08       		.uleb128 0x8
+ 504 005c 2E       		.uleb128 0x2e
+ 505 005d 00       		.byte	0
+ 506 005e 3F       		.uleb128 0x3f
+ 507 005f 0C       		.uleb128 0xc
+ 508 0060 03       		.uleb128 0x3
+ 509 0061 0E       		.uleb128 0xe
+ 510 0062 3A       		.uleb128 0x3a
+ 511 0063 0B       		.uleb128 0xb
+ 512 0064 3B       		.uleb128 0x3b
+ 513 0065 0B       		.uleb128 0xb
+ 514 0066 27       		.uleb128 0x27
+ 515 0067 0C       		.uleb128 0xc
+ 516 0068 11       		.uleb128 0x11
+ 517 0069 01       		.uleb128 0x1
+ 518 006a 12       		.uleb128 0x12
+ 519 006b 01       		.uleb128 0x1
+ 520 006c 40       		.uleb128 0x40
+ 521 006d 06       		.uleb128 0x6
+ 522 006e 9642     		.uleb128 0x2116
+ 523 0070 0C       		.uleb128 0xc
+ 524 0071 00       		.byte	0
+ 525 0072 00       		.byte	0
+ 526 0073 09       		.uleb128 0x9
+ 527 0074 34       		.uleb128 0x34
+ 528 0075 00       		.byte	0
+ 529 0076 03       		.uleb128 0x3
+ 530 0077 0E       		.uleb128 0xe
+ 531 0078 3A       		.uleb128 0x3a
+ 532 0079 0B       		.uleb128 0xb
+ 533 007a 3B       		.uleb128 0x3b
+ 534 007b 0B       		.uleb128 0xb
+ 535 007c 49       		.uleb128 0x49
+ 536 007d 13       		.uleb128 0x13
+ 537 007e 02       		.uleb128 0x2
+ 538 007f 0A       		.uleb128 0xa
+ 539 0080 00       		.byte	0
+ 540 0081 00       		.byte	0
+ 541 0082 00       		.byte	0
+ 542              		.section	.debug_loc,"",%progbits
+ 543              	.Ldebug_loc0:
+ 544              	.LLST0:
+ 545 0000 00000000 		.4byte	.LFB0
+ 546 0004 02000000 		.4byte	.LCFI0
+ 547 0008 0200     		.2byte	0x2
+ 548 000a 7D       		.byte	0x7d
+ 549 000b 00       		.sleb128 0
+ 550 000c 02000000 		.4byte	.LCFI0
+ 551 0010 04000000 		.4byte	.LCFI1
+ 552 0014 0200     		.2byte	0x2
+ 553 0016 7D       		.byte	0x7d
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 14
+
+
+ 554 0017 08       		.sleb128 8
+ 555 0018 04000000 		.4byte	.LCFI1
+ 556 001c 40000000 		.4byte	.LFE0
+ 557 0020 0200     		.2byte	0x2
+ 558 0022 77       		.byte	0x77
+ 559 0023 08       		.sleb128 8
+ 560 0024 00000000 		.4byte	0
+ 561 0028 00000000 		.4byte	0
+ 562              	.LLST1:
+ 563 002c 00000000 		.4byte	.LFB1
+ 564 0030 02000000 		.4byte	.LCFI2
+ 565 0034 0200     		.2byte	0x2
+ 566 0036 7D       		.byte	0x7d
+ 567 0037 00       		.sleb128 0
+ 568 0038 02000000 		.4byte	.LCFI2
+ 569 003c 04000000 		.4byte	.LCFI3
+ 570 0040 0200     		.2byte	0x2
+ 571 0042 7D       		.byte	0x7d
+ 572 0043 08       		.sleb128 8
+ 573 0044 04000000 		.4byte	.LCFI3
+ 574 0048 38000000 		.4byte	.LFE1
+ 575 004c 0200     		.2byte	0x2
+ 576 004e 77       		.byte	0x77
+ 577 004f 08       		.sleb128 8
+ 578 0050 00000000 		.4byte	0
+ 579 0054 00000000 		.4byte	0
+ 580              	.LLST2:
+ 581 0058 00000000 		.4byte	.LFB2
+ 582 005c 02000000 		.4byte	.LCFI4
+ 583 0060 0200     		.2byte	0x2
+ 584 0062 7D       		.byte	0x7d
+ 585 0063 00       		.sleb128 0
+ 586 0064 02000000 		.4byte	.LCFI4
+ 587 0068 04000000 		.4byte	.LCFI5
+ 588 006c 0200     		.2byte	0x2
+ 589 006e 7D       		.byte	0x7d
+ 590 006f 08       		.sleb128 8
+ 591 0070 04000000 		.4byte	.LCFI5
+ 592 0074 34000000 		.4byte	.LFE2
+ 593 0078 0200     		.2byte	0x2
+ 594 007a 77       		.byte	0x77
+ 595 007b 08       		.sleb128 8
+ 596 007c 00000000 		.4byte	0
+ 597 0080 00000000 		.4byte	0
+ 598              	.LLST3:
+ 599 0084 00000000 		.4byte	.LFB3
+ 600 0088 02000000 		.4byte	.LCFI6
+ 601 008c 0200     		.2byte	0x2
+ 602 008e 7D       		.byte	0x7d
+ 603 008f 00       		.sleb128 0
+ 604 0090 02000000 		.4byte	.LCFI6
+ 605 0094 04000000 		.4byte	.LCFI7
+ 606 0098 0200     		.2byte	0x2
+ 607 009a 7D       		.byte	0x7d
+ 608 009b 08       		.sleb128 8
+ 609 009c 04000000 		.4byte	.LCFI7
+ 610 00a0 1C000000 		.4byte	.LFE3
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 15
+
+
+ 611 00a4 0200     		.2byte	0x2
+ 612 00a6 77       		.byte	0x77
+ 613 00a7 08       		.sleb128 8
+ 614 00a8 00000000 		.4byte	0
+ 615 00ac 00000000 		.4byte	0
+ 616              		.section	.debug_aranges,"",%progbits
+ 617 0000 34000000 		.4byte	0x34
+ 618 0004 0200     		.2byte	0x2
+ 619 0006 00000000 		.4byte	.Ldebug_info0
+ 620 000a 04       		.byte	0x4
+ 621 000b 00       		.byte	0
+ 622 000c 0000     		.2byte	0
+ 623 000e 0000     		.2byte	0
+ 624 0010 00000000 		.4byte	.LFB0
+ 625 0014 40000000 		.4byte	.LFE0-.LFB0
+ 626 0018 00000000 		.4byte	.LFB1
+ 627 001c 38000000 		.4byte	.LFE1-.LFB1
+ 628 0020 00000000 		.4byte	.LFB2
+ 629 0024 34000000 		.4byte	.LFE2-.LFB2
+ 630 0028 00000000 		.4byte	.LFB3
+ 631 002c 1C000000 		.4byte	.LFE3-.LFB3
+ 632 0030 00000000 		.4byte	0
+ 633 0034 00000000 		.4byte	0
+ 634              		.section	.debug_ranges,"",%progbits
+ 635              	.Ldebug_ranges0:
+ 636 0000 00000000 		.4byte	.LFB0
+ 637 0004 40000000 		.4byte	.LFE0
+ 638 0008 00000000 		.4byte	.LFB1
+ 639 000c 38000000 		.4byte	.LFE1
+ 640 0010 00000000 		.4byte	.LFB2
+ 641 0014 34000000 		.4byte	.LFE2
+ 642 0018 00000000 		.4byte	.LFB3
+ 643 001c 1C000000 		.4byte	.LFE3
+ 644 0020 00000000 		.4byte	0
+ 645 0024 00000000 		.4byte	0
+ 646              		.section	.debug_line,"",%progbits
+ 647              	.Ldebug_line0:
+ 648 0000 B1000000 		.section	.debug_str,"MS",%progbits,1
+ 648      02005400 
+ 648      00000201 
+ 648      FB0E0D00 
+ 648      01010101 
+ 649              	.LASF17:
+ 650 0000 50574D55 		.ascii	"PWMUdb\000"
+ 650      646200
+ 651              	.LASF22:
+ 652 0007 47696D62 		.ascii	"Gimbal_SaveConfig\000"
+ 652      616C5F53 
+ 652      61766543 
+ 652      6F6E6669 
+ 652      6700
+ 653              	.LASF27:
+ 654 0019 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\Gimbal_PM.c\000"
+ 654      6E657261 
+ 654      7465645F 
+ 654      536F7572 
+ 654      63655C50 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 16
+
+
+ 655              	.LASF18:
+ 656 003e 50574D50 		.ascii	"PWMPeriod\000"
+ 656      6572696F 
+ 656      6400
+ 657              	.LASF25:
+ 658 0048 47696D62 		.ascii	"Gimbal_Wakeup\000"
+ 658      616C5F57 
+ 658      616B6575 
+ 658      7000
+ 659              	.LASF3:
+ 660 0056 73686F72 		.ascii	"short unsigned int\000"
+ 660      7420756E 
+ 660      7369676E 
+ 660      65642069 
+ 660      6E7400
+ 661              	.LASF28:
+ 662 0069 433A5C55 		.ascii	"C:\\Users\\Jared\\Documents\\PSoC Creator\\MasterCo"
+ 662      73657273 
+ 662      5C4A6172 
+ 662      65645C44 
+ 662      6F63756D 
+ 663 0097 6E74726F 		.ascii	"ntrollerBoard\\MasterController\\BYURover2015MainBo"
+ 663      6C6C6572 
+ 663      426F6172 
+ 663      645C4D61 
+ 663      73746572 
+ 664 00c8 61726453 		.ascii	"ardSM.cydsn\000"
+ 664      4D2E6379 
+ 664      64736E00 
+ 665              	.LASF11:
+ 666 00d4 666C6F61 		.ascii	"float\000"
+ 666      7400
+ 667              	.LASF1:
+ 668 00da 756E7369 		.ascii	"unsigned char\000"
+ 668      676E6564 
+ 668      20636861 
+ 668      7200
+ 669              	.LASF24:
+ 670 00e8 47696D62 		.ascii	"Gimbal_Sleep\000"
+ 670      616C5F53 
+ 670      6C656570 
+ 670      00
+ 671              	.LASF16:
+ 672 00f5 50574D45 		.ascii	"PWMEnableState\000"
+ 672      6E61626C 
+ 672      65537461 
+ 672      746500
+ 673              	.LASF5:
+ 674 0104 6C6F6E67 		.ascii	"long unsigned int\000"
+ 674      20756E73 
+ 674      69676E65 
+ 674      6420696E 
+ 674      7400
+ 675              	.LASF9:
+ 676 0116 75696E74 		.ascii	"uint8\000"
+ 676      3800
+ 677              	.LASF20:
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 17
+
+
+ 678 011c 50574D43 		.ascii	"PWMControlRegister\000"
+ 678      6F6E7472 
+ 678      6F6C5265 
+ 678      67697374 
+ 678      657200
+ 679              	.LASF12:
+ 680 012f 646F7562 		.ascii	"double\000"
+ 680      6C6500
+ 681              	.LASF10:
+ 682 0136 75696E74 		.ascii	"uint16\000"
+ 682      313600
+ 683              	.LASF8:
+ 684 013d 756E7369 		.ascii	"unsigned int\000"
+ 684      676E6564 
+ 684      20696E74 
+ 684      00
+ 685              	.LASF7:
+ 686 014a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 686      206C6F6E 
+ 686      6720756E 
+ 686      7369676E 
+ 686      65642069 
+ 687              	.LASF23:
+ 688 0161 47696D62 		.ascii	"Gimbal_RestoreConfig\000"
+ 688      616C5F52 
+ 688      6573746F 
+ 688      7265436F 
+ 688      6E666967 
+ 689              	.LASF14:
+ 690 0176 72656738 		.ascii	"reg8\000"
+ 690      00
+ 691              	.LASF15:
+ 692 017b 73697A65 		.ascii	"sizetype\000"
+ 692      74797065 
+ 692      00
+ 693              	.LASF6:
+ 694 0184 6C6F6E67 		.ascii	"long long int\000"
+ 694      206C6F6E 
+ 694      6720696E 
+ 694      7400
+ 695              	.LASF13:
+ 696 0192 63686172 		.ascii	"char\000"
+ 696      00
+ 697              	.LASF2:
+ 698 0197 73686F72 		.ascii	"short int\000"
+ 698      7420696E 
+ 698      7400
+ 699              	.LASF26:
+ 700 01a1 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 700      4320342E 
+ 700      372E3320 
+ 700      32303133 
+ 700      30333132 
+ 701 01d4 616E6368 		.ascii	"anch revision 196615]\000"
+ 701      20726576 
+ 701      6973696F 
+ 701      6E203139 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccVPfheS.s 			page 18
+
+
+ 701      36363135 
+ 702              	.LASF4:
+ 703 01ea 6C6F6E67 		.ascii	"long int\000"
+ 703      20696E74 
+ 703      00
+ 704              	.LASF29:
+ 705 01f3 47696D62 		.ascii	"Gimbal_backup\000"
+ 705      616C5F62 
+ 705      61636B75 
+ 705      7000
+ 706              	.LASF0:
+ 707 0201 7369676E 		.ascii	"signed char\000"
+ 707      65642063 
+ 707      68617200 
+ 708              	.LASF19:
+ 709 020d 496E7465 		.ascii	"InterruptMaskValue\000"
+ 709      72727570 
+ 709      744D6173 
+ 709      6B56616C 
+ 709      756500
+ 710              	.LASF21:
+ 711 0220 47696D62 		.ascii	"Gimbal_backupStruct\000"
+ 711      616C5F62 
+ 711      61636B75 
+ 711      70537472 
+ 711      75637400 
+ 712              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br

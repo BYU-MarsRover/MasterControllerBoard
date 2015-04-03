@@ -1,0 +1,1522 @@
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"Scheduler.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.comm	timeoutCounter,2,2
+  18              		.global	recievedMessage
+  19              		.bss
+  20              		.type	recievedMessage, %object
+  21              		.size	recievedMessage, 1
+  22              	recievedMessage:
+  23 0000 00       		.space	1
+  24              		.global	messageStillNotRecievedError
+  25              		.type	messageStillNotRecievedError, %object
+  26              		.size	messageStillNotRecievedError, 1
+  27              	messageStillNotRecievedError:
+  28 0001 00       		.space	1
+  29              		.section	.text.initTodoList,"ax",%progbits
+  30              		.align	2
+  31              		.global	initTodoList
+  32              		.code	16
+  33              		.thumb_func
+  34              		.type	initTodoList, %function
+  35              	initTodoList:
+  36              	.LFB33:
+  37              		.file 1 ".\\Scheduler.c"
+   1:.\Scheduler.c **** /* ========================================
+   2:.\Scheduler.c ****  *
+   3:.\Scheduler.c ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\Scheduler.c ****  * All Rights Reserved
+   5:.\Scheduler.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\Scheduler.c ****  *
+   7:.\Scheduler.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\Scheduler.c ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\Scheduler.c ****  *
+  10:.\Scheduler.c ****  * ========================================
+  11:.\Scheduler.c **** */
+  12:.\Scheduler.c **** #include "Scheduler.h"
+  13:.\Scheduler.c **** 
+  14:.\Scheduler.c **** 
+  15:.\Scheduler.c **** volatile uint16 timeoutCounter;
+  16:.\Scheduler.c **** volatile bool recievedMessage = false;
+  17:.\Scheduler.c **** bool messageStillNotRecievedError = false;
+  18:.\Scheduler.c **** 
+  19:.\Scheduler.c **** void initTodoList(ToDoList* todo)
+  20:.\Scheduler.c **** {
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 2
+
+
+  38              		.loc 1 20 0
+  39              		.cfi_startproc
+  40 0000 80B5     		push	{r7, lr}
+  41              	.LCFI0:
+  42              		.cfi_def_cfa_offset 8
+  43              		.cfi_offset 7, -8
+  44              		.cfi_offset 14, -4
+  45 0002 82B0     		sub	sp, sp, #8
+  46              	.LCFI1:
+  47              		.cfi_def_cfa_offset 16
+  48 0004 00AF     		add	r7, sp, #0
+  49              	.LCFI2:
+  50              		.cfi_def_cfa_register 7
+  51 0006 7860     		str	r0, [r7, #4]
+  21:.\Scheduler.c ****     todo->gimbalPan   = 1500;
+  52              		.loc 1 21 0
+  53 0008 7B68     		ldr	r3, [r7, #4]
+  54 000a 074A     		ldr	r2, .L2
+  55 000c 9A80     		strh	r2, [r3, #4]
+  22:.\Scheduler.c ****     todo->gimbalTilt  = 1500;
+  56              		.loc 1 22 0
+  57 000e 7B68     		ldr	r3, [r7, #4]
+  58 0010 054A     		ldr	r2, .L2
+  59 0012 DA80     		strh	r2, [r3, #6]
+  23:.\Scheduler.c ****     todo->leftWheels  = 1500;
+  60              		.loc 1 23 0
+  61 0014 7B68     		ldr	r3, [r7, #4]
+  62 0016 044A     		ldr	r2, .L2
+  63 0018 1A80     		strh	r2, [r3]
+  24:.\Scheduler.c ****     todo->rightWheels = 1500;
+  64              		.loc 1 24 0
+  65 001a 7B68     		ldr	r3, [r7, #4]
+  66 001c 024A     		ldr	r2, .L2
+  67 001e 5A80     		strh	r2, [r3, #2]
+  25:.\Scheduler.c **** }
+  68              		.loc 1 25 0
+  69 0020 BD46     		mov	sp, r7
+  70 0022 02B0     		add	sp, sp, #8
+  71              		@ sp needed for prologue
+  72 0024 80BD     		pop	{r7, pc}
+  73              	.L3:
+  74 0026 C046     		.align	2
+  75              	.L2:
+  76 0028 DC050000 		.word	1500
+  77              		.cfi_endproc
+  78              	.LFE33:
+  79              		.size	initTodoList, .-initTodoList
+  80              		.section	.text.initReport,"ax",%progbits
+  81              		.align	2
+  82              		.global	initReport
+  83              		.code	16
+  84              		.thumb_func
+  85              		.type	initReport, %function
+  86              	initReport:
+  87              	.LFB34:
+  26:.\Scheduler.c **** 
+  27:.\Scheduler.c **** void initReport(Report* report)
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 3
+
+
+  28:.\Scheduler.c **** {
+  88              		.loc 1 28 0
+  89              		.cfi_startproc
+  90 0000 80B5     		push	{r7, lr}
+  91              	.LCFI3:
+  92              		.cfi_def_cfa_offset 8
+  93              		.cfi_offset 7, -8
+  94              		.cfi_offset 14, -4
+  95 0002 82B0     		sub	sp, sp, #8
+  96              	.LCFI4:
+  97              		.cfi_def_cfa_offset 16
+  98 0004 00AF     		add	r7, sp, #0
+  99              	.LCFI5:
+ 100              		.cfi_def_cfa_register 7
+ 101 0006 7860     		str	r0, [r7, #4]
+  29:.\Scheduler.c ****     report->gimbalPan   = 1500;
+ 102              		.loc 1 29 0
+ 103 0008 7B68     		ldr	r3, [r7, #4]
+ 104 000a 074A     		ldr	r2, .L5
+ 105 000c 9A80     		strh	r2, [r3, #4]
+  30:.\Scheduler.c ****     report->gimbalTilt  = 1500;
+ 106              		.loc 1 30 0
+ 107 000e 7B68     		ldr	r3, [r7, #4]
+ 108 0010 054A     		ldr	r2, .L5
+ 109 0012 DA80     		strh	r2, [r3, #6]
+  31:.\Scheduler.c **** //    memset(report->gpsData, 0, CHAR_ARRAY_MAX_SIZE);
+  32:.\Scheduler.c ****     report->leftWheels  = 1500;
+ 110              		.loc 1 32 0
+ 111 0014 7B68     		ldr	r3, [r7, #4]
+ 112 0016 044A     		ldr	r2, .L5
+ 113 0018 1A80     		strh	r2, [r3]
+  33:.\Scheduler.c ****     report->rightWheels = 1500;
+ 114              		.loc 1 33 0
+ 115 001a 7B68     		ldr	r3, [r7, #4]
+ 116 001c 024A     		ldr	r2, .L5
+ 117 001e 5A80     		strh	r2, [r3, #2]
+  34:.\Scheduler.c **** }
+ 118              		.loc 1 34 0
+ 119 0020 BD46     		mov	sp, r7
+ 120 0022 02B0     		add	sp, sp, #8
+ 121              		@ sp needed for prologue
+ 122 0024 80BD     		pop	{r7, pc}
+ 123              	.L6:
+ 124 0026 C046     		.align	2
+ 125              	.L5:
+ 126 0028 DC050000 		.word	1500
+ 127              		.cfi_endproc
+ 128              	.LFE34:
+ 129              		.size	initReport, .-initReport
+ 130              		.comm	taskSchedulerState,1,1
+ 131              		.section	.text.taskScheduler,"ax",%progbits
+ 132              		.align	2
+ 133              		.global	taskScheduler
+ 134              		.code	16
+ 135              		.thumb_func
+ 136              		.type	taskScheduler, %function
+ 137              	taskScheduler:
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 4
+
+
+ 138              	.LFB35:
+  35:.\Scheduler.c **** 
+  36:.\Scheduler.c **** //static void gps_printArray(Scheduler* sch)
+  37:.\Scheduler.c **** //{
+  38:.\Scheduler.c **** //    printf("Printing gps data array:\r\n");
+  39:.\Scheduler.c **** //    uint8_t i = 0;
+  40:.\Scheduler.c **** //    for(i = 0; i < GPS_MAX_DATA; i++)
+  41:.\Scheduler.c **** //    {
+  42:.\Scheduler.c **** //        printf("%c",sch->gpsIncoming[i]);    
+  43:.\Scheduler.c **** //    }
+  44:.\Scheduler.c **** //    printf("\r\n");
+  45:.\Scheduler.c **** //    return;
+  46:.\Scheduler.c **** //}
+  47:.\Scheduler.c **** 
+  48:.\Scheduler.c **** enum taskSchedulerStates {init_taskScheduler, read, update, read_sensors, report, wait, reset} task
+  49:.\Scheduler.c **** 
+  50:.\Scheduler.c **** 
+  51:.\Scheduler.c **** void taskScheduler(Scheduler* sch, volatile uint8_t* testSignal)
+  52:.\Scheduler.c **** {
+ 139              		.loc 1 52 0
+ 140              		.cfi_startproc
+ 141 0000 80B5     		push	{r7, lr}
+ 142              	.LCFI6:
+ 143              		.cfi_def_cfa_offset 8
+ 144              		.cfi_offset 7, -8
+ 145              		.cfi_offset 14, -4
+ 146 0002 82B0     		sub	sp, sp, #8
+ 147              	.LCFI7:
+ 148              		.cfi_def_cfa_offset 16
+ 149 0004 00AF     		add	r7, sp, #0
+ 150              	.LCFI8:
+ 151              		.cfi_def_cfa_register 7
+ 152 0006 7860     		str	r0, [r7, #4]
+ 153 0008 3960     		str	r1, [r7]
+  53:.\Scheduler.c ****     //State Actions
+  54:.\Scheduler.c ****     switch (taskSchedulerState) 
+ 154              		.loc 1 54 0
+ 155 000a 354B     		ldr	r3, .L30
+ 156 000c 1B78     		ldrb	r3, [r3]
+ 157 000e 062B     		cmp	r3, #6
+ 158 0010 34D8     		bhi	.L8
+ 159 0012 9A00     		lsl	r2, r3, #2
+ 160 0014 334B     		ldr	r3, .L30+4
+ 161 0016 D318     		add	r3, r2, r3
+ 162 0018 1B68     		ldr	r3, [r3]
+ 163 001a 9F46     		mov	pc, r3
+ 164              		.section	.rodata
+ 165              		.align	2
+ 166              	.L16:
+ 167 0000 1C000000 		.word	.L9
+ 168 0004 24000000 		.word	.L10
+ 169 0008 32000000 		.word	.L11
+ 170 000c 7A000000 		.word	.L28
+ 171 0010 7A000000 		.word	.L28
+ 172 0014 5C000000 		.word	.L14
+ 173 0018 6C000000 		.word	.L15
+ 174              		.section	.text.taskScheduler
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 5
+
+
+ 175              	.L9:
+  55:.\Scheduler.c ****     {
+  56:.\Scheduler.c ****         case init_taskScheduler:
+  57:.\Scheduler.c ****         //printf("init state");
+  58:.\Scheduler.c ****         timeoutCounter = 0;
+ 176              		.loc 1 58 0
+ 177 001c 324B     		ldr	r3, .L30+8
+ 178 001e 0022     		mov	r2, #0
+ 179 0020 1A80     		strh	r2, [r3]
+  59:.\Scheduler.c **** //        gps_enableGps();
+  60:.\Scheduler.c ****             
+  61:.\Scheduler.c ****         break;
+ 180              		.loc 1 61 0
+ 181 0022 2BE0     		b	.L8
+ 182              	.L10:
+  62:.\Scheduler.c ****         case read:
+  63:.\Scheduler.c ****         
+  64:.\Scheduler.c ****         //Take top Package off of Wiznet Buffer
+  65:.\Scheduler.c ****        /* sch->todo.leftWheels = testSignal[0]; 
+  66:.\Scheduler.c ****         //printf("Test Signal 0 value read: %u", testSignal[0]);
+  67:.\Scheduler.c ****         sch->todo.rightWheels = testSignal[1];
+  68:.\Scheduler.c ****         sch->todo.gimbalPan = testSignal[2];
+  69:.\Scheduler.c ****         sch->todo.gimbalTilt = testSignal[3];*/
+  70:.\Scheduler.c ****         //Open it up
+  71:.\Scheduler.c ****         //Parse and save all pieces of data into ToDo list struct
+  72:.\Scheduler.c ****         
+  73:.\Scheduler.c ****         
+  74:.\Scheduler.c ****         
+  75:.\Scheduler.c ****         wiznet_parse(&(sch->todo), testSignal);
+ 183              		.loc 1 75 0
+ 184 0024 7A68     		ldr	r2, [r7, #4]
+ 185 0026 3B68     		ldr	r3, [r7]
+ 186 0028 101C     		mov	r0, r2
+ 187 002a 191C     		mov	r1, r3
+ 188 002c FFF7FEFF 		bl	wiznet_parse
+  76:.\Scheduler.c ****         
+  77:.\Scheduler.c ****         //printf("Left wheelie: %u \n\r", sch->todo.leftWheels);
+  78:.\Scheduler.c ****         //printf("Right Wheelie: %u \n\r", sch->todo.leftWheels);
+  79:.\Scheduler.c ****         //printf("Gimbal Peter Pan: %u \n\r", sch->todo.gimbalPan);
+  80:.\Scheduler.c ****         //printf("Gimbal Tilt-a-Whirl: %u \n\r", sch->todo.gimbalTilt);
+  81:.\Scheduler.c ****         
+  82:.\Scheduler.c ****         //printf("READ\n\r");
+  83:.\Scheduler.c ****         break;
+ 189              		.loc 1 83 0
+ 190 0030 24E0     		b	.L8
+ 191              	.L11:
+  84:.\Scheduler.c ****         
+  85:.\Scheduler.c ****         case update:
+  86:.\Scheduler.c ****         
+  87:.\Scheduler.c ****         //Write var to pwm components
+  88:.\Scheduler.c ****         Wheels_1_WriteCompare(sch->todo.leftWheels);
+ 192              		.loc 1 88 0
+ 193 0032 7B68     		ldr	r3, [r7, #4]
+ 194 0034 1B88     		ldrh	r3, [r3]
+ 195 0036 181C     		mov	r0, r3
+ 196 0038 FFF7FEFF 		bl	Wheels_1_WriteCompare
+  89:.\Scheduler.c ****         Wheels_2_WriteCompare(sch->todo.rightWheels);
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 6
+
+
+ 197              		.loc 1 89 0
+ 198 003c 7B68     		ldr	r3, [r7, #4]
+ 199 003e 5B88     		ldrh	r3, [r3, #2]
+ 200 0040 181C     		mov	r0, r3
+ 201 0042 FFF7FEFF 		bl	Wheels_2_WriteCompare
+  90:.\Scheduler.c ****         Gimbal_WriteCompare1(sch->todo.gimbalPan);
+ 202              		.loc 1 90 0
+ 203 0046 7B68     		ldr	r3, [r7, #4]
+ 204 0048 9B88     		ldrh	r3, [r3, #4]
+ 205 004a 181C     		mov	r0, r3
+ 206 004c FFF7FEFF 		bl	Gimbal_WriteCompare1
+  91:.\Scheduler.c ****         Gimbal_WriteCompare2(sch->todo.gimbalTilt);
+ 207              		.loc 1 91 0
+ 208 0050 7B68     		ldr	r3, [r7, #4]
+ 209 0052 DB88     		ldrh	r3, [r3, #6]
+ 210 0054 181C     		mov	r0, r3
+ 211 0056 FFF7FEFF 		bl	Gimbal_WriteCompare2
+  92:.\Scheduler.c ****         
+  93:.\Scheduler.c ****        // printf("..............Update\n\r");
+  94:.\Scheduler.c ****         
+  95:.\Scheduler.c ****         //Switch camera
+  96:.\Scheduler.c ****         break;
+ 212              		.loc 1 96 0
+ 213 005a 0FE0     		b	.L8
+ 214              	.L14:
+  97:.\Scheduler.c ****        
+  98:.\Scheduler.c ****         //read incomming GPS and IMU data
+  99:.\Scheduler.c ****         case read_sensors:
+ 100:.\Scheduler.c **** //            if(gps_isGoodData())
+ 101:.\Scheduler.c **** //            {
+ 102:.\Scheduler.c **** //                gps_readGpsData(sch->gpsIncoming);
+ 103:.\Scheduler.c **** //                //gps_printArray(sch);
+ 104:.\Scheduler.c **** //            }
+ 105:.\Scheduler.c ****         break;
+ 106:.\Scheduler.c ****         
+ 107:.\Scheduler.c ****         case report:
+ 108:.\Scheduler.c ****             //wiznetWriteUdpFrame(sch->gpsIncoming, sizeof(sch->gpsIncoming));
+ 109:.\Scheduler.c ****             //wiznetSend();
+ 110:.\Scheduler.c ****         break;
+ 111:.\Scheduler.c ****         case wait:
+ 112:.\Scheduler.c ****         timeoutCounter++;
+ 215              		.loc 1 112 0
+ 216 005c 224B     		ldr	r3, .L30+8
+ 217 005e 1B88     		ldrh	r3, [r3]
+ 218 0060 9BB2     		uxth	r3, r3
+ 219 0062 0133     		add	r3, r3, #1
+ 220 0064 9AB2     		uxth	r2, r3
+ 221 0066 204B     		ldr	r3, .L30+8
+ 222 0068 1A80     		strh	r2, [r3]
+ 113:.\Scheduler.c ****         break;
+ 223              		.loc 1 113 0
+ 224 006a 07E0     		b	.L8
+ 225              	.L15:
+ 114:.\Scheduler.c ****         case reset:
+ 115:.\Scheduler.c ****             sch->todo.leftWheels = 1500;
+ 226              		.loc 1 115 0
+ 227 006c 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 7
+
+
+ 228 006e 1F4A     		ldr	r2, .L30+12
+ 229 0070 1A80     		strh	r2, [r3]
+ 116:.\Scheduler.c ****             sch->todo.rightWheels = 1500;
+ 230              		.loc 1 116 0
+ 231 0072 7B68     		ldr	r3, [r7, #4]
+ 232 0074 1D4A     		ldr	r2, .L30+12
+ 233 0076 5A80     		strh	r2, [r3, #2]
+ 117:.\Scheduler.c ****         break;
+ 234              		.loc 1 117 0
+ 235 0078 00E0     		b	.L8
+ 236              	.L28:
+ 105:.\Scheduler.c ****         break;
+ 237              		.loc 1 105 0
+ 238 007a C046     		mov	r8, r8
+ 239              	.L8:
+ 118:.\Scheduler.c ****     }    
+ 119:.\Scheduler.c ****        
+ 120:.\Scheduler.c ****     //Transitions
+ 121:.\Scheduler.c ****     switch(taskSchedulerState)
+ 240              		.loc 1 121 0
+ 241 007c 184B     		ldr	r3, .L30
+ 242 007e 1B78     		ldrb	r3, [r3]
+ 243 0080 062B     		cmp	r3, #6
+ 244 0082 29D8     		bhi	.L7
+ 245 0084 9A00     		lsl	r2, r3, #2
+ 246 0086 1A4B     		ldr	r3, .L30+16
+ 247 0088 D318     		add	r3, r2, r3
+ 248 008a 1B68     		ldr	r3, [r3]
+ 249 008c 9F46     		mov	pc, r3
+ 250              		.section	.rodata
+ 251              		.align	2
+ 252              	.L25:
+ 253 001c 8E000000 		.word	.L18
+ 254 0020 96000000 		.word	.L19
+ 255 0024 9E000000 		.word	.L20
+ 256 0028 A6000000 		.word	.L21
+ 257 002c AE000000 		.word	.L22
+ 258 0030 B6000000 		.word	.L23
+ 259 0034 BE000000 		.word	.L24
+ 260              		.section	.text.taskScheduler
+ 261              	.L18:
+ 122:.\Scheduler.c ****     {
+ 123:.\Scheduler.c ****         case init_taskScheduler:
+ 124:.\Scheduler.c ****             taskSchedulerState = wait;
+ 262              		.loc 1 124 0
+ 263 008e 144B     		ldr	r3, .L30
+ 264 0090 0522     		mov	r2, #5
+ 265 0092 1A70     		strb	r2, [r3]
+ 125:.\Scheduler.c ****         break;
+ 266              		.loc 1 125 0
+ 267 0094 20E0     		b	.L7
+ 268              	.L19:
+ 126:.\Scheduler.c ****         case read:
+ 127:.\Scheduler.c ****             taskSchedulerState = update;
+ 269              		.loc 1 127 0
+ 270 0096 124B     		ldr	r3, .L30
+ 271 0098 0222     		mov	r2, #2
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 8
+
+
+ 272 009a 1A70     		strb	r2, [r3]
+ 128:.\Scheduler.c ****         break;
+ 273              		.loc 1 128 0
+ 274 009c 1CE0     		b	.L7
+ 275              	.L20:
+ 129:.\Scheduler.c ****         case update:
+ 130:.\Scheduler.c ****             taskSchedulerState = read_sensors;
+ 276              		.loc 1 130 0
+ 277 009e 104B     		ldr	r3, .L30
+ 278 00a0 0322     		mov	r2, #3
+ 279 00a2 1A70     		strb	r2, [r3]
+ 131:.\Scheduler.c ****         break;
+ 280              		.loc 1 131 0
+ 281 00a4 18E0     		b	.L7
+ 282              	.L21:
+ 132:.\Scheduler.c ****         case read_sensors:
+ 133:.\Scheduler.c ****             taskSchedulerState = report;
+ 283              		.loc 1 133 0
+ 284 00a6 0E4B     		ldr	r3, .L30
+ 285 00a8 0422     		mov	r2, #4
+ 286 00aa 1A70     		strb	r2, [r3]
+ 134:.\Scheduler.c ****         break;
+ 287              		.loc 1 134 0
+ 288 00ac 14E0     		b	.L7
+ 289              	.L22:
+ 135:.\Scheduler.c ****         case report:
+ 136:.\Scheduler.c ****             taskSchedulerState = wait;
+ 290              		.loc 1 136 0
+ 291 00ae 0C4B     		ldr	r3, .L30
+ 292 00b0 0522     		mov	r2, #5
+ 293 00b2 1A70     		strb	r2, [r3]
+ 137:.\Scheduler.c ****         break;
+ 294              		.loc 1 137 0
+ 295 00b4 10E0     		b	.L7
+ 296              	.L23:
+ 138:.\Scheduler.c ****         case wait:
+ 139:.\Scheduler.c ****             taskSchedulerState = read;
+ 297              		.loc 1 139 0
+ 298 00b6 0A4B     		ldr	r3, .L30
+ 299 00b8 0122     		mov	r2, #1
+ 300 00ba 1A70     		strb	r2, [r3]
+ 140:.\Scheduler.c **** //            if(WIZ_INT_Read() == 0)
+ 141:.\Scheduler.c **** //            {
+ 142:.\Scheduler.c **** //                timeoutCounter = 0;
+ 143:.\Scheduler.c **** //                taskSchedulerState = read;
+ 144:.\Scheduler.c **** //            }
+ 145:.\Scheduler.c **** //            else if(timeoutCounter >= 2000)
+ 146:.\Scheduler.c **** //            {
+ 147:.\Scheduler.c **** //                timeoutCounter = 0;
+ 148:.\Scheduler.c **** //                taskSchedulerState = reset;   
+ 149:.\Scheduler.c **** //            }
+ 150:.\Scheduler.c **** //            else
+ 151:.\Scheduler.c **** //            {
+ 152:.\Scheduler.c **** //                
+ 153:.\Scheduler.c **** //                messageStillNotRecievedError = false;
+ 154:.\Scheduler.c **** //                taskSchedulerState = wait;
+ 155:.\Scheduler.c **** //            }
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 9
+
+
+ 156:.\Scheduler.c ****         break;
+ 301              		.loc 1 156 0
+ 302 00bc 0CE0     		b	.L7
+ 303              	.L24:
+ 157:.\Scheduler.c ****         case reset:
+ 158:.\Scheduler.c ****             if(WIZ_INT_Read() == 0)
+ 304              		.loc 1 158 0
+ 305 00be FFF7FEFF 		bl	WIZ_INT_Read
+ 306 00c2 031C     		mov	r3, r0
+ 307 00c4 002B     		cmp	r3, #0
+ 308 00c6 03D1     		bne	.L26
+ 159:.\Scheduler.c ****             {
+ 160:.\Scheduler.c ****             taskSchedulerState = read;
+ 309              		.loc 1 160 0
+ 310 00c8 054B     		ldr	r3, .L30
+ 311 00ca 0122     		mov	r2, #1
+ 312 00cc 1A70     		strb	r2, [r3]
+ 161:.\Scheduler.c ****             }
+ 162:.\Scheduler.c ****             else
+ 163:.\Scheduler.c ****             {
+ 164:.\Scheduler.c ****             taskSchedulerState = reset;   
+ 165:.\Scheduler.c ****             }
+ 166:.\Scheduler.c ****         break;
+ 313              		.loc 1 166 0
+ 314 00ce 02E0     		b	.L29
+ 315              	.L26:
+ 164:.\Scheduler.c ****             taskSchedulerState = reset;   
+ 316              		.loc 1 164 0
+ 317 00d0 034B     		ldr	r3, .L30
+ 318 00d2 0622     		mov	r2, #6
+ 319 00d4 1A70     		strb	r2, [r3]
+ 320              	.L29:
+ 321              		.loc 1 166 0
+ 322 00d6 C046     		mov	r8, r8
+ 323              	.L7:
+ 167:.\Scheduler.c ****         
+ 168:.\Scheduler.c ****     }
+ 169:.\Scheduler.c ****     
+ 170:.\Scheduler.c **** }
+ 324              		.loc 1 170 0
+ 325 00d8 BD46     		mov	sp, r7
+ 326 00da 02B0     		add	sp, sp, #8
+ 327              		@ sp needed for prologue
+ 328 00dc 80BD     		pop	{r7, pc}
+ 329              	.L31:
+ 330 00de C046     		.align	2
+ 331              	.L30:
+ 332 00e0 00000000 		.word	taskSchedulerState
+ 333 00e4 00000000 		.word	.L16
+ 334 00e8 00000000 		.word	timeoutCounter
+ 335 00ec DC050000 		.word	1500
+ 336 00f0 1C000000 		.word	.L25
+ 337              		.cfi_endproc
+ 338              	.LFE35:
+ 339              		.size	taskScheduler, .-taskScheduler
+ 340              		.text
+ 341              	.Letext0:
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 10
+
+
+ 342              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.0\\psoc creator\\import\\gnu_cs\\arm\\4
+ 343              		.file 3 "./Generated_Source/PSoC4/cytypes.h"
+ 344              		.file 4 ".\\infoReports.h"
+ 345              		.file 5 ".\\Scheduler.h"
+ 346              		.section	.debug_info,"",%progbits
+ 347              	.Ldebug_info0:
+ 348 0000 C6020000 		.4byte	0x2c6
+ 349 0004 0200     		.2byte	0x2
+ 350 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 351 000a 04       		.byte	0x4
+ 352 000b 01       		.uleb128 0x1
+ 353 000c CE010000 		.4byte	.LASF42
+ 354 0010 01       		.byte	0x1
+ 355 0011 02010000 		.4byte	.LASF43
+ 356 0015 32000000 		.4byte	.LASF44
+ 357 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 358 001d 00000000 		.4byte	0
+ 359 0021 00000000 		.4byte	0
+ 360 0025 00000000 		.4byte	.Ldebug_line0
+ 361 0029 02       		.uleb128 0x2
+ 362 002a 01       		.byte	0x1
+ 363 002b 06       		.byte	0x6
+ 364 002c 66020000 		.4byte	.LASF0
+ 365 0030 03       		.uleb128 0x3
+ 366 0031 62010000 		.4byte	.LASF9
+ 367 0035 02       		.byte	0x2
+ 368 0036 2A       		.byte	0x2a
+ 369 0037 3B000000 		.4byte	0x3b
+ 370 003b 02       		.uleb128 0x2
+ 371 003c 01       		.byte	0x1
+ 372 003d 08       		.byte	0x8
+ 373 003e 10010000 		.4byte	.LASF1
+ 374 0042 02       		.uleb128 0x2
+ 375 0043 02       		.byte	0x2
+ 376 0044 05       		.byte	0x5
+ 377 0045 C4010000 		.4byte	.LASF2
+ 378 0049 02       		.uleb128 0x2
+ 379 004a 02       		.byte	0x2
+ 380 004b 07       		.byte	0x7
+ 381 004c EF000000 		.4byte	.LASF3
+ 382 0050 02       		.uleb128 0x2
+ 383 0051 04       		.byte	0x4
+ 384 0052 05       		.byte	0x5
+ 385 0053 26020000 		.4byte	.LASF4
+ 386 0057 02       		.uleb128 0x2
+ 387 0058 04       		.byte	0x4
+ 388 0059 07       		.byte	0x7
+ 389 005a DD000000 		.4byte	.LASF5
+ 390 005e 02       		.uleb128 0x2
+ 391 005f 08       		.byte	0x8
+ 392 0060 05       		.byte	0x5
+ 393 0061 8C010000 		.4byte	.LASF6
+ 394 0065 02       		.uleb128 0x2
+ 395 0066 08       		.byte	0x8
+ 396 0067 07       		.byte	0x7
+ 397 0068 BA000000 		.4byte	.LASF7
+ 398 006c 04       		.uleb128 0x4
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 11
+
+
+ 399 006d 04       		.byte	0x4
+ 400 006e 05       		.byte	0x5
+ 401 006f 696E7400 		.ascii	"int\000"
+ 402 0073 02       		.uleb128 0x2
+ 403 0074 04       		.byte	0x4
+ 404 0075 07       		.byte	0x7
+ 405 0076 46010000 		.4byte	.LASF8
+ 406 007a 03       		.uleb128 0x3
+ 407 007b 3A010000 		.4byte	.LASF10
+ 408 007f 03       		.byte	0x3
+ 409 0080 5C       		.byte	0x5c
+ 410 0081 49000000 		.4byte	0x49
+ 411 0085 02       		.uleb128 0x2
+ 412 0086 04       		.byte	0x4
+ 413 0087 04       		.byte	0x4
+ 414 0088 B4000000 		.4byte	.LASF11
+ 415 008c 02       		.uleb128 0x2
+ 416 008d 08       		.byte	0x8
+ 417 008e 04       		.byte	0x4
+ 418 008f 1E010000 		.4byte	.LASF12
+ 419 0093 02       		.uleb128 0x2
+ 420 0094 01       		.byte	0x1
+ 421 0095 08       		.byte	0x8
+ 422 0096 0B000000 		.4byte	.LASF13
+ 423 009a 05       		.uleb128 0x5
+ 424 009b 7A000000 		.4byte	0x7a
+ 425 009f 02       		.uleb128 0x2
+ 426 00a0 04       		.byte	0x4
+ 427 00a1 07       		.byte	0x7
+ 428 00a2 78010000 		.4byte	.LASF14
+ 429 00a6 06       		.uleb128 0x6
+ 430 00a7 72020000 		.4byte	.LASF20
+ 431 00ab 08       		.byte	0x8
+ 432 00ac 04       		.byte	0x4
+ 433 00ad 16       		.byte	0x16
+ 434 00ae EB000000 		.4byte	0xeb
+ 435 00b2 07       		.uleb128 0x7
+ 436 00b3 81010000 		.4byte	.LASF15
+ 437 00b7 04       		.byte	0x4
+ 438 00b8 18       		.byte	0x18
+ 439 00b9 7A000000 		.4byte	0x7a
+ 440 00bd 02       		.byte	0x2
+ 441 00be 23       		.byte	0x23
+ 442 00bf 00       		.uleb128 0
+ 443 00c0 07       		.uleb128 0x7
+ 444 00c1 D1000000 		.4byte	.LASF16
+ 445 00c5 04       		.byte	0x4
+ 446 00c6 19       		.byte	0x19
+ 447 00c7 7A000000 		.4byte	0x7a
+ 448 00cb 02       		.byte	0x2
+ 449 00cc 23       		.byte	0x23
+ 450 00cd 02       		.uleb128 0x2
+ 451 00ce 07       		.uleb128 0x7
+ 452 00cf 9A010000 		.4byte	.LASF17
+ 453 00d3 04       		.byte	0x4
+ 454 00d4 1A       		.byte	0x1a
+ 455 00d5 7A000000 		.4byte	0x7a
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 12
+
+
+ 456 00d9 02       		.byte	0x2
+ 457 00da 23       		.byte	0x23
+ 458 00db 04       		.uleb128 0x4
+ 459 00dc 07       		.uleb128 0x7
+ 460 00dd 00000000 		.4byte	.LASF18
+ 461 00e1 04       		.byte	0x4
+ 462 00e2 1B       		.byte	0x1b
+ 463 00e3 7A000000 		.4byte	0x7a
+ 464 00e7 02       		.byte	0x2
+ 465 00e8 23       		.byte	0x23
+ 466 00e9 06       		.uleb128 0x6
+ 467 00ea 00       		.byte	0
+ 468 00eb 03       		.uleb128 0x3
+ 469 00ec 1D000000 		.4byte	.LASF19
+ 470 00f0 04       		.byte	0x4
+ 471 00f1 1C       		.byte	0x1c
+ 472 00f2 A6000000 		.4byte	0xa6
+ 473 00f6 06       		.uleb128 0x6
+ 474 00f7 10000000 		.4byte	.LASF21
+ 475 00fb 08       		.byte	0x8
+ 476 00fc 04       		.byte	0x4
+ 477 00fd 1E       		.byte	0x1e
+ 478 00fe 3B010000 		.4byte	0x13b
+ 479 0102 07       		.uleb128 0x7
+ 480 0103 81010000 		.4byte	.LASF15
+ 481 0107 04       		.byte	0x4
+ 482 0108 20       		.byte	0x20
+ 483 0109 7A000000 		.4byte	0x7a
+ 484 010d 02       		.byte	0x2
+ 485 010e 23       		.byte	0x23
+ 486 010f 00       		.uleb128 0
+ 487 0110 07       		.uleb128 0x7
+ 488 0111 D1000000 		.4byte	.LASF16
+ 489 0115 04       		.byte	0x4
+ 490 0116 21       		.byte	0x21
+ 491 0117 7A000000 		.4byte	0x7a
+ 492 011b 02       		.byte	0x2
+ 493 011c 23       		.byte	0x23
+ 494 011d 02       		.uleb128 0x2
+ 495 011e 07       		.uleb128 0x7
+ 496 011f 9A010000 		.4byte	.LASF17
+ 497 0123 04       		.byte	0x4
+ 498 0124 22       		.byte	0x22
+ 499 0125 7A000000 		.4byte	0x7a
+ 500 0129 02       		.byte	0x2
+ 501 012a 23       		.byte	0x23
+ 502 012b 04       		.uleb128 0x4
+ 503 012c 07       		.uleb128 0x7
+ 504 012d 00000000 		.4byte	.LASF18
+ 505 0131 04       		.byte	0x4
+ 506 0132 23       		.byte	0x23
+ 507 0133 7A000000 		.4byte	0x7a
+ 508 0137 02       		.byte	0x2
+ 509 0138 23       		.byte	0x23
+ 510 0139 06       		.uleb128 0x6
+ 511 013a 00       		.byte	0
+ 512 013b 03       		.uleb128 0x3
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 13
+
+
+ 513 013c AB020000 		.4byte	.LASF22
+ 514 0140 04       		.byte	0x4
+ 515 0141 25       		.byte	0x25
+ 516 0142 F6000000 		.4byte	0xf6
+ 517 0146 06       		.uleb128 0x6
+ 518 0147 58010000 		.4byte	.LASF23
+ 519 014b 60       		.byte	0x60
+ 520 014c 05       		.byte	0x5
+ 521 014d 34       		.byte	0x34
+ 522 014e 7D010000 		.4byte	0x17d
+ 523 0152 07       		.uleb128 0x7
+ 524 0153 53010000 		.4byte	.LASF24
+ 525 0157 05       		.byte	0x5
+ 526 0158 36       		.byte	0x36
+ 527 0159 EB000000 		.4byte	0xeb
+ 528 015d 02       		.byte	0x2
+ 529 015e 23       		.byte	0x23
+ 530 015f 00       		.uleb128 0
+ 531 0160 07       		.uleb128 0x7
+ 532 0161 10000000 		.4byte	.LASF21
+ 533 0165 05       		.byte	0x5
+ 534 0166 37       		.byte	0x37
+ 535 0167 3B010000 		.4byte	0x13b
+ 536 016b 02       		.byte	0x2
+ 537 016c 23       		.byte	0x23
+ 538 016d 08       		.uleb128 0x8
+ 539 016e 07       		.uleb128 0x7
+ 540 016f 26000000 		.4byte	.LASF25
+ 541 0173 05       		.byte	0x5
+ 542 0174 38       		.byte	0x38
+ 543 0175 7D010000 		.4byte	0x17d
+ 544 0179 02       		.byte	0x2
+ 545 017a 23       		.byte	0x23
+ 546 017b 10       		.uleb128 0x10
+ 547 017c 00       		.byte	0
+ 548 017d 08       		.uleb128 0x8
+ 549 017e 93000000 		.4byte	0x93
+ 550 0182 8D010000 		.4byte	0x18d
+ 551 0186 09       		.uleb128 0x9
+ 552 0187 9F000000 		.4byte	0x9f
+ 553 018b 4F       		.byte	0x4f
+ 554 018c 00       		.byte	0
+ 555 018d 03       		.uleb128 0x3
+ 556 018e AA000000 		.4byte	.LASF26
+ 557 0192 05       		.byte	0x5
+ 558 0193 3A       		.byte	0x3a
+ 559 0194 46010000 		.4byte	0x146
+ 560 0198 0A       		.uleb128 0xa
+ 561 0199 52020000 		.4byte	.LASF45
+ 562 019d 01       		.byte	0x1
+ 563 019e 01       		.byte	0x1
+ 564 019f 30       		.byte	0x30
+ 565 01a0 CF010000 		.4byte	0x1cf
+ 566 01a4 0B       		.uleb128 0xb
+ 567 01a5 98020000 		.4byte	.LASF27
+ 568 01a9 00       		.sleb128 0
+ 569 01aa 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 14
+
+
+ 570 01ab 25010000 		.4byte	.LASF28
+ 571 01af 01       		.sleb128 1
+ 572 01b0 0B       		.uleb128 0xb
+ 573 01b1 A3000000 		.4byte	.LASF29
+ 574 01b5 02       		.sleb128 2
+ 575 01b6 0B       		.uleb128 0xb
+ 576 01b7 A4010000 		.4byte	.LASF30
+ 577 01bb 03       		.sleb128 3
+ 578 01bc 0B       		.uleb128 0xb
+ 579 01bd 10000000 		.4byte	.LASF21
+ 580 01c1 04       		.sleb128 4
+ 581 01c2 0B       		.uleb128 0xb
+ 582 01c3 41010000 		.4byte	.LASF31
+ 583 01c7 05       		.sleb128 5
+ 584 01c8 0B       		.uleb128 0xb
+ 585 01c9 17000000 		.4byte	.LASF32
+ 586 01cd 06       		.sleb128 6
+ 587 01ce 00       		.byte	0
+ 588 01cf 0C       		.uleb128 0xc
+ 589 01d0 01       		.byte	0x1
+ 590 01d1 2F020000 		.4byte	.LASF33
+ 591 01d5 01       		.byte	0x1
+ 592 01d6 13       		.byte	0x13
+ 593 01d7 01       		.byte	0x1
+ 594 01d8 00000000 		.4byte	.LFB33
+ 595 01dc 2C000000 		.4byte	.LFE33
+ 596 01e0 00000000 		.4byte	.LLST0
+ 597 01e4 01       		.byte	0x1
+ 598 01e5 F8010000 		.4byte	0x1f8
+ 599 01e9 0D       		.uleb128 0xd
+ 600 01ea 53010000 		.4byte	.LASF24
+ 601 01ee 01       		.byte	0x1
+ 602 01ef 13       		.byte	0x13
+ 603 01f0 F8010000 		.4byte	0x1f8
+ 604 01f4 02       		.byte	0x2
+ 605 01f5 91       		.byte	0x91
+ 606 01f6 74       		.sleb128 -12
+ 607 01f7 00       		.byte	0
+ 608 01f8 0E       		.uleb128 0xe
+ 609 01f9 04       		.byte	0x4
+ 610 01fa EB000000 		.4byte	0xeb
+ 611 01fe 0C       		.uleb128 0xc
+ 612 01ff 01       		.byte	0x1
+ 613 0200 47020000 		.4byte	.LASF34
+ 614 0204 01       		.byte	0x1
+ 615 0205 1B       		.byte	0x1b
+ 616 0206 01       		.byte	0x1
+ 617 0207 00000000 		.4byte	.LFB34
+ 618 020b 2C000000 		.4byte	.LFE34
+ 619 020f 38000000 		.4byte	.LLST1
+ 620 0213 01       		.byte	0x1
+ 621 0214 27020000 		.4byte	0x227
+ 622 0218 0D       		.uleb128 0xd
+ 623 0219 10000000 		.4byte	.LASF21
+ 624 021d 01       		.byte	0x1
+ 625 021e 1B       		.byte	0x1b
+ 626 021f 27020000 		.4byte	0x227
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 15
+
+
+ 627 0223 02       		.byte	0x2
+ 628 0224 91       		.byte	0x91
+ 629 0225 74       		.sleb128 -12
+ 630 0226 00       		.byte	0
+ 631 0227 0E       		.uleb128 0xe
+ 632 0228 04       		.byte	0x4
+ 633 0229 3B010000 		.4byte	0x13b
+ 634 022d 0F       		.uleb128 0xf
+ 635 022e 01       		.byte	0x1
+ 636 022f 6A010000 		.4byte	.LASF35
+ 637 0233 01       		.byte	0x1
+ 638 0234 33       		.byte	0x33
+ 639 0235 01       		.byte	0x1
+ 640 0236 00000000 		.4byte	.LFB35
+ 641 023a F4000000 		.4byte	.LFE35
+ 642 023e 70000000 		.4byte	.LLST2
+ 643 0242 01       		.byte	0x1
+ 644 0243 64020000 		.4byte	0x264
+ 645 0247 10       		.uleb128 0x10
+ 646 0248 73636800 		.ascii	"sch\000"
+ 647 024c 01       		.byte	0x1
+ 648 024d 33       		.byte	0x33
+ 649 024e 64020000 		.4byte	0x264
+ 650 0252 02       		.byte	0x2
+ 651 0253 91       		.byte	0x91
+ 652 0254 74       		.sleb128 -12
+ 653 0255 0D       		.uleb128 0xd
+ 654 0256 3C020000 		.4byte	.LASF36
+ 655 025a 01       		.byte	0x1
+ 656 025b 33       		.byte	0x33
+ 657 025c 6A020000 		.4byte	0x26a
+ 658 0260 02       		.byte	0x2
+ 659 0261 91       		.byte	0x91
+ 660 0262 70       		.sleb128 -16
+ 661 0263 00       		.byte	0
+ 662 0264 0E       		.uleb128 0xe
+ 663 0265 04       		.byte	0x4
+ 664 0266 8D010000 		.4byte	0x18d
+ 665 026a 0E       		.uleb128 0xe
+ 666 026b 04       		.byte	0x4
+ 667 026c 70020000 		.4byte	0x270
+ 668 0270 05       		.uleb128 0x5
+ 669 0271 30000000 		.4byte	0x30
+ 670 0275 11       		.uleb128 0x11
+ 671 0276 17020000 		.4byte	.LASF37
+ 672 027a 01       		.byte	0x1
+ 673 027b 0F       		.byte	0xf
+ 674 027c 9A000000 		.4byte	0x9a
+ 675 0280 01       		.byte	0x1
+ 676 0281 05       		.byte	0x5
+ 677 0282 03       		.byte	0x3
+ 678 0283 00000000 		.4byte	timeoutCounter
+ 679 0287 11       		.uleb128 0x11
+ 680 0288 2A010000 		.4byte	.LASF38
+ 681 028c 01       		.byte	0x1
+ 682 028d 10       		.byte	0x10
+ 683 028e 99020000 		.4byte	0x299
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 16
+
+
+ 684 0292 01       		.byte	0x1
+ 685 0293 05       		.byte	0x5
+ 686 0294 03       		.byte	0x3
+ 687 0295 00000000 		.4byte	recievedMessage
+ 688 0299 05       		.uleb128 0x5
+ 689 029a 9E020000 		.4byte	0x29e
+ 690 029e 02       		.uleb128 0x2
+ 691 029f 01       		.byte	0x1
+ 692 02a0 02       		.byte	0x2
+ 693 02a1 9D000000 		.4byte	.LASF39
+ 694 02a5 11       		.uleb128 0x11
+ 695 02a6 7B020000 		.4byte	.LASF40
+ 696 02aa 01       		.byte	0x1
+ 697 02ab 11       		.byte	0x11
+ 698 02ac 9E020000 		.4byte	0x29e
+ 699 02b0 01       		.byte	0x1
+ 700 02b1 05       		.byte	0x5
+ 701 02b2 03       		.byte	0x3
+ 702 02b3 00000000 		.4byte	messageStillNotRecievedError
+ 703 02b7 11       		.uleb128 0x11
+ 704 02b8 B1010000 		.4byte	.LASF41
+ 705 02bc 01       		.byte	0x1
+ 706 02bd 30       		.byte	0x30
+ 707 02be 98010000 		.4byte	0x198
+ 708 02c2 01       		.byte	0x1
+ 709 02c3 05       		.byte	0x5
+ 710 02c4 03       		.byte	0x3
+ 711 02c5 00000000 		.4byte	taskSchedulerState
+ 712 02c9 00       		.byte	0
+ 713              		.section	.debug_abbrev,"",%progbits
+ 714              	.Ldebug_abbrev0:
+ 715 0000 01       		.uleb128 0x1
+ 716 0001 11       		.uleb128 0x11
+ 717 0002 01       		.byte	0x1
+ 718 0003 25       		.uleb128 0x25
+ 719 0004 0E       		.uleb128 0xe
+ 720 0005 13       		.uleb128 0x13
+ 721 0006 0B       		.uleb128 0xb
+ 722 0007 03       		.uleb128 0x3
+ 723 0008 0E       		.uleb128 0xe
+ 724 0009 1B       		.uleb128 0x1b
+ 725 000a 0E       		.uleb128 0xe
+ 726 000b 55       		.uleb128 0x55
+ 727 000c 06       		.uleb128 0x6
+ 728 000d 11       		.uleb128 0x11
+ 729 000e 01       		.uleb128 0x1
+ 730 000f 52       		.uleb128 0x52
+ 731 0010 01       		.uleb128 0x1
+ 732 0011 10       		.uleb128 0x10
+ 733 0012 06       		.uleb128 0x6
+ 734 0013 00       		.byte	0
+ 735 0014 00       		.byte	0
+ 736 0015 02       		.uleb128 0x2
+ 737 0016 24       		.uleb128 0x24
+ 738 0017 00       		.byte	0
+ 739 0018 0B       		.uleb128 0xb
+ 740 0019 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 17
+
+
+ 741 001a 3E       		.uleb128 0x3e
+ 742 001b 0B       		.uleb128 0xb
+ 743 001c 03       		.uleb128 0x3
+ 744 001d 0E       		.uleb128 0xe
+ 745 001e 00       		.byte	0
+ 746 001f 00       		.byte	0
+ 747 0020 03       		.uleb128 0x3
+ 748 0021 16       		.uleb128 0x16
+ 749 0022 00       		.byte	0
+ 750 0023 03       		.uleb128 0x3
+ 751 0024 0E       		.uleb128 0xe
+ 752 0025 3A       		.uleb128 0x3a
+ 753 0026 0B       		.uleb128 0xb
+ 754 0027 3B       		.uleb128 0x3b
+ 755 0028 0B       		.uleb128 0xb
+ 756 0029 49       		.uleb128 0x49
+ 757 002a 13       		.uleb128 0x13
+ 758 002b 00       		.byte	0
+ 759 002c 00       		.byte	0
+ 760 002d 04       		.uleb128 0x4
+ 761 002e 24       		.uleb128 0x24
+ 762 002f 00       		.byte	0
+ 763 0030 0B       		.uleb128 0xb
+ 764 0031 0B       		.uleb128 0xb
+ 765 0032 3E       		.uleb128 0x3e
+ 766 0033 0B       		.uleb128 0xb
+ 767 0034 03       		.uleb128 0x3
+ 768 0035 08       		.uleb128 0x8
+ 769 0036 00       		.byte	0
+ 770 0037 00       		.byte	0
+ 771 0038 05       		.uleb128 0x5
+ 772 0039 35       		.uleb128 0x35
+ 773 003a 00       		.byte	0
+ 774 003b 49       		.uleb128 0x49
+ 775 003c 13       		.uleb128 0x13
+ 776 003d 00       		.byte	0
+ 777 003e 00       		.byte	0
+ 778 003f 06       		.uleb128 0x6
+ 779 0040 13       		.uleb128 0x13
+ 780 0041 01       		.byte	0x1
+ 781 0042 03       		.uleb128 0x3
+ 782 0043 0E       		.uleb128 0xe
+ 783 0044 0B       		.uleb128 0xb
+ 784 0045 0B       		.uleb128 0xb
+ 785 0046 3A       		.uleb128 0x3a
+ 786 0047 0B       		.uleb128 0xb
+ 787 0048 3B       		.uleb128 0x3b
+ 788 0049 0B       		.uleb128 0xb
+ 789 004a 01       		.uleb128 0x1
+ 790 004b 13       		.uleb128 0x13
+ 791 004c 00       		.byte	0
+ 792 004d 00       		.byte	0
+ 793 004e 07       		.uleb128 0x7
+ 794 004f 0D       		.uleb128 0xd
+ 795 0050 00       		.byte	0
+ 796 0051 03       		.uleb128 0x3
+ 797 0052 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 18
+
+
+ 798 0053 3A       		.uleb128 0x3a
+ 799 0054 0B       		.uleb128 0xb
+ 800 0055 3B       		.uleb128 0x3b
+ 801 0056 0B       		.uleb128 0xb
+ 802 0057 49       		.uleb128 0x49
+ 803 0058 13       		.uleb128 0x13
+ 804 0059 38       		.uleb128 0x38
+ 805 005a 0A       		.uleb128 0xa
+ 806 005b 00       		.byte	0
+ 807 005c 00       		.byte	0
+ 808 005d 08       		.uleb128 0x8
+ 809 005e 01       		.uleb128 0x1
+ 810 005f 01       		.byte	0x1
+ 811 0060 49       		.uleb128 0x49
+ 812 0061 13       		.uleb128 0x13
+ 813 0062 01       		.uleb128 0x1
+ 814 0063 13       		.uleb128 0x13
+ 815 0064 00       		.byte	0
+ 816 0065 00       		.byte	0
+ 817 0066 09       		.uleb128 0x9
+ 818 0067 21       		.uleb128 0x21
+ 819 0068 00       		.byte	0
+ 820 0069 49       		.uleb128 0x49
+ 821 006a 13       		.uleb128 0x13
+ 822 006b 2F       		.uleb128 0x2f
+ 823 006c 0B       		.uleb128 0xb
+ 824 006d 00       		.byte	0
+ 825 006e 00       		.byte	0
+ 826 006f 0A       		.uleb128 0xa
+ 827 0070 04       		.uleb128 0x4
+ 828 0071 01       		.byte	0x1
+ 829 0072 03       		.uleb128 0x3
+ 830 0073 0E       		.uleb128 0xe
+ 831 0074 0B       		.uleb128 0xb
+ 832 0075 0B       		.uleb128 0xb
+ 833 0076 3A       		.uleb128 0x3a
+ 834 0077 0B       		.uleb128 0xb
+ 835 0078 3B       		.uleb128 0x3b
+ 836 0079 0B       		.uleb128 0xb
+ 837 007a 01       		.uleb128 0x1
+ 838 007b 13       		.uleb128 0x13
+ 839 007c 00       		.byte	0
+ 840 007d 00       		.byte	0
+ 841 007e 0B       		.uleb128 0xb
+ 842 007f 28       		.uleb128 0x28
+ 843 0080 00       		.byte	0
+ 844 0081 03       		.uleb128 0x3
+ 845 0082 0E       		.uleb128 0xe
+ 846 0083 1C       		.uleb128 0x1c
+ 847 0084 0D       		.uleb128 0xd
+ 848 0085 00       		.byte	0
+ 849 0086 00       		.byte	0
+ 850 0087 0C       		.uleb128 0xc
+ 851 0088 2E       		.uleb128 0x2e
+ 852 0089 01       		.byte	0x1
+ 853 008a 3F       		.uleb128 0x3f
+ 854 008b 0C       		.uleb128 0xc
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 19
+
+
+ 855 008c 03       		.uleb128 0x3
+ 856 008d 0E       		.uleb128 0xe
+ 857 008e 3A       		.uleb128 0x3a
+ 858 008f 0B       		.uleb128 0xb
+ 859 0090 3B       		.uleb128 0x3b
+ 860 0091 0B       		.uleb128 0xb
+ 861 0092 27       		.uleb128 0x27
+ 862 0093 0C       		.uleb128 0xc
+ 863 0094 11       		.uleb128 0x11
+ 864 0095 01       		.uleb128 0x1
+ 865 0096 12       		.uleb128 0x12
+ 866 0097 01       		.uleb128 0x1
+ 867 0098 40       		.uleb128 0x40
+ 868 0099 06       		.uleb128 0x6
+ 869 009a 9742     		.uleb128 0x2117
+ 870 009c 0C       		.uleb128 0xc
+ 871 009d 01       		.uleb128 0x1
+ 872 009e 13       		.uleb128 0x13
+ 873 009f 00       		.byte	0
+ 874 00a0 00       		.byte	0
+ 875 00a1 0D       		.uleb128 0xd
+ 876 00a2 05       		.uleb128 0x5
+ 877 00a3 00       		.byte	0
+ 878 00a4 03       		.uleb128 0x3
+ 879 00a5 0E       		.uleb128 0xe
+ 880 00a6 3A       		.uleb128 0x3a
+ 881 00a7 0B       		.uleb128 0xb
+ 882 00a8 3B       		.uleb128 0x3b
+ 883 00a9 0B       		.uleb128 0xb
+ 884 00aa 49       		.uleb128 0x49
+ 885 00ab 13       		.uleb128 0x13
+ 886 00ac 02       		.uleb128 0x2
+ 887 00ad 0A       		.uleb128 0xa
+ 888 00ae 00       		.byte	0
+ 889 00af 00       		.byte	0
+ 890 00b0 0E       		.uleb128 0xe
+ 891 00b1 0F       		.uleb128 0xf
+ 892 00b2 00       		.byte	0
+ 893 00b3 0B       		.uleb128 0xb
+ 894 00b4 0B       		.uleb128 0xb
+ 895 00b5 49       		.uleb128 0x49
+ 896 00b6 13       		.uleb128 0x13
+ 897 00b7 00       		.byte	0
+ 898 00b8 00       		.byte	0
+ 899 00b9 0F       		.uleb128 0xf
+ 900 00ba 2E       		.uleb128 0x2e
+ 901 00bb 01       		.byte	0x1
+ 902 00bc 3F       		.uleb128 0x3f
+ 903 00bd 0C       		.uleb128 0xc
+ 904 00be 03       		.uleb128 0x3
+ 905 00bf 0E       		.uleb128 0xe
+ 906 00c0 3A       		.uleb128 0x3a
+ 907 00c1 0B       		.uleb128 0xb
+ 908 00c2 3B       		.uleb128 0x3b
+ 909 00c3 0B       		.uleb128 0xb
+ 910 00c4 27       		.uleb128 0x27
+ 911 00c5 0C       		.uleb128 0xc
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 20
+
+
+ 912 00c6 11       		.uleb128 0x11
+ 913 00c7 01       		.uleb128 0x1
+ 914 00c8 12       		.uleb128 0x12
+ 915 00c9 01       		.uleb128 0x1
+ 916 00ca 40       		.uleb128 0x40
+ 917 00cb 06       		.uleb128 0x6
+ 918 00cc 9642     		.uleb128 0x2116
+ 919 00ce 0C       		.uleb128 0xc
+ 920 00cf 01       		.uleb128 0x1
+ 921 00d0 13       		.uleb128 0x13
+ 922 00d1 00       		.byte	0
+ 923 00d2 00       		.byte	0
+ 924 00d3 10       		.uleb128 0x10
+ 925 00d4 05       		.uleb128 0x5
+ 926 00d5 00       		.byte	0
+ 927 00d6 03       		.uleb128 0x3
+ 928 00d7 08       		.uleb128 0x8
+ 929 00d8 3A       		.uleb128 0x3a
+ 930 00d9 0B       		.uleb128 0xb
+ 931 00da 3B       		.uleb128 0x3b
+ 932 00db 0B       		.uleb128 0xb
+ 933 00dc 49       		.uleb128 0x49
+ 934 00dd 13       		.uleb128 0x13
+ 935 00de 02       		.uleb128 0x2
+ 936 00df 0A       		.uleb128 0xa
+ 937 00e0 00       		.byte	0
+ 938 00e1 00       		.byte	0
+ 939 00e2 11       		.uleb128 0x11
+ 940 00e3 34       		.uleb128 0x34
+ 941 00e4 00       		.byte	0
+ 942 00e5 03       		.uleb128 0x3
+ 943 00e6 0E       		.uleb128 0xe
+ 944 00e7 3A       		.uleb128 0x3a
+ 945 00e8 0B       		.uleb128 0xb
+ 946 00e9 3B       		.uleb128 0x3b
+ 947 00ea 0B       		.uleb128 0xb
+ 948 00eb 49       		.uleb128 0x49
+ 949 00ec 13       		.uleb128 0x13
+ 950 00ed 3F       		.uleb128 0x3f
+ 951 00ee 0C       		.uleb128 0xc
+ 952 00ef 02       		.uleb128 0x2
+ 953 00f0 0A       		.uleb128 0xa
+ 954 00f1 00       		.byte	0
+ 955 00f2 00       		.byte	0
+ 956 00f3 00       		.byte	0
+ 957              		.section	.debug_loc,"",%progbits
+ 958              	.Ldebug_loc0:
+ 959              	.LLST0:
+ 960 0000 00000000 		.4byte	.LFB33
+ 961 0004 02000000 		.4byte	.LCFI0
+ 962 0008 0200     		.2byte	0x2
+ 963 000a 7D       		.byte	0x7d
+ 964 000b 00       		.sleb128 0
+ 965 000c 02000000 		.4byte	.LCFI0
+ 966 0010 04000000 		.4byte	.LCFI1
+ 967 0014 0200     		.2byte	0x2
+ 968 0016 7D       		.byte	0x7d
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 21
+
+
+ 969 0017 08       		.sleb128 8
+ 970 0018 04000000 		.4byte	.LCFI1
+ 971 001c 06000000 		.4byte	.LCFI2
+ 972 0020 0200     		.2byte	0x2
+ 973 0022 7D       		.byte	0x7d
+ 974 0023 10       		.sleb128 16
+ 975 0024 06000000 		.4byte	.LCFI2
+ 976 0028 2C000000 		.4byte	.LFE33
+ 977 002c 0200     		.2byte	0x2
+ 978 002e 77       		.byte	0x77
+ 979 002f 10       		.sleb128 16
+ 980 0030 00000000 		.4byte	0
+ 981 0034 00000000 		.4byte	0
+ 982              	.LLST1:
+ 983 0038 00000000 		.4byte	.LFB34
+ 984 003c 02000000 		.4byte	.LCFI3
+ 985 0040 0200     		.2byte	0x2
+ 986 0042 7D       		.byte	0x7d
+ 987 0043 00       		.sleb128 0
+ 988 0044 02000000 		.4byte	.LCFI3
+ 989 0048 04000000 		.4byte	.LCFI4
+ 990 004c 0200     		.2byte	0x2
+ 991 004e 7D       		.byte	0x7d
+ 992 004f 08       		.sleb128 8
+ 993 0050 04000000 		.4byte	.LCFI4
+ 994 0054 06000000 		.4byte	.LCFI5
+ 995 0058 0200     		.2byte	0x2
+ 996 005a 7D       		.byte	0x7d
+ 997 005b 10       		.sleb128 16
+ 998 005c 06000000 		.4byte	.LCFI5
+ 999 0060 2C000000 		.4byte	.LFE34
+ 1000 0064 0200     		.2byte	0x2
+ 1001 0066 77       		.byte	0x77
+ 1002 0067 10       		.sleb128 16
+ 1003 0068 00000000 		.4byte	0
+ 1004 006c 00000000 		.4byte	0
+ 1005              	.LLST2:
+ 1006 0070 00000000 		.4byte	.LFB35
+ 1007 0074 02000000 		.4byte	.LCFI6
+ 1008 0078 0200     		.2byte	0x2
+ 1009 007a 7D       		.byte	0x7d
+ 1010 007b 00       		.sleb128 0
+ 1011 007c 02000000 		.4byte	.LCFI6
+ 1012 0080 04000000 		.4byte	.LCFI7
+ 1013 0084 0200     		.2byte	0x2
+ 1014 0086 7D       		.byte	0x7d
+ 1015 0087 08       		.sleb128 8
+ 1016 0088 04000000 		.4byte	.LCFI7
+ 1017 008c 06000000 		.4byte	.LCFI8
+ 1018 0090 0200     		.2byte	0x2
+ 1019 0092 7D       		.byte	0x7d
+ 1020 0093 10       		.sleb128 16
+ 1021 0094 06000000 		.4byte	.LCFI8
+ 1022 0098 F4000000 		.4byte	.LFE35
+ 1023 009c 0200     		.2byte	0x2
+ 1024 009e 77       		.byte	0x77
+ 1025 009f 10       		.sleb128 16
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 22
+
+
+ 1026 00a0 00000000 		.4byte	0
+ 1027 00a4 00000000 		.4byte	0
+ 1028              		.section	.debug_aranges,"",%progbits
+ 1029 0000 2C000000 		.4byte	0x2c
+ 1030 0004 0200     		.2byte	0x2
+ 1031 0006 00000000 		.4byte	.Ldebug_info0
+ 1032 000a 04       		.byte	0x4
+ 1033 000b 00       		.byte	0
+ 1034 000c 0000     		.2byte	0
+ 1035 000e 0000     		.2byte	0
+ 1036 0010 00000000 		.4byte	.LFB33
+ 1037 0014 2C000000 		.4byte	.LFE33-.LFB33
+ 1038 0018 00000000 		.4byte	.LFB34
+ 1039 001c 2C000000 		.4byte	.LFE34-.LFB34
+ 1040 0020 00000000 		.4byte	.LFB35
+ 1041 0024 F4000000 		.4byte	.LFE35-.LFB35
+ 1042 0028 00000000 		.4byte	0
+ 1043 002c 00000000 		.4byte	0
+ 1044              		.section	.debug_ranges,"",%progbits
+ 1045              	.Ldebug_ranges0:
+ 1046 0000 00000000 		.4byte	.LFB33
+ 1047 0004 2C000000 		.4byte	.LFE33
+ 1048 0008 00000000 		.4byte	.LFB34
+ 1049 000c 2C000000 		.4byte	.LFE34
+ 1050 0010 00000000 		.4byte	.LFB35
+ 1051 0014 F4000000 		.4byte	.LFE35
+ 1052 0018 00000000 		.4byte	0
+ 1053 001c 00000000 		.4byte	0
+ 1054              		.section	.debug_line,"",%progbits
+ 1055              	.Ldebug_line0:
+ 1056 0000 7E010000 		.section	.debug_str,"MS",%progbits,1
+ 1056      02001401 
+ 1056      00000201 
+ 1056      FB0E0D00 
+ 1056      01010101 
+ 1057              	.LASF18:
+ 1058 0000 67696D62 		.ascii	"gimbalTilt\000"
+ 1058      616C5469 
+ 1058      6C7400
+ 1059              	.LASF13:
+ 1060 000b 63686172 		.ascii	"char\000"
+ 1060      00
+ 1061              	.LASF21:
+ 1062 0010 7265706F 		.ascii	"report\000"
+ 1062      727400
+ 1063              	.LASF32:
+ 1064 0017 72657365 		.ascii	"reset\000"
+ 1064      7400
+ 1065              	.LASF19:
+ 1066 001d 546F446F 		.ascii	"ToDoList\000"
+ 1066      4C697374 
+ 1066      00
+ 1067              	.LASF25:
+ 1068 0026 67707349 		.ascii	"gpsIncoming\000"
+ 1068      6E636F6D 
+ 1068      696E6700 
+ 1069              	.LASF44:
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 23
+
+
+ 1070 0032 433A5C55 		.ascii	"C:\\Users\\Jared\\Documents\\PSoC Creator\\MasterCo"
+ 1070      73657273 
+ 1070      5C4A6172 
+ 1070      65645C44 
+ 1070      6F63756D 
+ 1071 0060 6E74726F 		.ascii	"ntrollerBoard\\MasterController\\BYURover2015MainBo"
+ 1071      6C6C6572 
+ 1071      426F6172 
+ 1071      645C4D61 
+ 1071      73746572 
+ 1072 0091 61726453 		.ascii	"ardSM.cydsn\000"
+ 1072      4D2E6379 
+ 1072      64736E00 
+ 1073              	.LASF39:
+ 1074 009d 5F426F6F 		.ascii	"_Bool\000"
+ 1074      6C00
+ 1075              	.LASF29:
+ 1076 00a3 75706461 		.ascii	"update\000"
+ 1076      746500
+ 1077              	.LASF26:
+ 1078 00aa 53636865 		.ascii	"Scheduler\000"
+ 1078      64756C65 
+ 1078      7200
+ 1079              	.LASF11:
+ 1080 00b4 666C6F61 		.ascii	"float\000"
+ 1080      7400
+ 1081              	.LASF7:
+ 1082 00ba 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1082      206C6F6E 
+ 1082      6720756E 
+ 1082      7369676E 
+ 1082      65642069 
+ 1083              	.LASF16:
+ 1084 00d1 72696768 		.ascii	"rightWheels\000"
+ 1084      74576865 
+ 1084      656C7300 
+ 1085              	.LASF5:
+ 1086 00dd 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1086      20756E73 
+ 1086      69676E65 
+ 1086      6420696E 
+ 1086      7400
+ 1087              	.LASF3:
+ 1088 00ef 73686F72 		.ascii	"short unsigned int\000"
+ 1088      7420756E 
+ 1088      7369676E 
+ 1088      65642069 
+ 1088      6E7400
+ 1089              	.LASF43:
+ 1090 0102 2E5C5363 		.ascii	".\\Scheduler.c\000"
+ 1090      68656475 
+ 1090      6C65722E 
+ 1090      6300
+ 1091              	.LASF1:
+ 1092 0110 756E7369 		.ascii	"unsigned char\000"
+ 1092      676E6564 
+ 1092      20636861 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 24
+
+
+ 1092      7200
+ 1093              	.LASF12:
+ 1094 011e 646F7562 		.ascii	"double\000"
+ 1094      6C6500
+ 1095              	.LASF28:
+ 1096 0125 72656164 		.ascii	"read\000"
+ 1096      00
+ 1097              	.LASF38:
+ 1098 012a 72656369 		.ascii	"recievedMessage\000"
+ 1098      65766564 
+ 1098      4D657373 
+ 1098      61676500 
+ 1099              	.LASF10:
+ 1100 013a 75696E74 		.ascii	"uint16\000"
+ 1100      313600
+ 1101              	.LASF31:
+ 1102 0141 77616974 		.ascii	"wait\000"
+ 1102      00
+ 1103              	.LASF8:
+ 1104 0146 756E7369 		.ascii	"unsigned int\000"
+ 1104      676E6564 
+ 1104      20696E74 
+ 1104      00
+ 1105              	.LASF24:
+ 1106 0153 746F646F 		.ascii	"todo\000"
+ 1106      00
+ 1107              	.LASF23:
+ 1108 0158 73636865 		.ascii	"scheduler\000"
+ 1108      64756C65 
+ 1108      7200
+ 1109              	.LASF9:
+ 1110 0162 75696E74 		.ascii	"uint8_t\000"
+ 1110      385F7400 
+ 1111              	.LASF35:
+ 1112 016a 7461736B 		.ascii	"taskScheduler\000"
+ 1112      53636865 
+ 1112      64756C65 
+ 1112      7200
+ 1113              	.LASF14:
+ 1114 0178 73697A65 		.ascii	"sizetype\000"
+ 1114      74797065 
+ 1114      00
+ 1115              	.LASF15:
+ 1116 0181 6C656674 		.ascii	"leftWheels\000"
+ 1116      57686565 
+ 1116      6C7300
+ 1117              	.LASF6:
+ 1118 018c 6C6F6E67 		.ascii	"long long int\000"
+ 1118      206C6F6E 
+ 1118      6720696E 
+ 1118      7400
+ 1119              	.LASF17:
+ 1120 019a 67696D62 		.ascii	"gimbalPan\000"
+ 1120      616C5061 
+ 1120      6E00
+ 1121              	.LASF30:
+ 1122 01a4 72656164 		.ascii	"read_sensors\000"
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 25
+
+
+ 1122      5F73656E 
+ 1122      736F7273 
+ 1122      00
+ 1123              	.LASF41:
+ 1124 01b1 7461736B 		.ascii	"taskSchedulerState\000"
+ 1124      53636865 
+ 1124      64756C65 
+ 1124      72537461 
+ 1124      746500
+ 1125              	.LASF2:
+ 1126 01c4 73686F72 		.ascii	"short int\000"
+ 1126      7420696E 
+ 1126      7400
+ 1127              	.LASF42:
+ 1128 01ce 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 1128      4320342E 
+ 1128      372E3320 
+ 1128      32303133 
+ 1128      30333132 
+ 1129 0201 616E6368 		.ascii	"anch revision 196615]\000"
+ 1129      20726576 
+ 1129      6973696F 
+ 1129      6E203139 
+ 1129      36363135 
+ 1130              	.LASF37:
+ 1131 0217 74696D65 		.ascii	"timeoutCounter\000"
+ 1131      6F757443 
+ 1131      6F756E74 
+ 1131      657200
+ 1132              	.LASF4:
+ 1133 0226 6C6F6E67 		.ascii	"long int\000"
+ 1133      20696E74 
+ 1133      00
+ 1134              	.LASF33:
+ 1135 022f 696E6974 		.ascii	"initTodoList\000"
+ 1135      546F646F 
+ 1135      4C697374 
+ 1135      00
+ 1136              	.LASF36:
+ 1137 023c 74657374 		.ascii	"testSignal\000"
+ 1137      5369676E 
+ 1137      616C00
+ 1138              	.LASF34:
+ 1139 0247 696E6974 		.ascii	"initReport\000"
+ 1139      5265706F 
+ 1139      727400
+ 1140              	.LASF45:
+ 1141 0252 7461736B 		.ascii	"taskSchedulerStates\000"
+ 1141      53636865 
+ 1141      64756C65 
+ 1141      72537461 
+ 1141      74657300 
+ 1142              	.LASF0:
+ 1143 0266 7369676E 		.ascii	"signed char\000"
+ 1143      65642063 
+ 1143      68617200 
+ 1144              	.LASF20:
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccmtck4Q.s 			page 26
+
+
+ 1145 0272 746F646F 		.ascii	"todolist\000"
+ 1145      6C697374 
+ 1145      00
+ 1146              	.LASF40:
+ 1147 027b 6D657373 		.ascii	"messageStillNotRecievedError\000"
+ 1147      61676553 
+ 1147      74696C6C 
+ 1147      4E6F7452 
+ 1147      65636965 
+ 1148              	.LASF27:
+ 1149 0298 696E6974 		.ascii	"init_taskScheduler\000"
+ 1149      5F746173 
+ 1149      6B536368 
+ 1149      6564756C 
+ 1149      657200
+ 1150              	.LASF22:
+ 1151 02ab 5265706F 		.ascii	"Report\000"
+ 1151      727400
+ 1152              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br

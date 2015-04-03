@@ -3,11 +3,14 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspc" version="5" xml_contents_version="2" name="MasterController" persistent="" platform="NOT_USED">
-<current_project name=".\MasterController.cydsn\MasterController.cyprj" />
+<current_project name=".\BYURover2015MainBoardSM.cydsn\BYURover2015MainBoardSM.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
 <name_val_pair name="MasterController" v=".\MasterController.cydsn\MasterController.cyprj" />
+<name_val_pair name="GPS_Dev" v=".\GPS_Dev.cydsn\GPS_Dev.cyprj" />
+<name_val_pair name="MPU_9150" v=".\MPU_9150.cydsn\MPU_9150.cyprj" />
+<name_val_pair name="BYURover2015MainBoardSM" v=".\BYURover2015MainBoardSM.cydsn\BYURover2015MainBoardSM.cyprj" />
 </projects>
 <workspace_id v="93a0124a-3328-4cdf-be13-36a4816ca041" />
 <WriteAppVersionLastSavedWith v="3.0.0.3140" />

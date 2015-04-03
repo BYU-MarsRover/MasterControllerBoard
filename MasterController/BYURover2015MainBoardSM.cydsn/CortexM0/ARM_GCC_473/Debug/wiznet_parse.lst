@@ -1,0 +1,970 @@
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"wiznet_parse.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.wiznet_parse,"ax",%progbits
+  18              		.align	2
+  19              		.global	wiznet_parse
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	wiznet_parse, %function
+  23              	wiznet_parse:
+  24              	.LFB33:
+  25              		.file 1 ".\\wiznet_parse.c"
+   1:.\wiznet_parse.c **** /*
+   2:.\wiznet_parse.c ****  * wiznet_parse.c
+   3:.\wiznet_parse.c ****  *
+   4:.\wiznet_parse.c ****  *  Created on: Jan 31, 2015
+   5:.\wiznet_parse.c ****  *      Author: cramsted joint with Jeff Nybo and Steve
+   6:.\wiznet_parse.c ****  */
+   7:.\wiznet_parse.c **** #include "wiznet_parse.h"
+   8:.\wiznet_parse.c **** 
+   9:.\wiznet_parse.c **** //This variable needs to be implemented in the main code base. 
+  10:.\wiznet_parse.c **** //It should be the variable that the recieved wiznet data is copied to when RX goes high
+  11:.\wiznet_parse.c **** //volatile uint8_t RX[16] = {0x0, 0x1, 0xC, 0x8, 0x0, 0x0, 0x0, 0x4, 0x0, 0x3, 0xE, 0x8, 0x0, 0x0, 
+  12:.\wiznet_parse.c **** 						// 0	1	 2	  3    4    5    6    7    8    9    10   11   12   13   14   15
+  13:.\wiznet_parse.c **** // Steve's Note: Here is what the (WIZNET) payload looks like:
+  14:.\wiznet_parse.c **** //  Byte:   0   1   2   3   4   5   6   7   8   9   A   B   C   D   E   F
+  15:.\wiznet_parse.c **** //  Value:  C0  A8  1   al  ph  pl  zh  zl  0th 1st 2nd 3rd etc
+  16:.\wiznet_parse.c **** //  Means:  |Src Ip Addr  |Src Port|#bytes| Actual Payload for the rest of the packet
+  17:.\wiznet_parse.c **** //  For reference, the Python Payload Line: [0x01,0xC8,(mainSeqCount&0xFF),DRIVE_LEN,(gimbal[0]>>8)
+  18:.\wiznet_parse.c **** //  WHAT THIS MEANS FOR YOU! : The High and Low bytes for the gimbal are 12,13 for X, 14,15 for Y, 
+  19:.\wiznet_parse.c **** //  Here is a real (WIZNET) packet:
+  20:.\wiznet_parse.c **** //  Byte:   0   1   2   3   4   5   6   7   8   9   A   B   C   D   E   F
+  21:.\wiznet_parse.c **** //  Value:  C0  A8  01  01  E4  F0  00  08  01  C8  7A  05  02  89  02  06
+  22:.\wiznet_parse.c **** //  Means: |Src Ip Addr   |SrcPort|#bytes | See Aligned Below:
+  23:.\wiznet_parse.c **** //                                          From Basestation to Main Controller Board
+  24:.\wiznet_parse.c **** //                                              Write Drive Message ID
+  25:.\wiznet_parse.c **** //                                                  Packet Sequence #
+  26:.\wiznet_parse.c **** //                                                      #bytes remaining in this message
+  27:.\wiznet_parse.c **** //                                                          X Axis High Byte
+  28:.\wiznet_parse.c **** //                                                              X Axis Low Byte
+  29:.\wiznet_parse.c **** //                                                                  Y Axis High Byte
+  30:.\wiznet_parse.c **** //                                                                      Y Axis Low Byte
+  31:.\wiznet_parse.c **** //  Note: The X and Y Axis values are between -1000 and +1000, in this case, X is 649, Y is 518
+  32:.\wiznet_parse.c **** //parses incoming packets
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 2
+
+
+  33:.\wiznet_parse.c **** void wiznet_parse(ToDoList* todo, uint8_t* RX){
+  26              		.loc 1 33 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 86B0     		sub	sp, sp, #24
+  34              	.LCFI1:
+  35              		.cfi_def_cfa_offset 32
+  36 0004 00AF     		add	r7, sp, #0
+  37              	.LCFI2:
+  38              		.cfi_def_cfa_register 7
+  39 0006 7860     		str	r0, [r7, #4]
+  40 0008 3960     		str	r1, [r7]
+  34:.\wiznet_parse.c **** 
+  35:.\wiznet_parse.c ****     int16_t left_y = ((int16_t)(((RX[12]<<8) & 0xFF00) | RX[13]) );
+  41              		.loc 1 35 0
+  42 000a 3B68     		ldr	r3, [r7]
+  43 000c 0C33     		add	r3, r3, #12
+  44 000e 1B78     		ldrb	r3, [r3]
+  45 0010 1B02     		lsl	r3, r3, #8
+  46 0012 9BB2     		uxth	r3, r3
+  47 0014 FF22     		mov	r2, #255
+  48 0016 9343     		bic	r3, r2
+  49 0018 99B2     		uxth	r1, r3
+  50 001a 3B68     		ldr	r3, [r7]
+  51 001c 0D33     		add	r3, r3, #13
+  52 001e 1B78     		ldrb	r3, [r3]
+  53 0020 1A1C     		mov	r2, r3
+  54 0022 3B1C     		mov	r3, r7
+  55 0024 1633     		add	r3, r3, #22
+  56 0026 0A43     		orr	r2, r1
+  57 0028 1A80     		strh	r2, [r3]
+  36:.\wiznet_parse.c ****     int16_t right_y = ((int16_t)(((RX[14]<<8) & 0xFF00) | RX[15]) );
+  58              		.loc 1 36 0
+  59 002a 3B68     		ldr	r3, [r7]
+  60 002c 0E33     		add	r3, r3, #14
+  61 002e 1B78     		ldrb	r3, [r3]
+  62 0030 1B02     		lsl	r3, r3, #8
+  63 0032 9BB2     		uxth	r3, r3
+  64 0034 FF22     		mov	r2, #255
+  65 0036 9343     		bic	r3, r2
+  66 0038 99B2     		uxth	r1, r3
+  67 003a 3B68     		ldr	r3, [r7]
+  68 003c 0F33     		add	r3, r3, #15
+  69 003e 1B78     		ldrb	r3, [r3]
+  70 0040 1A1C     		mov	r2, r3
+  71 0042 3B1C     		mov	r3, r7
+  72 0044 1433     		add	r3, r3, #20
+  73 0046 0A43     		orr	r2, r1
+  74 0048 1A80     		strh	r2, [r3]
+  37:.\wiznet_parse.c ****     
+  38:.\wiznet_parse.c ****     uint16_t lw = (uint16_t)(((left_y)>>1)+1500);
+  75              		.loc 1 38 0
+  76 004a 3B1C     		mov	r3, r7
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 3
+
+
+  77 004c 1633     		add	r3, r3, #22
+  78 004e 0021     		mov	r1, #0
+  79 0050 5B5E     		ldrsh	r3, [r3, r1]
+  80 0052 5B10     		asr	r3, r3, #1
+  81 0054 9BB2     		uxth	r3, r3
+  82 0056 9AB2     		uxth	r2, r3
+  83 0058 3B1C     		mov	r3, r7
+  84 005a 1233     		add	r3, r3, #18
+  85 005c 4349     		ldr	r1, .L10
+  86 005e 5218     		add	r2, r2, r1
+  87 0060 1A80     		strh	r2, [r3]
+  39:.\wiznet_parse.c ****     uint16_t rw = (uint16_t)(((right_y)>>1)+1500);
+  88              		.loc 1 39 0
+  89 0062 3B1C     		mov	r3, r7
+  90 0064 1433     		add	r3, r3, #20
+  91 0066 0022     		mov	r2, #0
+  92 0068 9B5E     		ldrsh	r3, [r3, r2]
+  93 006a 5B10     		asr	r3, r3, #1
+  94 006c 9BB2     		uxth	r3, r3
+  95 006e 9AB2     		uxth	r2, r3
+  96 0070 3B1C     		mov	r3, r7
+  97 0072 1033     		add	r3, r3, #16
+  98 0074 3D49     		ldr	r1, .L10
+  99 0076 5218     		add	r2, r2, r1
+ 100 0078 1A80     		strh	r2, [r3]
+  40:.\wiznet_parse.c ****     
+  41:.\wiznet_parse.c ****     
+  42:.\wiznet_parse.c ****     
+  43:.\wiznet_parse.c ****     // boundary checking:
+  44:.\wiznet_parse.c ****     if (lw > 2000) todo->leftWheels = 2000;
+ 101              		.loc 1 44 0
+ 102 007a 3B1C     		mov	r3, r7
+ 103 007c 1233     		add	r3, r3, #18
+ 104 007e 1A88     		ldrh	r2, [r3]
+ 105 0080 FA23     		mov	r3, #250
+ 106 0082 DB00     		lsl	r3, r3, #3
+ 107 0084 9A42     		cmp	r2, r3
+ 108 0086 04D9     		bls	.L2
+ 109              		.loc 1 44 0 is_stmt 0 discriminator 1
+ 110 0088 7B68     		ldr	r3, [r7, #4]
+ 111 008a FA22     		mov	r2, #250
+ 112 008c D200     		lsl	r2, r2, #3
+ 113 008e 1A80     		strh	r2, [r3]
+ 114 0090 0FE0     		b	.L3
+ 115              	.L2:
+  45:.\wiznet_parse.c ****     else if (lw < 1000) todo->leftWheels = 1000;
+ 116              		.loc 1 45 0 is_stmt 1
+ 117 0092 3B1C     		mov	r3, r7
+ 118 0094 1233     		add	r3, r3, #18
+ 119 0096 1A88     		ldrh	r2, [r3]
+ 120 0098 354B     		ldr	r3, .L10+4
+ 121 009a 9A42     		cmp	r2, r3
+ 122 009c 04D8     		bhi	.L4
+ 123              		.loc 1 45 0 is_stmt 0 discriminator 1
+ 124 009e 7B68     		ldr	r3, [r7, #4]
+ 125 00a0 FA22     		mov	r2, #250
+ 126 00a2 9200     		lsl	r2, r2, #2
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 4
+
+
+ 127 00a4 1A80     		strh	r2, [r3]
+ 128 00a6 04E0     		b	.L3
+ 129              	.L4:
+  46:.\wiznet_parse.c ****     else todo->leftWheels = lw;
+ 130              		.loc 1 46 0 is_stmt 1
+ 131 00a8 7B68     		ldr	r3, [r7, #4]
+ 132 00aa 3A1C     		mov	r2, r7
+ 133 00ac 1232     		add	r2, r2, #18
+ 134 00ae 1288     		ldrh	r2, [r2]
+ 135 00b0 1A80     		strh	r2, [r3]
+ 136              	.L3:
+  47:.\wiznet_parse.c ****     
+  48:.\wiznet_parse.c ****     if (rw > 2000) todo->rightWheels = 2000;
+ 137              		.loc 1 48 0
+ 138 00b2 3B1C     		mov	r3, r7
+ 139 00b4 1033     		add	r3, r3, #16
+ 140 00b6 1A88     		ldrh	r2, [r3]
+ 141 00b8 FA23     		mov	r3, #250
+ 142 00ba DB00     		lsl	r3, r3, #3
+ 143 00bc 9A42     		cmp	r2, r3
+ 144 00be 04D9     		bls	.L5
+ 145              		.loc 1 48 0 is_stmt 0 discriminator 1
+ 146 00c0 7B68     		ldr	r3, [r7, #4]
+ 147 00c2 FA22     		mov	r2, #250
+ 148 00c4 D200     		lsl	r2, r2, #3
+ 149 00c6 5A80     		strh	r2, [r3, #2]
+ 150 00c8 0FE0     		b	.L6
+ 151              	.L5:
+  49:.\wiznet_parse.c ****     else if (rw < 1000) todo->rightWheels = 1000;
+ 152              		.loc 1 49 0 is_stmt 1
+ 153 00ca 3B1C     		mov	r3, r7
+ 154 00cc 1033     		add	r3, r3, #16
+ 155 00ce 1A88     		ldrh	r2, [r3]
+ 156 00d0 274B     		ldr	r3, .L10+4
+ 157 00d2 9A42     		cmp	r2, r3
+ 158 00d4 04D8     		bhi	.L7
+ 159              		.loc 1 49 0 is_stmt 0 discriminator 1
+ 160 00d6 7B68     		ldr	r3, [r7, #4]
+ 161 00d8 FA22     		mov	r2, #250
+ 162 00da 9200     		lsl	r2, r2, #2
+ 163 00dc 5A80     		strh	r2, [r3, #2]
+ 164 00de 04E0     		b	.L6
+ 165              	.L7:
+  50:.\wiznet_parse.c ****     else todo->rightWheels = rw;
+ 166              		.loc 1 50 0 is_stmt 1
+ 167 00e0 7B68     		ldr	r3, [r7, #4]
+ 168 00e2 3A1C     		mov	r2, r7
+ 169 00e4 1032     		add	r2, r2, #16
+ 170 00e6 1288     		ldrh	r2, [r2]
+ 171 00e8 5A80     		strh	r2, [r3, #2]
+ 172              	.L6:
+  51:.\wiznet_parse.c ****     // done with boundary check
+  52:.\wiznet_parse.c ****     
+  53:.\wiznet_parse.c ****     
+  54:.\wiznet_parse.c ****     int16_t peter =        ((int16_t)(((RX[16]<<8) & 0xFF00) | RX[17]) / 2) + 1500;
+ 173              		.loc 1 54 0
+ 174 00ea 3B68     		ldr	r3, [r7]
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 5
+
+
+ 175 00ec 1033     		add	r3, r3, #16
+ 176 00ee 1B78     		ldrb	r3, [r3]
+ 177 00f0 1B02     		lsl	r3, r3, #8
+ 178 00f2 9BB2     		uxth	r3, r3
+ 179 00f4 FF22     		mov	r2, #255
+ 180 00f6 9343     		bic	r3, r2
+ 181 00f8 9AB2     		uxth	r2, r3
+ 182 00fa 3B68     		ldr	r3, [r7]
+ 183 00fc 1133     		add	r3, r3, #17
+ 184 00fe 1B78     		ldrb	r3, [r3]
+ 185 0100 1343     		orr	r3, r2
+ 186 0102 9BB2     		uxth	r3, r3
+ 187 0104 1BB2     		sxth	r3, r3
+ 188 0106 002B     		cmp	r3, #0
+ 189 0108 00DA     		bge	.L8
+ 190 010a 0133     		add	r3, r3, #1
+ 191              	.L8:
+ 192 010c 5B10     		asr	r3, r3, #1
+ 193 010e 9BB2     		uxth	r3, r3
+ 194 0110 9BB2     		uxth	r3, r3
+ 195 0112 164A     		ldr	r2, .L10
+ 196 0114 9B18     		add	r3, r3, r2
+ 197 0116 9AB2     		uxth	r2, r3
+ 198 0118 3B1C     		mov	r3, r7
+ 199 011a 0E33     		add	r3, r3, #14
+ 200 011c 1A80     		strh	r2, [r3]
+  55:.\wiznet_parse.c ****     int16_t tilt_a_whirl = ((int16_t)(((RX[18]<<8) & 0xFF00) | RX[19]) / 2) + 1500; 
+ 201              		.loc 1 55 0
+ 202 011e 3B68     		ldr	r3, [r7]
+ 203 0120 1233     		add	r3, r3, #18
+ 204 0122 1B78     		ldrb	r3, [r3]
+ 205 0124 1B02     		lsl	r3, r3, #8
+ 206 0126 9BB2     		uxth	r3, r3
+ 207 0128 FF22     		mov	r2, #255
+ 208 012a 9343     		bic	r3, r2
+ 209 012c 9AB2     		uxth	r2, r3
+ 210 012e 3B68     		ldr	r3, [r7]
+ 211 0130 1333     		add	r3, r3, #19
+ 212 0132 1B78     		ldrb	r3, [r3]
+ 213 0134 1343     		orr	r3, r2
+ 214 0136 9BB2     		uxth	r3, r3
+ 215 0138 1BB2     		sxth	r3, r3
+ 216 013a 002B     		cmp	r3, #0
+ 217 013c 00DA     		bge	.L9
+ 218 013e 0133     		add	r3, r3, #1
+ 219              	.L9:
+ 220 0140 5B10     		asr	r3, r3, #1
+ 221 0142 9BB2     		uxth	r3, r3
+ 222 0144 9BB2     		uxth	r3, r3
+ 223 0146 0949     		ldr	r1, .L10
+ 224 0148 5B18     		add	r3, r3, r1
+ 225 014a 9AB2     		uxth	r2, r3
+ 226 014c 3B1C     		mov	r3, r7
+ 227 014e 0C33     		add	r3, r3, #12
+ 228 0150 1A80     		strh	r2, [r3]
+  56:.\wiznet_parse.c ****     
+  57:.\wiznet_parse.c ****     
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 6
+
+
+  58:.\wiznet_parse.c **** 	todo->gimbalPan = 	(uint16_t) peter;
+ 229              		.loc 1 58 0
+ 230 0152 3B1C     		mov	r3, r7
+ 231 0154 0E33     		add	r3, r3, #14
+ 232 0156 1A88     		ldrh	r2, [r3]
+ 233 0158 7B68     		ldr	r3, [r7, #4]
+ 234 015a 9A80     		strh	r2, [r3, #4]
+  59:.\wiznet_parse.c **** 	todo->gimbalTilt = 	(uint16_t) tilt_a_whirl;
+ 235              		.loc 1 59 0
+ 236 015c 3B1C     		mov	r3, r7
+ 237 015e 0C33     		add	r3, r3, #12
+ 238 0160 1A88     		ldrh	r2, [r3]
+ 239 0162 7B68     		ldr	r3, [r7, #4]
+ 240 0164 DA80     		strh	r2, [r3, #6]
+  60:.\wiznet_parse.c **** 	//printf("wiznet_parse is finished");
+  61:.\wiznet_parse.c **** }
+ 241              		.loc 1 61 0
+ 242 0166 BD46     		mov	sp, r7
+ 243 0168 06B0     		add	sp, sp, #24
+ 244              		@ sp needed for prologue
+ 245 016a 80BD     		pop	{r7, pc}
+ 246              	.L11:
+ 247              		.align	2
+ 248              	.L10:
+ 249 016c DC050000 		.word	1500
+ 250 0170 E7030000 		.word	999
+ 251              		.cfi_endproc
+ 252              	.LFE33:
+ 253              		.size	wiznet_parse, .-wiznet_parse
+ 254              		.text
+ 255              	.Letext0:
+ 256              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.0\\psoc creator\\import\\gnu_cs\\arm\\4
+ 257              		.file 3 "./Generated_Source/PSoC4/cytypes.h"
+ 258              		.file 4 ".\\infoReports.h"
+ 259              		.section	.debug_info,"",%progbits
+ 260              	.Ldebug_info0:
+ 261 0000 98010000 		.4byte	0x198
+ 262 0004 0200     		.2byte	0x2
+ 263 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 264 000a 04       		.byte	0x4
+ 265 000b 01       		.uleb128 0x1
+ 266 000c 87010000 		.4byte	.LASF27
+ 267 0010 01       		.byte	0x1
+ 268 0011 8A000000 		.4byte	.LASF28
+ 269 0015 16000000 		.4byte	.LASF29
+ 270 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 271 001d 00000000 		.4byte	0
+ 272 0021 00000000 		.4byte	0
+ 273 0025 00000000 		.4byte	.Ldebug_line0
+ 274 0029 02       		.uleb128 0x2
+ 275 002a 01       		.byte	0x1
+ 276 002b 06       		.byte	0x6
+ 277 002c E1010000 		.4byte	.LASF0
+ 278 0030 03       		.uleb128 0x3
+ 279 0031 2C010000 		.4byte	.LASF2
+ 280 0035 02       		.byte	0x2
+ 281 0036 2A       		.byte	0x2a
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 7
+
+
+ 282 0037 3B000000 		.4byte	0x3b
+ 283 003b 02       		.uleb128 0x2
+ 284 003c 01       		.byte	0x1
+ 285 003d 08       		.byte	0x8
+ 286 003e DF000000 		.4byte	.LASF1
+ 287 0042 03       		.uleb128 0x3
+ 288 0043 34010000 		.4byte	.LASF3
+ 289 0047 02       		.byte	0x2
+ 290 0048 35       		.byte	0x35
+ 291 0049 4D000000 		.4byte	0x4d
+ 292 004d 02       		.uleb128 0x2
+ 293 004e 02       		.byte	0x2
+ 294 004f 05       		.byte	0x5
+ 295 0050 6D010000 		.4byte	.LASF4
+ 296 0054 03       		.uleb128 0x3
+ 297 0055 7E010000 		.4byte	.LASF5
+ 298 0059 02       		.byte	0x2
+ 299 005a 36       		.byte	0x36
+ 300 005b 5F000000 		.4byte	0x5f
+ 301 005f 02       		.uleb128 0x2
+ 302 0060 02       		.byte	0x2
+ 303 0061 07       		.byte	0x7
+ 304 0062 CC000000 		.4byte	.LASF6
+ 305 0066 02       		.uleb128 0x2
+ 306 0067 04       		.byte	0x4
+ 307 0068 05       		.byte	0x5
+ 308 0069 D0010000 		.4byte	.LASF7
+ 309 006d 02       		.uleb128 0x2
+ 310 006e 04       		.byte	0x4
+ 311 006f 07       		.byte	0x7
+ 312 0070 BA000000 		.4byte	.LASF8
+ 313 0074 02       		.uleb128 0x2
+ 314 0075 08       		.byte	0x8
+ 315 0076 05       		.byte	0x5
+ 316 0077 50010000 		.4byte	.LASF9
+ 317 007b 02       		.uleb128 0x2
+ 318 007c 08       		.byte	0x8
+ 319 007d 07       		.byte	0x7
+ 320 007e 15010000 		.4byte	.LASF10
+ 321 0082 04       		.uleb128 0x4
+ 322 0083 04       		.byte	0x4
+ 323 0084 05       		.byte	0x5
+ 324 0085 696E7400 		.ascii	"int\000"
+ 325 0089 02       		.uleb128 0x2
+ 326 008a 04       		.byte	0x4
+ 327 008b 07       		.byte	0x7
+ 328 008c 08010000 		.4byte	.LASF11
+ 329 0090 03       		.uleb128 0x3
+ 330 0091 01010000 		.4byte	.LASF12
+ 331 0095 03       		.byte	0x3
+ 332 0096 5C       		.byte	0x5c
+ 333 0097 5F000000 		.4byte	0x5f
+ 334 009b 02       		.uleb128 0x2
+ 335 009c 04       		.byte	0x4
+ 336 009d 04       		.byte	0x4
+ 337 009e 9B000000 		.4byte	.LASF13
+ 338 00a2 02       		.uleb128 0x2
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 8
+
+
+ 339 00a3 08       		.byte	0x8
+ 340 00a4 04       		.byte	0x4
+ 341 00a5 FA000000 		.4byte	.LASF14
+ 342 00a9 02       		.uleb128 0x2
+ 343 00aa 01       		.byte	0x1
+ 344 00ab 08       		.byte	0x8
+ 345 00ac 68010000 		.4byte	.LASF15
+ 346 00b0 02       		.uleb128 0x2
+ 347 00b1 04       		.byte	0x4
+ 348 00b2 07       		.byte	0x7
+ 349 00b3 3C010000 		.4byte	.LASF16
+ 350 00b7 05       		.uleb128 0x5
+ 351 00b8 ED010000 		.4byte	.LASF30
+ 352 00bc 08       		.byte	0x8
+ 353 00bd 04       		.byte	0x4
+ 354 00be 16       		.byte	0x16
+ 355 00bf FC000000 		.4byte	0xfc
+ 356 00c3 06       		.uleb128 0x6
+ 357 00c4 45010000 		.4byte	.LASF17
+ 358 00c8 04       		.byte	0x4
+ 359 00c9 18       		.byte	0x18
+ 360 00ca 90000000 		.4byte	0x90
+ 361 00ce 02       		.byte	0x2
+ 362 00cf 23       		.byte	0x23
+ 363 00d0 00       		.uleb128 0
+ 364 00d1 06       		.uleb128 0x6
+ 365 00d2 AE000000 		.4byte	.LASF18
+ 366 00d6 04       		.byte	0x4
+ 367 00d7 19       		.byte	0x19
+ 368 00d8 90000000 		.4byte	0x90
+ 369 00dc 02       		.byte	0x2
+ 370 00dd 23       		.byte	0x23
+ 371 00de 02       		.uleb128 0x2
+ 372 00df 06       		.uleb128 0x6
+ 373 00e0 5E010000 		.4byte	.LASF19
+ 374 00e4 04       		.byte	0x4
+ 375 00e5 1A       		.byte	0x1a
+ 376 00e6 90000000 		.4byte	0x90
+ 377 00ea 02       		.byte	0x2
+ 378 00eb 23       		.byte	0x23
+ 379 00ec 04       		.uleb128 0x4
+ 380 00ed 06       		.uleb128 0x6
+ 381 00ee 00000000 		.4byte	.LASF20
+ 382 00f2 04       		.byte	0x4
+ 383 00f3 1B       		.byte	0x1b
+ 384 00f4 90000000 		.4byte	0x90
+ 385 00f8 02       		.byte	0x2
+ 386 00f9 23       		.byte	0x23
+ 387 00fa 06       		.uleb128 0x6
+ 388 00fb 00       		.byte	0
+ 389 00fc 03       		.uleb128 0x3
+ 390 00fd 81000000 		.4byte	.LASF21
+ 391 0101 04       		.byte	0x4
+ 392 0102 1C       		.byte	0x1c
+ 393 0103 B7000000 		.4byte	0xb7
+ 394 0107 07       		.uleb128 0x7
+ 395 0108 01       		.byte	0x1
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 9
+
+
+ 396 0109 A1000000 		.4byte	.LASF31
+ 397 010d 01       		.byte	0x1
+ 398 010e 21       		.byte	0x21
+ 399 010f 01       		.byte	0x1
+ 400 0110 00000000 		.4byte	.LFB33
+ 401 0114 74010000 		.4byte	.LFE33
+ 402 0118 00000000 		.4byte	.LLST0
+ 403 011c 01       		.byte	0x1
+ 404 011d 8F010000 		.4byte	0x18f
+ 405 0121 08       		.uleb128 0x8
+ 406 0122 11000000 		.4byte	.LASF22
+ 407 0126 01       		.byte	0x1
+ 408 0127 21       		.byte	0x21
+ 409 0128 8F010000 		.4byte	0x18f
+ 410 012c 02       		.byte	0x2
+ 411 012d 91       		.byte	0x91
+ 412 012e 64       		.sleb128 -28
+ 413 012f 09       		.uleb128 0x9
+ 414 0130 525800   		.ascii	"RX\000"
+ 415 0133 01       		.byte	0x1
+ 416 0134 21       		.byte	0x21
+ 417 0135 95010000 		.4byte	0x195
+ 418 0139 02       		.byte	0x2
+ 419 013a 91       		.byte	0x91
+ 420 013b 60       		.sleb128 -32
+ 421 013c 0A       		.uleb128 0xa
+ 422 013d 77010000 		.4byte	.LASF23
+ 423 0141 01       		.byte	0x1
+ 424 0142 23       		.byte	0x23
+ 425 0143 42000000 		.4byte	0x42
+ 426 0147 02       		.byte	0x2
+ 427 0148 91       		.byte	0x91
+ 428 0149 76       		.sleb128 -10
+ 429 014a 0A       		.uleb128 0xa
+ 430 014b D9010000 		.4byte	.LASF24
+ 431 014f 01       		.byte	0x1
+ 432 0150 24       		.byte	0x24
+ 433 0151 42000000 		.4byte	0x42
+ 434 0155 02       		.byte	0x2
+ 435 0156 91       		.byte	0x91
+ 436 0157 74       		.sleb128 -12
+ 437 0158 0B       		.uleb128 0xb
+ 438 0159 6C7700   		.ascii	"lw\000"
+ 439 015c 01       		.byte	0x1
+ 440 015d 26       		.byte	0x26
+ 441 015e 54000000 		.4byte	0x54
+ 442 0162 02       		.byte	0x2
+ 443 0163 91       		.byte	0x91
+ 444 0164 72       		.sleb128 -14
+ 445 0165 0B       		.uleb128 0xb
+ 446 0166 727700   		.ascii	"rw\000"
+ 447 0169 01       		.byte	0x1
+ 448 016a 27       		.byte	0x27
+ 449 016b 54000000 		.4byte	0x54
+ 450 016f 02       		.byte	0x2
+ 451 0170 91       		.byte	0x91
+ 452 0171 70       		.sleb128 -16
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 10
+
+
+ 453 0172 0A       		.uleb128 0xa
+ 454 0173 0B000000 		.4byte	.LASF25
+ 455 0177 01       		.byte	0x1
+ 456 0178 36       		.byte	0x36
+ 457 0179 42000000 		.4byte	0x42
+ 458 017d 02       		.byte	0x2
+ 459 017e 91       		.byte	0x91
+ 460 017f 6E       		.sleb128 -18
+ 461 0180 0A       		.uleb128 0xa
+ 462 0181 ED000000 		.4byte	.LASF26
+ 463 0185 01       		.byte	0x1
+ 464 0186 37       		.byte	0x37
+ 465 0187 42000000 		.4byte	0x42
+ 466 018b 02       		.byte	0x2
+ 467 018c 91       		.byte	0x91
+ 468 018d 6C       		.sleb128 -20
+ 469 018e 00       		.byte	0
+ 470 018f 0C       		.uleb128 0xc
+ 471 0190 04       		.byte	0x4
+ 472 0191 FC000000 		.4byte	0xfc
+ 473 0195 0C       		.uleb128 0xc
+ 474 0196 04       		.byte	0x4
+ 475 0197 30000000 		.4byte	0x30
+ 476 019b 00       		.byte	0
+ 477              		.section	.debug_abbrev,"",%progbits
+ 478              	.Ldebug_abbrev0:
+ 479 0000 01       		.uleb128 0x1
+ 480 0001 11       		.uleb128 0x11
+ 481 0002 01       		.byte	0x1
+ 482 0003 25       		.uleb128 0x25
+ 483 0004 0E       		.uleb128 0xe
+ 484 0005 13       		.uleb128 0x13
+ 485 0006 0B       		.uleb128 0xb
+ 486 0007 03       		.uleb128 0x3
+ 487 0008 0E       		.uleb128 0xe
+ 488 0009 1B       		.uleb128 0x1b
+ 489 000a 0E       		.uleb128 0xe
+ 490 000b 55       		.uleb128 0x55
+ 491 000c 06       		.uleb128 0x6
+ 492 000d 11       		.uleb128 0x11
+ 493 000e 01       		.uleb128 0x1
+ 494 000f 52       		.uleb128 0x52
+ 495 0010 01       		.uleb128 0x1
+ 496 0011 10       		.uleb128 0x10
+ 497 0012 06       		.uleb128 0x6
+ 498 0013 00       		.byte	0
+ 499 0014 00       		.byte	0
+ 500 0015 02       		.uleb128 0x2
+ 501 0016 24       		.uleb128 0x24
+ 502 0017 00       		.byte	0
+ 503 0018 0B       		.uleb128 0xb
+ 504 0019 0B       		.uleb128 0xb
+ 505 001a 3E       		.uleb128 0x3e
+ 506 001b 0B       		.uleb128 0xb
+ 507 001c 03       		.uleb128 0x3
+ 508 001d 0E       		.uleb128 0xe
+ 509 001e 00       		.byte	0
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 11
+
+
+ 510 001f 00       		.byte	0
+ 511 0020 03       		.uleb128 0x3
+ 512 0021 16       		.uleb128 0x16
+ 513 0022 00       		.byte	0
+ 514 0023 03       		.uleb128 0x3
+ 515 0024 0E       		.uleb128 0xe
+ 516 0025 3A       		.uleb128 0x3a
+ 517 0026 0B       		.uleb128 0xb
+ 518 0027 3B       		.uleb128 0x3b
+ 519 0028 0B       		.uleb128 0xb
+ 520 0029 49       		.uleb128 0x49
+ 521 002a 13       		.uleb128 0x13
+ 522 002b 00       		.byte	0
+ 523 002c 00       		.byte	0
+ 524 002d 04       		.uleb128 0x4
+ 525 002e 24       		.uleb128 0x24
+ 526 002f 00       		.byte	0
+ 527 0030 0B       		.uleb128 0xb
+ 528 0031 0B       		.uleb128 0xb
+ 529 0032 3E       		.uleb128 0x3e
+ 530 0033 0B       		.uleb128 0xb
+ 531 0034 03       		.uleb128 0x3
+ 532 0035 08       		.uleb128 0x8
+ 533 0036 00       		.byte	0
+ 534 0037 00       		.byte	0
+ 535 0038 05       		.uleb128 0x5
+ 536 0039 13       		.uleb128 0x13
+ 537 003a 01       		.byte	0x1
+ 538 003b 03       		.uleb128 0x3
+ 539 003c 0E       		.uleb128 0xe
+ 540 003d 0B       		.uleb128 0xb
+ 541 003e 0B       		.uleb128 0xb
+ 542 003f 3A       		.uleb128 0x3a
+ 543 0040 0B       		.uleb128 0xb
+ 544 0041 3B       		.uleb128 0x3b
+ 545 0042 0B       		.uleb128 0xb
+ 546 0043 01       		.uleb128 0x1
+ 547 0044 13       		.uleb128 0x13
+ 548 0045 00       		.byte	0
+ 549 0046 00       		.byte	0
+ 550 0047 06       		.uleb128 0x6
+ 551 0048 0D       		.uleb128 0xd
+ 552 0049 00       		.byte	0
+ 553 004a 03       		.uleb128 0x3
+ 554 004b 0E       		.uleb128 0xe
+ 555 004c 3A       		.uleb128 0x3a
+ 556 004d 0B       		.uleb128 0xb
+ 557 004e 3B       		.uleb128 0x3b
+ 558 004f 0B       		.uleb128 0xb
+ 559 0050 49       		.uleb128 0x49
+ 560 0051 13       		.uleb128 0x13
+ 561 0052 38       		.uleb128 0x38
+ 562 0053 0A       		.uleb128 0xa
+ 563 0054 00       		.byte	0
+ 564 0055 00       		.byte	0
+ 565 0056 07       		.uleb128 0x7
+ 566 0057 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 12
+
+
+ 567 0058 01       		.byte	0x1
+ 568 0059 3F       		.uleb128 0x3f
+ 569 005a 0C       		.uleb128 0xc
+ 570 005b 03       		.uleb128 0x3
+ 571 005c 0E       		.uleb128 0xe
+ 572 005d 3A       		.uleb128 0x3a
+ 573 005e 0B       		.uleb128 0xb
+ 574 005f 3B       		.uleb128 0x3b
+ 575 0060 0B       		.uleb128 0xb
+ 576 0061 27       		.uleb128 0x27
+ 577 0062 0C       		.uleb128 0xc
+ 578 0063 11       		.uleb128 0x11
+ 579 0064 01       		.uleb128 0x1
+ 580 0065 12       		.uleb128 0x12
+ 581 0066 01       		.uleb128 0x1
+ 582 0067 40       		.uleb128 0x40
+ 583 0068 06       		.uleb128 0x6
+ 584 0069 9742     		.uleb128 0x2117
+ 585 006b 0C       		.uleb128 0xc
+ 586 006c 01       		.uleb128 0x1
+ 587 006d 13       		.uleb128 0x13
+ 588 006e 00       		.byte	0
+ 589 006f 00       		.byte	0
+ 590 0070 08       		.uleb128 0x8
+ 591 0071 05       		.uleb128 0x5
+ 592 0072 00       		.byte	0
+ 593 0073 03       		.uleb128 0x3
+ 594 0074 0E       		.uleb128 0xe
+ 595 0075 3A       		.uleb128 0x3a
+ 596 0076 0B       		.uleb128 0xb
+ 597 0077 3B       		.uleb128 0x3b
+ 598 0078 0B       		.uleb128 0xb
+ 599 0079 49       		.uleb128 0x49
+ 600 007a 13       		.uleb128 0x13
+ 601 007b 02       		.uleb128 0x2
+ 602 007c 0A       		.uleb128 0xa
+ 603 007d 00       		.byte	0
+ 604 007e 00       		.byte	0
+ 605 007f 09       		.uleb128 0x9
+ 606 0080 05       		.uleb128 0x5
+ 607 0081 00       		.byte	0
+ 608 0082 03       		.uleb128 0x3
+ 609 0083 08       		.uleb128 0x8
+ 610 0084 3A       		.uleb128 0x3a
+ 611 0085 0B       		.uleb128 0xb
+ 612 0086 3B       		.uleb128 0x3b
+ 613 0087 0B       		.uleb128 0xb
+ 614 0088 49       		.uleb128 0x49
+ 615 0089 13       		.uleb128 0x13
+ 616 008a 02       		.uleb128 0x2
+ 617 008b 0A       		.uleb128 0xa
+ 618 008c 00       		.byte	0
+ 619 008d 00       		.byte	0
+ 620 008e 0A       		.uleb128 0xa
+ 621 008f 34       		.uleb128 0x34
+ 622 0090 00       		.byte	0
+ 623 0091 03       		.uleb128 0x3
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 13
+
+
+ 624 0092 0E       		.uleb128 0xe
+ 625 0093 3A       		.uleb128 0x3a
+ 626 0094 0B       		.uleb128 0xb
+ 627 0095 3B       		.uleb128 0x3b
+ 628 0096 0B       		.uleb128 0xb
+ 629 0097 49       		.uleb128 0x49
+ 630 0098 13       		.uleb128 0x13
+ 631 0099 02       		.uleb128 0x2
+ 632 009a 0A       		.uleb128 0xa
+ 633 009b 00       		.byte	0
+ 634 009c 00       		.byte	0
+ 635 009d 0B       		.uleb128 0xb
+ 636 009e 34       		.uleb128 0x34
+ 637 009f 00       		.byte	0
+ 638 00a0 03       		.uleb128 0x3
+ 639 00a1 08       		.uleb128 0x8
+ 640 00a2 3A       		.uleb128 0x3a
+ 641 00a3 0B       		.uleb128 0xb
+ 642 00a4 3B       		.uleb128 0x3b
+ 643 00a5 0B       		.uleb128 0xb
+ 644 00a6 49       		.uleb128 0x49
+ 645 00a7 13       		.uleb128 0x13
+ 646 00a8 02       		.uleb128 0x2
+ 647 00a9 0A       		.uleb128 0xa
+ 648 00aa 00       		.byte	0
+ 649 00ab 00       		.byte	0
+ 650 00ac 0C       		.uleb128 0xc
+ 651 00ad 0F       		.uleb128 0xf
+ 652 00ae 00       		.byte	0
+ 653 00af 0B       		.uleb128 0xb
+ 654 00b0 0B       		.uleb128 0xb
+ 655 00b1 49       		.uleb128 0x49
+ 656 00b2 13       		.uleb128 0x13
+ 657 00b3 00       		.byte	0
+ 658 00b4 00       		.byte	0
+ 659 00b5 00       		.byte	0
+ 660              		.section	.debug_loc,"",%progbits
+ 661              	.Ldebug_loc0:
+ 662              	.LLST0:
+ 663 0000 00000000 		.4byte	.LFB33
+ 664 0004 02000000 		.4byte	.LCFI0
+ 665 0008 0200     		.2byte	0x2
+ 666 000a 7D       		.byte	0x7d
+ 667 000b 00       		.sleb128 0
+ 668 000c 02000000 		.4byte	.LCFI0
+ 669 0010 04000000 		.4byte	.LCFI1
+ 670 0014 0200     		.2byte	0x2
+ 671 0016 7D       		.byte	0x7d
+ 672 0017 08       		.sleb128 8
+ 673 0018 04000000 		.4byte	.LCFI1
+ 674 001c 06000000 		.4byte	.LCFI2
+ 675 0020 0200     		.2byte	0x2
+ 676 0022 7D       		.byte	0x7d
+ 677 0023 20       		.sleb128 32
+ 678 0024 06000000 		.4byte	.LCFI2
+ 679 0028 74010000 		.4byte	.LFE33
+ 680 002c 0200     		.2byte	0x2
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 14
+
+
+ 681 002e 77       		.byte	0x77
+ 682 002f 20       		.sleb128 32
+ 683 0030 00000000 		.4byte	0
+ 684 0034 00000000 		.4byte	0
+ 685              		.section	.debug_aranges,"",%progbits
+ 686 0000 1C000000 		.4byte	0x1c
+ 687 0004 0200     		.2byte	0x2
+ 688 0006 00000000 		.4byte	.Ldebug_info0
+ 689 000a 04       		.byte	0x4
+ 690 000b 00       		.byte	0
+ 691 000c 0000     		.2byte	0
+ 692 000e 0000     		.2byte	0
+ 693 0010 00000000 		.4byte	.LFB33
+ 694 0014 74010000 		.4byte	.LFE33-.LFB33
+ 695 0018 00000000 		.4byte	0
+ 696 001c 00000000 		.4byte	0
+ 697              		.section	.debug_ranges,"",%progbits
+ 698              	.Ldebug_ranges0:
+ 699 0000 00000000 		.4byte	.LFB33
+ 700 0004 74010000 		.4byte	.LFE33
+ 701 0008 00000000 		.4byte	0
+ 702 000c 00000000 		.4byte	0
+ 703              		.section	.debug_line,"",%progbits
+ 704              	.Ldebug_line0:
+ 705 0000 48010000 		.section	.debug_str,"MS",%progbits,1
+ 705      02000601 
+ 705      00000201 
+ 705      FB0E0D00 
+ 705      01010101 
+ 706              	.LASF20:
+ 707 0000 67696D62 		.ascii	"gimbalTilt\000"
+ 707      616C5469 
+ 707      6C7400
+ 708              	.LASF25:
+ 709 000b 70657465 		.ascii	"peter\000"
+ 709      7200
+ 710              	.LASF22:
+ 711 0011 746F646F 		.ascii	"todo\000"
+ 711      00
+ 712              	.LASF29:
+ 713 0016 433A5C55 		.ascii	"C:\\Users\\Jared\\Documents\\PSoC Creator\\MasterCo"
+ 713      73657273 
+ 713      5C4A6172 
+ 713      65645C44 
+ 713      6F63756D 
+ 714 0044 6E74726F 		.ascii	"ntrollerBoard\\MasterController\\BYURover2015MainBo"
+ 714      6C6C6572 
+ 714      426F6172 
+ 714      645C4D61 
+ 714      73746572 
+ 715 0075 61726453 		.ascii	"ardSM.cydsn\000"
+ 715      4D2E6379 
+ 715      64736E00 
+ 716              	.LASF21:
+ 717 0081 546F446F 		.ascii	"ToDoList\000"
+ 717      4C697374 
+ 717      00
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 15
+
+
+ 718              	.LASF28:
+ 719 008a 2E5C7769 		.ascii	".\\wiznet_parse.c\000"
+ 719      7A6E6574 
+ 719      5F706172 
+ 719      73652E63 
+ 719      00
+ 720              	.LASF13:
+ 721 009b 666C6F61 		.ascii	"float\000"
+ 721      7400
+ 722              	.LASF31:
+ 723 00a1 77697A6E 		.ascii	"wiznet_parse\000"
+ 723      65745F70 
+ 723      61727365 
+ 723      00
+ 724              	.LASF18:
+ 725 00ae 72696768 		.ascii	"rightWheels\000"
+ 725      74576865 
+ 725      656C7300 
+ 726              	.LASF8:
+ 727 00ba 6C6F6E67 		.ascii	"long unsigned int\000"
+ 727      20756E73 
+ 727      69676E65 
+ 727      6420696E 
+ 727      7400
+ 728              	.LASF6:
+ 729 00cc 73686F72 		.ascii	"short unsigned int\000"
+ 729      7420756E 
+ 729      7369676E 
+ 729      65642069 
+ 729      6E7400
+ 730              	.LASF1:
+ 731 00df 756E7369 		.ascii	"unsigned char\000"
+ 731      676E6564 
+ 731      20636861 
+ 731      7200
+ 732              	.LASF26:
+ 733 00ed 74696C74 		.ascii	"tilt_a_whirl\000"
+ 733      5F615F77 
+ 733      6869726C 
+ 733      00
+ 734              	.LASF14:
+ 735 00fa 646F7562 		.ascii	"double\000"
+ 735      6C6500
+ 736              	.LASF12:
+ 737 0101 75696E74 		.ascii	"uint16\000"
+ 737      313600
+ 738              	.LASF11:
+ 739 0108 756E7369 		.ascii	"unsigned int\000"
+ 739      676E6564 
+ 739      20696E74 
+ 739      00
+ 740              	.LASF10:
+ 741 0115 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 741      206C6F6E 
+ 741      6720756E 
+ 741      7369676E 
+ 741      65642069 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 16
+
+
+ 742              	.LASF2:
+ 743 012c 75696E74 		.ascii	"uint8_t\000"
+ 743      385F7400 
+ 744              	.LASF3:
+ 745 0134 696E7431 		.ascii	"int16_t\000"
+ 745      365F7400 
+ 746              	.LASF16:
+ 747 013c 73697A65 		.ascii	"sizetype\000"
+ 747      74797065 
+ 747      00
+ 748              	.LASF17:
+ 749 0145 6C656674 		.ascii	"leftWheels\000"
+ 749      57686565 
+ 749      6C7300
+ 750              	.LASF9:
+ 751 0150 6C6F6E67 		.ascii	"long long int\000"
+ 751      206C6F6E 
+ 751      6720696E 
+ 751      7400
+ 752              	.LASF19:
+ 753 015e 67696D62 		.ascii	"gimbalPan\000"
+ 753      616C5061 
+ 753      6E00
+ 754              	.LASF15:
+ 755 0168 63686172 		.ascii	"char\000"
+ 755      00
+ 756              	.LASF4:
+ 757 016d 73686F72 		.ascii	"short int\000"
+ 757      7420696E 
+ 757      7400
+ 758              	.LASF23:
+ 759 0177 6C656674 		.ascii	"left_y\000"
+ 759      5F7900
+ 760              	.LASF5:
+ 761 017e 75696E74 		.ascii	"uint16_t\000"
+ 761      31365F74 
+ 761      00
+ 762              	.LASF27:
+ 763 0187 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 763      4320342E 
+ 763      372E3320 
+ 763      32303133 
+ 763      30333132 
+ 764 01ba 616E6368 		.ascii	"anch revision 196615]\000"
+ 764      20726576 
+ 764      6973696F 
+ 764      6E203139 
+ 764      36363135 
+ 765              	.LASF7:
+ 766 01d0 6C6F6E67 		.ascii	"long int\000"
+ 766      20696E74 
+ 766      00
+ 767              	.LASF24:
+ 768 01d9 72696768 		.ascii	"right_y\000"
+ 768      745F7900 
+ 769              	.LASF0:
+ 770 01e1 7369676E 		.ascii	"signed char\000"
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\ccetJ3LV.s 			page 17
+
+
+ 770      65642063 
+ 770      68617200 
+ 771              	.LASF30:
+ 772 01ed 746F646F 		.ascii	"todolist\000"
+ 772      6C697374 
+ 772      00
+ 773              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br

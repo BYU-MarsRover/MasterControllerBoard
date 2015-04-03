@@ -2,7 +2,7 @@
 --	Conversion of GPS_Dev.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sat Feb 14 18:31:43 2015
+--	Wed Mar 11 18:54:35 2015
 --
 
 USE cypress.cypress.all;

@@ -1,0 +1,25 @@
+(DELAYFILE
+ (SDFVERSION "IEEE 1497 4.0")
+ (DATE "2015-03-01T00:51:12Z")
+ (DESIGN "MPU_9150")
+ (VENDOR "Cypress Semiconductor")
+ (PROGRAM "cydsfit")
+ (VERSION "No Version Information Found")
+ (DIVIDER .)
+ (TIMESCALE 1 ns)
+ (CELL
+  (CELLTYPE "MPU_9150")
+  (INSTANCE *)
+  (DELAY
+   (ABSOLUTE
+    (INTERCONNECT ClockBlock.hfclk \\I2C_1\:SCB_IRQ\\.clock (0.000:0.000:0.000))
+    (INTERCONNECT \\I2C_1\:SCB\\.interrupt \\I2C_1\:SCB_IRQ\\.interrupt (1.000:1.000:1.000))
+    (INTERCONNECT ClockBlock.ff_div_2 \\I2C_1\:SCB\\.clock (0.000:0.000:0.000))
+    (INTERCONNECT \\I2C_1\:scl\(0\)\\.fb \\I2C_1\:SCB\\.scl (0.000:0.000:0.000))
+    (INTERCONNECT \\I2C_1\:sda\(0\)\\.fb \\I2C_1\:SCB\\.sda (0.000:0.000:0.000))
+    (INTERCONNECT \\I2C_1\:scl\(0\)_PAD\\ \\I2C_1\:scl\(0\)\\.pad_in (0.000:0.000:0.000))
+    (INTERCONNECT \\I2C_1\:sda\(0\)_PAD\\ \\I2C_1\:sda\(0\)\\.pad_in (0.000:0.000:0.000))
+   )
+  )
+ )
+)

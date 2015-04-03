@@ -1,0 +1,3245 @@
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"Gimbal.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	Gimbal_initVar
+  18              		.bss
+  19              		.type	Gimbal_initVar, %object
+  20              		.size	Gimbal_initVar, 1
+  21              	Gimbal_initVar:
+  22 0000 00       		.space	1
+  23              		.section	.text.Gimbal_Start,"ax",%progbits
+  24              		.align	2
+  25              		.global	Gimbal_Start
+  26              		.code	16
+  27              		.thumb_func
+  28              		.type	Gimbal_Start, %function
+  29              	Gimbal_Start:
+  30              	.LFB0:
+  31              		.file 1 ".\\Generated_Source\\PSoC4\\Gimbal.c"
+   1:.\Generated_Source\PSoC4/Gimbal.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/Gimbal.c **** * File Name: Gimbal.c  
+   3:.\Generated_Source\PSoC4/Gimbal.c **** * Version 3.0
+   4:.\Generated_Source\PSoC4/Gimbal.c **** *
+   5:.\Generated_Source\PSoC4/Gimbal.c **** * Description:
+   6:.\Generated_Source\PSoC4/Gimbal.c **** *  The PWM User Module consist of an 8 or 16-bit counter with two 8 or 16-bit
+   7:.\Generated_Source\PSoC4/Gimbal.c **** *  comparitors. Each instance of this user module is capable of generating
+   8:.\Generated_Source\PSoC4/Gimbal.c **** *  two PWM outputs with the same period. The pulse width is selectable between
+   9:.\Generated_Source\PSoC4/Gimbal.c **** *  1 and 255/65535. The period is selectable between 2 and 255/65536 clocks. 
+  10:.\Generated_Source\PSoC4/Gimbal.c **** *  The compare value output may be configured to be active when the present 
+  11:.\Generated_Source\PSoC4/Gimbal.c **** *  counter is less than or less than/equal to the compare value.
+  12:.\Generated_Source\PSoC4/Gimbal.c **** *  A terminal count output is also provided. It generates a pulse one clock
+  13:.\Generated_Source\PSoC4/Gimbal.c **** *  width wide when the counter is equal to zero.
+  14:.\Generated_Source\PSoC4/Gimbal.c **** *
+  15:.\Generated_Source\PSoC4/Gimbal.c **** * Note:
+  16:.\Generated_Source\PSoC4/Gimbal.c **** *
+  17:.\Generated_Source\PSoC4/Gimbal.c **** *******************************************************************************
+  18:.\Generated_Source\PSoC4/Gimbal.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  19:.\Generated_Source\PSoC4/Gimbal.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  20:.\Generated_Source\PSoC4/Gimbal.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  21:.\Generated_Source\PSoC4/Gimbal.c **** * the software package with which this file was provided.
+  22:.\Generated_Source\PSoC4/Gimbal.c **** ********************************************************************************/
+  23:.\Generated_Source\PSoC4/Gimbal.c **** 
+  24:.\Generated_Source\PSoC4/Gimbal.c **** #include "cytypes.h"
+  25:.\Generated_Source\PSoC4/Gimbal.c **** #include "Gimbal.h"
+  26:.\Generated_Source\PSoC4/Gimbal.c **** 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 2
+
+
+  27:.\Generated_Source\PSoC4/Gimbal.c **** uint8 Gimbal_initVar = 0u;
+  28:.\Generated_Source\PSoC4/Gimbal.c **** 
+  29:.\Generated_Source\PSoC4/Gimbal.c **** 
+  30:.\Generated_Source\PSoC4/Gimbal.c **** /*******************************************************************************
+  31:.\Generated_Source\PSoC4/Gimbal.c **** * Function Name: Gimbal_Start
+  32:.\Generated_Source\PSoC4/Gimbal.c **** ********************************************************************************
+  33:.\Generated_Source\PSoC4/Gimbal.c **** *
+  34:.\Generated_Source\PSoC4/Gimbal.c **** * Summary:
+  35:.\Generated_Source\PSoC4/Gimbal.c **** *  The start function initializes the pwm with the default values, the 
+  36:.\Generated_Source\PSoC4/Gimbal.c **** *  enables the counter to begin counting.  It does not enable interrupts,
+  37:.\Generated_Source\PSoC4/Gimbal.c **** *  the EnableInt command should be called if interrupt generation is required.
+  38:.\Generated_Source\PSoC4/Gimbal.c **** *
+  39:.\Generated_Source\PSoC4/Gimbal.c **** * Parameters:  
+  40:.\Generated_Source\PSoC4/Gimbal.c **** *  None  
+  41:.\Generated_Source\PSoC4/Gimbal.c **** *
+  42:.\Generated_Source\PSoC4/Gimbal.c **** * Return: 
+  43:.\Generated_Source\PSoC4/Gimbal.c **** *  None
+  44:.\Generated_Source\PSoC4/Gimbal.c **** *
+  45:.\Generated_Source\PSoC4/Gimbal.c **** * Global variables:
+  46:.\Generated_Source\PSoC4/Gimbal.c **** *  Gimbal_initVar: Is modified when this function is called for the 
+  47:.\Generated_Source\PSoC4/Gimbal.c **** *   first time. Is used to ensure that initialization happens only once.
+  48:.\Generated_Source\PSoC4/Gimbal.c **** *
+  49:.\Generated_Source\PSoC4/Gimbal.c **** *******************************************************************************/
+  50:.\Generated_Source\PSoC4/Gimbal.c **** void Gimbal_Start(void) 
+  51:.\Generated_Source\PSoC4/Gimbal.c **** {
+  32              		.loc 1 51 0
+  33              		.cfi_startproc
+  34 0000 80B5     		push	{r7, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 8
+  37              		.cfi_offset 7, -8
+  38              		.cfi_offset 14, -4
+  39 0002 00AF     		add	r7, sp, #0
+  40              	.LCFI1:
+  41              		.cfi_def_cfa_register 7
+  52:.\Generated_Source\PSoC4/Gimbal.c ****     /* If not Initialized then initialize all required hardware and software */
+  53:.\Generated_Source\PSoC4/Gimbal.c ****     if(Gimbal_initVar == 0u)
+  42              		.loc 1 53 0
+  43 0004 064B     		ldr	r3, .L3
+  44 0006 1B78     		ldrb	r3, [r3]
+  45 0008 002B     		cmp	r3, #0
+  46 000a 04D1     		bne	.L2
+  54:.\Generated_Source\PSoC4/Gimbal.c ****     {
+  55:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_Init();
+  47              		.loc 1 55 0
+  48 000c FFF7FEFF 		bl	Gimbal_Init
+  56:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_initVar = 1u;
+  49              		.loc 1 56 0
+  50 0010 034B     		ldr	r3, .L3
+  51 0012 0122     		mov	r2, #1
+  52 0014 1A70     		strb	r2, [r3]
+  53              	.L2:
+  57:.\Generated_Source\PSoC4/Gimbal.c ****     }
+  58:.\Generated_Source\PSoC4/Gimbal.c ****     Gimbal_Enable();
+  54              		.loc 1 58 0
+  55 0016 FFF7FEFF 		bl	Gimbal_Enable
+  59:.\Generated_Source\PSoC4/Gimbal.c **** 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 3
+
+
+  60:.\Generated_Source\PSoC4/Gimbal.c **** }
+  56              		.loc 1 60 0
+  57 001a BD46     		mov	sp, r7
+  58              		@ sp needed for prologue
+  59 001c 80BD     		pop	{r7, pc}
+  60              	.L4:
+  61 001e C046     		.align	2
+  62              	.L3:
+  63 0020 00000000 		.word	Gimbal_initVar
+  64              		.cfi_endproc
+  65              	.LFE0:
+  66              		.size	Gimbal_Start, .-Gimbal_Start
+  67              		.section	.text.Gimbal_Init,"ax",%progbits
+  68              		.align	2
+  69              		.global	Gimbal_Init
+  70              		.code	16
+  71              		.thumb_func
+  72              		.type	Gimbal_Init, %function
+  73              	Gimbal_Init:
+  74              	.LFB1:
+  61:.\Generated_Source\PSoC4/Gimbal.c **** 
+  62:.\Generated_Source\PSoC4/Gimbal.c **** 
+  63:.\Generated_Source\PSoC4/Gimbal.c **** /*******************************************************************************
+  64:.\Generated_Source\PSoC4/Gimbal.c **** * Function Name: Gimbal_Init
+  65:.\Generated_Source\PSoC4/Gimbal.c **** ********************************************************************************
+  66:.\Generated_Source\PSoC4/Gimbal.c **** *
+  67:.\Generated_Source\PSoC4/Gimbal.c **** * Summary:
+  68:.\Generated_Source\PSoC4/Gimbal.c **** *  Initialize component's parameters to the parameters set by user in the 
+  69:.\Generated_Source\PSoC4/Gimbal.c **** *  customizer of the component placed onto schematic. Usually called in 
+  70:.\Generated_Source\PSoC4/Gimbal.c **** *  Gimbal_Start().
+  71:.\Generated_Source\PSoC4/Gimbal.c **** *
+  72:.\Generated_Source\PSoC4/Gimbal.c **** * Parameters:  
+  73:.\Generated_Source\PSoC4/Gimbal.c **** *  None
+  74:.\Generated_Source\PSoC4/Gimbal.c **** *
+  75:.\Generated_Source\PSoC4/Gimbal.c **** * Return: 
+  76:.\Generated_Source\PSoC4/Gimbal.c **** *  None
+  77:.\Generated_Source\PSoC4/Gimbal.c **** *
+  78:.\Generated_Source\PSoC4/Gimbal.c **** *******************************************************************************/
+  79:.\Generated_Source\PSoC4/Gimbal.c **** void Gimbal_Init(void) 
+  80:.\Generated_Source\PSoC4/Gimbal.c **** {
+  75              		.loc 1 80 0
+  76              		.cfi_startproc
+  77 0000 90B5     		push	{r4, r7, lr}
+  78              	.LCFI2:
+  79              		.cfi_def_cfa_offset 12
+  80              		.cfi_offset 4, -12
+  81              		.cfi_offset 7, -8
+  82              		.cfi_offset 14, -4
+  83 0002 83B0     		sub	sp, sp, #12
+  84              	.LCFI3:
+  85              		.cfi_def_cfa_offset 24
+  86 0004 00AF     		add	r7, sp, #0
+  87              	.LCFI4:
+  88              		.cfi_def_cfa_register 7
+  81:.\Generated_Source\PSoC4/Gimbal.c ****     #if (Gimbal_UsingFixedFunction || Gimbal_UseControl)
+  82:.\Generated_Source\PSoC4/Gimbal.c ****         uint8 ctrl;
+  83:.\Generated_Source\PSoC4/Gimbal.c ****     #endif /* (Gimbal_UsingFixedFunction || Gimbal_UseControl) */
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 4
+
+
+  84:.\Generated_Source\PSoC4/Gimbal.c ****     
+  85:.\Generated_Source\PSoC4/Gimbal.c ****     #if(!Gimbal_UsingFixedFunction) 
+  86:.\Generated_Source\PSoC4/Gimbal.c ****         #if(Gimbal_UseStatus)
+  87:.\Generated_Source\PSoC4/Gimbal.c ****             /* Interrupt State Backup for Critical Region*/
+  88:.\Generated_Source\PSoC4/Gimbal.c ****             uint8 Gimbal_interruptState;
+  89:.\Generated_Source\PSoC4/Gimbal.c ****         #endif /* (Gimbal_UseStatus) */
+  90:.\Generated_Source\PSoC4/Gimbal.c ****     #endif /* (!Gimbal_UsingFixedFunction) */
+  91:.\Generated_Source\PSoC4/Gimbal.c ****     
+  92:.\Generated_Source\PSoC4/Gimbal.c ****     #if (Gimbal_UsingFixedFunction)
+  93:.\Generated_Source\PSoC4/Gimbal.c ****         /* You are allowed to write the compare value (FF only) */
+  94:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_CONTROL |= Gimbal_CFG0_MODE;
+  95:.\Generated_Source\PSoC4/Gimbal.c ****         #if (Gimbal_DeadBand2_4)
+  96:.\Generated_Source\PSoC4/Gimbal.c ****             Gimbal_CONTROL |= Gimbal_CFG0_DB;
+  97:.\Generated_Source\PSoC4/Gimbal.c ****         #endif /* (Gimbal_DeadBand2_4) */
+  98:.\Generated_Source\PSoC4/Gimbal.c ****                 
+  99:.\Generated_Source\PSoC4/Gimbal.c ****         ctrl = Gimbal_CONTROL3 & ((uint8 )(~Gimbal_CTRL_CMPMODE1_MASK));
+ 100:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_CONTROL3 = ctrl | Gimbal_DEFAULT_COMPARE1_MODE;
+ 101:.\Generated_Source\PSoC4/Gimbal.c ****         
+ 102:.\Generated_Source\PSoC4/Gimbal.c ****          /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+ 103:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_RT1 &= ((uint8)(~Gimbal_RT1_MASK));
+ 104:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_RT1 |= Gimbal_SYNC;     
+ 105:.\Generated_Source\PSoC4/Gimbal.c ****                 
+ 106:.\Generated_Source\PSoC4/Gimbal.c ****         /*Enable DSI Sync all all inputs of the PWM*/
+ 107:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_RT1 &= ((uint8)(~Gimbal_SYNCDSI_MASK));
+ 108:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_RT1 |= Gimbal_SYNCDSI_EN;
+ 109:.\Generated_Source\PSoC4/Gimbal.c ****        
+ 110:.\Generated_Source\PSoC4/Gimbal.c ****     #elif (Gimbal_UseControl)
+ 111:.\Generated_Source\PSoC4/Gimbal.c ****         /* Set the default compare mode defined in the parameter */
+ 112:.\Generated_Source\PSoC4/Gimbal.c ****         ctrl = Gimbal_CONTROL & ((uint8)(~Gimbal_CTRL_CMPMODE2_MASK)) & ((uint8)(~Gimbal_CTRL_CMPMO
+  89              		.loc 1 112 0
+  90 0006 244B     		ldr	r3, .L6
+  91 0008 1B78     		ldrb	r3, [r3]
+  92 000a DAB2     		uxtb	r2, r3
+  93 000c FB1D     		add	r3, r7, #7
+  94 000e 3F21     		mov	r1, #63
+  95 0010 8A43     		bic	r2, r1
+  96 0012 1A70     		strb	r2, [r3]
+ 113:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_CONTROL = ctrl | Gimbal_DEFAULT_COMPARE2_MODE | 
+  97              		.loc 1 113 0
+  98 0014 204B     		ldr	r3, .L6
+  99 0016 FA1D     		add	r2, r7, #7
+ 100 0018 1278     		ldrb	r2, [r2]
+ 101 001a 0921     		mov	r1, #9
+ 102 001c 0A43     		orr	r2, r1
+ 103 001e D2B2     		uxtb	r2, r2
+ 104 0020 1A70     		strb	r2, [r3]
+ 114:.\Generated_Source\PSoC4/Gimbal.c ****                                    Gimbal_DEFAULT_COMPARE1_MODE;
+ 115:.\Generated_Source\PSoC4/Gimbal.c ****     #endif /* (Gimbal_UsingFixedFunction) */
+ 116:.\Generated_Source\PSoC4/Gimbal.c ****         
+ 117:.\Generated_Source\PSoC4/Gimbal.c ****     #if (!Gimbal_UsingFixedFunction)
+ 118:.\Generated_Source\PSoC4/Gimbal.c ****         #if (Gimbal_Resolution == 8)
+ 119:.\Generated_Source\PSoC4/Gimbal.c ****             /* Set FIFO 0 to 1 byte register for period*/
+ 120:.\Generated_Source\PSoC4/Gimbal.c ****             Gimbal_AUX_CONTROLDP0 |= (Gimbal_AUX_CTRL_FIFO0_CLR);
+ 121:.\Generated_Source\PSoC4/Gimbal.c ****         #else /* (Gimbal_Resolution == 16)*/
+ 122:.\Generated_Source\PSoC4/Gimbal.c ****             /* Set FIFO 0 to 1 byte register for period */
+ 123:.\Generated_Source\PSoC4/Gimbal.c ****             Gimbal_AUX_CONTROLDP0 |= (Gimbal_AUX_CTRL_FIFO0_CLR);
+ 105              		.loc 1 123 0
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 5
+
+
+ 106 0022 1E4B     		ldr	r3, .L6+4
+ 107 0024 1D4A     		ldr	r2, .L6+4
+ 108 0026 1278     		ldrb	r2, [r2]
+ 109 0028 D2B2     		uxtb	r2, r2
+ 110 002a 0121     		mov	r1, #1
+ 111 002c 0A43     		orr	r2, r1
+ 112 002e D2B2     		uxtb	r2, r2
+ 113 0030 1A70     		strb	r2, [r3]
+ 124:.\Generated_Source\PSoC4/Gimbal.c ****             Gimbal_AUX_CONTROLDP1 |= (Gimbal_AUX_CTRL_FIFO0_CLR);
+ 114              		.loc 1 124 0
+ 115 0032 1B4B     		ldr	r3, .L6+8
+ 116 0034 1A4A     		ldr	r2, .L6+8
+ 117 0036 1278     		ldrb	r2, [r2]
+ 118 0038 D2B2     		uxtb	r2, r2
+ 119 003a 0121     		mov	r1, #1
+ 120 003c 0A43     		orr	r2, r1
+ 121 003e D2B2     		uxtb	r2, r2
+ 122 0040 1A70     		strb	r2, [r3]
+ 125:.\Generated_Source\PSoC4/Gimbal.c ****         #endif /* (Gimbal_Resolution == 8) */
+ 126:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 127:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_WriteCounter(Gimbal_INIT_PERIOD_VALUE);
+ 123              		.loc 1 127 0
+ 124 0042 184B     		ldr	r3, .L6+12
+ 125 0044 181C     		mov	r0, r3
+ 126 0046 FFF7FEFF 		bl	Gimbal_WriteCounter
+ 128:.\Generated_Source\PSoC4/Gimbal.c ****     #endif /* (!Gimbal_UsingFixedFunction) */
+ 129:.\Generated_Source\PSoC4/Gimbal.c ****         
+ 130:.\Generated_Source\PSoC4/Gimbal.c ****     Gimbal_WritePeriod(Gimbal_INIT_PERIOD_VALUE);
+ 127              		.loc 1 130 0
+ 128 004a 164B     		ldr	r3, .L6+12
+ 129 004c 181C     		mov	r0, r3
+ 130 004e FFF7FEFF 		bl	Gimbal_WritePeriod
+ 131:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 132:.\Generated_Source\PSoC4/Gimbal.c ****         #if (Gimbal_UseOneCompareMode)
+ 133:.\Generated_Source\PSoC4/Gimbal.c ****             Gimbal_WriteCompare(Gimbal_INIT_COMPARE_VALUE1);
+ 134:.\Generated_Source\PSoC4/Gimbal.c ****         #else
+ 135:.\Generated_Source\PSoC4/Gimbal.c ****             Gimbal_WriteCompare1(Gimbal_INIT_COMPARE_VALUE1);
+ 131              		.loc 1 135 0
+ 132 0052 154B     		ldr	r3, .L6+16
+ 133 0054 181C     		mov	r0, r3
+ 134 0056 FFF7FEFF 		bl	Gimbal_WriteCompare1
+ 136:.\Generated_Source\PSoC4/Gimbal.c ****             Gimbal_WriteCompare2(Gimbal_INIT_COMPARE_VALUE2);
+ 135              		.loc 1 136 0
+ 136 005a 134B     		ldr	r3, .L6+16
+ 137 005c 181C     		mov	r0, r3
+ 138 005e FFF7FEFF 		bl	Gimbal_WriteCompare2
+ 137:.\Generated_Source\PSoC4/Gimbal.c ****         #endif /* (Gimbal_UseOneCompareMode) */
+ 138:.\Generated_Source\PSoC4/Gimbal.c ****         
+ 139:.\Generated_Source\PSoC4/Gimbal.c ****         #if (Gimbal_KillModeMinTime)
+ 140:.\Generated_Source\PSoC4/Gimbal.c ****             Gimbal_WriteKillTime(Gimbal_MinimumKillTime);
+ 141:.\Generated_Source\PSoC4/Gimbal.c ****         #endif /* (Gimbal_KillModeMinTime) */
+ 142:.\Generated_Source\PSoC4/Gimbal.c ****         
+ 143:.\Generated_Source\PSoC4/Gimbal.c ****         #if (Gimbal_DeadBandUsed)
+ 144:.\Generated_Source\PSoC4/Gimbal.c ****             Gimbal_WriteDeadTime(Gimbal_INIT_DEAD_TIME);
+ 145:.\Generated_Source\PSoC4/Gimbal.c ****         #endif /* (Gimbal_DeadBandUsed) */
+ 146:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 147:.\Generated_Source\PSoC4/Gimbal.c ****     #if (Gimbal_UseStatus || Gimbal_UsingFixedFunction)
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 6
+
+
+ 148:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_SetInterruptMode(Gimbal_INIT_INTERRUPTS_MODE);
+ 139              		.loc 1 148 0
+ 140 0062 0020     		mov	r0, #0
+ 141 0064 FFF7FEFF 		bl	Gimbal_SetInterruptMode
+ 149:.\Generated_Source\PSoC4/Gimbal.c ****     #endif /* (Gimbal_UseStatus || Gimbal_UsingFixedFunction) */
+ 150:.\Generated_Source\PSoC4/Gimbal.c ****         
+ 151:.\Generated_Source\PSoC4/Gimbal.c ****     #if (Gimbal_UsingFixedFunction)
+ 152:.\Generated_Source\PSoC4/Gimbal.c ****         /* Globally Enable the Fixed Function Block chosen */
+ 153:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_GLOBAL_ENABLE |= Gimbal_BLOCK_EN_MASK;
+ 154:.\Generated_Source\PSoC4/Gimbal.c ****         /* Set the Interrupt source to come from the status register */
+ 155:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_CONTROL2 |= Gimbal_CTRL2_IRQ_SEL;
+ 156:.\Generated_Source\PSoC4/Gimbal.c ****     #else
+ 157:.\Generated_Source\PSoC4/Gimbal.c ****         #if(Gimbal_UseStatus)
+ 158:.\Generated_Source\PSoC4/Gimbal.c ****             
+ 159:.\Generated_Source\PSoC4/Gimbal.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 160:.\Generated_Source\PSoC4/Gimbal.c ****             /* Enter Critical Region*/
+ 161:.\Generated_Source\PSoC4/Gimbal.c ****             Gimbal_interruptState = CyEnterCriticalSection();
+ 142              		.loc 1 161 0
+ 143 0068 BC1D     		add	r4, r7, #6
+ 144 006a FFF7FEFF 		bl	CyEnterCriticalSection
+ 145 006e 031C     		mov	r3, r0
+ 146 0070 2370     		strb	r3, [r4]
+ 162:.\Generated_Source\PSoC4/Gimbal.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 163:.\Generated_Source\PSoC4/Gimbal.c ****             Gimbal_STATUS_AUX_CTRL |= Gimbal_STATUS_ACTL_INT_EN_MASK;
+ 147              		.loc 1 163 0
+ 148 0072 0A4B     		ldr	r3, .L6+4
+ 149 0074 094A     		ldr	r2, .L6+4
+ 150 0076 1278     		ldrb	r2, [r2]
+ 151 0078 D2B2     		uxtb	r2, r2
+ 152 007a 1021     		mov	r1, #16
+ 153 007c 0A43     		orr	r2, r1
+ 154 007e D2B2     		uxtb	r2, r2
+ 155 0080 1A70     		strb	r2, [r3]
+ 164:.\Generated_Source\PSoC4/Gimbal.c ****             
+ 165:.\Generated_Source\PSoC4/Gimbal.c ****              /* Exit Critical Region*/
+ 166:.\Generated_Source\PSoC4/Gimbal.c ****             CyExitCriticalSection(Gimbal_interruptState);
+ 156              		.loc 1 166 0
+ 157 0082 BB1D     		add	r3, r7, #6
+ 158 0084 1B78     		ldrb	r3, [r3]
+ 159 0086 181C     		mov	r0, r3
+ 160 0088 FFF7FEFF 		bl	CyExitCriticalSection
+ 167:.\Generated_Source\PSoC4/Gimbal.c ****             
+ 168:.\Generated_Source\PSoC4/Gimbal.c ****             /* Clear the FIFO to enable the Gimbal_STATUS_FIFOFULL
+ 169:.\Generated_Source\PSoC4/Gimbal.c ****                    bit to be set on FIFO full. */
+ 170:.\Generated_Source\PSoC4/Gimbal.c ****             Gimbal_ClearFIFO();
+ 161              		.loc 1 170 0
+ 162 008c FFF7FEFF 		bl	Gimbal_ClearFIFO
+ 171:.\Generated_Source\PSoC4/Gimbal.c ****         #endif /* (Gimbal_UseStatus) */
+ 172:.\Generated_Source\PSoC4/Gimbal.c ****     #endif /* (Gimbal_UsingFixedFunction) */
+ 173:.\Generated_Source\PSoC4/Gimbal.c **** }
+ 163              		.loc 1 173 0
+ 164 0090 BD46     		mov	sp, r7
+ 165 0092 03B0     		add	sp, sp, #12
+ 166              		@ sp needed for prologue
+ 167 0094 90BD     		pop	{r4, r7, pc}
+ 168              	.L7:
+ 169 0096 C046     		.align	2
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 7
+
+
+ 170              	.L6:
+ 171 0098 72000F40 		.word	1074724978
+ 172 009c 92000F40 		.word	1074725010
+ 173 00a0 93000F40 		.word	1074725011
+ 174 00a4 204E0000 		.word	20000
+ 175 00a8 DC050000 		.word	1500
+ 176              		.cfi_endproc
+ 177              	.LFE1:
+ 178              		.size	Gimbal_Init, .-Gimbal_Init
+ 179              		.section	.text.Gimbal_Enable,"ax",%progbits
+ 180              		.align	2
+ 181              		.global	Gimbal_Enable
+ 182              		.code	16
+ 183              		.thumb_func
+ 184              		.type	Gimbal_Enable, %function
+ 185              	Gimbal_Enable:
+ 186              	.LFB2:
+ 174:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 175:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 176:.\Generated_Source\PSoC4/Gimbal.c **** /*******************************************************************************
+ 177:.\Generated_Source\PSoC4/Gimbal.c **** * Function Name: Gimbal_Enable
+ 178:.\Generated_Source\PSoC4/Gimbal.c **** ********************************************************************************
+ 179:.\Generated_Source\PSoC4/Gimbal.c **** *
+ 180:.\Generated_Source\PSoC4/Gimbal.c **** * Summary: 
+ 181:.\Generated_Source\PSoC4/Gimbal.c **** *  Enables the PWM block operation
+ 182:.\Generated_Source\PSoC4/Gimbal.c **** *
+ 183:.\Generated_Source\PSoC4/Gimbal.c **** * Parameters:  
+ 184:.\Generated_Source\PSoC4/Gimbal.c **** *  None
+ 185:.\Generated_Source\PSoC4/Gimbal.c **** *
+ 186:.\Generated_Source\PSoC4/Gimbal.c **** * Return: 
+ 187:.\Generated_Source\PSoC4/Gimbal.c **** *  None
+ 188:.\Generated_Source\PSoC4/Gimbal.c **** *
+ 189:.\Generated_Source\PSoC4/Gimbal.c **** * Side Effects: 
+ 190:.\Generated_Source\PSoC4/Gimbal.c **** *  This works only if software enable mode is chosen
+ 191:.\Generated_Source\PSoC4/Gimbal.c **** *
+ 192:.\Generated_Source\PSoC4/Gimbal.c **** *******************************************************************************/
+ 193:.\Generated_Source\PSoC4/Gimbal.c **** void Gimbal_Enable(void) 
+ 194:.\Generated_Source\PSoC4/Gimbal.c **** {
+ 187              		.loc 1 194 0
+ 188              		.cfi_startproc
+ 189 0000 80B5     		push	{r7, lr}
+ 190              	.LCFI5:
+ 191              		.cfi_def_cfa_offset 8
+ 192              		.cfi_offset 7, -8
+ 193              		.cfi_offset 14, -4
+ 194 0002 00AF     		add	r7, sp, #0
+ 195              	.LCFI6:
+ 196              		.cfi_def_cfa_register 7
+ 195:.\Generated_Source\PSoC4/Gimbal.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 196:.\Generated_Source\PSoC4/Gimbal.c ****     #if (Gimbal_UsingFixedFunction)
+ 197:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_GLOBAL_ENABLE |= Gimbal_BLOCK_EN_MASK;
+ 198:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_GLOBAL_STBY_ENABLE |= Gimbal_BLOCK_STBY_EN_MASK;
+ 199:.\Generated_Source\PSoC4/Gimbal.c ****     #endif /* (Gimbal_UsingFixedFunction) */
+ 200:.\Generated_Source\PSoC4/Gimbal.c ****     
+ 201:.\Generated_Source\PSoC4/Gimbal.c ****     /* Enable the PWM from the control register  */
+ 202:.\Generated_Source\PSoC4/Gimbal.c ****     #if (Gimbal_UseControl || Gimbal_UsingFixedFunction)
+ 203:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_CONTROL |= Gimbal_CTRL_ENABLE;
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 8
+
+
+ 197              		.loc 1 203 0
+ 198 0004 054B     		ldr	r3, .L9
+ 199 0006 054A     		ldr	r2, .L9
+ 200 0008 1278     		ldrb	r2, [r2]
+ 201 000a D2B2     		uxtb	r2, r2
+ 202 000c 8021     		mov	r1, #128
+ 203 000e 4942     		neg	r1, r1
+ 204 0010 0A43     		orr	r2, r1
+ 205 0012 D2B2     		uxtb	r2, r2
+ 206 0014 1A70     		strb	r2, [r3]
+ 204:.\Generated_Source\PSoC4/Gimbal.c ****     #endif /* (Gimbal_UseControl || Gimbal_UsingFixedFunction) */
+ 205:.\Generated_Source\PSoC4/Gimbal.c **** }
+ 207              		.loc 1 205 0
+ 208 0016 BD46     		mov	sp, r7
+ 209              		@ sp needed for prologue
+ 210 0018 80BD     		pop	{r7, pc}
+ 211              	.L10:
+ 212 001a C046     		.align	2
+ 213              	.L9:
+ 214 001c 72000F40 		.word	1074724978
+ 215              		.cfi_endproc
+ 216              	.LFE2:
+ 217              		.size	Gimbal_Enable, .-Gimbal_Enable
+ 218              		.section	.text.Gimbal_Stop,"ax",%progbits
+ 219              		.align	2
+ 220              		.global	Gimbal_Stop
+ 221              		.code	16
+ 222              		.thumb_func
+ 223              		.type	Gimbal_Stop, %function
+ 224              	Gimbal_Stop:
+ 225              	.LFB3:
+ 206:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 207:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 208:.\Generated_Source\PSoC4/Gimbal.c **** /*******************************************************************************
+ 209:.\Generated_Source\PSoC4/Gimbal.c **** * Function Name: Gimbal_Stop
+ 210:.\Generated_Source\PSoC4/Gimbal.c **** ********************************************************************************
+ 211:.\Generated_Source\PSoC4/Gimbal.c **** *
+ 212:.\Generated_Source\PSoC4/Gimbal.c **** * Summary:
+ 213:.\Generated_Source\PSoC4/Gimbal.c **** *  The stop function halts the PWM, but does not change any modes or disable
+ 214:.\Generated_Source\PSoC4/Gimbal.c **** *  interrupts.
+ 215:.\Generated_Source\PSoC4/Gimbal.c **** *
+ 216:.\Generated_Source\PSoC4/Gimbal.c **** * Parameters:  
+ 217:.\Generated_Source\PSoC4/Gimbal.c **** *  None  
+ 218:.\Generated_Source\PSoC4/Gimbal.c **** *
+ 219:.\Generated_Source\PSoC4/Gimbal.c **** * Return: 
+ 220:.\Generated_Source\PSoC4/Gimbal.c **** *  None
+ 221:.\Generated_Source\PSoC4/Gimbal.c **** *
+ 222:.\Generated_Source\PSoC4/Gimbal.c **** * Side Effects:
+ 223:.\Generated_Source\PSoC4/Gimbal.c **** *  If the Enable mode is set to Hardware only then this function
+ 224:.\Generated_Source\PSoC4/Gimbal.c **** *  has no effect on the operation of the PWM
+ 225:.\Generated_Source\PSoC4/Gimbal.c **** *
+ 226:.\Generated_Source\PSoC4/Gimbal.c **** *******************************************************************************/
+ 227:.\Generated_Source\PSoC4/Gimbal.c **** void Gimbal_Stop(void) 
+ 228:.\Generated_Source\PSoC4/Gimbal.c **** {
+ 226              		.loc 1 228 0
+ 227              		.cfi_startproc
+ 228 0000 80B5     		push	{r7, lr}
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 9
+
+
+ 229              	.LCFI7:
+ 230              		.cfi_def_cfa_offset 8
+ 231              		.cfi_offset 7, -8
+ 232              		.cfi_offset 14, -4
+ 233 0002 00AF     		add	r7, sp, #0
+ 234              	.LCFI8:
+ 235              		.cfi_def_cfa_register 7
+ 229:.\Generated_Source\PSoC4/Gimbal.c ****     #if (Gimbal_UseControl || Gimbal_UsingFixedFunction)
+ 230:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_CONTROL &= ((uint8)(~Gimbal_CTRL_ENABLE));
+ 236              		.loc 1 230 0
+ 237 0004 044B     		ldr	r3, .L12
+ 238 0006 044A     		ldr	r2, .L12
+ 239 0008 1278     		ldrb	r2, [r2]
+ 240 000a D1B2     		uxtb	r1, r2
+ 241 000c 7F22     		mov	r2, #127
+ 242 000e 0A40     		and	r2, r1
+ 243 0010 D2B2     		uxtb	r2, r2
+ 244 0012 1A70     		strb	r2, [r3]
+ 231:.\Generated_Source\PSoC4/Gimbal.c ****     #endif /* (Gimbal_UseControl || Gimbal_UsingFixedFunction) */
+ 232:.\Generated_Source\PSoC4/Gimbal.c ****     
+ 233:.\Generated_Source\PSoC4/Gimbal.c ****     /* Globally disable the Fixed Function Block chosen */
+ 234:.\Generated_Source\PSoC4/Gimbal.c ****     #if (Gimbal_UsingFixedFunction)
+ 235:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_GLOBAL_ENABLE &= ((uint8)(~Gimbal_BLOCK_EN_MASK));
+ 236:.\Generated_Source\PSoC4/Gimbal.c ****         Gimbal_GLOBAL_STBY_ENABLE &= ((uint8)(~Gimbal_BLOCK_STBY_EN_MASK));
+ 237:.\Generated_Source\PSoC4/Gimbal.c ****     #endif /* (Gimbal_UsingFixedFunction) */
+ 238:.\Generated_Source\PSoC4/Gimbal.c **** }
+ 245              		.loc 1 238 0
+ 246 0014 BD46     		mov	sp, r7
+ 247              		@ sp needed for prologue
+ 248 0016 80BD     		pop	{r7, pc}
+ 249              	.L13:
+ 250              		.align	2
+ 251              	.L12:
+ 252 0018 72000F40 		.word	1074724978
+ 253              		.cfi_endproc
+ 254              	.LFE3:
+ 255              		.size	Gimbal_Stop, .-Gimbal_Stop
+ 256              		.section	.text.Gimbal_WriteCounter,"ax",%progbits
+ 257              		.align	2
+ 258              		.global	Gimbal_WriteCounter
+ 259              		.code	16
+ 260              		.thumb_func
+ 261              		.type	Gimbal_WriteCounter, %function
+ 262              	Gimbal_WriteCounter:
+ 263              	.LFB4:
+ 239:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 240:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 241:.\Generated_Source\PSoC4/Gimbal.c **** #if (Gimbal_UseOneCompareMode)
+ 242:.\Generated_Source\PSoC4/Gimbal.c **** 	#if (Gimbal_CompareMode1SW)
+ 243:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 244:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 245:.\Generated_Source\PSoC4/Gimbal.c **** 		/*******************************************************************************
+ 246:.\Generated_Source\PSoC4/Gimbal.c **** 		* Function Name: Gimbal_SetCompareMode
+ 247:.\Generated_Source\PSoC4/Gimbal.c **** 		********************************************************************************
+ 248:.\Generated_Source\PSoC4/Gimbal.c **** 		* 
+ 249:.\Generated_Source\PSoC4/Gimbal.c **** 		* Summary:
+ 250:.\Generated_Source\PSoC4/Gimbal.c **** 		*  This function writes the Compare Mode for the pwm output when in Dither mode,
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 10
+
+
+ 251:.\Generated_Source\PSoC4/Gimbal.c **** 		*  Center Align Mode or One Output Mode.
+ 252:.\Generated_Source\PSoC4/Gimbal.c **** 		*
+ 253:.\Generated_Source\PSoC4/Gimbal.c **** 		* Parameters:
+ 254:.\Generated_Source\PSoC4/Gimbal.c **** 		*  comparemode:  The new compare mode for the PWM output. Use the compare types
+ 255:.\Generated_Source\PSoC4/Gimbal.c **** 		*                defined in the H file as input arguments.
+ 256:.\Generated_Source\PSoC4/Gimbal.c **** 		*
+ 257:.\Generated_Source\PSoC4/Gimbal.c **** 		* Return:
+ 258:.\Generated_Source\PSoC4/Gimbal.c **** 		*  None
+ 259:.\Generated_Source\PSoC4/Gimbal.c **** 		*
+ 260:.\Generated_Source\PSoC4/Gimbal.c **** 		*******************************************************************************/
+ 261:.\Generated_Source\PSoC4/Gimbal.c **** 		void Gimbal_SetCompareMode(uint8 comparemode) 
+ 262:.\Generated_Source\PSoC4/Gimbal.c **** 		{
+ 263:.\Generated_Source\PSoC4/Gimbal.c **** 		    #if(Gimbal_UsingFixedFunction)
+ 264:.\Generated_Source\PSoC4/Gimbal.c ****             
+ 265:.\Generated_Source\PSoC4/Gimbal.c ****                 #if(0 != Gimbal_CTRL_CMPMODE1_SHIFT)
+ 266:.\Generated_Source\PSoC4/Gimbal.c ****                     uint8 comparemodemasked = ((uint8)((uint8)comparemode << Gimbal_CTRL_CMPMODE1_S
+ 267:.\Generated_Source\PSoC4/Gimbal.c ****                 #else
+ 268:.\Generated_Source\PSoC4/Gimbal.c ****                     uint8 comparemodemasked = comparemode;
+ 269:.\Generated_Source\PSoC4/Gimbal.c ****                 #endif /* (0 != Gimbal_CTRL_CMPMODE1_SHIFT) */
+ 270:.\Generated_Source\PSoC4/Gimbal.c ****             
+ 271:.\Generated_Source\PSoC4/Gimbal.c **** 	            Gimbal_CONTROL3 &= ((uint8)(~Gimbal_CTRL_CMPMODE1_MASK)); /*Clear Existing Data */
+ 272:.\Generated_Source\PSoC4/Gimbal.c **** 	            Gimbal_CONTROL3 |= comparemodemasked;     
+ 273:.\Generated_Source\PSoC4/Gimbal.c **** 		                
+ 274:.\Generated_Source\PSoC4/Gimbal.c **** 		    #elif (Gimbal_UseControl)
+ 275:.\Generated_Source\PSoC4/Gimbal.c **** 		        
+ 276:.\Generated_Source\PSoC4/Gimbal.c ****                 #if(0 != Gimbal_CTRL_CMPMODE1_SHIFT)
+ 277:.\Generated_Source\PSoC4/Gimbal.c ****                     uint8 comparemode1masked = ((uint8)((uint8)comparemode << Gimbal_CTRL_CMPMODE1_
+ 278:.\Generated_Source\PSoC4/Gimbal.c ****     		                                    Gimbal_CTRL_CMPMODE1_MASK;
+ 279:.\Generated_Source\PSoC4/Gimbal.c ****                 #else
+ 280:.\Generated_Source\PSoC4/Gimbal.c ****                     uint8 comparemode1masked = comparemode & Gimbal_CTRL_CMPMODE1_MASK;            
+ 281:.\Generated_Source\PSoC4/Gimbal.c ****                 #endif /* (0 != Gimbal_CTRL_CMPMODE1_SHIFT) */
+ 282:.\Generated_Source\PSoC4/Gimbal.c ****                 
+ 283:.\Generated_Source\PSoC4/Gimbal.c ****                 #if(0 != Gimbal_CTRL_CMPMODE2_SHIFT)                            
+ 284:.\Generated_Source\PSoC4/Gimbal.c ****     		        uint8 comparemode2masked = ((uint8)((uint8)comparemode << Gimbal_CTRL_CMPMODE2_SHIFT)
+ 285:.\Generated_Source\PSoC4/Gimbal.c ****     		                                   Gimbal_CTRL_CMPMODE2_MASK;
+ 286:.\Generated_Source\PSoC4/Gimbal.c ****                 #else
+ 287:.\Generated_Source\PSoC4/Gimbal.c ****     		        uint8 comparemode2masked = comparemode & Gimbal_CTRL_CMPMODE2_MASK;                
+ 288:.\Generated_Source\PSoC4/Gimbal.c ****                 #endif /* (0 != Gimbal_CTRL_CMPMODE2_SHIFT) */
+ 289:.\Generated_Source\PSoC4/Gimbal.c ****                 
+ 290:.\Generated_Source\PSoC4/Gimbal.c **** 		        /*Clear existing mode */
+ 291:.\Generated_Source\PSoC4/Gimbal.c **** 		        Gimbal_CONTROL &= ((uint8)(~(Gimbal_CTRL_CMPMODE1_MASK | Gimbal_CTRL_CMPMODE2_MASK))); 
+ 292:.\Generated_Source\PSoC4/Gimbal.c **** 		        Gimbal_CONTROL |= (comparemode1masked | comparemode2masked);
+ 293:.\Generated_Source\PSoC4/Gimbal.c **** 		        
+ 294:.\Generated_Source\PSoC4/Gimbal.c **** 		    #else
+ 295:.\Generated_Source\PSoC4/Gimbal.c **** 		        uint8 temp = comparemode;
+ 296:.\Generated_Source\PSoC4/Gimbal.c **** 		    #endif /* (Gimbal_UsingFixedFunction) */
+ 297:.\Generated_Source\PSoC4/Gimbal.c **** 		}
+ 298:.\Generated_Source\PSoC4/Gimbal.c **** 	#endif /* Gimbal_CompareMode1SW */
+ 299:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 300:.\Generated_Source\PSoC4/Gimbal.c **** #else /* UseOneCompareMode */
+ 301:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 302:.\Generated_Source\PSoC4/Gimbal.c **** 	#if (Gimbal_CompareMode1SW)
+ 303:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 304:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 305:.\Generated_Source\PSoC4/Gimbal.c **** 		/*******************************************************************************
+ 306:.\Generated_Source\PSoC4/Gimbal.c **** 		* Function Name: Gimbal_SetCompareMode1
+ 307:.\Generated_Source\PSoC4/Gimbal.c **** 		********************************************************************************
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 11
+
+
+ 308:.\Generated_Source\PSoC4/Gimbal.c **** 		* 
+ 309:.\Generated_Source\PSoC4/Gimbal.c **** 		* Summary:
+ 310:.\Generated_Source\PSoC4/Gimbal.c **** 		*  This function writes the Compare Mode for the pwm or pwm1 output
+ 311:.\Generated_Source\PSoC4/Gimbal.c **** 		*
+ 312:.\Generated_Source\PSoC4/Gimbal.c **** 		* Parameters:  
+ 313:.\Generated_Source\PSoC4/Gimbal.c **** 		*  comparemode:  The new compare mode for the PWM output. Use the compare types
+ 314:.\Generated_Source\PSoC4/Gimbal.c **** 		*                defined in the H file as input arguments.
+ 315:.\Generated_Source\PSoC4/Gimbal.c **** 		*
+ 316:.\Generated_Source\PSoC4/Gimbal.c **** 		* Return: 
+ 317:.\Generated_Source\PSoC4/Gimbal.c **** 		*  None
+ 318:.\Generated_Source\PSoC4/Gimbal.c **** 		*
+ 319:.\Generated_Source\PSoC4/Gimbal.c **** 		*******************************************************************************/
+ 320:.\Generated_Source\PSoC4/Gimbal.c **** 		void Gimbal_SetCompareMode1(uint8 comparemode) 
+ 321:.\Generated_Source\PSoC4/Gimbal.c **** 		{
+ 322:.\Generated_Source\PSoC4/Gimbal.c **** 		    #if(0 != Gimbal_CTRL_CMPMODE1_SHIFT)
+ 323:.\Generated_Source\PSoC4/Gimbal.c ****                 uint8 comparemodemasked = ((uint8)((uint8)comparemode << Gimbal_CTRL_CMPMODE1_SHIFT
+ 324:.\Generated_Source\PSoC4/Gimbal.c ****     		                               Gimbal_CTRL_CMPMODE1_MASK;
+ 325:.\Generated_Source\PSoC4/Gimbal.c **** 		    #else
+ 326:.\Generated_Source\PSoC4/Gimbal.c ****                 uint8 comparemodemasked = comparemode & Gimbal_CTRL_CMPMODE1_MASK;                
+ 327:.\Generated_Source\PSoC4/Gimbal.c ****             #endif /* (0 != Gimbal_CTRL_CMPMODE1_SHIFT) */
+ 328:.\Generated_Source\PSoC4/Gimbal.c ****                    
+ 329:.\Generated_Source\PSoC4/Gimbal.c **** 		    #if (Gimbal_UseControl)
+ 330:.\Generated_Source\PSoC4/Gimbal.c **** 		        Gimbal_CONTROL &= ((uint8)(~Gimbal_CTRL_CMPMODE1_MASK)); /*Clear existing mode */
+ 331:.\Generated_Source\PSoC4/Gimbal.c **** 		        Gimbal_CONTROL |= comparemodemasked;
+ 332:.\Generated_Source\PSoC4/Gimbal.c **** 		    #endif /* (Gimbal_UseControl) */
+ 333:.\Generated_Source\PSoC4/Gimbal.c **** 		}
+ 334:.\Generated_Source\PSoC4/Gimbal.c **** 	#endif /* Gimbal_CompareMode1SW */
+ 335:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 336:.\Generated_Source\PSoC4/Gimbal.c **** #if (Gimbal_CompareMode2SW)
+ 337:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 338:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 339:.\Generated_Source\PSoC4/Gimbal.c ****     /*******************************************************************************
+ 340:.\Generated_Source\PSoC4/Gimbal.c ****     * Function Name: Gimbal_SetCompareMode2
+ 341:.\Generated_Source\PSoC4/Gimbal.c ****     ********************************************************************************
+ 342:.\Generated_Source\PSoC4/Gimbal.c ****     * 
+ 343:.\Generated_Source\PSoC4/Gimbal.c ****     * Summary:
+ 344:.\Generated_Source\PSoC4/Gimbal.c ****     *  This function writes the Compare Mode for the pwm or pwm2 output
+ 345:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 346:.\Generated_Source\PSoC4/Gimbal.c ****     * Parameters:  
+ 347:.\Generated_Source\PSoC4/Gimbal.c ****     *  comparemode:  The new compare mode for the PWM output. Use the compare types
+ 348:.\Generated_Source\PSoC4/Gimbal.c ****     *                defined in the H file as input arguments.
+ 349:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 350:.\Generated_Source\PSoC4/Gimbal.c ****     * Return: 
+ 351:.\Generated_Source\PSoC4/Gimbal.c ****     *  None
+ 352:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 353:.\Generated_Source\PSoC4/Gimbal.c ****     *******************************************************************************/
+ 354:.\Generated_Source\PSoC4/Gimbal.c ****     void Gimbal_SetCompareMode2(uint8 comparemode) 
+ 355:.\Generated_Source\PSoC4/Gimbal.c ****     {
+ 356:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 357:.\Generated_Source\PSoC4/Gimbal.c ****         #if(0 != Gimbal_CTRL_CMPMODE2_SHIFT)
+ 358:.\Generated_Source\PSoC4/Gimbal.c ****             uint8 comparemodemasked = ((uint8)((uint8)comparemode << Gimbal_CTRL_CMPMODE2_SHIFT)) &
+ 359:.\Generated_Source\PSoC4/Gimbal.c ****                                                  Gimbal_CTRL_CMPMODE2_MASK;
+ 360:.\Generated_Source\PSoC4/Gimbal.c ****         #else
+ 361:.\Generated_Source\PSoC4/Gimbal.c ****             uint8 comparemodemasked = comparemode & Gimbal_CTRL_CMPMODE2_MASK;            
+ 362:.\Generated_Source\PSoC4/Gimbal.c ****         #endif /* (0 != Gimbal_CTRL_CMPMODE2_SHIFT) */
+ 363:.\Generated_Source\PSoC4/Gimbal.c ****         
+ 364:.\Generated_Source\PSoC4/Gimbal.c ****         #if (Gimbal_UseControl)
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 12
+
+
+ 365:.\Generated_Source\PSoC4/Gimbal.c ****             Gimbal_CONTROL &= ((uint8)(~Gimbal_CTRL_CMPMODE2_MASK)); /*Clear existing mode */
+ 366:.\Generated_Source\PSoC4/Gimbal.c ****             Gimbal_CONTROL |= comparemodemasked;
+ 367:.\Generated_Source\PSoC4/Gimbal.c ****         #endif /* (Gimbal_UseControl) */
+ 368:.\Generated_Source\PSoC4/Gimbal.c ****     }
+ 369:.\Generated_Source\PSoC4/Gimbal.c ****     #endif /*Gimbal_CompareMode2SW */
+ 370:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 371:.\Generated_Source\PSoC4/Gimbal.c **** #endif /* UseOneCompareMode */
+ 372:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 373:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 374:.\Generated_Source\PSoC4/Gimbal.c **** #if (!Gimbal_UsingFixedFunction)
+ 375:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 376:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 377:.\Generated_Source\PSoC4/Gimbal.c ****     /*******************************************************************************
+ 378:.\Generated_Source\PSoC4/Gimbal.c ****     * Function Name: Gimbal_WriteCounter
+ 379:.\Generated_Source\PSoC4/Gimbal.c ****     ********************************************************************************
+ 380:.\Generated_Source\PSoC4/Gimbal.c ****     * 
+ 381:.\Generated_Source\PSoC4/Gimbal.c ****     * Summary:
+ 382:.\Generated_Source\PSoC4/Gimbal.c ****     *  Writes a new counter value directly to the counter register. This will be 
+ 383:.\Generated_Source\PSoC4/Gimbal.c ****     *  implemented for that currently running period and only that period. This API 
+ 384:.\Generated_Source\PSoC4/Gimbal.c ****     *  is valid only for UDB implementation and not available for fixed function 
+ 385:.\Generated_Source\PSoC4/Gimbal.c ****     *  PWM implementation.    
+ 386:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 387:.\Generated_Source\PSoC4/Gimbal.c ****     * Parameters:  
+ 388:.\Generated_Source\PSoC4/Gimbal.c ****     *  counter:  The period new period counter value.
+ 389:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 390:.\Generated_Source\PSoC4/Gimbal.c ****     * Return: 
+ 391:.\Generated_Source\PSoC4/Gimbal.c ****     *  None
+ 392:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 393:.\Generated_Source\PSoC4/Gimbal.c ****     * Side Effects: 
+ 394:.\Generated_Source\PSoC4/Gimbal.c ****     *  The PWM Period will be reloaded when a counter value will be a zero
+ 395:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 396:.\Generated_Source\PSoC4/Gimbal.c ****     *******************************************************************************/
+ 397:.\Generated_Source\PSoC4/Gimbal.c ****     void Gimbal_WriteCounter(uint16 counter) \
+ 398:.\Generated_Source\PSoC4/Gimbal.c ****                                        
+ 399:.\Generated_Source\PSoC4/Gimbal.c ****     {
+ 264              		.loc 1 399 0
+ 265              		.cfi_startproc
+ 266 0000 80B5     		push	{r7, lr}
+ 267              	.LCFI9:
+ 268              		.cfi_def_cfa_offset 8
+ 269              		.cfi_offset 7, -8
+ 270              		.cfi_offset 14, -4
+ 271 0002 82B0     		sub	sp, sp, #8
+ 272              	.LCFI10:
+ 273              		.cfi_def_cfa_offset 16
+ 274 0004 00AF     		add	r7, sp, #0
+ 275              	.LCFI11:
+ 276              		.cfi_def_cfa_register 7
+ 277 0006 021C     		mov	r2, r0
+ 278 0008 BB1D     		add	r3, r7, #6
+ 279 000a 1A80     		strh	r2, [r3]
+ 400:.\Generated_Source\PSoC4/Gimbal.c ****         CY_SET_REG16(Gimbal_COUNTER_LSB_PTR, counter);
+ 280              		.loc 1 400 0
+ 281 000c 034B     		ldr	r3, .L15
+ 282 000e BA1D     		add	r2, r7, #6
+ 283 0010 1288     		ldrh	r2, [r2]
+ 284 0012 1A80     		strh	r2, [r3]
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 13
+
+
+ 401:.\Generated_Source\PSoC4/Gimbal.c ****     }
+ 285              		.loc 1 401 0
+ 286 0014 BD46     		mov	sp, r7
+ 287 0016 02B0     		add	sp, sp, #8
+ 288              		@ sp needed for prologue
+ 289 0018 80BD     		pop	{r7, pc}
+ 290              	.L16:
+ 291 001a C046     		.align	2
+ 292              	.L15:
+ 293 001c 04100F40 		.word	1074728964
+ 294              		.cfi_endproc
+ 295              	.LFE4:
+ 296              		.size	Gimbal_WriteCounter, .-Gimbal_WriteCounter
+ 297              		.section	.text.Gimbal_ReadCounter,"ax",%progbits
+ 298              		.align	2
+ 299              		.global	Gimbal_ReadCounter
+ 300              		.code	16
+ 301              		.thumb_func
+ 302              		.type	Gimbal_ReadCounter, %function
+ 303              	Gimbal_ReadCounter:
+ 304              	.LFB5:
+ 402:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 403:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 404:.\Generated_Source\PSoC4/Gimbal.c ****     /*******************************************************************************
+ 405:.\Generated_Source\PSoC4/Gimbal.c ****     * Function Name: Gimbal_ReadCounter
+ 406:.\Generated_Source\PSoC4/Gimbal.c ****     ********************************************************************************
+ 407:.\Generated_Source\PSoC4/Gimbal.c ****     * 
+ 408:.\Generated_Source\PSoC4/Gimbal.c ****     * Summary:
+ 409:.\Generated_Source\PSoC4/Gimbal.c ****     *  This function returns the current value of the counter.  It doesn't matter
+ 410:.\Generated_Source\PSoC4/Gimbal.c ****     *  if the counter is enabled or running.
+ 411:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 412:.\Generated_Source\PSoC4/Gimbal.c ****     * Parameters:  
+ 413:.\Generated_Source\PSoC4/Gimbal.c ****     *  None  
+ 414:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 415:.\Generated_Source\PSoC4/Gimbal.c ****     * Return: 
+ 416:.\Generated_Source\PSoC4/Gimbal.c ****     *  The current value of the counter.
+ 417:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 418:.\Generated_Source\PSoC4/Gimbal.c ****     *******************************************************************************/
+ 419:.\Generated_Source\PSoC4/Gimbal.c ****     uint16 Gimbal_ReadCounter(void) 
+ 420:.\Generated_Source\PSoC4/Gimbal.c ****     {
+ 305              		.loc 1 420 0
+ 306              		.cfi_startproc
+ 307 0000 80B5     		push	{r7, lr}
+ 308              	.LCFI12:
+ 309              		.cfi_def_cfa_offset 8
+ 310              		.cfi_offset 7, -8
+ 311              		.cfi_offset 14, -4
+ 312 0002 00AF     		add	r7, sp, #0
+ 313              	.LCFI13:
+ 314              		.cfi_def_cfa_register 7
+ 421:.\Generated_Source\PSoC4/Gimbal.c ****         /* Force capture by reading Accumulator */
+ 422:.\Generated_Source\PSoC4/Gimbal.c ****         /* Must first do a software capture to be able to read the counter */
+ 423:.\Generated_Source\PSoC4/Gimbal.c ****         /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 424:.\Generated_Source\PSoC4/Gimbal.c ****         (void)Gimbal_COUNTERCAP_LSB;
+ 315              		.loc 1 424 0
+ 316 0004 034B     		ldr	r3, .L19
+ 317 0006 1B88     		ldrh	r3, [r3]
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 14
+
+
+ 425:.\Generated_Source\PSoC4/Gimbal.c ****         
+ 426:.\Generated_Source\PSoC4/Gimbal.c ****         /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 427:.\Generated_Source\PSoC4/Gimbal.c ****         return (CY_GET_REG16(Gimbal_CAPTURE_LSB_PTR));
+ 318              		.loc 1 427 0
+ 319 0008 034B     		ldr	r3, .L19+4
+ 320 000a 1B88     		ldrh	r3, [r3]
+ 321 000c 9BB2     		uxth	r3, r3
+ 428:.\Generated_Source\PSoC4/Gimbal.c ****     }
+ 322              		.loc 1 428 0
+ 323 000e 181C     		mov	r0, r3
+ 324 0010 BD46     		mov	sp, r7
+ 325              		@ sp needed for prologue
+ 326 0012 80BD     		pop	{r7, pc}
+ 327              	.L20:
+ 328              		.align	2
+ 329              	.L19:
+ 330 0014 24100F40 		.word	1074728996
+ 331 0018 A4100F40 		.word	1074729124
+ 332              		.cfi_endproc
+ 333              	.LFE5:
+ 334              		.size	Gimbal_ReadCounter, .-Gimbal_ReadCounter
+ 335              		.section	.text.Gimbal_ClearFIFO,"ax",%progbits
+ 336              		.align	2
+ 337              		.global	Gimbal_ClearFIFO
+ 338              		.code	16
+ 339              		.thumb_func
+ 340              		.type	Gimbal_ClearFIFO, %function
+ 341              	Gimbal_ClearFIFO:
+ 342              	.LFB6:
+ 429:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 430:.\Generated_Source\PSoC4/Gimbal.c ****         #if (Gimbal_UseStatus)
+ 431:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 432:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 433:.\Generated_Source\PSoC4/Gimbal.c ****             /*******************************************************************************
+ 434:.\Generated_Source\PSoC4/Gimbal.c ****             * Function Name: Gimbal_ClearFIFO
+ 435:.\Generated_Source\PSoC4/Gimbal.c ****             ********************************************************************************
+ 436:.\Generated_Source\PSoC4/Gimbal.c ****             * 
+ 437:.\Generated_Source\PSoC4/Gimbal.c ****             * Summary:
+ 438:.\Generated_Source\PSoC4/Gimbal.c ****             *  This function clears all capture data from the capture FIFO
+ 439:.\Generated_Source\PSoC4/Gimbal.c ****             *
+ 440:.\Generated_Source\PSoC4/Gimbal.c ****             * Parameters:  
+ 441:.\Generated_Source\PSoC4/Gimbal.c ****             *  None
+ 442:.\Generated_Source\PSoC4/Gimbal.c ****             *
+ 443:.\Generated_Source\PSoC4/Gimbal.c ****             * Return: 
+ 444:.\Generated_Source\PSoC4/Gimbal.c ****             *  None
+ 445:.\Generated_Source\PSoC4/Gimbal.c ****             *
+ 446:.\Generated_Source\PSoC4/Gimbal.c ****             *******************************************************************************/
+ 447:.\Generated_Source\PSoC4/Gimbal.c ****             void Gimbal_ClearFIFO(void) 
+ 448:.\Generated_Source\PSoC4/Gimbal.c ****             {
+ 343              		.loc 1 448 0
+ 344              		.cfi_startproc
+ 345 0000 80B5     		push	{r7, lr}
+ 346              	.LCFI14:
+ 347              		.cfi_def_cfa_offset 8
+ 348              		.cfi_offset 7, -8
+ 349              		.cfi_offset 14, -4
+ 350 0002 00AF     		add	r7, sp, #0
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 15
+
+
+ 351              	.LCFI15:
+ 352              		.cfi_def_cfa_register 7
+ 449:.\Generated_Source\PSoC4/Gimbal.c ****                 while(0u != (Gimbal_ReadStatusRegister() & Gimbal_STATUS_FIFONEMPTY))
+ 353              		.loc 1 449 0
+ 354 0004 01E0     		b	.L22
+ 355              	.L23:
+ 450:.\Generated_Source\PSoC4/Gimbal.c ****                 {
+ 451:.\Generated_Source\PSoC4/Gimbal.c ****                     (void)Gimbal_ReadCapture();
+ 356              		.loc 1 451 0
+ 357 0006 FFF7FEFF 		bl	Gimbal_ReadCapture
+ 358              	.L22:
+ 449:.\Generated_Source\PSoC4/Gimbal.c ****                 while(0u != (Gimbal_ReadStatusRegister() & Gimbal_STATUS_FIFONEMPTY))
+ 359              		.loc 1 449 0 discriminator 1
+ 360 000a FFF7FEFF 		bl	Gimbal_ReadStatusRegister
+ 361 000e 031C     		mov	r3, r0
+ 362 0010 1A1C     		mov	r2, r3
+ 363 0012 1023     		mov	r3, #16
+ 364 0014 1340     		and	r3, r2
+ 365 0016 F6D1     		bne	.L23
+ 452:.\Generated_Source\PSoC4/Gimbal.c ****                 }
+ 453:.\Generated_Source\PSoC4/Gimbal.c ****             }
+ 366              		.loc 1 453 0
+ 367 0018 BD46     		mov	sp, r7
+ 368              		@ sp needed for prologue
+ 369 001a 80BD     		pop	{r7, pc}
+ 370              		.cfi_endproc
+ 371              	.LFE6:
+ 372              		.size	Gimbal_ClearFIFO, .-Gimbal_ClearFIFO
+ 373              		.section	.text.Gimbal_WritePeriod,"ax",%progbits
+ 374              		.align	2
+ 375              		.global	Gimbal_WritePeriod
+ 376              		.code	16
+ 377              		.thumb_func
+ 378              		.type	Gimbal_WritePeriod, %function
+ 379              	Gimbal_WritePeriod:
+ 380              	.LFB7:
+ 454:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 455:.\Generated_Source\PSoC4/Gimbal.c ****         #endif /* Gimbal_UseStatus */
+ 456:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 457:.\Generated_Source\PSoC4/Gimbal.c **** #endif /* !Gimbal_UsingFixedFunction */
+ 458:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 459:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 460:.\Generated_Source\PSoC4/Gimbal.c **** /*******************************************************************************
+ 461:.\Generated_Source\PSoC4/Gimbal.c **** * Function Name: Gimbal_WritePeriod
+ 462:.\Generated_Source\PSoC4/Gimbal.c **** ********************************************************************************
+ 463:.\Generated_Source\PSoC4/Gimbal.c **** * 
+ 464:.\Generated_Source\PSoC4/Gimbal.c **** * Summary:
+ 465:.\Generated_Source\PSoC4/Gimbal.c **** *  This function is used to change the period of the counter.  The new period 
+ 466:.\Generated_Source\PSoC4/Gimbal.c **** *  will be loaded the next time terminal count is detected.
+ 467:.\Generated_Source\PSoC4/Gimbal.c **** *
+ 468:.\Generated_Source\PSoC4/Gimbal.c **** * Parameters:  
+ 469:.\Generated_Source\PSoC4/Gimbal.c **** *  period:  Period value. May be between 1 and (2^Resolution)-1.  A value of 0 
+ 470:.\Generated_Source\PSoC4/Gimbal.c **** *           will result in the counter remaining at zero.
+ 471:.\Generated_Source\PSoC4/Gimbal.c **** *
+ 472:.\Generated_Source\PSoC4/Gimbal.c **** * Return: 
+ 473:.\Generated_Source\PSoC4/Gimbal.c **** *  None
+ 474:.\Generated_Source\PSoC4/Gimbal.c **** *
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 16
+
+
+ 475:.\Generated_Source\PSoC4/Gimbal.c **** *******************************************************************************/
+ 476:.\Generated_Source\PSoC4/Gimbal.c **** void Gimbal_WritePeriod(uint16 period) 
+ 477:.\Generated_Source\PSoC4/Gimbal.c **** {
+ 381              		.loc 1 477 0
+ 382              		.cfi_startproc
+ 383 0000 80B5     		push	{r7, lr}
+ 384              	.LCFI16:
+ 385              		.cfi_def_cfa_offset 8
+ 386              		.cfi_offset 7, -8
+ 387              		.cfi_offset 14, -4
+ 388 0002 82B0     		sub	sp, sp, #8
+ 389              	.LCFI17:
+ 390              		.cfi_def_cfa_offset 16
+ 391 0004 00AF     		add	r7, sp, #0
+ 392              	.LCFI18:
+ 393              		.cfi_def_cfa_register 7
+ 394 0006 021C     		mov	r2, r0
+ 395 0008 BB1D     		add	r3, r7, #6
+ 396 000a 1A80     		strh	r2, [r3]
+ 478:.\Generated_Source\PSoC4/Gimbal.c ****     #if(Gimbal_UsingFixedFunction)
+ 479:.\Generated_Source\PSoC4/Gimbal.c ****         CY_SET_REG16(Gimbal_PERIOD_LSB_PTR, (uint16)period);
+ 480:.\Generated_Source\PSoC4/Gimbal.c ****     #else
+ 481:.\Generated_Source\PSoC4/Gimbal.c ****         CY_SET_REG16(Gimbal_PERIOD_LSB_PTR, period);
+ 397              		.loc 1 481 0
+ 398 000c 034B     		ldr	r3, .L25
+ 399 000e BA1D     		add	r2, r7, #6
+ 400 0010 1288     		ldrh	r2, [r2]
+ 401 0012 1A80     		strh	r2, [r3]
+ 482:.\Generated_Source\PSoC4/Gimbal.c ****     #endif /* (Gimbal_UsingFixedFunction) */
+ 483:.\Generated_Source\PSoC4/Gimbal.c **** }
+ 402              		.loc 1 483 0
+ 403 0014 BD46     		mov	sp, r7
+ 404 0016 02B0     		add	sp, sp, #8
+ 405              		@ sp needed for prologue
+ 406 0018 80BD     		pop	{r7, pc}
+ 407              	.L26:
+ 408 001a C046     		.align	2
+ 409              	.L25:
+ 410 001c 84100F40 		.word	1074729092
+ 411              		.cfi_endproc
+ 412              	.LFE7:
+ 413              		.size	Gimbal_WritePeriod, .-Gimbal_WritePeriod
+ 414              		.section	.text.Gimbal_WriteCompare1,"ax",%progbits
+ 415              		.align	2
+ 416              		.global	Gimbal_WriteCompare1
+ 417              		.code	16
+ 418              		.thumb_func
+ 419              		.type	Gimbal_WriteCompare1, %function
+ 420              	Gimbal_WriteCompare1:
+ 421              	.LFB8:
+ 484:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 485:.\Generated_Source\PSoC4/Gimbal.c **** #if (Gimbal_UseOneCompareMode)
+ 486:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 487:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 488:.\Generated_Source\PSoC4/Gimbal.c ****     /*******************************************************************************
+ 489:.\Generated_Source\PSoC4/Gimbal.c ****     * Function Name: Gimbal_WriteCompare
+ 490:.\Generated_Source\PSoC4/Gimbal.c ****     ********************************************************************************
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 17
+
+
+ 491:.\Generated_Source\PSoC4/Gimbal.c ****     * 
+ 492:.\Generated_Source\PSoC4/Gimbal.c ****     * Summary:
+ 493:.\Generated_Source\PSoC4/Gimbal.c ****     *  This funtion is used to change the compare1 value when the PWM is in Dither
+ 494:.\Generated_Source\PSoC4/Gimbal.c ****     *  mode. The compare output will reflect the new value on the next UDB clock. 
+ 495:.\Generated_Source\PSoC4/Gimbal.c ****     *  The compare output will be driven high when the present counter value is 
+ 496:.\Generated_Source\PSoC4/Gimbal.c ****     *  compared to the compare value based on the compare mode defined in 
+ 497:.\Generated_Source\PSoC4/Gimbal.c ****     *  Dither Mode.
+ 498:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 499:.\Generated_Source\PSoC4/Gimbal.c ****     * Parameters:  
+ 500:.\Generated_Source\PSoC4/Gimbal.c ****     *  compare:  New compare value.  
+ 501:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 502:.\Generated_Source\PSoC4/Gimbal.c ****     * Return: 
+ 503:.\Generated_Source\PSoC4/Gimbal.c ****     *  None
+ 504:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 505:.\Generated_Source\PSoC4/Gimbal.c ****     * Side Effects:
+ 506:.\Generated_Source\PSoC4/Gimbal.c ****     *  This function is only available if the PWM mode parameter is set to
+ 507:.\Generated_Source\PSoC4/Gimbal.c ****     *  Dither Mode, Center Aligned Mode or One Output Mode
+ 508:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 509:.\Generated_Source\PSoC4/Gimbal.c ****     *******************************************************************************/
+ 510:.\Generated_Source\PSoC4/Gimbal.c ****     void Gimbal_WriteCompare(uint16 compare) \
+ 511:.\Generated_Source\PSoC4/Gimbal.c ****                                        
+ 512:.\Generated_Source\PSoC4/Gimbal.c ****     {	
+ 513:.\Generated_Source\PSoC4/Gimbal.c **** 		#if(Gimbal_UsingFixedFunction)
+ 514:.\Generated_Source\PSoC4/Gimbal.c **** 			CY_SET_REG16(Gimbal_COMPARE1_LSB_PTR, (uint16)compare);
+ 515:.\Generated_Source\PSoC4/Gimbal.c **** 		#else
+ 516:.\Generated_Source\PSoC4/Gimbal.c **** 	        CY_SET_REG16(Gimbal_COMPARE1_LSB_PTR, compare);	
+ 517:.\Generated_Source\PSoC4/Gimbal.c **** 		#endif /* (Gimbal_UsingFixedFunction) */
+ 518:.\Generated_Source\PSoC4/Gimbal.c ****         
+ 519:.\Generated_Source\PSoC4/Gimbal.c ****         #if (Gimbal_PWMMode == Gimbal__B_PWM__DITHER)
+ 520:.\Generated_Source\PSoC4/Gimbal.c ****             #if(Gimbal_UsingFixedFunction)
+ 521:.\Generated_Source\PSoC4/Gimbal.c ****     			CY_SET_REG16(Gimbal_COMPARE2_LSB_PTR, (uint16)(compare + 1u));
+ 522:.\Generated_Source\PSoC4/Gimbal.c ****     		#else
+ 523:.\Generated_Source\PSoC4/Gimbal.c ****     	        CY_SET_REG16(Gimbal_COMPARE2_LSB_PTR, (compare + 1u));	
+ 524:.\Generated_Source\PSoC4/Gimbal.c ****     		#endif /* (Gimbal_UsingFixedFunction) */
+ 525:.\Generated_Source\PSoC4/Gimbal.c ****         #endif /* (Gimbal_PWMMode == Gimbal__B_PWM__DITHER) */
+ 526:.\Generated_Source\PSoC4/Gimbal.c ****     }
+ 527:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 528:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 529:.\Generated_Source\PSoC4/Gimbal.c **** #else
+ 530:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 531:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 532:.\Generated_Source\PSoC4/Gimbal.c ****     /*******************************************************************************
+ 533:.\Generated_Source\PSoC4/Gimbal.c ****     * Function Name: Gimbal_WriteCompare1
+ 534:.\Generated_Source\PSoC4/Gimbal.c ****     ********************************************************************************
+ 535:.\Generated_Source\PSoC4/Gimbal.c ****     * 
+ 536:.\Generated_Source\PSoC4/Gimbal.c ****     * Summary:
+ 537:.\Generated_Source\PSoC4/Gimbal.c ****     *  This funtion is used to change the compare1 value.  The compare output will 
+ 538:.\Generated_Source\PSoC4/Gimbal.c ****     *  reflect the new value on the next UDB clock.  The compare output will be 
+ 539:.\Generated_Source\PSoC4/Gimbal.c ****     *  driven high when the present counter value is less than or less than or 
+ 540:.\Generated_Source\PSoC4/Gimbal.c ****     *  equal to the compare register, depending on the mode.
+ 541:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 542:.\Generated_Source\PSoC4/Gimbal.c ****     * Parameters:  
+ 543:.\Generated_Source\PSoC4/Gimbal.c ****     *  compare:  New compare value.  
+ 544:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 545:.\Generated_Source\PSoC4/Gimbal.c ****     * Return: 
+ 546:.\Generated_Source\PSoC4/Gimbal.c ****     *  None
+ 547:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 18
+
+
+ 548:.\Generated_Source\PSoC4/Gimbal.c ****     *******************************************************************************/
+ 549:.\Generated_Source\PSoC4/Gimbal.c ****     void Gimbal_WriteCompare1(uint16 compare) \
+ 550:.\Generated_Source\PSoC4/Gimbal.c ****                                         
+ 551:.\Generated_Source\PSoC4/Gimbal.c ****     {
+ 422              		.loc 1 551 0
+ 423              		.cfi_startproc
+ 424 0000 80B5     		push	{r7, lr}
+ 425              	.LCFI19:
+ 426              		.cfi_def_cfa_offset 8
+ 427              		.cfi_offset 7, -8
+ 428              		.cfi_offset 14, -4
+ 429 0002 82B0     		sub	sp, sp, #8
+ 430              	.LCFI20:
+ 431              		.cfi_def_cfa_offset 16
+ 432 0004 00AF     		add	r7, sp, #0
+ 433              	.LCFI21:
+ 434              		.cfi_def_cfa_register 7
+ 435 0006 021C     		mov	r2, r0
+ 436 0008 BB1D     		add	r3, r7, #6
+ 437 000a 1A80     		strh	r2, [r3]
+ 552:.\Generated_Source\PSoC4/Gimbal.c ****         #if(Gimbal_UsingFixedFunction)
+ 553:.\Generated_Source\PSoC4/Gimbal.c ****             CY_SET_REG16(Gimbal_COMPARE1_LSB_PTR, (uint16)compare);
+ 554:.\Generated_Source\PSoC4/Gimbal.c ****         #else
+ 555:.\Generated_Source\PSoC4/Gimbal.c ****             CY_SET_REG16(Gimbal_COMPARE1_LSB_PTR, compare);
+ 438              		.loc 1 555 0
+ 439 000c 034B     		ldr	r3, .L28
+ 440 000e BA1D     		add	r2, r7, #6
+ 441 0010 1288     		ldrh	r2, [r2]
+ 442 0012 1A80     		strh	r2, [r3]
+ 556:.\Generated_Source\PSoC4/Gimbal.c ****         #endif /* (Gimbal_UsingFixedFunction) */
+ 557:.\Generated_Source\PSoC4/Gimbal.c ****     }
+ 443              		.loc 1 557 0
+ 444 0014 BD46     		mov	sp, r7
+ 445 0016 02B0     		add	sp, sp, #8
+ 446              		@ sp needed for prologue
+ 447 0018 80BD     		pop	{r7, pc}
+ 448              	.L29:
+ 449 001a C046     		.align	2
+ 450              	.L28:
+ 451 001c 44100F40 		.word	1074729028
+ 452              		.cfi_endproc
+ 453              	.LFE8:
+ 454              		.size	Gimbal_WriteCompare1, .-Gimbal_WriteCompare1
+ 455              		.section	.text.Gimbal_WriteCompare2,"ax",%progbits
+ 456              		.align	2
+ 457              		.global	Gimbal_WriteCompare2
+ 458              		.code	16
+ 459              		.thumb_func
+ 460              		.type	Gimbal_WriteCompare2, %function
+ 461              	Gimbal_WriteCompare2:
+ 462              	.LFB9:
+ 558:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 559:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 560:.\Generated_Source\PSoC4/Gimbal.c ****     /*******************************************************************************
+ 561:.\Generated_Source\PSoC4/Gimbal.c ****     * Function Name: Gimbal_WriteCompare2
+ 562:.\Generated_Source\PSoC4/Gimbal.c ****     ********************************************************************************
+ 563:.\Generated_Source\PSoC4/Gimbal.c ****     * 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 19
+
+
+ 564:.\Generated_Source\PSoC4/Gimbal.c ****     * Summary:
+ 565:.\Generated_Source\PSoC4/Gimbal.c ****     *  This funtion is used to change the compare value, for compare1 output.  
+ 566:.\Generated_Source\PSoC4/Gimbal.c ****     *  The compare output will reflect the new value on the next UDB clock.  
+ 567:.\Generated_Source\PSoC4/Gimbal.c ****     *  The compare output will be driven high when the present counter value is 
+ 568:.\Generated_Source\PSoC4/Gimbal.c ****     *  less than or less than or equal to the compare register, depending on the 
+ 569:.\Generated_Source\PSoC4/Gimbal.c ****     *  mode.
+ 570:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 571:.\Generated_Source\PSoC4/Gimbal.c ****     * Parameters:  
+ 572:.\Generated_Source\PSoC4/Gimbal.c ****     *  compare:  New compare value.  
+ 573:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 574:.\Generated_Source\PSoC4/Gimbal.c ****     * Return: 
+ 575:.\Generated_Source\PSoC4/Gimbal.c ****     *  None
+ 576:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 577:.\Generated_Source\PSoC4/Gimbal.c ****     *******************************************************************************/
+ 578:.\Generated_Source\PSoC4/Gimbal.c ****     void Gimbal_WriteCompare2(uint16 compare) \
+ 579:.\Generated_Source\PSoC4/Gimbal.c ****                                         
+ 580:.\Generated_Source\PSoC4/Gimbal.c ****     {
+ 463              		.loc 1 580 0
+ 464              		.cfi_startproc
+ 465 0000 80B5     		push	{r7, lr}
+ 466              	.LCFI22:
+ 467              		.cfi_def_cfa_offset 8
+ 468              		.cfi_offset 7, -8
+ 469              		.cfi_offset 14, -4
+ 470 0002 82B0     		sub	sp, sp, #8
+ 471              	.LCFI23:
+ 472              		.cfi_def_cfa_offset 16
+ 473 0004 00AF     		add	r7, sp, #0
+ 474              	.LCFI24:
+ 475              		.cfi_def_cfa_register 7
+ 476 0006 021C     		mov	r2, r0
+ 477 0008 BB1D     		add	r3, r7, #6
+ 478 000a 1A80     		strh	r2, [r3]
+ 581:.\Generated_Source\PSoC4/Gimbal.c ****         #if(Gimbal_UsingFixedFunction)
+ 582:.\Generated_Source\PSoC4/Gimbal.c ****             CY_SET_REG16(Gimbal_COMPARE2_LSB_PTR, compare);
+ 583:.\Generated_Source\PSoC4/Gimbal.c ****         #else
+ 584:.\Generated_Source\PSoC4/Gimbal.c ****             CY_SET_REG16(Gimbal_COMPARE2_LSB_PTR, compare);
+ 479              		.loc 1 584 0
+ 480 000c 034B     		ldr	r3, .L31
+ 481 000e BA1D     		add	r2, r7, #6
+ 482 0010 1288     		ldrh	r2, [r2]
+ 483 0012 1A80     		strh	r2, [r3]
+ 585:.\Generated_Source\PSoC4/Gimbal.c ****         #endif /* (Gimbal_UsingFixedFunction) */
+ 586:.\Generated_Source\PSoC4/Gimbal.c ****     }
+ 484              		.loc 1 586 0
+ 485 0014 BD46     		mov	sp, r7
+ 486 0016 02B0     		add	sp, sp, #8
+ 487              		@ sp needed for prologue
+ 488 0018 80BD     		pop	{r7, pc}
+ 489              	.L32:
+ 490 001a C046     		.align	2
+ 491              	.L31:
+ 492 001c 64100F40 		.word	1074729060
+ 493              		.cfi_endproc
+ 494              	.LFE9:
+ 495              		.size	Gimbal_WriteCompare2, .-Gimbal_WriteCompare2
+ 496              		.section	.text.Gimbal_SetInterruptMode,"ax",%progbits
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 20
+
+
+ 497              		.align	2
+ 498              		.global	Gimbal_SetInterruptMode
+ 499              		.code	16
+ 500              		.thumb_func
+ 501              		.type	Gimbal_SetInterruptMode, %function
+ 502              	Gimbal_SetInterruptMode:
+ 503              	.LFB10:
+ 587:.\Generated_Source\PSoC4/Gimbal.c **** #endif /* UseOneCompareMode */
+ 588:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 589:.\Generated_Source\PSoC4/Gimbal.c **** #if (Gimbal_DeadBandUsed)
+ 590:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 591:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 592:.\Generated_Source\PSoC4/Gimbal.c ****     /*******************************************************************************
+ 593:.\Generated_Source\PSoC4/Gimbal.c ****     * Function Name: Gimbal_WriteDeadTime
+ 594:.\Generated_Source\PSoC4/Gimbal.c ****     ********************************************************************************
+ 595:.\Generated_Source\PSoC4/Gimbal.c ****     * 
+ 596:.\Generated_Source\PSoC4/Gimbal.c ****     * Summary:
+ 597:.\Generated_Source\PSoC4/Gimbal.c ****     *  This function writes the dead-band counts to the corresponding register
+ 598:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 599:.\Generated_Source\PSoC4/Gimbal.c ****     * Parameters:  
+ 600:.\Generated_Source\PSoC4/Gimbal.c ****     *  deadtime:  Number of counts for dead time 
+ 601:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 602:.\Generated_Source\PSoC4/Gimbal.c ****     * Return: 
+ 603:.\Generated_Source\PSoC4/Gimbal.c ****     *  None
+ 604:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 605:.\Generated_Source\PSoC4/Gimbal.c ****     *******************************************************************************/
+ 606:.\Generated_Source\PSoC4/Gimbal.c ****     void Gimbal_WriteDeadTime(uint8 deadtime) 
+ 607:.\Generated_Source\PSoC4/Gimbal.c ****     {
+ 608:.\Generated_Source\PSoC4/Gimbal.c ****         /* If using the Dead Band 1-255 mode then just write the register */
+ 609:.\Generated_Source\PSoC4/Gimbal.c ****         #if(!Gimbal_DeadBand2_4)
+ 610:.\Generated_Source\PSoC4/Gimbal.c ****             CY_SET_REG8(Gimbal_DEADBAND_COUNT_PTR, deadtime);
+ 611:.\Generated_Source\PSoC4/Gimbal.c ****         #else
+ 612:.\Generated_Source\PSoC4/Gimbal.c ****             /* Otherwise the data has to be masked and offset */        
+ 613:.\Generated_Source\PSoC4/Gimbal.c ****             /* Clear existing data */
+ 614:.\Generated_Source\PSoC4/Gimbal.c ****             Gimbal_DEADBAND_COUNT &= ((uint8)(~Gimbal_DEADBAND_COUNT_MASK));
+ 615:.\Generated_Source\PSoC4/Gimbal.c ****             
+ 616:.\Generated_Source\PSoC4/Gimbal.c ****             /* Set new dead time */
+ 617:.\Generated_Source\PSoC4/Gimbal.c ****             #if(Gimbal_DEADBAND_COUNT_SHIFT)        
+ 618:.\Generated_Source\PSoC4/Gimbal.c ****                 Gimbal_DEADBAND_COUNT |= ((uint8)((uint8)deadtime << Gimbal_DEADBAND_COUNT_SHIFT)) 
+ 619:.\Generated_Source\PSoC4/Gimbal.c ****                                                     Gimbal_DEADBAND_COUNT_MASK;
+ 620:.\Generated_Source\PSoC4/Gimbal.c ****             #else
+ 621:.\Generated_Source\PSoC4/Gimbal.c ****                 Gimbal_DEADBAND_COUNT |= deadtime & Gimbal_DEADBAND_COUNT_MASK;        
+ 622:.\Generated_Source\PSoC4/Gimbal.c ****             #endif /* (Gimbal_DEADBAND_COUNT_SHIFT) */
+ 623:.\Generated_Source\PSoC4/Gimbal.c ****         
+ 624:.\Generated_Source\PSoC4/Gimbal.c ****         #endif /* (!Gimbal_DeadBand2_4) */
+ 625:.\Generated_Source\PSoC4/Gimbal.c ****     }
+ 626:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 627:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 628:.\Generated_Source\PSoC4/Gimbal.c ****     /*******************************************************************************
+ 629:.\Generated_Source\PSoC4/Gimbal.c ****     * Function Name: Gimbal_ReadDeadTime
+ 630:.\Generated_Source\PSoC4/Gimbal.c ****     ********************************************************************************
+ 631:.\Generated_Source\PSoC4/Gimbal.c ****     * 
+ 632:.\Generated_Source\PSoC4/Gimbal.c ****     * Summary:
+ 633:.\Generated_Source\PSoC4/Gimbal.c ****     *  This function reads the dead-band counts from the corresponding register
+ 634:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 635:.\Generated_Source\PSoC4/Gimbal.c ****     * Parameters:  
+ 636:.\Generated_Source\PSoC4/Gimbal.c ****     *  None
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 21
+
+
+ 637:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 638:.\Generated_Source\PSoC4/Gimbal.c ****     * Return: 
+ 639:.\Generated_Source\PSoC4/Gimbal.c ****     *  Dead Band Counts
+ 640:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 641:.\Generated_Source\PSoC4/Gimbal.c ****     *******************************************************************************/
+ 642:.\Generated_Source\PSoC4/Gimbal.c ****     uint8 Gimbal_ReadDeadTime(void) 
+ 643:.\Generated_Source\PSoC4/Gimbal.c ****     {
+ 644:.\Generated_Source\PSoC4/Gimbal.c ****         /* If using the Dead Band 1-255 mode then just read the register */
+ 645:.\Generated_Source\PSoC4/Gimbal.c ****         #if(!Gimbal_DeadBand2_4)
+ 646:.\Generated_Source\PSoC4/Gimbal.c ****             return (CY_GET_REG8(Gimbal_DEADBAND_COUNT_PTR));
+ 647:.\Generated_Source\PSoC4/Gimbal.c ****         #else
+ 648:.\Generated_Source\PSoC4/Gimbal.c ****         
+ 649:.\Generated_Source\PSoC4/Gimbal.c ****             /* Otherwise the data has to be masked and offset */
+ 650:.\Generated_Source\PSoC4/Gimbal.c ****             #if(Gimbal_DEADBAND_COUNT_SHIFT)      
+ 651:.\Generated_Source\PSoC4/Gimbal.c ****                 return ((uint8)(((uint8)(Gimbal_DEADBAND_COUNT & Gimbal_DEADBAND_COUNT_MASK)) >> 
+ 652:.\Generated_Source\PSoC4/Gimbal.c ****                                                                            Gimbal_DEADBAND_COUNT_SH
+ 653:.\Generated_Source\PSoC4/Gimbal.c ****             #else
+ 654:.\Generated_Source\PSoC4/Gimbal.c ****                 return (Gimbal_DEADBAND_COUNT & Gimbal_DEADBAND_COUNT_MASK);
+ 655:.\Generated_Source\PSoC4/Gimbal.c ****             #endif /* (Gimbal_DEADBAND_COUNT_SHIFT) */
+ 656:.\Generated_Source\PSoC4/Gimbal.c ****         #endif /* (!Gimbal_DeadBand2_4) */
+ 657:.\Generated_Source\PSoC4/Gimbal.c ****     }
+ 658:.\Generated_Source\PSoC4/Gimbal.c **** #endif /* DeadBandUsed */
+ 659:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 660:.\Generated_Source\PSoC4/Gimbal.c **** #if (Gimbal_UseStatus || Gimbal_UsingFixedFunction)
+ 661:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 662:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 663:.\Generated_Source\PSoC4/Gimbal.c ****     /*******************************************************************************
+ 664:.\Generated_Source\PSoC4/Gimbal.c ****     * Function Name: Gimbal_SetInterruptMode
+ 665:.\Generated_Source\PSoC4/Gimbal.c ****     ********************************************************************************
+ 666:.\Generated_Source\PSoC4/Gimbal.c ****     * 
+ 667:.\Generated_Source\PSoC4/Gimbal.c ****     * Summary:
+ 668:.\Generated_Source\PSoC4/Gimbal.c ****     *  This function configures the interrupts mask control of theinterrupt 
+ 669:.\Generated_Source\PSoC4/Gimbal.c ****     *  source status register.
+ 670:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 671:.\Generated_Source\PSoC4/Gimbal.c ****     * Parameters:  
+ 672:.\Generated_Source\PSoC4/Gimbal.c ****     *  uint8 interruptMode: Bit field containing the interrupt sources enabled 
+ 673:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 674:.\Generated_Source\PSoC4/Gimbal.c ****     * Return: 
+ 675:.\Generated_Source\PSoC4/Gimbal.c ****     *  None
+ 676:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 677:.\Generated_Source\PSoC4/Gimbal.c ****     *******************************************************************************/
+ 678:.\Generated_Source\PSoC4/Gimbal.c ****     void Gimbal_SetInterruptMode(uint8 interruptMode)  
+ 679:.\Generated_Source\PSoC4/Gimbal.c ****     {
+ 504              		.loc 1 679 0
+ 505              		.cfi_startproc
+ 506 0000 80B5     		push	{r7, lr}
+ 507              	.LCFI25:
+ 508              		.cfi_def_cfa_offset 8
+ 509              		.cfi_offset 7, -8
+ 510              		.cfi_offset 14, -4
+ 511 0002 82B0     		sub	sp, sp, #8
+ 512              	.LCFI26:
+ 513              		.cfi_def_cfa_offset 16
+ 514 0004 00AF     		add	r7, sp, #0
+ 515              	.LCFI27:
+ 516              		.cfi_def_cfa_register 7
+ 517 0006 021C     		mov	r2, r0
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 22
+
+
+ 518 0008 FB1D     		add	r3, r7, #7
+ 519 000a 1A70     		strb	r2, [r3]
+ 680:.\Generated_Source\PSoC4/Gimbal.c ****     	CY_SET_REG8(Gimbal_STATUS_MASK_PTR, interruptMode);
+ 520              		.loc 1 680 0
+ 521 000c 034B     		ldr	r3, .L34
+ 522 000e FA1D     		add	r2, r7, #7
+ 523 0010 1278     		ldrb	r2, [r2]
+ 524 0012 1A70     		strb	r2, [r3]
+ 681:.\Generated_Source\PSoC4/Gimbal.c ****     }
+ 525              		.loc 1 681 0
+ 526 0014 BD46     		mov	sp, r7
+ 527 0016 02B0     		add	sp, sp, #8
+ 528              		@ sp needed for prologue
+ 529 0018 80BD     		pop	{r7, pc}
+ 530              	.L35:
+ 531 001a C046     		.align	2
+ 532              	.L34:
+ 533 001c 82000F40 		.word	1074724994
+ 534              		.cfi_endproc
+ 535              	.LFE10:
+ 536              		.size	Gimbal_SetInterruptMode, .-Gimbal_SetInterruptMode
+ 537              		.section	.text.Gimbal_ReadStatusRegister,"ax",%progbits
+ 538              		.align	2
+ 539              		.global	Gimbal_ReadStatusRegister
+ 540              		.code	16
+ 541              		.thumb_func
+ 542              		.type	Gimbal_ReadStatusRegister, %function
+ 543              	Gimbal_ReadStatusRegister:
+ 544              	.LFB11:
+ 682:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 683:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 684:.\Generated_Source\PSoC4/Gimbal.c ****     /*******************************************************************************
+ 685:.\Generated_Source\PSoC4/Gimbal.c ****     * Function Name: Gimbal_ReadStatusRegister
+ 686:.\Generated_Source\PSoC4/Gimbal.c ****     ********************************************************************************
+ 687:.\Generated_Source\PSoC4/Gimbal.c ****     * 
+ 688:.\Generated_Source\PSoC4/Gimbal.c ****     * Summary:
+ 689:.\Generated_Source\PSoC4/Gimbal.c ****     *  This function returns the current state of the status register. 
+ 690:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 691:.\Generated_Source\PSoC4/Gimbal.c ****     * Parameters:  
+ 692:.\Generated_Source\PSoC4/Gimbal.c ****     *  None
+ 693:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 694:.\Generated_Source\PSoC4/Gimbal.c ****     * Return: 
+ 695:.\Generated_Source\PSoC4/Gimbal.c ****     *  uint8 : Current status register value. The status register bits are:
+ 696:.\Generated_Source\PSoC4/Gimbal.c ****     *  [7:6] : Unused(0)
+ 697:.\Generated_Source\PSoC4/Gimbal.c ****     *  [5]   : Kill event output
+ 698:.\Generated_Source\PSoC4/Gimbal.c ****     *  [4]   : FIFO not empty
+ 699:.\Generated_Source\PSoC4/Gimbal.c ****     *  [3]   : FIFO full
+ 700:.\Generated_Source\PSoC4/Gimbal.c ****     *  [2]   : Terminal count
+ 701:.\Generated_Source\PSoC4/Gimbal.c ****     *  [1]   : Compare output 2
+ 702:.\Generated_Source\PSoC4/Gimbal.c ****     *  [0]   : Compare output 1
+ 703:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 704:.\Generated_Source\PSoC4/Gimbal.c ****     *******************************************************************************/
+ 705:.\Generated_Source\PSoC4/Gimbal.c ****     uint8 Gimbal_ReadStatusRegister(void)   
+ 706:.\Generated_Source\PSoC4/Gimbal.c ****     {
+ 545              		.loc 1 706 0
+ 546              		.cfi_startproc
+ 547 0000 80B5     		push	{r7, lr}
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 23
+
+
+ 548              	.LCFI28:
+ 549              		.cfi_def_cfa_offset 8
+ 550              		.cfi_offset 7, -8
+ 551              		.cfi_offset 14, -4
+ 552 0002 82B0     		sub	sp, sp, #8
+ 553              	.LCFI29:
+ 554              		.cfi_def_cfa_offset 16
+ 555 0004 00AF     		add	r7, sp, #0
+ 556              	.LCFI30:
+ 557              		.cfi_def_cfa_register 7
+ 707:.\Generated_Source\PSoC4/Gimbal.c ****     	uint8 result;
+ 708:.\Generated_Source\PSoC4/Gimbal.c ****     	
+ 709:.\Generated_Source\PSoC4/Gimbal.c ****     	result = CY_GET_REG8(Gimbal_STATUS_PTR);
+ 558              		.loc 1 709 0
+ 559 0006 054A     		ldr	r2, .L38
+ 560 0008 FB1D     		add	r3, r7, #7
+ 561 000a 1278     		ldrb	r2, [r2]
+ 562 000c 1A70     		strb	r2, [r3]
+ 710:.\Generated_Source\PSoC4/Gimbal.c ****     	return (result);
+ 563              		.loc 1 710 0
+ 564 000e FB1D     		add	r3, r7, #7
+ 565 0010 1B78     		ldrb	r3, [r3]
+ 711:.\Generated_Source\PSoC4/Gimbal.c ****     }
+ 566              		.loc 1 711 0
+ 567 0012 181C     		mov	r0, r3
+ 568 0014 BD46     		mov	sp, r7
+ 569 0016 02B0     		add	sp, sp, #8
+ 570              		@ sp needed for prologue
+ 571 0018 80BD     		pop	{r7, pc}
+ 572              	.L39:
+ 573 001a C046     		.align	2
+ 574              	.L38:
+ 575 001c 62000F40 		.word	1074724962
+ 576              		.cfi_endproc
+ 577              	.LFE11:
+ 578              		.size	Gimbal_ReadStatusRegister, .-Gimbal_ReadStatusRegister
+ 579              		.section	.text.Gimbal_ReadControlRegister,"ax",%progbits
+ 580              		.align	2
+ 581              		.global	Gimbal_ReadControlRegister
+ 582              		.code	16
+ 583              		.thumb_func
+ 584              		.type	Gimbal_ReadControlRegister, %function
+ 585              	Gimbal_ReadControlRegister:
+ 586              	.LFB12:
+ 712:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 713:.\Generated_Source\PSoC4/Gimbal.c **** #endif /* (Gimbal_UseStatus || Gimbal_UsingFixedFunction) */
+ 714:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 715:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 716:.\Generated_Source\PSoC4/Gimbal.c **** #if (Gimbal_UseControl)
+ 717:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 718:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 719:.\Generated_Source\PSoC4/Gimbal.c ****     /*******************************************************************************
+ 720:.\Generated_Source\PSoC4/Gimbal.c ****     * Function Name: Gimbal_ReadControlRegister
+ 721:.\Generated_Source\PSoC4/Gimbal.c ****     ********************************************************************************
+ 722:.\Generated_Source\PSoC4/Gimbal.c ****     * 
+ 723:.\Generated_Source\PSoC4/Gimbal.c ****     * Summary:
+ 724:.\Generated_Source\PSoC4/Gimbal.c ****     *  Returns the current state of the control register. This API is available 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 24
+
+
+ 725:.\Generated_Source\PSoC4/Gimbal.c ****     *  only if the control register is not removed.
+ 726:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 727:.\Generated_Source\PSoC4/Gimbal.c ****     * Parameters:  
+ 728:.\Generated_Source\PSoC4/Gimbal.c ****     *  None 
+ 729:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 730:.\Generated_Source\PSoC4/Gimbal.c ****     * Return: 
+ 731:.\Generated_Source\PSoC4/Gimbal.c ****     *  uint8 : Current control register value
+ 732:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 733:.\Generated_Source\PSoC4/Gimbal.c ****     *******************************************************************************/    
+ 734:.\Generated_Source\PSoC4/Gimbal.c ****     uint8 Gimbal_ReadControlRegister(void) 
+ 735:.\Generated_Source\PSoC4/Gimbal.c ****     {
+ 587              		.loc 1 735 0
+ 588              		.cfi_startproc
+ 589 0000 80B5     		push	{r7, lr}
+ 590              	.LCFI31:
+ 591              		.cfi_def_cfa_offset 8
+ 592              		.cfi_offset 7, -8
+ 593              		.cfi_offset 14, -4
+ 594 0002 82B0     		sub	sp, sp, #8
+ 595              	.LCFI32:
+ 596              		.cfi_def_cfa_offset 16
+ 597 0004 00AF     		add	r7, sp, #0
+ 598              	.LCFI33:
+ 599              		.cfi_def_cfa_register 7
+ 736:.\Generated_Source\PSoC4/Gimbal.c ****     	uint8 result;
+ 737:.\Generated_Source\PSoC4/Gimbal.c ****     	
+ 738:.\Generated_Source\PSoC4/Gimbal.c ****     	result = CY_GET_REG8(Gimbal_CONTROL_PTR);
+ 600              		.loc 1 738 0
+ 601 0006 054A     		ldr	r2, .L42
+ 602 0008 FB1D     		add	r3, r7, #7
+ 603 000a 1278     		ldrb	r2, [r2]
+ 604 000c 1A70     		strb	r2, [r3]
+ 739:.\Generated_Source\PSoC4/Gimbal.c ****     	return (result);
+ 605              		.loc 1 739 0
+ 606 000e FB1D     		add	r3, r7, #7
+ 607 0010 1B78     		ldrb	r3, [r3]
+ 740:.\Generated_Source\PSoC4/Gimbal.c ****     }
+ 608              		.loc 1 740 0
+ 609 0012 181C     		mov	r0, r3
+ 610 0014 BD46     		mov	sp, r7
+ 611 0016 02B0     		add	sp, sp, #8
+ 612              		@ sp needed for prologue
+ 613 0018 80BD     		pop	{r7, pc}
+ 614              	.L43:
+ 615 001a C046     		.align	2
+ 616              	.L42:
+ 617 001c 72000F40 		.word	1074724978
+ 618              		.cfi_endproc
+ 619              	.LFE12:
+ 620              		.size	Gimbal_ReadControlRegister, .-Gimbal_ReadControlRegister
+ 621              		.section	.text.Gimbal_WriteControlRegister,"ax",%progbits
+ 622              		.align	2
+ 623              		.global	Gimbal_WriteControlRegister
+ 624              		.code	16
+ 625              		.thumb_func
+ 626              		.type	Gimbal_WriteControlRegister, %function
+ 627              	Gimbal_WriteControlRegister:
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 25
+
+
+ 628              	.LFB13:
+ 741:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 742:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 743:.\Generated_Source\PSoC4/Gimbal.c ****     /*******************************************************************************
+ 744:.\Generated_Source\PSoC4/Gimbal.c ****     * Function Name: Gimbal_WriteControlRegister
+ 745:.\Generated_Source\PSoC4/Gimbal.c ****     ********************************************************************************
+ 746:.\Generated_Source\PSoC4/Gimbal.c ****     * 
+ 747:.\Generated_Source\PSoC4/Gimbal.c ****     * Summary:
+ 748:.\Generated_Source\PSoC4/Gimbal.c ****     *  Sets the bit field of the control register. This API is available only if 
+ 749:.\Generated_Source\PSoC4/Gimbal.c ****     *  the control register is not removed.
+ 750:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 751:.\Generated_Source\PSoC4/Gimbal.c ****     * Parameters:  
+ 752:.\Generated_Source\PSoC4/Gimbal.c ****     *  uint8 control: Control register bit field, The status register bits are:
+ 753:.\Generated_Source\PSoC4/Gimbal.c ****     *  [7]   : PWM Enable
+ 754:.\Generated_Source\PSoC4/Gimbal.c ****     *  [6]   : Reset
+ 755:.\Generated_Source\PSoC4/Gimbal.c ****     *  [5:3] : Compare Mode2
+ 756:.\Generated_Source\PSoC4/Gimbal.c ****     *  [2:0] : Compare Mode2
+ 757:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 758:.\Generated_Source\PSoC4/Gimbal.c ****     * Return: 
+ 759:.\Generated_Source\PSoC4/Gimbal.c ****     *  None
+ 760:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 761:.\Generated_Source\PSoC4/Gimbal.c ****     *******************************************************************************/  
+ 762:.\Generated_Source\PSoC4/Gimbal.c ****     void Gimbal_WriteControlRegister(uint8 control) 
+ 763:.\Generated_Source\PSoC4/Gimbal.c ****     {
+ 629              		.loc 1 763 0
+ 630              		.cfi_startproc
+ 631 0000 80B5     		push	{r7, lr}
+ 632              	.LCFI34:
+ 633              		.cfi_def_cfa_offset 8
+ 634              		.cfi_offset 7, -8
+ 635              		.cfi_offset 14, -4
+ 636 0002 82B0     		sub	sp, sp, #8
+ 637              	.LCFI35:
+ 638              		.cfi_def_cfa_offset 16
+ 639 0004 00AF     		add	r7, sp, #0
+ 640              	.LCFI36:
+ 641              		.cfi_def_cfa_register 7
+ 642 0006 021C     		mov	r2, r0
+ 643 0008 FB1D     		add	r3, r7, #7
+ 644 000a 1A70     		strb	r2, [r3]
+ 764:.\Generated_Source\PSoC4/Gimbal.c ****     	CY_SET_REG8(Gimbal_CONTROL_PTR, control);
+ 645              		.loc 1 764 0
+ 646 000c 034B     		ldr	r3, .L45
+ 647 000e FA1D     		add	r2, r7, #7
+ 648 0010 1278     		ldrb	r2, [r2]
+ 649 0012 1A70     		strb	r2, [r3]
+ 765:.\Generated_Source\PSoC4/Gimbal.c ****     }
+ 650              		.loc 1 765 0
+ 651 0014 BD46     		mov	sp, r7
+ 652 0016 02B0     		add	sp, sp, #8
+ 653              		@ sp needed for prologue
+ 654 0018 80BD     		pop	{r7, pc}
+ 655              	.L46:
+ 656 001a C046     		.align	2
+ 657              	.L45:
+ 658 001c 72000F40 		.word	1074724978
+ 659              		.cfi_endproc
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 26
+
+
+ 660              	.LFE13:
+ 661              		.size	Gimbal_WriteControlRegister, .-Gimbal_WriteControlRegister
+ 662              		.section	.text.Gimbal_ReadCapture,"ax",%progbits
+ 663              		.align	2
+ 664              		.global	Gimbal_ReadCapture
+ 665              		.code	16
+ 666              		.thumb_func
+ 667              		.type	Gimbal_ReadCapture, %function
+ 668              	Gimbal_ReadCapture:
+ 669              	.LFB14:
+ 766:.\Generated_Source\PSoC4/Gimbal.c **** 	
+ 767:.\Generated_Source\PSoC4/Gimbal.c **** #endif /* (Gimbal_UseControl) */
+ 768:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 769:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 770:.\Generated_Source\PSoC4/Gimbal.c **** #if (!Gimbal_UsingFixedFunction)
+ 771:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 772:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 773:.\Generated_Source\PSoC4/Gimbal.c ****     /*******************************************************************************
+ 774:.\Generated_Source\PSoC4/Gimbal.c ****     * Function Name: Gimbal_ReadCapture
+ 775:.\Generated_Source\PSoC4/Gimbal.c ****     ********************************************************************************
+ 776:.\Generated_Source\PSoC4/Gimbal.c ****     * 
+ 777:.\Generated_Source\PSoC4/Gimbal.c ****     * Summary:
+ 778:.\Generated_Source\PSoC4/Gimbal.c ****     *  Reads the capture value from the capture FIFO.
+ 779:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 780:.\Generated_Source\PSoC4/Gimbal.c ****     * Parameters:  
+ 781:.\Generated_Source\PSoC4/Gimbal.c ****     *  None
+ 782:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 783:.\Generated_Source\PSoC4/Gimbal.c ****     * Return: 
+ 784:.\Generated_Source\PSoC4/Gimbal.c ****     *  uint8/uint16: The current capture value
+ 785:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 786:.\Generated_Source\PSoC4/Gimbal.c ****     *******************************************************************************/  
+ 787:.\Generated_Source\PSoC4/Gimbal.c ****     uint16 Gimbal_ReadCapture(void)  
+ 788:.\Generated_Source\PSoC4/Gimbal.c ****     {
+ 670              		.loc 1 788 0
+ 671              		.cfi_startproc
+ 672 0000 80B5     		push	{r7, lr}
+ 673              	.LCFI37:
+ 674              		.cfi_def_cfa_offset 8
+ 675              		.cfi_offset 7, -8
+ 676              		.cfi_offset 14, -4
+ 677 0002 00AF     		add	r7, sp, #0
+ 678              	.LCFI38:
+ 679              		.cfi_def_cfa_register 7
+ 789:.\Generated_Source\PSoC4/Gimbal.c ****     	return (CY_GET_REG16(Gimbal_CAPTURE_LSB_PTR));
+ 680              		.loc 1 789 0
+ 681 0004 024B     		ldr	r3, .L49
+ 682 0006 1B88     		ldrh	r3, [r3]
+ 683 0008 9BB2     		uxth	r3, r3
+ 790:.\Generated_Source\PSoC4/Gimbal.c ****     }
+ 684              		.loc 1 790 0
+ 685 000a 181C     		mov	r0, r3
+ 686 000c BD46     		mov	sp, r7
+ 687              		@ sp needed for prologue
+ 688 000e 80BD     		pop	{r7, pc}
+ 689              	.L50:
+ 690              		.align	2
+ 691              	.L49:
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 27
+
+
+ 692 0010 A4100F40 		.word	1074729124
+ 693              		.cfi_endproc
+ 694              	.LFE14:
+ 695              		.size	Gimbal_ReadCapture, .-Gimbal_ReadCapture
+ 696              		.section	.text.Gimbal_ReadCompare1,"ax",%progbits
+ 697              		.align	2
+ 698              		.global	Gimbal_ReadCompare1
+ 699              		.code	16
+ 700              		.thumb_func
+ 701              		.type	Gimbal_ReadCompare1, %function
+ 702              	Gimbal_ReadCompare1:
+ 703              	.LFB15:
+ 791:.\Generated_Source\PSoC4/Gimbal.c **** 	
+ 792:.\Generated_Source\PSoC4/Gimbal.c **** #endif /* (!Gimbal_UsingFixedFunction) */
+ 793:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 794:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 795:.\Generated_Source\PSoC4/Gimbal.c **** #if (Gimbal_UseOneCompareMode)
+ 796:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 797:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 798:.\Generated_Source\PSoC4/Gimbal.c ****     /*******************************************************************************
+ 799:.\Generated_Source\PSoC4/Gimbal.c ****     * Function Name: Gimbal_ReadCompare
+ 800:.\Generated_Source\PSoC4/Gimbal.c ****     ********************************************************************************
+ 801:.\Generated_Source\PSoC4/Gimbal.c ****     * 
+ 802:.\Generated_Source\PSoC4/Gimbal.c ****     * Summary:
+ 803:.\Generated_Source\PSoC4/Gimbal.c ****     *  Reads the compare value for the compare output when the PWM Mode parameter is 
+ 804:.\Generated_Source\PSoC4/Gimbal.c ****     *  set to Dither mode, Center Aligned mode, or One Output mode.
+ 805:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 806:.\Generated_Source\PSoC4/Gimbal.c ****     * Parameters:  
+ 807:.\Generated_Source\PSoC4/Gimbal.c ****     *  None
+ 808:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 809:.\Generated_Source\PSoC4/Gimbal.c ****     * Return: 
+ 810:.\Generated_Source\PSoC4/Gimbal.c ****     *  uint8/uint16: Current compare value
+ 811:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 812:.\Generated_Source\PSoC4/Gimbal.c ****     *******************************************************************************/  
+ 813:.\Generated_Source\PSoC4/Gimbal.c ****     uint16 Gimbal_ReadCompare(void)  
+ 814:.\Generated_Source\PSoC4/Gimbal.c ****     {
+ 815:.\Generated_Source\PSoC4/Gimbal.c **** 		#if(Gimbal_UsingFixedFunction)
+ 816:.\Generated_Source\PSoC4/Gimbal.c ****             return ((uint16)CY_GET_REG16(Gimbal_COMPARE1_LSB_PTR));
+ 817:.\Generated_Source\PSoC4/Gimbal.c ****         #else
+ 818:.\Generated_Source\PSoC4/Gimbal.c ****             return (CY_GET_REG16(Gimbal_COMPARE1_LSB_PTR));
+ 819:.\Generated_Source\PSoC4/Gimbal.c ****         #endif /* (Gimbal_UsingFixedFunction) */
+ 820:.\Generated_Source\PSoC4/Gimbal.c ****     }
+ 821:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 822:.\Generated_Source\PSoC4/Gimbal.c **** #else
+ 823:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 824:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 825:.\Generated_Source\PSoC4/Gimbal.c ****     /*******************************************************************************
+ 826:.\Generated_Source\PSoC4/Gimbal.c ****     * Function Name: Gimbal_ReadCompare1
+ 827:.\Generated_Source\PSoC4/Gimbal.c ****     ********************************************************************************
+ 828:.\Generated_Source\PSoC4/Gimbal.c ****     * 
+ 829:.\Generated_Source\PSoC4/Gimbal.c ****     * Summary:
+ 830:.\Generated_Source\PSoC4/Gimbal.c ****     *  Reads the compare value for the compare1 output.
+ 831:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 832:.\Generated_Source\PSoC4/Gimbal.c ****     * Parameters:  
+ 833:.\Generated_Source\PSoC4/Gimbal.c ****     *  None
+ 834:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 835:.\Generated_Source\PSoC4/Gimbal.c ****     * Return: 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 28
+
+
+ 836:.\Generated_Source\PSoC4/Gimbal.c ****     *  uint8/uint16: Current compare value.
+ 837:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 838:.\Generated_Source\PSoC4/Gimbal.c ****     *******************************************************************************/  
+ 839:.\Generated_Source\PSoC4/Gimbal.c ****     uint16 Gimbal_ReadCompare1(void) 
+ 840:.\Generated_Source\PSoC4/Gimbal.c ****     {
+ 704              		.loc 1 840 0
+ 705              		.cfi_startproc
+ 706 0000 80B5     		push	{r7, lr}
+ 707              	.LCFI39:
+ 708              		.cfi_def_cfa_offset 8
+ 709              		.cfi_offset 7, -8
+ 710              		.cfi_offset 14, -4
+ 711 0002 00AF     		add	r7, sp, #0
+ 712              	.LCFI40:
+ 713              		.cfi_def_cfa_register 7
+ 841:.\Generated_Source\PSoC4/Gimbal.c **** 		return (CY_GET_REG16(Gimbal_COMPARE1_LSB_PTR));
+ 714              		.loc 1 841 0
+ 715 0004 024B     		ldr	r3, .L53
+ 716 0006 1B88     		ldrh	r3, [r3]
+ 717 0008 9BB2     		uxth	r3, r3
+ 842:.\Generated_Source\PSoC4/Gimbal.c ****     }
+ 718              		.loc 1 842 0
+ 719 000a 181C     		mov	r0, r3
+ 720 000c BD46     		mov	sp, r7
+ 721              		@ sp needed for prologue
+ 722 000e 80BD     		pop	{r7, pc}
+ 723              	.L54:
+ 724              		.align	2
+ 725              	.L53:
+ 726 0010 44100F40 		.word	1074729028
+ 727              		.cfi_endproc
+ 728              	.LFE15:
+ 729              		.size	Gimbal_ReadCompare1, .-Gimbal_ReadCompare1
+ 730              		.section	.text.Gimbal_ReadCompare2,"ax",%progbits
+ 731              		.align	2
+ 732              		.global	Gimbal_ReadCompare2
+ 733              		.code	16
+ 734              		.thumb_func
+ 735              		.type	Gimbal_ReadCompare2, %function
+ 736              	Gimbal_ReadCompare2:
+ 737              	.LFB16:
+ 843:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 844:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 845:.\Generated_Source\PSoC4/Gimbal.c ****     /*******************************************************************************
+ 846:.\Generated_Source\PSoC4/Gimbal.c ****     * Function Name: Gimbal_ReadCompare2
+ 847:.\Generated_Source\PSoC4/Gimbal.c ****     ********************************************************************************
+ 848:.\Generated_Source\PSoC4/Gimbal.c ****     * 
+ 849:.\Generated_Source\PSoC4/Gimbal.c ****     * Summary:
+ 850:.\Generated_Source\PSoC4/Gimbal.c ****     *  Reads the compare value for the compare2 output.
+ 851:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 852:.\Generated_Source\PSoC4/Gimbal.c ****     * Parameters:  
+ 853:.\Generated_Source\PSoC4/Gimbal.c ****     *  None
+ 854:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 855:.\Generated_Source\PSoC4/Gimbal.c ****     * Return: 
+ 856:.\Generated_Source\PSoC4/Gimbal.c ****     *  uint8/uint16: Current compare value.
+ 857:.\Generated_Source\PSoC4/Gimbal.c ****     *
+ 858:.\Generated_Source\PSoC4/Gimbal.c ****     *******************************************************************************/  
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 29
+
+
+ 859:.\Generated_Source\PSoC4/Gimbal.c ****     uint16 Gimbal_ReadCompare2(void)  
+ 860:.\Generated_Source\PSoC4/Gimbal.c ****     {
+ 738              		.loc 1 860 0
+ 739              		.cfi_startproc
+ 740 0000 80B5     		push	{r7, lr}
+ 741              	.LCFI41:
+ 742              		.cfi_def_cfa_offset 8
+ 743              		.cfi_offset 7, -8
+ 744              		.cfi_offset 14, -4
+ 745 0002 00AF     		add	r7, sp, #0
+ 746              	.LCFI42:
+ 747              		.cfi_def_cfa_register 7
+ 861:.\Generated_Source\PSoC4/Gimbal.c **** 		return (CY_GET_REG16(Gimbal_COMPARE2_LSB_PTR));
+ 748              		.loc 1 861 0
+ 749 0004 024B     		ldr	r3, .L57
+ 750 0006 1B88     		ldrh	r3, [r3]
+ 751 0008 9BB2     		uxth	r3, r3
+ 862:.\Generated_Source\PSoC4/Gimbal.c ****     }
+ 752              		.loc 1 862 0
+ 753 000a 181C     		mov	r0, r3
+ 754 000c BD46     		mov	sp, r7
+ 755              		@ sp needed for prologue
+ 756 000e 80BD     		pop	{r7, pc}
+ 757              	.L58:
+ 758              		.align	2
+ 759              	.L57:
+ 760 0010 64100F40 		.word	1074729060
+ 761              		.cfi_endproc
+ 762              	.LFE16:
+ 763              		.size	Gimbal_ReadCompare2, .-Gimbal_ReadCompare2
+ 764              		.section	.text.Gimbal_ReadPeriod,"ax",%progbits
+ 765              		.align	2
+ 766              		.global	Gimbal_ReadPeriod
+ 767              		.code	16
+ 768              		.thumb_func
+ 769              		.type	Gimbal_ReadPeriod, %function
+ 770              	Gimbal_ReadPeriod:
+ 771              	.LFB17:
+ 863:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 864:.\Generated_Source\PSoC4/Gimbal.c **** #endif /* (Gimbal_UseOneCompareMode) */
+ 865:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 866:.\Generated_Source\PSoC4/Gimbal.c **** 
+ 867:.\Generated_Source\PSoC4/Gimbal.c **** /*******************************************************************************
+ 868:.\Generated_Source\PSoC4/Gimbal.c **** * Function Name: Gimbal_ReadPeriod
+ 869:.\Generated_Source\PSoC4/Gimbal.c **** ********************************************************************************
+ 870:.\Generated_Source\PSoC4/Gimbal.c **** * 
+ 871:.\Generated_Source\PSoC4/Gimbal.c **** * Summary:
+ 872:.\Generated_Source\PSoC4/Gimbal.c **** *  Reads the period value used by the PWM hardware.
+ 873:.\Generated_Source\PSoC4/Gimbal.c **** *
+ 874:.\Generated_Source\PSoC4/Gimbal.c **** * Parameters:  
+ 875:.\Generated_Source\PSoC4/Gimbal.c **** *  None
+ 876:.\Generated_Source\PSoC4/Gimbal.c **** *
+ 877:.\Generated_Source\PSoC4/Gimbal.c **** * Return: 
+ 878:.\Generated_Source\PSoC4/Gimbal.c **** *  uint8/16: Period value
+ 879:.\Generated_Source\PSoC4/Gimbal.c **** *
+ 880:.\Generated_Source\PSoC4/Gimbal.c **** *******************************************************************************/ 
+ 881:.\Generated_Source\PSoC4/Gimbal.c **** uint16 Gimbal_ReadPeriod(void) 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 30
+
+
+ 882:.\Generated_Source\PSoC4/Gimbal.c **** {
+ 772              		.loc 1 882 0
+ 773              		.cfi_startproc
+ 774 0000 80B5     		push	{r7, lr}
+ 775              	.LCFI43:
+ 776              		.cfi_def_cfa_offset 8
+ 777              		.cfi_offset 7, -8
+ 778              		.cfi_offset 14, -4
+ 779 0002 00AF     		add	r7, sp, #0
+ 780              	.LCFI44:
+ 781              		.cfi_def_cfa_register 7
+ 883:.\Generated_Source\PSoC4/Gimbal.c **** 	#if(Gimbal_UsingFixedFunction)
+ 884:.\Generated_Source\PSoC4/Gimbal.c ****         return ((uint16)CY_GET_REG16(Gimbal_PERIOD_LSB_PTR));
+ 885:.\Generated_Source\PSoC4/Gimbal.c ****     #else
+ 886:.\Generated_Source\PSoC4/Gimbal.c ****         return (CY_GET_REG16(Gimbal_PERIOD_LSB_PTR));
+ 782              		.loc 1 886 0
+ 783 0004 024B     		ldr	r3, .L61
+ 784 0006 1B88     		ldrh	r3, [r3]
+ 785 0008 9BB2     		uxth	r3, r3
+ 887:.\Generated_Source\PSoC4/Gimbal.c ****     #endif /* (Gimbal_UsingFixedFunction) */
+ 888:.\Generated_Source\PSoC4/Gimbal.c **** }
+ 786              		.loc 1 888 0
+ 787 000a 181C     		mov	r0, r3
+ 788 000c BD46     		mov	sp, r7
+ 789              		@ sp needed for prologue
+ 790 000e 80BD     		pop	{r7, pc}
+ 791              	.L62:
+ 792              		.align	2
+ 793              	.L61:
+ 794 0010 84100F40 		.word	1074729092
+ 795              		.cfi_endproc
+ 796              	.LFE17:
+ 797              		.size	Gimbal_ReadPeriod, .-Gimbal_ReadPeriod
+ 798              		.text
+ 799              	.Letext0:
+ 800              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
+ 801              		.section	.debug_info,"",%progbits
+ 802              	.Ldebug_info0:
+ 803 0000 47030000 		.4byte	0x347
+ 804 0004 0200     		.2byte	0x2
+ 805 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 806 000a 04       		.byte	0x4
+ 807 000b 01       		.uleb128 0x1
+ 808 000c B6020000 		.4byte	.LASF43
+ 809 0010 01       		.byte	0x1
+ 810 0011 52020000 		.4byte	.LASF44
+ 811 0015 9C000000 		.4byte	.LASF45
+ 812 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 813 001d 00000000 		.4byte	0
+ 814 0021 00000000 		.4byte	0
+ 815 0025 00000000 		.4byte	.Ldebug_line0
+ 816 0029 02       		.uleb128 0x2
+ 817 002a 01       		.byte	0x1
+ 818 002b 06       		.byte	0x6
+ 819 002c 1C030000 		.4byte	.LASF0
+ 820 0030 02       		.uleb128 0x2
+ 821 0031 01       		.byte	0x1
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 31
+
+
+ 822 0032 08       		.byte	0x8
+ 823 0033 21010000 		.4byte	.LASF1
+ 824 0037 02       		.uleb128 0x2
+ 825 0038 02       		.byte	0x2
+ 826 0039 05       		.byte	0x5
+ 827 003a 99020000 		.4byte	.LASF2
+ 828 003e 02       		.uleb128 0x2
+ 829 003f 02       		.byte	0x2
+ 830 0040 07       		.byte	0x7
+ 831 0041 60000000 		.4byte	.LASF3
+ 832 0045 02       		.uleb128 0x2
+ 833 0046 04       		.byte	0x4
+ 834 0047 05       		.byte	0x5
+ 835 0048 0E030000 		.4byte	.LASF4
+ 836 004c 02       		.uleb128 0x2
+ 837 004d 04       		.byte	0x4
+ 838 004e 07       		.byte	0x7
+ 839 004f 59010000 		.4byte	.LASF5
+ 840 0053 02       		.uleb128 0x2
+ 841 0054 08       		.byte	0x8
+ 842 0055 05       		.byte	0x5
+ 843 0056 7D020000 		.4byte	.LASF6
+ 844 005a 02       		.uleb128 0x2
+ 845 005b 08       		.byte	0x8
+ 846 005c 07       		.byte	0x7
+ 847 005d C2010000 		.4byte	.LASF7
+ 848 0061 03       		.uleb128 0x3
+ 849 0062 04       		.byte	0x4
+ 850 0063 05       		.byte	0x5
+ 851 0064 696E7400 		.ascii	"int\000"
+ 852 0068 02       		.uleb128 0x2
+ 853 0069 04       		.byte	0x4
+ 854 006a 07       		.byte	0x7
+ 855 006b B5010000 		.4byte	.LASF8
+ 856 006f 04       		.uleb128 0x4
+ 857 0070 6B010000 		.4byte	.LASF9
+ 858 0074 02       		.byte	0x2
+ 859 0075 5B       		.byte	0x5b
+ 860 0076 30000000 		.4byte	0x30
+ 861 007a 04       		.uleb128 0x4
+ 862 007b 94010000 		.4byte	.LASF10
+ 863 007f 02       		.byte	0x2
+ 864 0080 5C       		.byte	0x5c
+ 865 0081 3E000000 		.4byte	0x3e
+ 866 0085 02       		.uleb128 0x2
+ 867 0086 04       		.byte	0x4
+ 868 0087 04       		.byte	0x4
+ 869 0088 13010000 		.4byte	.LASF11
+ 870 008c 02       		.uleb128 0x2
+ 871 008d 08       		.byte	0x8
+ 872 008e 04       		.byte	0x4
+ 873 008f 8D010000 		.4byte	.LASF12
+ 874 0093 02       		.uleb128 0x2
+ 875 0094 01       		.byte	0x1
+ 876 0095 08       		.byte	0x8
+ 877 0096 17030000 		.4byte	.LASF13
+ 878 009a 04       		.uleb128 0x4
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 32
+
+
+ 879 009b 42010000 		.4byte	.LASF14
+ 880 009f 02       		.byte	0x2
+ 881 00a0 F0       		.byte	0xf0
+ 882 00a1 A5000000 		.4byte	0xa5
+ 883 00a5 05       		.uleb128 0x5
+ 884 00a6 6F000000 		.4byte	0x6f
+ 885 00aa 04       		.uleb128 0x4
+ 886 00ab 00000000 		.4byte	.LASF15
+ 887 00af 02       		.byte	0x2
+ 888 00b0 F1       		.byte	0xf1
+ 889 00b1 B5000000 		.4byte	0xb5
+ 890 00b5 05       		.uleb128 0x5
+ 891 00b6 7A000000 		.4byte	0x7a
+ 892 00ba 02       		.uleb128 0x2
+ 893 00bb 04       		.byte	0x4
+ 894 00bc 07       		.byte	0x7
+ 895 00bd 74020000 		.4byte	.LASF16
+ 896 00c1 06       		.uleb128 0x6
+ 897 00c2 01       		.byte	0x1
+ 898 00c3 28030000 		.4byte	.LASF19
+ 899 00c7 01       		.byte	0x1
+ 900 00c8 32       		.byte	0x32
+ 901 00c9 01       		.byte	0x1
+ 902 00ca 00000000 		.4byte	.LFB0
+ 903 00ce 24000000 		.4byte	.LFE0
+ 904 00d2 00000000 		.4byte	.LLST0
+ 905 00d6 01       		.byte	0x1
+ 906 00d7 07       		.uleb128 0x7
+ 907 00d8 01       		.byte	0x1
+ 908 00d9 07010000 		.4byte	.LASF22
+ 909 00dd 01       		.byte	0x1
+ 910 00de 4F       		.byte	0x4f
+ 911 00df 01       		.byte	0x1
+ 912 00e0 00000000 		.4byte	.LFB1
+ 913 00e4 AC000000 		.4byte	.LFE1
+ 914 00e8 2C000000 		.4byte	.LLST1
+ 915 00ec 01       		.byte	0x1
+ 916 00ed 0E010000 		.4byte	0x10e
+ 917 00f1 08       		.uleb128 0x8
+ 918 00f2 32020000 		.4byte	.LASF17
+ 919 00f6 01       		.byte	0x1
+ 920 00f7 52       		.byte	0x52
+ 921 00f8 6F000000 		.4byte	0x6f
+ 922 00fc 02       		.byte	0x2
+ 923 00fd 91       		.byte	0x91
+ 924 00fe 6F       		.sleb128 -17
+ 925 00ff 08       		.uleb128 0x8
+ 926 0100 1C020000 		.4byte	.LASF18
+ 927 0104 01       		.byte	0x1
+ 928 0105 58       		.byte	0x58
+ 929 0106 6F000000 		.4byte	0x6f
+ 930 010a 02       		.byte	0x2
+ 931 010b 91       		.byte	0x91
+ 932 010c 6E       		.sleb128 -18
+ 933 010d 00       		.byte	0
+ 934 010e 09       		.uleb128 0x9
+ 935 010f 01       		.byte	0x1
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 33
+
+
+ 936 0110 9B010000 		.4byte	.LASF20
+ 937 0114 01       		.byte	0x1
+ 938 0115 C1       		.byte	0xc1
+ 939 0116 01       		.byte	0x1
+ 940 0117 00000000 		.4byte	.LFB2
+ 941 011b 20000000 		.4byte	.LFE2
+ 942 011f 64000000 		.4byte	.LLST2
+ 943 0123 01       		.byte	0x1
+ 944 0124 09       		.uleb128 0x9
+ 945 0125 01       		.byte	0x1
+ 946 0126 A9010000 		.4byte	.LASF21
+ 947 012a 01       		.byte	0x1
+ 948 012b E3       		.byte	0xe3
+ 949 012c 01       		.byte	0x1
+ 950 012d 00000000 		.4byte	.LFB3
+ 951 0131 1C000000 		.4byte	.LFE3
+ 952 0135 90000000 		.4byte	.LLST3
+ 953 0139 01       		.byte	0x1
+ 954 013a 0A       		.uleb128 0xa
+ 955 013b 01       		.byte	0x1
+ 956 013c 79010000 		.4byte	.LASF23
+ 957 0140 01       		.byte	0x1
+ 958 0141 8D01     		.2byte	0x18d
+ 959 0143 01       		.byte	0x1
+ 960 0144 00000000 		.4byte	.LFB4
+ 961 0148 20000000 		.4byte	.LFE4
+ 962 014c BC000000 		.4byte	.LLST4
+ 963 0150 01       		.byte	0x1
+ 964 0151 65010000 		.4byte	0x165
+ 965 0155 0B       		.uleb128 0xb
+ 966 0156 19010000 		.4byte	.LASF26
+ 967 015a 01       		.byte	0x1
+ 968 015b 8D01     		.2byte	0x18d
+ 969 015d 7A000000 		.4byte	0x7a
+ 970 0161 02       		.byte	0x2
+ 971 0162 91       		.byte	0x91
+ 972 0163 76       		.sleb128 -10
+ 973 0164 00       		.byte	0
+ 974 0165 0C       		.uleb128 0xc
+ 975 0166 01       		.byte	0x1
+ 976 0167 D9010000 		.4byte	.LASF38
+ 977 016b 01       		.byte	0x1
+ 978 016c A301     		.2byte	0x1a3
+ 979 016e 01       		.byte	0x1
+ 980 016f 7A000000 		.4byte	0x7a
+ 981 0173 00000000 		.4byte	.LFB5
+ 982 0177 1C000000 		.4byte	.LFE5
+ 983 017b F4000000 		.4byte	.LLST5
+ 984 017f 01       		.byte	0x1
+ 985 0180 0D       		.uleb128 0xd
+ 986 0181 01       		.byte	0x1
+ 987 0182 73000000 		.4byte	.LASF24
+ 988 0186 01       		.byte	0x1
+ 989 0187 BF01     		.2byte	0x1bf
+ 990 0189 01       		.byte	0x1
+ 991 018a 00000000 		.4byte	.LFB6
+ 992 018e 1C000000 		.4byte	.LFE6
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 34
+
+
+ 993 0192 20010000 		.4byte	.LLST6
+ 994 0196 01       		.byte	0x1
+ 995 0197 0A       		.uleb128 0xa
+ 996 0198 01       		.byte	0x1
+ 997 0199 A3020000 		.4byte	.LASF25
+ 998 019d 01       		.byte	0x1
+ 999 019e DC01     		.2byte	0x1dc
+ 1000 01a0 01       		.byte	0x1
+ 1001 01a1 00000000 		.4byte	.LFB7
+ 1002 01a5 20000000 		.4byte	.LFE7
+ 1003 01a9 4C010000 		.4byte	.LLST7
+ 1004 01ad 01       		.byte	0x1
+ 1005 01ae C2010000 		.4byte	0x1c2
+ 1006 01b2 0B       		.uleb128 0xb
+ 1007 01b3 59000000 		.4byte	.LASF27
+ 1008 01b7 01       		.byte	0x1
+ 1009 01b8 DC01     		.2byte	0x1dc
+ 1010 01ba 7A000000 		.4byte	0x7a
+ 1011 01be 02       		.byte	0x2
+ 1012 01bf 91       		.byte	0x91
+ 1013 01c0 76       		.sleb128 -10
+ 1014 01c1 00       		.byte	0
+ 1015 01c2 0A       		.uleb128 0xa
+ 1016 01c3 01       		.byte	0x1
+ 1017 01c4 20000000 		.4byte	.LASF28
+ 1018 01c8 01       		.byte	0x1
+ 1019 01c9 2502     		.2byte	0x225
+ 1020 01cb 01       		.byte	0x1
+ 1021 01cc 00000000 		.4byte	.LFB8
+ 1022 01d0 20000000 		.4byte	.LFE8
+ 1023 01d4 84010000 		.4byte	.LLST8
+ 1024 01d8 01       		.byte	0x1
+ 1025 01d9 ED010000 		.4byte	0x1ed
+ 1026 01dd 0B       		.uleb128 0xb
+ 1027 01de 51000000 		.4byte	.LASF29
+ 1028 01e2 01       		.byte	0x1
+ 1029 01e3 2502     		.2byte	0x225
+ 1030 01e5 7A000000 		.4byte	0x7a
+ 1031 01e9 02       		.byte	0x2
+ 1032 01ea 91       		.byte	0x91
+ 1033 01eb 76       		.sleb128 -10
+ 1034 01ec 00       		.byte	0
+ 1035 01ed 0A       		.uleb128 0xa
+ 1036 01ee 01       		.byte	0x1
+ 1037 01ef 35000000 		.4byte	.LASF30
+ 1038 01f3 01       		.byte	0x1
+ 1039 01f4 4202     		.2byte	0x242
+ 1040 01f6 01       		.byte	0x1
+ 1041 01f7 00000000 		.4byte	.LFB9
+ 1042 01fb 20000000 		.4byte	.LFE9
+ 1043 01ff BC010000 		.4byte	.LLST9
+ 1044 0203 01       		.byte	0x1
+ 1045 0204 18020000 		.4byte	0x218
+ 1046 0208 0B       		.uleb128 0xb
+ 1047 0209 51000000 		.4byte	.LASF29
+ 1048 020d 01       		.byte	0x1
+ 1049 020e 4202     		.2byte	0x242
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 35
+
+
+ 1050 0210 7A000000 		.4byte	0x7a
+ 1051 0214 02       		.byte	0x2
+ 1052 0215 91       		.byte	0x91
+ 1053 0216 76       		.sleb128 -10
+ 1054 0217 00       		.byte	0
+ 1055 0218 0A       		.uleb128 0xa
+ 1056 0219 01       		.byte	0x1
+ 1057 021a 84000000 		.4byte	.LASF31
+ 1058 021e 01       		.byte	0x1
+ 1059 021f A602     		.2byte	0x2a6
+ 1060 0221 01       		.byte	0x1
+ 1061 0222 00000000 		.4byte	.LFB10
+ 1062 0226 20000000 		.4byte	.LFE10
+ 1063 022a F4010000 		.4byte	.LLST10
+ 1064 022e 01       		.byte	0x1
+ 1065 022f 43020000 		.4byte	0x243
+ 1066 0233 0B       		.uleb128 0xb
+ 1067 0234 8B020000 		.4byte	.LASF32
+ 1068 0238 01       		.byte	0x1
+ 1069 0239 A602     		.2byte	0x2a6
+ 1070 023b 6F000000 		.4byte	0x6f
+ 1071 023f 02       		.byte	0x2
+ 1072 0240 91       		.byte	0x91
+ 1073 0241 77       		.sleb128 -9
+ 1074 0242 00       		.byte	0
+ 1075 0243 0E       		.uleb128 0xe
+ 1076 0244 01       		.byte	0x1
+ 1077 0245 06000000 		.4byte	.LASF34
+ 1078 0249 01       		.byte	0x1
+ 1079 024a C102     		.2byte	0x2c1
+ 1080 024c 01       		.byte	0x1
+ 1081 024d 6F000000 		.4byte	0x6f
+ 1082 0251 00000000 		.4byte	.LFB11
+ 1083 0255 20000000 		.4byte	.LFE11
+ 1084 0259 2C020000 		.4byte	.LLST11
+ 1085 025d 01       		.byte	0x1
+ 1086 025e 72020000 		.4byte	0x272
+ 1087 0262 0F       		.uleb128 0xf
+ 1088 0263 4A000000 		.4byte	.LASF33
+ 1089 0267 01       		.byte	0x1
+ 1090 0268 C302     		.2byte	0x2c3
+ 1091 026a 6F000000 		.4byte	0x6f
+ 1092 026e 02       		.byte	0x2
+ 1093 026f 91       		.byte	0x91
+ 1094 0270 77       		.sleb128 -9
+ 1095 0271 00       		.byte	0
+ 1096 0272 0E       		.uleb128 0xe
+ 1097 0273 01       		.byte	0x1
+ 1098 0274 37020000 		.4byte	.LASF35
+ 1099 0278 01       		.byte	0x1
+ 1100 0279 DE02     		.2byte	0x2de
+ 1101 027b 01       		.byte	0x1
+ 1102 027c 6F000000 		.4byte	0x6f
+ 1103 0280 00000000 		.4byte	.LFB12
+ 1104 0284 20000000 		.4byte	.LFE12
+ 1105 0288 64020000 		.4byte	.LLST12
+ 1106 028c 01       		.byte	0x1
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 36
+
+
+ 1107 028d A1020000 		.4byte	0x2a1
+ 1108 0291 0F       		.uleb128 0xf
+ 1109 0292 4A000000 		.4byte	.LASF33
+ 1110 0296 01       		.byte	0x1
+ 1111 0297 E002     		.2byte	0x2e0
+ 1112 0299 6F000000 		.4byte	0x6f
+ 1113 029d 02       		.byte	0x2
+ 1114 029e 91       		.byte	0x91
+ 1115 029f 77       		.sleb128 -9
+ 1116 02a0 00       		.byte	0
+ 1117 02a1 0A       		.uleb128 0xa
+ 1118 02a2 01       		.byte	0x1
+ 1119 02a3 00020000 		.4byte	.LASF36
+ 1120 02a7 01       		.byte	0x1
+ 1121 02a8 FA02     		.2byte	0x2fa
+ 1122 02aa 01       		.byte	0x1
+ 1123 02ab 00000000 		.4byte	.LFB13
+ 1124 02af 20000000 		.4byte	.LFE13
+ 1125 02b3 9C020000 		.4byte	.LLST13
+ 1126 02b7 01       		.byte	0x1
+ 1127 02b8 CC020000 		.4byte	0x2cc
+ 1128 02bc 0B       		.uleb128 0xb
+ 1129 02bd 71010000 		.4byte	.LASF37
+ 1130 02c1 01       		.byte	0x1
+ 1131 02c2 FA02     		.2byte	0x2fa
+ 1132 02c4 6F000000 		.4byte	0x6f
+ 1133 02c8 02       		.byte	0x2
+ 1134 02c9 91       		.byte	0x91
+ 1135 02ca 77       		.sleb128 -9
+ 1136 02cb 00       		.byte	0
+ 1137 02cc 0C       		.uleb128 0xc
+ 1138 02cd 01       		.byte	0x1
+ 1139 02ce 2F010000 		.4byte	.LASF39
+ 1140 02d2 01       		.byte	0x1
+ 1141 02d3 1303     		.2byte	0x313
+ 1142 02d5 01       		.byte	0x1
+ 1143 02d6 7A000000 		.4byte	0x7a
+ 1144 02da 00000000 		.4byte	.LFB14
+ 1145 02de 14000000 		.4byte	.LFE14
+ 1146 02e2 D4020000 		.4byte	.LLST14
+ 1147 02e6 01       		.byte	0x1
+ 1148 02e7 0C       		.uleb128 0xc
+ 1149 02e8 01       		.byte	0x1
+ 1150 02e9 EC010000 		.4byte	.LASF40
+ 1151 02ed 01       		.byte	0x1
+ 1152 02ee 4703     		.2byte	0x347
+ 1153 02f0 01       		.byte	0x1
+ 1154 02f1 7A000000 		.4byte	0x7a
+ 1155 02f5 00000000 		.4byte	.LFB15
+ 1156 02f9 14000000 		.4byte	.LFE15
+ 1157 02fd 00030000 		.4byte	.LLST15
+ 1158 0301 01       		.byte	0x1
+ 1159 0302 0C       		.uleb128 0xc
+ 1160 0303 01       		.byte	0x1
+ 1161 0304 35030000 		.4byte	.LASF41
+ 1162 0308 01       		.byte	0x1
+ 1163 0309 5B03     		.2byte	0x35b
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 37
+
+
+ 1164 030b 01       		.byte	0x1
+ 1165 030c 7A000000 		.4byte	0x7a
+ 1166 0310 00000000 		.4byte	.LFB16
+ 1167 0314 14000000 		.4byte	.LFE16
+ 1168 0318 2C030000 		.4byte	.LLST16
+ 1169 031c 01       		.byte	0x1
+ 1170 031d 0C       		.uleb128 0xc
+ 1171 031e 01       		.byte	0x1
+ 1172 031f 47010000 		.4byte	.LASF42
+ 1173 0323 01       		.byte	0x1
+ 1174 0324 7103     		.2byte	0x371
+ 1175 0326 01       		.byte	0x1
+ 1176 0327 7A000000 		.4byte	0x7a
+ 1177 032b 00000000 		.4byte	.LFB17
+ 1178 032f 14000000 		.4byte	.LFE17
+ 1179 0333 58030000 		.4byte	.LLST17
+ 1180 0337 01       		.byte	0x1
+ 1181 0338 10       		.uleb128 0x10
+ 1182 0339 FF020000 		.4byte	.LASF46
+ 1183 033d 01       		.byte	0x1
+ 1184 033e 1B       		.byte	0x1b
+ 1185 033f 6F000000 		.4byte	0x6f
+ 1186 0343 01       		.byte	0x1
+ 1187 0344 05       		.byte	0x5
+ 1188 0345 03       		.byte	0x3
+ 1189 0346 00000000 		.4byte	Gimbal_initVar
+ 1190 034a 00       		.byte	0
+ 1191              		.section	.debug_abbrev,"",%progbits
+ 1192              	.Ldebug_abbrev0:
+ 1193 0000 01       		.uleb128 0x1
+ 1194 0001 11       		.uleb128 0x11
+ 1195 0002 01       		.byte	0x1
+ 1196 0003 25       		.uleb128 0x25
+ 1197 0004 0E       		.uleb128 0xe
+ 1198 0005 13       		.uleb128 0x13
+ 1199 0006 0B       		.uleb128 0xb
+ 1200 0007 03       		.uleb128 0x3
+ 1201 0008 0E       		.uleb128 0xe
+ 1202 0009 1B       		.uleb128 0x1b
+ 1203 000a 0E       		.uleb128 0xe
+ 1204 000b 55       		.uleb128 0x55
+ 1205 000c 06       		.uleb128 0x6
+ 1206 000d 11       		.uleb128 0x11
+ 1207 000e 01       		.uleb128 0x1
+ 1208 000f 52       		.uleb128 0x52
+ 1209 0010 01       		.uleb128 0x1
+ 1210 0011 10       		.uleb128 0x10
+ 1211 0012 06       		.uleb128 0x6
+ 1212 0013 00       		.byte	0
+ 1213 0014 00       		.byte	0
+ 1214 0015 02       		.uleb128 0x2
+ 1215 0016 24       		.uleb128 0x24
+ 1216 0017 00       		.byte	0
+ 1217 0018 0B       		.uleb128 0xb
+ 1218 0019 0B       		.uleb128 0xb
+ 1219 001a 3E       		.uleb128 0x3e
+ 1220 001b 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 38
+
+
+ 1221 001c 03       		.uleb128 0x3
+ 1222 001d 0E       		.uleb128 0xe
+ 1223 001e 00       		.byte	0
+ 1224 001f 00       		.byte	0
+ 1225 0020 03       		.uleb128 0x3
+ 1226 0021 24       		.uleb128 0x24
+ 1227 0022 00       		.byte	0
+ 1228 0023 0B       		.uleb128 0xb
+ 1229 0024 0B       		.uleb128 0xb
+ 1230 0025 3E       		.uleb128 0x3e
+ 1231 0026 0B       		.uleb128 0xb
+ 1232 0027 03       		.uleb128 0x3
+ 1233 0028 08       		.uleb128 0x8
+ 1234 0029 00       		.byte	0
+ 1235 002a 00       		.byte	0
+ 1236 002b 04       		.uleb128 0x4
+ 1237 002c 16       		.uleb128 0x16
+ 1238 002d 00       		.byte	0
+ 1239 002e 03       		.uleb128 0x3
+ 1240 002f 0E       		.uleb128 0xe
+ 1241 0030 3A       		.uleb128 0x3a
+ 1242 0031 0B       		.uleb128 0xb
+ 1243 0032 3B       		.uleb128 0x3b
+ 1244 0033 0B       		.uleb128 0xb
+ 1245 0034 49       		.uleb128 0x49
+ 1246 0035 13       		.uleb128 0x13
+ 1247 0036 00       		.byte	0
+ 1248 0037 00       		.byte	0
+ 1249 0038 05       		.uleb128 0x5
+ 1250 0039 35       		.uleb128 0x35
+ 1251 003a 00       		.byte	0
+ 1252 003b 49       		.uleb128 0x49
+ 1253 003c 13       		.uleb128 0x13
+ 1254 003d 00       		.byte	0
+ 1255 003e 00       		.byte	0
+ 1256 003f 06       		.uleb128 0x6
+ 1257 0040 2E       		.uleb128 0x2e
+ 1258 0041 00       		.byte	0
+ 1259 0042 3F       		.uleb128 0x3f
+ 1260 0043 0C       		.uleb128 0xc
+ 1261 0044 03       		.uleb128 0x3
+ 1262 0045 0E       		.uleb128 0xe
+ 1263 0046 3A       		.uleb128 0x3a
+ 1264 0047 0B       		.uleb128 0xb
+ 1265 0048 3B       		.uleb128 0x3b
+ 1266 0049 0B       		.uleb128 0xb
+ 1267 004a 27       		.uleb128 0x27
+ 1268 004b 0C       		.uleb128 0xc
+ 1269 004c 11       		.uleb128 0x11
+ 1270 004d 01       		.uleb128 0x1
+ 1271 004e 12       		.uleb128 0x12
+ 1272 004f 01       		.uleb128 0x1
+ 1273 0050 40       		.uleb128 0x40
+ 1274 0051 06       		.uleb128 0x6
+ 1275 0052 9642     		.uleb128 0x2116
+ 1276 0054 0C       		.uleb128 0xc
+ 1277 0055 00       		.byte	0
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 39
+
+
+ 1278 0056 00       		.byte	0
+ 1279 0057 07       		.uleb128 0x7
+ 1280 0058 2E       		.uleb128 0x2e
+ 1281 0059 01       		.byte	0x1
+ 1282 005a 3F       		.uleb128 0x3f
+ 1283 005b 0C       		.uleb128 0xc
+ 1284 005c 03       		.uleb128 0x3
+ 1285 005d 0E       		.uleb128 0xe
+ 1286 005e 3A       		.uleb128 0x3a
+ 1287 005f 0B       		.uleb128 0xb
+ 1288 0060 3B       		.uleb128 0x3b
+ 1289 0061 0B       		.uleb128 0xb
+ 1290 0062 27       		.uleb128 0x27
+ 1291 0063 0C       		.uleb128 0xc
+ 1292 0064 11       		.uleb128 0x11
+ 1293 0065 01       		.uleb128 0x1
+ 1294 0066 12       		.uleb128 0x12
+ 1295 0067 01       		.uleb128 0x1
+ 1296 0068 40       		.uleb128 0x40
+ 1297 0069 06       		.uleb128 0x6
+ 1298 006a 9642     		.uleb128 0x2116
+ 1299 006c 0C       		.uleb128 0xc
+ 1300 006d 01       		.uleb128 0x1
+ 1301 006e 13       		.uleb128 0x13
+ 1302 006f 00       		.byte	0
+ 1303 0070 00       		.byte	0
+ 1304 0071 08       		.uleb128 0x8
+ 1305 0072 34       		.uleb128 0x34
+ 1306 0073 00       		.byte	0
+ 1307 0074 03       		.uleb128 0x3
+ 1308 0075 0E       		.uleb128 0xe
+ 1309 0076 3A       		.uleb128 0x3a
+ 1310 0077 0B       		.uleb128 0xb
+ 1311 0078 3B       		.uleb128 0x3b
+ 1312 0079 0B       		.uleb128 0xb
+ 1313 007a 49       		.uleb128 0x49
+ 1314 007b 13       		.uleb128 0x13
+ 1315 007c 02       		.uleb128 0x2
+ 1316 007d 0A       		.uleb128 0xa
+ 1317 007e 00       		.byte	0
+ 1318 007f 00       		.byte	0
+ 1319 0080 09       		.uleb128 0x9
+ 1320 0081 2E       		.uleb128 0x2e
+ 1321 0082 00       		.byte	0
+ 1322 0083 3F       		.uleb128 0x3f
+ 1323 0084 0C       		.uleb128 0xc
+ 1324 0085 03       		.uleb128 0x3
+ 1325 0086 0E       		.uleb128 0xe
+ 1326 0087 3A       		.uleb128 0x3a
+ 1327 0088 0B       		.uleb128 0xb
+ 1328 0089 3B       		.uleb128 0x3b
+ 1329 008a 0B       		.uleb128 0xb
+ 1330 008b 27       		.uleb128 0x27
+ 1331 008c 0C       		.uleb128 0xc
+ 1332 008d 11       		.uleb128 0x11
+ 1333 008e 01       		.uleb128 0x1
+ 1334 008f 12       		.uleb128 0x12
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 40
+
+
+ 1335 0090 01       		.uleb128 0x1
+ 1336 0091 40       		.uleb128 0x40
+ 1337 0092 06       		.uleb128 0x6
+ 1338 0093 9742     		.uleb128 0x2117
+ 1339 0095 0C       		.uleb128 0xc
+ 1340 0096 00       		.byte	0
+ 1341 0097 00       		.byte	0
+ 1342 0098 0A       		.uleb128 0xa
+ 1343 0099 2E       		.uleb128 0x2e
+ 1344 009a 01       		.byte	0x1
+ 1345 009b 3F       		.uleb128 0x3f
+ 1346 009c 0C       		.uleb128 0xc
+ 1347 009d 03       		.uleb128 0x3
+ 1348 009e 0E       		.uleb128 0xe
+ 1349 009f 3A       		.uleb128 0x3a
+ 1350 00a0 0B       		.uleb128 0xb
+ 1351 00a1 3B       		.uleb128 0x3b
+ 1352 00a2 05       		.uleb128 0x5
+ 1353 00a3 27       		.uleb128 0x27
+ 1354 00a4 0C       		.uleb128 0xc
+ 1355 00a5 11       		.uleb128 0x11
+ 1356 00a6 01       		.uleb128 0x1
+ 1357 00a7 12       		.uleb128 0x12
+ 1358 00a8 01       		.uleb128 0x1
+ 1359 00a9 40       		.uleb128 0x40
+ 1360 00aa 06       		.uleb128 0x6
+ 1361 00ab 9742     		.uleb128 0x2117
+ 1362 00ad 0C       		.uleb128 0xc
+ 1363 00ae 01       		.uleb128 0x1
+ 1364 00af 13       		.uleb128 0x13
+ 1365 00b0 00       		.byte	0
+ 1366 00b1 00       		.byte	0
+ 1367 00b2 0B       		.uleb128 0xb
+ 1368 00b3 05       		.uleb128 0x5
+ 1369 00b4 00       		.byte	0
+ 1370 00b5 03       		.uleb128 0x3
+ 1371 00b6 0E       		.uleb128 0xe
+ 1372 00b7 3A       		.uleb128 0x3a
+ 1373 00b8 0B       		.uleb128 0xb
+ 1374 00b9 3B       		.uleb128 0x3b
+ 1375 00ba 05       		.uleb128 0x5
+ 1376 00bb 49       		.uleb128 0x49
+ 1377 00bc 13       		.uleb128 0x13
+ 1378 00bd 02       		.uleb128 0x2
+ 1379 00be 0A       		.uleb128 0xa
+ 1380 00bf 00       		.byte	0
+ 1381 00c0 00       		.byte	0
+ 1382 00c1 0C       		.uleb128 0xc
+ 1383 00c2 2E       		.uleb128 0x2e
+ 1384 00c3 00       		.byte	0
+ 1385 00c4 3F       		.uleb128 0x3f
+ 1386 00c5 0C       		.uleb128 0xc
+ 1387 00c6 03       		.uleb128 0x3
+ 1388 00c7 0E       		.uleb128 0xe
+ 1389 00c8 3A       		.uleb128 0x3a
+ 1390 00c9 0B       		.uleb128 0xb
+ 1391 00ca 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 41
+
+
+ 1392 00cb 05       		.uleb128 0x5
+ 1393 00cc 27       		.uleb128 0x27
+ 1394 00cd 0C       		.uleb128 0xc
+ 1395 00ce 49       		.uleb128 0x49
+ 1396 00cf 13       		.uleb128 0x13
+ 1397 00d0 11       		.uleb128 0x11
+ 1398 00d1 01       		.uleb128 0x1
+ 1399 00d2 12       		.uleb128 0x12
+ 1400 00d3 01       		.uleb128 0x1
+ 1401 00d4 40       		.uleb128 0x40
+ 1402 00d5 06       		.uleb128 0x6
+ 1403 00d6 9742     		.uleb128 0x2117
+ 1404 00d8 0C       		.uleb128 0xc
+ 1405 00d9 00       		.byte	0
+ 1406 00da 00       		.byte	0
+ 1407 00db 0D       		.uleb128 0xd
+ 1408 00dc 2E       		.uleb128 0x2e
+ 1409 00dd 00       		.byte	0
+ 1410 00de 3F       		.uleb128 0x3f
+ 1411 00df 0C       		.uleb128 0xc
+ 1412 00e0 03       		.uleb128 0x3
+ 1413 00e1 0E       		.uleb128 0xe
+ 1414 00e2 3A       		.uleb128 0x3a
+ 1415 00e3 0B       		.uleb128 0xb
+ 1416 00e4 3B       		.uleb128 0x3b
+ 1417 00e5 05       		.uleb128 0x5
+ 1418 00e6 27       		.uleb128 0x27
+ 1419 00e7 0C       		.uleb128 0xc
+ 1420 00e8 11       		.uleb128 0x11
+ 1421 00e9 01       		.uleb128 0x1
+ 1422 00ea 12       		.uleb128 0x12
+ 1423 00eb 01       		.uleb128 0x1
+ 1424 00ec 40       		.uleb128 0x40
+ 1425 00ed 06       		.uleb128 0x6
+ 1426 00ee 9642     		.uleb128 0x2116
+ 1427 00f0 0C       		.uleb128 0xc
+ 1428 00f1 00       		.byte	0
+ 1429 00f2 00       		.byte	0
+ 1430 00f3 0E       		.uleb128 0xe
+ 1431 00f4 2E       		.uleb128 0x2e
+ 1432 00f5 01       		.byte	0x1
+ 1433 00f6 3F       		.uleb128 0x3f
+ 1434 00f7 0C       		.uleb128 0xc
+ 1435 00f8 03       		.uleb128 0x3
+ 1436 00f9 0E       		.uleb128 0xe
+ 1437 00fa 3A       		.uleb128 0x3a
+ 1438 00fb 0B       		.uleb128 0xb
+ 1439 00fc 3B       		.uleb128 0x3b
+ 1440 00fd 05       		.uleb128 0x5
+ 1441 00fe 27       		.uleb128 0x27
+ 1442 00ff 0C       		.uleb128 0xc
+ 1443 0100 49       		.uleb128 0x49
+ 1444 0101 13       		.uleb128 0x13
+ 1445 0102 11       		.uleb128 0x11
+ 1446 0103 01       		.uleb128 0x1
+ 1447 0104 12       		.uleb128 0x12
+ 1448 0105 01       		.uleb128 0x1
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 42
+
+
+ 1449 0106 40       		.uleb128 0x40
+ 1450 0107 06       		.uleb128 0x6
+ 1451 0108 9742     		.uleb128 0x2117
+ 1452 010a 0C       		.uleb128 0xc
+ 1453 010b 01       		.uleb128 0x1
+ 1454 010c 13       		.uleb128 0x13
+ 1455 010d 00       		.byte	0
+ 1456 010e 00       		.byte	0
+ 1457 010f 0F       		.uleb128 0xf
+ 1458 0110 34       		.uleb128 0x34
+ 1459 0111 00       		.byte	0
+ 1460 0112 03       		.uleb128 0x3
+ 1461 0113 0E       		.uleb128 0xe
+ 1462 0114 3A       		.uleb128 0x3a
+ 1463 0115 0B       		.uleb128 0xb
+ 1464 0116 3B       		.uleb128 0x3b
+ 1465 0117 05       		.uleb128 0x5
+ 1466 0118 49       		.uleb128 0x49
+ 1467 0119 13       		.uleb128 0x13
+ 1468 011a 02       		.uleb128 0x2
+ 1469 011b 0A       		.uleb128 0xa
+ 1470 011c 00       		.byte	0
+ 1471 011d 00       		.byte	0
+ 1472 011e 10       		.uleb128 0x10
+ 1473 011f 34       		.uleb128 0x34
+ 1474 0120 00       		.byte	0
+ 1475 0121 03       		.uleb128 0x3
+ 1476 0122 0E       		.uleb128 0xe
+ 1477 0123 3A       		.uleb128 0x3a
+ 1478 0124 0B       		.uleb128 0xb
+ 1479 0125 3B       		.uleb128 0x3b
+ 1480 0126 0B       		.uleb128 0xb
+ 1481 0127 49       		.uleb128 0x49
+ 1482 0128 13       		.uleb128 0x13
+ 1483 0129 3F       		.uleb128 0x3f
+ 1484 012a 0C       		.uleb128 0xc
+ 1485 012b 02       		.uleb128 0x2
+ 1486 012c 0A       		.uleb128 0xa
+ 1487 012d 00       		.byte	0
+ 1488 012e 00       		.byte	0
+ 1489 012f 00       		.byte	0
+ 1490              		.section	.debug_loc,"",%progbits
+ 1491              	.Ldebug_loc0:
+ 1492              	.LLST0:
+ 1493 0000 00000000 		.4byte	.LFB0
+ 1494 0004 02000000 		.4byte	.LCFI0
+ 1495 0008 0200     		.2byte	0x2
+ 1496 000a 7D       		.byte	0x7d
+ 1497 000b 00       		.sleb128 0
+ 1498 000c 02000000 		.4byte	.LCFI0
+ 1499 0010 04000000 		.4byte	.LCFI1
+ 1500 0014 0200     		.2byte	0x2
+ 1501 0016 7D       		.byte	0x7d
+ 1502 0017 08       		.sleb128 8
+ 1503 0018 04000000 		.4byte	.LCFI1
+ 1504 001c 24000000 		.4byte	.LFE0
+ 1505 0020 0200     		.2byte	0x2
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 43
+
+
+ 1506 0022 77       		.byte	0x77
+ 1507 0023 08       		.sleb128 8
+ 1508 0024 00000000 		.4byte	0
+ 1509 0028 00000000 		.4byte	0
+ 1510              	.LLST1:
+ 1511 002c 00000000 		.4byte	.LFB1
+ 1512 0030 02000000 		.4byte	.LCFI2
+ 1513 0034 0200     		.2byte	0x2
+ 1514 0036 7D       		.byte	0x7d
+ 1515 0037 00       		.sleb128 0
+ 1516 0038 02000000 		.4byte	.LCFI2
+ 1517 003c 04000000 		.4byte	.LCFI3
+ 1518 0040 0200     		.2byte	0x2
+ 1519 0042 7D       		.byte	0x7d
+ 1520 0043 0C       		.sleb128 12
+ 1521 0044 04000000 		.4byte	.LCFI3
+ 1522 0048 06000000 		.4byte	.LCFI4
+ 1523 004c 0200     		.2byte	0x2
+ 1524 004e 7D       		.byte	0x7d
+ 1525 004f 18       		.sleb128 24
+ 1526 0050 06000000 		.4byte	.LCFI4
+ 1527 0054 AC000000 		.4byte	.LFE1
+ 1528 0058 0200     		.2byte	0x2
+ 1529 005a 77       		.byte	0x77
+ 1530 005b 18       		.sleb128 24
+ 1531 005c 00000000 		.4byte	0
+ 1532 0060 00000000 		.4byte	0
+ 1533              	.LLST2:
+ 1534 0064 00000000 		.4byte	.LFB2
+ 1535 0068 02000000 		.4byte	.LCFI5
+ 1536 006c 0200     		.2byte	0x2
+ 1537 006e 7D       		.byte	0x7d
+ 1538 006f 00       		.sleb128 0
+ 1539 0070 02000000 		.4byte	.LCFI5
+ 1540 0074 04000000 		.4byte	.LCFI6
+ 1541 0078 0200     		.2byte	0x2
+ 1542 007a 7D       		.byte	0x7d
+ 1543 007b 08       		.sleb128 8
+ 1544 007c 04000000 		.4byte	.LCFI6
+ 1545 0080 20000000 		.4byte	.LFE2
+ 1546 0084 0200     		.2byte	0x2
+ 1547 0086 77       		.byte	0x77
+ 1548 0087 08       		.sleb128 8
+ 1549 0088 00000000 		.4byte	0
+ 1550 008c 00000000 		.4byte	0
+ 1551              	.LLST3:
+ 1552 0090 00000000 		.4byte	.LFB3
+ 1553 0094 02000000 		.4byte	.LCFI7
+ 1554 0098 0200     		.2byte	0x2
+ 1555 009a 7D       		.byte	0x7d
+ 1556 009b 00       		.sleb128 0
+ 1557 009c 02000000 		.4byte	.LCFI7
+ 1558 00a0 04000000 		.4byte	.LCFI8
+ 1559 00a4 0200     		.2byte	0x2
+ 1560 00a6 7D       		.byte	0x7d
+ 1561 00a7 08       		.sleb128 8
+ 1562 00a8 04000000 		.4byte	.LCFI8
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 44
+
+
+ 1563 00ac 1C000000 		.4byte	.LFE3
+ 1564 00b0 0200     		.2byte	0x2
+ 1565 00b2 77       		.byte	0x77
+ 1566 00b3 08       		.sleb128 8
+ 1567 00b4 00000000 		.4byte	0
+ 1568 00b8 00000000 		.4byte	0
+ 1569              	.LLST4:
+ 1570 00bc 00000000 		.4byte	.LFB4
+ 1571 00c0 02000000 		.4byte	.LCFI9
+ 1572 00c4 0200     		.2byte	0x2
+ 1573 00c6 7D       		.byte	0x7d
+ 1574 00c7 00       		.sleb128 0
+ 1575 00c8 02000000 		.4byte	.LCFI9
+ 1576 00cc 04000000 		.4byte	.LCFI10
+ 1577 00d0 0200     		.2byte	0x2
+ 1578 00d2 7D       		.byte	0x7d
+ 1579 00d3 08       		.sleb128 8
+ 1580 00d4 04000000 		.4byte	.LCFI10
+ 1581 00d8 06000000 		.4byte	.LCFI11
+ 1582 00dc 0200     		.2byte	0x2
+ 1583 00de 7D       		.byte	0x7d
+ 1584 00df 10       		.sleb128 16
+ 1585 00e0 06000000 		.4byte	.LCFI11
+ 1586 00e4 20000000 		.4byte	.LFE4
+ 1587 00e8 0200     		.2byte	0x2
+ 1588 00ea 77       		.byte	0x77
+ 1589 00eb 10       		.sleb128 16
+ 1590 00ec 00000000 		.4byte	0
+ 1591 00f0 00000000 		.4byte	0
+ 1592              	.LLST5:
+ 1593 00f4 00000000 		.4byte	.LFB5
+ 1594 00f8 02000000 		.4byte	.LCFI12
+ 1595 00fc 0200     		.2byte	0x2
+ 1596 00fe 7D       		.byte	0x7d
+ 1597 00ff 00       		.sleb128 0
+ 1598 0100 02000000 		.4byte	.LCFI12
+ 1599 0104 04000000 		.4byte	.LCFI13
+ 1600 0108 0200     		.2byte	0x2
+ 1601 010a 7D       		.byte	0x7d
+ 1602 010b 08       		.sleb128 8
+ 1603 010c 04000000 		.4byte	.LCFI13
+ 1604 0110 1C000000 		.4byte	.LFE5
+ 1605 0114 0200     		.2byte	0x2
+ 1606 0116 77       		.byte	0x77
+ 1607 0117 08       		.sleb128 8
+ 1608 0118 00000000 		.4byte	0
+ 1609 011c 00000000 		.4byte	0
+ 1610              	.LLST6:
+ 1611 0120 00000000 		.4byte	.LFB6
+ 1612 0124 02000000 		.4byte	.LCFI14
+ 1613 0128 0200     		.2byte	0x2
+ 1614 012a 7D       		.byte	0x7d
+ 1615 012b 00       		.sleb128 0
+ 1616 012c 02000000 		.4byte	.LCFI14
+ 1617 0130 04000000 		.4byte	.LCFI15
+ 1618 0134 0200     		.2byte	0x2
+ 1619 0136 7D       		.byte	0x7d
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 45
+
+
+ 1620 0137 08       		.sleb128 8
+ 1621 0138 04000000 		.4byte	.LCFI15
+ 1622 013c 1C000000 		.4byte	.LFE6
+ 1623 0140 0200     		.2byte	0x2
+ 1624 0142 77       		.byte	0x77
+ 1625 0143 08       		.sleb128 8
+ 1626 0144 00000000 		.4byte	0
+ 1627 0148 00000000 		.4byte	0
+ 1628              	.LLST7:
+ 1629 014c 00000000 		.4byte	.LFB7
+ 1630 0150 02000000 		.4byte	.LCFI16
+ 1631 0154 0200     		.2byte	0x2
+ 1632 0156 7D       		.byte	0x7d
+ 1633 0157 00       		.sleb128 0
+ 1634 0158 02000000 		.4byte	.LCFI16
+ 1635 015c 04000000 		.4byte	.LCFI17
+ 1636 0160 0200     		.2byte	0x2
+ 1637 0162 7D       		.byte	0x7d
+ 1638 0163 08       		.sleb128 8
+ 1639 0164 04000000 		.4byte	.LCFI17
+ 1640 0168 06000000 		.4byte	.LCFI18
+ 1641 016c 0200     		.2byte	0x2
+ 1642 016e 7D       		.byte	0x7d
+ 1643 016f 10       		.sleb128 16
+ 1644 0170 06000000 		.4byte	.LCFI18
+ 1645 0174 20000000 		.4byte	.LFE7
+ 1646 0178 0200     		.2byte	0x2
+ 1647 017a 77       		.byte	0x77
+ 1648 017b 10       		.sleb128 16
+ 1649 017c 00000000 		.4byte	0
+ 1650 0180 00000000 		.4byte	0
+ 1651              	.LLST8:
+ 1652 0184 00000000 		.4byte	.LFB8
+ 1653 0188 02000000 		.4byte	.LCFI19
+ 1654 018c 0200     		.2byte	0x2
+ 1655 018e 7D       		.byte	0x7d
+ 1656 018f 00       		.sleb128 0
+ 1657 0190 02000000 		.4byte	.LCFI19
+ 1658 0194 04000000 		.4byte	.LCFI20
+ 1659 0198 0200     		.2byte	0x2
+ 1660 019a 7D       		.byte	0x7d
+ 1661 019b 08       		.sleb128 8
+ 1662 019c 04000000 		.4byte	.LCFI20
+ 1663 01a0 06000000 		.4byte	.LCFI21
+ 1664 01a4 0200     		.2byte	0x2
+ 1665 01a6 7D       		.byte	0x7d
+ 1666 01a7 10       		.sleb128 16
+ 1667 01a8 06000000 		.4byte	.LCFI21
+ 1668 01ac 20000000 		.4byte	.LFE8
+ 1669 01b0 0200     		.2byte	0x2
+ 1670 01b2 77       		.byte	0x77
+ 1671 01b3 10       		.sleb128 16
+ 1672 01b4 00000000 		.4byte	0
+ 1673 01b8 00000000 		.4byte	0
+ 1674              	.LLST9:
+ 1675 01bc 00000000 		.4byte	.LFB9
+ 1676 01c0 02000000 		.4byte	.LCFI22
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 46
+
+
+ 1677 01c4 0200     		.2byte	0x2
+ 1678 01c6 7D       		.byte	0x7d
+ 1679 01c7 00       		.sleb128 0
+ 1680 01c8 02000000 		.4byte	.LCFI22
+ 1681 01cc 04000000 		.4byte	.LCFI23
+ 1682 01d0 0200     		.2byte	0x2
+ 1683 01d2 7D       		.byte	0x7d
+ 1684 01d3 08       		.sleb128 8
+ 1685 01d4 04000000 		.4byte	.LCFI23
+ 1686 01d8 06000000 		.4byte	.LCFI24
+ 1687 01dc 0200     		.2byte	0x2
+ 1688 01de 7D       		.byte	0x7d
+ 1689 01df 10       		.sleb128 16
+ 1690 01e0 06000000 		.4byte	.LCFI24
+ 1691 01e4 20000000 		.4byte	.LFE9
+ 1692 01e8 0200     		.2byte	0x2
+ 1693 01ea 77       		.byte	0x77
+ 1694 01eb 10       		.sleb128 16
+ 1695 01ec 00000000 		.4byte	0
+ 1696 01f0 00000000 		.4byte	0
+ 1697              	.LLST10:
+ 1698 01f4 00000000 		.4byte	.LFB10
+ 1699 01f8 02000000 		.4byte	.LCFI25
+ 1700 01fc 0200     		.2byte	0x2
+ 1701 01fe 7D       		.byte	0x7d
+ 1702 01ff 00       		.sleb128 0
+ 1703 0200 02000000 		.4byte	.LCFI25
+ 1704 0204 04000000 		.4byte	.LCFI26
+ 1705 0208 0200     		.2byte	0x2
+ 1706 020a 7D       		.byte	0x7d
+ 1707 020b 08       		.sleb128 8
+ 1708 020c 04000000 		.4byte	.LCFI26
+ 1709 0210 06000000 		.4byte	.LCFI27
+ 1710 0214 0200     		.2byte	0x2
+ 1711 0216 7D       		.byte	0x7d
+ 1712 0217 10       		.sleb128 16
+ 1713 0218 06000000 		.4byte	.LCFI27
+ 1714 021c 20000000 		.4byte	.LFE10
+ 1715 0220 0200     		.2byte	0x2
+ 1716 0222 77       		.byte	0x77
+ 1717 0223 10       		.sleb128 16
+ 1718 0224 00000000 		.4byte	0
+ 1719 0228 00000000 		.4byte	0
+ 1720              	.LLST11:
+ 1721 022c 00000000 		.4byte	.LFB11
+ 1722 0230 02000000 		.4byte	.LCFI28
+ 1723 0234 0200     		.2byte	0x2
+ 1724 0236 7D       		.byte	0x7d
+ 1725 0237 00       		.sleb128 0
+ 1726 0238 02000000 		.4byte	.LCFI28
+ 1727 023c 04000000 		.4byte	.LCFI29
+ 1728 0240 0200     		.2byte	0x2
+ 1729 0242 7D       		.byte	0x7d
+ 1730 0243 08       		.sleb128 8
+ 1731 0244 04000000 		.4byte	.LCFI29
+ 1732 0248 06000000 		.4byte	.LCFI30
+ 1733 024c 0200     		.2byte	0x2
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 47
+
+
+ 1734 024e 7D       		.byte	0x7d
+ 1735 024f 10       		.sleb128 16
+ 1736 0250 06000000 		.4byte	.LCFI30
+ 1737 0254 20000000 		.4byte	.LFE11
+ 1738 0258 0200     		.2byte	0x2
+ 1739 025a 77       		.byte	0x77
+ 1740 025b 10       		.sleb128 16
+ 1741 025c 00000000 		.4byte	0
+ 1742 0260 00000000 		.4byte	0
+ 1743              	.LLST12:
+ 1744 0264 00000000 		.4byte	.LFB12
+ 1745 0268 02000000 		.4byte	.LCFI31
+ 1746 026c 0200     		.2byte	0x2
+ 1747 026e 7D       		.byte	0x7d
+ 1748 026f 00       		.sleb128 0
+ 1749 0270 02000000 		.4byte	.LCFI31
+ 1750 0274 04000000 		.4byte	.LCFI32
+ 1751 0278 0200     		.2byte	0x2
+ 1752 027a 7D       		.byte	0x7d
+ 1753 027b 08       		.sleb128 8
+ 1754 027c 04000000 		.4byte	.LCFI32
+ 1755 0280 06000000 		.4byte	.LCFI33
+ 1756 0284 0200     		.2byte	0x2
+ 1757 0286 7D       		.byte	0x7d
+ 1758 0287 10       		.sleb128 16
+ 1759 0288 06000000 		.4byte	.LCFI33
+ 1760 028c 20000000 		.4byte	.LFE12
+ 1761 0290 0200     		.2byte	0x2
+ 1762 0292 77       		.byte	0x77
+ 1763 0293 10       		.sleb128 16
+ 1764 0294 00000000 		.4byte	0
+ 1765 0298 00000000 		.4byte	0
+ 1766              	.LLST13:
+ 1767 029c 00000000 		.4byte	.LFB13
+ 1768 02a0 02000000 		.4byte	.LCFI34
+ 1769 02a4 0200     		.2byte	0x2
+ 1770 02a6 7D       		.byte	0x7d
+ 1771 02a7 00       		.sleb128 0
+ 1772 02a8 02000000 		.4byte	.LCFI34
+ 1773 02ac 04000000 		.4byte	.LCFI35
+ 1774 02b0 0200     		.2byte	0x2
+ 1775 02b2 7D       		.byte	0x7d
+ 1776 02b3 08       		.sleb128 8
+ 1777 02b4 04000000 		.4byte	.LCFI35
+ 1778 02b8 06000000 		.4byte	.LCFI36
+ 1779 02bc 0200     		.2byte	0x2
+ 1780 02be 7D       		.byte	0x7d
+ 1781 02bf 10       		.sleb128 16
+ 1782 02c0 06000000 		.4byte	.LCFI36
+ 1783 02c4 20000000 		.4byte	.LFE13
+ 1784 02c8 0200     		.2byte	0x2
+ 1785 02ca 77       		.byte	0x77
+ 1786 02cb 10       		.sleb128 16
+ 1787 02cc 00000000 		.4byte	0
+ 1788 02d0 00000000 		.4byte	0
+ 1789              	.LLST14:
+ 1790 02d4 00000000 		.4byte	.LFB14
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 48
+
+
+ 1791 02d8 02000000 		.4byte	.LCFI37
+ 1792 02dc 0200     		.2byte	0x2
+ 1793 02de 7D       		.byte	0x7d
+ 1794 02df 00       		.sleb128 0
+ 1795 02e0 02000000 		.4byte	.LCFI37
+ 1796 02e4 04000000 		.4byte	.LCFI38
+ 1797 02e8 0200     		.2byte	0x2
+ 1798 02ea 7D       		.byte	0x7d
+ 1799 02eb 08       		.sleb128 8
+ 1800 02ec 04000000 		.4byte	.LCFI38
+ 1801 02f0 14000000 		.4byte	.LFE14
+ 1802 02f4 0200     		.2byte	0x2
+ 1803 02f6 77       		.byte	0x77
+ 1804 02f7 08       		.sleb128 8
+ 1805 02f8 00000000 		.4byte	0
+ 1806 02fc 00000000 		.4byte	0
+ 1807              	.LLST15:
+ 1808 0300 00000000 		.4byte	.LFB15
+ 1809 0304 02000000 		.4byte	.LCFI39
+ 1810 0308 0200     		.2byte	0x2
+ 1811 030a 7D       		.byte	0x7d
+ 1812 030b 00       		.sleb128 0
+ 1813 030c 02000000 		.4byte	.LCFI39
+ 1814 0310 04000000 		.4byte	.LCFI40
+ 1815 0314 0200     		.2byte	0x2
+ 1816 0316 7D       		.byte	0x7d
+ 1817 0317 08       		.sleb128 8
+ 1818 0318 04000000 		.4byte	.LCFI40
+ 1819 031c 14000000 		.4byte	.LFE15
+ 1820 0320 0200     		.2byte	0x2
+ 1821 0322 77       		.byte	0x77
+ 1822 0323 08       		.sleb128 8
+ 1823 0324 00000000 		.4byte	0
+ 1824 0328 00000000 		.4byte	0
+ 1825              	.LLST16:
+ 1826 032c 00000000 		.4byte	.LFB16
+ 1827 0330 02000000 		.4byte	.LCFI41
+ 1828 0334 0200     		.2byte	0x2
+ 1829 0336 7D       		.byte	0x7d
+ 1830 0337 00       		.sleb128 0
+ 1831 0338 02000000 		.4byte	.LCFI41
+ 1832 033c 04000000 		.4byte	.LCFI42
+ 1833 0340 0200     		.2byte	0x2
+ 1834 0342 7D       		.byte	0x7d
+ 1835 0343 08       		.sleb128 8
+ 1836 0344 04000000 		.4byte	.LCFI42
+ 1837 0348 14000000 		.4byte	.LFE16
+ 1838 034c 0200     		.2byte	0x2
+ 1839 034e 77       		.byte	0x77
+ 1840 034f 08       		.sleb128 8
+ 1841 0350 00000000 		.4byte	0
+ 1842 0354 00000000 		.4byte	0
+ 1843              	.LLST17:
+ 1844 0358 00000000 		.4byte	.LFB17
+ 1845 035c 02000000 		.4byte	.LCFI43
+ 1846 0360 0200     		.2byte	0x2
+ 1847 0362 7D       		.byte	0x7d
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 49
+
+
+ 1848 0363 00       		.sleb128 0
+ 1849 0364 02000000 		.4byte	.LCFI43
+ 1850 0368 04000000 		.4byte	.LCFI44
+ 1851 036c 0200     		.2byte	0x2
+ 1852 036e 7D       		.byte	0x7d
+ 1853 036f 08       		.sleb128 8
+ 1854 0370 04000000 		.4byte	.LCFI44
+ 1855 0374 14000000 		.4byte	.LFE17
+ 1856 0378 0200     		.2byte	0x2
+ 1857 037a 77       		.byte	0x77
+ 1858 037b 08       		.sleb128 8
+ 1859 037c 00000000 		.4byte	0
+ 1860 0380 00000000 		.4byte	0
+ 1861              		.section	.debug_aranges,"",%progbits
+ 1862 0000 A4000000 		.4byte	0xa4
+ 1863 0004 0200     		.2byte	0x2
+ 1864 0006 00000000 		.4byte	.Ldebug_info0
+ 1865 000a 04       		.byte	0x4
+ 1866 000b 00       		.byte	0
+ 1867 000c 0000     		.2byte	0
+ 1868 000e 0000     		.2byte	0
+ 1869 0010 00000000 		.4byte	.LFB0
+ 1870 0014 24000000 		.4byte	.LFE0-.LFB0
+ 1871 0018 00000000 		.4byte	.LFB1
+ 1872 001c AC000000 		.4byte	.LFE1-.LFB1
+ 1873 0020 00000000 		.4byte	.LFB2
+ 1874 0024 20000000 		.4byte	.LFE2-.LFB2
+ 1875 0028 00000000 		.4byte	.LFB3
+ 1876 002c 1C000000 		.4byte	.LFE3-.LFB3
+ 1877 0030 00000000 		.4byte	.LFB4
+ 1878 0034 20000000 		.4byte	.LFE4-.LFB4
+ 1879 0038 00000000 		.4byte	.LFB5
+ 1880 003c 1C000000 		.4byte	.LFE5-.LFB5
+ 1881 0040 00000000 		.4byte	.LFB6
+ 1882 0044 1C000000 		.4byte	.LFE6-.LFB6
+ 1883 0048 00000000 		.4byte	.LFB7
+ 1884 004c 20000000 		.4byte	.LFE7-.LFB7
+ 1885 0050 00000000 		.4byte	.LFB8
+ 1886 0054 20000000 		.4byte	.LFE8-.LFB8
+ 1887 0058 00000000 		.4byte	.LFB9
+ 1888 005c 20000000 		.4byte	.LFE9-.LFB9
+ 1889 0060 00000000 		.4byte	.LFB10
+ 1890 0064 20000000 		.4byte	.LFE10-.LFB10
+ 1891 0068 00000000 		.4byte	.LFB11
+ 1892 006c 20000000 		.4byte	.LFE11-.LFB11
+ 1893 0070 00000000 		.4byte	.LFB12
+ 1894 0074 20000000 		.4byte	.LFE12-.LFB12
+ 1895 0078 00000000 		.4byte	.LFB13
+ 1896 007c 20000000 		.4byte	.LFE13-.LFB13
+ 1897 0080 00000000 		.4byte	.LFB14
+ 1898 0084 14000000 		.4byte	.LFE14-.LFB14
+ 1899 0088 00000000 		.4byte	.LFB15
+ 1900 008c 14000000 		.4byte	.LFE15-.LFB15
+ 1901 0090 00000000 		.4byte	.LFB16
+ 1902 0094 14000000 		.4byte	.LFE16-.LFB16
+ 1903 0098 00000000 		.4byte	.LFB17
+ 1904 009c 14000000 		.4byte	.LFE17-.LFB17
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 50
+
+
+ 1905 00a0 00000000 		.4byte	0
+ 1906 00a4 00000000 		.4byte	0
+ 1907              		.section	.debug_ranges,"",%progbits
+ 1908              	.Ldebug_ranges0:
+ 1909 0000 00000000 		.4byte	.LFB0
+ 1910 0004 24000000 		.4byte	.LFE0
+ 1911 0008 00000000 		.4byte	.LFB1
+ 1912 000c AC000000 		.4byte	.LFE1
+ 1913 0010 00000000 		.4byte	.LFB2
+ 1914 0014 20000000 		.4byte	.LFE2
+ 1915 0018 00000000 		.4byte	.LFB3
+ 1916 001c 1C000000 		.4byte	.LFE3
+ 1917 0020 00000000 		.4byte	.LFB4
+ 1918 0024 20000000 		.4byte	.LFE4
+ 1919 0028 00000000 		.4byte	.LFB5
+ 1920 002c 1C000000 		.4byte	.LFE5
+ 1921 0030 00000000 		.4byte	.LFB6
+ 1922 0034 1C000000 		.4byte	.LFE6
+ 1923 0038 00000000 		.4byte	.LFB7
+ 1924 003c 20000000 		.4byte	.LFE7
+ 1925 0040 00000000 		.4byte	.LFB8
+ 1926 0044 20000000 		.4byte	.LFE8
+ 1927 0048 00000000 		.4byte	.LFB9
+ 1928 004c 20000000 		.4byte	.LFE9
+ 1929 0050 00000000 		.4byte	.LFB10
+ 1930 0054 20000000 		.4byte	.LFE10
+ 1931 0058 00000000 		.4byte	.LFB11
+ 1932 005c 20000000 		.4byte	.LFE11
+ 1933 0060 00000000 		.4byte	.LFB12
+ 1934 0064 20000000 		.4byte	.LFE12
+ 1935 0068 00000000 		.4byte	.LFB13
+ 1936 006c 20000000 		.4byte	.LFE13
+ 1937 0070 00000000 		.4byte	.LFB14
+ 1938 0074 14000000 		.4byte	.LFE14
+ 1939 0078 00000000 		.4byte	.LFB15
+ 1940 007c 14000000 		.4byte	.LFE15
+ 1941 0080 00000000 		.4byte	.LFB16
+ 1942 0084 14000000 		.4byte	.LFE16
+ 1943 0088 00000000 		.4byte	.LFB17
+ 1944 008c 14000000 		.4byte	.LFE17
+ 1945 0090 00000000 		.4byte	0
+ 1946 0094 00000000 		.4byte	0
+ 1947              		.section	.debug_line,"",%progbits
+ 1948              	.Ldebug_line0:
+ 1949 0000 B0010000 		.section	.debug_str,"MS",%progbits,1
+ 1949      02004500 
+ 1949      00000201 
+ 1949      FB0E0D00 
+ 1949      01010101 
+ 1950              	.LASF15:
+ 1951 0000 72656731 		.ascii	"reg16\000"
+ 1951      3600
+ 1952              	.LASF34:
+ 1953 0006 47696D62 		.ascii	"Gimbal_ReadStatusRegister\000"
+ 1953      616C5F52 
+ 1953      65616453 
+ 1953      74617475 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 51
+
+
+ 1953      73526567 
+ 1954              	.LASF28:
+ 1955 0020 47696D62 		.ascii	"Gimbal_WriteCompare1\000"
+ 1955      616C5F57 
+ 1955      72697465 
+ 1955      436F6D70 
+ 1955      61726531 
+ 1956              	.LASF30:
+ 1957 0035 47696D62 		.ascii	"Gimbal_WriteCompare2\000"
+ 1957      616C5F57 
+ 1957      72697465 
+ 1957      436F6D70 
+ 1957      61726532 
+ 1958              	.LASF33:
+ 1959 004a 72657375 		.ascii	"result\000"
+ 1959      6C7400
+ 1960              	.LASF29:
+ 1961 0051 636F6D70 		.ascii	"compare\000"
+ 1961      61726500 
+ 1962              	.LASF27:
+ 1963 0059 70657269 		.ascii	"period\000"
+ 1963      6F6400
+ 1964              	.LASF3:
+ 1965 0060 73686F72 		.ascii	"short unsigned int\000"
+ 1965      7420756E 
+ 1965      7369676E 
+ 1965      65642069 
+ 1965      6E7400
+ 1966              	.LASF24:
+ 1967 0073 47696D62 		.ascii	"Gimbal_ClearFIFO\000"
+ 1967      616C5F43 
+ 1967      6C656172 
+ 1967      4649464F 
+ 1967      00
+ 1968              	.LASF31:
+ 1969 0084 47696D62 		.ascii	"Gimbal_SetInterruptMode\000"
+ 1969      616C5F53 
+ 1969      6574496E 
+ 1969      74657272 
+ 1969      7570744D 
+ 1970              	.LASF45:
+ 1971 009c 433A5C55 		.ascii	"C:\\Users\\Jared\\Documents\\PSoC Creator\\MasterCo"
+ 1971      73657273 
+ 1971      5C4A6172 
+ 1971      65645C44 
+ 1971      6F63756D 
+ 1972 00ca 6E74726F 		.ascii	"ntrollerBoard\\MasterController\\BYURover2015MainBo"
+ 1972      6C6C6572 
+ 1972      426F6172 
+ 1972      645C4D61 
+ 1972      73746572 
+ 1973 00fb 61726453 		.ascii	"ardSM.cydsn\000"
+ 1973      4D2E6379 
+ 1973      64736E00 
+ 1974              	.LASF22:
+ 1975 0107 47696D62 		.ascii	"Gimbal_Init\000"
+ 1975      616C5F49 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 52
+
+
+ 1975      6E697400 
+ 1976              	.LASF11:
+ 1977 0113 666C6F61 		.ascii	"float\000"
+ 1977      7400
+ 1978              	.LASF26:
+ 1979 0119 636F756E 		.ascii	"counter\000"
+ 1979      74657200 
+ 1980              	.LASF1:
+ 1981 0121 756E7369 		.ascii	"unsigned char\000"
+ 1981      676E6564 
+ 1981      20636861 
+ 1981      7200
+ 1982              	.LASF39:
+ 1983 012f 47696D62 		.ascii	"Gimbal_ReadCapture\000"
+ 1983      616C5F52 
+ 1983      65616443 
+ 1983      61707475 
+ 1983      726500
+ 1984              	.LASF14:
+ 1985 0142 72656738 		.ascii	"reg8\000"
+ 1985      00
+ 1986              	.LASF42:
+ 1987 0147 47696D62 		.ascii	"Gimbal_ReadPeriod\000"
+ 1987      616C5F52 
+ 1987      65616450 
+ 1987      6572696F 
+ 1987      6400
+ 1988              	.LASF5:
+ 1989 0159 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1989      20756E73 
+ 1989      69676E65 
+ 1989      6420696E 
+ 1989      7400
+ 1990              	.LASF9:
+ 1991 016b 75696E74 		.ascii	"uint8\000"
+ 1991      3800
+ 1992              	.LASF37:
+ 1993 0171 636F6E74 		.ascii	"control\000"
+ 1993      726F6C00 
+ 1994              	.LASF23:
+ 1995 0179 47696D62 		.ascii	"Gimbal_WriteCounter\000"
+ 1995      616C5F57 
+ 1995      72697465 
+ 1995      436F756E 
+ 1995      74657200 
+ 1996              	.LASF12:
+ 1997 018d 646F7562 		.ascii	"double\000"
+ 1997      6C6500
+ 1998              	.LASF10:
+ 1999 0194 75696E74 		.ascii	"uint16\000"
+ 1999      313600
+ 2000              	.LASF20:
+ 2001 019b 47696D62 		.ascii	"Gimbal_Enable\000"
+ 2001      616C5F45 
+ 2001      6E61626C 
+ 2001      6500
+ 2002              	.LASF21:
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 53
+
+
+ 2003 01a9 47696D62 		.ascii	"Gimbal_Stop\000"
+ 2003      616C5F53 
+ 2003      746F7000 
+ 2004              	.LASF8:
+ 2005 01b5 756E7369 		.ascii	"unsigned int\000"
+ 2005      676E6564 
+ 2005      20696E74 
+ 2005      00
+ 2006              	.LASF7:
+ 2007 01c2 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2007      206C6F6E 
+ 2007      6720756E 
+ 2007      7369676E 
+ 2007      65642069 
+ 2008              	.LASF38:
+ 2009 01d9 47696D62 		.ascii	"Gimbal_ReadCounter\000"
+ 2009      616C5F52 
+ 2009      65616443 
+ 2009      6F756E74 
+ 2009      657200
+ 2010              	.LASF40:
+ 2011 01ec 47696D62 		.ascii	"Gimbal_ReadCompare1\000"
+ 2011      616C5F52 
+ 2011      65616443 
+ 2011      6F6D7061 
+ 2011      72653100 
+ 2012              	.LASF36:
+ 2013 0200 47696D62 		.ascii	"Gimbal_WriteControlRegister\000"
+ 2013      616C5F57 
+ 2013      72697465 
+ 2013      436F6E74 
+ 2013      726F6C52 
+ 2014              	.LASF18:
+ 2015 021c 47696D62 		.ascii	"Gimbal_interruptState\000"
+ 2015      616C5F69 
+ 2015      6E746572 
+ 2015      72757074 
+ 2015      53746174 
+ 2016              	.LASF17:
+ 2017 0232 6374726C 		.ascii	"ctrl\000"
+ 2017      00
+ 2018              	.LASF35:
+ 2019 0237 47696D62 		.ascii	"Gimbal_ReadControlRegister\000"
+ 2019      616C5F52 
+ 2019      65616443 
+ 2019      6F6E7472 
+ 2019      6F6C5265 
+ 2020              	.LASF44:
+ 2021 0252 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\Gimbal.c\000"
+ 2021      6E657261 
+ 2021      7465645F 
+ 2021      536F7572 
+ 2021      63655C50 
+ 2022              	.LASF16:
+ 2023 0274 73697A65 		.ascii	"sizetype\000"
+ 2023      74797065 
+ 2023      00
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 54
+
+
+ 2024              	.LASF6:
+ 2025 027d 6C6F6E67 		.ascii	"long long int\000"
+ 2025      206C6F6E 
+ 2025      6720696E 
+ 2025      7400
+ 2026              	.LASF32:
+ 2027 028b 696E7465 		.ascii	"interruptMode\000"
+ 2027      72727570 
+ 2027      744D6F64 
+ 2027      6500
+ 2028              	.LASF2:
+ 2029 0299 73686F72 		.ascii	"short int\000"
+ 2029      7420696E 
+ 2029      7400
+ 2030              	.LASF25:
+ 2031 02a3 47696D62 		.ascii	"Gimbal_WritePeriod\000"
+ 2031      616C5F57 
+ 2031      72697465 
+ 2031      50657269 
+ 2031      6F6400
+ 2032              	.LASF43:
+ 2033 02b6 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 2033      4320342E 
+ 2033      372E3320 
+ 2033      32303133 
+ 2033      30333132 
+ 2034 02e9 616E6368 		.ascii	"anch revision 196615]\000"
+ 2034      20726576 
+ 2034      6973696F 
+ 2034      6E203139 
+ 2034      36363135 
+ 2035              	.LASF46:
+ 2036 02ff 47696D62 		.ascii	"Gimbal_initVar\000"
+ 2036      616C5F69 
+ 2036      6E697456 
+ 2036      617200
+ 2037              	.LASF4:
+ 2038 030e 6C6F6E67 		.ascii	"long int\000"
+ 2038      20696E74 
+ 2038      00
+ 2039              	.LASF13:
+ 2040 0317 63686172 		.ascii	"char\000"
+ 2040      00
+ 2041              	.LASF0:
+ 2042 031c 7369676E 		.ascii	"signed char\000"
+ 2042      65642063 
+ 2042      68617200 
+ 2043              	.LASF19:
+ 2044 0328 47696D62 		.ascii	"Gimbal_Start\000"
+ 2044      616C5F53 
+ 2044      74617274 
+ 2044      00
+ 2045              	.LASF41:
+ 2046 0335 47696D62 		.ascii	"Gimbal_ReadCompare2\000"
+ 2046      616C5F52 
+ 2046      65616443 
+ 2046      6F6D7061 
+ARM GAS  C:\Users\Jared\AppData\Local\Temp\cc4WT1Tu.s 			page 55
+
+
+ 2046      72653200 
+ 2047              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br
